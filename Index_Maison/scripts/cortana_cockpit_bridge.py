@@ -732,12 +732,31 @@ def do_chat(message: str) -> dict:
     m_low = msg.lower().lstrip()
     trig_recherche = ("recherche ", "cherche ", "analyse la crypto ", "analyse le coin ",
                       "analyse le projet ", "analyse-moi ", "analyse moi ",
-                      "renseigne-toi sur ", "renseigne moi sur ")
+                      "renseigne-toi sur ", "renseigne moi sur ",
+                      # FIX VERIF-WEB 18/10 : elle DISAIT ne pas pouvoir vérifier alors que
+                      # do_recherche existe — les mots magiques étaient inconnus. Toute
+                      # question de vérification/calendrier part au web, sans mot magique.
+                      "vérifie ", "verifie ", "confirme ", "c'est vrai ",
+                      "cest vrai ", "calendrier ", "quoi de prévu ",
+                      "qu'est-ce qui sort ", "qu est ce qui sort ", "annonce ",
+                      "news ", "actualité ", "actualite ", "deep dive ",
+                      "deep-dive ")
     declenche_recherche = False
+    import re as _re_q
+    _q = _re_q.sub(r"^cortana[,\s]+", "", m_low)
     for t in trig_recherche:
-        if m_low.startswith(t):
+        if _q.startswith(t):
             declenche_recherche = True
             break
+    if not declenche_recherche:
+        # Intentions de vérification ANYWHERE (pas de mot magique à connaître) :
+        # « quelles données sortent demain », « c'est vrai que... », « deep dive X ».
+        _anywhere = ("calendrier", "demain", "vérifie", "verifie", "confirme",
+                     "c'est vrai", "cest vrai", "deep dive", "deep-dive",
+                     "annonce", "actualité", "actualite", "quoi de prévu",
+                     "qu'est-ce qui sort", "qu est ce qui sort")
+        if any(a in _q for a in _anywhere):
+            declenche_recherche = True
     if declenche_recherche:
         import re as _re
         sujet = msg
@@ -780,6 +799,47 @@ def do_chat(message: str) -> dict:
         if not sujet:
             return {"ok": False, "error": "précise quoi chercher dans le coffre (ex: « que dit le coffre sur la politique d'oubli »)"}
         return do_coffre(sujet)
+
+    # === BOOKMARKS (18/10, GO Christophe) : Cortana voit les favoris Brave ===
+    m_low = msg.lower().lstrip()
+    trig_bm = ("bookmarks", "mes favoris", "mes marque-pages",
+                "marque-pages", "mes sites", "favoris")
+    if any(m_low == t or m_low.startswith(t + " ") or m_low.startswith(t + ":")
+           for t in trig_bm):
+        try:
+            import datetime as _dt
+            _bm = json.load(open(os.path.expanduser(
+                "~/Library/Application Support/BraveSoftware/Brave-Browser/"
+                "Default/Bookmarks"), encoding="utf-8"))
+            _all = []
+
+            def _walk(_n):
+                for _ch in _n.get("children", []):
+                    if _ch.get("type") == "folder":
+                        _walk(_ch)
+                    elif _ch.get("type") == "url":
+                        _all.append(_ch)
+            for _rt in _bm.get("roots", {}).values():
+                if isinstance(_rt, dict):
+                    _walk(_rt)
+            _lignes = []
+            for _b in _all[-15:]:
+                _lignes.append("• %s — %s" % (_b.get("name", "?")[:60],
+                                               _b.get("url", "?")[:100]))
+            _txt = ("🔖 Favoris Brave (%d) :\n" % len(_all)
+                    + "\n".join(_lignes)) \
+                if _lignes else "Aucun favori trouvé."
+        except Exception as e:
+            _txt = "Bookmarks illisibles : %s" % str(e)[:120]
+        _chat_archive_append({
+            "ts": time.time(),
+            "ts_iso": datetime.now(timezone.utc).isoformat(),
+            "question": msg,
+            "reponse": _txt,
+            "provider": "bookmarks",
+            "mode": "bookmarks",
+        })
+        return {"ok": True, "texte": _txt, "mode": "bookmarks"}
 
     # === RAPPELS : rappelle-moi <tâche> à <heure> / mes rappels / supprime ===
     m_low = msg.lower().lstrip()
@@ -887,6 +947,68 @@ def do_chat(message: str) -> dict:
         d = do_yeux(q, parler)
         d["mode"] = "yeux"
         return d
+    # === PORTIER D'INTENTION (18/10, GO « câble tout », R17) ===
+    # Une question NON-crypto ne doit JAMAIS toucher le template marché
+    # (leçon El Niño → funding). Routage mesuré par vocabulaire, pas de LLM.
+    _crypto_terms = (
+        "btc", "bitcoin", "crypto", "marché", "marche", "prix", "cours",
+        "trade", "trading", "hulk", "ace", "alpha", "beta", "portefeuille",
+        "position", "pnl", "funding", "onchain", "rsi", "macd", "long",
+        "short", "bougie", "support", "résistance", "resistance", "tendance",
+        "volatilité", "volatilite", " whales", "baleine", "etf", "fear",
+        "greed", "sentiment", "climat", "régime", "regime", "signal",
+        "analyse", "avis",        "eth", "xrp", "sol", "hbar", "zbcn", "rize",
+        "edel", "red", "chip", "fluid", "qnt", "doge", "mexc", "binance",
+        "ethereum", "ripple", "solana", "hedera", "zebec", "quant",
+        "chiliz", "kite", "pyth", "bittensor", "tao", "ondo",
+        "wallet", "mise", "stop", "dip", "rebond", "creux", "pic",
+    )
+    _ml = msg.lower()
+    _est_crypto = any(t in _ml for t in _crypto_terms)
+    if not _est_crypto:
+        # Mode conversation générale : même voix, AUCUN template marché,
+        # aucun AVIS STRICT, aucun jugement trading (jugé = que l'analyste).
+        _sys_gen = (
+            "Tu es Cortana, la voix de la maison ACE777. Tu réponds en français, "
+            "tutoiement, au féminin, avec un peu d'humour sec. Tu réponds à la "
+            "question posée, naturellement, comme dans une conversation. INTERDIT : "
+            "parler de marchés, funding, Fear and Greed, AVIS STRICT, scores ou "
+            "cryptos — sauf si la question les mentionne. Concise (10 lignes max)."
+        )
+        _payload_gen = {
+            "task": "mission",
+            "messages": [
+                {"role": "system", "content": _sys_gen},
+                {"role": "user", "content": msg},
+            ],
+            "temperature": 0.7,
+            "max_tokens": 700,
+        }
+        try:
+            _req = urllib.request.Request(
+                "http://127.0.0.1:11435/v1/chat/completions",
+                data=json.dumps(_payload_gen).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+            )
+            with urllib.request.urlopen(_req, timeout=None) as _resp:
+                _data = json.load(_resp)
+            _content = _data["choices"][0]["message"]["content"].strip()
+            _provider = _data.get("provider", "?")
+        except Exception as e:
+            return {"ok": False, "error": f"hub injoignable: {str(e)[:160]}"}
+        if not _content:
+            return {"ok": False, "error": "réponse vide du hub"}
+        threading.Thread(target=_speak_texte, args=(_content,), daemon=True).start()
+        _chat_archive_append({
+            "ts": time.time(),
+            "ts_iso": datetime.now(timezone.utc).isoformat(),
+            "question": msg,
+            "reponse": _content,
+            "provider": _provider,
+            "mode": "conversation",
+        })
+        return {"ok": True, "texte": _content, "provider": _provider,
+                "mode": "conversation"}
     # Le chat EST Cortana (rôle défini) : il charge TOUJOURS le canon
     # PROMPT_MASTER_ANALYSTE.md (même rôle que l'analyse auto 08:30/20:30) —
     # plus le contexte vivant des bots. Repli résilient seulement si le canon
@@ -1045,8 +1167,14 @@ def _speak_texte(texte: str) -> None:
     try:
         # FIX 31/08 : génération + lecture sous le verrou global voix_piste
         # (UNE seule voix à la fois, plus de chevauchement entre agents).
+        # FIX VOIX-BLOQUEE 18/10 : timeout=None = attente INFINIE derrière un
+        # brief/analyste (constaté : analyste.py --speak tenait la piste quand
+        # le chat est resté muet). Le chat est une interaction VIVANTE : 15 s
+        # d'attente max, puis on coupe la piste en cours et on parle (mécanisme
+        # d'urgence natif de piste_verrou). Mesuré, pas choisi : 15 s > 99 %
+        # des générations edge_tts constatées, < patience d'une conversation.
         import voix_piste
-        with voix_piste.piste_verrou("bridge"):
+        with voix_piste.piste_verrou("bridge", timeout=15):
             with _tf.NamedTemporaryFile(suffix=".mp3", delete=False) as f:
                 path = f.name
             if barge_in.activ():

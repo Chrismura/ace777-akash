@@ -163,6 +163,15 @@ def load_system_prompt():
         prompt = ("Tu es Cortana, master analyste crypto du cockpit ACE777. "
                   "Analyse l'indice reçu : faits, interpretation, mise en relation, "
                   "pattern, opinion. 8-12 phrases, chiffres exacts, vulgarise.")
+    mem = ""
+    try:
+        courant = os.path.join(THERMO_DIR, "MEMOIRE_CORTANA_COURANTE.md")
+        if os.path.exists(courant):
+            mem = open(courant, encoding="utf-8").read().strip()[-2000:]
+    except Exception:
+        pass
+    if mem:
+        prompt += "\n\n## Ta mémoire des 7 derniers jours (auto, à relire avant d'analyser) :\n" + mem
     return prompt + "\n\n" + contexte_systeme()
 
 
@@ -717,10 +726,122 @@ def build_facts(indice):
     return facts, raw
 
 
+def _champion_lire():
+    """Champion MESURÉ (GO 18/10) : préférence lue de champion_cortana.json,
+    jamais en dur. Fail-open : {} → routage hub historique."""
+    try:
+        base = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             "champion_cortana.json")
+        return json.loads(open(base, encoding="utf-8").read())
+    except Exception:
+        return {}
+
+
+def _verdict_injecter(facts):
+    """Verdict calculé (verdict_marche_maths, calibré) à commenter — le LLM
+    n'enfreint l'alignement que sur motif écrit (design validé famille 18/10)."""
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import verdict_marche_maths as _vm
+        chg = None
+        for k in ("chg24",):
+            if isinstance(facts, dict) and k in facts:
+                chg = facts[k]
+                break
+        if chg is None and isinstance(facts, dict):
+            tend = facts.get("tendances") or {}
+            chg = tend.get("tendance_24h_pct")
+        v = _vm.verdict(chg)
+        return ("\n\nVERDICT CALCULÉ (moteur déterministe, calibré le "
+                + str(_vm.PARAMS.get("calibre_le")) + ", hit in-sample "
+                + str(_vm.PARAMS.get("hit_insample")) + ") : "
+                + v["verdict"] + " — " + v["motif"]
+                + ". Ton AVIS STRICT s'aligne dessus ; tout écart doit être "
+                "motivé en une phrase (quel indice précis contredit le calcul).")
+    except Exception:
+        return ""
+
+
+def _coffre_contexte(indice):
+    """Obsidian SYSTÉMATIQUE (GO 5 points 18/10) : le vault est lu AVANT chaque
+    analyse, pas sur demande. Fail-open : vide si le coffre est muet."""
+    try:
+        base = os.path.dirname(os.path.abspath(__file__))
+        script = os.path.join(base, "coffre_ask.py")
+        if not os.path.exists(script):
+            return ""
+        p = subprocess.run([sys.executable, script, str(indice), "--json"],
+                           capture_output=True, text=True, timeout=60)
+        if p.returncode != 0:
+            return ""
+        donnees = json.loads((p.stdout or "").strip() or "{}")
+        ans = (donnees.get("answer") or "").strip()[:800]
+        if not ans:
+            return ""
+        return ("\n\nMÉMOIRE OBSIDIAN (vault, lecture systématique) : "
+                + ans)
+    except Exception:
+        return ""
+
+
+_CACHE_PAIRES = {"mtime": 0, "paires": []}  # attrape-codeur 18/10 : pas d'I/O par appel
+
+
+def _perimetre_ligne(indice):
+    """Périmètre explicite (GO 5 points) : l'avis vaut pour l'actif analysé —
+    transposition BTC↔alts INTERDITE sauf fiche HULK lue. Lu des profils vivants
+    (cache + mtime : relu seulement si le fichier a bougé)."""
+    try:
+        base = os.path.dirname(os.path.abspath(__file__))
+        prof = os.path.join(base, "..", "..", "hulk-mexc", "strategie",
+                             "universe_profils.json")
+        mt = os.path.getmtime(prof)
+        if mt != _CACHE_PAIRES["mtime"]:
+            _CACHE_PAIRES["paires"] = [
+                k for k, v in json.load(open(prof, encoding="utf-8")).items()
+                if isinstance(v, dict) and "calib" in v]
+            _CACHE_PAIRES["mtime"] = mt
+        paires = _CACHE_PAIRES["paires"]
+        if indice in paires:
+            return ("\nPÉRIMÈTRE : AVIS STRICT valable pour " + str(indice)
+                    + " UNIQUEMENT (fiche HULK lue, filet mesuré de LA paire).")
+        return ("\nPÉRIMÈTRE : AVIS STRICT valable pour l'indice analysé (BTC/marché) "
+                "UNIQUEMENT — transposition aux alts HULK INTERDITE.")
+    except Exception:
+        return ("\nPÉRIMÈTRE : AVIS STRICT valable pour l'indice analysé UNIQUEMENT.")
+
+
+def _cri_si_fort(indice, facts, avis_llm, provider):
+    """Droit d'initier (GO 5 points) : quand le calcul dit LONG/SHORT ET que la
+    plume s'aligne, elle lève la main (cortana_cris.jsonl, lu par le cockpit).
+    Lecture seule, aucun ordre — juste le droit de siffler."""
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import verdict_marche_maths as _vm
+        chg = (facts or {}).get("chg24")
+        if chg is None:
+            chg = ((facts or {}).get("tendances") or {}).get("tendance_24h_pct")
+        v = _vm.verdict(chg)["verdict"]
+        if v in ("LONG", "SHORT") and (avis_llm or "").upper() == v:
+            cris = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "..", "thermo", "cortana_cris.jsonl")
+            cris = os.path.normpath(cris)
+            with open(cris, "a", encoding="utf-8") as f:
+                f.write(json.dumps({
+                    "ts": datetime.now(timezone.utc).isoformat(),
+                    "indice": indice, "verdict_calc": v, "avis_llm": avis_llm,
+                    "provider": provider,
+                }, ensure_ascii=False) + "\n")
+            print(f"[cri] main levée {indice} {v} (calcul+plume alignés)",
+                  file=sys.stderr)
+    except Exception as e:
+        print(f"[cri] skip ({e})", file=sys.stderr)
+
+
 def call_hub(facts, indice, correction=None, contexte_sup=""):
     system = load_system_prompt()
     payload = {
-        "task": "cortana.analyse",  # routage : Gemini prioritaire, repli Qwen
+        "task": "cortana.analyse",  # routage hub historique (repli si champion absent)
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": (
@@ -729,11 +850,18 @@ def call_hub(facts, indice, correction=None, contexte_sup=""):
                 "Donne ton analyse selon ta structure (FAITS, LECTURE PHYSIQUE, "
                 "INTERPRÉTATION, MISE EN RELATION, PATTERN, OPINION)."
                 + contexte_sup + (correction or "")
+                + _verdict_injecter(facts if isinstance(facts, dict) else {})
+                + _coffre_contexte(indice)
+                + _perimetre_ligne(indice)
             )},
         ],
         "temperature": 0.4,
         "max_tokens": 700,
     }
+    _ch = _champion_lire()
+    _mod = ((_ch.get("champion") or {}).get("hub_model")) if _ch.get("bascule_auto") else None
+    if _mod:
+        payload["model"] = _mod  # strict_model hub : le champion mesuré décide qui écrit
     req = urllib.request.Request(
         HUB, data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"},
@@ -1026,6 +1154,7 @@ def main():
 
     journal = journalise(indice, facts, facts_bruts, content, provider,
                          avis_ok=_has_avis(content), c1=c1_meta)
+    _cri_si_fort(indice, facts, avis_c1, provider)
     print(f"[provider: {provider}]", file=sys.stderr)
     print(f"[journal: {journal}]", file=sys.stderr)
 

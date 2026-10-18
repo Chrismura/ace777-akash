@@ -8023,3 +8023,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-18T21:34:26Z — ALERT auto
 - WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-18T22:38:22Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-18T22:39:39Z — ALERT auto
+- WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

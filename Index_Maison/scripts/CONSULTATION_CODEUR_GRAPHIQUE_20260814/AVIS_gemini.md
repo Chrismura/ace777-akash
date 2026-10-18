@@ -1,52 +1,43 @@
-# AVIS gemini (provider Google Gemini, 6.0s)
+# AVIS gemini (provider Google Gemini, 4.6s)
 
-### 1. AMÉLIORATIONS_PROTOTYPE (Revue du script `scripts/graph_trades_btc.py`)
+### 1. AMELIORATIONS_PROTOTYPE (Revue du script `scripts/graph_trades_btc.py`)
 
-Le prototype est remarquable par son approche "zéro dépendance" (stdlib Python pure), mais pour un usage en conditions réelles (runs longs, gros volumes de données), plusieurs optimisations de robustesse et de performance s'imposent :
+Le prototype est bien conçu (stdlib uniquement, HTML autonome, canvas pur), mais présente quelques axes d'optimisation pour la robustesse et les gros volumes de données :
 
-1. **Gestion des fichiers CSV "append-only" massifs :**
-   * *Problème actuel :* Lecture intégrale du CSV en mémoire à chaque exécution. Si le fichier atteint des centaines de mégaoctets après 24h/48h de run, le script va saturer la mémoire et ralentir.
-   * *Amélioration :* Utiliser un générateur ou `collections.deque` avec une limite, ou filtrer les lignes à la volée dès l'ouverture du fichier (surtout avec le paramètre `--since`).
-2. **Robustesse de l'API Binance Testnet (Klines) :**
-   * *Problème actuel :* Pas de retry en cas de coupure réseau ou de rate-limit (HTTP 429/418) sur l'endpoint `/fapi/v1/klines`.
-   * *Amélioration :* Implémenter un mécanisme de retry exponentiel simple (3 essais max avec `time.sleep`) via `urllib.request`.
-3. **Paginage des requêtes Klines (limite Binance à 1500 bougies) :**
-   * *Problème actuel :* Si le run dépasse 25 heures en unité 1m (1500 bougies), une seule requête ne suffira pas.
-   * *Amélioration :* Boucler sur le paramètre `startTime` pour récupérer l'historique par tranches si `--since` est très ancien.
-4. **Optimisation du rendu HTML/Canvas :**
-   * *Amélioration :* Éviter de dupliquer les données JSON dans le HTML si le dataset est très grand, et s'assurer que le script JS gère bien le *downsampling* visuel (si 10 000 bougies sur un écran de 1200px, fusionner les ticks min/max pour garder des mèches propres sans saturer le Canvas 2D).
+*   **Gestion des fichiers CSV *append-only* énormes :** Lire l'intégralité d'un CSV volumineux en mémoire avec `csv.DictReader` peut saturer la RAM si le run dure plusieurs jours. Il faut ajouter un mécanisme de lecture inversée ou filtrer à la volée via l'argument `--since` dès l'ouverture du fichier.
+*   **Pagination / Limite de l'API Binance Klines :** L'endpoint `/fapi/v1/klines` est limité à 1500 bougies par requête. Si le run dépasse 25 heures en unité 1m, le script actuel n'interroge pas les blocs précédents. Il faut implémenter une boucle de pagination rétroactive (`startTime` / `endTime`).
+*   **Robustesse du Parsing Temporel :** Assurer la conversion systématique des timestamps en UTC pur (`datetime.timezone.utc`) pour éviter les décalages d'heures locales lors du rapprochement bougies/trades.
+*   **Échelle de prix (Axis Scaling) :** Si les trades comportent des micro-mouvements ou si le BTC subit un flash crash, normaliser le min/max du canvas avec une marge (ex: ±0.2%) évite que les mèches ne collent aux bords supérieur/inférieur du canvas.
 
 ---
 
-### 2. PLAN_INTEGRATION (Intégration Cockpit non-intrusive)
+### 2. PLAN_INTEGRATION (Pour le Cockpit `127.0.0.1:17800`)
 
-Pour respecter la règle d'or (*NE RIEN casser, NE PAS toucher au run*), l'intégration doit être **découplée** et **modulaire**.
+Pour intégrer le graphique sans modifier le monolithe `index.html` (4362 lignes) et sans impacter le moteur :
 
-* **Étape 1 : Création d'un module JS dédié**
-  * Créer un fichier `cockpit/js/btc_trades_render.js` contenant la logique de dessin du canvas (reprise épurée du prototype).
-* **Étape 2 : Ajout d'un panneau repliable dans le Cockpit (`index.html`)**
-  * Ajouter un nouveau bloc `<div class="panel" id="btc-graph-panel">` dans une zone neutre de la grille existante (ex: sous le radar ou à côté des synapses), muni d'un bouton "Afficher/Masquer le Graph BTC". Aucun impact sur les 4362 lignes existantes si on encapsule le code.
-* **Étape 3 : Exposition des données via le Pont Cortana (Port 17777) ou endpoint dédié**
-  * Plutôt que de parser le CSV côté client (lourd en JS), ajouter une route légère dans le serveur Python du pont cortana (ou un script annexe) qui lit le CSV du run actif, filtre les données, et renvoie un JSON propre (`/api/btc_trades_data`).
-* **Étape 4 : Fetch asynchrone léger**
-  * Le JS du cockpit appelle `fetch('/api/btc_trades_data')` toutes les X minutes ou au clic, et met à jour le canvas localement.
-
----
-
-### 3. RISQUES (Ce qui peut casser le cockpit ou le moteur)
-
-1. **Concurrence sur le fichier CSV :** Si le moteur ACE777 écrit dans le CSV au moment exact où le script de graphe ou le pont le lit, risque de `PermissionError` (sous Windows) ou de lecture de ligne tronquée (partielle). *Mitigation :* Copier le CSV dans un fichier temporaire `/tmp` avant lecture, ou utiliser un verrouillage doux.
-2. **Surcharge du DOM / Fuite mémoire JS :** Un canvas pur mal nettoyé ou des écouteurs d'événements (survol infobulle) mal gérés sur une page de 4362 lignes (`index.html`) peuvent ralentir le navigateur à force de rafraîchissements.
-3. **Effet de bord CSS dans le monolithe :** Modifier `index.html` ou injecter des styles globaux peut casser la grille existante du cockpit. *Mitigation :* Isoler le CSS du nouveau panneau dans un bloc préfixé (`#btc-graph-panel ...`).
+*   **Étape 1 : Externalisation de la vue**
+    Créer un nouveau module JS autonome `cockpit/js/btc_chart_widget.js` contenant la logique de dessin sur canvas et de récupération des données.
+*   **Étape 2 : Création d'un endpoint léger (ou réutilisation du pont)**
+    Ajouter une route simple dans le serveur HTTP existant (ou le pont Cortana sur le port `17777`) qui renvoie directement le JSON des klines et le dernier CSV filtré, évitant au navigateur d'interroger Binance en direct (contournement CORS + centralisation).
+*   **Étape 3 : Injection non invasive dans le DOM**
+    Ajouter un nouvel onglet ou un panneau repliable (accordion) dans l'interface du cockpit existant via un conteneur `<div id="btc-chart-panel"></div>` sans toucher aux panneaux critiques (radar/synapses).
+*   **Étape 4 : Chargement asynchrone**
+    Initialiser le graphique à la demande (au clic sur l'onglet dédié) pour ne pas consommer de cycles CPU/mémoire sur le thread principal du navigateur pendant que le run tourne.
 
 ---
 
-### 4. RECOMMANDATION DU CODEUR
+### 3. RISQUES (Ce qui peut casser)
 
-> **🎯 RECOMMANDATION : Attendre la validation humaine du prototype (Option 2)**
+*   **Surcharge du Navigateur (DOM / Canvas) :** Redessiner un canvas 1m avec des centaines de trades à chaque tick de rafraîchissement du cockpit va provoquer des chutes de FPS et faire figer l'interface. *(Solution : Rendu statique à la demande ou rafraîchissement bridé à toutes les X minutes).*
+*   **Conflits CSS / Layout :** Le cockpit utilise potentiellement des grilles CSS strictes ou du positionnement absolu. Insérer un canvas responsive non contraint risque de casser la disposition des panneaux adjacents.
+*   **Blocage Réseau (CORS) :** Si le script JS du navigateur tente d'appeler l'API Binance Klines directement, les politiques CORS bloqueront la requête (nécessite de passer par le serveur local du cockpit).
 
-* **Pourquoi ?** Le moteur tourne en testnet (run 4h critique). Même si l'intégration est conçue pour être propre, modifier `index.html` ou le serveur du pont en plein run comporte un risque inutile. 
-* **La bonne tactique :** 
-  1. Valider et stabiliser le script autonome `scripts/graph_trades_btc.py` (en appliquant les améliorations de robustesse API / pagination Klines).
-  2. Laisser le superviseur exploiter le HTML généré hors-cockpit pour analyser ses points d'entrée/sortie sur ce run 4h.
-  3. Une fois le run terminé et les stratégies validées, procéder à l'intégration propre dans le cockpit (via le plan modulaire ci-dessus) pour les futurs runs de production.
+---
+
+### 4. RECOMMANDATION FINALE
+
+👉 **Attendre la validation humaine du prototype hors-cockpit (Statut : RECOMMANDÉ).**
+
+**Justification :** Le moteur est actuellement en cours de test (run 4h en conditions réelles). Le principe cardinal du trading algorithmique est de **ne jamais modifier un système qui tourne**. Le prototype hors-cockpit remplit parfaitement son rôle d'audit visuel sans aucun risque pour l'intégrité du port `17800` ou du moteur ACE777. 
+
+Validez d'abord la pertinence visuelle des trades sur vos 4h de testnet via le script externe. Une fois le run terminé et validé, l'intégration propre pourra être planifiée pour le prochain run.
