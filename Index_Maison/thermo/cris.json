@@ -1,17 +1,152 @@
 {
-  "ts": "2026-10-18T07:28:43+00:00",
-  "nb": 1,
-  "nb_critique": 1,
+  "ts": "2026-10-18T10:00:46+00:00",
+  "nb": 16,
+  "nb_critique": 16,
   "note": "CRIS ACTIFS à l'instant du cycle : ce fichier s'auto-efface quand la cause disparaît. Un cri sans voix tracée serait un faux cri.",
   "cris": [
     {
-      "organe": "roulement-ia",
+      "organe": "cockpit-pont",
       "gravite": "CRITIQUE",
-      "message": "Sortie launchd non nulle et NON déclarée : exit 1 (organe arrêté, aucun produit câblé pour juger plus loin — déclarer le code dans contrat_sortie.json s'il est voulu)",
-      "depuis": "2026-10-18T05:08:15+00:00",
-      "nb_cris": 3,
-      "voix": "anti-tempête (voix il y a < 1 h)",
-      "voix_le": "2026-10-18T07:08:42+00:00"
+      "message": "Age réel 6364s dépasse le seuil 600.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "watchdog",
+      "gravite": "CRITIQUE",
+      "message": "Age réel infini (produit/pouls introuvable ou illisible) dépasse le seuil 240.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "short-btc",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 6563s dépasse le seuil 600.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "sentinelle-independante",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 6381s dépasse le seuil 5400.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "backup-check",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 6851s dépasse le seuil 3600.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "hub-cockpit-feed",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 6386s dépasse le seuil 60.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "llm-gate-hub",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 7863s dépasse le seuil 7200.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "superviseur-l2",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 6350s dépasse le seuil 120.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "thermo-quotidien",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 6391s dépasse le seuil 600.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "observer-murs",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 7774s dépasse le seuil 3600.0s",
+      "depuis": "2026-10-18T10:00:43+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "hulk-watchdog",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 6416s dépasse le seuil 240.0s",
+      "depuis": "2026-10-18T10:00:44+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "state-generator",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 6442s dépasse le seuil 240.0s",
+      "depuis": "2026-10-18T10:00:44+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "superviseur",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 9064s dépasse le seuil 7200.0s",
+      "depuis": "2026-10-18T10:00:44+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "prise-ia",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 7863s dépasse le seuil 7200.0s",
+      "depuis": "2026-10-18T10:00:44+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "controle-config",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 8962s dépasse le seuil 7200.0s",
+      "depuis": "2026-10-18T10:00:44+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
+    },
+    {
+      "organe": "short-btc-aveugle",
+      "gravite": "CRITIQUE",
+      "message": "VIVANT MAIS AVEUGLE — la décision (score) ne sort plus depuis 109 min (fenêtre tolérée 45 min). Le process tourne et le produit est frais, mais il ne peut plus décider : score nul = le signal ne peut plus calculer (il exige ≥ 10 heures distinctes dans croisement_contexte.jsonl ; la rotation détruisait l'historique récent → aveugle ~10 h, et aucune entrée possible pendant ce temps).",
+      "depuis": "2026-10-18T10:00:46+00:00",
+      "nb_cris": 1,
+      "voix": "lancée",
+      "voix_le": "2026-10-18T10:00:46+00:00"
     }
   ]
 }

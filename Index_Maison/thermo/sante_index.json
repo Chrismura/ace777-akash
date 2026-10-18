@@ -1,16 +1,29 @@
 {
-  "ts": "2026-10-18T07:26+00:00",
-  "updated": "2026-10-18T07:26Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-10-18T10:00+00:00",
+  "updated": "2026-10-18T10:00Z",
+  "etat": "ALERTE",
+  "chaines_ok": "4/15",
+  "anomalies": [
+    "BALEINES coupée : scan file, → Ada gardienne, → Cortana feed",
+    "DÉRIVÉS : générateur ou fichier figé",
+    "HULK : sonde runtime, contrat Cortana ou analyses figés",
+    "LIVE : thermo ou mission.json figé",
+    "CPFP : détecteur ou fichier figé",
+    "SENTINELLE : launchd ou historique figé",
+    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
+    "VEILLE DÉGRADATION : rapport SAIN ou figé — dégradation silencieuse détectée",
+    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne",
+    "CROISEMENT EXTERNE : croisement_externe_etat.json figé — la valideuse des données est morte",
+    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus",
+    "ESSAIM : essaim_etat.json figé — la veille de coordination inter-paires ne tourne plus"
+  ],
   "degradees": [],
   "chaines": [
     {
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -24,13 +37,13 @@
         },
         {
           "nom": "scan file",
-          "ok": true,
-          "detail": "âge 5 min"
+          "ok": false,
+          "detail": "âge 111 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 5 min"
+          "detail": "dernier événement il y a 111 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -39,13 +52,13 @@
         },
         {
           "nom": "→ Ada gardienne",
-          "ok": true,
-          "detail": "voilure 94.4 · zone VERT"
+          "ok": false,
+          "detail": "âge 106 min"
         },
         {
           "nom": "→ Cortana feed",
-          "ok": true,
-          "detail": "âge 0 min"
+          "ok": false,
+          "detail": "âge 111 min"
         }
       ]
     },
@@ -53,7 +66,7 @@
       "id": "deriv",
       "nom": "DÉRIVÉS",
       "chemin": "gen_deriv_corr.py → deriv_corr.json → cockpit + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "générateur (launchd deriv-corr)",
@@ -62,8 +75,8 @@
         },
         {
           "nom": "deriv_corr.json",
-          "ok": true,
-          "detail": "âge 4 min"
+          "ok": false,
+          "detail": "âge 108 min"
         }
       ]
     },
@@ -71,17 +84,17 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process paper_diprip",
-          "ok": true,
-          "detail": "vivant"
+          "ok": false,
+          "detail": "PAS LANCÉ"
         },
         {
           "nom": "aspiration runtime",
-          "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.7 min · écart mtime/ts 2.8s · 22 paire(s) · btc=OK · ts=croissant · passe 24.8s · marge 20.2s sous le budget 45s du moteur"
+          "ok": false,
+          "detail": "mode fichier · JSON · âge ts 105.9 min · écart mtime/ts 0.9s · 22 paire(s) · btc=OK · ts=croissant · passe 31.7s · marge 13.3s sous le budget 45s du moteur · ⚠ PIRE CAS age 51.7s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -96,12 +109,12 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 102 min"
+          "detail": "âge 256 min"
         },
         {
           "nom": "cortana_analysis.json",
-          "ok": true,
-          "detail": "âge 3 min"
+          "ok": false,
+          "detail": "âge 107 min"
         }
       ]
     },
@@ -109,22 +122,22 @@
       "id": "live",
       "nom": "LIVE",
       "chemin": "thermo → mission.json → cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 107 min"
         },
         {
           "nom": "mission.json → cockpit",
-          "ok": true,
-          "detail": "âge 0 min"
+          "ok": false,
+          "detail": "âge 106 min"
         },
         {
           "nom": "hub.json (one-shot)",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 106 min"
         }
       ]
     },
@@ -132,7 +145,7 @@
       "id": "cpfp",
       "nom": "CPFP",
       "chemin": "détecteur → pont → Ada (voilure ±10%)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "détecteur launchd",
@@ -141,8 +154,8 @@
         },
         {
           "nom": "cpfp_detect.json",
-          "ok": true,
-          "detail": "âge 7 min"
+          "ok": false,
+          "detail": "âge 111 min"
         },
         {
           "nom": "mode",
@@ -155,7 +168,7 @@
       "id": "sentinel",
       "nom": "SENTINELLE",
       "chemin": "sentinel.py (5 min) → z-score 12 métriques → sniffer DeepSeek sur anomalie",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "sentinelle launchd",
@@ -164,8 +177,8 @@
         },
         {
           "nom": "sentinel_history.json",
-          "ok": true,
-          "detail": "âge 3 min"
+          "ok": false,
+          "detail": "âge 106 min"
         },
         {
           "nom": "signaux",
@@ -183,7 +196,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 1.9h"
         },
         {
           "nom": "modules OK",
@@ -237,7 +250,7 @@
       "id": "vigie",
       "nom": "VIGIE MARCHÉ",
       "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process vigie_live",
@@ -246,8 +259,8 @@
         },
         {
           "nom": "journal_radar.log",
-          "ok": true,
-          "detail": "âge 0 min"
+          "ok": false,
+          "detail": "âge 106 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -270,7 +283,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -279,8 +292,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": true,
-          "detail": "SAIN · âge 1 min"
+          "ok": false,
+          "detail": "SAIN · âge 106 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -289,8 +302,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": true,
-          "detail": "OK"
+          "ok": false,
+          "detail": "ALERTE"
         }
       ]
     },
@@ -308,7 +321,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "état courant",
@@ -321,7 +334,7 @@
       "id": "croisement_externe",
       "nom": "CROISEMENT EXTERNE",
       "chemin": "croiser_donnees_externes.py (launchd 30 min) → nos prix vs MEXC/Binance → data_quality_fail si écart > 5 % (on ne décide pas)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process croisement (launchd)",
@@ -330,8 +343,8 @@
         },
         {
           "nom": "croisement_externe_etat.json",
-          "ok": true,
-          "detail": "âge 25 min"
+          "ok": false,
+          "detail": "âge 119 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -349,17 +362,17 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": true,
-          "detail": "âge 0 min"
+          "ok": false,
+          "detail": "âge 113 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.399"
+          "detail": "score 0.39"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -372,12 +385,12 @@
       "id": "essaim",
       "nom": "ESSAIM (OBS)",
       "chemin": "veille_essaim_observation.py (launchd 30 min) → CV spread par paire → paires régulières simultanées (observation 48h, aucune décision)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "essaim_etat.json",
-          "ok": true,
-          "detail": "âge 4 min"
+          "ok": false,
+          "detail": "âge 128 min"
         },
         {
           "nom": "veille d'essaim active",

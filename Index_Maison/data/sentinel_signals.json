@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.497943040456059,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Erreur de cible : SDI (TWSE:2351 ou actualités syndicales françaises) ne correspond à aucun actif crypto majeur. L'anomalie statistique (z-score 2.50) est un bruit de fond sans lien avec des mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-17T19:19:46.581518+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.352211657199899,
-      "value": 1.14,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie statistique (z-score 2.35) sur IPT alors que les médias généralistes et boursiers (TradingView) ne rapportent que des nouvelles de routine ou négatives (dépréciation d'actifs), ignorant totalement l'accumulation ou le mouvement de gros porteurs en coulisses.\"\n}\n```",
-      "ts": "2026-10-17T19:19:48.128492+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.041310294221346,
       "value": 1.453,
@@ -349,6 +335,20 @@
       "value": 1.107,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie statistique (z-score 2.21) sur IMPACT Silver (IPT) alors que les médias généralistes et boursiers se focalisent sur des bruits de fond (dépréciation d'actifs, actualités académiques ou sociétales). Classic accumulation silencieuse de baleines avant une revalorisation du projet Capire.\"\n}\n```",
       "ts": "2026-10-18T06:58:35.872424+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 9.314548123380932,
+      "value": 10440465.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 9.31) indique un mouvement massif de fonds par des entités (baleines) dans le marché crypto, ce qui est généralement associé à une confiance accrue dans le marché. Cependant, l'absence de titres médiatiques significatifs suggère une possible sous-estimation par les médias de l'impact de ces mouvements. Cela pourrait indiquer une divergence entre les données brutes et le narratif médiatique, avec des baleines agissant silencieusement.\"\n}\n```",
+      "ts": "2026-10-18T07:33:46.926884+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.512356837375721,
+      "value": 1.763,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.763 (z-score 2.51) indique une forte dominance des acheteurs agressifs (Taker Buy), signalant une accumulation agressive par les baleines. L'absence totale de couverture médiatique (silence radio sur Google Actualités) prouve que ce mouvement se fait sous le radar, loin du FOMO public. C'est un classique 'smart money accumulation'.\"\n}\n```",
+      "ts": "2026-10-18T08:14:21.380936+00:00"
     }
   ]
 }
