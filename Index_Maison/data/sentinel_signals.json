@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.0578241924561214,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond absolu. Les données on-chain ('dust = 50.0') et les titres médiatiques concernent des homonymes lexicaux sans rapport avec la crypto (cinéma, musique, finances traditionnelles, industrie automobile).\"\n}\n```",
-      "ts": "2026-10-17T04:36:15.554086+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.0582428516488602,
-      "value": 55,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le sentiment est neutre (55) avec un z-score fortement négatif (-2.06) et un vide médiatique total. Cette indifférence publique combinée à une anomalie statistique indique une accumulation silencieuse des baleines loin des radars.\"\n}\n```",
-      "ts": "2026-10-17T04:41:18.762273+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.047964608060483,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 1.744,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.744) indiquant un posicionnement acheteur excessif de la foule, tandis que les médias grand public banalisent et romanticent les stratégies long/short. Piège de liquidité classique : les baleines accumulent des shorts dans l'ombre pendant que les détails de l'excès de levier retail s'affichent.\"\n}\n```",
       "ts": "2026-10-17T23:10:59.296499+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.1692807972838533,
+      "value": 5564755.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (3.17) des liquidations on-chain sur SHIB coïncide avec d'importantes sorties de fonds (32.76B Outflow), tandis que le bruit médiatique est totalement pollué par des faits divers macroéconomiques et judiciaires sans rapport avec la crypto. Effet 'chasse aux stops' classique avant une reprise.\"\n}\n```",
+      "ts": "2026-10-17T23:36:07.916680+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.244338898564654,
+      "value": 1.744,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.24) du ratio Long/Short indique une surconcentration extrême des positions acheteuses par les traders particuliers/baleines, typique d'un piège à liquidité. Pendant ce temps, le narratif médiatique grand public fait l'éloge des stratégies long/short et des ETF traditionnels, montrant un décalage classique où le marché est excessivement optimiste juste avant une purge imminente.\"\n}\n```",
+      "ts": "2026-10-17T23:41:10.682911+00:00"
     }
   ]
 }

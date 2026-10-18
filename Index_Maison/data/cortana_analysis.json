@@ -1,30 +1,30 @@
 {
-  "timestamp": 1792279379,
-  "date": "2026-10-17T23:22:59.955612+00:00",
+  "timestamp": 1792281780,
+  "date": "2026-10-18T00:03:00.780207+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 3.646369082379411,
-        "value": 5563928.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 3.65, ~5.5M$ de liquidations) totalement diluée dans les médias par du bruit lexical non pertinent (faillites d'entreprises locales et viticulture). Déconnexion totale : les baleines nettoient le carnet d'ordres (flush des positions) dans l'indifférence médiatique générale.\"\n}\n```",
-        "ts": 1792278357.098625
+        "zscore": 3.1692807972838533,
+        "value": 5564755.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (3.17) des liquidations on-chain sur SHIB coïncide avec d'importantes sorties de fonds (32.76B Outflow), tandis que le bruit médiatique est totalement pollué par des faits divers macroéconomiques et judiciaires sans rapport avec la crypto. Effet 'chasse aux stops' classique avant une reprise.\"\n}\n```",
+        "ts": 1792280167.91668
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 5368765.0,
+          "value": 5194959.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 195163.0,
+          "value": 229483.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.04,
+          "value": 0.16,
           "seuil": 1,
           "depasse": false
         }
@@ -41,10 +41,10 @@
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.359835826920523,
+        "zscore": 2.244338898564654,
         "value": 1.744,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.744) indiquant un posicionnement acheteur excessif de la foule, tandis que les médias grand public banalisent et romanticent les stratégies long/short. Piège de liquidité classique : les baleines accumulent des shorts dans l'ombre pendant que les détails de l'excès de levier retail s'affichent.\"\n}\n```",
-        "ts": 1792278659.296499
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (2.24) du ratio Long/Short indique une surconcentration extrême des positions acheteuses par les traders particuliers/baleines, typique d'un piège à liquidité. Pendant ce temps, le narratif médiatique grand public fait l'éloge des stratégies long/short et des ETF traditionnels, montrant un décalage classique où le marché est excessivement optimiste juste avant une purge imminente.\"\n}\n```",
+        "ts": 1792280470.682911
       },
       "fiche": "long_short",
       "questions": {
@@ -54,7 +54,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 94321.017,
+          "value": 94259.627,
           "seuil": 120000,
           "depasse": false
         }
