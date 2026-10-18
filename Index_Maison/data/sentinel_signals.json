@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.0242515931416283,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain (frais de minage/mempool, CPFP). Les occurrences médiatiques font référence à des homonymes administratifs et éducatifs sans lien avec le marché crypto.\"\n}\n```",
-      "ts": "2026-10-17T16:59:07.764593+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0242515931416283,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'anomalie onchain sur le token 'DUST' (z-score 2.02) coïncide avec des résultats de recherche Google totalement hors-sujet (cinéma, expositions, culture). Aucune corrélation avec une accumulation ou distribution significative de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-17T16:59:09.617914+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.540585789366621,
       "value": 5672090004.0,
@@ -349,6 +335,20 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice neutre (53) avec un z-score fortement négatif (-2.93) indiquant une anomalie statistique de volatilité, mais absence totale de signal médiatique exploitable (flux Google Actualités vide). Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
       "ts": "2026-10-18T02:37:01.740302+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645903,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.65) pour un indice de peur/greed neutre (53) et un silence médiatique absolu révèlent une accumulation discrète des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-10-18T03:07:09.764904+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.097514836562188,
+      "value": 1.518,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (z-score 2.10) indique une agression acheteuse agressive sur le carnet d'ordres, totalement ignorée par le silence médiatique actuel. Accumulation silencieuse des baleines avant un ré repricing.\"\n}\n```",
+      "ts": "2026-10-18T03:12:14.321394+00:00"
     }
   ]
 }
