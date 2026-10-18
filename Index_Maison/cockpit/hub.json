@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T22:05:39.828082+00:00",
+  "generated_at": "2026-10-18T22:09:11.912927+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 112
+      "calls_24h": 111
     },
     {
       "id": "openrouter-free",
@@ -319,10 +319,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 118,
-    "remaining": 506
+    "consumed": 119,
+    "remaining": 505
   },
   "queue": [
+    {
+      "ts": "2026-10-18T22:08:28.965943+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.0
+    },
     {
       "ts": "2026-10-18T22:05:37.567585+00:00",
       "task": "juge.tranche",
@@ -434,17 +442,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.77
-    },
-    {
-      "ts": "2026-10-18T17:37:35.366779+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.0
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-18T22:08:28.965384+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-10-18T22:05:37.567251+00:00",
       "kind": "message",
@@ -498,12 +504,6 @@
       "kind": "failover",
       "title": "Bascule depuis Roulement xingchen-agi/xing4.0-29b-a4b:free",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-10-18T22:00:55.043453+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
