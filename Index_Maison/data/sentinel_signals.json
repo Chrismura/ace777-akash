@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": -2.585582503597943,
-      "value": 971324.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain avec un Z-score très bas (-2.59) couplé à une absence totale de panique réelle dans les médias crypto (bruit médiatique parasité par des faits divers et de la macroéconomie traditionnelle). Divergence classique de purge des positions vendeuses : accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-17T20:55:13.486647+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.0906068455704503,
-      "value": 3077863921.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond macroéconomique et actualités généralistes sans rapport avec la crypto. Aucune donnée on-chain pertinente détectée.\"\n}\n```",
-      "ts": "2026-10-17T21:15:18.553583+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.515770784006074,
       "value": 0.2548308128648702,
@@ -349,6 +335,20 @@
       "value": 1.633,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.87) sur le ratio long/short indiquant un capitulation de détail ou une position vendeuse extrême. Le narratif médiatique grand public discute abstraitement des stratégies long/short macro, totalement déconnecté du positionnement agressif des baleines qui accumulent en silence dans la zone de survente.\"\n}\n```",
       "ts": "2026-10-18T11:35:48.090872+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.23785207245989,
+      "value": 1.615,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-3.24) indique une sous-pondération historique des positions longues par la foule (retail), totalement ignorée par les médias généralistes qui se concentrent sur des produits traditionnels et des ETF boursiers. Cette capitulation du sentiment public sur les dérivés signale un 'short squeeze' imminent, typique d'une accumulation silencieuse par les baleines.\"\n}\n```",
+      "ts": "2026-10-18T12:05:54.326053+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.875328183589656,
+      "value": 1.615,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.88) indique une capitulation des positions acheteuses de la foule, totalement ignorée par les médias traditionnels qui se concentrent sur des ETF macro et des généralités OPCVM. Historiquement, un tel désengagement de détail combiné au silence médiatique précède des squeezes massifs orchestrés par les baleines.\"\n}\n```",
+      "ts": "2026-10-18T12:36:00.560447+00:00"
     }
   ]
 }
