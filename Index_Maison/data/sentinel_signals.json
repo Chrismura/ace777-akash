@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.0971236831284354,
-      "value": 1.738,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) et ratio long/short à 1.738 indiquant une surconcentration excessive des positions acheteuses par les baleines. Le narratif médiatique grand public s'enthousiasme pour les stratégies long/short, créant un piège à liquidité classique (euphorie retail/institutionnelle tardive) présageant d'un \"long squeeze\" imminent.\"\n}\n```",
-      "ts": "2026-10-17T22:05:42.374617+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 4.4030229399847185,
       "value": 5574690.0,
@@ -349,6 +342,13 @@
       "value": 0.48303657045630777,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.86) sur 1h sans couverture médiatique (silence radio sur Google Actualités). Divergence classique d'accumulation furtive par les baleines avant que le retail ne remarque le mouvement.\"\n}\n```",
       "ts": "2026-10-18T14:31:28.982168+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.402819167560953,
+      "value": 6878279.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.40, ~6.88M USD) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation silencieuse de baleines loin du bruit de fond.\"\n}\n```",
+      "ts": "2026-10-18T15:21:39.666798+00:00"
     }
   ]
 }
