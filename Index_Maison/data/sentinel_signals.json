@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.142168316037373,
-      "value": 1.453,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.14) indique une agression massive des acheteurs sur le carnet d'ordres, totalement ignorée par le vide médiatique actuel. Cette accumulation furtive signale une sortie de position imminente des institutionnels avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-17T19:09:41.896594+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.562122495881054,
-      "value": 3651926887.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique hors-sujet (actualité générale, automobile, énergie, agriculture). Absence totale de corrélation avec la crypto malgré un z-score onchain négatif.\"\n}\n```",
-      "ts": "2026-10-17T19:14:44.285489+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.497943040456059,
       "value": 0.616,
@@ -349,6 +335,20 @@
       "value": 1.093,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.19) sans rapport avec la crypto. 'IPT' fait référence à IMPACT Silver Corp (action minière) et à des homonymes institutionnels ou sociaux, et non à un token ou à une baleine crypto.\"\n}\n```",
       "ts": "2026-10-18T06:18:23.045281+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4144595288304345,
+      "value": 0.616,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : L'acronyme 'SDI' dans les titres médiatiques correspond à des entités non-crypto (Syndicat des Ingénieurs, SDI Corporation TWSE, ou Service de Défense). Aucune corrélation avec l'anomalie onchain détectée. Le narratif est déconnecté car il ne concerne pas le même actif.\"\n}",
+      "ts": "2026-10-18T06:33:28.670995+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2126122638632064,
+      "value": 1.107,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie statistique (z-score 2.21) sur IMPACT Silver (IPT) alors que les médias généralistes et boursiers se focalisent sur des bruits de fond (dépréciation d'actifs, actualités académiques ou sociétales). Classic accumulation silencieuse de baleines avant une revalorisation du projet Capire.\"\n}\n```",
+      "ts": "2026-10-18T06:58:35.872424+00:00"
     }
   ]
 }
