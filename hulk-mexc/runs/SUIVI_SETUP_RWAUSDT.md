@@ -55,18 +55,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 48 | 2026-10-15T14:35:00Z | 14h | AUTRE | 0.001247 | WATCH | 100.0 | None | None | 7.23e-07 | 0.06 | 0.88 | 0.92 | POMPE_PIEGE (stab 2) | prix 0.001247 · poussière(panier) 100.0% · Amihud 7.23e-07 · delta +0.06 |
 | 49 | 2026-10-16T14:34:55Z | 14h | AUTRE | 0.001267 | WATCH | 6.3967 | None | None | 6.54e-07 | 0.04 | 0.23 | 0.82 | POMPE_PIEGE (stab 6) | prix 0.001267 · poussière(panier) 6.4% · Amihud 6.54e-07 · delta +0.04 |
 | 50 | 2026-10-17T14:34:52Z | 14h | AUTRE | 0.001256 | WATCH | 6.4794 | None | None | 5.20e-07 | 0.10 | 0.21 | 0.42 | POMPE_PIEGE (stab 10) | prix 0.001256 · poussière(panier) 6.5% · Amihud 5.20e-07 · delta +0.10 |
+| 51 | 2026-10-18T14:34:53Z | 14h | AUTRE | 0.001252 | WATCH | 1.1477 | None | None | 5.02e-07 | -0.07 | -0.05 | 0.47 | POMPE_PIEGE (stab 14) | prix 0.001252 · poussière(panier) 1.1% · Amihud 5.02e-07 · delta -0.07 |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-13T10:28:47Z au 2026-10-17T14:34:52Z (14512 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-14T14:22:06Z au 2026-10-18T14:34:53Z (13676 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-15T09:18:19Z à 0.001237 → 0.001256 = **+1.5 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-15T09:18:19Z à 0.001237 → 0.001252 = **+1.2 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
 - **Réalisé : +0.48 $** sur 1 entrée(s) / 1 sortie(s) — dernier événement 2026-10-16T23:55:12Z
-- **MFE donné en moyenne : +3.5 pts** par tour (pire tour : +3.5) — le meilleur prix atteint pendant la détention, jamais encaissé
+- **MFE donné en moyenne : +1.4 pts** par tour (pire tour : +1.4) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

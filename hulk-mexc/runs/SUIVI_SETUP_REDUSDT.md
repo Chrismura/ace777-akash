@@ -55,14 +55,15 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 48 | 2026-10-15T14:35:00Z | 14h | CREUX 14-17h | 0.15077 | IMPULSE | 100.0 | 5504.5 | 45239.8 | 3.30e-06 | 0.10 | -0.28 | -0.28 | POMPE_PIEGE (stab 4) | prix 0.15077 · poussière(panier) 100.0% · Amihud 3.30e-06 · delta +0.10 · mur moy 5,504$ · mur max (run) 45,240$ |
 | 49 | 2026-10-16T14:34:55Z | 14h | CREUX 14-17h | 0.15269 | IMPULSE_WAIT | 6.3967 | 5504.5 | 45239.8 | 3.61e-06 | — | 0.42 | -0.09 | POMPE_PIEGE (stab 8) | prix 0.15269 · poussière(panier) 6.4% · Amihud 3.61e-06 · mur moy 5,504$ · mur max (run) 45,240$ |
 | 50 | 2026-10-17T14:34:52Z | 14h | CREUX 14-17h | 0.14085 | COOLING | 6.4794 | 5504.5 | 45239.8 | 2.44e-06 | 0.02 | 0.48 | 0.48 | POMPE_PIEGE (stab 12) | prix 0.14085 · poussière(panier) 6.5% · Amihud 2.44e-06 · delta +0.02 · mur moy 5,504$ · mur max (run) 45,240$ |
+| 51 | 2026-10-18T14:34:53Z | 14h | CREUX 14-17h | 0.1348 | COOLING | 1.1477 | 5504.5 | 45239.8 | 2.42e-06 | -0.02 | -0.27 | 0.41 | POMPE_PIEGE (stab 16) | prix 0.1348 · poussière(panier) 1.1% · Amihud 2.42e-06 · delta -0.02 · mur moy 5,504$ · mur max (run) 45,240$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-13T10:28:47Z au 2026-10-17T14:34:52Z (14911 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-14T14:22:06Z au 2026-10-18T14:34:53Z (14027 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-10-15T16:04:51Z à 0.16469 → 0.14085 = **-14.5 %**** (extrême courant 0.13918)
+**Cycle EN COURS : BAISSE depuis le pic du 2026-10-15T16:04:51Z à 0.16469 → 0.1348 = **-18.1 %**** (extrême courant 0.1348)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
