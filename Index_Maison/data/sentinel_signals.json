@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.1290304120527392,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique total sans rapport avec la crypto (art, cinéma, finance traditionnelle). L'anomalie onchain (z-score 2.13) sur le token 'Dust' reflète une micro-activité isolée sans validation narrative.\"\n}\n```",
-      "ts": "2026-10-17T11:37:53.030522+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0894187754238764,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain liée aux frais de transaction (CPFP). Le bruit médiatique fait référence à de l'homonymie (centres de formation professionnelle, actualité locale). Aucune accumulation ou mouvement furtif de baleine détecté derrière ce pic de métriques.\"\n}\n```",
-      "ts": "2026-10-17T13:18:09.987787+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0894187754238764,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit statistique z-score 2.09). Le 'narratif médiatique' ne concerne pas la crypto mais des homonymes culturels et financiers traditionnels (art, actions, options). Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-17T13:18:11.786482+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.7497779179003605,
-      "value": 1.571,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.571, Z-score 2.75) indique une forte agression acheteuse cachée, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-17T15:08:29.056135+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.103927280504826,
-      "value": 6552238668.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique due à un bruit de fond sans rapport avec la crypto (bruit médiatique totalement hors-sujet sur les groseilles, les lycées et le pétrole). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-10-17T15:13:32.420605+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.542331757806733,
-      "value": 1.571,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.571 (z-score 2.54) indique une agression massive à l'achat sur les carnets d'ordres par les acheteurs agressifs (smart money/baleines). L'absence totale de couverture médiatique (Google Actualités muet) confirme une accumulation furtive hors du radar retail, typique d'un creux de marché ou d'une cassure imminente.\"\n}\n```",
-      "ts": "2026-10-17T15:38:37.924848+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.9499853331352166,
       "value": 6280109349.0,
@@ -349,6 +307,48 @@
       "value": 1.748,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.39) et ratio long/short à 1.748 indiquent un posicionnement massivement acheteur de la foule. Les médias grand public banalisent et encouragent les stratégies long/short sans voir le piège de liquidité. Classique configuration de 'crowded trade' propice à un short squeeze inversé (chasse aux longs par les baleines).\"\n}\n```",
       "ts": "2026-10-18T00:11:20.992104+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.4751690821470893,
+      "value": 5423831.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une forte activité de liquidations (5423831.0) avec un z-score élevé (2.48), suggérant une divergence entre les données onchain et le narratif médiatique. Les titres médiatiques se concentrent sur des liquidations sectorielles (viticulture, services), tandis que les données onchain montrent une activité de liquidations massive et anormale, probablement liée à des mouvements de baleines crypto. Le narratif médiatique est donc déconnecté de la réalité des données onchain.\"\n}\n```",
+      "ts": "2026-10-18T00:36:27.151784+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.855654600401052,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"L'indice fear_greed à 53 indique une légère peur, mais le z-score de -6.86 suggère une divergence entre les données brutes et le narratif médiatique. Les titres médiatiques ne reflètent pas l'anomalie onchain, indiquant un mouvement silencieux de baleines. Le narratif médiatique est déconnecté de la réalité.\"\n}\n```",
+      "ts": "2026-10-18T00:36:29.172669+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7309625104428212,
+      "value": 3056382.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.73, ~3M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-18T00:41:31.043973+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2557467160935714,
+      "value": 1.748,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.26) avec un ratio Long/Short à 1.748 : surpopulation massive d'acheteurs en levier. Le narratif public célèbre les stratégies Long/Short traditionnelles, créant un piège à liquidité (retail FOMO). Divergence classique de sommet : les baleines distribuent discrètement pendant que la foule s'empile sur les longs.\"\n}\n```",
+      "ts": "2026-10-18T00:41:32.608078+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1787030063965283,
+      "value": 5277169.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (faillites d'entreprises locales et viticulture). Données on-chain (5.2M$) non significatives pour une manipulation de baleines.\"\n}\n```",
+      "ts": "2026-10-18T01:06:37.158452+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.795831523312714,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 30,\n  \"reason\": \"Données insuffisantes ou absentes dans les titres Google Actualités pour établir une divergence claire avec le z-score du Fear & Greed.\"\n}\n```",
+      "ts": "2026-10-18T01:06:38.426744+00:00"
     }
   ]
 }

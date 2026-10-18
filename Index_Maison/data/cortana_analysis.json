@@ -1,65 +1,30 @@
 {
-  "timestamp": 1792282981,
-  "date": "2026-10-18T00:23:01.220963+00:00",
-  "n_analyses": 5,
+  "timestamp": 1792286586,
+  "date": "2026-10-18T01:23:06.342220+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.261662178280689,
-        "value": 6809112.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 4.26, ~6.8M USD) sans couverture médiatique significative. Divergence classique de accumulation furtive par les baleines loin du bruit de détail.\"\n}\n```",
-        "ts": 1792281974.852011
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 508768.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.01,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
         "metric": "liquidations",
-        "zscore": 2.711945215557232,
-        "value": 5424442.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie onchain sur SHIB (sorties massives de 32.76B et liquidations ciblées) ignorée par les médias généralistes, qui confondent l'alerte crypto avec des faillites d'entreprises locales traditionnelles. Bruit médiatique total, accumulation silencieuse des baleines.\"\n}\n```",
-        "ts": 1792281976.435122
+        "zscore": 2.1787030063965283,
+        "value": 5277169.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (faillites d'entreprises locales et viticulture). Données on-chain (5.2M$) non significatives pour une manipulation de baleines.\"\n}\n```",
+        "ts": 1792285597.158452
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 5191154.0,
+          "value": 4697751.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 232677.0,
+          "value": 967028.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.01,
+          "value": 0.06,
           "seuil": 1,
           "depasse": false
         }
@@ -75,41 +40,11 @@
     },
     {
       "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.0464884248879556,
-        "value": 1.399,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.05) indique une forte agression acheteuse sur les carnets d'ordres, tandis que les médias traditionnels affichent un vide informationnel (silence radio). Cette divergence classique montre une accumulation discrète des baleines loin du bruit médiatique de masse.\"\n}\n```",
-        "ts": 1792281977.738019
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.399,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.01,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
-    {
-      "signal": {
         "metric": "fear_greed",
-        "zscore": -4.30905375353697,
+        "zscore": -4.795831523312714,
         "value": 53,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie statistique majeure (z-score -4.31) avec un sentiment neutre (53) et un silence médiatique absolu (Google Actualités vide). Indique une accumulation furtive des baleines loin du radar public.\"\n}\n```",
-        "ts": 1792281978.941062
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 30,\n  \"reason\": \"Données insuffisantes ou absentes dans les titres Google Actualités pour établir une divergence claire avec le z-score du Fear & Greed.\"\n}\n```",
+        "ts": 1792285598.426744
       },
       "fiche": "fear_greed",
       "questions": {
@@ -121,35 +56,6 @@
         "cupidite": {
           "value": 53,
           "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.3929022772380266,
-        "value": 1.748,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.39) et ratio long/short à 1.748 indiquent un posicionnement massivement acheteur de la foule. Les médias grand public banalisent et encouragent les stratégies long/short sans voir le piège de liquidité. Classique configuration de 'crowded trade' propice à un short squeeze inversé (chasse aux longs par les baleines).\"\n}\n```",
-        "ts": 1792282280.992104
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.748,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 94037.911,
-          "seuil": 120000,
           "depasse": false
         }
       },
