@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.7573810041688653,
-      "value": 0.3632551148138985,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix positive (z-score 2.76) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par des baleines loin des radars du retail.\"\n}\n```",
-      "ts": "2026-10-17T22:50:53.414284+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.646369082379411,
-      "value": 5563928.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 3.65, ~5.5M$ de liquidations) totalement diluée dans les médias par du bruit lexical non pertinent (faillites d'entreprises locales et viticulture). Déconnexion totale : les baleines nettoient le carnet d'ordres (flush des positions) dans l'indifférence médiatique générale.\"\n}\n```",
-      "ts": "2026-10-17T23:05:57.098625+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.359835826920523,
-      "value": 1.744,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.36) sur le ratio long/short (1.744) indiquant un posicionnement acheteur excessif de la foule, tandis que les médias grand public banalisent et romanticent les stratégies long/short. Piège de liquidité classique : les baleines accumulent des shorts dans l'ombre pendant que les détails de l'excès de levier retail s'affichent.\"\n}\n```",
-      "ts": "2026-10-17T23:10:59.296499+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.1692807972838533,
-      "value": 5564755.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score élevé (3.17) des liquidations on-chain sur SHIB coïncide avec d'importantes sorties de fonds (32.76B Outflow), tandis que le bruit médiatique est totalement pollué par des faits divers macroéconomiques et judiciaires sans rapport avec la crypto. Effet 'chasse aux stops' classique avant une reprise.\"\n}\n```",
-      "ts": "2026-10-17T23:36:07.916680+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.244338898564654,
       "value": 1.744,
@@ -349,6 +321,34 @@
       "value": 6736644455.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent de voitures, d'éducation, de marketing et de pétrole. Aucune corrélation avec une quelconque baleine crypto. Anomalie statistique onchain non corroborée par le narratif.\"\n}\n```",
       "ts": "2026-10-18T16:37:04.332800+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0591171589937374,
+      "value": 6766500004.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond complet : les données textuelles fournies ne concernent aucune cryptomonnaie mais des sujets sans rapport (automobiles, éducation, marketing, pétrole). Aucune analyse onchain pertinente possible.\"\n}\n```",
+      "ts": "2026-10-18T17:07:19.525276+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.607842732991148,
+      "value": 1.81,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.61 (1.81), indiquant un posicionnement massivement acheteur de la foule. Pendant ce temps, les médias grand public font l'éloge des stratégies long/short, signalant un pic d'euphorie retail et un piège classique de liquidité avant un retournement baissier.\"\n}\n```",
+      "ts": "2026-10-18T17:07:20.883248+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0258629608357923,
+      "value": 6769134686.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de volume non pertinente : les données textuelles font référence à l'automobile, à l'éducation, au marketing et au pétrole, sans aucun lien avec l'écosystème crypto ou une baleine.\"\n}\n```",
+      "ts": "2026-10-18T17:37:35.367907+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.391560216119012,
+      "value": 1.81,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.39 (1.81), indiquant un posicionnement massivement acheteur de la foule. En contraste total, les médias grand public banalisent et hypent la stratégie 'Long/Short', signalant une euphorie retail tardive et un risque imminent de purge par les baleines.\"\n}\n```",
+      "ts": "2026-10-18T17:37:37.685148+00:00"
     }
   ]
 }

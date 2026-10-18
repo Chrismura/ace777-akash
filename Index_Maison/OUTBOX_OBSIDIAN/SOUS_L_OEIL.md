@@ -2,18 +2,18 @@
 
 > Mis à jour auto · **ne lance rien** · lit seulement.
 
-**🟡 Machine : **OK avec alertes**** · `PULSE=WARN` · mode **VOL**
+**⚠️ Machine : **anomalie** — regarde les ❌** · `PULSE=NOK` · mode **VOL**
 
 | | Check | Détail |
 |---|--------|--------|
 | ✅ | Mode | VOL (auto) |
-| ✅ | Horodatage | 2026-10-18T19:01 local · 2026-10-18T17:01Z UTC |
-| ✅ | Réseau (DNS) | internet OK |
+| ✅ | Horodatage | 2026-10-18T20:01 local · 2026-10-18T18:01Z UTC |
+| ❌ | Réseau (DNS) | KO — sources externes injoignables (hors-ligne) |
 | ✅ | Champion | md5 `14bcf868…` |
 | ⚠️ | ACE process | attendu si GO ACE — OFF |
 | ✅ | Hulk paper | ON |
 | ✅ | Hulk state | PAPER_V1_20261018_100103_state.json · 0 pos · pnl=46.66910072218306 |
-| ✅ | RAM | ~2666 Mo libre |
+| ✅ | RAM | ~3088 Mo libre |
 
 ## Que faire
 
@@ -25,4 +25,4 @@
 Voir [[AUTO_PROCESSUS]] — ce pulse = couche **veille machine**, pas trading.
 
 ---
-_généré 2026-10-18T17:01Z · script `pulse_sous_loeil.sh`_
+_généré 2026-10-18T18:01Z · script `pulse_sous_loeil.sh`_

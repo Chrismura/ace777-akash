@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T17:05:51.943222+00:00",
+  "generated_at": "2026-10-18T18:05:26.051749+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 139
+      "calls_24h": 140
     },
     {
       "id": "openrouter-free",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 13
+      "calls_24h": 12
     },
     {
       "id": "cloudflare-workers-ai",
@@ -319,10 +319,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 101,
-    "remaining": 523
+    "consumed": 105,
+    "remaining": 519
   },
   "queue": [
+    {
+      "ts": "2026-10-18T17:37:37.684296+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.77
+    },
+    {
+      "ts": "2026-10-18T17:37:35.366779+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.0
+    },
+    {
+      "ts": "2026-10-18T17:07:20.881797+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.91
+    },
+    {
+      "ts": "2026-10-18T17:07:19.523957+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.85
+    },
     {
       "ts": "2026-10-18T17:05:23.763857+00:00",
       "task": "supervise.decision",
@@ -410,100 +442,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.26
-    },
-    {
-      "ts": "2026-10-18T14:02:50.574483+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 1.07
-    },
-    {
-      "ts": "2026-10-18T14:01:54.488785+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.85
-    },
-    {
-      "ts": "2026-10-18T13:50:10.455990+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.92
-    },
-    {
-      "ts": "2026-10-18T13:36:15.558107+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.15
     }
   ],
   "events": [
     {
-      "ts": "2026-10-18T17:05:23.763054+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-18T17:03:51.996175+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-18T17:03:51.168040+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-10-18T17:02:00.325792+00:00",
+      "ts": "2026-10-18T18:05:24.457548+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-18T17:02:00.325518+00:00",
+      "ts": "2026-10-18T18:05:24.457364+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests | Roulement xingchen-agi/xing4.0-29b-a4b:free: HTTP Error 400: Bad Requ"
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-18T17:02:00.323641+00:00",
+      "ts": "2026-10-18T18:05:24.457199+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Roulement xingchen-agi/xing4.0-29b-a4b:free",
-      "detail": "HTTP Error 400: Bad Request"
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-18T17:01:55.171090+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "ts": "2026-10-18T18:05:24.456855+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-18T17:01:50.401924+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "ts": "2026-10-18T18:05:24.437313+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "detail": ""
     },
     {
-      "ts": "2026-10-18T17:01:45.223691+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "ts": "2026-10-18T18:02:56.273098+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
     },
     {
-      "ts": "2026-10-18T17:01:40.111517+00:00",
+      "ts": "2026-10-18T18:02:56.272919+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-18T18:02:56.272768+00:00",
       "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "HTTP Error 400: Bad Request"
+      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-18T18:02:56.272481+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Google Gemini",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-10-18T18:02:56.249208+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
@@ -637,7 +637,7 @@
   "health": {
     "status": "ok",
     "providers": 7,
-    "reseau": true,
-    "degrade": false
+    "reseau": false,
+    "degrade": true
   }
 }

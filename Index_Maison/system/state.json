@@ -1,40 +1,38 @@
 {
-  "timestamp": "2026-10-18T17:05:21Z",
+  "timestamp": "2026-10-18T18:03:51Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "42a25b1085d7e9cc4a5a6597a4ae8193eb04c561bea0950e7a9d7e390f34af4b",
+  "feed_hash": "2a401da7af00bc0013c0130966c0897afd50c059063ac97a9b0f2e897b1fa2a3",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 24,
+      "age_seconds": 3,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 271,
+      "age_seconds": 129,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 247,
+      "age_seconds": 129,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 4771504,
+      "age_seconds": 4775014,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 104,
-    "running": 16,
-    "planned": 88,
+    "running": 14,
+    "planned": 90,
     "running_list": [
-      "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
-      "com.ace777.cortana.urgent",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
@@ -45,13 +43,14 @@
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
       "com.ace777.vigie-live",
-      "com.ace777.whales"
+      "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
       "com.ace777.archi-vivante",
       "com.ace777.autopilote",
       "com.ace777.backup-check",
+      "com.ace777.bloc-privatise",
       "com.ace777.carte-paires",
       "com.ace777.catalogue",
       "com.ace777.chien-de-garde",
@@ -59,6 +58,7 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
+      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -132,8 +132,8 @@
       "com.ace777.verdicteur-micro",
       "com.ace777.verif-setup",
       "com.ace777.watchdog",
+      "com.ace777.whales",
       "com.ace777.x402-agentic",
-      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
@@ -141,8 +141,8 @@
   "hub": {
     "status": "ok",
     "providers": 7,
-    "reseau": true,
-    "degrade": false
+    "reseau": false,
+    "degrade": true
   },
   "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
@@ -177,7 +177,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-18T17:02:06Z",
+    "presence_at": "2026-10-18T18:02:24Z",
     "sizes_at": "2026-10-18T16:02:03Z"
   }
 }
