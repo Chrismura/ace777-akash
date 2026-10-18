@@ -847,6 +847,14 @@ class PaperBot:
         self.reentry_on = cfg.get("REENTRY_ON", "1").strip() not in ("0", "false", "False")
         self.reentry_dd = float(cfg.get("REENTRY_DD_PCT", "6"))
         self.reentry_ttl = float(cfg.get("REENTRY_TTL_SEC", "7200"))
+        # === FILETS MESURÉS (18/10/2026, GO Christophe « câble », R17) ===
+        # 0 seuil fixe : chaque seuil est LU du profil mesuré de LA paire
+        # (strategie/universe_profils.json → filet_mesure). Globals = repli
+        # pour les paires sans filet. Réversible : flags à 0. IA=Buffy (Muse Spark 1.3).
+        self.mesure_spread_gate_on = cfg.get("MESURE_SPREAD_GATE_ON", "0").strip() not in ("0", "false", "False")
+        self.mesure_reentry_on = cfg.get("MESURE_REENTRY_ON", "0").strip() not in ("0", "false", "False")
+        self.mesure_reentry_guard = float(cfg.get("MESURE_REENTRY_MEM_GUARD_SEC", "86400"))
+        self.mesure_souche_on = cfg.get("MESURE_SOUCHE_ON", "0").strip() not in ("0", "false", "False")
         # GATE MURS L2 (09/09, audit edge HULK) : mur vivant minuscule = exécution
         # glissée garantie. Voir bloc __init__. OFF par défaut (obs 48h).
         self.wall_gate_on = cfg.get("WALL_GATE_ON", "0").strip() not in ("0", "false", "False")
@@ -1809,12 +1817,30 @@ class PaperBot:
             )
         )
 
+    def filet_mesure(self, pair: str) -> dict:
+        """Filet mesuré de LA paire (0 seuil fixe) — {} si profil absent (fail-open)."""
+        try:
+            return (self.profils.get(pair) or {}).get("filet_mesure") or {}
+        except Exception:
+            return {}
+
     def maybe_reentry(self, pair: str, price: float, sc: dict) -> bool:
-        """Racheter plus bas après un dump post-exit. True si buy fait."""
+        """Racheter plus bas après un dump post-exit. True si buy fait.
+        MESURÉ (18/10/2026, GO Christophe, R17) : dump requis = dip_pct de LA
+        paire (repli REENTRY_DD_PCT) ; désarme quand le prix a RÉCUPÉRÉ ≥ peak —
+        jamais l'horloge. Le TTL restant n'est qu'un garde-fou anti-fuite mémoire."""
         if not self.reentry_on or pair not in self.reentry or pair in self.pos:
             return False
         info = self.reentry[pair]
-        if time.time() - float(info["ts"]) > self.reentry_ttl:
+        peak = float(info.get("peak") or 0)
+        if peak > 0 and price >= peak:
+            # Récupéré : le creux n'existe plus → on désarme (mesuré, pas de clock).
+            self.reentry.pop(pair, None)
+            return False
+        ttl = self.reentry_ttl
+        if self.mesure_reentry_on and self.mesure_reentry_guard > 0:
+            ttl = self.mesure_reentry_guard  # garde-fou mémoire, PAS un signal
+        if time.time() - float(info["ts"]) > ttl:
             del self.reentry[pair]
             return False
         # SET-UP RÉGIME (30/08) : mode_entree="IMPULSE" → re-entry UNIQUEMENT en IMPULSE.
@@ -1823,8 +1849,14 @@ class PaperBot:
         peak = float(info["peak"])
         if peak <= 0:
             return False
+        dd_req = self.reentry_dd
+        if self.mesure_reentry_on:
+            try:
+                dd_req = float(self.filet_mesure(pair).get("reentry_dd_pct") or dd_req)
+            except Exception:
+                pass
         dd = (1.0 - price / peak) * 100.0
-        if dd < self.reentry_dd:
+        if dd < dd_req:
             return False
         ok, why = self.sense_ok(pair, sc, "IMPULSE")
         if not ok:
@@ -1838,7 +1870,7 @@ class PaperBot:
             pair,
             price,
             sc,
-            f"reentry_dump_dd={dd:.1f}>={self.reentry_dd} from={peak:.6f}",
+            f"reentry_dump_dd={dd:.1f}>={dd_req} from={peak:.6f} (mesure_paire)",
         )
         self.reentry.pop(pair, None)
         return True
@@ -2431,6 +2463,23 @@ class PaperBot:
                 sc.get("cadence_pct"), f"SPREAD:{inv_spread:.0f}bps",
             )
             return
+        # === GATE TEMPÊTE MESURÉE (18/10/2026, GO Christophe « câble », R17) ===
+        # Pas de spread fixe : thermomètre de LA paire (med+σ mesurés, filet_mesure).
+        # Au-dessus = coût anormal pour ELLE → skip. Rebonds OK : on ne bloque que
+        # le coût, jamais l'amplitude. Fail-open si profil absent.
+        if self.mesure_spread_gate_on:
+            _seuil = self.filet_mesure(pair).get("spread_tempete_bps")
+            if _seuil:
+                try:
+                    if float(inv_spread) > float(_seuil):
+                        say("warn", f"[{utc_now()}] BUY skip {pair} TEMPETE_MESUREE: spread={inv_spread:.0f}bps > med+σ={float(_seuil):.0f} (paire)")
+                        self.log(
+                            pair, "SKIP", regime, price, price, 0.0, 0.0,
+                            sc.get("cadence_pct"), f"TEMPETE:{inv_spread:.0f}>{float(_seuil):.0f}bps",
+                        )
+                        return
+                except Exception:
+                    pass
         # R17 (22/09/2026, ORDRE Christophe : « on ne donne pas de timing FIXE D'ARRÊT ;
         # ON REGARDE LES CHIFFRES, ce sont eux qui déterminent l'arrêt ») :
         # l'ancien `REENTRY_MAX` interdisait la paire À VIE (CCUSDT gelé 4,5 jours) —
@@ -2769,7 +2818,14 @@ class PaperBot:
             dd = (1.0 - price / entry) * 100.0
             qty = float(b["qty"])
 
-            if dd >= self.bag_crash_dd:
+            # Crash mesuré par paire (filet_mesure.souche_crash_pct, repli global).
+            _crash_req = self.bag_crash_dd
+            if self.mesure_souche_on:
+                try:
+                    _crash_req = float(self.filet_mesure(pair).get("souche_crash_pct") or _crash_req)
+                except Exception:
+                    pass
+            if dd >= _crash_req:
                 sell_qty = qty * self.bag_crash_sell_frac
                 keep_qty = qty - sell_qty
                 pnl = (price - entry) * sell_qty
@@ -2786,7 +2842,7 @@ class PaperBot:
                     sell_qty,
                     pnl,
                     (sc or {}).get("cadence_pct"),
-                    f"crash_dd={dd:.1f}>={self.bag_crash_dd:.0f}_sell_{self.bag_crash_sell_frac*100:.0f}pct",
+                    f"crash_dd={dd:.1f}>={_crash_req:.0f}_sell_{self.bag_crash_sell_frac*100:.0f}pct(mesure_paire)",
                 )
                 say(
                     "sell_ko",

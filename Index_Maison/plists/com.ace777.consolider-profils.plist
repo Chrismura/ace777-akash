@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTD/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.ace777.consolider-profils</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/python3</string>
+		<string>/Users/christophe/ace777-test-day1/hulk-mexc/scripts/consolider_profils_corpus.py</string>
+		<string>--jours</string>
+		<string>7</string>
+		<string>--appliquer</string>
+	</array>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>4</integer>
+		<key>Minute</key>
+		<integer>10</integer>
+	</dict>
+	<key>StandardErrorPath</key>
+	<string>/tmp/consolider_profils_launchd.err.log</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/consolider_profils_launchd.out.log</string>
+</dict>
+</plist>
