@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.540585789366621,
-      "value": 5672090004.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique un volume anormalement élevé, suggérant une activité de trading importante. Les titres médiatiques ne mentionnent pas de contexte spécifique lié à cette activité, ce qui pourrait indiquer une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, avec un potentiel d'opportunités de trading.\"\n}\n```",
-      "ts": "2026-10-17T17:14:15.295712+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.974159689370504,
-      "value": 4468633863.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent d'éducation, de voitures et de fruits, sans aucun rapport avec la crypto. Le z-score négatif (-2.97) indique une absence totale d'activité onchain pertinente.\"\n}\n```",
-      "ts": "2026-10-17T17:44:21.711428+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.8053659199368983,
-      "value": 4188252208.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités générales, agriculture, électroménager) et volume on-chain statistiquement faible (z-score -2.81). Aucune baleine détectée, simple interférence sémantique du mot 'volume'.\"\n}\n```",
-      "ts": "2026-10-17T18:14:27.085541+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.561678218278811,
       "value": 0.616,
@@ -349,6 +328,27 @@
       "value": 1.518,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (z-score 2.10) indique une agression acheteuse agressive sur le carnet d'ordres, totalement ignorée par le silence médiatique actuel. Accumulation silencieuse des baleines avant un ré repricing.\"\n}\n```",
       "ts": "2026-10-18T03:12:14.321394+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.420153478013921,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain réels et de titres médiatiques concrets malgré le z-score de peur extrême).\"\n}\n```",
+      "ts": "2026-10-18T03:37:21.419330+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 7.229655604225963,
+      "value": 7579785.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.23, ~7.58M USD) combinée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent dans l'ombre sans éveiller le retail.\"\n}\n```",
+      "ts": "2026-10-18T03:52:28.694539+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.2360679774997854,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (53) combiné à un z-score fortement négatif (-2.24) signalant une volatilité anormale ou un manque de données significatives dans les flux médiatiques. Absence de mouvement directionnel clair des baleines.\"\n}\n```",
+      "ts": "2026-10-18T04:07:39.822225+00:00"
     }
   ]
 }
