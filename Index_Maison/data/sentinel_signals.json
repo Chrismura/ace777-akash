@@ -2,41 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -2.9499853331352166,
-      "value": 6280109349.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique de volume sur un token non identifié (z-score -2.95) combinée à un bruit médiatique totalement hors sujet (actualité générale, automobile, agriculture). Aucune donnée crypto exploitable.\"\n}\n```",
-      "ts": "2026-10-17T15:43:41.541869+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.7790691096018274,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Erreur de cible : l'indicateur on-chain analyse des flux crypto, tandis que les titres médiatiques font référence à 'SDI Corporation' (action traditionnelle TWSE:2351) et au syndicat patronal français SDI. Aucune corrélation crypto détectée.\"\n}\n```",
-      "ts": "2026-10-17T15:58:49.304321+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1610014804530566,
-      "value": 1.06,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.16) sur le ticker IPT capturée par un filtre crypto, mais les titres médiatiques font référence à une société minière (IMPACT Silver) et à des homonymes institutionnels sans lien avec la blockchain. Bruit de fond, pas de mouvement de baleine crypto.\"\n}\n```",
-      "ts": "2026-10-17T15:58:51.020529+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.824364008863333,
-      "value": 6030892916.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond hors-sujet. Les titres médiatiques concernent l'éducation, l'automobile, le pétrole et l'agriculture, sans aucun rapport avec les cryptomonnaies ou une activité de baleine onchain.\"\n}\n```",
-      "ts": "2026-10-17T16:13:54.768647+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.7649011368375915,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit sémantique : l'indicateur onchain capture des métriques crypto, tandis que les titres médiatiques font référence à une entreprise traditionnelle (SDI Corporation) et à des acronymes homonymes (Syndicat des Indépendants).\"\n}\n```",
-      "ts": "2026-10-17T16:38:59.287706+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -2.665111654458641,
       "value": 5847754735.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond macroéconomique et médiatique sans rapport avec la crypto. Le z-score négatif indique une baisse d'activité on-chain, mais les actualités listées relèvent d'un bruit sémantique (homonymie sur le mot 'volume'). Aucune corrélation avec un mouvement de baleine.\"\n}\n```",
@@ -349,6 +314,41 @@
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 30,\n  \"reason\": \"Données insuffisantes ou absentes dans les titres Google Actualités pour établir une divergence claire avec le z-score du Fear & Greed.\"\n}\n```",
       "ts": "2026-10-18T01:06:38.426744+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.2746141434627067,
+      "value": 5651737.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une forte activité de liquidations (5651737.0) avec un z-score élevé (2.27), suggérant une divergence entre les données brutes et le narratif médiatique. Les titres médiatiques se concentrent sur des liquidations dans des secteurs spécifiques (viticulture, services locaux), tandis que les données onchain montrent une activité de liquidations massive et généralisée. Cela suggère que les baleines crypto sont en mouvement, mais le narratif médiatique est déconnecté de cette réalité, se concentrant sur des détails locaux plutôt que sur les tendances globales.\"\n}\n```",
+      "ts": "2026-10-18T01:36:44.826621+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.8729833462074166,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice de peur/avidité de 53 avec un z-score de -3.87 indique un marché en phase de correction ou de panique, ce qui suggère une divergence entre les données brutes et le narratif médiatique optimiste. Les titres médiatisés ne reflètent pas l'anxiété du marché, indiquant un mouvement silencieux de fonds vers des actifs plus sûrs ou une anticipation de baisse.\"\n}\n```",
+      "ts": "2026-10-18T01:36:46.767912+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.6720950866962676,
+      "value": 0.3574090109255801,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.67) détectant une volatilité anormale couplée à un silence total dans les médias (0 actualité). Signal typique d'accumulation furtive par des baleines loin des radars de la foule.\"\n}\n```",
+      "ts": "2026-10-18T01:41:49.055033+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.5958812259143236,
+      "value": 3001779.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.60, ~3M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive en cours hors du radar médiatique.\"\n}\n```",
+      "ts": "2026-10-18T02:06:53.302977+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.316624790355405,
+      "value": 53,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un sentiment neutre (53) et un vide médiatique total (Google Actualités muet). Le silence des médias combiné à une anomalie statistique onchain indique une accumulation furtive des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-18T02:06:54.607096+00:00"
     }
   ]
 }

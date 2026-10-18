@@ -1,50 +1,50 @@
 {
-  "timestamp": 1792286586,
-  "date": "2026-10-18T01:23:06.342220+00:00",
+  "timestamp": 1792290192,
+  "date": "2026-10-18T02:23:12.615252+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 2.1787030063965283,
-        "value": 5277169.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (faillites d'entreprises locales et viticulture). Données on-chain (5.2M$) non significatives pour une manipulation de baleines.\"\n}\n```",
-        "ts": 1792285597.158452
+        "metric": "whale_usd",
+        "zscore": 2.5958812259143236,
+        "value": 3001779.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.60, ~3M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive en cours hors du radar médiatique.\"\n}\n```",
+        "ts": 1792289213.302977
       },
-      "fiche": "liquidations",
+      "fiche": "whale_usd",
       "questions": {
-        "longs": {
-          "value": 4697751.0,
+        "ventes": {
+          "value": 934686.0,
           "seuil": 0,
           "depasse": true
         },
-        "shorts": {
-          "value": 967028.0,
+        "achats": {
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.06,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
         "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
       "niveau": "surveiller"
     },
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -4.795831523312714,
+        "zscore": -3.316624790355405,
         "value": 53,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 30,\n  \"reason\": \"Données insuffisantes ou absentes dans les titres Google Actualités pour établir une divergence claire avec le z-score du Fear & Greed.\"\n}\n```",
-        "ts": 1792285598.426744
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un sentiment neutre (53) et un vide médiatique total (Google Actualités muet). Le silence des médias combiné à une anomalie statistique onchain indique une accumulation furtive des baleines loin du radar public.\"\n}\n```",
+        "ts": 1792289214.607096
       },
       "fiche": "fear_greed",
       "questions": {
