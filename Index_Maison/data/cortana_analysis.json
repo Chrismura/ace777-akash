@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792429085,
-  "date": "2026-10-19T16:58:05.027937+00:00",
+  "timestamp": 1792432385,
+  "date": "2026-10-19T17:53:05.952733+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.740018286012199,
-        "value": 1.039,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif d'homonymie. Le signal 'IPT' détecté par les sentinelles crypto correspond ici à des actions traditionnelles (International Petroleum Corp / IMPACT Silver) et non à un actif blockchain ou à une baleine crypto active.\"\n}\n```",
-        "ts": 1792427407.398138
+        "zscore": 2.2273427438591393,
+        "value": 0.958,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.23) détectée sur le ticker 'IPT', mais les données textuelles révèlent une confusion avec des homonymes (International Petroleum, IMPACT Silver, École Polytechnique). Aucun mouvement de baleine crypto avéré, le signal provient de bruits médiatiques non pertinents.\"\n}\n```",
+        "ts": 1792431626.247539
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": -0.13,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 9.3e-05,
+          "value": 9.6e-05,
           "seuil": 0.001,
           "depasse": false
         },

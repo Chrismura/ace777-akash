@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -3.23785207245989,
-      "value": 1.615,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le z-score extrêmement bas (-3.24) indique une sous-pondération historique des positions longues par la foule (retail), totalement ignorée par les médias généralistes qui se concentrent sur des produits traditionnels et des ETF boursiers. Cette capitulation du sentiment public sur les dérivés signale un 'short squeeze' imminent, typique d'une accumulation silencieuse par les baleines.\"\n}\n```",
-      "ts": "2026-10-18T12:05:54.326053+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.875328183589656,
-      "value": 1.615,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.88) indique une capitulation des positions acheteuses de la foule, totalement ignorée par les médias traditionnels qui se concentrent sur des ETF macro et des généralités OPCVM. Historiquement, un tel désengagement de détail combiné au silence médiatique précède des squeezes massifs orchestrés par les baleines.\"\n}\n```",
-      "ts": "2026-10-18T12:36:00.560447+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.6315343722295967,
-      "value": 1.614,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score extrêmement bas (-2.63) indique une sous-pondération massive des positions longues par la foule/retail, tandis que les médias grand public banalisent les stratégies long/short traditionnelles. Cette capitulation du sentiment public sur les produits dérivés signale un point de retournement contrarien classique où les baleines accumulent en silence.\"\n}\n```",
-      "ts": "2026-10-18T13:06:08.204779+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.557273260607314,
-      "value": 0.5833552110853235,
-      "analysis": "{\n \"signal\": \"neutral\",\n \"confidence\": 15,\n \"reason\": \"Absence de données onchain réelles (volume, flux de baleines) et de contenu médiatique exploitable. Le z-score de 4.56 sur le prix seul est statistiquement significatif mais sans contexte de volume ou de flux, il ne permet pas de confirmer une accumulation silencieuse. Le narratif 'Google Actualités' est vide, rendant l'analyse de divergence impossible.\"\n}",
-      "ts": "2026-10-18T13:31:12.161893+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.834461893212914,
       "value": 3925801.0,
@@ -349,6 +321,34 @@
       "value": 1.039,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif d'homonymie. Le signal 'IPT' détecté par les sentinelles crypto correspond ici à des actions traditionnelles (International Petroleum Corp / IMPACT Silver) et non à un actif blockchain ou à une baleine crypto active.\"\n}\n```",
       "ts": "2026-10-19T16:30:07.398138+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.921665830931594,
+      "value": 1.104,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.92) sur un ticker boursier traditionnel (IPT / International Petroleum Corp. / IMPACT Silver) pollué par du bruit médiatique hétérogène. Aucune donnée onchain pertinente pour une baleine crypto.\"\n}\n```",
+      "ts": "2026-10-19T17:05:13.691918+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.043550563486788,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure sur le z-score du CPFP (Child-Pays-For-Parent) liée à des congestions de mempool et des tutoriels Bitcoin, sans lien avec des mouvements de baleines institutionnelles.\"\n}\n```",
+      "ts": "2026-10-19T17:20:17.112373+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.043550563486788,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent d'art, de cinémas locaux et d'actions traditionnelles sans rapport avec la crypto. L'anomalie onchain ('dust') est un faux positif sémantique.\"\n}\n```",
+      "ts": "2026-10-19T17:20:19.066686+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2273427438591393,
+      "value": 0.958,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.23) détectée sur le ticker 'IPT', mais les données textuelles révèlent une confusion avec des homonymes (International Petroleum, IMPACT Silver, École Polytechnique). Aucun mouvement de baleine crypto avéré, le signal provient de bruits médiatiques non pertinents.\"\n}\n```",
+      "ts": "2026-10-19T17:40:26.247539+00:00"
     }
   ]
 }
