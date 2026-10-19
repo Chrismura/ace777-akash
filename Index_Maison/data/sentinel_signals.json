@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.711945215557232,
-      "value": 5424442.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Anomalie onchain sur SHIB (sorties massives de 32.76B et liquidations ciblées) ignorée par les médias généralistes, qui confondent l'alerte crypto avec des faillites d'entreprises locales traditionnelles. Bruit médiatique total, accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-18T00:06:16.435122+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.0464884248879556,
-      "value": 1.399,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.05) indique une forte agression acheteuse sur les carnets d'ordres, tandis que les médias traditionnels affichent un vide informationnel (silence radio). Cette divergence classique montre une accumulation discrète des baleines loin du bruit médiatique de masse.\"\n}\n```",
-      "ts": "2026-10-18T00:06:17.738019+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.30905375353697,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie statistique majeure (z-score -4.31) avec un sentiment neutre (53) et un silence médiatique absolu (Google Actualités vide). Indique une accumulation furtive des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-18T00:06:18.941062+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.3929022772380266,
       "value": 1.748,
@@ -349,6 +328,27 @@
       "value": 0.6081783533469887,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 3.04) suggère une activité de baleines crypto significative, mais le narratif médiatique ne mentionne pas cette activité. La divergence indique un potentiel mouvement de fonds important qui pourrait être sous-estimé par le marché.\"\n}\n```",
       "ts": "2026-10-18T22:43:37.170070+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 11.006771047216738,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice de peur/avidité à 59 avec un z-score de 11.01 indique un fort sentiment de peur dans le marché, suggérant une possible vente massive par les baleines. Les titres médiatiques ne mentionnent pas cette anomalie onchain, indiquant une divergence entre les données brutes et le narratif médiatique.\"\n}\n```",
+      "ts": "2026-10-19T00:09:04.355358+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.020819138830249,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice modéré (59) sans couverture médiatique significative (Google Actualités vide). Absence de signal clair de mouvement silencieux de baleines ou de divergence majeure.\"\n}\n```",
+      "ts": "2026-10-19T00:39:09.602384+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.582219608248843,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score onchain élevé traduisant une volatilité ou une accumulation anormale.\"\n}\n```",
+      "ts": "2026-10-19T01:09:15.099350+00:00"
     }
   ]
 }

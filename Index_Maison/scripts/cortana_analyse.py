@@ -811,6 +811,20 @@ def _perimetre_ligne(indice):
         return ("\nPÉRIMÈTRE : AVIS STRICT valable pour l'indice analysé UNIQUEMENT.")
 
 
+def _checklist_preavis():
+    """Checklist pré-AVIS (PTJ via SONIA, GO checklist 18/10, le reste REFUSÉ) :
+    5 questions obligatoires avant tout AVIS STRICT. Zéro donnée inventée —
+    ce qui n'est pas couvert est DÉCLARÉ absent (news/macro = notre angle mort
+    connu, le dire vaut mieux que l'inventer)."""
+    return ("\n\nCHECKLIST PRÉ-AVIS (obligatoire, 5 lignes avant l'AVIS STRICT) : "
+            "1) Qu'est-ce qui a changé depuis ta dernière analyse (mémoire 7j ci-dessus) ? "
+            "2) News / macro / événements de la semaine : cités ou explicitement ABSENTS de tes données ? "
+            "3) Ratio risque/gain chiffré (entrée, stop, objectif) — si < 1, écris-le. "
+            "4) Avocat du diable : les 2 raisons de NE PAS suivre cet avis. "
+            "5) Niveau/prix qui INVALIDERAIT cet avis. "
+            "Sans ces 5 lignes, pas d'AVIS STRICT.")
+
+
 def _cri_si_fort(indice, facts, avis_llm, provider):
     """Droit d'initier (GO 5 points) : quand le calcul dit LONG/SHORT ET que la
     plume s'aligne, elle lève la main (cortana_cris.jsonl, lu par le cockpit).
@@ -853,6 +867,7 @@ def call_hub(facts, indice, correction=None, contexte_sup=""):
                 + _verdict_injecter(facts if isinstance(facts, dict) else {})
                 + _coffre_contexte(indice)
                 + _perimetre_ligne(indice)
+                + _checklist_preavis()
             )},
         ],
         "temperature": 0.4,

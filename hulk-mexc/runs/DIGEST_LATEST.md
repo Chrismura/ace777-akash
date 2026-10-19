@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-18T23:11:34Z
+# Hulk DIGEST — 2026-10-19T01:08:48Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,28 +12,28 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | IDLE | 1.91 | 3.76 | 0.44 | 0.0 | 27705073.42 | 2.31 | skipped_fast |
-| ETHUSDT | IDLE | 1.49 | 2.94 | 0.3 | -0.0 | 121664799.44 | 0.04 | skipped_fast |
-| BTCUSDT | IDLE | 0.7 | 1.39 | 0.12 | 0.0 | 239385299.0 | 0.0 | skipped_fast |
-| PYTHUSDT | IDLE | 1.84 | 5.31 | 1.34 | -0.06 | 1290581.85 | 1.35 | skipped_fast |
-| WUSDT | IDLE | 1.4 | 3.71 | 0.66 | -0.06 | 895112.04 | 12.35 | skipped_fast |
-| HBARUSDT | IDLE | 2.11 | 5.25 | 0.57 | 0.01 | 818798.2 | 8.2 | skipped_fast |
-| RWAINCUSDT | WATCH_PULLBACK — tension haute + reflux | 3.42 | 9.75 | 8.19 | -0.01 | 61152.07 | 21.6 | skipped_fast |
-| CCUSDT | IDLE | 2.35 | 4.67 | 0.16 | -0.02 | 276417.36 | 7.91 | skipped_fast |
-| QNTUSDT | IDLE | 2.01 | 4.8 | 0.77 | -0.03 | 577337.43 | 1.59 | skipped_fast |
-| ZBCNUSDT | IDLE | 2.06 | 5.27 | 0.7 | -0.04 | 238009.83 | 4.89 | skipped_fast |
-| EDELUSDT | IDLE | 1.81 | 4.42 | 1.35 | -0.06 | 253007.87 | 15.18 | skipped_fast |
-| REDUSDT | IDLE | 2.17 | 4.32 | 0.15 | -0.01 | 94839.93 | 16.0 | skipped_fast |
-| WAXLUSDT | WATCH_PULLBACK — tension haute + reflux | 2.97 | 13.36 | 7.81 | -0.0 | 80247.22 | 53.95 | skipped_fast |
-| BIOUSDT | IDLE | 1.97 | 4.03 | 0.21 | -0.03 | 82360.04 | 8.53 | skipped_fast |
-| CHIPUSDT | IDLE | 1.68 | 5.38 | 0.22 | -0.05 | 76038.73 | 7.34 | skipped_fast |
-| KITEUSDT | IDLE | 1.53 | 3.04 | 0.13 | -0.01 | 67175.65 | 14.0 | skipped_fast |
-| RIZEUSDT | IDLE | 0.77 | 3.9 | 3.07 | -0.04 | 58280.65 | 39.58 | skipped_fast |
-| IOTAUSDT | IDLE | 2.0 | 4.78 | 0.2 | -0.04 | 67916.57 | 17.93 | skipped_fast |
-| FLUIDUSDT | IDLE | 1.88 | 3.56 | 2.55 | -0.06 | 4305.44 | 21.87 | skipped_fast |
-| LAUSDT | IDLE | 1.54 | 4.02 | 0.48 | -0.06 | 58712.39 | 24.84 | skipped_fast |
-| RWAUSDT | IDLE | 1.42 | 2.65 | 1.25 | 0.01 | 49632.5 | 7.93 | skipped_fast |
-| MNSRYUSDT | IDLE | 0.39 | 0.7 | 0.51 | -0.01 | 35078.52 | 25.69 | skipped_fast |
+| XRPUSDT | IDLE | 2.13 | 4.24 | 0.13 | 0.01 | 29156553.8 | 1.53 | n/a |
+| ETHUSDT | IDLE | 1.81 | 3.61 | 0.02 | 0.0 | 126686593.01 | 0.04 | no_map |
+| BTCUSDT | IDLE | 1.14 | 2.25 | 0.17 | 0.01 | 263607726.81 | 0.0 | no_map |
+| PYTHUSDT | IDLE | 1.97 | 5.87 | 0.21 | -0.05 | 1303820.64 | 1.33 | tvl≈165,504,889 |
+| WUSDT | IDLE | 1.78 | 4.62 | 0.02 | -0.05 | 817155.37 | 14.45 | tvl≈1,560,825,277 |
+| CCUSDT | IDLE | 3.29 | 6.48 | 0.71 | -0.01 | 290151.13 | 2.93 | no_map |
+| HBARUSDT | IDLE | 2.01 | 4.85 | 1.49 | -0.02 | 785900.62 | 5.91 | empty_tvl |
+| ZBCNUSDT | IDLE | 3.01 | 6.46 | 0.07 | -0.02 | 261722.97 | 14.41 | n/a |
+| RWAINCUSDT | WATCH_PULLBACK — tension haute + reflux | 3.34 | 9.75 | 6.55 | -0.01 | 62938.34 | 5.31 | no_map |
+| QNTUSDT | IDLE | 2.6 | 6.22 | 0.99 | -0.03 | 593650.99 | 2.08 | n/a |
+| EDELUSDT | IDLE | 2.19 | 5.12 | 0.97 | 0.01 | 251141.01 | 26.26 | no_map |
+| REDUSDT | IDLE | 2.67 | 5.33 | 0.09 | -0.01 | 95471.31 | 9.37 | tvl≈3,435,095 |
+| BIOUSDT | IDLE | 2.44 | 4.87 | 0.04 | -0.03 | 81253.49 | 8.44 | n/a |
+| CHIPUSDT | IDLE | 2.25 | 7.23 | 0.0 | -0.04 | 79067.13 | 9.58 | no_map |
+| KITEUSDT | IDLE | 2.14 | 4.25 | 0.2 | -0.01 | 66686.3 | 11.27 | no_map |
+| IOTAUSDT | IDLE | 2.64 | 5.81 | 0.0 | -0.03 | 68201.28 | 28.8 | no_map |
+| LAUSDT | IDLE | 2.21 | 5.38 | 0.36 | -0.05 | 58923.23 | 26.39 | no_map |
+| RIZEUSDT | IDLE | 0.63 | 3.1 | 2.88 | -0.05 | 58957.15 | 50.76 | no_map |
+| RWAUSDT | IDLE | 1.4 | 2.65 | 1.02 | 0.01 | 50386.23 | 7.91 | no_map |
+| WAXLUSDT | IDLE | 1.07 | 5.04 | 1.3 | 0.02 | 79846.87 | 29.21 | no_map |
+| FLUIDUSDT | IDLE | 1.31 | 2.75 | 0.0 | -0.04 | 4309.77 | 21.0 | tvl≈2,211,693,424 |
+| MNSRYUSDT | IDLE | 0.56 | 1.05 | 0.41 | -0.0 | 35486.44 | 55.58 | no_map |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).

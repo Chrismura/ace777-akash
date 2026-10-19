@@ -1,32 +1,27 @@
 {
-  "timestamp": 1792365059,
-  "date": "2026-10-18T23:10:59.766902+00:00",
+  "timestamp": 1792371962,
+  "date": "2026-10-19T01:06:02.247733+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 3.0433830314381622,
-        "value": 0.6081783533469887,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 3.04) suggère une activité de baleines crypto significative, mais le narratif médiatique ne mentionne pas cette activité. La divergence indique un potentiel mouvement de fonds important qui pourrait être sous-estimé par le marché.\"\n}\n```",
-        "ts": 1792363417.17007
+        "metric": "fear_greed",
+        "zscore": 6.020819138830249,
+        "value": 59,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice modéré (59) sans couverture médiatique significative (Google Actualités vide). Absence de signal clair de mouvement silencieux de baleines ou de divergence majeure.\"\n}\n```",
+        "ts": 1792370349.602384
       },
-      "fiche": "price_1h",
+      "fiche": "fear_greed",
       "questions": {
-        "pct_1h": {
-          "value": -0.03,
-          "seuil": -1,
+        "peur": {
+          "value": 59,
+          "seuil": 25,
           "depasse": true
         },
-        "liq": {
-          "value": 3024727.0,
-          "seuil": 5000000,
+        "cupidite": {
+          "value": 59,
+          "seuil": 75,
           "depasse": false
-        },
-        "funding": {
-          "value": 3.3e-05,
-          "seuil": 0,
-          "depasse": true
         }
       },
       "interpretation": {
