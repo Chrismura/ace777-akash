@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -2.9325756597230344,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice neutre (53) avec un z-score fortement négatif (-2.93) indiquant une anomalie statistique de volatilité, mais absence totale de signal médiatique exploitable (flux Google Actualités vide). Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-18T02:37:01.740302+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.6457513110645903,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.65) pour un indice de peur/greed neutre (53) et un silence médiatique absolu révèlent une accumulation discrète des baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-10-18T03:07:09.764904+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.097514836562188,
-      "value": 1.518,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (z-score 2.10) indique une agression acheteuse agressive sur le carnet d'ordres, totalement ignorée par le silence médiatique actuel. Accumulation silencieuse des baleines avant un ré repricing.\"\n}\n```",
-      "ts": "2026-10-18T03:12:14.321394+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -2.420153478013921,
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain réels et de titres médiatiques concrets malgré le z-score de peur extrême).\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 59,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.21) couplé à un indice de peur/gourmandise modéré (59) et un vide médiatique total (Google Actualités). Les baleines accumulent en silence loin du radar grand public.\"\n}\n```",
       "ts": "2026-10-19T08:57:07.640741+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.4368865606668857,
+      "value": 11447143.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de liquidation onchain (11,4M$, z-score 3.44) corrélée à une panique médiatique généralisée sur les défaillances économiques (faillites d'entreprises, viticulture, automobile). Les baleines profitent de la capitulation et du stress macroéconomique pour purger le marché.\"\n}\n```",
+      "ts": "2026-10-19T09:07:10.678184+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0582428516488602,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (2.06) indiquant une gourmandise locale au-dessus de la normale, mais absence de narratif médiatique contradictoire majeur pour valider une divergence cachée de baleines.\"\n}\n```",
+      "ts": "2026-10-19T09:27:15.128697+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.1409239798108044,
+      "value": 11710656.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une forte activité de liquidations (11710656.0) avec un z-score élevé (3.14), suggérant une divergence potentielle entre les données onchain et le narratif médiatique. Les titres médiatiques se concentrent sur des liquidations spécifiques dans des secteurs particuliers, tandis que les données onchain montrent une activité de liquidation globale et significative. Cela pourrait indiquer que les baleines crypto sont en mouvement, et que le narratif médiatique est déconnecté de la réalité des marchés.\"\n}\n```",
+      "ts": "2026-10-19T09:37:18.296825+00:00"
     }
   ]
 }
