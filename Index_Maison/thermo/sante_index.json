@@ -1,18 +1,18 @@
 {
-  "ts": "2026-10-19T22:04+00:00",
-  "updated": "2026-10-19T22:04Z",
-  "etat": "DÉGRADÉ",
-  "chaines_ok": "15/15",
-  "anomalies": [],
-  "degradees": [
-    "BALEINES"
+  "ts": "2026-10-19T23:04+00:00",
+  "updated": "2026-10-19T23:04Z",
+  "etat": "ALERTE",
+  "chaines_ok": "14/15",
+  "anomalies": [
+    "BALEINES coupée : scan file"
   ],
+  "degradees": [],
   "chaines": [
     {
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -26,13 +26,13 @@
         },
         {
           "nom": "scan file",
-          "ok": true,
-          "detail": "DÉGRADÉ : âge 17 min (> 15 min)"
+          "ok": false,
+          "detail": "âge 37 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 17 min"
+          "detail": "dernier événement il y a 37 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -47,7 +47,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 11 min"
         }
       ]
     },
@@ -65,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 6 min"
         }
       ]
     },
@@ -83,7 +83,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.2 min · écart mtime/ts 1.9s · 22 paire(s) · btc=OK · ts=croissant · passe 31.2s · marge 13.8s sous le budget 45s du moteur · ⚠ PIRE CAS age 51.2s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.6s · 22 paire(s) · btc=OK · ts=croissant · passe 46.4s · marge -1.4s sous le budget 45s du moteur · ⚠ PIRE CAS age 66.4s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 881 min"
+          "detail": "âge 941 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -144,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "mode",
@@ -185,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.2h"
         },
         {
           "nom": "modules OK",
@@ -343,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "2 warn(s) carnet déséquilibré (info)"
+          "detail": "1 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -356,7 +356,7 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 11 min"
         },
         {
           "nom": "SAPI calculé",
