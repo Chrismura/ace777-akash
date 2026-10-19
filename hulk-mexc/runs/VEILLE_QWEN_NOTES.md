@@ -8047,3 +8047,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-19T00:51:23Z — ALERT auto
 - WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-19T01:26:59Z — ALERT auto
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

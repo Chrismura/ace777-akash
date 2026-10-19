@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.3929022772380266,
-      "value": 1.748,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.39) et ratio long/short à 1.748 indiquent un posicionnement massivement acheteur de la foule. Les médias grand public banalisent et encouragent les stratégies long/short sans voir le piège de liquidité. Classique configuration de 'crowded trade' propice à un short squeeze inversé (chasse aux longs par les baleines).\"\n}\n```",
-      "ts": "2026-10-18T00:11:20.992104+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.4751690821470893,
-      "value": 5423831.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une forte activité de liquidations (5423831.0) avec un z-score élevé (2.48), suggérant une divergence entre les données onchain et le narratif médiatique. Les titres médiatiques se concentrent sur des liquidations sectorielles (viticulture, services), tandis que les données onchain montrent une activité de liquidations massive et anormale, probablement liée à des mouvements de baleines crypto. Le narratif médiatique est donc déconnecté de la réalité des données onchain.\"\n}\n```",
-      "ts": "2026-10-18T00:36:27.151784+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -6.855654600401052,
       "value": 53,
@@ -349,6 +335,20 @@
       "value": 59,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score onchain élevé traduisant une volatilité ou une accumulation anormale.\"\n}\n```",
       "ts": "2026-10-19T01:09:15.099350+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.823212807255396,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (3.82) signalant une anomalie statistique du sentiment, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-19T01:39:21.475523+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.3166247903554,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score fear_greed de 59 indique une peur modérée, ce qui pourrait suggérer une divergence avec le narratif médiatique optimiste. Les titres médiatisés pourraient être influencés par des facteurs non onchain, tandis que les mouvements de fonds pourraient indiquer une méfiance accrue parmi les investisseurs institutionnels.\"\n}\n```",
+      "ts": "2026-10-19T02:09:26.243588+00:00"
     }
   ]
 }

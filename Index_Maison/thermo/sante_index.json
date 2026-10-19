@@ -1,9 +1,11 @@
 {
-  "ts": "2026-10-19T01:11+00:00",
-  "updated": "2026-10-19T01:11Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-10-19T02:12+00:00",
+  "updated": "2026-10-19T02:12Z",
+  "etat": "ALERTE",
+  "chaines_ok": "14/15",
+  "anomalies": [
+    "HULK : sonde runtime, contrat Cortana ou analyses figés"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 3 min"
+          "detail": "dernier événement il y a 0 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -45,7 +47,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 4 min"
         }
       ]
     },
@@ -63,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 10 min"
         }
       ]
     },
@@ -71,7 +73,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -80,8 +82,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.7 min · écart mtime/ts 2.1s · 22 paire(s) · btc=OK · ts=croissant · passe 20.0s · marge 25.0s sous le budget 45s du moteur"
+          "ok": false,
+          "detail": "mode fichier · JSON · âge ts 1.3 min · écart mtime/ts 2.8s · 22 paire(s) · btc=OK · ts=croissant · passe 37.5s · marge 7.5s sous le budget 45s du moteur · ⚠ PIRE CAS age 57.5s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1167 min"
+          "detail": "âge 1227 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -114,12 +116,12 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -341,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "3 warn(s) carnet déséquilibré (info)"
+          "detail": "1 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.3"
+          "detail": "score 0.5"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
