@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -4.795831523312714,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 30,\n  \"reason\": \"Données insuffisantes ou absentes dans les titres Google Actualités pour établir une divergence claire avec le z-score du Fear & Greed.\"\n}\n```",
-      "ts": "2026-10-18T01:06:38.426744+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.2746141434627067,
       "value": 5651737.0,
@@ -349,6 +342,13 @@
       "value": 0.843,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique erronée : confusion entre des métriques de cryptomonnaie et des actualités boursières traditionnelles (International Petroleum Corp / IMPACT Silver) sans lien avec la blockchain.\"\n}\n```",
       "ts": "2026-10-19T07:46:29.887973+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.604569788618416,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité modéré (59) sans anomalie majeure de volume (z-score 2.60 peu significatif pour un choc directionnel). Absence de narratif médiatique saillant pour contraster. Pas de mouvement furtif de baleine détecté à ce stade.\"\n}\n```",
+      "ts": "2026-10-19T07:56:33.021273+00:00"
     }
   ]
 }
