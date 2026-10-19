@@ -8051,3 +8051,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-19T01:26:59Z — ALERT auto
 - CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-19T02:14:51Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-19T07:25:32Z — ALERT auto
+- ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

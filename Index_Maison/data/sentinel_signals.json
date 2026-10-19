@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -6.855654600401052,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"L'indice fear_greed à 53 indique une légère peur, mais le z-score de -6.86 suggère une divergence entre les données brutes et le narratif médiatique. Les titres médiatiques ne reflètent pas l'anomalie onchain, indiquant un mouvement silencieux de baleines. Le narratif médiatique est déconnecté de la réalité.\"\n}\n```",
-      "ts": "2026-10-18T00:36:29.172669+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.7309625104428212,
-      "value": 3056382.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.73, ~3M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique avant un mouvement de marché.\"\n}\n```",
-      "ts": "2026-10-18T00:41:31.043973+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.2557467160935714,
-      "value": 1.748,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Z-score élevé (2.26) avec un ratio Long/Short à 1.748 : surpopulation massive d'acheteurs en levier. Le narratif public célèbre les stratégies Long/Short traditionnelles, créant un piège à liquidité (retail FOMO). Divergence classique de sommet : les baleines distribuent discrètement pendant que la foule s'empile sur les longs.\"\n}\n```",
-      "ts": "2026-10-18T00:41:32.608078+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.1787030063965283,
-      "value": 5277169.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymies (faillites d'entreprises locales et viticulture). Données on-chain (5.2M$) non significatives pour une manipulation de baleines.\"\n}\n```",
-      "ts": "2026-10-18T01:06:37.158452+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -4.795831523312714,
       "value": 53,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 30,\n  \"reason\": \"Données insuffisantes ou absentes dans les titres Google Actualités pour établir une divergence claire avec le z-score du Fear & Greed.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 59,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score fear_greed de 59 indique une peur modérée, ce qui pourrait suggérer une divergence avec le narratif médiatique optimiste. Les titres médiatisés pourraient être influencés par des facteurs non onchain, tandis que les mouvements de fonds pourraient indiquer une méfiance accrue parmi les investisseurs institutionnels.\"\n}\n```",
       "ts": "2026-10-19T02:09:26.243588+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.932575659723036,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice de peur/avidité à 59 avec un z-score de 2.93 indique une forte pression de vente, suggérant une divergence entre les données brutes et le narratif médiatique optimiste. Les titres médiatisés ne reflètent pas l'anomalie onchain, indiquant un mouvement silencieux de baleines.\"\n}\n```",
+      "ts": "2026-10-19T02:39:32.090556+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.8792920276771428,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.88) couplé à un Greed modéré (59) sans surchauffe médiatique (Google Actualités vide). C'est la signature classique d'une accumulation silencieuse de baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-10-19T07:26:24.022272+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 6.565898873690339,
+      "value": 11452292.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : les titres médiatiques font référence à des faillances d'entreprises traditionnelles (automobile, viticulture, commerce), tandis que les données onchain mesurent des liquidations de positions crypto. Aucune divergence de baleine crypto, simple confusion lexicale.\"\n}\n```",
+      "ts": "2026-10-19T07:36:27.164561+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0048443618637712,
+      "value": 0.843,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique erronée : confusion entre des métriques de cryptomonnaie et des actualités boursières traditionnelles (International Petroleum Corp / IMPACT Silver) sans lien avec la blockchain.\"\n}\n```",
+      "ts": "2026-10-19T07:46:29.887973+00:00"
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
-  "timestamp": 1792375863,
-  "date": "2026-10-19T02:11:03.689194+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792396374,
+  "date": "2026-10-19T07:52:54.766994+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 3.3166247903554,
+        "zscore": 2.8792920276771428,
         "value": 59,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score fear_greed de 59 indique une peur modérée, ce qui pourrait suggérer une divergence avec le narratif médiatique optimiste. Les titres médiatisés pourraient être influencés par des facteurs non onchain, tandis que les mouvements de fonds pourraient indiquer une méfiance accrue parmi les investisseurs institutionnels.\"\n}\n```",
-        "ts": 1792375766.243588
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.88) couplé à un Greed modéré (59) sans surchauffe médiatique (Google Actualités vide). C'est la signature classique d'une accumulation silencieuse de baleines sous le radar du retail.\"\n}\n```",
+        "ts": 1792394784.022272
       },
       "fiche": "fear_greed",
       "questions": {
@@ -21,6 +21,80 @@
         "cupidite": {
           "value": 59,
           "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 6.565898873690339,
+        "value": 11452292.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : les titres médiatiques font référence à des faillances d'entreprises traditionnelles (automobile, viticulture, commerce), tandis que les données onchain mesurent des liquidations de positions crypto. Aucune divergence de baleine crypto, simple confusion lexicale.\"\n}\n```",
+        "ts": 1792395387.164561
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 12222.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 11444146.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.11,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.0048443618637712,
+        "value": 0.843,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique erronée : confusion entre des métriques de cryptomonnaie et des actualités boursières traditionnelles (International Petroleum Corp / IMPACT Silver) sans lien avec la blockchain.\"\n}\n```",
+        "ts": 1792395989.887973
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.11,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
