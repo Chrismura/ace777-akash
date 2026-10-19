@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792436587,
-  "date": "2026-10-19T19:03:07.162987+00:00",
+  "timestamp": 1792440188,
+  "date": "2026-10-19T20:03:08.268494+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.0566971980117064,
-        "value": 0.934,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (physique, actualités locales, homonymes boursiers). L'indicateur onchain 'ipt' ne correspond pas à un actif crypto majeur traçable, rendant toute détection de mouvement de baleine impossible.\"\n}\n```",
-        "ts": 1792435237.689951
+        "zscore": 2.5641710022870017,
+        "value": 1.14,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif : L'acronyme 'IPT' correspond ici à des entités traditionnelles (International Petroleum Corp, IMPACT Silver Corp, Institut de Physique Théorique) et non à un actif crypto. Aucune corrélation onchain ou narratif crypto détectée.\"\n}\n```",
+        "ts": 1792439455.504198
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.09,
+          "value": -0.14,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 3,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }

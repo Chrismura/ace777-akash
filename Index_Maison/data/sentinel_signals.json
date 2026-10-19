@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -2.4088363663651653,
-      "value": 1.614,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score extrêmement bas (-2.41) indique une sous-pondération massive des positions longues par la foule/retail, tandis que les médias grand public banalisent la stratégie long/short sans voir le positionnement contrarien extrême. C'est un signal classique de capitulation des shorts et de préparation d'une 'short squeeze' agressive par les baleines.\"\n}\n```",
-      "ts": "2026-10-18T13:36:15.560050+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -2.2268489105385383,
       "value": 1.614,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.23) indique une sous-pondération massive des positions longues par la foule/retail, tandis que les médias grand public banalisent les stratégies long/short traditionnelles. Cette capitulation du sentiment public crée un déséquilibre contrarien classique, signature d'accumulation silencieuse par les baleines avant un retournement haussier.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 0.934,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (physique, actualités locales, homonymes boursiers). L'indicateur onchain 'ipt' ne correspond pas à un actif crypto majeur traçable, rendant toute détection de mouvement de baleine impossible.\"\n}\n```",
       "ts": "2026-10-19T18:40:37.689951+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5641710022870017,
+      "value": 1.14,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif : L'acronyme 'IPT' correspond ici à des entités traditionnelles (International Petroleum Corp, IMPACT Silver Corp, Institut de Physique Théorique) et non à un actif crypto. Aucune corrélation onchain ou narratif crypto détectée.\"\n}\n```",
+      "ts": "2026-10-19T19:50:55.504198+00:00"
     }
   ]
 }
