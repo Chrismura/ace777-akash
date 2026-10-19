@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792432686,
-  "date": "2026-10-19T17:58:06.052416+00:00",
+  "timestamp": 1792436587,
+  "date": "2026-10-19T19:03:07.162987+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.2273427438591393,
-        "value": 0.958,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.23) détectée sur le ticker 'IPT', mais les données textuelles révèlent une confusion avec des homonymes (International Petroleum, IMPACT Silver, École Polytechnique). Aucun mouvement de baleine crypto avéré, le signal provient de bruits médiatiques non pertinents.\"\n}\n```",
-        "ts": 1792431626.247539
+        "zscore": 2.0566971980117064,
+        "value": 0.934,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (physique, actualités locales, homonymes boursiers). L'indicateur onchain 'ipt' ne correspond pas à un actif crypto majeur traçable, rendant toute détection de mouvement de baleine impossible.\"\n}\n```",
+        "ts": 1792435237.689951
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.1,
+          "value": 0.09,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 9.6e-05,
+          "value": 0.0001,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 3,
           "seuil": 5,
           "depasse": false
         }

@@ -1,6 +1,6 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-10-18 18:53 UTC · jour local **2026-10-18**
+Auto-refresh : 2026-10-19 18:53 UTC · jour local **2026-10-19**
 
 ## Feu tricolore
 
@@ -8,7 +8,7 @@ Auto-refresh : 2026-10-18 18:53 UTC · jour local **2026-10-18**
 |-------|------|--------|
 | **ACE** | 🔴 STOP | Dernier tag `MASTER_BASE_V8_6_FORTRESS_8H20` · combo ≈ **+0.90 $** |
 | **Hulk paper** | 🟢 RUN | pnl_total ≈ **46.6691** · pos **0** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-10-18T18:52Z |
+| **Hulk digest** | 🟢 RUN | mtime 2026-10-19T18:52Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -72,8 +72,8 @@ Auto-refresh : 2026-10-18 18:53 UTC · jour local **2026-10-18**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 235, 'SELL_PARTIAL': 115, 'SELL': 233, 'SKIP': 108475, 'BAG_ARM': 10, 'BAG_CRASH': 1, 'BAG_SELL': 2, 'BAG_DCA': 3, 'GBAG_SOUCHE': 5}
+- Events : {'BUY': 235, 'SELL_PARTIAL': 115, 'SELL': 233, 'SKIP': 108476, 'BAG_ARM': 10, 'BAG_CRASH': 1, 'BAG_SELL': 2, 'BAG_DCA': 3, 'GBAG_SOUCHE': 9}
 - Pairs ouvertes (state) : —
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-10-18]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-10-19]] · [[OSSATURE]]

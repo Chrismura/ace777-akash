@@ -142,6 +142,21 @@ DETTE_CONSTATEE = {
     # la classe E22 (la règle est appliquée à l'ÉDITION, pas à l'INSCRIPTION — 09:11Z, 10:22Z,
     # 11:31:51Z le 09/10, puis 10:35:40Z par la clé) : daté, nommé, jamais effacé.
     ("hulk-mexc/scripts/chiffrage_bag_amplitude.py", "2026-10-10T07:07:46Z"),
+    # ── 19/10/2026 — MA propre violation, défaut d'ORDRE (modif AVANT --declarer), radiation
+    # SUR ORDRE EXPLICITE (GO Christophe « go sur toute la ligne » 19/10), jamais blanchie.
+    # Acte : `strategie/derogations_regles.json` modifié (ajout mistral en R7) puis re-scellé à
+    # 18:56:10Z SANS pré-déclaration antérieure via le mécanisme (le GO existait en conversation,
+    # pas au store). Défaut de PROCÉDURE, pas une manipulation : contenu légitime (quota experiment
+    # 0 €), motif tracé au re-scellement. Leçon : --declarer AVANT de toucher, même avec un GO.
+    # Radié de l'alarme, JAMAIS effacé (daté, nommé ici et au registre §15). Même mécanisme.
+    ("Index_Maison/strategie/derogations_regles.json", "2026-10-19T18:56:10Z"),
+    # ── 19/10/2026 (suite) — MÊME DÉFAUT, 2ᵉ ACTE, 3 MIN PLUS TARD. Acte :
+    # `scripts/inventaire_seuils_fixes.py` modifié (rangement des 33 seuils BAG_/GBAG_/RUNNER_)
+    # à 18:57:44Z SANS --declarer préalable — alors que je venais de le faire correctement pour
+    # predemodifier.py et le registre 2 min plus tôt. Récidive E22 immédiate : la leçon écrite au §20
+    # (« --declarer AVANT ») n'a pas survécu 3 minutes. Contenu légitime (classement lu au code,
+    # 0 non classé, compile OK), forme fautive. Radié sur le MÊME GO, jamais effacé (ici + §20).
+    ("Index_Maison/scripts/inventaire_seuils_fixes.py", "2026-10-19T18:58:16Z"),
 }
 
 

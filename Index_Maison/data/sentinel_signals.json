@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.834461893212914,
-      "value": 3925801.0,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 72,\n\"reason\": \"Divergence critique : Anomalie onchain majeure (z-score 2.83, ~3.9M USD) détectée en l'absence totale de couverture médiatique (bruit de fond nul). Ce silence médiatique face à un flux de capitaux significatif suggère une accumulation silencieuse ou une restructuration de portefeuille par des acteurs institutionnels avant une rotation de marché, typique d'un setup haussier précoce.\"\n}",
-      "ts": "2026-10-18T13:31:13.282632+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.4088363663651653,
       "value": 1.614,
@@ -349,6 +342,13 @@
       "value": 0.958,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.23) détectée sur le ticker 'IPT', mais les données textuelles révèlent une confusion avec des homonymes (International Petroleum, IMPACT Silver, École Polytechnique). Aucun mouvement de baleine crypto avéré, le signal provient de bruits médiatiques non pertinents.\"\n}\n```",
       "ts": "2026-10-19T17:40:26.247539+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0566971980117064,
+      "value": 0.934,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (physique, actualités locales, homonymes boursiers). L'indicateur onchain 'ipt' ne correspond pas à un actif crypto majeur traçable, rendant toute détection de mouvement de baleine impossible.\"\n}\n```",
+      "ts": "2026-10-19T18:40:37.689951+00:00"
     }
   ]
 }
