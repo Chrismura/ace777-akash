@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.4144595288304345,
-      "value": 0.616,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : L'acronyme 'SDI' dans les titres médiatiques correspond à des entités non-crypto (Syndicat des Ingénieurs, SDI Corporation TWSE, ou Service de Défense). Aucune corrélation avec l'anomalie onchain détectée. Le narratif est déconnecté car il ne concerne pas le même actif.\"\n}",
-      "ts": "2026-10-18T06:33:28.670995+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2126122638632064,
-      "value": 1.107,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie statistique (z-score 2.21) sur IMPACT Silver (IPT) alors que les médias généralistes et boursiers se focalisent sur des bruits de fond (dépréciation d'actifs, actualités académiques ou sociétales). Classic accumulation silencieuse de baleines avant une revalorisation du projet Capire.\"\n}\n```",
-      "ts": "2026-10-18T06:58:35.872424+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 9.314548123380932,
-      "value": 10440465.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 9.31) indique un mouvement massif de fonds par des entités (baleines) dans le marché crypto, ce qui est généralement associé à une confiance accrue dans le marché. Cependant, l'absence de titres médiatiques significatifs suggère une possible sous-estimation par les médias de l'impact de ces mouvements. Cela pourrait indiquer une divergence entre les données brutes et le narratif médiatique, avec des baleines agissant silencieusement.\"\n}\n```",
-      "ts": "2026-10-18T07:33:46.926884+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.512356837375721,
       "value": 1.763,
@@ -349,6 +328,27 @@
       "value": 1.798,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.798 (z-score 2.56) indique une forte agression acheteuse cachée, totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive par les baleines avant un mouvement haussier.\"\n}\n```",
       "ts": "2026-10-19T13:38:20.628214+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.06346208123308,
+      "value": 5704198.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.06, ~$5.7M) dans un silence médiatique total (zéro couverture Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du retail.\"\n}\n```",
+      "ts": "2026-10-19T14:23:27.604198+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0431288696918664,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP/frais de transaction) noyée dans du bruit médiatique non financier (pharmacie, politique locale).\"\n}\n```",
+      "ts": "2026-10-19T14:28:47.257084+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0431288696918664,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent. Les résultats renvoyés par les médias concernent du cinéma, des actions traditionnelles (Dust SA) et des homonymes sans rapport avec la crypto-économie ou une baleine blockchain.\"\n}\n```",
+      "ts": "2026-10-19T14:28:57.659618+00:00"
     }
   ]
 }

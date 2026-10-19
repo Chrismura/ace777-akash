@@ -1,37 +1,132 @@
 {
-  "timestamp": 1792418281,
-  "date": "2026-10-19T13:58:01.690206+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792421582,
+  "date": "2026-10-19T14:53:02.760817+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.5579801320037014,
-        "value": 1.798,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.798 (z-score 2.56) indique une forte agression acheteuse cachée, totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive par les baleines avant un mouvement haussier.\"\n}\n```",
-        "ts": 1792417100.628214
+        "metric": "whale_usd",
+        "zscore": 3.06346208123308,
+        "value": 5704198.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.06, ~$5.7M) dans un silence médiatique total (zéro couverture Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du retail.\"\n}\n```",
+        "ts": 1792419807.604198
       },
-      "fiche": "taker_ratio",
+      "fiche": "whale_usd",
       "questions": {
-        "taker": {
-          "value": 1.798,
-          "seuil": 1,
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 501385.0,
+          "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.41,
+          "value": 0.3,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
         "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "action": "Observer, ne pas acheter sur un seul signal",
       "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.0431288696918664,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP/frais de transaction) noyée dans du bruit médiatique non financier (pharmacie, politique locale).\"\n}\n```",
+        "ts": 1792420127.257084
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 228,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.3,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0431288696918664,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent. Les résultats renvoyés par les médias concernent du cinéma, des actions traditionnelles (Dust SA) et des homonymes sans rapport avec la crypto-économie ou une baleine blockchain.\"\n}\n```",
+        "ts": 1792420137.659618
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 228,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.3,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
