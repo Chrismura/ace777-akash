@@ -1,41 +1,32 @@
 {
-  "ts": "2026-10-19T20:53:32Z",
+  "ts": "2026-10-19T21:53:55Z",
   "n_verifications": 25,
   "n_fails": 0,
   "n_fails_pendants": 0,
-  "n_warns": 3,
+  "n_warns": 2,
   "fails": [],
   "fails_pendants": [],
   "warns": [
     {
       "type": "murs",
+      "pair": "ETHUSDT",
+      "notre_bid_avg": 177592.18,
+      "ext_bid_5niv": 2610.31,
+      "notre_ask_avg": 173455.49,
+      "ext_ask_5niv": 345386.29,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    },
+    {
+      "type": "murs",
       "pair": "HBARUSDT",
       "notre_bid_avg": 30739.91,
-      "ext_bid_5niv": 551.6,
+      "ext_bid_5niv": 260.47,
       "notre_ask_avg": 26144.54,
-      "ext_ask_5niv": 301.36,
-      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
-    },
-    {
-      "type": "murs",
-      "pair": "QNTUSDT",
-      "notre_bid_avg": 4335.93,
-      "ext_bid_5niv": 196.07,
-      "notre_ask_avg": 4064.57,
-      "ext_ask_5niv": 1514.65,
-      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
-    },
-    {
-      "type": "murs",
-      "pair": "ZBCNUSDT",
-      "notre_bid_avg": 593.13,
-      "ext_bid_5niv": 112.12,
-      "notre_ask_avg": 707.19,
-      "ext_ask_5niv": 19.64,
+      "ext_ask_5niv": 271.04,
       "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
     }
   ],
   "persistance_ticks": 3,
   "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (bloquant après 3 ticks consécutifs) · murs = warning informatif",
-  "lecture": "⚠️ 3 warning(s) murs (carnet déséquilibré) — prix OK"
+  "lecture": "⚠️ 2 warning(s) murs (carnet déséquilibré) — prix OK"
 }
