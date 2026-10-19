@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -2.2360679774997854,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (53) combiné à un z-score fortement négatif (-2.24) signalant une volatilité anormale ou un manque de données significatives dans les flux médiatiques. Absence de mouvement directionnel clair des baleines.\"\n}\n```",
-      "ts": "2026-10-18T04:07:39.822225+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.0816659994661326,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (vide informationnel) couplée à un z-score de peur extrême (-2.08) malgré un marché neutre (53). Comportement classique d'accumulation silencieuse des baleines avant un retournement de tendance.\"\n}\n```",
-      "ts": "2026-10-18T04:37:46.462225+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": -2.0745585938731246,
       "value": 0.0,
@@ -349,6 +335,20 @@
       "value": 0.651929444821342,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.27) sur 1h combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une rupture de prix.\"\n}\n```",
       "ts": "2026-10-19T10:32:29.325648+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7556818843033777,
+      "value": 5419914.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.76, ~5.4M USD) totalement ignorée par les médias grand public. Absence de narratif médiatique combinée à une accumulation silencieuse.\"\n}\n```",
+      "ts": "2026-10-19T11:02:34.240237+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.462076381826066,
+      "value": 0.968,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.46) sur un ticker boursier traditionnel (International Petroleum Corp / IMPACT Silver) pollué par du bruit médiatique hétérogène (physique, religion, finance). Aucune activité crypto pertinente détectée.\"\n}\n```",
+      "ts": "2026-10-19T11:02:35.790117+00:00"
     }
   ]
 }
