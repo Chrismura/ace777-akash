@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.2746141434627067,
-      "value": 5651737.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une forte activité de liquidations (5651737.0) avec un z-score élevé (2.27), suggérant une divergence entre les données brutes et le narratif médiatique. Les titres médiatiques se concentrent sur des liquidations dans des secteurs spécifiques (viticulture, services locaux), tandis que les données onchain montrent une activité de liquidations massive et généralisée. Cela suggère que les baleines crypto sont en mouvement, mais le narratif médiatique est déconnecté de cette réalité, se concentrant sur des détails locaux plutôt que sur les tendances globales.\"\n}\n```",
-      "ts": "2026-10-18T01:36:44.826621+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.8729833462074166,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice de peur/avidité de 53 avec un z-score de -3.87 indique un marché en phase de correction ou de panique, ce qui suggère une divergence entre les données brutes et le narratif médiatique optimiste. Les titres médiatisés ne reflètent pas l'anxiété du marché, indiquant un mouvement silencieux de fonds vers des actifs plus sûrs ou une anticipation de baisse.\"\n}\n```",
-      "ts": "2026-10-18T01:36:46.767912+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.6720950866962676,
-      "value": 0.3574090109255801,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.67) détectant une volatilité anormale couplée à un silence total dans les médias (0 actualité). Signal typique d'accumulation furtive par des baleines loin des radars de la foule.\"\n}\n```",
-      "ts": "2026-10-18T01:41:49.055033+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.5958812259143236,
-      "value": 3001779.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.60, ~3M USD) totalement ignorée par les médias (silence radio de Google Actualités). Accumulation furtive en cours hors du radar médiatique.\"\n}\n```",
-      "ts": "2026-10-18T02:06:53.302977+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.316624790355405,
-      "value": 53,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-3.32) malgré un sentiment neutre (53) et un vide médiatique total (Google Actualités muet). Le silence des médias combiné à une anomalie statistique onchain indique une accumulation furtive des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-18T02:06:54.607096+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 4.285123488467454,
       "value": 4570845.0,
@@ -349,6 +314,41 @@
       "value": 59,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité modéré (59) sans anomalie majeure de volume (z-score 2.60 peu significatif pour un choc directionnel). Absence de narratif médiatique saillant pour contraster. Pas de mouvement furtif de baleine détecté à ce stade.\"\n}\n```",
       "ts": "2026-10-19T07:56:33.021273+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.642902808640567,
+      "value": 3622240.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Activité anormale des baleines (z-score 2.64, ~3.6M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive typique hors du radar public.\"\n}\n```",
+      "ts": "2026-10-19T08:06:36.791304+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 4.860847188148387,
+      "value": 11479418.0,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Faux positif contextuel : le z-score élevé capte du bruit sémantique (faillites d'entreprises traditionnelles) et non des liquidations crypto massives. Le narratif médiatique macroéconomique anxiogène pèse lourdement sur le sentiment de marché, créant un risque de contagion baissière par panique psychologique.\"\n}\n```",
+      "ts": "2026-10-19T08:06:38.559095+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.386980188146656,
+      "value": 59,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.39) sur l'indice de peur et de cupidité couplé à un vide médiatique total (Google Actualités sans bruit de fond). C'est la signature classique d'accumulation silencieuse par les baleines avant que le retail ne se réveille.\"\n}\n```",
+      "ts": "2026-10-19T08:26:43.381440+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.9819810902232153,
+      "value": 11448458.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte de données : les 'liquidations' mentionnées dans le narratif médiatique font référence à des faillances d'entreprises traditionnelles (automobile, viticulture), sans lien avec le marché crypto ou l'activité des baleines.\"\n}\n```",
+      "ts": "2026-10-19T08:36:46.321899+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.5529436534907997,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique pure (z-score -2.55) sans rapport avec la crypto. Les titres médiatiques traitent de voitures, de coiffure, de saumon et d'éducation. Bruit absolu, aucune baleine identifiée.\"\n}\n```",
+      "ts": "2026-10-19T08:52:05.843294+00:00"
     }
   ]
 }
