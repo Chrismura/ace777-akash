@@ -8063,3 +8063,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-19T08:49:24Z — ALERT auto
 - ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-19T12:13:11Z — ALERT auto
+- RWAINCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-19T12:28:01Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
