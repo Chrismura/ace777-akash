@@ -1,7 +1,7 @@
 {
-  "timestamp": 1792399675,
-  "date": "2026-10-19T08:47:55.857924+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792399975,
+  "date": "2026-10-19T08:52:55.960424+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
@@ -66,6 +66,21 @@
       },
       "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
       "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": -2.5529436534907997,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique pure (z-score -2.55) sans rapport avec la crypto. Les titres médiatiques traitent de voitures, de coiffure, de saumon et d'éducation. Bruit absolu, aucune baleine identifiée.\"\n}\n```",
+        "ts": 1792399925.843294
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
