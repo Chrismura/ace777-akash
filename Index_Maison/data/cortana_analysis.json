@@ -1,96 +1,45 @@
 {
-  "timestamp": 1792421882,
-  "date": "2026-10-19T14:58:02.860482+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792425483,
+  "date": "2026-10-19T15:58:03.958528+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.0431288696918664,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP/frais de transaction) noyée dans du bruit médiatique non financier (pharmacie, politique locale).\"\n}\n```",
-        "ts": 1792420127.257084
+        "metric": "ipt",
+        "zscore": 2.0364374085345824,
+        "value": 0.843,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.04) sans lien avec la crypto. Bruit médiatique lié à des homonymes boursiers (International Petroleum Corp, IMPACT Silver) et académiques (École Polytechnique). Aucune baleine crypto détectée.\"\n}\n```",
+        "ts": 1792425256.642421
       },
-      "fiche": "blocs_privilises",
+      "fiche": "rbf_eleve",
       "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
+        "prix": {
+          "value": -0.37,
+          "seuil": 1,
           "depasse": false
         },
-        "volume": {
-          "value": 46,
-          "seuil": 0,
-          "depasse": true
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
         },
-        "prix": {
-          "value": 0.11,
-          "seuil": 0,
-          "depasse": true
+        "funding": {
+          "value": 8e-05,
+          "seuil": 0.001,
+          "depasse": false
         },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
         "niveau": "neutre",
-        "action": "Garder les positions"
+        "action": "Observer"
       },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.0431288696918664,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent. Les résultats renvoyés par les médias concernent du cinéma, des actions traditionnelles (Dust SA) et des homonymes sans rapport avec la crypto-économie ou une baleine blockchain.\"\n}\n```",
-        "ts": 1792420137.659618
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 46,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.11,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
+      "action": "Observer",
       "niveau": "neutre"
     }
   ],

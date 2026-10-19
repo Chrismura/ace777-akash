@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.512356837375721,
-      "value": 1.763,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.763 (z-score 2.51) indique une forte dominance des acheteurs agressifs (Taker Buy), signalant une accumulation agressive par les baleines. L'absence totale de couverture médiatique (silence radio sur Google Actualités) prouve que ce mouvement se fait sous le radar, loin du FOMO public. C'est un classique 'smart money accumulation'.\"\n}\n```",
-      "ts": "2026-10-18T08:14:21.380936+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 4.1341397347114945,
-      "value": 2.242,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 2.242 (Z-score 4.13) indique une agression massive des acheteurs sur le carnet d'ordres, totalement ignorée par les médias (silence radio). Accumulation furtive des baleines sous le radar.\"\n}\n```",
-      "ts": "2026-10-18T10:05:29.993724+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.0152038195402726,
       "value": 1.667,
@@ -349,6 +335,20 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent. Les résultats renvoyés par les médias concernent du cinéma, des actions traditionnelles (Dust SA) et des homonymes sans rapport avec la crypto-économie ou une baleine blockchain.\"\n}\n```",
       "ts": "2026-10-19T14:28:57.659618+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0868284460527056,
+      "value": 0.848,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique non pertinente : les données 'onchain' capturées concernent des actions traditionnelles (International Petroleum Corp / IMPACT Silver Corp, ticker IPT) et non un protocole crypto, créant un bruit de fond sans lien avec la DeFi.\"\n}\n```",
+      "ts": "2026-10-19T15:24:08.988558+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0364374085345824,
+      "value": 0.843,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.04) sans lien avec la crypto. Bruit médiatique lié à des homonymes boursiers (International Petroleum Corp, IMPACT Silver) et académiques (École Polytechnique). Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-19T15:54:16.642421+00:00"
     }
   ]
 }
