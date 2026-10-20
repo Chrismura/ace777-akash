@@ -1,43 +1,62 @@
 {
-  "timestamp": 1792520613,
-  "date": "2026-10-20T18:23:33.181740+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792523914,
+  "date": "2026-10-20T19:18:34.253246+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 18.32244371926382,
-        "value": 21786049.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score massif de 18.32 (21.7M$ de flux baleines) totalement absent du radar médiatique (Google Actualités muet). Accumulation furtive classique avant un mouvement de marché majeur.\"\n}\n```",
-        "ts": 1792520214.837094
+        "metric": "sdi",
+        "zscore": 2.0435498949957958,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"L'anomalie onchain (SDI = 0.616, z-score 2.04) pourrait indiquer une activité anormale, mais les titres médiatiques ne mentionnent pas de mouvements de marché spécifiques. Le narratif médiatique est centré sur des violences urbaines et des réclamations commerciales, sans lien direct avec les données onchain. Les baleines pourraient bouger silencieusement, mais le narratif médiatique semble déconnecté de cette activité.\"\n}\n```",
+        "ts": 1792523242.997085
       },
-      "fiche": "whale_usd",
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.475787515145281,
+        "value": 1.2,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative (ipt = 1.2, z-score 2.48), suggérant un mouvement de fonds potentiellement négatif. Cependant, les titres médiatiques ne mentionnent pas cette anomalie, ce qui indique une possible déconnexion entre les données onchain et le narratif médiatique. Les titres médiatiques sont centrés sur des sujets divers (éducation, entreprise, etc.), sans référence à l'activité anormale sur la blockchain, ce qui renforce l'hypothèse d'un mouvement de fonds silencieux.\"\n}\n```",
+        "ts": 1792523245.215402
+      },
+      "fiche": "rbf_eleve",
       "questions": {
-        "ventes": {
-          "value": 1975495.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
+        "prix": {
+          "value": -0.01,
+          "seuil": 1,
           "depasse": false
         },
-        "prix": {
-          "value": -0.22,
-          "seuil": 1,
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T18:23:32.278699+00:00",
+  "generated_at": "2026-10-20T19:22:45.075065+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 156
+      "calls_24h": 145
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "qwen/qwen3.8-27b",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 5
+      "calls_24h": 6
     },
     {
       "id": "nvidia",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 1
+      "calls_24h": 3
     },
     {
       "id": "cloudflare-workers-ai",
@@ -319,191 +319,191 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 114,
-    "remaining": 510
+    "consumed": 141,
+    "remaining": 483
   },
   "queue": [
     {
-      "ts": "2026-10-20T18:22:30.720573+00:00",
+      "ts": "2026-10-20T19:22:27.150105+00:00",
       "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 10.87
-    },
-    {
-      "ts": "2026-10-20T18:21:32.447135+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 11.06
-    },
-    {
-      "ts": "2026-10-20T18:16:54.835851+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 5.25
-    },
-    {
-      "ts": "2026-10-20T18:01:55.997076+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 5.84
-    },
-    {
-      "ts": "2026-10-20T18:01:50.133849+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 5.7
-    },
-    {
-      "ts": "2026-10-20T18:01:44.409599+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 10.68
-    },
-    {
-      "ts": "2026-10-20T18:01:33.706118+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 11.2
-    },
-    {
-      "ts": "2026-10-20T18:01:22.479251+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 17.05
-    },
-    {
-      "ts": "2026-10-20T18:01:05.401395+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 12.01
-    },
-    {
-      "ts": "2026-10-20T18:00:53.362498+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.6
-    },
-    {
-      "ts": "2026-10-20T18:00:45.409676+00:00",
-      "task": "analyste.strategie",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 209.12
-    },
-    {
-      "ts": "2026-10-20T17:57:22.537566+00:00",
-      "task": "analyste.strategie",
       "provider": "groq",
       "model": "qwen/qwen3.8-27b",
       "kind": "cloud",
-      "duration_s": 0.63
+      "duration_s": 0.99
     },
     {
-      "ts": "2026-10-20T17:51:45.346890+00:00",
+      "ts": "2026-10-20T19:07:25.214294+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.52
+    },
+    {
+      "ts": "2026-10-20T19:07:22.995634+00:00",
+      "task": "analyse.profonde",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.91
+    },
+    {
+      "ts": "2026-10-20T18:40:24.342308+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 10.43
+    },
+    {
+      "ts": "2026-10-20T18:40:13.881057+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 9.28
+    },
+    {
+      "ts": "2026-10-20T18:40:03.453217+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 16.12
+    },
+    {
+      "ts": "2026-10-20T18:39:47.300198+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 15.29
+    },
+    {
+      "ts": "2026-10-20T18:39:39.003076+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 83.07
+    },
+    {
+      "ts": "2026-10-20T18:39:26.755692+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 11.08
+    },
+    {
+      "ts": "2026-10-20T18:38:14.763332+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 16.59
+    },
+    {
+      "ts": "2026-10-20T18:37:58.082976+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 7.28
+    },
+    {
+      "ts": "2026-10-20T18:37:45.946332+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 29.92
+    },
+    {
+      "ts": "2026-10-20T18:37:15.998713+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 17.69
+    },
+    {
+      "ts": "2026-10-20T18:37:15.483725+00:00",
       "task": "analyse.profonde",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 8.04
+      "duration_s": 7.64
     },
     {
-      "ts": "2026-10-20T17:51:36.440848+00:00",
+      "ts": "2026-10-20T18:37:07.024279+00:00",
       "task": "analyse.profonde",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 6.93
-    },
-    {
-      "ts": "2026-10-20T17:21:20.983103+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 9.37
+      "duration_s": 8.19
     }
   ],
   "events": [
     {
-      "ts": "2026-10-20T18:22:30.720015+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-20T18:21:32.446679+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-20T18:21:24.077256+00:00",
-      "kind": "timeout",
-      "title": "Patience Google Gemini (HTTP 503)",
-      "detail": "HTTP Error 503: Service Unavailable"
-    },
-    {
-      "ts": "2026-10-20T18:16:54.835281+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-20T18:16:49.580619+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-10-20T18:15:35.883535+00:00",
+      "ts": "2026-10-20T19:22:31.726557+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-20T18:15:35.883351+00:00",
+      "ts": "2026-10-20T19:22:31.726269+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests | Roulement xingchen-agi/xing4.0-29b-a4b:free: Reponse vide"
+      "detail": "Google Gemini: blacklist du jour (saute) | Groq (Qwen 3.8 27B, gratuit): blacklist du jour (saute) | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests | Roulement xingchen-agi/xing4.0-29b-a4b:free: HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-20T18:15:35.882999+00:00",
+      "ts": "2026-10-20T19:22:31.724541+00:00",
       "kind": "failover",
       "title": "Bascule depuis Roulement xingchen-agi/xing4.0-29b-a4b:free",
-      "detail": "Reponse vide"
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-20T18:15:22.624280+00:00",
+      "ts": "2026-10-20T19:22:27.149643+00:00",
+      "kind": "message",
+      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
+      "detail": "bascule"
+    },
+    {
+      "ts": "2026-10-20T19:22:26.159257+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Groq (Qwen 3.8 27B, gratuit)",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-10-20T19:22:26.159013+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-10-20T19:22:26.003033+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-20T18:15:21.423003+00:00",
+      "ts": "2026-10-20T19:22:21.223726+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-20T19:22:16.228649+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-20T19:22:15.886365+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
