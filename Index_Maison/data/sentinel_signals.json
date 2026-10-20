@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 2.7556818843033777,
-      "value": 5419914.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.76, ~5.4M USD) totalement ignorée par les médias grand public. Absence de narratif médiatique combinée à une accumulation silencieuse.\"\n}\n```",
-      "ts": "2026-10-19T11:02:34.240237+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.462076381826066,
       "value": 0.968,
@@ -349,6 +342,13 @@
       "value": 1.135,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une confusion de ticker. L'anomalie détectée concerne des actions traditionnelles (International Petroleum Corp - HAM:IPT) ou des homonymes institutionnels (École polytechnique), sans lien avec un actif crypto significatif.\"\n}\n```",
       "ts": "2026-10-20T15:54:58.566594+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.010314404617097,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie non pertinente : les données font référence au SDI (Syndicat des Indépendants et TPE) et à l'actualité politique/sociale française, et non à une métrique on-chain ou à des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-20T16:20:21.908786+00:00"
     }
   ]
 }
