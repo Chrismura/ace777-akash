@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 3.4368865606668857,
-      "value": 11447143.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de liquidation onchain (11,4M$, z-score 3.44) corrélée à une panique médiatique généralisée sur les défaillances économiques (faillites d'entreprises, viticulture, automobile). Les baleines profitent de la capitulation et du stress macroéconomique pour purger le marché.\"\n}\n```",
-      "ts": "2026-10-19T09:07:10.678184+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.0582428516488602,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (2.06) indiquant une gourmandise locale au-dessus de la normale, mais absence de narratif médiatique contradictoire majeur pour valider une divergence cachée de baleines.\"\n}\n```",
-      "ts": "2026-10-19T09:27:15.128697+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 3.1409239798108044,
       "value": 11710656.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une forte activité de liquidations (11710656.0) avec un z-score élevé (3.14), suggérant une divergence potentielle entre les données onchain et le narratif médiatique. Les titres médiatiques se concentrent sur des liquidations spécifiques dans des secteurs particuliers, tandis que les données onchain montrent une activité de liquidation globale et significative. Cela pourrait indiquer que les baleines crypto sont en mouvement, et que le narratif médiatique est déconnecté de la réalité des marchés.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.083,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (confusion entre le ticker boursier HAM:IPT, IMPACT Silver et des actualités institutionnelles). Aucune donnée onchain crypto valide pour 'IPT'.\"\n}\n```",
       "ts": "2026-10-20T14:43:02.748956+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.192980280404831,
+      "value": 1.48,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.19) malgré un ratio long/short à 1.48 montrant un posicionnement contrarien fort. Les médias parlent de fonds traditionnels et d'incertitude macro, ignorant totalement l'accumulation silencieuse des gros porteurs sur les dérivés.\"\n}\n```",
+      "ts": "2026-10-20T15:03:35.371159+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.6274522721854905,
+      "value": 0.918092377768831,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données narratives exploitables (titre vide/générique). Impossible d'évaluer la divergence entre l'anomalie onchain (z-score 3.63) et le sentiment médiatique sans contexte textuel. Signal insuffisant pour détecter un mouvement de baleine silencieux.\"\n}\n```",
+      "ts": "2026-10-20T15:13:37.088510+00:00"
     }
   ]
 }

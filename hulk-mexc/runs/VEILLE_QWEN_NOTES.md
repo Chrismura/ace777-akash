@@ -8157,3 +8157,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-20T14:44:13Z — ALERT auto
 - PYTHUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-20T15:13:14Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-20T15:14:41Z — ALERT auto
+- CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

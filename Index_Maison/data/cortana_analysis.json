@@ -1,98 +1,37 @@
 {
-  "timestamp": 1792508309,
-  "date": "2026-10-20T14:58:29.505939+00:00",
-  "n_analyses": 3,
+  "timestamp": 1792509209,
+  "date": "2026-10-20T15:13:29.832721+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 7.500381156583721,
-        "value": 1.3823140962809566,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 7.50 sur 1h combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une rupture de prix.\"\n}\n```",
-        "ts": 1792507322.452675
+        "metric": "long_short",
+        "zscore": -2.192980280404831,
+        "value": 1.48,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.19) malgré un ratio long/short à 1.48 montrant un posicionnement contrarien fort. Les médias parlent de fonds traditionnels et d'incertitude macro, ignorant totalement l'accumulation silencieuse des gros porteurs sur les dérivés.\"\n}\n```",
+        "ts": 1792508615.371159
       },
-      "fiche": "price_1h",
+      "fiche": "long_short",
       "questions": {
-        "pct_1h": {
-          "value": 1.35,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 6676468.0,
-          "seuil": 5000000,
-          "depasse": true
-        },
-        "funding": {
-          "value": 6.2e-05,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "condition": "liq > 5000000",
-        "lecture": "Chute avec liquidations massives — éjection de leviers en chaîne. Souvent un creux mécanique, pas une tendance",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la panique, attendre la fin des cascades (liq qui retombe)"
-      },
-      "action": "Ne pas vendre dans la panique, attendre la fin des cascades (liq qui retombe)",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 2.1983206601699523,
-        "value": 0.616,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte sémantique : l'acronyme 'SDI' dans les médias désigne le 'Syndicat des Indépendants' (commerçants), totalement déconnecté de la blockchain ou des mouvements de baleines crypto.\"\n}\n```",
-        "ts": 1792507348.771609
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.2518999428921007,
-        "value": 1.083,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (confusion entre le ticker boursier HAM:IPT, IMPACT Silver et des actualités institutionnelles). Aucune donnée onchain crypto valide pour 'IPT'.\"\n}\n```",
-        "ts": 1792507382.748956
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 1.35,
-          "seuil": 1,
-          "depasse": true
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
+        "ratio_long_short": {
+          "value": 1.48,
+          "seuil": 2,
           "depasse": false
         },
-        "funding": {
-          "value": 6.2e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 3,
-          "seuil": 5,
+        "oi": {
+          "value": 95535.593,
+          "seuil": 120000,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "prix > 1%",
-        "lecture": "Momentum haussier — les acteurs accélèrent pour acheter",
-        "niveau": "haussier",
-        "action": "Garder les positions, profiter du momentum"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Garder les positions, profiter du momentum",
-      "niveau": "haussier"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
