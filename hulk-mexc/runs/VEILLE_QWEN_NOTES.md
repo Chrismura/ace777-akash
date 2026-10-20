@@ -8079,3 +8079,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-19T17:00:12Z — ALERT auto
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-20T02:30:14Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
