@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.8792920276771428,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.88) couplé à un Greed modéré (59) sans surchauffe médiatique (Google Actualités vide). C'est la signature classique d'une accumulation silencieuse de baleines sous le radar du retail.\"\n}\n```",
-      "ts": "2026-10-19T07:26:24.022272+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 6.565898873690339,
-      "value": 11452292.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : les titres médiatiques font référence à des faillances d'entreprises traditionnelles (automobile, viticulture, commerce), tandis que les données onchain mesurent des liquidations de positions crypto. Aucune divergence de baleine crypto, simple confusion lexicale.\"\n}\n```",
-      "ts": "2026-10-19T07:36:27.164561+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0048443618637712,
-      "value": 0.843,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique erronée : confusion entre des métriques de cryptomonnaie et des actualités boursières traditionnelles (International Petroleum Corp / IMPACT Silver) sans lien avec la blockchain.\"\n}\n```",
-      "ts": "2026-10-19T07:46:29.887973+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.604569788618416,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité modéré (59) sans anomalie majeure de volume (z-score 2.60 peu significatif pour un choc directionnel). Absence de narratif médiatique saillant pour contraster. Pas de mouvement furtif de baleine détecté à ce stade.\"\n}\n```",
-      "ts": "2026-10-19T07:56:33.021273+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.642902808640567,
-      "value": 3622240.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 82,\n  \"reason\": \"Activité anormale des baleines (z-score 2.64, ~3.6M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive typique hors du radar public.\"\n}\n```",
-      "ts": "2026-10-19T08:06:36.791304+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.860847188148387,
-      "value": 11479418.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Faux positif contextuel : le z-score élevé capte du bruit sémantique (faillites d'entreprises traditionnelles) et non des liquidations crypto massives. Le narratif médiatique macroéconomique anxiogène pèse lourdement sur le sentiment de marché, créant un risque de contagion baissière par panique psychologique.\"\n}\n```",
-      "ts": "2026-10-19T08:06:38.559095+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.386980188146656,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.39) sur l'indice de peur et de cupidité couplé à un vide médiatique total (Google Actualités sans bruit de fond). C'est la signature classique d'accumulation silencieuse par les baleines avant que le retail ne se réveille.\"\n}\n```",
-      "ts": "2026-10-19T08:26:43.381440+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.9819810902232153,
       "value": 11448458.0,
@@ -349,6 +300,55 @@
       "value": 9637061.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.73, ~9.6M USD) sans couverture médiatique significative. Accumulation silencieuse des baleines en dehors du radar public.\"\n}\n```",
       "ts": "2026-10-20T13:05:01.353523+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.1909628025148224,
+      "value": 8295429734.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le z-score négatif prononcé (-2.19) combiné à un bruit médiatique sans rapport avec la crypto (énergie, automobile, éducation) et un ralentissement en Corée indique une indifférence totale du grand public. Les baleines accumulent dans le silence absolu pendant l'apathie du marché.\"\n}\n```",
+      "ts": "2026-10-20T13:20:19.568912+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.272240889974907,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Confusion sémantique : Le SDI détecté par les métriques on-chain ne correspond pas au 'Syndicat des Indépendants' (SDI) mentionné dans l'actualité française. Aucune baleine crypto identifiée ; il s'agit d'un bruit médiatique sans lien avec la blockchain.\"\n}\n```",
+      "ts": "2026-10-20T13:35:32.879798+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2858278645478034,
+      "value": 1.067,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée sur un ticker boursier traditionnel (International Petroleum Corp / IMPACT Silver) et non sur un actif crypto. Bruit médiatique sans rapport avec des mouvements de baleines cryptographiques.\"\n}\n```",
+      "ts": "2026-10-20T13:35:47.455206+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": -2.056328877513564,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP à zéro) noyée dans du bruit médiatique sans rapport avec l'activité des baleines crypto.\"\n}\n```",
+      "ts": "2026-10-20T13:35:58.944737+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": -2.056328877513564,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (cinéma, actions traditionnelles, actualité locale). L'anomalie onchain 'dust = 0' est un artéfact ou un bruit statistique sans lien avec les baleines crypto, car aucun actif crypto majeur n'est associé à ces flux.\"\n}\n```",
+      "ts": "2026-10-20T13:36:02.341020+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.017339340151171,
+      "value": 8330013985.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score négatif massif (-2.02) et la baisse des volumes d'échange retail (Upbit) traduisent une apathie du grand public et un assèchement de la liquidité, souvent synonymes d'accumulation discrète par les baleines (silence onchain) avant un retournement de tendance.\"\n}\n```",
+      "ts": "2026-10-20T13:51:11.828377+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 9.047671040375246,
+      "value": 1.0753252247797107,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 9.05 détecté sur 1h sans aucune couverture médiatique (Google Actualités vide). Divergence totale : accumulation silencieuse massive des baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-10-20T14:11:37.028471+00:00"
     }
   ]
 }

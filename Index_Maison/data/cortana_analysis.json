@@ -1,22 +1,22 @@
 {
-  "timestamp": 1792502007,
-  "date": "2026-10-20T13:13:27.536862+00:00",
+  "timestamp": 1792505608,
+  "date": "2026-10-20T14:13:28.665357+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.333948299431257,
-        "value": 8329191493.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non pertinente (bruit de fond, confusion sémantique des actualités avec des secteurs non-crypto).\"\n}\n```",
-        "ts": 1792500595.794149
+        "zscore": -2.017339340151171,
+        "value": 8330013985.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score négatif massif (-2.02) et la baisse des volumes d'échange retail (Upbit) traduisent une apathie du grand public et un assèchement de la liquidité, souvent synonymes d'accumulation discrète par les baleines (silence onchain) avant un retournement de tendance.\"\n}\n```",
+        "ts": 1792504271.828377
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.22,
+          "value": 1.22,
           "seuil": 1,
-          "depasse": false
+          "depasse": true
         },
         "paires": {
           "value": 0,
@@ -24,58 +24,60 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.9e-05,
+          "value": 4.5e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "prix > 1%",
+        "lecture": "Momentum haussier — les acteurs accélèrent pour acheter",
+        "niveau": "haussier",
+        "action": "Garder les positions, profiter du momentum"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Garder les positions, profiter du momentum",
+      "niveau": "haussier"
     },
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 8.734741296294109,
-        "value": 9637061.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.73, ~9.6M USD) sans couverture médiatique significative. Accumulation silencieuse des baleines en dehors du radar public.\"\n}\n```",
-        "ts": 1792501501.353523
+        "metric": "price_1h",
+        "zscore": 9.047671040375246,
+        "value": 1.0753252247797107,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 9.05 détecté sur 1h sans aucune couverture médiatique (Google Actualités vide). Divergence totale : accumulation silencieuse massive des baleines loin du radar grand public.\"\n}\n```",
+        "ts": 1792505497.028471
       },
-      "fiche": "whale_usd",
+      "fiche": "price_1h",
       "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
+        "pct_1h": {
+          "value": 1.22,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 3120375.0,
+          "seuil": 5000000,
           "depasse": false
         },
-        "achats": {
-          "value": 0.0,
+        "funding": {
+          "value": 4.5e-05,
           "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.22,
-          "seuil": 1,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "pct_1h > 1",
+        "lecture": "Impulsion haussière rapide — vérifier si le funding s'emballe (surchauffe longs)",
+        "niveau": "surveiller",
+        "action": "Laisser courir les paliers RIP, ne pas courir après"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Laisser courir les paliers RIP, ne pas courir après",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
