@@ -1,20 +1,35 @@
 {
-  "timestamp": 1792516711,
-  "date": "2026-10-20T17:18:31.984095+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792519112,
+  "date": "2026-10-20T17:58:32.705922+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
+        "metric": "sdi",
+        "zscore": 2.0774045931691205,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif contextuel : Le 'SDI' dans les médias désigne le 'Syndicat des Indépendants' (commerçants), totalement déconnecté de la métrique on-chain. Aucune baleine crypto détectée.\"\n}\n```",
+        "ts": 1792518696.442474
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
         "metric": "ipt",
-        "zscore": 2.0883060891578076,
-        "value": 1.086,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée sur un ticker boursier (IPT / International Petroleum Corp / IMPACT Silver) et non sur une cryptomonnaie on-chain. Bruit médiatique sans rapport avec une activité de baleine crypto.\"\n}\n```",
-        "ts": 1792516582.411357
+        "zscore": 2.614981373277531,
+        "value": 1.226,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.61) sur le ticker IPT détectée, mais les actualités font référence à un bruit médiatique hétérogène (International Petroleum, IMPACT Silver, École polytechnique). Aucune baleine crypto identifiée ; confusion probable entre des actifs traditionnels/actions (HAM:IPT, TSX:IPT) et la sentinelle.\"\n}\n```",
+        "ts": 1792518705.34768
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.0,
+          "value": 0.14,
           "seuil": 1,
           "depasse": false
         },

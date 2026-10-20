@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.5579801320037014,
-      "value": 1.798,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.798 (z-score 2.56) indique une forte agression acheteuse cachée, totalement ignorée par les médias (silence radio). Divergence classique d'accumulation furtive par les baleines avant un mouvement haussier.\"\n}\n```",
-      "ts": "2026-10-19T13:38:20.628214+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.06346208123308,
-      "value": 5704198.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.06, ~$5.7M) dans un silence médiatique total (zéro couverture Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant le réveil du retail.\"\n}\n```",
-      "ts": "2026-10-19T14:23:27.604198+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.0431288696918664,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 1.086,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée sur un ticker boursier (IPT / International Petroleum Corp / IMPACT Silver) et non sur une cryptomonnaie on-chain. Bruit médiatique sans rapport avec une activité de baleine crypto.\"\n}\n```",
       "ts": "2026-10-20T17:16:22.411357+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0774045931691205,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif contextuel : Le 'SDI' dans les médias désigne le 'Syndicat des Indépendants' (commerçants), totalement déconnecté de la métrique on-chain. Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-20T17:51:36.442474+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.614981373277531,
+      "value": 1.226,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.61) sur le ticker IPT détectée, mais les actualités font référence à un bruit médiatique hétérogène (International Petroleum, IMPACT Silver, École polytechnique). Aucune baleine crypto identifiée ; confusion probable entre des actifs traditionnels/actions (HAM:IPT, TSX:IPT) et la sentinelle.\"\n}\n```",
+      "ts": "2026-10-20T17:51:45.347680+00:00"
     }
   ]
 }

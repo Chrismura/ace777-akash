@@ -2656,6 +2656,13 @@ class PaperBot:
         if left <= full_qty * 0.001:
             self.pos.pop(pair, None)
             self.arm_reentry(pair, price, high)
+            # VERITE 20/10/2026 (GO « corrige une derniere fois ») : la poussiere
+            # abandonnee par le pop (<= 0,1 %) est LOGGUEE (DUST_DROP, pnl 0),
+            # jamais silencieuse — la sentinelle la soustrait de son replay.
+            if left > 1e-12:
+                self.log(pair, "DUST_DROP", p.get("regime", ""), price, entry,
+                         left, 0.0, p.get("cadence"),
+                         f"dust_pop_0.1pct_{reason}")
         else:
             p["qty"] = left
         return proceeds
@@ -2733,9 +2740,18 @@ class PaperBot:
                     "bag",
                     f"[{utc_now()}] RUNNER ARM   {pair}  px={price:.6f}  "
                     f"conservation≈{price*cons_qty:.2f}$ — trailing amplitude "
-                    f"(arm {self.runner_arm_mult}×amp7, gb {self.runner_gb_frac}×arm, "
-                    f"stop pic {self.runner_stop_mult}×amp7)",
+                    f"(arm {self.runner_arm_mult}×amp7, gb {self.runner_gb_frac}×arm, "                           f"stop pic {self.runner_stop_mult}×amp7)",
                 )
+            # VERITE 20/10/2026 (GO « corrige une derniere fois ») : le copeau
+            # abandonne par le pop inconditionnel (demande − vendu reel, copeau
+            # lot-floor) est LOGGUE (DUST_DROP, pnl 0), jamais silencieux.
+            _vendu_reel = proceeds / price if price > 0 else 0.0
+            _garde_total = (keep_qty if keep_qty > 1e-12 else 0.0) \
+                + (cons_qty if cons_qty > 1e-12 else 0.0)
+            _copeau = qty - _vendu_reel - _garde_total
+            if _copeau > 1e-12:
+                self.log(pair, "DUST_DROP", regime, price, entry, _copeau, 0.0,
+                         cad, f"dust_stake_out_{self.double_mult:.0f}x")
             self.pos.pop(pair, None)
 
     def manage_conservation(self, pair: str, price: float, sc: dict):

@@ -21,6 +21,13 @@ SPEC FIGÉE AVANT LE PREMIER RUN (anti data-snooping) :
      étant LU sur la chaîne déclarée (« 19.92 » → 0.01 ; « 0.08207455429497568 » →
      pleine précision, la tolérance relative prend alors le relais). Reste flagué : tout
      écart PLUS GRAND que la résolution de la déclaration — donc tout vrai trou.
+     AMENDEMENT POUSSIÈRE 20/10/2026 (GO « corrige une dernière fois ») — preuve
+     forensique sur 109 099 lignes : 5 paires rejouaient +0,002/+0,011 jetons au-dessus
+     du déclaré, TOUTES = poussière documentée du moteur (pop ≤ 0,1 % sell_trade +
+     copeaux lot-floor du stake-out, valeur totale ~0,005 $). Depuis ce jour le moteur
+     LOGGUE chaque abandon (DUST_DROP, pnl 0) ; la sentinelle soustrait le loggué et
+     simule la règle pour l'historique. Un DUST_DROP qui contredit la simulation =
+     journal mensonger → CRITIQUE. Zéro faux positif, zéro trou masqué.
   C3 BATTEMENT DE CŒUR : state.ts plus vieux que 30 min (le moteur écrit ~toutes les 20 s,
      tolérance large pour le réseau partagé) → CRITIQUE.
   C4 GARDE ABSOLUE : pnl_total < -20.00 $ (= base_notional 20 $ intégralement perdu) → CRITIQUE.
@@ -77,36 +84,158 @@ def pas_ecriture(valeur):
 
 
 def replay_csv(chemin):
-    """Rejoue le CSV brut : realized PnL + qty nette par paire + pas d'écriture observé.
-    Retourne (pnl, {paire: qty}, n_trades, {paire: pas})."""
+    """Rejoue le CSV brut : realized PnL + qty nette par paire + pas d'écriture
+    observé + POUSSIÈRE documentée.
+    Retourne (pnl, {paire: qty}, n_trades, {paire: pas}, {paire: dust},
+              {paire: dust_usd}, [mensonges]).
+    AMENDEMENT POUSSIÈRE 20/10/2026 (GO « corrige une dernière fois », preuve
+    forensique sur 109 099 lignes : 19 paires à l'écart 0.000000000, 5 paires à
+    +0.002/+0.011 jetons TOUTES expliquées) : le moteur abandonne sans vente
+      (a) les restes ≤ 0,1 % d'une position (pop sell_trade, ligne ~2657),
+      (b) les copeaux lot-floor du stake-out (pop inconditionnel stake_out_half).
+    Depuis le fix, chaque abandon est LOGGUÉ (DUST_DROP, pnl 0) ; pour
+    l'historique antérieur, la règle est SIMULÉE (lifecycle exact de la position :
+    core_trend retire du tradable, house/conservation vident, trend_add BAG_DCA
+    renforce le TRADABLE — vérifié CHIP/RWAINC à 0.000000000 près).
+    dust[paire] = loggué + simulé-non-loggué. mensonges = (paire, ts) où le
+    loggué contredit le simulé au-delà du bruit flottant → journal mensonger."""
     pnl = 0.0
     qty_net = {}
     pas = {}
     n = 0
-    with open(chemin, newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            ev = (row.get("event") or "").strip()
-            pair = (row.get("pair") or "").strip()
-            if not ev or not pair:
+    rows = list(csv.DictReader(open(chemin, newline="", encoding="utf-8")))
+    # Passe 1 : keeps du stake-out (BAG_ARM house_half, même ts que la vente) +
+    # lignes DUST_DROP déjà logguées.
+    keep_par_ts = {}
+    dust_logged = {}
+    last_px = {}
+    for row in rows:
+        ev = (row.get("event") or "").strip()
+        pair = (row.get("pair") or "").strip()
+        if not ev or not pair:
+            continue
+        try:
+            q = float(row.get("qty") or 0)
+            px = float(row.get("price") or 0)
+        except ValueError:
+            continue
+        if px > 0:
+            last_px[pair] = px
+        note = row.get("reason") or ""
+        if ev == "BAG_ARM" and "house_half" in note:
+            keep_par_ts[(row.get("ts"), pair)] = q
+        elif ev == "DUST_DROP":
+            dust_logged[pair] = dust_logged.get(pair, 0.0) + q
+    # Passe 2 : replay naïf + lifecycle du tradable pour la poussière simulée.
+    # Le DUST_DROP est loggué dans la foulée du pop (même seconde ou la suivante)
+    # → l'appariement loggué/simulé se fait à ±60 s, jamais au ts exact.
+    pos = {}
+    sim_events = []
+
+    def _poussiere(pair, ts, montant):
+        if montant > 1e-12:
+            sim_events.append((ts, pair, montant))
+
+    for row in rows:
+        ev = (row.get("event") or "").strip()
+        pair = (row.get("pair") or "").strip()
+        if not ev or not pair:
+            continue
+        try:
+            q = float(row.get("qty") or 0)
+            p = float(row.get("pnl_usdt") or 0)
+        except ValueError:
+            continue
+        ts = row.get("ts")
+        note = row.get("reason") or ""
+        mouvement = ev in ("BUY", "BAG_DCA", "GBAG_SOUCHE", "GBAG_PYRAMIDE",
+                           "SELL", "SELL_PARTIAL", "BAG_SELL", "BAG_CRASH",
+                           "DUST_DROP")
+        if mouvement:
+            p_ecr = pas_ecriture(row.get("qty"))
+            if p_ecr:
+                # le pas le plus GROSSIER écrit pour la paire = la résolution limite
+                pas[pair] = max(pas.get(pair, 0.0), p_ecr)
+        if ev in ("BUY", "GBAG_PYRAMIDE"):
+            qty_net[pair] = qty_net.get(pair, 0.0) + q
+            pos[pair] = pos.get(pair, 0.0) + q
+        elif ev == "BAG_DCA" and "trend_" in note:
+            # trend_add / trend_rebuy renforcent le TRADABLE (p = self.pos).
+            qty_net[pair] = qty_net.get(pair, 0.0) + q
+            pos[pair] = pos.get(pair, 0.0) + q
+        elif ev in ("BAG_DCA", "GBAG_SOUCHE"):
+            qty_net[pair] = qty_net.get(pair, 0.0) + q
+        elif ev in ("SELL", "SELL_PARTIAL"):
+            qty_net[pair] = qty_net.get(pair, 0.0) - q
+            pnl += p
+            n += 1
+            full = pos.get(pair, 0.0)
+            if "stake_out_" in note and "sell_" in note:
+                keep = keep_par_ts.get((ts, pair), 0.0)
+                _poussiere(pair, ts, full - q - keep)
+                pos[pair] = 0.0
+            else:
+                left = full - q
+                if full > 0 and left <= full * 0.001:
+                    _poussiere(pair, ts, left)
+                    pos[pair] = 0.0
+                else:
+                    pos[pair] = left
+        elif ev == "BAG_ARM":
+            if "core_trend" in note:
+                pos[pair] = pos.get(pair, 0.0) - q
+            elif "house_half" in note or "conservation_half" in note:
+                pos[pair] = 0.0
+        elif ev in ("BAG_SELL", "BAG_CRASH"):
+            qty_net[pair] = qty_net.get(pair, 0.0) - q
+            pnl += p
+            n += 1
+        elif ev == "DUST_DROP":
+            qty_net[pair] = qty_net.get(pair, 0.0) - q
+    # Appariement : chaque DUST_DROP loggué doit avoir une cause simulée (même
+    # paire, ±60 s). Simulé-sans-log = historique antérieur au fix (expliqué).
+    # Loggué-sans-cause = le moteur abandonne par un chemin inconnu → CRITIQUE.
+    def _ts(s):
+        try:
+            return datetime.fromisoformat(str(s).replace("Z", "+00:00")).timestamp()
+        except Exception:
+            return None
+    log_events = []
+    for row in rows:
+        if (row.get("event") or "").strip() != "DUST_DROP":
+            continue
+        try:
+            log_events.append((_ts(row.get("ts")),
+                              (row.get("pair") or "").strip(),
+                              float(row.get("qty") or 0), row.get("ts")))
+        except ValueError:
+            continue
+    dust_unlogged = {}
+    mensonges = []
+    libres = list(sim_events)
+    for lts, lpair, lq, lts_raw in log_events:
+        best, best_dt = None, None
+        for i, (sts, spair, sq) in enumerate(libres):
+            if spair != lpair:
                 continue
-            mouvement = ev == "BUY" or ev in ("SELL", "SELL_PARTIAL", "BAG_SELL", "BAG_CRASH")
-            try:
-                q = float(row.get("qty") or 0)
-                p = float(row.get("pnl_usdt") or 0)
-            except ValueError:
+            dt = abs(lts - _ts(sts)) if lts and _ts(sts) else (0 if sts == sts else None)
+            if dt is None:
                 continue
-            if mouvement:
-                p_ecr = pas_ecriture(row.get("qty"))
-                if p_ecr:
-                    # le pas le plus GROSSIER écrit pour la paire = la résolution limite
-                    pas[pair] = max(pas.get(pair, 0.0), p_ecr)
-            if ev == "BUY":
-                qty_net[pair] = qty_net.get(pair, 0.0) + q
-            elif ev in ("SELL", "SELL_PARTIAL", "BAG_SELL", "BAG_CRASH"):
-                qty_net[pair] = qty_net.get(pair, 0.0) - q
-                pnl += p
-                n += 1
-    return pnl, qty_net, n, pas
+            if best is None or dt < best_dt:
+                best, best_dt = i, dt
+        if best is not None and best_dt <= 60:
+            _, _, sq = libres.pop(best)
+            if abs(sq - lq) > max(1e-9, 1e-6 * abs(lq)):
+                mensonges.append(f"{lpair}@{lts_raw}: loggué {lq:.9f} vs simulé {sq:.9f}")
+        else:
+            mensonges.append(f"{lpair}@{lts_raw}: DUST_DROP {lq:.9f} sans cause simulée")
+    for _sts, spair, sq in libres:
+        dust_unlogged[spair] = dust_unlogged.get(spair, 0.0) + sq
+    dust = {}
+    for pair in set(dust_logged) | set(dust_unlogged):
+        dust[pair] = dust_logged.get(pair, 0.0) + dust_unlogged.get(pair, 0.0)
+    dust_usd = {pair: abs(d) * last_px.get(pair, 0.0) for pair, d in dust.items()}
+    return pnl, qty_net, n, pas, dust, dust_usd, mensonges
 
 
 def main():
@@ -126,7 +255,10 @@ def main():
             verdict = "CRITIQUE"
             motifs.append(f"C3 heartbeat: state vieux de {age_min:.0f} min (> {SEUIL_HEARTBEAT_MIN})")
         # C1 PnL
-        pnl_csv, qty_csv, n_trades, pas_csv = replay_csv(csv_path)
+        pnl_csv, qty_csv, n_trades, pas_csv, dust, dust_usd, mensonges = replay_csv(csv_path)
+        if mensonges:
+            verdict = "CRITIQUE"
+            motifs.append("C2 journal mensonger: " + " ; ".join(mensonges)[:280])
         pnl_declare = float(state.get("pnl_total") or 0)
         div = abs(pnl_declare - pnl_csv)
         if div > SEUIL_DIV_PNL:
@@ -134,12 +266,21 @@ def main():
             motifs.append(f"C1 PnL: déclaré {pnl_declare:.2f} $ vs recalculé {pnl_csv:.2f} $ (div {div:.2f} > {SEUIL_DIV_PNL})")
         # C2 positions — tolérance = la RÉSOLUTION DE LA MESURE (amendement 20/09/2026) :
         # on ne peut pas juger plus fin que le pas d'écriture du journal.
-        positions = state.get("positions") or {}
+        poches = {}
+        for _k in ("positions", "bags", "conservation", "bag_dca"):
+            for _pair, _v in (state.get(_k) or {}).items():
+                poches.setdefault(_pair, []).append(_v)
         c2_resolution = {}
-        for pair, pos in sorted(positions.items()):
-            q_declare = float(pos.get("qty") or 0)
-            q_recalc = qty_csv.get(pair, 0.0)
-            pas_declare = pas_ecriture(pos.get("qty")) or 0.0
+        for pair in sorted(set(poches) | set(qty_csv) | set(dust)):
+            q_declare = sum(float(_v.get("qty") or 0) if isinstance(_v, dict) else 0.0
+                            for _v in poches.get(pair, []))
+            # Le replay brut compte la poussière abandonnée (jamais vendue, plus
+            # déclarée) : on la soustrait — logguée (DUST_DROP) ou simulée
+            # (historique, règle 0,1 % / stake-out). Amendement 20/10/2026.
+            q_recalc = qty_csv.get(pair, 0.0) - dust.get(pair, 0.0)
+            pas_declare = sum(pas_ecriture(_v.get("qty")) or 0.0
+                              if isinstance(_v, dict) else 0.0
+                              for _v in poches.get(pair, []))
             tol = max(1e-6, 1e-4 * abs(q_declare), pas_declare)
             ecart = abs(q_declare - q_recalc)
             if ecart > tol:
@@ -151,7 +292,9 @@ def main():
                 # (position tronquée au pas du marché). On l'ÉCRIT — traçabilité, jamais
                 # une alarme : une explication vaut mieux qu'un faux positif.
                 c2_resolution[pair] = {"ecart": round(ecart, 6), "pas_declare": pas_declare,
-                                      "pas_csv": pas_csv.get(pair)}
+                                      "pas_csv": pas_csv.get(pair),
+                                      "poussiere_qty": round(dust.get(pair, 0.0), 9),
+                                      "poussiere_usd": round(dust_usd.get(pair, 0.0), 6)}
         # C4 catastrophe
         if pnl_declare < SEUIL_CATASTROPHE:
             verdict = "CRITIQUE"
@@ -167,7 +310,11 @@ def main():
             "pnl_recalcule_csv": round(pnl_csv, 4),
             "divergence_usd": round(div, 4),
             "n_sorties_replay": n_trades,
-            "n_positions_declarees": len(positions),
+            "n_positions_declarees": len(poches),
+            "poussiere_usd_total": round(sum(dust_usd.values()), 6),
+            "poussieres": {p: {"qty": round(dust.get(p, 0.0), 9),
+                                "usd": round(dust_usd.get(p, 0.0), 6)}
+                            for p in sorted(dust) if abs(dust.get(p, 0.0)) > 1e-12},
             "motifs": motifs,
             "c2_resolution": c2_resolution,
             "kill_switch": verdict == "CRITIQUE",

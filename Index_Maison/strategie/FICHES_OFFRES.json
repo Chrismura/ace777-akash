@@ -20,7 +20,8 @@
     "2026-09-24": 8,
     "2026-10-04": 8,
     "2026-10-16": 8,
-    "2026-10-17": 8
+    "2026-10-17": 8,
+    "2026-10-20": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -3130,6 +3131,156 @@
       "usage": "codeur",
       "avis_pour": "À essayer pour booster la génération de code et l'assistance technique sur les scripts Python d'ACE777.",
       "avis_attention": "Garder à l'esprit qu'il s'agit d'un point de contrôle communautaire récent nécessitant une validation rigoureuse du code produit."
+    },
+    "7e0a0950b7da": {
+      "section": "openrouter (:free)",
+      "item": "minimax/minimax-m3.1-flash:free",
+      "generated": "2026-10-20T18:00:45.411784+00:00",
+      "type": "Modèle multimodal rapide et gratuit sur OpenRouter",
+      "forts": [
+        "Gratuit via OpenRouter",
+        "Bonne vitesse d'exécution",
+        "Adapté aux tâches textuelles légères"
+      ],
+      "faibles": [
+        "Limites de taux possibles en heure de pointe",
+        "Contexte parfois restreint sur les très longs prompts",
+        "Fiabilité variable sur le code complexe"
+      ],
+      "usage": "chat",
+      "avis_pour": "Une excellente option gratuite pour tester des workflows rapides sans consommer de budget cloud.",
+      "avis_attention": "Restez prudent sur l'analyse critique de code complexe et prévoyez un repli en cas de saturation de l'API."
+    },
+    "a81826e318e8": {
+      "section": "huggingface récents",
+      "item": "Jakemu/Qwen3.5-27B-int8-g128",
+      "generated": "2026-10-20T18:00:53.363952+00:00",
+      "type": "Grand modèle de langage quantisé optimisé pour le texte et la logique",
+      "forts": [
+        "Quantisation int8-g128 pour un bon équilibre vitesse/précision",
+        "Architecture Qwen robuste pour le code et l'analyse",
+        "Format gratuit idéal pour prototyper sans frais cloud"
+      ],
+      "faibles": [
+        "Modèle communautaire (Jakemu) nécessitant vigilance sur la stabilité",
+        "Quantisation int8 pouvant altérer légèrement les nuances complexes",
+        "Intégration native non prioritaire dans notre routage actuel"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester comme source d'appoint pour diversifier nos analyses textuelles à moindre coût.",
+      "avis_attention": "Vérifier la stabilité des réponses sur nos scripts Python avant toute mise en production."
+    },
+    "1fbfa722fdc6": {
+      "section": "huggingface trending (montée)",
+      "item": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "generated": "2026-10-20T18:01:05.403075+00:00",
+      "type": "Modèle flash rapide pour la génération de texte et le prototypage",
+      "forts": [
+        "Idéal pour itérer rapidement sur des scripts Python",
+        "Faible latence caractéristique des versions flash",
+        "Forte popularité actuelle sur les tendances HuggingFace"
+      ],
+      "faibles": [
+        "Capacités de raisonnement profond potentiellement limitées par rapport aux versions pleines",
+        "Fiabilité variable sur les jugements complexes"
+      ],
+      "usage": "chatur",
+      "avis_pour": "À essayer pour dynamiser les interactions textuelles rapides et le prototypage de code sans saturer les gros modèles.",
+      "avis_attention": "Attention à bien vérifier le code généré et les analyses critiques, car les versions flash privilégient la vitesse à la rigueur absolue."
+    },
+    "aea851ae1d7c": {
+      "section": "huggingface trending (montée)",
+      "item": "black-forest-labs/flux-3-image-klein-comfy",
+      "generated": "2026-10-20T18:01:22.480570+00:00",
+      "type": "Modèle de génération d'images haute qualité (flux-3-image-klein-comfy)",
+      "forts": [
+        "Rendu visuel de pointe issu de l'écosystème Flux",
+        "Populaire et tendance sur Hugging Face",
+        "Idéal pour l'illustration rapide de concepts"
+      ],
+      "faibles": [
+        "Inadapté aux scripts Python, à l'analyse ou au jugement",
+        "Pas de traitement textuel brut direct pour les bots de trading",
+        "Dépendance à la disponibilité de l'API/endpoint distant"
+      ],
+      "usage": "générateur fiches (pour illustrer les fiches IA ou générer des visuels de mission)",
+      "avis_pour": "À tester si vous souhaitez intégrer de la génération d'images ultra-réalistes ou artistiques de dernière génération dans vos workflows.",
+      "avis_attention": "Ne possède aucune capacité de raisonnement textuel ou logique, à réserver strictement au canal visuel."
+    },
+    "4a38b7b21e79": {
+      "section": "huggingface trending (montée)",
+      "item": "meta-models/Muse-Spark-Open-816B-A42B",
+      "generated": "2026-10-20T18:01:33.707345+00:00",
+      "type": "Modèle open-weights massif orienté multimodal et raisonnement complexe",
+      "forts": [
+        "Capacité de raisonnement de pointe sur les volumes de code",
+        "Architecture ouverte hautement personnalisable",
+        "Excellente maîtrise des structures complexes"
+      ],
+      "faibles": [
+        "Poids du modèle potentiellement lourd pour de l'inférence locale brute",
+        "Latence variable selon la charge des endpoints trending",
+        "Nécessite un routage strict pour éviter l'épuisement des quotas"
+      ],
+      "usage": "analyste.strategie",
+      "avis_pour": "À tester d'urgence pour muscler l'analyse stratégique sans surcoût budgétaire.",
+      "avis_attention": "Attention à la stabilité des endpoints trending sur Hugging Face qui peuvent saturer en cas de forte affluence."
+    },
+    "d17f0287565f": {
+      "section": "huggingface trending (montée)",
+      "item": "LiquidAI/LFM2.5-24B-A2B",
+      "generated": "2026-10-20T18:01:44.410413+00:00",
+      "type": "Grand modèle de langage multimodal hybride et performant",
+      "forts": [
+        "Architecture innovante de LiquidAI",
+        "Excellentes capacités de raisonnement et de synthèse",
+        "Bonne gestion du contexte long"
+      ],
+      "faibles": [
+        "Consommation en ressources potentiellement élevée",
+        "Disponibilité instable sur les endpoints gratuits de Hugging Face"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À essayer pour booster la qualité des analyses stratégiques grâce à l'expertise de LiquidAI.",
+      "avis_attention": "Attention aux limites de taux (rate limits) et aux temps de latence fréquents sur les tendances gratuites HF."
+    },
+    "53a06430bbd5": {
+      "section": "huggingface trending (montée)",
+      "item": "black-forest-labs/flux-3-image-klein",
+      "generated": "2026-10-20T18:01:50.135750+00:00",
+      "type": "Modèle de génération d'images haute qualité",
+      "forts": [
+        "Rendu visuel de pointe (Flux)",
+        "Idéal pour illustrer des concepts ou des fiches",
+        "Accessible gratuitement via Hugging Face trending"
+      ],
+      "faibles": [
+        "Inutile pour le code Python ou l'analyse textuelle",
+        "Ne participe pas directement aux décisions du PnL",
+        "Consommation de ressources graphiques"
+      ],
+      "usage": "générateur fiches",
+      "avis_pour": "À tester si vous avez besoin d'enrichir les fiches de mission avec des illustrations visuelles percutantes.",
+      "avis_attention": "Ne convient en aucun cas pour le routage, l'analyse stratégique ou le traitement de données textuelles."
+    },
+    "3e6796f6939a": {
+      "section": "huggingface trending (montée)",
+      "item": "OpenMOSS-Team/MOSS-Image-SFT",
+      "generated": "2026-10-20T18:01:55.998254+00:00",
+      "type": "Modèle de génération et de traitement d'images open-source",
+      "forts": [
+        "Tendance forte sur Hugging Face",
+        "Approche open-source pour la vision",
+        "Gratuit via l'écosystème communautaire"
+      ],
+      "faibles": [
+        "Spécialisé en vision/image plutôt qu'en logique pure",
+        "Documentation et intégration parfois complexes",
+        "Non intégré dans le routage actif actuel"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester si vous souhaitez expérimenter des capacités multimodales et de traitement d'images sans frais.",
+      "avis_attention": "Ne convient pas pour le code ou le jugement stratégique textuel ; attention aux ressources nécessaires pour le faire tourner."
     }
   }
 }
