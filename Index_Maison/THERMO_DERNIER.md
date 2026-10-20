@@ -4,30 +4,30 @@
 > Script : `Index_Maison/scripts/thermo_quotidien_free.py`
 
 ## Clin d'œil
-**Climat :** `ok` · **Score :** `75/100`
+**Climat :** `ok` · **Score :** `76/100`
 
 ## Snapshot `BTCUSDT`
 
 | Champ | Valeur | ID |
 |-------|--------|-----|
-| Mark | 82876.8 | prix |
-| OI | 94753.769 | C13 |
-| Funding | 7.7e-05 | C14 |
+| Mark | 82876.85 | prix |
+| OI | 94755.118 | C13 |
+| Funding | 7.6e-05 | C14 |
 | Funding moy. ~30j | 3.201e-05 (n=90) | Cortana |
 | Funding mois préc. | 5e-05 (n=90) | Cortana |
 | L/S 1h | 1.529 | crowd |
-| BTC 1h/4h/24h | -0.22 / 0.37 / 1.05 % | B7 |
+| BTC 1h/4h/24h | -0.22 / 0.37 / 1.03 % | B7 |
 | Dominance BTC | 59.53% | A3 |
 | Alts ↓ 24h | 35.0% | B9 |
 
 ## Lecture
-- Climat CALME (score 75/100).
-- Funding maintenant 7.7e-05. Moyenne ~30j 3.201e-05 (90 pts). Mois précédent 5e-05 (90 pts).
+- Climat CALME (score 76/100).
+- Funding maintenant 7.6e-05. Moyenne ~30j 3.201e-05 (90 pts). Mois précédent 5e-05 (90 pts).
 - Long/Short 1.529.
-- BTC 24h 1.05% · 1h -0.22% · 4h 0.37%.
+- BTC 24h 1.03% · 1h -0.22% · 4h 0.37%.
 - Panier alts : 35.0% en baisse (7/20).
 - Whales proxy : aucun print ≥500k$ sur les ~500 derniers trades.
-- Dark/OTC proxy : taker buy/sell 1.091 · OI 94753.769 (pas de dark pool free temps réel).
+- Dark/OTC proxy : taker buy/sell 1.091 · OI 94755.118 (pas de dark pool free temps réel).
 - Top traders L/S 1.61.
 - Fear & Greed 55 (Greed).
 - Market cap crypto ≈ 2.79 T$.
