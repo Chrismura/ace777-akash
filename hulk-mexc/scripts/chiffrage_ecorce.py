@@ -55,13 +55,14 @@ def dernier_csv():
     return csvs[0]
 
 
-def replay(frac):
+def replay(frac, skip_reentry=False):
     rows = list(csv.DictReader(open(dernier_csv(), newline="", encoding="utf-8-sig")))
     pos = defaultdict(float)
     bag = defaultdict(float)
     cons = defaultdict(float)
     extra_keep = {}  # (ts,pair) -> part non-vendue du stake-out : rejoint le bag (jamais la nature)
     proceeds = defaultdict(float)   # encaissements nets de frais, par paire
+    spend = defaultdict(float)        # capital deploye (richesse = -spend + proceeds + terminal)
     n_ventes = defaultdict(int)
     last_px = {}
     cumul = []  # (ts, delta_cumulé vs baseline) rempli après coup
@@ -86,10 +87,15 @@ def replay(frac):
         note = r.get("reason") or ""
         ts = r.get("ts")
         if ev in IN_POS:
+            if skip_reentry and "reentry_dump" in note:
+                continue  # variante REENTRY-OFF : l'achat n'a jamais lieu, le cash reste
             pos[p] += q
+            spend[p] += q * px
         elif ev in IN_BAG:
             bag[p] += q
+            spend[p] += q * px
         elif ev == "BAG_DCA":
+            spend[p] += q * px
             if "trend_" in note:
                 pos[p] += q
             elif frac < 1.0:
@@ -137,7 +143,7 @@ def replay(frac):
             pass
     terminal = {p: (pos[p] + bag[p] + cons[p]) * last_px.get(p, 0.0)
                 for p in set(list(pos) + list(bag) + list(cons))}
-    return {"proceeds": dict(proceeds), "terminal": terminal,
+    return {"proceeds": dict(proceeds), "terminal": terminal, "spend": dict(spend),
             "poches": {p: (pos[p], bag[p], cons[p]) for p in terminal},
             "n_ventes": dict(n_ventes), "last_px": last_px}
 
@@ -181,10 +187,20 @@ def main():
                                            - (base["proceeds"].get(p, 0.0) + base["terminal"].get(p, 0.0)), 2)
                                   for p in sorted(set(list(v["proceeds"]) + list(base["proceeds"])
                                                        + list(v["terminal"])))}})
+    def _wealth(r):
+        return -sum(r["spend"].values()) + sum(r["proceeds"].values()) + sum(r["terminal"].values())
+    w_base = _wealth(base)
+    print(f"\nCOMBINE (richesse = -depenses + encaisse + terminal) : BASE={w_base:.2f} (attendu ~74,74)")
+    combine = {}
+    for nom, fr, sk in (("REENTRY-OFF", 1.0, True), ("ECORCE-30", 0.3, False), ("BOTH", 0.3, True)):
+        r = replay(fr, skip_reentry=sk)
+        combine[nom] = round(_wealth(r) - w_base, 2)
+        print(f"  {nom:<12}delta={combine[nom]:+.2f}")
     out = {"ts": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
            "journal": os.path.basename(csv_path), "fee_bps": FEE * 10000,
            "validation_ecart_qty_max": max_ecart,
            "total_baseline": round(total_base, 2), "variantes": lignes,
+           "richesse_base": round(w_base, 2), "combine_richesse": combine,
            "limite": "1er ordre : boucle cash (moins vendu = moins de rachats) ignorée = majorant en bull"}
     with open(os.path.join(RUNS, "CHIFFRAGE_ECORCE.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)

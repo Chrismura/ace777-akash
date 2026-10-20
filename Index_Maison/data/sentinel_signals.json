@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.921665830931594,
-      "value": 1.104,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.92) sur un ticker boursier traditionnel (IPT / International Petroleum Corp. / IMPACT Silver) pollué par du bruit médiatique hétérogène. Aucune donnée onchain pertinente pour une baleine crypto.\"\n}\n```",
-      "ts": "2026-10-19T17:05:13.691918+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.043550563486788,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure sur le z-score du CPFP (Child-Pays-For-Parent) liée à des congestions de mempool et des tutoriels Bitcoin, sans lien avec des mouvements de baleines institutionnelles.\"\n}\n```",
-      "ts": "2026-10-19T17:20:17.112373+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.043550563486788,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 1.773,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio à 1.773 (z-score 3.21) indique une agression massive à l'achat par les acheteurs agressifs (taker buys), totalement ignorée par les médias grand public (silence radio sur Google Actualités). Divergence classique d'accumulation furtive par les baleines avant un mouvement de cassure haussier.\"\n}\n```",
       "ts": "2026-10-20T21:07:44.445813+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.9270765707208457,
+      "value": 1.773,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.773 (z-score 2.93) indique une domination agressive des acheteurs (Taker Buy) statistiquement anormale. En l'absence de couverture médiatique notable (silence radio), cela suggère une accumulation discrète par les baleines loin du bruit retail.\"\n}\n```",
+      "ts": "2026-10-20T21:37:51.109429+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.2016580199222915,
+      "value": 10357999.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.20, +10.3M USD) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'accumulation furtive typique des baleines avant un mouvement majeur.\"\n}\n```",
+      "ts": "2026-10-20T21:53:03.021733+00:00"
     }
   ]
 }
