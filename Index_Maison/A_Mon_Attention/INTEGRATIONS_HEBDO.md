@@ -1,4 +1,4 @@
-# INTEGRATIONS HEBDOMADAIRES — 2026-10-19
+# INTEGRATIONS HEBDOMADAIRES — 2026-10-20
 
 > Genere par observatoire.py (correction famille 09/08).
 > Regle : un provider integre auto n'est JAMAIS actif directement.
@@ -9,10 +9,10 @@
 
 | Provider | Modele | Detail | Etat |
 |----------|--------|--------|------|
-| openrouter-nemo-nano | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 2026-10-19 | 0h/48h | 1/5 | en observation |
-| tokenrouter-kimi | moonshotai/kimi-k3-free | 2026-10-19 | 0h/48h | 0/5 | en observation |
-| zenmux-glm47 | z-ai/glm-4.7-flash-free | 2026-10-19 | 0h/48h | 0/5 | en observation |
-| zenmux-glm46v | z-ai/glm-4.6v-flash-free | 2026-10-19 | 0h/48h | 0/5 | en observation |
+| openrouter-nemo-nano | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 2026-10-19 | 24h/48h | 2/5 | en observation |
+| tokenrouter-kimi | moonshotai/kimi-k3-free | 2026-10-19 | 24h/48h | 0/5 | en observation |
+| zenmux-glm47 | z-ai/glm-4.7-flash-free | 2026-10-19 | 24h/48h | 0/5 | en observation |
+| zenmux-glm46v | z-ai/glm-4.6v-flash-free | 2026-10-19 | 24h/48h | 0/5 | en observation |
 
 ## RETIRÉS (rollback auto > 5% erreurs)
 
@@ -20,7 +20,7 @@
 |----------|--------|--------|------|
 | obs-1786688184 | cohere/north-mini-code:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786774646 | nvidia/nemotron-3-nano-30b-a3b:free | 100% | ROLLBACK auto (désactivé) |
-| obs-1786774656 | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 60% | ROLLBACK auto (désactivé) |
+| obs-1786774656 | nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free | 50% | ROLLBACK auto (désactivé) |
 | obs-1786774667 | nvidia/nemotron-3.5-lightning:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786795252 | nvidia/nemotron-3.5-content-safety:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1787033767 | google/diffusiongemma-26b-a4b-it | 100% | ROLLBACK auto (désactivé) |

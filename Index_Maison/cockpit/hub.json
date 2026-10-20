@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T09:00:00.190235+00:00",
+  "generated_at": "2026-10-20T09:12:08.910302+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -319,10 +319,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 51,
-    "remaining": 573
+    "consumed": 52,
+    "remaining": 572
   },
   "queue": [
+    {
+      "ts": "2026-10-20T09:11:49.802444+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.0
+    },
     {
       "ts": "2026-10-20T08:11:47.299127+00:00",
       "task": "supervise.decision",
@@ -434,17 +442,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.14
-    },
-    {
-      "ts": "2026-10-20T06:31:10.714563+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.62
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-20T09:11:49.801754+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-20T09:11:47.806012+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-10-20T08:58:02.435483+00:00",
       "kind": "http",
@@ -492,18 +504,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-10-20T08:57:31.337757+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-20T08:57:31.337025+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
