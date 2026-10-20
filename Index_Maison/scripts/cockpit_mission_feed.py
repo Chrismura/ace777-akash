@@ -906,6 +906,7 @@ def load_hulk():
     plafond_par_paire = _base_moteur * _c_mult if _c_on else _base_moteur
     reel_par_paire: dict[str, float] = {}
     hold_par_paire: dict[str, float] = {}
+    full30_par_paire: dict[str, float] = {}
     seed_par_paire: dict[str, float] = {}
     pos_par_paire: dict[str, float] = {}
     over_budget: list[str] = []
@@ -940,6 +941,15 @@ def load_hulk():
             hold_par_paire[_pair] = (_seed_qty * _mark) + MARGE_PAR_CRYPTO
         else:
             hold_par_paire[_pair] = _budget
+        # HOLD FULL-30 (20/10/2026, GO Christophe « bag de 30 $ contre 10+20 ») :
+        # le hold 10+20 laisse la marge dormir en cash — en marché haussier ça
+        # offre la victoire à Hulk (biais inverse de celui corrigé le 29/08).
+        # Le benchmark honnête : TOUT le budget investi au prix du seed, tenu.
+        # Paires jamais seedées : pas de prix d'entrée → même repli que hold.
+        if _mark and _sp and _seed_qty and _budget:
+            full30_par_paire[_pair] = (_budget / _sp) * _mark
+        else:
+            full30_par_paire[_pair] = _budget
         _net = net_investi.get(_pair, 0.0)
         if _net > plafond_par_paire + 0.01:
             over_budget.append(_pair)          # vraie brèche : au-delà du plafond moteur
@@ -947,6 +957,7 @@ def load_hulk():
             compound_actif.append(_pair)       # compounding : voulu, borné, déclaré
     reel_w = sum(reel_par_paire.values())
     stat_w = sum(hold_par_paire.values())
+    full30_w = sum(full30_par_paire.values())
     cash_reel = sum(cash_par_paire.values())
     # AUTO-CONTRÔLE DES IDENTITÉS (14/10, mandat « auto-réparable et incassable ») :
     # chaque ligne doit vérifier reel = cash + pos. Le feed COMPTE les violations et
@@ -969,6 +980,15 @@ def load_hulk():
         vs_verdict = "HULK < HOLD"
     else:
         vs_verdict = "ÉGAL"
+    ecartFull30_w = round(reel_w - full30_w, 2)
+    baseFull30 = full30_w if full30_w != 0 else 1.0
+    ecartFull30_pct = round((reel_w - full30_w) / baseFull30 * 100.0, 2) if full30_w else None
+    if ecartFull30_w > 0:
+        vs_verdict_full30 = "HULK > HOLD-FULL30"
+    elif ecartFull30_w < 0:
+        vs_verdict_full30 = "HULK < HOLD-FULL30"
+    else:
+        vs_verdict_full30 = "ÉGAL"
     # SLIP STOPS AFFICHÉ (16/10) : repris du state persisté ; seuils lus au config ;
     # vieux states sans la clé → 0/0 (fail-open, jamais de crash sur state bizarre).
     _slip_par_paire = _s_all.get("slip_stats") or {}
@@ -992,6 +1012,10 @@ def load_hulk():
         "ecart_usd": ecart_w,
         "ecart_pct": ecart_pct,
         "verdict": vs_verdict,
+        "holdFull30": round(full30_w, 2),
+        "ecartFull30_usd": ecartFull30_w,
+        "ecartFull30_pct": ecartFull30_pct,
+        "verdictFull30": vs_verdict_full30,
         # Vrai compte PAR CRYPTO : chaque paire a son budget (seed + 20$ de
         # marge) et son cash rejoué. cash = somme des cash réels par paire
         # (ce qu'un vrai compte aurait en poche). cashPaper = ancien affichage.
@@ -1053,6 +1077,8 @@ def load_hulk():
                     "reel": round(reel_par_paire.get(_p, 0.0), 2),
                     "hold": round(hold_par_paire.get(_p, 0.0), 2),
                     "ecart": round(reel_par_paire.get(_p, 0.0) - hold_par_paire.get(_p, 0.0), 2),
+                    "full30": round(full30_par_paire.get(_p, 0.0), 2),
+                    "ecartFull30": round(reel_par_paire.get(_p, 0.0) - full30_par_paire.get(_p, 0.0), 2),
                     "over": net_investi.get(_p, 0.0) > plafond_par_paire + 0.01,
                     "compound": (budget_par_paire.get(_p, 0.0) + 0.01
                                  < net_investi.get(_p, 0.0)

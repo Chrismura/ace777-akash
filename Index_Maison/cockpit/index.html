@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="1705903903">
+<meta name="version" content="3001647946">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1792527946"></script>
+<script src="mission.js?v=1792530218"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1792527946"></script>
-<script src="../thermo/live.js?v=1792527946"></script>
-<script src="../thermo/cortana_feed.js?v=1792527946"></script>
-<script src="sante_live.js?v=1792527946"></script>
-<script src="veille_institutionnelle.js?v=1792527946"></script>
+<script src="hub.js?v=1792530218"></script>
+<script src="../thermo/live.js?v=1792530218"></script>
+<script src="../thermo/cortana_feed.js?v=1792530218"></script>
+<script src="sante_live.js?v=1792530218"></script>
+<script src="veille_institutionnelle.js?v=1792530218"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1188,7 +1188,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1792527946"></script>
+<script src="plancher_live.js?v=1792530218"></script>
 </head>
 <body>
 <div class="app">
@@ -1530,6 +1530,8 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
           <th title="Même budget tenu depuis le prix du seed (rien faire)">SI RIEN FAIT $</th>
           <th title="Hulk − si rien fait : ce que la gestion apporte sur CETTE crypto">ÉCART $</th>
           <th title="Écart en % du budget">ÉCART %</th>
+          <th title="Tout le budget investi au prix du seed et tenu — le benchmark sans cash qui dort (20/10, GO Christophe)">HOLD FULL-30 $</th>
+          <th title="Hulk − hold full-30 : l'écart honnête, sans le cash qui dort">ÉCART F30 $</th>
           <th title="Glissement mesuré : spread médian + coûts cumulés (journal) + stops glissés — 🔒 = gate bride la paire (mises ×0.5)">SLIP</th>
         </tr></thead>
         <tbody id="h-score-tbody"></tbody>
@@ -2122,6 +2124,8 @@ window.addEventListener('unhandledrejection', function(e) {
           const verdict=(vsH.verdict||'').replace('HULK ','').replace('HOLD','HOLD');
           vsNote.innerHTML = `<span class="hsub">SCORE HULK vs HOLD :</span> <span class="${clsV}"><b>${arrowV} ${ec!=null?((ec>0?'+':'')+usd(ec)):'—'}</b></span>`
             + (pct!=null?` <span class="hsub">(${pct>0?'+':''}${fmt(pct,1)}% vs buy&hold)</span>`:'')
+            + ((vsH.ecartFull30_usd!=null)?` <span class="hsub">· vs full-30 :</span> <span class="${vsH.ecartFull30_usd>0.05?'wpos':(vsH.ecartFull30_usd<-0.05?'wneg':'wneu')}"><b>${vsH.ecartFull30_usd>0?'▲':(vsH.ecartFull30_usd<0?'▼':'')} ${(vsH.ecartFull30_usd>0?'+':'')+usd(vsH.ecartFull30_usd)}</b></span>`:'')
+            + ((vsH.ecartFull30_pct!=null)?` <span class="hsub">(${(vsH.ecartFull30_pct>0?'+':'')+fmt(vsH.ecartFull30_pct,1)}% vs tout-investi)</span>`:'')
             + ` <span class="hsub">· budget ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos (seed + ${usd(vsH.margeParCrypto||20)} de marge) = ${usd(vsH.budgetTotal)}</span>`
             + ` <span class="hsub">· cash réel ${vsH.cash!=null?usd(vsH.cash):'—'}</span>`
             + ((vsH.cashPaper!=null&&vsH.cash!=null&&Math.abs(vsH.cashPaper-vsH.cash)>0.05)?` <span class="hsub">(paper ${usd(vsH.cashPaper)})</span>`:'')
@@ -2165,6 +2169,8 @@ window.addEventListener('unhandledrejection', function(e) {
               <td class="hs" title="Même budget tenu depuis le seed (rien faire)">${p.hold!=null?usd(p.hold):'—'}</td>
               <td class="hr ${clsE}" title="Hulk − si rien fait"><b>${arrowE} ${ec!=null?((ec>0?'+':'')+usd(ec)):'—'}</b></td>
               <td class="hr ${clsE}">${ecPct!=null?((ecPct>0?'+':'')+fmt(ecPct,1)+'%'):'—'}</td>
+              <td class="hs" title="Tout le budget investi au prix du seed et tenu (benchmark honnête 20/10)">${p.full30!=null?usd(p.full30):'—'}</td>
+              <td class="hr ${(p.ecartFull30!=null?(p.ecartFull30>0.05?'wpos':(p.ecartFull30<-0.05?'wneg':'wneu')):'wneu')}" title="Hulk − hold full-30"><b>${p.ecartFull30!=null?((p.ecartFull30>0?'+':'')+usd(p.ecartFull30)):'—'}</b></td>
               <td class="hq" title="Spread médian mesuré (journal) + coûts cumulés + stops glissés n/moyenne (state persisté) — 🔒 = gate anti-glissement : ré-entrées ×0.5">${p.spreadMed!=null?fmt(p.spreadMed,1)+'bps':'—'} <span class="hsub">${p.coutCumule!=null?usd(p.coutCumule):''}</span>${p.slipN?` <span class="hsub">· ${p.slipN} stops ${p.slipMoy}pp</span>`:''}${p.bride?' <span style="color:var(--warn,orange)" title="Gate anti-glissement : cette paire glisse, ses ré-entrées sont bridées ×0.5">🔒</span>':''}</td>
             </tr>`;
           }).join('');
@@ -2187,11 +2193,13 @@ window.addEventListener('unhandledrejection', function(e) {
             <td class="hs" title="Total si rien fait"><b>${vsH.hold!=null?usd(vsH.hold):'—'}</b></td>
             <td class="hr ${sumCls}"><b>${sumEc!=null?((sumEc>0?'+':'')+usd(sumEc)):'—'}</b></td>
             <td class="hr ${sumCls}">${vsH.ecart_pct!=null?((vsH.ecart_pct>0?'+':'')+fmt(vsH.ecart_pct,1)+'%'):'—'}</td>
+            <td class="hs" title="Total hold full-30 (tout-investi)"><b>${vsH.holdFull30!=null?usd(vsH.holdFull30):'—'}</b></td>
+            <td class="hr ${(vsH.ecartFull30_usd!=null?(vsH.ecartFull30_usd>0.05?'wpos':(vsH.ecartFull30_usd<-0.05?'wneg':'wneu')):'wneu')}" title="Hulk − hold full-30"><b>${vsH.ecartFull30_usd!=null?((vsH.ecartFull30_usd>0?'+':'')+usd(vsH.ecartFull30_usd)):'—'}</b></td>
             <td class="hq" title="Coûts cumulés mesurés sur toutes les paires (journal)"><b>${vsH.slippage&&vsH.slippage.coutTotal!=null?usd(vsH.slippage.coutTotal):'—'}</b></td>
           </tr>
           <tr class="hrow flat">
             <td class="hc" colspan="2"><span class="hcn">AU DÉBUT</span> <span class="hsub">marge ${vsH.margeParCrypto!=null?usd(vsH.margeParCrypto):'20$'} × ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos</span></td>
-            <td class="hq" colspan="8"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b> <span class="hsub">= seeds ${usd(totSeed)} + marge ${usd((vsH.margeParCrypto||20)*(vsH.nbPaires||0))}</span></td>
+            <td class="hq" colspan="10"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b> <span class="hsub">= seeds ${usd(totSeed)} + marge ${usd((vsH.margeParCrypto||20)*(vsH.nbPaires||0))}</span></td>
           </tr>`;
           if(scrNote) scrNote.textContent='· bags '+usd(totPos)+' + cash '+usd(totCash)+' = '+usd(vsH.reel!=null?vsH.reel:0)
             +' · levier ×'+(vsH.compoundLevier||1)+' · '+(vsH.compoundActif&&vsH.compoundActif.length?vsH.compoundActif.length+' réinvestis':'0 réinvesti')
@@ -2212,6 +2220,14 @@ window.addEventListener('unhandledrejection', function(e) {
             }else{
               verdict='<span class="wneu">Hulk ≈ ne rien faire (écart quasi nul).</span>';
             }
+            // HOLD FULL-30 (20/10) : le 2e juge — tout-investi au seed. Si Hulk bat le
+            // hold cash mais perd contre le full-30, le cash qui dort est le coupable.
+            let fullLine='';
+            if(vsH.ecartFull30_usd!=null&&Math.abs(vsH.ecartFull30_usd)>0.5){
+              fullLine=vsH.ecartFull30_usd>0
+                ? `<span class="wpos">✔ Et même contre tout-investi (full-30) : <b>${ecTxt(vsH.ecartFull30_usd)}</b>.</span>`
+                : `<span class="wneg">✘ Mais contre un bag tout-investi (full-30), Hulk perd <b>${ecTxt(vsH.ecartFull30_usd)}</b> — le cash qui dort coûte cher quand ça monte.</span>`;
+            }
             let bestLine='', worstLine='';
             if(best){
               const protege=(best.pos==null||best.pos===0||best.pos<=0.01);
@@ -2222,6 +2238,7 @@ window.addEventListener('unhandledrejection', function(e) {
             }
             readEl.innerHTML=`<div class="hr-t">À RETENIR — lecture du tableau</div>`
               +`<div class="hr-l">🟢 ${verdict}</div>`
+              +(fullLine?`<div class="hr-l">${fullLine}</div>`:'')
               +(bestLine?`<div class="hr-l">${bestLine}</div>`:'')
               +(worstLine?`<div class="hr-l">${worstLine}</div>`:'');
           }
