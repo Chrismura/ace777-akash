@@ -1,63 +1,8 @@
 {
-  "timestamp": 1792520313,
-  "date": "2026-10-20T18:18:33.078806+00:00",
-  "n_analyses": 3,
+  "timestamp": 1792520613,
+  "date": "2026-10-20T18:23:33.181740+00:00",
+  "n_analyses": 1,
   "analyses": [
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 2.0774045931691205,
-        "value": 0.616,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif contextuel : Le 'SDI' dans les médias désigne le 'Syndicat des Indépendants' (commerçants), totalement déconnecté de la métrique on-chain. Aucune baleine crypto détectée.\"\n}\n```",
-        "ts": 1792518696.442474
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.614981373277531,
-        "value": 1.226,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.61) sur le ticker IPT détectée, mais les actualités font référence à un bruit médiatique hétérogène (International Petroleum, IMPACT Silver, École polytechnique). Aucune baleine crypto identifiée ; confusion probable entre des actifs traditionnels/actions (HAM:IPT, TSX:IPT) et la sentinelle.\"\n}\n```",
-        "ts": 1792518705.34768
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.16,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 6,
-          "seuil": 5,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "condition": "whales > 5",
-        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
-        "niveau": "surveiller",
-        "action": "Surveiller les prochaines heures, prêt à réagir"
-      },
-      "action": "Surveiller les prochaines heures, prêt à réagir",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "whale_usd",
@@ -69,29 +14,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 1415609.0,
+          "value": 1975495.0,
           "seuil": 0,
           "depasse": true
         },
         "achats": {
-          "value": 20370439.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -0.16,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
