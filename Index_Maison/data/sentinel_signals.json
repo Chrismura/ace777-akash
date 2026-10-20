@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -2.2268489105385383,
-      "value": 1.614,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.23) indique une sous-pondération massive des positions longues par la foule/retail, tandis que les médias grand public banalisent les stratégies long/short traditionnelles. Cette capitulation du sentiment public crée un déséquilibre contrarien classique, signature d'accumulation silencieuse par les baleines avant un retournement haussier.\"\n}\n```",
-      "ts": "2026-10-18T14:06:21.178534+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.855159334229711,
-      "value": 0.48303657045630777,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.86) sur 1h sans couverture médiatique (silence radio sur Google Actualités). Divergence classique d'accumulation furtive par les baleines avant que le retail ne remarque le mouvement.\"\n}\n```",
-      "ts": "2026-10-18T14:31:28.982168+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.402819167560953,
-      "value": 6878279.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.40, ~6.88M USD) totalement ignorée par les médias (silence radio). Divergence classique d'accumulation silencieuse de baleines loin du bruit de fond.\"\n}\n```",
-      "ts": "2026-10-18T15:21:39.666798+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.0592746050315216,
       "value": 1.778,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.06 (1.778), indiquant un positionnement acheteur excessif de la foule. Pendant ce temps, le narratif médiatique grand public s'emballe sur les stratégies 'Long/Short', signalant une euphorie tardive et un risque imminent de liquidation en cascade des positions acheteuses par les baleines.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1.14,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif : L'acronyme 'IPT' correspond ici à des entités traditionnelles (International Petroleum Corp, IMPACT Silver Corp, Institut de Physique Théorique) et non à un actif crypto. Aucune corrélation onchain ou narratif crypto détectée.\"\n}\n```",
       "ts": "2026-10-19T19:50:55.504198+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.7466019813492384,
+      "value": 0.5615381538009556,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.75) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par des baleines avant le réveil du narratif grand public.\"\n}\n```",
+      "ts": "2026-10-20T01:12:18.833863+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": -2.0123834498870514,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (baisse de l'utilisation du CPFP sur Bitcoin) noyée dans du bruit médiatique sans rapport (pharmacie, politique locale). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
+      "ts": "2026-10-20T01:22:21.560387+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": -2.0123834498870514,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique purement artéfactuelle. Les gros titres font référence à du bruit de fond linguistique (cinéma, actions traditionnelles, actualité locale) sans aucun rapport avec la crypto. Aucune baleine active sur ce ticker.\"\n}\n```",
+      "ts": "2026-10-20T01:22:23.558036+00:00"
     }
   ]
 }
