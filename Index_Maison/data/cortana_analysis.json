@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792513111,
-  "date": "2026-10-20T16:18:31.002388+00:00",
+  "timestamp": 1792516711,
+  "date": "2026-10-20T17:18:31.984095+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.3264244248105035,
-        "value": 1.135,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une confusion de ticker. L'anomalie détectée concerne des actions traditionnelles (International Petroleum Corp - HAM:IPT) ou des homonymes institutionnels (École polytechnique), sans lien avec un actif crypto significatif.\"\n}\n```",
-        "ts": 1792511698.566594
+        "zscore": 2.0883060891578076,
+        "value": 1.086,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée sur un ticker boursier (IPT / International Petroleum Corp / IMPACT Silver) et non sur une cryptomonnaie on-chain. Bruit médiatique sans rapport avec une activité de baleine crypto.\"\n}\n```",
+        "ts": 1792516582.411357
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": 0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 8.3e-05,
+          "value": 0.0001,
           "seuil": 0.001,
           "depasse": false
         },

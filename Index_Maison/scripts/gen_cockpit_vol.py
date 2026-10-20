@@ -196,6 +196,27 @@ def protocoles():
     return [{"cells": r} for r in extraire_tableau(md, "## 3. Les protocoles en test")]
 
 
+def signaux_execution():
+    """Signaux d'exécution par poche (20/10, GO 1+2) : ρ imbalance + spoof +
+    vol EWMA + sizing. Source : thermo/signaux_execution.json, écrit par
+    scripts/signaux_execution.py. Même pattern que protocoles() : le calcul
+    vit dans l'organe, la page ne fait que lire. Jamais de valeur en dur."""
+    s = jload(IM / "thermo" / "signaux_execution.json")
+    lignes = s.get("lignes") or []
+    rows = [{"cells": ["Poche", "ρ imbalance", "Spoof", "Vol préd.",
+                         "Mise ×", "Lecture"]}]
+    for l in lignes:
+        rows.append({"cells": [str(l.get("pair", "?")).replace("USDT", ""),
+                                str(l.get("rho", "—")),
+                                str(l.get("spoof_pct", "—")) + " %",
+                                (str(l.get("vol_pred")) + " %/j") if l.get("vol_pred") is not None else "—",
+                                "×" + str(l.get("mise_mult", "—")),
+                                str(l.get("lecture", ""))]})
+    if len(rows) == 1:
+        rows.append({"cells": ["—", "signaux_execution.json absent — l'organe n'a jamais tourné", "", "", "", ""]})
+    return {"ts": s.get("ts", ""), "lignes": rows}
+
+
 def dormants():
     md = ""
     try:
@@ -795,6 +816,7 @@ def main():
         "protocoles": protocoles(),
         "dormants": dormants(),
         "banc": banc(),
+        "signaux": signaux_execution(),
     }
     js = "window.__VOL__ = " + json.dumps(snapshot, ensure_ascii=False) + ";"
     (COCKPIT / "vol_live.js").write_text(js, encoding="utf-8")

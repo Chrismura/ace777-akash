@@ -375,6 +375,32 @@ function render() {
     </div>
   `);
   
+  // POCHES (20/10) — avis par actif + score Brier, lus à :17800/thermo.
+  // Jamais de valeur en dur : sans fichiers, la carte dit qu'elle ne sait pas.
+  const pl = T.poches || {};
+  const ps = T.pocheScore || {};
+  const plAvis = pl.avis || [];
+  const psPairs = ps.paires || {};
+  const pocheRows = plAvis.map(a => {
+    const s = psPairs[a.pair] || {};
+    const av = a.avis || '?';
+    const avColor = av === 'LONG' ? '#7cff6b' : (av === 'SHORT' ? '#ff5c5c' : '#8a7a55');
+    const pr = a.proba != null ? Math.round(a.proba * 100) + '%' : '—';
+    const sc = s.n ? (s.hit + '/' + s.n + ' · Brier ' + (s.brier != null ? s.brier : '—')) : 'pas encore noté';
+    return `<div>• <b>${(a.pair || '').replace('USDT', '')}</b> <span style="color:${avColor}"><b>${av}</b></span> à ${pr} <span style="color:var(--muted)">(${a.motif || ''}) — score : ${sc}</span></div>`;
+  }).join('');
+  const pocheSkill = ps.skill_vs_hasard != null ? ps.skill_vs_hasard : null;
+  const pocheColor = pocheSkill == null ? '#8a7a55' : (pocheSkill > 0 ? '#7cff6b' : '#ff5c5c');
+  cards.push(`
+    <div class="card" data-peda="poches">
+      <div class="card-head">👛 POCHES — avis par actif (Brier)</div>
+      <div class="card-score" style="color:${pocheColor}">${pocheSkill != null ? ('skill ' + (pocheSkill > 0 ? '+' : '') + pocheSkill) : '—'}</div>
+      <div class="card-sub">skill vs hasard (Brier, baseline 0.25) · MAJ ${pl.ts || ps.ts || '—'}</div>
+      <div class="card-summary">${pocheRows || '<b>Indisponible.</b> poche_latest.json / poche_score.json non chargés — on n\'invente pas d\'avis.'}</div>
+      <div class="card-detail">Source : poche_avis.py → thermo/analyses_poche/ · proba = fréquence historique de la zone, jamais inventée</div>
+    </div>
+  `);
+  
   // ACE / HULK
   const ace = T.ace || {};
   const aceColor = ace.heat > 80 ? '#ff5c5c' : (ace.heat > 50 ? '#ffd24d' : '#7cff6b');
@@ -488,6 +514,20 @@ async function loadTruth() {
     if (r.ok) {
       const c = await r.json();
       if (c && c.headline) T.cortana = c;
+    }
+  } catch(e) {}
+  try {
+    const r = await fetch('http://127.0.0.1:17800/thermo/poche_latest.json', {cache:'no-store'});
+    if (r.ok) {
+      const p = await r.json();
+      if (p && p.avis) T.poches = p;
+    }
+  } catch(e) {}
+  try {
+    const r = await fetch('http://127.0.0.1:17800/thermo/poche_score.json', {cache:'no-store'});
+    if (r.ok) {
+      const s = await r.json();
+      if (s && s.paires) T.pocheScore = s;
     }
   } catch(e) {}
   render();

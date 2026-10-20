@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-10-19T18:58:46Z",
+  "updated": "2026-10-20T17:20:53Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -511,10 +511,10 @@
       "origine": "analyse 53 465 mesures ASPIRATION_CALIB 16-24/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "7995b4dacba7f436cc2c329b2de8752c",
+      "md5": "8fd559b438a12a8e6ceaf9804aec33fe",
       "note": "déclaré manuel 2026-08-28T18:30Z | DÉCLARÉ 2026-09-11 (autopsie V7, GO Christophe « recabler + autopsie v7 ») : modif V4 Option A du 10/09 16h50 (trailing σ filet secondaire sur 8 paires — trail_arm_pct/trail_giveback_pct, source volatilite_paires.json, note in-file « GO Christophe ») committée par auto-sync 15h14Z mais md5 oublié au re-scellement → fausse INTRUSION veilleuse en boucle depuis le 11/09 11h34Z (alerte vocale éteinte manuellement 14h00 par Christophe).",
       "maj": "27/08 17:30Z : création || RE-SCELLÉ 03/09 : Profils universe modifiés 30/08 18h15 — re-scellés post-audit 03/09 (GO Christophe). || 11/09 : md5 mis à jour 304c781d…→0441f23a… (déclaration légitime V4 Option A, autopsie V7)",
-      "date": "2026-10-19T18:56:10Z",
+      "date": "2026-10-20T16:43:43Z",
       "_rescel": [
         {
           "ts": "2026-10-09T09:56:29Z",
@@ -535,6 +535,10 @@
         {
           "ts": "2026-10-19T18:56:10Z",
           "motif": "GO Christophe 19/10 toute la ligne : modifs declarees (filets/memoire/derogation R7 mistral), cire perimee, re-scellement"
+        },
+        {
+          "ts": "2026-10-20T16:43:43Z",
+          "motif": "consolidation 04h10 du 20/10 (predeclaree), cire perimee"
         }
       ]
     },
@@ -744,9 +748,19 @@
       "origine": "GEOPOL-C2 — GO Christophe 12/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a46c8a39a4fc16cda5c8669df96c3d6b",
+      "md5": "9c80cb8456ceaf232a5ce9a889bfc7a6",
       "note": "GEOPOL-C2 : geopol ajouté à la rotation notée (radar/funding/fearGreed/geopol) — plist 08h30/20h30 inchangée | RÉACTIVATION 19/09 : les 4 cœurs gardent leur cadence ; 2 indices « réactivés » par passage en ROTATION (tick 12 h) → les 13 indices morts sont rafraîchis ≈ tous les 3,2 j (seuil 14 j). +2 appels/passage, aucune capacité retirée, réversible. | R15 « TOUJOURS BRANCHER » 19/09 : +5 indices (rbf, pipeline_health, longShort, etfBtcM, score) → les 15 bulles de l'app Indices sont couvertes. Rotation 3/passage sur 18 réactivés (cycle 3 j), cœurs inchangés.",
-      "date": "2026-09-19T13:21Z"
+      "date": "2026-10-20T17:20:53Z",
+      "_rescel": [
+        {
+          "ts": "2026-10-20T16:47:13Z",
+          "motif": "branchement poches 20/10 (predeclare), ajout seul en fin de cadence, syntaxe OK preuve live"
+        },
+        {
+          "ts": "2026-10-20T17:20:53Z",
+          "motif": "GO 1+2 : appel signaux_execution cadence (predeclare), syntaxe OK"
+        }
+      ]
     },
     {
       "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
@@ -907,11 +921,11 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "bba760a277967508b30f13a6eb30247f",
+      "md5": "e2c9bea3eb47e7db165fc0f0ce2fae96",
       "_rescel_20260918": "panneau « Banc 20 actifs — risque » (net / DD / net-DD, base vs notrend) + contrat de sortie des LaunchAgents (distingue alerte métier d'échec réel).",
       "note": "Re-scellé 14/09T12:41Z après modification déclarée : suppression de la réécriture de vol.html (cache-buster déplacé côté client) — le générateur n'écrit plus que vol_live.js (non scellé, donnée vivante). Par Buffy. | 19/09 soir : + gardien « Règles d'or » (lit thermo/regles_or.json écrit par verifier_regles_or.py) — les règles d'or sont désormais VISIBLES dans la page vol. Declaré par Buffy.",
       "maj": "Gardien « Chien de garde » RÉPARÉ 20/09/2026 : il lisait `tail -1 thermo/chien_rapport.txt`, fichier QUE PERSONNE N'ÉCRIT → stdout vide → la page affichait « rapport présent » en VERT quoi qu'il arrive (faux vert permanent sur le gardien le plus important). Il lit désormais thermo/CHIEN_RAPPORT.json : « N vivants · N hors délai · N aveugle(s) » + l'organe et son champ muet, et un rapport figé > 15 min = rouge (le chien lui-même peut mourir). · 2e passe 20/09 : la table CONTRAT_SORTIE (codes de sortie launchd voulus) est désormais LUE dans strategie/contrat_sortie.json — une seule vérité, partagée avec le chien de garde (qui juge les 44 organes sans produit sur leur sortie launchd). Repli local conservé si le fichier manque.",
-      "date": "2026-10-08T10:39:12Z",
+      "date": "2026-10-20T17:20:53Z",
       "_rescel_20260920": "DÉCLARÉ 20/09/2026 (Buffy, GO Christophe — boucle d'alerte) : CONTRAT_SORTIE += com.ace777.verif-setup exit 1 = « preuve de lecture du coffre à refaire (gatekeeper, par conception) ». Avant, ce garde-fou légitime était affiché comme un ÉCHEC (organe cassé) alors qu'il dit « relis la carte du coffre ». md5 1b854a2b1cb820c87aeb176604634a53 → efcec0aad782deb9e01f77300007290d. Aucune autre logique modifiée. | + gardien « Repo = installation » (lit thermo/installation_repo.json écrit par installer_depuis_repo.sh) : rend visible que le fichier installé est un LIEN vers le repo (dérive impossible par construction). md5 efcec0aad782deb9e01f77300007290d → 0402336d4df5e86434955238f655a028. || 20/09 (Buffy, GO « cri vivant + revue des organes ») : + gardien « Cris en cours » (lit thermo/cris.json écrit par le chien : les cris ACTIFS à l'instant, auto-effacés, avec le fait que la voix a VRAIMENT été lancée — un cri muet est un faux cri) et + gardien « Revue des organes » (lit thermo/revue_organes.json). md5 1b7a6a40 → 1a698b3c. || 20/09 (Buffy, GO « verdicts des protocoles ») : le tableau « Protocoles en test » ne recopie plus le document du 14/09 — il lit thermo/PROTOCOLES_VERDICTS.json (verdicts MESURÉS par scripts/verdicts_protocoles.py, avec le critère pré-enregistré à côté du résultat et une ligne ⚠ quand un verdict ne peut pas être rendu). Le tableau documentaire ne sert que de repli. md5 1a698b3c → 0e7ff6fd.",
       "_rescel_20260922_go123": "GO 2 : 3 gardiens ajoutés (registre des échecs branché/récidives · seuils sans mesure R17 · sortie pilotée par la mesure) — lecture seule d'états écrits par les organes.",
       "_rescel_20260923": "GARDIEN VISIBLE 23/09 (GO 1 — « un verdict qu'il faut aller chercher n'existe pas ») : la page « vol » gagne DES gardiens qui lisent des états ÉCRITS par des contrôles appelés par git_push_auto.sh — d'abord « Garde-fou seuil moteur » (`thermo/seuil_moteur.json` : combien de refus chiffrés ont été CONFRONTÉS au seuil recalculé, instrument qui recalcule sans la cadence, refus d'être un feu vert si l'état est figé >8 h) ; puis, même jour, « Horodatage mémoire (E13) » (`thermo/memoire_horodatage.json` : lignes horodatées, heure future interdite, remontées de temps signalées mais NON re-datées). MODIFIÉ UNE 2e FOIS le 23/09 pour ce 2e gardien (le scellement est refait ici, après la DERNIÈRE modification — leçon E12). **3e modification le 23/09** : un 15ᵉ gardien, « Schéma du journal (E15) » (`hulk-mexc/runs/VERIF_SCHEMA_JOURNAL.json`) — largeur de schéma, nombre d'incohérences, journal vivant conforme, refus d'être un feu vert si l'état est figé >8 h. LECTURE SEULE, ajout seul : aucun autre gardien touché, aucune donnée modifiée.",
@@ -924,6 +938,10 @@
         {
           "ts": "2026-10-08T10:39:12Z",
           "motif": "GO2 : gardien 'Couverture des classes d'erreur' (lit thermo/couverture_erreurs.json)"
+        },
+        {
+          "ts": "2026-10-20T17:20:53Z",
+          "motif": "GO 1+2 : section signaux snapshot (predeclare), pattern protocoles, snapshot verifie 23 lignes"
         }
       ]
     },
@@ -933,9 +951,16 @@
       "origine": "GO Christophe 14/09 (onglet cockpit vol)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "e2371d1a49e2dc9190b7925c6ee4df00",
+      "md5": "e078e0abb1d5bfd521c3e450b6af4f86",
       "_rescel_20260918": "rendu du panneau banc/risque + badges tri-état (🟢 en vol/ok · 🟠 alerte métier · 🔴 échec réel).",
-      "note": "Re-scellé 14/09T12:40Z : le générateur ne réécrit PLUS ce fichier (cache-buster côté client, Date.now()). Defaut de conception du matin corrigé : on ne scelle pas un fichier qu'on réécrit toutes les 5 min. Par Buffy."
+      "note": "Re-scellé 14/09T12:40Z : le générateur ne réécrit PLUS ce fichier (cache-buster côté client, Date.now()). Defaut de conception du matin corrigé : on ne scelle pas un fichier qu'on réécrit toutes les 5 min. Par Buffy.",
+      "date": "2026-10-20T17:20:53Z",
+      "_rescel": [
+        {
+          "ts": "2026-10-20T17:20:53Z",
+          "motif": "GO 1+2 : panel Signaux execution (predeclare), node --check OK"
+        }
+      ]
     },
     {
       "nom": "/Users/christophe/prise-ia/hub_prise_ia.py",
@@ -2781,6 +2806,82 @@
         {
           "ts": "2026-10-16T22:15:23Z",
           "motif": "re-scellement post slip affiche (slipN/slipMoy/bride), pre-declare avant"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/poche_avis.py",
+      "role": "organe",
+      "origine": "chantier poche-par-poche GO Christophe 20/10, predeclare avant creation",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "377a7e3eb703ad6f2f6ba7212aef759b",
+      "date": "2026-10-20T17:00:52Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-20T16:43:23Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-20T16:57:13Z",
+          "motif": "GO A : probas empiriques par zone (predeclare), Brier teste 0.425=attendu"
+        },
+        {
+          "ts": "2026-10-20T17:00:52Z",
+          "motif": "tableau : poche_latest.json a l emission (predeclare), servi :17800 verifie"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/poche_score.py",
+      "role": "organe",
+      "origine": "chantier poche-par-poche GO Christophe 20/10, predeclare avant creation",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "91bdb5b78b5f3c413aa88ce45bf49eb9",
+      "date": "2026-10-20T16:57:13Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-20T16:43:23Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-20T16:57:13Z",
+          "motif": "GO A : Brier + baseline 0.25 (predeclare), teste bout-en-bout OK"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/cockpit/indices.html",
+      "role": "cockpit",
+      "origine": "tableau POCHES GO Christophe 20/10, predeclare avant modif (carte+2 fetch, JS verifie node)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "c9c8dafb1a4d5a7a1a0549f1692a77f3",
+      "date": "2026-10-20T17:01:00Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-20T17:01:00Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/signaux_execution.py",
+      "role": "organe",
+      "origine": "GO 1+2 Christophe 20/10, predeclare avant creation (rho+spoof+vol-sizing)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "f853cdbdd96f4c1636b369a196743622",
+      "date": "2026-10-20T17:20:53Z",
+      "_ajout": [
+        {
+          "ts": "2026-10-20T17:20:53Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
         }
       ]
     }

@@ -44,3 +44,12 @@ for indice in $CORE $REVIVE_LIST; do
   python3 cortana_analyse.py "$indice" >> "$LOG" 2>&1 || echo "[$indice] ECHEC" >> "$LOG"
   sleep 3   # ménage le hub (évite les 429 en rafale)
 done
+
+# POCHES (20/10, GO « branche ») : avis déterministes par paire + notation des
+# avis échus. 0 appel LLM, jamais bloquant (la cadence ne doit pas mourir sur
+# un klines HS). Émission 2x/jour avec la cadence, preuve live le lendemain.
+echo "-- poches" >> "$LOG"
+python3 poche_avis.py >> "$LOG" 2>&1 || echo "[poches] ECHEC avis" >> "$LOG"
+python3 poche_score.py >> "$LOG" 2>&1 || echo "[poches] ECHEC score" >> "$LOG"
+# SIGNAUX D'EXÉCUTION (20/10, GO 1+2) : ρ + sizing, jamais bloquant.
+python3 signaux_execution.py >> "$LOG" 2>&1 || echo "[signaux] ECHEC" >> "$LOG"
