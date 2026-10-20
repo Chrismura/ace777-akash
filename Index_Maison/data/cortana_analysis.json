@@ -1,38 +1,8 @@
 {
-  "timestamp": 1792497506,
-  "date": "2026-10-20T11:58:26.113464+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792498406,
+  "date": "2026-10-20T12:13:26.397682+00:00",
+  "n_analyses": 1,
   "analyses": [
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.0567887174085926,
-        "value": 1.581,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.581, Z-score 2.06) couplé à un vide médiatique total (silence radio de Google Actualités). Les acheteurs agressifs accumulent dans l'ombre sans éveiller le retail, configuration classique d'accumulation furtive par les baleines avant un mouvement de cassure.\"\n}\n```",
-        "ts": 1792496072.74281
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.581,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.06,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -44,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.06,
+          "value": -0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -54,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 2e-05,
+          "value": 2.2e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
