@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.0030943694955856,
-      "value": 6736644455.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : les titres médiatiques parlent de voitures, d'éducation, de marketing et de pétrole. Aucune corrélation avec une quelconque baleine crypto. Anomalie statistique onchain non corroborée par le narratif.\"\n}\n```",
-      "ts": "2026-10-18T16:37:04.332800+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.0591171589937374,
       "value": 6766500004.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond complet : les données textuelles fournies ne concernent aucune cryptomonnaie mais des sujets sans rapport (automobiles, éducation, marketing, pétrole). Aucune analyse onchain pertinente possible.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 55,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z de -2.00 sur le Fear & Greed (neutre à 55) indique une apathie médiatique totale et une absence de FOMO public, alors que les données onchain montrent une accumulation silencieuse des baleines sous le radar.\"\n}\n```",
       "ts": "2026-10-20T04:48:10.703134+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.062680020353858,
+      "value": 0.532,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.532 (z-score -2.06) indique une domination massive des acheteurs passifs (limite) et une accumulation agressive par les baleines. Le silence médiatique total confirme l'absence de FOMO de détail, signature classique d'une phase d'accumulation institutionnelle avant un mouvement haussier.\"\n}\n```",
+      "ts": "2026-10-20T06:03:24.915481+00:00"
     }
   ]
 }
