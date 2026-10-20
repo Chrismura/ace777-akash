@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.0592746050315216,
-      "value": 1.778,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.06 (1.778), indiquant un positionnement acheteur excessif de la foule. Pendant ce temps, le narratif médiatique grand public s'emballe sur les stratégies 'Long/Short', signalant une euphorie tardive et un risque imminent de liquidation en cascade des positions acheteuses par les baleines.\"\n}\n```",
-      "ts": "2026-10-18T16:11:50.429025+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.0030943694955856,
       "value": 6736644455.0,
@@ -349,6 +342,13 @@
       "value": 0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique purement artéfactuelle. Les gros titres font référence à du bruit de fond linguistique (cinéma, actions traditionnelles, actualité locale) sans aucun rapport avec la crypto. Aucune baleine active sur ce ticker.\"\n}\n```",
       "ts": "2026-10-20T01:22:23.558036+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.002382371303204,
+      "value": 55,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score z de -2.00 sur le Fear & Greed (neutre à 55) indique une apathie médiatique totale et une absence de FOMO public, alors que les données onchain montrent une accumulation silencieuse des baleines sous le radar.\"\n}\n```",
+      "ts": "2026-10-20T04:48:10.703134+00:00"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T04:10:01.333787+00:00",
+  "generated_at": "2026-10-20T05:10:15.874963+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 119
+      "calls_24h": 122
     },
     {
       "id": "openrouter-free",
@@ -319,10 +319,34 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 13,
-    "remaining": 611
+    "consumed": 16,
+    "remaining": 608
   },
   "queue": [
+    {
+      "ts": "2026-10-20T05:10:15.402753+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.8
+    },
+    {
+      "ts": "2026-10-20T05:09:40.621755+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.21
+    },
+    {
+      "ts": "2026-10-20T04:48:10.702387+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.95
+    },
     {
       "ts": "2026-10-20T04:09:39.067078+00:00",
       "task": "supervise.decision",
@@ -418,89 +442,65 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 1.12
-    },
-    {
-      "ts": "2026-10-20T00:06:56.733497+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.91
-    },
-    {
-      "ts": "2026-10-19T23:07:02.214522+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.73
-    },
-    {
-      "ts": "2026-10-19T23:05:49.285959+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.82
     }
   ],
   "events": [
     {
-      "ts": "2026-10-20T04:09:39.066652+00:00",
+      "ts": "2026-10-20T05:10:15.401914+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-10-20T04:09:17.857783+00:00",
+      "ts": "2026-10-20T05:09:40.621135+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-10-20T04:09:16.844395+00:00",
+      "ts": "2026-10-20T05:09:39.408876+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-10-20T03:57:29.213230+00:00",
+      "ts": "2026-10-20T04:58:46.391237+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-20T03:57:29.212947+00:00",
+      "ts": "2026-10-20T04:58:46.390925+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests | Roulement xingchen-agi/xing4.0-29b-a4b:free: Reponse vide"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests | Roulement xingchen-agi/xing4.0-29b-a4b:free: HTTP Error 400: Bad Requ"
     },
     {
-      "ts": "2026-10-20T03:57:29.211558+00:00",
+      "ts": "2026-10-20T04:58:46.389260+00:00",
       "kind": "failover",
       "title": "Bascule depuis Roulement xingchen-agi/xing4.0-29b-a4b:free",
-      "detail": "Reponse vide"
+      "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-10-20T03:57:14.040005+00:00",
+      "ts": "2026-10-20T04:58:40.766734+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-20T03:57:09.401189+00:00",
+      "ts": "2026-10-20T04:58:36.404806+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-20T03:57:08.180938+00:00",
+      "ts": "2026-10-20T04:58:31.555257+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-20T03:57:03.415631+00:00",
+      "ts": "2026-10-20T04:58:26.728191+00:00",
       "kind": "failover",
       "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
       "detail": "HTTP Error 400: Bad Request"
