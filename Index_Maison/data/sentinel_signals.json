@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 3.1409239798108044,
-      "value": 11710656.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une forte activité de liquidations (11710656.0) avec un z-score élevé (3.14), suggérant une divergence potentielle entre les données onchain et le narratif médiatique. Les titres médiatiques se concentrent sur des liquidations spécifiques dans des secteurs particuliers, tandis que les données onchain montrent une activité de liquidation globale et significative. Cela pourrait indiquer que les baleines crypto sont en mouvement, et que le narratif médiatique est déconnecté de la réalité des marchés.\"\n}\n```",
-      "ts": "2026-10-19T09:37:18.296825+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.6072199333889645,
-      "value": 10942462.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : les titres médiatiques parlent de faillites d'entreprises traditionnelles (automobile, viticulture), tandis que le signal onchain concerne des liquidations de produits dérivés crypto. Aucune corrélation.\"\n}\n```",
-      "ts": "2026-10-19T10:07:25.143667+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.2749262169048823,
-      "value": 0.651929444821342,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.27) sur 1h combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une rupture de prix.\"\n}\n```",
-      "ts": "2026-10-19T10:32:29.325648+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.7556818843033777,
       "value": 5419914.0,
@@ -349,6 +328,27 @@
       "value": 0.918092377768831,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données narratives exploitables (titre vide/générique). Impossible d'évaluer la divergence entre l'anomalie onchain (z-score 3.63) et le sentiment médiatique sans contexte textuel. Signal insuffisant pour détecter un mouvement de baleine silencieux.\"\n}\n```",
       "ts": "2026-10-20T15:13:37.088510+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.1919961942648745,
+      "value": 1.48,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.19) sur le ratio long/short malgré un marché indifférent ou obsédé par des fonds traditionnels. Les baleines accumulent des positions longues à contre-courant dans l'ombre.\"\n}\n```",
+      "ts": "2026-10-20T15:34:06.147038+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.9738888011496325,
+      "value": 0.8814392986819963,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.97) sur 1h indiquant une volatilité de prix anormale, totalement ignorée par les médias (absence de couverture Google Actualités). C'est la signature classique d'une accumulation ou d'un mouvement furtif de baleines sous le radar public.\"\n}\n```",
+      "ts": "2026-10-20T15:44:30.437911+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3264244248105035,
+      "value": 1.135,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une confusion de ticker. L'anomalie détectée concerne des actions traditionnelles (International Petroleum Corp - HAM:IPT) ou des homonymes institutionnels (École polytechnique), sans lien avec un actif crypto significatif.\"\n}\n```",
+      "ts": "2026-10-20T15:54:58.566594+00:00"
     }
   ]
 }
