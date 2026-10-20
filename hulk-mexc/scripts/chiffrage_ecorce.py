@@ -92,13 +92,18 @@ def replay(frac):
         elif ev == "BAG_DCA":
             if "trend_" in note:
                 pos[p] += q
+            elif frac < 1.0:
+                bag[p] += q  # FIX COMPAGNON : le dca_rebuy ÉCRASE le bag (bags[pair] = )
             else:
-                bag[p] = q
+                bag[p] = q  # baseline : le bag est toujours vide ici (§21)
         elif ev == "BAG_ARM":
             if "core_trend" in note:
                 mv = min(q, pos[p])
                 pos[p] -= mv
-                bag[p] = mv  # le moteur ÉCRASE (bags[pair] = ) — zéro overwrite mesuré §21
+                if frac < 1.0:
+                    bag[p] += mv  # FIX COMPAGNON : sinon l'écorce gardée est écrasée
+                else:
+                    bag[p] = mv  # baseline : bag toujours vide ici (§21)
             elif "house_half" in note:
                 bag[p] = q + extra_keep.pop((ts, p), 0.0)
                 pos[p] = 0.0
@@ -123,6 +128,9 @@ def replay(frac):
                 reste -= take
             proceeds[p] += vente * px * (1.0 - FEE)
             n_ventes[p] += 1
+            if "stake_out_" in note and "sell_" in note:
+                # le non-vendu du stake-out rejoint le keep (vrai comportement moteur)
+                extra_keep[(ts, p)] = extra_keep.get((ts, p), 0.0) + (q - vente)
             if frac < 1.0:
                 evts.append((ts, p, None, None))  # delta calculé vs baseline plus bas
         elif ev == "DUST_DROP":

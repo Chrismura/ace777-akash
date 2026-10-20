@@ -1,7 +1,7 @@
-# VEILLE ALERT — 2026-10-20T20:29:31Z
+# VEILLE ALERT — 2026-10-20T21:11:59Z
 
 Signal détecté (piste B, sync paper). **Pas un ordre.**
 
-- **RIZEUSDT** — WATCH_PULLBACK — tension haute + reflux  (t=2.61 m6=10.6 dd6=5.42 chg24=0.05%)
+- **RWAINCUSDT** — IMPULSE_WAIT — spike en cours, pas chase  (t=2.42 m6=8.26 dd6=0.0 chg24=0.03%)
 
 → Lire `DIGEST_LATEST.md` et noter dans `VEILLE_QWEN_NOTES.md` si tu confirmes.

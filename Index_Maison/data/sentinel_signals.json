@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.076434190473759,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : le z-score on-chain anodin (50.0) ne correspond à aucun actif crypto pertinent, le 'narratif' médiatique renvoyant exclusivement à du cinéma, de la finance traditionnelle (actions) et des homonymes lexicaux sans lien avec la blockchain.\"\n}\n```",
-      "ts": "2026-10-19T16:14:45.884722+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.740018286012199,
-      "value": 1.039,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif d'homonymie. Le signal 'IPT' détecté par les sentinelles crypto correspond ici à des actions traditionnelles (International Petroleum Corp / IMPACT Silver) et non à un actif blockchain ou à une baleine crypto active.\"\n}\n```",
-      "ts": "2026-10-19T16:30:07.398138+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.921665830931594,
       "value": 1.104,
@@ -349,6 +335,20 @@
       "value": 1.2,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative (ipt = 1.2, z-score 2.48), suggérant un mouvement de fonds potentiellement négatif. Cependant, les titres médiatiques ne mentionnent pas cette anomalie, ce qui indique une possible déconnexion entre les données onchain et le narratif médiatique. Les titres médiatiques sont centrés sur des sujets divers (éducation, entreprise, etc.), sans référence à l'activité anormale sur la blockchain, ce qui renforce l'hypothèse d'un mouvement de fonds silencieux.\"\n}\n```",
       "ts": "2026-10-20T19:07:25.215402+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.083897625411719,
+      "value": 1.107,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique sur le ticker 'IPT' totalement non pertinente : confusion entre des actions traditionnelles (International Petroleum Corp / IMPACT Silver Corp) et l'univers crypto. Aucune baleine crypto active sur ce symbole.\"\n}\n```",
+      "ts": "2026-10-20T21:07:42.810187+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.2107677275459747,
+      "value": 1.773,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Taker ratio à 1.773 (z-score 3.21) indique une agression massive à l'achat par les acheteurs agressifs (taker buys), totalement ignorée par les médias grand public (silence radio sur Google Actualités). Divergence classique d'accumulation furtive par les baleines avant un mouvement de cassure haussier.\"\n}\n```",
+      "ts": "2026-10-20T21:07:44.445813+00:00"
     }
   ]
 }
