@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792498406,
-  "date": "2026-10-20T12:13:26.397682+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792502007,
+  "date": "2026-10-20T13:13:27.536862+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.5954409184255804,
-        "value": 8506958883.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.60) indique un assèchement total de la liquidité et une indifférence médiatique totale focalisée sur des bruits macro/tradfi. C'est la configuration classique d'accumulation silencieuse par les baleines avant un retournement de tendance.\"\n}\n```",
-        "ts": 1792496978.391859
+        "zscore": -2.333948299431257,
+        "value": 8329191493.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non pertinente (bruit de fond, confusion sémantique des actualités avec des secteurs non-crypto).\"\n}\n```",
+        "ts": 1792500595.794149
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.15,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         },
@@ -24,13 +24,47 @@
           "depasse": false
         },
         "funding": {
-          "value": 2.2e-05,
+          "value": 2.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 8.734741296294109,
+        "value": 9637061.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.73, ~9.6M USD) sans couverture médiatique significative. Accumulation silencieuse des baleines en dehors du radar public.\"\n}\n```",
+        "ts": 1792501501.353523
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.22,
+          "seuil": 1,
           "depasse": false
         }
       },

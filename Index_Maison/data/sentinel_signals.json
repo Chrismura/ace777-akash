@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 4.582219608248843,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score onchain élevé traduisant une volatilité ou une accumulation anormale.\"\n}\n```",
-      "ts": "2026-10-19T01:09:15.099350+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.823212807255396,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (3.82) signalant une anomalie statistique du sentiment, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-19T01:39:21.475523+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.3166247903554,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score fear_greed de 59 indique une peur modérée, ce qui pourrait suggérer une divergence avec le narratif médiatique optimiste. Les titres médiatisés pourraient être influencés par des facteurs non onchain, tandis que les mouvements de fonds pourraient indiquer une méfiance accrue parmi les investisseurs institutionnels.\"\n}\n```",
-      "ts": "2026-10-19T02:09:26.243588+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.932575659723036,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice de peur/avidité à 59 avec un z-score de 2.93 indique une forte pression de vente, suggérant une divergence entre les données brutes et le narratif médiatique optimiste. Les titres médiatisés ne reflètent pas l'anomalie onchain, indiquant un mouvement silencieux de baleines.\"\n}\n```",
-      "ts": "2026-10-19T02:39:32.090556+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.8792920276771428,
       "value": 59,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.88) couplé à un Greed modéré (59) sans surchauffe médiatique (Google Actualités vide). C'est la signature classique d'une accumulation silencieuse de baleines sous le radar du retail.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 8506958883.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.60) indique un assèchement total de la liquidité et une indifférence médiatique totale focalisée sur des bruits macro/tradfi. C'est la configuration classique d'accumulation silencieuse par les baleines avant un retournement de tendance.\"\n}\n```",
       "ts": "2026-10-20T11:49:38.391859+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.588033284414289,
+      "value": 8284102446.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités macro/automobiles sans rapport direct avec la crypto) malgré un z-score on-chain négatif.\"\n}\n```",
+      "ts": "2026-10-20T12:19:46.825312+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 10.73611483912617,
+      "value": 8676906.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain extrême (z-score 10.74, volume $8.67M) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique de baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-20T12:24:51.244865+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.333948299431257,
+      "value": 8329191493.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non pertinente (bruit de fond, confusion sémantique des actualités avec des secteurs non-crypto).\"\n}\n```",
+      "ts": "2026-10-20T12:49:55.794149+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 8.734741296294109,
+      "value": 9637061.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.73, ~9.6M USD) sans couverture médiatique significative. Accumulation silencieuse des baleines en dehors du radar public.\"\n}\n```",
+      "ts": "2026-10-20T13:05:01.353523+00:00"
     }
   ]
 }
