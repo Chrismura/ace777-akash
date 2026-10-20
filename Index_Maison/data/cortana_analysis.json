@@ -1,7 +1,7 @@
 {
-  "timestamp": 1792509209,
-  "date": "2026-10-20T15:13:29.832721+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792509509,
+  "date": "2026-10-20T15:18:29.939950+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
@@ -19,9 +19,43 @@
           "depasse": false
         },
         "oi": {
-          "value": 95535.593,
+          "value": 95380.359,
           "seuil": 120000,
           "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.6274522721854905,
+        "value": 0.918092377768831,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données narratives exploitables (titre vide/générique). Impossible d'évaluer la divergence entre l'anomalie onchain (z-score 3.63) et le sentiment médiatique sans contexte textuel. Signal insuffisant pour détecter un mouvement de baleine silencieux.\"\n}\n```",
+        "ts": 1792509217.08851
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.89,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2775196.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 6.3e-05,
+          "seuil": 0,
+          "depasse": true
         }
       },
       "interpretation": {
