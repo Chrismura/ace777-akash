@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.0258629608357923,
-      "value": 6769134686.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de volume non pertinente : les données textuelles font référence à l'automobile, à l'éducation, au marketing et au pétrole, sans aucun lien avec l'écosystème crypto ou une baleine.\"\n}\n```",
-      "ts": "2026-10-18T17:37:35.367907+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.391560216119012,
-      "value": 1.81,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.39 (1.81), indiquant un posicionnement massivement acheteur de la foule. En contraste total, les médias grand public banalisent et hypent la stratégie 'Long/Short', signalant une euphorie retail tardive et un risque imminent de purge par les baleines.\"\n}\n```",
-      "ts": "2026-10-18T17:37:37.685148+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.6934276991906057,
-      "value": 0.5102852406587033,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.69) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par des baleines avant un réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-18T22:03:21.101067+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.0433830314381622,
       "value": 0.6081783533469887,
@@ -349,6 +328,27 @@
       "value": 1.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée sur un ticker boursier traditionnel (International Petroleum Corp / IMPACT Silver) et non sur une cryptomonnaie. Bruit médiatique sans rapport avec des mouvements de baleines crypto.\"\n}\n```",
       "ts": "2026-10-20T10:04:06.123525+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.0198447525978698,
+      "value": 9524782181.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités généralistes et hors-sujet sur Engie, automobile et éducation). Le z-score négatif (-2.02) indique une baisse d'activité, mais aucun signal clair de mouvement silencieux de baleines crypto détectable dans ce flux pollué.\"\n}\n```",
+      "ts": "2026-10-20T10:19:11.006164+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.721015582008368,
+      "value": 8851734057.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités sur Engie, voitures et éducation). Le z-score négatif reflète une baisse de liquidité globale, mais l'absence de signal pertinent invalide toute lecture baleinière.\"\n}\n```",
+      "ts": "2026-10-20T10:49:18.722116+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.2047884786878664,
+      "value": 1.581,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.20) indique une forte agression acheteuse cachée sur le marché dérivé/spot, alors que Google Actualités ne couvre pas l'événement (silence médiatique). Les baleines accumulent agressivement sous le radar du grand public.\"\n}\n```",
+      "ts": "2026-10-20T11:04:24.833607+00:00"
     }
   ]
 }
