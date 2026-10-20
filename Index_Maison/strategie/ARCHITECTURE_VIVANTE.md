@@ -1,10 +1,10 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-10-20 05:00 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-10-20 05:57 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Qui tourne en ce moment
-- ✅ hub
+- ⛔ hub
 - ✅ pont cockpit
 - ✅ radar
 - ⛔ lecteur signets
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-10-20 04:59Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-10-20 05:57Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -31,15 +31,27 @@
 
 ## Veille du jour
 
-- VEILLE du jour : pas encore passée
+- [Santé]
+  · hub : OK (7 providers)
+  · réseau (DNS) : OK
+  · sources en erreur : 0
+- [Énergie du jour]
+  · appels : 14 (cloud 14)
+  · budget cloud : 624 max
+  · par provider : gemini=11, groq=2, mistral=1
+- [Nouvelles offres détectées (non intégrées)]
+  · minimax/minimax-m3.1-flash:free
+  · nvidia/nemotron-3.5-super-vl:free
+  · dots-studio/dots-3-note-preview:free
+  … 110 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-10-20T04:59:57.757015Z BTCUSDT 82092.07 0.0000 0.8 declenche=non
-  · 2026-10-20T04:59:57.948071Z BTCUSDT 82092.06 0.0000 0.8 declenche=non
-  · 2026-10-20T04:59:58.966437Z BTCUSDT 82092.06 0.0000 0.8 declenche=non
-  · 2026-10-20T04:59:59.956243Z BTCUSDT 82092.06 0.0000 0.8 declenche=non
+  · 2026-10-20T05:57:09.008769Z BTCUSDT 81812.86 0.0001 2.0 declenche=non
+  · 2026-10-20T05:57:09.547400Z BTCUSDT 81812.85 0.0001 2.0 declenche=non
+  · 2026-10-20T05:57:09.768349Z BTCUSDT 81812.85 0.0001 2.0 declenche=non
+  · 2026-10-20T05:57:10.037703Z BTCUSDT 81812.86 0.0001 2.1 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1057 signets X résumés (quota aujourd'hui : 0/50)
 - 167 fiches IA d'offres en cache (quota 8/jour)
