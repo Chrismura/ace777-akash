@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T19:22:45.075065+00:00",
+  "generated_at": "2026-10-20T19:24:46.470923+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 145
+      "calls_24h": 146
     },
     {
       "id": "openrouter-free",
@@ -319,10 +319,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 141,
-    "remaining": 483
+    "consumed": 142,
+    "remaining": 482
   },
   "queue": [
+    {
+      "ts": "2026-10-20T19:24:01.486362+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 14.93
+    },
     {
       "ts": "2026-10-20T19:22:27.150105+00:00",
       "task": "supervise.decision",
@@ -434,17 +442,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 7.64
-    },
-    {
-      "ts": "2026-10-20T18:37:07.024279+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 8.19
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-20T19:24:01.485944+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-20T19:23:46.557802+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-10-20T19:22:31.726557+00:00",
       "kind": "http",
@@ -492,18 +504,6 @@
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-20T19:22:16.228649+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-20T19:22:15.886365+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
