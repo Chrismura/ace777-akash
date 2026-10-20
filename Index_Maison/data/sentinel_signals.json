@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 3.9819810902232153,
-      "value": 11448458.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte de données : les 'liquidations' mentionnées dans le narratif médiatique font référence à des faillances d'entreprises traditionnelles (automobile, viticulture), sans lien avec le marché crypto ou l'activité des baleines.\"\n}\n```",
-      "ts": "2026-10-19T08:36:46.321899+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.5529436534907997,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique pure (z-score -2.55) sans rapport avec la crypto. Les titres médiatiques traitent de voitures, de coiffure, de saumon et d'éducation. Bruit absolu, aucune baleine identifiée.\"\n}\n```",
-      "ts": "2026-10-19T08:52:05.843294+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.208517833391472,
-      "value": 59,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.21) couplé à un indice de peur/gourmandise modéré (59) et un vide médiatique total (Google Actualités). Les baleines accumulent en silence loin du radar grand public.\"\n}\n```",
-      "ts": "2026-10-19T08:57:07.640741+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 3.4368865606668857,
       "value": 11447143.0,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de liquidation onchain (11,4M$, z-score 3.44) corrélée à une panique médiatique généralisée sur les défaillances économiques (faillites d'entreprises, viticulture, automobile). Les baleines profitent de la capitulation et du stress macroéconomique pour purger le marché.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1.0753252247797107,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 9.05 détecté sur 1h sans aucune couverture médiatique (Google Actualités vide). Divergence totale : accumulation silencieuse massive des baleines loin du radar grand public.\"\n}\n```",
       "ts": "2026-10-20T14:11:37.028471+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 7.500381156583721,
+      "value": 1.3823140962809566,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 7.50 sur 1h combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une rupture de prix.\"\n}\n```",
+      "ts": "2026-10-20T14:42:02.452675+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.1983206601699523,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte sémantique : l'acronyme 'SDI' dans les médias désigne le 'Syndicat des Indépendants' (commerçants), totalement déconnecté de la blockchain ou des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-20T14:42:28.771609+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2518999428921007,
+      "value": 1.083,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique non pertinent (confusion entre le ticker boursier HAM:IPT, IMPACT Silver et des actualités institutionnelles). Aucune donnée onchain crypto valide pour 'IPT'.\"\n}\n```",
+      "ts": "2026-10-20T14:43:02.748956+00:00"
     }
   ]
 }

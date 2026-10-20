@@ -54,14 +54,17 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 47 | 2026-10-17T14:34:52Z | 14h | AUTRE | 0.04468 | COOLING | 6.4794 | 30766.68 | 61779.48 | 2.07e-06 | 0.12 | 0.58 | 0.60 | POMPE_PIEGE (stab 10) | prix 0.04468 · poussière(panier) 6.5% · Amihud 2.07e-06 · delta +0.12 · mur moy 30,767$ · mur max (run) 61,779$ |
 | 48 | 2026-10-18T14:34:53Z | 14h | AUTRE | 0.04097 | COOLING | 1.1477 | 30766.68 | 61779.48 | 2.15e-06 | -0.48 | -0.34 | 0.43 | POMPE_PIEGE (stab 14) | prix 0.04097 · poussière(panier) 1.1% · Amihud 2.15e-06 · delta -0.48 · mur moy 30,767$ · mur max (run) 61,779$ |
 | 49 | 2026-10-19T14:35:07Z | 14h | AUTRE | 0.04052 | IMPULSE_WAIT | 19.492 | 30766.68 | 61779.48 | 2.87e-06 | -0.09 | 0.92 | 0.95 | POMPE_PIEGE (stab 17) | prix 0.04052 · poussière(panier) 19.5% · Amihud 2.87e-06 · delta -0.09 · mur moy 30,767$ · mur max (run) 61,779$ |
+| 50 | 2026-10-20T14:35:05Z | 14h | AUTRE | 0.04683 | IMPULSE_WAIT | 2.2952 | 30766.68 | 61779.48 | 3.44e-06 | 0.35 | -0.11 | 0.11 | POMPE_PIEGE (stab 21) | prix 0.04683 · poussière(panier) 2.3% · Amihud 3.44e-06 · delta +0.35 · mur moy 30,767$ · mur max (run) 61,779$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-15T15:24:50Z au 2026-10-19T14:35:07Z (13696 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-16T15:25:29Z au 2026-10-20T14:35:05Z (13739 points) — archives de rotation incluses._
 
-_Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
+| # | De | prix | Vers | prix | Amplitude | Durée |
+|---|---|---|---|---|---|---|
+| 1 | pic 2026-10-16T15:25:29Z | 0.04694 | creux 2026-10-18T20:16:06Z | 0.03886 | 🔻 -17.2 % | 53 h (2.2 j) |
 
-**Cycle EN COURS : BAISSE depuis le pic du 2026-10-16T03:15:08Z à 0.05218 → 0.04052 = **-22.3 %**** (extrême courant 0.03886)
+**Cycle EN COURS : HAUSSE depuis le creux du 2026-10-18T20:16:06Z à 0.03886 → 0.04683 = **+20.5 %**** (extrême courant 0.04686)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
