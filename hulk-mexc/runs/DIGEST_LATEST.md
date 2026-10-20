@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-20T00:07:27Z
+# Hulk DIGEST — 2026-10-20T01:07:32Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,28 +12,28 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| ETHUSDT | IDLE | 0.6 | 1.13 | 0.53 | -0.0 | 124127459.23 | 0.04 | skipped_fast |
-| XRPUSDT | IDLE | 0.57 | 1.03 | 0.67 | -0.0 | 20405697.28 | 1.54 | skipped_fast |
-| BTCUSDT | IDLE | 0.32 | 0.57 | 0.51 | -0.0 | 318869776.68 | 0.0 | skipped_fast |
-| PYTHUSDT | IDLE | 1.93 | 3.64 | 1.43 | -0.01 | 804169.94 | 2.73 | skipped_fast |
-| WUSDT | IDLE | 2.23 | 4.01 | 3.06 | 0.0 | 708499.15 | 17.56 | skipped_fast |
-| EDELUSDT | IDLE | 2.1 | 3.95 | 1.68 | 0.01 | 193685.81 | 11.17 | skipped_fast |
-| QNTUSDT | IDLE | 1.08 | 1.95 | 1.36 | 0.01 | 713330.07 | 5.66 | skipped_fast |
-| CCUSDT | IDLE | 1.22 | 2.39 | 0.27 | 0.04 | 365411.71 | 6.64 | skipped_fast |
-| KITEUSDT | IDLE | 1.72 | 3.49 | 1.23 | 0.07 | 76667.69 | 10.61 | skipped_fast |
-| CHIPUSDT | IDLE | 1.53 | 2.93 | 0.8 | 0.03 | 79446.83 | 11.85 | skipped_fast |
-| ZBCNUSDT | IDLE | 0.91 | 2.56 | 0.14 | 0.02 | 222361.26 | 23.71 | skipped_fast |
-| REDUSDT | IDLE | 1.43 | 2.73 | 0.86 | -0.01 | 58156.67 | 10.16 | skipped_fast |
-| HBARUSDT | IDLE | 0.93 | 1.79 | 0.44 | -0.03 | 446518.21 | 4.83 | skipped_fast |
-| RWAINCUSDT | IDLE | 1.05 | 2.07 | 2.03 | 0.03 | 69310.69 | 5.19 | skipped_fast |
-| BIOUSDT | IDLE | 0.87 | 1.63 | 0.72 | -0.01 | 69232.44 | 4.25 | skipped_fast |
-| RIZEUSDT | IDLE | 0.7 | 2.25 | 1.99 | -0.06 | 53418.14 | 65.34 | skipped_fast |
-| IOTAUSDT | IDLE | 1.0 | 1.89 | 0.68 | 0.0 | 90633.57 | 26.7 | skipped_fast |
-| LAUSDT | IDLE | 1.05 | 1.88 | 1.49 | -0.02 | 56067.26 | 23.01 | skipped_fast |
-| WAXLUSDT | IDLE | 1.2 | 3.21 | 2.12 | -0.05 | 62744.8 | 73.93 | skipped_fast |
-| RWAUSDT | IDLE | 0.4 | 0.79 | 0.0 | 0.01 | 54411.68 | 15.66 | skipped_fast |
-| MNSRYUSDT | IDLE | 0.15 | 0.29 | 0.1 | 0.0 | 41045.23 | 8.54 | skipped_fast |
-| FLUIDUSDT | IDLE | 0.0 | 0.0 | 0.0 | 0.02 | 4709.59 | 21.27 | skipped_fast |
+| XRPUSDT | IDLE | 0.71 | 1.25 | 1.2 | -0.01 | 20206687.07 | 1.54 | skipped_fast |
+| ETHUSDT | IDLE | 0.6 | 1.06 | 0.9 | -0.01 | 122909287.34 | 0.5 | skipped_fast |
+| BTCUSDT | IDLE | 0.56 | 1.01 | 0.8 | -0.01 | 314926325.91 | 0.0 | skipped_fast |
+| WUSDT | IDLE | 2.64 | 4.62 | 4.36 | -0.01 | 706246.34 | 17.03 | skipped_fast |
+| PYTHUSDT | IDLE | 2.0 | 3.51 | 3.21 | -0.04 | 832750.45 | 2.78 | skipped_fast |
+| QNTUSDT | IDLE | 1.29 | 2.25 | 2.2 | 0.01 | 693954.02 | 2.59 | skipped_fast |
+| CCUSDT | IDLE | 1.19 | 2.26 | 0.84 | 0.02 | 380595.14 | 5.73 | skipped_fast |
+| EDELUSDT | IDLE | 1.9 | 3.61 | 1.21 | 0.01 | 187020.15 | 11.15 | skipped_fast |
+| CHIPUSDT | IDLE | 1.62 | 2.93 | 2.02 | 0.0 | 76598.34 | 14.4 | skipped_fast |
+| KITEUSDT | IDLE | 1.56 | 3.0 | 2.19 | 0.05 | 76832.07 | 10.7 | skipped_fast |
+| ZBCNUSDT | IDLE | 0.96 | 2.56 | 1.1 | 0.0 | 208014.91 | 15.8 | skipped_fast |
+| REDUSDT | IDLE | 1.48 | 2.63 | 2.22 | -0.02 | 57915.67 | 16.93 | skipped_fast |
+| HBARUSDT | IDLE | 0.95 | 1.79 | 0.7 | -0.02 | 435792.81 | 7.26 | skipped_fast |
+| RWAINCUSDT | IDLE | 1.03 | 2.03 | 1.99 | 0.02 | 68031.5 | 10.38 | skipped_fast |
+| BIOUSDT | IDLE | 0.93 | 1.63 | 1.52 | -0.01 | 69276.2 | 8.56 | skipped_fast |
+| WAXLUSDT | IDLE | 2.1 | 4.44 | 4.25 | -0.07 | 62903.29 | 46.4 | skipped_fast |
+| RIZEUSDT | IDLE | 0.65 | 2.25 | 0.71 | -0.05 | 52580.34 | 41.49 | skipped_fast |
+| LAUSDT | IDLE | 1.22 | 2.18 | 1.7 | -0.02 | 55790.39 | 44.24 | skipped_fast |
+| IOTAUSDT | IDLE | 0.93 | 1.75 | 0.75 | -0.0 | 90267.87 | 31.08 | skipped_fast |
+| RWAUSDT | IDLE | 0.38 | 0.71 | 0.31 | 0.01 | 53935.55 | 23.5 | skipped_fast |
+| MNSRYUSDT | IDLE | 0.15 | 0.29 | 0.09 | 0.01 | 41616.59 | 8.54 | skipped_fast |
+| FLUIDUSDT | IDLE | 0.0 | 0.0 | 0.0 | 0.02 | 4709.59 | 21.36 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).

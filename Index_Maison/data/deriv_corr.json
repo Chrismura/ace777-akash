@@ -1,43 +1,39 @@
 {
- "ts": "2026-10-19T23:59Z",
- "mark": 81909.6,
+ "ts": "2026-10-20T01:00Z",
+ "mark": 81686.0,
  "correlations": {
   "prix_oi": {
-   "r": 0.295,
-   "lecture": "corrélation faible (+0.295) — les deux évoluent dans le même sens",
+   "r": 0.321,
+   "lecture": "corrélation faible (+0.321) — les deux évoluent dans le même sens",
    "label": "Open interest vs prix"
   },
   "prix_funding": {
-   "r": -0.203,
-   "lecture": "corrélation faible (-0.203) — les deux évoluent en sens opposé",
+   "r": -0.193,
+   "lecture": "corrélation quasi nulle (-0.193) — les deux évoluent en sens opposé",
    "label": "Funding vs prix"
   },
   "prix_longshort": {
-   "r": -0.688,
-   "lecture": "corrélation modérée (-0.688) — les deux évoluent en sens opposé",
+   "r": -0.711,
+   "lecture": "corrélation forte (-0.711) — les deux évoluent en sens opposé",
    "label": "Ratio long/short vs prix"
   },
   "prix_taker": {
-   "r": -0.078,
-   "lecture": "corrélation quasi nulle (-0.078) — les deux évoluent en sens opposé",
+   "r": -0.092,
+   "lecture": "corrélation quasi nulle (-0.092) — les deux évoluent en sens opposé",
    "label": "Achats/ventes agressifs vs prix"
   }
  },
  "liquidations": {
   "clusters_2000usd": {
    "80000": {
-    "long": 4375009.0,
+    "long": 525056.0,
     "short": 0.0
-   },
-   "82000": {
-    "long": 1698.0,
-    "short": 453575.0
    }
   },
-  "longs_below_usd": 4375009.0,
-  "longs_above_usd": 1698.0,
+  "longs_below_usd": 525056.0,
+  "longs_above_usd": 0,
   "shorts_below_usd": 0.0,
-  "shorts_above_usd": 453575.0,
-  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 4.4 M$ de LONGS liquidés à 76-78k (contre 0.5 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
+  "shorts_above_usd": 0,
+  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.5 M$ de LONGS liquidés à 76-78k (contre 0.0 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
  }
 }
