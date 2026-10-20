@@ -1,7 +1,7 @@
 {
-  "timestamp": 1792519112,
-  "date": "2026-10-20T17:58:32.705922+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792520313,
+  "date": "2026-10-20T18:18:33.078806+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
@@ -29,7 +29,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.14,
+          "value": -0.16,
           "seuil": 1,
           "depasse": false
         },
@@ -44,19 +44,55 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 6,
           "seuil": 5,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
+      },
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 18.32244371926382,
+        "value": 21786049.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score massif de 18.32 (21.7M$ de flux baleines) totalement absent du radar médiatique (Google Actualités muet). Accumulation furtive classique avant un mouvement de marché majeur.\"\n}\n```",
+        "ts": 1792520214.837094
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 1415609.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 20370439.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.16,
+          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

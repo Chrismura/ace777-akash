@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.0431288696918664,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP/frais de transaction) noyée dans du bruit médiatique non financier (pharmacie, politique locale).\"\n}\n```",
-      "ts": "2026-10-19T14:28:47.257084+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.0431288696918664,
       "value": 50.0,
@@ -349,6 +342,13 @@
       "value": 1.226,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.61) sur le ticker IPT détectée, mais les actualités font référence à un bruit médiatique hétérogène (International Petroleum, IMPACT Silver, École polytechnique). Aucune baleine crypto identifiée ; confusion probable entre des actifs traditionnels/actions (HAM:IPT, TSX:IPT) et la sentinelle.\"\n}\n```",
       "ts": "2026-10-20T17:51:45.347680+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 18.32244371926382,
+      "value": 21786049.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score massif de 18.32 (21.7M$ de flux baleines) totalement absent du radar médiatique (Google Actualités muet). Accumulation furtive classique avant un mouvement de marché majeur.\"\n}\n```",
+      "ts": "2026-10-20T18:16:54.837094+00:00"
     }
   ]
 }

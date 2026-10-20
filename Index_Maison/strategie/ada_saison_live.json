@@ -1,14 +1,14 @@
 {
-  "ts": "2026-10-20T18:02:45.846630+00:00",
-  "saison": "MOUVEMENT",
-  "emoji": "🌀",
+  "ts": "2026-10-20T18:21:45.815413+00:00",
+  "saison": "CALME",
+  "emoji": "🧊",
   "direction": "long",
-  "bascule": false,
-  "bascule_raison": "",
+  "bascule": true,
+  "bascule_raison": "MOUVEMENT → CALME",
   "alignement": {
-    "nb_long": 3,
-    "nb_short": 0,
-    "score": 1.0,
+    "nb_long": 2,
+    "nb_short": 1,
+    "score": 0.33,
     "direction": "long"
   },
   "indices": {
@@ -23,30 +23,31 @@
       "brut": 0.0001
     },
     "bassin": {
-      "direction": "long",
+      "direction": "short",
       "force": 1,
-      "brut": "up"
+      "brut": "down"
     },
     "vortex": {
       "direction": "long",
-      "force": 2,
-      "brut": 1.06
+      "force": 1,
+      "brut": 0.77
     },
     "essaim": {
       "direction": "long",
       "force": 2,
-      "brut": 1.56
+      "brut": 1.557
     },
     "baleines": {
       "direction": "neutre",
       "force": 0,
-      "brut": 0
+      "brut": 1
     }
   },
   "story": [
-    "SAISON : MOUVEMENT 🌀 — vortex long, alignement 100%.",
-    "Alignement : 3 haussiers / 0 baissiers.",
-    "Le vortex tourne fort (+1.06 % sur 24h) — le mouvement est là."
+    "SAISON : CALME 🧊 — hiver, ADA dort.",
+    "Alignement : 2 haussiers / 1 baissiers.",
+    "Le vent se lève (+0.77 % sur 24h) — pas encore un vortex.",
+    "⚡ BASCULE : MOUVEMENT → CALME — le ciel change, prépare-toi."
   ],
   "sources": [
     "live.json"
