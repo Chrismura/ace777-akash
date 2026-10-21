@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-21T15:52Z",
-  "tsUnix": 1792597957,
+  "ts": "2026-10-21T19:01Z",
+  "tsUnix": 1792609263,
   "symbol": "BTCUSDT",
   "mark": 82871.88,
   "oi": 95099.952,
@@ -83,7 +83,7 @@
     "Fear & Greed 63 (Greed).",
     "ACE soft: LIVE=MASTER_BASE_V8_6_FORTRESS_8H20_LIVE_COLOR.log · SKIP=935 · heat=2.7 · PnL sess=0.9024 · RED=0.",
     "C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.",
-    "Pipeline Health 0.73 (⚠️ DÉGRADÉ) · 5 issue(s).",
+    "Pipeline Health 0.63 (⚠️ DÉGRADÉ) · 8 issue(s).",
     "GEOPOL 🟡 0.2476 (attention) · 5/5 modules · ML:attention.",
     "Poussière onchain 5.3/100 (FAIBLE — onchain nominal) · blocs privatisés None%."
   ],
@@ -510,7 +510,7 @@
     "D31": "score",
     "D32": "score"
   },
-  "prevTs": "2026-10-21T15:50Z",
+  "prevTs": "2026-10-21T18:53Z",
   "source": "binance-fapi+coingecko+fng+okx-liq+bitbo-etf+deribit-gex+okx-rubik+ace-readonly",
   "wiredNote": "D26–D34 F&G/MC/alt/liq/ETF/GEX/volumes cachés · free + proxies · ACE lecture seule",
   "degraded": true,
@@ -532,7 +532,7 @@
     "whaleBlocsBtc": 318798.4,
     "whaleFragN": 0,
     "whaleFragBtc": 0,
-    "whaleCumul24hBtc": 49225210.55,
+    "whaleCumul24hBtc": 38893404.8,
     "whaleMoy7jBtc": 56823615.81,
     "whaleDir": "neutral",
     "whaleDirLabel": "neutral",
@@ -546,8 +546,8 @@
     "whaleEcartSeuil": 31779.8,
     "whaleAlerte": true,
     "whaleAlerteTexte": "Activité baleines : 25 gros bloc(s) (318798.4 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2.",
-    "dernierEvtMin": 541,
-    "synthèse": "Direction onchain neutral | 25 gros bloc(s) 318798.4 BTC sur le scan récent, cumul 24h 49225211 BTC, source Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. Activité baleines : 25 gros bloc(s) (318798.4 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. | CPFP actif (conf 0/2) · poussière score 0.0/50 | indice onchain 5.3/100 (FAIBLE — onchain nominal)",
+    "dernierEvtMin": 736,
+    "synthèse": "Direction onchain neutral | 25 gros bloc(s) 318798.4 BTC sur le scan récent, cumul 24h 38893405 BTC, source Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. Activité baleines : 25 gros bloc(s) (318798.4 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. | CPFP actif (conf 0/2) · poussière score 0.0/50 | indice onchain 5.3/100 (FAIBLE — onchain nominal)",
     "cpfpSignal": null,
     "cpfpScore": 0.0,
     "cpfpMode": "actif",
@@ -558,7 +558,7 @@
     "cpfpCarte2": false,
     "cpfpDustScore": 0.0,
     "cpfpDustDeclenche": true,
-    "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 1155 cumulées 48h (seuil 1000) — max 0.0000 BTC",
+    "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 1048 cumulées 48h (seuil 1000) — max 0.0000 BTC",
     "blocPrivatiseMode": "actif",
     "blocPrivatiseTauxFantome": null,
     "blocPrivatiseNbCachees": 7802,
@@ -571,8 +571,8 @@
     }
   },
   "pipeline_health": {
-    "timestamp": 1792598824,
-    "global_score": 0.73,
+    "timestamp": 1792610131,
+    "global_score": 0.63,
     "mode": "degrade",
     "mode_label": "⚠️ DÉGRADÉ",
     "position_multiplier": 0.5,
@@ -600,8 +600,10 @@
         "issues": []
       },
       "blockchain": {
-        "score": 1,
-        "issues": []
+        "score": 0.7,
+        "issues": [
+          "sdi=absent"
+        ]
       },
       "google_news": {
         "score": 0.0,
@@ -610,8 +612,11 @@
         ]
       },
       "sdi_ipt": {
-        "score": 1,
-        "issues": []
+        "score": 0.3,
+        "issues": [
+          "sdi=absent",
+          "ipt=absent"
+        ]
       }
     },
     "all_issues": [
@@ -619,9 +624,12 @@
       "deribit: gex.ok=False (timeout Deribit)",
       "deribit: putCall=None",
       "deribit: walls=None",
-      "google_news: source non vérifiable en direct (alimentée par sniffer) → DOWN"
+      "blockchain: sdi=absent",
+      "google_news: source non vérifiable en direct (alimentée par sniffer) → DOWN",
+      "sdi_ipt: sdi=absent",
+      "sdi_ipt: ipt=absent"
     ],
-    "n_issues": 5
+    "n_issues": 8
   },
   "geopol": {
     "score": 0.2476,
@@ -729,7 +737,7 @@
     "scores_par_categorie": {
       "geopol": 0.2476
     },
-    "ts": "2026-10-21T16:19:01.194844+00:00"
+    "ts": "2026-10-21T19:27:27.547311+00:00"
   },
   "rbf": {
     "rbf_score": 0.0,
