@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T06:33:09.715738+00:00",
+  "generated_at": "2026-10-21T13:09:47.045122+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 158
+      "calls_24h": 135
     },
     {
       "id": "openrouter-free",
@@ -272,42 +272,6 @@
       "calls_24h": 0
     },
     {
-      "id": "openrouter-nemo-nano",
-      "name": "OpenRouter (nemotron-3-nano reasoning gratuit)",
-      "kind": "cloud",
-      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-      "enabled": false,
-      "timeout": 90,
-      "calls_24h": 0
-    },
-    {
-      "id": "tokenrouter-kimi",
-      "name": "TokenRouter (Kimi K3 free)",
-      "kind": "cloud",
-      "model": "moonshotai/kimi-k3-free",
-      "enabled": false,
-      "timeout": 90,
-      "calls_24h": 0
-    },
-    {
-      "id": "zenmux-glm47",
-      "name": "ZenMux (z-ai/glm-4.7-flash-free)",
-      "kind": "cloud",
-      "model": "z-ai/glm-4.7-flash-free",
-      "enabled": false,
-      "timeout": 120,
-      "calls_24h": 0
-    },
-    {
-      "id": "zenmux-glm46v",
-      "name": "ZenMux (z-ai/glm-4.6v-flash-free)",
-      "kind": "cloud",
-      "model": "z-ai/glm-4.6v-flash-free",
-      "enabled": false,
-      "timeout": 120,
-      "calls_24h": 0
-    },
-    {
       "id": "xingchen-agi-xing4-0-29b-a4b-free",
       "name": "Roulement xingchen-agi/xing4.0-29b-a4b:free",
       "kind": "cloud",
@@ -319,10 +283,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 66,
-    "remaining": 558
+    "consumed": 67,
+    "remaining": 557
   },
   "queue": [
+    {
+      "ts": "2026-10-21T06:33:21.786241+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.8
+    },
     {
       "ts": "2026-10-21T06:32:59.153741+00:00",
       "task": "supervise.decision",
@@ -434,76 +406,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.66
-    },
-    {
-      "ts": "2026-10-21T06:31:05.568420+00:00",
-      "task": "coffre.ask",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.59
     }
   ],
   "events": [
     {
-      "ts": "2026-10-21T06:32:59.152185+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-10-21T13:07:12.637187+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-21T06:32:13.915867+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-10-21T13:07:12.636677+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: <urlopen error [Errno 60] Operation timed out> | budget: Budget temps requete depasse"
+    },
+    {
+      "ts": "2026-10-21T13:07:12.636274+00:00",
+      "kind": "error",
+      "title": "Budget temps requete depasse",
       "detail": ""
     },
     {
-      "ts": "2026-10-21T06:32:07.599556+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
+      "ts": "2026-10-21T13:07:12.635217+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "<urlopen error [Errno 60] Operation timed out>"
+    },
+    {
+      "ts": "2026-10-21T13:05:45.565093+00:00",
+      "kind": "http",
+      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-21T06:32:03.031619+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-10-21T13:05:45.564066+00:00",
+      "kind": "error",
+      "title": "Toutes les IA ont echoue",
+      "detail": "Google Gemini: blacklist du jour (saute) | Groq (Qwen 3.8 27B, gratuit): <urlopen error timed out> | Mistral La Plateforme (essai gratuit): <urlopen error timed out> | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): <urlopen error timed out> | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): <urlopen error timed out> | InferX Devstral-2-123B (code): <urlopen error timed out> | Roulement xingchen-agi/xing4.0-29b-a4b:free: <urlopen error timed out>"
     },
     {
-      "ts": "2026-10-21T06:31:57.554798+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-10-21T13:05:45.559456+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Roulement xingchen-agi/xing4.0-29b-a4b:free",
+      "detail": "<urlopen error timed out>"
     },
     {
-      "ts": "2026-10-21T06:31:47.411338+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-10-21T13:05:25.537124+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "<urlopen error timed out>"
     },
     {
-      "ts": "2026-10-21T06:31:43.871777+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-10-21T13:05:15.516461+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "<urlopen error timed out>"
     },
     {
-      "ts": "2026-10-21T06:31:36.953710+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-21T06:31:33.687151+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-21T06:31:26.962395+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
+      "ts": "2026-10-21T13:05:05.494780+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "<urlopen error timed out>"
     }
   ],
   "tasks_quotas": {
