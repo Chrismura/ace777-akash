@@ -1,15 +1,15 @@
 {
-  "timestamp": 1792546121,
-  "date": "2026-10-21T01:28:41.137420+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792549722,
+  "date": "2026-10-21T02:28:42.201039+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": -3.7710695821922773,
-        "value": 0.577,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Divergence anecdotique. Le 'SDI' des médias fait référence au Syndicat des Indépendants et des TPE (actualité politique française), tandis que l'anomalie on-chain (z-score -3.77) mesure une métrique crypto sans rapport. Fausse alerte par collision de sigles.\"\n}\n```",
-        "ts": 1792544632.810084
+        "zscore": -3.285135515144748,
+        "value": 0.573,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique due à une confusion sémantique. Le 'SDI' dans les médias fait référence au 'Syndicat des Indépendants' (français) et non à une métrique on-chain ou à une baleine crypto. Aucune donnée significative sur le marché.\"\n}\n```",
+        "ts": 1792548254.353249
       },
       "fiche": null,
       "interpretation": {
@@ -20,11 +20,101 @@
     },
     {
       "signal": {
+        "metric": "cpfp",
+        "zscore": 2.0251563491410103,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté de l'acronyme 'CPFP'. Les médias parlent de sujets sans rapport (centre de formation professionnelle, technique Bitcoin générique) alors que le z-score onchain détecte simplement une variation technique mineure des frais de minage, sans accumulation ni mouvement significatif de baleines.\"\n}\n```",
+        "ts": 1792548255.565532
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 41,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.31,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.577,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0251563491410103,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique total non lié à la crypto (cinéma, actions traditionnelles, homonymes). L'anomalie on-chain (z-score 2.03) est insignifiante pour un actif de type 'dust' (poussière de transaction). Aucune accumulation baleine détectée, simple bruit de fond technique.\"\n}\n```",
+        "ts": 1792548257.265663
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 41,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.31,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.577,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "fear_greed",
-        "zscore": 4.795831523312718,
+        "zscore": 3.3166247903554007,
         "value": 63,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain et de titres médiatiques concrets). Le z-score élevé (4.80) indique une euphorie anormale, mais sans données de volume des baleines, impossible de confirmer une divergence.\"\n}\n```",
-        "ts": 1792544634.017765
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain et de titres médiatiques concrets). Un Fear & Greed à 63 (avidité modérée) avec un z-score élevé suggère une reprise de l'optimisme, mais l'absence de données textuelles empêche de confirmer une divergence significative avec les médias.\"\n}\n```",
+        "ts": 1792548258.47196
       },
       "fiche": "fear_greed",
       "questions": {

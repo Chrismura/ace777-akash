@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-10-21T01:30Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-21T02:30Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `055abf1ea5` du 2026-10-21T03:29:53+02:00
-- Fichiers suivis modifiés sur disque : **15**
+- Branche `main` · HEAD `7e02132606` du 2026-10-21T03:31:08+02:00
+- Fichiers suivis modifiés sur disque : **98**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 35183 au total, dont **15 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 35196 au total, dont **15 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_oss20.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
@@ -34,7 +34,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_9po7raqh/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_dkeyvz5h/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **106/106**
 
 ## 4. Organes invoqués par les agents
@@ -51,14 +51,15 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-21T01:29Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-21T01:30Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **179** · écarts : **3** · absents : **0**
+- Entrées md5 vérifiées : **179** · écarts : **4** · absents : **0**
   - ⚠️ md5 différent : `hulk-mexc/config/defaults.env`
+  - ⚠️ md5 différent : `hulk-mexc/strategie/universe_profils.json`
   - ⚠️ md5 différent : `hulk-mexc/scripts/short_btc.py`
   - ⚠️ md5 différent : `Index_Maison/cockpit/index.html`
 
@@ -74,7 +75,7 @@
 
 ## 7. Verdict
 - 🔴 **1 trou(s) à combler :**
-  - 3 scellé(s) dont le md5 ne correspond plus
+  - 4 scellé(s) dont le md5 ne correspond plus
 
 ---
 *Rapport généré par `scripts/drill_restauration.py` (lecture seule). Relancer après toute modification d'organe : un drill, ça se répète.*
