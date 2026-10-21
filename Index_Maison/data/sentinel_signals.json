@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.811251976375181,
-      "value": 8549342220.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume due à du bruit sémantique (actualités sans rapport avec la crypto).\"\n}\n```",
-      "ts": "2026-10-20T11:19:29.276216+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.0567887174085926,
-      "value": 1.581,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (1.581, Z-score 2.06) couplé à un vide médiatique total (silence radio de Google Actualités). Les acheteurs agressifs accumulent dans l'ombre sans éveiller le retail, configuration classique d'accumulation furtive par les baleines avant un mouvement de cassure.\"\n}\n```",
-      "ts": "2026-10-20T11:34:32.742810+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.5954409184255804,
-      "value": 8506958883.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.60) indique un assèchement total de la liquidité et une indifférence médiatique totale focalisée sur des bruits macro/tradfi. C'est la configuration classique d'accumulation silencieuse par les baleines avant un retournement de tendance.\"\n}\n```",
-      "ts": "2026-10-20T11:49:38.391859+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.588033284414289,
-      "value": 8284102446.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (actualités macro/automobiles sans rapport direct avec la crypto) malgré un z-score on-chain négatif.\"\n}\n```",
-      "ts": "2026-10-20T12:19:46.825312+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 10.73611483912617,
       "value": 8676906.0,
@@ -349,6 +321,34 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain et de titres médiatiques concrets). Un Fear & Greed à 63 (avidité modérée) avec un z-score élevé suggère une reprise de l'optimisme, mais l'absence de données textuelles empêche de confirmer une divergence significative avec les médias.\"\n}\n```",
       "ts": "2026-10-21T02:04:18.471960+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.5496055109991462,
+      "value": 0.577,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -2.55) liée à une confusion de termes : le 'SDI' médiatique désigne un syndicat patronal français (Syndicat des Indépendants) et n'a aucun rapport avec une baleine crypto ou un indicateur on-chain. Bruit médiatique pur sans signal de marché.\"\n}\n```",
+      "ts": "2026-10-21T02:34:24.361091+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.9325756597230344,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.93) combiné à un sentiment de cupidité modéré (63) et une absence de battement médiatique (Google Actualités vide). C'est la signature classique d'une accumulation furtive des baleines sous le radar public.\"\n}\n```",
+      "ts": "2026-10-21T02:34:25.717416+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.7030368264886335,
+      "value": 0.573,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le 'SDI' mentionné dans les médias fait référence au Syndicat des Indépendants et des TPE (actualité politique et sociale française), et non à un indicateur on-chain ou à une crypto-monnaie. L'anomalie statistique détectée est un bruit statistique sans rapport avec des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-21T03:04:31.434080+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6457513110645903,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score élevé (2.65) traduisant une surchauffe de la cupidité.\"\n}\n```",
+      "ts": "2026-10-21T03:04:32.591251+00:00"
     }
   ]
 }

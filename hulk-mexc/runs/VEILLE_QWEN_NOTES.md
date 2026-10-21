@@ -8220,3 +8220,7 @@ Pas d’ordre — confrontation plus tard.
 - RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
 - FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-21T03:01:23Z — ALERT auto
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
