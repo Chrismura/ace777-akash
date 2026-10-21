@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T13:09:47.045122+00:00",
+  "generated_at": "2026-10-21T16:32:59.894430+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 135
+      "calls_24h": 110
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "qwen/qwen3.8-27b",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 6
+      "calls_24h": 5
     },
     {
       "id": "nvidia",
@@ -410,61 +410,61 @@
   ],
   "events": [
     {
-      "ts": "2026-10-21T13:07:12.637187+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-21T13:07:12.636677+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: <urlopen error [Errno 60] Operation timed out> | budget: Budget temps requete depasse"
-    },
-    {
-      "ts": "2026-10-21T13:07:12.636274+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-21T13:07:12.635217+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
+      "ts": "2026-10-21T16:32:43.161078+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (lenteur)",
       "detail": "<urlopen error [Errno 60] Operation timed out>"
     },
     {
-      "ts": "2026-10-21T13:05:45.565093+00:00",
+      "ts": "2026-10-21T16:32:23.795096+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (lenteur)",
+      "detail": "<urlopen error [Errno 60] Operation timed out>"
+    },
+    {
+      "ts": "2026-10-21T16:30:13.151440+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-10-21T16:29:53.749550+00:00",
+      "kind": "failover",
+      "title": "Saute (blacklist) depuis Google Gemini",
+      "detail": "0 attente"
+    },
+    {
+      "ts": "2026-10-21T16:28:33.466623+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-21T13:05:45.564066+00:00",
+      "ts": "2026-10-21T16:28:33.466064+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: blacklist du jour (saute) | Groq (Qwen 3.8 27B, gratuit): <urlopen error timed out> | Mistral La Plateforme (essai gratuit): <urlopen error timed out> | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): <urlopen error timed out> | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): <urlopen error timed out> | InferX Devstral-2-123B (code): <urlopen error timed out> | Roulement xingchen-agi/xing4.0-29b-a4b:free: <urlopen error timed out>"
     },
     {
-      "ts": "2026-10-21T13:05:45.559456+00:00",
+      "ts": "2026-10-21T16:28:33.464945+00:00",
       "kind": "failover",
       "title": "Bascule depuis Roulement xingchen-agi/xing4.0-29b-a4b:free",
       "detail": "<urlopen error timed out>"
     },
     {
-      "ts": "2026-10-21T13:05:25.537124+00:00",
+      "ts": "2026-10-21T16:28:13.445337+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "<urlopen error timed out>"
     },
     {
-      "ts": "2026-10-21T13:05:15.516461+00:00",
+      "ts": "2026-10-21T16:28:03.425488+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "<urlopen error timed out>"
     },
     {
-      "ts": "2026-10-21T13:05:05.494780+00:00",
+      "ts": "2026-10-21T16:27:53.405687+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "<urlopen error timed out>"

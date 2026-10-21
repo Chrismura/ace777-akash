@@ -58,18 +58,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 51 | 2026-10-18T14:34:53Z | 14h | AUTRE | 0.001252 | WATCH | 1.1477 | None | None | 5.02e-07 | -0.07 | -0.05 | 0.47 | POMPE_PIEGE (stab 14) | prix 0.001252 · poussière(panier) 1.1% · Amihud 5.02e-07 · delta -0.07 |
 | 52 | 2026-10-19T14:35:07Z | 14h | AUTRE | 0.001266 | WATCH | 19.492 | None | None | 7.67e-07 | 0.10 | 0.80 | 0.79 | POMPE_PIEGE (stab 17) | prix 0.001266 · poussière(panier) 19.5% · Amihud 7.67e-07 · delta +0.10 |
 | 53 | 2026-10-20T14:35:05Z | 14h | AUTRE | 0.001275 | WATCH | 2.2952 | None | None | 7.90e-07 | 0.06 | -0.09 | 0.19 | neutre (stab 0) | prix 0.001275 · poussière(panier) 2.3% · Amihud 7.90e-07 · delta +0.06 |
+| 54 | 2026-10-21T14:01:22Z | 14h | AUTRE | 0.001278 | WATCH | None | None | None | — | — | 0.80 | 0.63 | POMPE_PIEGE (stab 2) | prix 0.001278 |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-16T15:25:29Z au 2026-10-20T14:35:05Z (13415 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-17T16:03:25Z au 2026-10-21T14:01:22Z (12062 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-17T11:02:17Z à 0.001243 → 0.001275 = **+2.6 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-17T21:40:33Z à 0.001244 → 0.001278 = **+2.7 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +0.48 $** sur 1 entrée(s) / 1 sortie(s) — dernier événement 2026-10-20T01:01:29Z
-- **MFE donné en moyenne : +1.4 pts** par tour (pire tour : +1.4) — le meilleur prix atteint pendant la détention, jamais encaissé
+- **Réalisé : +0.48 $** sur 1 entrée(s) / 1 sortie(s) — dernier événement 2026-10-20T23:05:32Z
+- **MFE donné en moyenne : +0.0 pts** par tour (pire tour : +0.0) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

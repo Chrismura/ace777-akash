@@ -1,16 +1,16 @@
 {
- "ts": 1792587442,
- "ts_utc": "2026-10-21T12:57:22Z",
+ "ts": 1792599447,
+ "ts_utc": "2026-10-21T16:17:27Z",
  "n_paires_univers": 22,
  "couverture_pct": 100.0,
  "max_pairs": 22,
  "max_pairs_derive": 0,
  "couverture_complete": true,
  "paires_non_couvertes": [],
- "duree_s": 334.4,
+ "duree_s": 334.5,
  "cadence_s": 20.0,
  "fraicheur_budget_s": 45.0,
- "marge_s": -289.4,
+ "marge_s": -289.5,
  "risque_stale": true,
  "frais": true,
  "btc_price": 0.0,
@@ -93,26 +93,8 @@
    "delay_s": null,
    "ws_ok": false
   },
-  "BTCUSDT": {
-   "regime": "COOLING",
-   "prix": 0.0,
-   "ok": false,
-   "mode": "full",
-   "aspiration_side": null,
-   "drop_bid_pct_per_s": null,
-   "drop_ask_pct_per_s": null,
-   "max_drop_pct_per_s": null,
-   "spread_bps": null,
-   "spread_delta_bps": null,
-   "wall_bid_usdt": null,
-   "wall_ask_usdt": null,
-   "notional_drop_ok": null,
-   "price_delta_pct": null,
-   "delay_s": null,
-   "ws_ok": false
-  },
-  "WAXLUSDT": {
-   "regime": "COOLING",
+  "EDELUSDT": {
+   "regime": "IMPULSE",
    "prix": 0.0,
    "ok": false,
    "mode": "full",
@@ -147,7 +129,7 @@
    "delay_s": null,
    "ws_ok": false
   },
-  "BIOUSDT": {
+  "IOTAUSDT": {
    "regime": "COOLING",
    "prix": 0.0,
    "ok": false,
@@ -165,21 +147,32 @@
    "delay_s": null,
    "ws_ok": false
   },
+  "QNTUSDT": {
+   "regime": "COOLING",
+   "prix": 0.0,
+   "ok": false,
+   "mode": "full",
+   "aspiration_side": null,
+   "drop_bid_pct_per_s": null,
+   "drop_ask_pct_per_s": null,
+   "max_drop_pct_per_s": null,
+   "spread_bps": null,
+   "spread_delta_bps": null,
+   "wall_bid_usdt": null,
+   "wall_ask_usdt": null,
+   "notional_drop_ok": null,
+   "price_delta_pct": null,
+   "delay_s": null,
+   "ws_ok": false
+  },
+  "RWAINCUSDT": {
+   "regime": "IMPULSE_WAIT",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error alarm>",
+   "ws_ok": false
+  },
   "RIZEUSDT": {
-   "regime": "IMPULSE_WAIT",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error alarm>",
-   "ws_ok": false
-  },
-  "ZBCNUSDT": {
-   "regime": "IMPULSE_WAIT",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error alarm>",
-   "ws_ok": false
-  },
-  "WUSDT": {
    "regime": "IMPULSE_WAIT",
    "prix": 0.0,
    "ok": false,
@@ -193,43 +186,8 @@
    "reason": "book_err:<urlopen error alarm>",
    "ws_ok": false
   },
-  "XRPUSDT": {
-   "regime": "WATCH",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error alarm>",
-   "ws_ok": false
-  },
-  "QNTUSDT": {
-   "regime": "COOLING",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error alarm>",
-   "ws_ok": false
-  },
-  "RWAINCUSDT": {
+  "ZBCNUSDT": {
    "regime": "IMPULSE_WAIT",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error alarm>",
-   "ws_ok": false
-  },
-  "IOTAUSDT": {
-   "regime": "COOLING",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error alarm>",
-   "ws_ok": false
-  },
-  "EDELUSDT": {
-   "regime": "IMPULSE",
-   "prix": 0.0,
-   "ok": false,
-   "reason": "book_err:<urlopen error alarm>",
-   "ws_ok": false
-  },
-  "CCUSDT": {
-   "regime": "COOLING",
    "prix": 0.0,
    "ok": false,
    "reason": "book_err:<urlopen error alarm>",
@@ -249,6 +207,41 @@
    "reason": "book_err:<urlopen error alarm>",
    "ws_ok": false
   },
+  "WUSDT": {
+   "regime": "IMPULSE_WAIT",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error alarm>",
+   "ws_ok": false
+  },
+  "XRPUSDT": {
+   "regime": "WATCH",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error alarm>",
+   "ws_ok": false
+  },
+  "HBARUSDT": {
+   "regime": "COOLING",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error alarm>",
+   "ws_ok": false
+  },
+  "CCUSDT": {
+   "regime": "COOLING",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error alarm>",
+   "ws_ok": false
+  },
+  "BIOUSDT": {
+   "regime": "COOLING",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error alarm>",
+   "ws_ok": false
+  },
   "PYTHUSDT": {
    "regime": "IMPULSE_WAIT",
    "prix": 0.0,
@@ -256,7 +249,14 @@
    "reason": "book_err:<urlopen error alarm>",
    "ws_ok": false
   },
-  "HBARUSDT": {
+  "BTCUSDT": {
+   "regime": "COOLING",
+   "prix": 0.0,
+   "ok": false,
+   "reason": "book_err:<urlopen error alarm>",
+   "ws_ok": false
+  },
+  "WAXLUSDT": {
    "regime": "COOLING",
    "prix": 0.0,
    "ok": false,
