@@ -1,15 +1,15 @@
 {
-  "timestamp": 1792542519,
-  "date": "2026-10-21T00:28:39.887621+00:00",
+  "timestamp": 1792546121,
+  "date": "2026-10-21T01:28:41.137420+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": -7.828682220280051,
-        "value": 0.573,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (Z-score -7.83) entièrement liée à un bruit médiatique sur le syndicat patronal français 'SDI' (Indépendants), sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
-        "ts": 1792541001.116127
+        "zscore": -3.7710695821922773,
+        "value": 0.577,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Divergence anecdotique. Le 'SDI' des médias fait référence au Syndicat des Indépendants et des TPE (actualité politique française), tandis que l'anomalie on-chain (z-score -3.77) mesure une métrique crypto sans rapport. Fausse alerte par collision de sigles.\"\n}\n```",
+        "ts": 1792544632.810084
       },
       "fiche": null,
       "interpretation": {
@@ -21,10 +21,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 13.85717419230002,
+        "zscore": 4.795831523312718,
         "value": 63,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (13.86) signalant une excitation du marché (Greed 63), mais absence de titres médiatiques spécifiques pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
-        "ts": 1792541002.317074
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain et de titres médiatiques concrets). Le z-score élevé (4.80) indique une euphorie anormale, mais sans données de volume des baleines, impossible de confirmer une divergence.\"\n}\n```",
+        "ts": 1792544634.017765
       },
       "fiche": "fear_greed",
       "questions": {
