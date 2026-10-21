@@ -2206,6 +2206,21 @@ def do_shortbtc() -> dict:
         return {"ok": False, "error": f"lecture short_btc_live.json : {e}"}
 
 
+def do_garde() -> dict:
+    """Garde réserve cash (21/10, GO Christophe) — lit le live écrit par
+    hulk-mexc/scripts/garde_reserve_cash.py (cash vs réserve 200 $). Lecture seule."""
+    live = HULK / "runs" / "garde_reserve_live.json"
+    if not live.exists():
+        return {"ok": False, "error": "garde_reserve_live.json absent (garde pas encore lancée ?)"}
+    try:
+        data = json.loads(live.read_text(encoding="utf-8"))
+        data["ok"] = True
+        data["cached"] = False
+        return data
+    except Exception as e:
+        return {"ok": False, "error": f"lecture garde_reserve_live.json : {e}"}
+
+
 def do_justesse() -> dict:
     """Score de justesse de l'analyste (boucle d'apprentissage) — JSON pour le cockpit.
     Cache : régénère au plus toutes les 30 min (27 analyses LLM sinon)."""
@@ -2452,6 +2467,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/shortbtc":
             self._json(200, do_shortbtc())
+            return
+        if path == "/garde":
+            self._json(200, do_garde())
             return
         if path == "/regime":
             self._json(200, do_regime())

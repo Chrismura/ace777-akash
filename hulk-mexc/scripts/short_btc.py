@@ -80,7 +80,16 @@ JOURNAL = RUNS / "short_btc_journal.csv"
 SIGNAUX = RUNS / "short_btc_signaux.jsonl"
 
 # ---- paramètres (modifiables, cohérents avec l'esprit du moteur) ----
-NOTIONAL_USDT = 5.0        # taille d'un short (1/4 de la base 20$)
+NOTIONAL_USDT = 5.0        # marge isolée du short (le notionnel vient du DYN ci-dessous)
+# === NOTIONNEL DYNAMIQUE 10 % INVENTAIRE (21/10/2026, GO Christophe « go ») ===
+# Mesuré (chiffrage_go_short_1030.py, 12 846 signaux) : entrées corr ≤ −0,50,
+# n=17, esp +0,243 %, même signe h1/h2, 0 liquidation à 8,6× (dist 11,23 % >> SL).
+# Marge ISOLÉE 5 $ (le short meurt seul) ; notionnel = 10 % du total mission
+# (cash + bagValue), plafonné à 10× la marge (50 $). Réversible : SHORT_BTC_DYN=0
+# (retombe sur NOTIONAL_USDT fixe 5 $). Marge croisée sur alts : NON (crash corr 1).
+DYN_ON = os.environ.get("SHORT_BTC_DYN", "1").strip() not in ("0", "false", "False")
+DYN_PCT = float(os.environ.get("SHORT_BTC_NOTIONAL_PCT", "0.10"))
+DYN_LEV_MAX = float(os.environ.get("SHORT_BTC_LEV_MAX", "10"))
 CAPITAL0 = 100.0           # capital virtuel de la ligne short (lisibilité %)
 SCORE_ENTREE = 5           # score minimal pour ouvrir un short
 SCORE_SORTIE = 2           # score sous lequel on coupe (signal éteint)
@@ -342,6 +351,24 @@ def journaliser_trade(st: dict, trade: dict) -> None:
                     trade.get("score_entree"), trade.get("detail_signal")])
 
 
+def notionnel_dynamique() -> float:
+    """Notionnel 10 % inventaire sur marge isolée 5 $ (21/10 GO). Fail-open :
+    mission illisible → NOTIONAL_USDT fixe. Plafond DYN_LEV_MAX × marge."""
+    if not DYN_ON:
+        return NOTIONAL_USDT
+    try:
+        mission = ROOT.parent / "Index_Maison" / "cockpit" / "mission.json"
+        h = (json.loads(mission.read_text(encoding="utf-8")) or {}).get("hulk", {}) or {}
+        total = float(h.get("cash") or 0) + sum(
+            float(p.get("bagValue") or 0) for p in (h.get("positions") or []))
+        if total <= 0:
+            return NOTIONAL_USDT
+        cible = DYN_PCT * total
+        return round(max(NOTIONAL_USDT, min(cible, DYN_LEV_MAX * NOTIONAL_USDT)), 2)
+    except Exception:
+        return NOTIONAL_USDT
+
+
 def gerer(sig: dict, st: dict) -> None:
     pos = st.get("position")
     prix = sig.get("prix_btc")
@@ -416,9 +443,10 @@ def gerer(sig: dict, st: dict) -> None:
         else:
             _sl_entry = SL_PCT
             _sl_src = "fixe 1,5 % (range24 indisponible ou OFF)"
+        _notionnel = notionnel_dynamique()
         st["position"] = {
             "ts_entree": utc(), "ts_entree_epoch": time.time(),
-            "prix_entree": prix, "notional": NOTIONAL_USDT,
+            "prix_entree": prix, "notional": _notionnel,
             "score_entree": score, "corr_entree": corr,
             "sl_pct": _sl_entry,
             "detail_signal": sig.get("detail"),
