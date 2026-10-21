@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 10.73611483912617,
-      "value": 8676906.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain extrême (z-score 10.74, volume $8.67M) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique de baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-20T12:24:51.244865+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.333948299431257,
-      "value": 8329191493.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume non pertinente (bruit de fond, confusion sémantique des actualités avec des secteurs non-crypto).\"\n}\n```",
-      "ts": "2026-10-20T12:49:55.794149+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 8.734741296294109,
-      "value": 9637061.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.73, ~9.6M USD) sans couverture médiatique significative. Accumulation silencieuse des baleines en dehors du radar public.\"\n}\n```",
-      "ts": "2026-10-20T13:05:01.353523+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.1909628025148224,
-      "value": 8295429734.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Le z-score négatif prononcé (-2.19) combiné à un bruit médiatique sans rapport avec la crypto (énergie, automobile, éducation) et un ralentissement en Corée indique une indifférence totale du grand public. Les baleines accumulent dans le silence absolu pendant l'apathie du marché.\"\n}\n```",
-      "ts": "2026-10-20T13:20:19.568912+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.272240889974907,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Confusion sémantique : Le SDI détecté par les métriques on-chain ne correspond pas au 'Syndicat des Indépendants' (SDI) mentionné dans l'actualité française. Aucune baleine crypto identifiée ; il s'agit d'un bruit médiatique sans lien avec la blockchain.\"\n}\n```",
-      "ts": "2026-10-20T13:35:32.879798+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2858278645478034,
-      "value": 1.067,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée sur un ticker boursier traditionnel (International Petroleum Corp / IMPACT Silver) et non sur un actif crypto. Bruit médiatique sans rapport avec des mouvements de baleines cryptographiques.\"\n}\n```",
-      "ts": "2026-10-20T13:35:47.455206+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": -2.056328877513564,
       "value": 0,
@@ -349,6 +307,48 @@
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score élevé (2.65) traduisant une surchauffe de la cupidité.\"\n}\n```",
       "ts": "2026-10-21T03:04:32.591251+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.173728804290035,
+      "value": 0.577,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif : Le 'SDI' mentionné dans les titres est le 'Service Départemental d'Incendie et de Secours' (contexte français : pillages, Macron), et non un indicateur onchain ou un actif crypto. Aucune corrélation avec les données blockchain.\"\n}\n```",
+      "ts": "2026-10-21T03:34:40.107840+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139173,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Données insuffisantes pour détecter une divergence. Le titre 'Google Actualités' est générique et ne fournit aucun narratif spécifique à comparer à l'anomalie onchain. Le Fear & Greed à 63 (z-score 2.42) indique un sentiment légèrement haussier mais non extrême, sans signal clair de manipulation ou de divergence majeure.\"\n}\n```",
+      "ts": "2026-10-21T03:34:40.999782+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.0009784283944017,
+      "value": 0.577,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique liée à une confusion lexicale : le 'SDI' des médias désigne le 'Syndicat des Indépendants' (actualité politique française), sans aucun rapport avec des mouvements on-chain de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-21T04:04:46.851383+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0548283737915,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique lié à des homonymes (centre de formation CPFP, articles divers) et à des procédures techniques Bitcoin standard (CPFP/RBF). Aucune accumulation cachée ni mouvement anormal de baleines détecté.\"\n}\n```",
+      "ts": "2026-10-21T04:04:48.048890+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0548283737915,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (dust=50.0) noyée dans un bruit médiatique totalement déconnecté (cinéma, actions traditionnelles, actualités locales). Aucune corrélation avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-10-21T04:04:49.564912+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.2360679774997907,
+      "value": 63,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes (flux Google Actualités vide) pour établir une divergence fiable, malgré un z-score de cupidité élevé (2.24) signalant une surchauffe potentielle.\"\n}\n```",
+      "ts": "2026-10-21T04:04:51.150716+00:00"
     }
   ]
 }
