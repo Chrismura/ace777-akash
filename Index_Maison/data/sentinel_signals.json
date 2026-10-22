@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -3.3485304393585795,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"False positive technique. Le signal détecté provient d'une homonymie avec le 'Syndicat des Indépendants' (SDI) dans l'actualité politique française, sans aucun rapport avec les mouvements crypto ou on-chain.\"\n}\n```",
-      "ts": "2026-10-22T07:45:52.761983+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.1362987456584994,
       "value": 68,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.18) sur des micro-transactions sans lien avec les baleines crypto. Le narratif médiatique concerne de l'art, des actions traditionnelles et du cinéma. Bruit absolu, aucune activité de baleine détectée.\"\n}\n```",
       "ts": "2026-10-22T16:05:03.045798+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.0931765880636544,
+      "value": 2989090.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.09, ~2.99M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive des baleines sans FOMO public.\"\n}\n```",
+      "ts": "2026-10-22T16:25:32.491814+00:00"
     }
   ]
 }

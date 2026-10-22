@@ -1,81 +1,8 @@
 {
-  "timestamp": 1792685414,
-  "date": "2026-10-22T16:10:14.529809+00:00",
-  "n_analyses": 4,
+  "timestamp": 1792686614,
+  "date": "2026-10-22T16:30:14.866475+00:00",
+  "n_analyses": 3,
   "analyses": [
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 3.642703371607126,
-        "value": 0.41988301993848287,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.64) sur 1h sans aucun écho médiatique (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin du bruit retail.\"\n}\n```",
-        "ts": 1792683848.48023
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": -0.02,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 2041749.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 1.5e-05,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 3.019421542238176,
-        "value": 1.094,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.02) sur un ticker boursier traditionnel (International Petroleum Corp / IMPACT Silver) sans lien avec l'écosystème crypto. Bruit de fond médiatique sans rapport avec des mouvements de baleines on-chain.\"\n}\n```",
-        "ts": 1792683853.800414
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 1.5e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "cpfp",
@@ -97,12 +24,12 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": -0.06,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.012,
+          "value": 0.02,
           "seuil": 0,
           "depasse": true
         },
@@ -142,12 +69,12 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": -0.06,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.012,
+          "value": 0.02,
           "seuil": 0,
           "depasse": true
         },
@@ -165,7 +92,42 @@
       },
       "action": "Garder les positions",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.0931765880636544,
+        "value": 2989090.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.09, ~2.99M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive des baleines sans FOMO public.\"\n}\n```",
+        "ts": 1792686332.491814
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 2989090.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.06,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
