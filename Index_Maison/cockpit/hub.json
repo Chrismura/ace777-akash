@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T07:25:41.268429+00:00",
+  "generated_at": "2026-10-22T07:26:42.147288+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 5
+      "calls_24h": 7
     },
     {
       "id": "openrouter-free",
@@ -283,10 +283,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 5,
-    "remaining": 619
+    "consumed": 7,
+    "remaining": 617
   },
   "queue": [
+    {
+      "ts": "2026-10-22T07:26:13.110872+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.9
+    },
+    {
+      "ts": "2026-10-22T07:25:46.163709+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.88
+    },
     {
       "ts": "2026-10-22T07:24:51.673008+00:00",
       "task": "supervise.decision",
@@ -390,25 +406,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 2.08
-    },
-    {
-      "ts": "2026-10-21T06:31:36.954083+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 3.22
-    },
-    {
-      "ts": "2026-10-21T06:31:33.688832+00:00",
-      "task": "coffre.ask",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.87
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-22T07:26:13.110429+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-22T07:25:46.163135+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-10-22T07:24:51.672515+00:00",
       "kind": "message",
@@ -456,18 +468,6 @@
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests | Roulement xingchen-agi/xing4.0-29b-a4b:free: Reponse vide"
-    },
-    {
-      "ts": "2026-10-22T07:11:19.027861+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Roulement xingchen-agi/xing4.0-29b-a4b:free",
-      "detail": "Reponse vide"
-    },
-    {
-      "ts": "2026-10-22T07:11:03.261196+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
