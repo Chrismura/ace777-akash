@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.071026858046869,
-      "value": 0.72,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le ticker 'IPT' dans les données on-chain ne correspond pas à une crypto-monnaie pertinente, mais subit une confusion lexicale avec des actions traditionnelles (International Petroleum, IMPACT Silver) et des actualités institutionnelles sans lien avec un actif numérique majeur.\"\n}\n```",
-      "ts": "2026-10-22T07:15:35.542773+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.196098769965821,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z élevé (2.20) indique une euphorie retail excessive (Greed à 68) en l'absence de narratif médiatique majeur. Cette déconnexion signale une distribution silencieuse par les baleines (smart money) profitant de la liquidité de détail.\"\n}\n```",
-      "ts": "2026-10-22T07:15:43.847361+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.6519162426985274,
-      "value": 0.2613714522055832,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie de prix à la hausse (z-score 2.65) totalement ignorée par les médias (silence radio de Google Actualités). C'accumulation furtive typique des baleines avant un narratif public.\"\n}\n```",
-      "ts": "2026-10-22T07:25:46.166130+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.018063144647104,
-      "value": 16570420894.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités boursières traditionnelles et mode). Données on-chain non pertinentes.\"\n}\n```",
-      "ts": "2026-10-22T07:45:51.150669+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -3.3485304393585795,
       "value": 0.008,
@@ -349,6 +321,34 @@
       "value": 1.974,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.01 (1.974), indiquant un posicionnement excessivement haussier des particuliers. En contraste total, les médias traditionnels se focalisent sur des fonds institutionnels traditionnels (Blackstone) et des stratégies défensives, ignorant la surchauffe spéculative crypto en cours. Situation classique de 'piège à acheteurs' (long squeeze imminent).\"\n}\n```",
       "ts": "2026-10-22T15:14:03.754392+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.642703371607126,
+      "value": 0.41988301993848287,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.64) sur 1h sans aucun écho médiatique (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin du bruit retail.\"\n}\n```",
+      "ts": "2026-10-22T15:44:08.480230+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.019421542238176,
+      "value": 1.094,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.02) sur un ticker boursier traditionnel (International Petroleum Corp / IMPACT Silver) sans lien avec l'écosystème crypto. Bruit de fond médiatique sans rapport avec des mouvements de baleines on-chain.\"\n}\n```",
+      "ts": "2026-10-22T15:44:13.800414+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.182023146218612,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : le pic CPFP onchain coïncide avec des recherches de tutoriels pour débloquer des transactions Bitcoin, sans corrélation avec une accumulation ou distribution massive de baleines.\"\n}\n```",
+      "ts": "2026-10-22T16:04:52.348431+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.182023146218612,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.18) sur des micro-transactions sans lien avec les baleines crypto. Le narratif médiatique concerne de l'art, des actions traditionnelles et du cinéma. Bruit absolu, aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-10-22T16:05:03.045798+00:00"
     }
   ]
 }
