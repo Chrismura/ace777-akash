@@ -1,65 +1,79 @@
 {
-  "timestamp": 1792664708,
-  "date": "2026-10-22T10:25:08.501213+00:00",
+  "timestamp": 1792668309,
+  "date": "2026-10-22T11:25:09.533583+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "whale_usd",
-        "zscore": 4.11356946294029,
-        "value": 2741585.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 4.11) indique une activité de grande envergure des baleines, mais les titres médiatiques ne mentionnent pas cette activité. La divergence suggère que les baleines bougent silencieusement, et le narratif médiatique est potentiellement déconnecté de la réalité.\"\n}\n```",
-        "ts": 1792663307.870924
+        "zscore": 8.763911113429437,
+        "value": 6234137.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique une accumulation massive de BTC par des entités institutionnelles, suggérant une confiance accrue dans le marché. Cependant, les titres médiatiques ne reflètent pas cette dynamique, indiquant une divergence potentielle entre les données brutes et le narratif médiatique. Les baleines pourraient bouger silencieusement, et le narratif médiatique pourrait être déconnecté de la réalité.\"\n}\n```",
+        "ts": 1792667230.023068
       },
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 989167.0,
+          "value": 1149498.0,
           "seuil": 0,
           "depasse": true
         },
         "achats": {
-          "value": 1305016.0,
+          "value": 640778.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.13,
+          "value": -0.16,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": -2.1083060292139604,
-        "value": 0.004,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE (politique/social), totalement déconnecté de la métrique on-chain. Aucune baleine crypto en mouvement.\"\n}\n```",
-        "ts": 1792664211.987863
+        "metric": "long_short",
+        "zscore": 2.2563376697950135,
+        "value": 1.815,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (long_short = 1.815, z-score 2.26) suggère une forte activité de trading long-short, ce qui pourrait indiquer une anticipation de mouvements de marché. Le narratif médiatique met en avant les fonds long-short comme solution dans des marchés agités, mais ne mentionne pas l'anomalie spécifique. Les titres mentionnent des fonds long-short et des stratégies de trading, mais pas l'anomalie onchain. La divergence suggère que les baleines pourraient bouger silencieusement, avec une anticipation de mouvements de marché non couverte par le narratif médiatique.\"\n}\n```",
+        "ts": 1792667232.825635
       },
-      "fiche": null,
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.815,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 92733.165,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
       "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.2569988673340844,
+        "zscore": 2.2360679774997885,
         "value": 68,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.26) indiquant une euphorie retail excessive (Fear & Greed à 68) en anomie totale avec le silence médiatique (Google Actualités vide). Divergence classique de piégeage : les baleines distribuent discrètement dans la complaisance avant une correction.\"\n}\n```",
-        "ts": 1792664213.753028
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes : absence de titres médiatiques significatifs dans le flux pour contraster avec le z-score élevé (68, optimisme modéré). Impossible de confirmer une divergence majeure sans le narratif textuel.\"\n}\n```",
+        "ts": 1792667835.387613
       },
       "fiche": "fear_greed",
       "questions": {
@@ -83,5 +97,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

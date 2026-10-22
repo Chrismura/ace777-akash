@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -3.7710695821922773,
-      "value": 0.577,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Divergence anecdotique. Le 'SDI' des médias fait référence au Syndicat des Indépendants et des TPE (actualité politique française), tandis que l'anomalie on-chain (z-score -3.77) mesure une métrique crypto sans rapport. Fausse alerte par collision de sigles.\"\n}\n```",
-      "ts": "2026-10-21T01:03:52.810084+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.795831523312718,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes (absence de flux on-chain et de titres médiatiques concrets). Le z-score élevé (4.80) indique une euphorie anormale, mais sans données de volume des baleines, impossible de confirmer une divergence.\"\n}\n```",
-      "ts": "2026-10-21T01:03:54.017765+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -3.2909954771973964,
-      "value": 0.577,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : Le 'SDI' mentionné dans les titres est le Syndicat des Indépendants et TPE (actualité politique/sociale française), et non un indicateur on-chain ou une baleine crypto. Aucune donnée de marché pertinente à analyser.\"\n}\n```",
-      "ts": "2026-10-21T01:34:06.690182+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.8729833462074166,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence de flux onchain et de titres médiatiques concrets pour Google Actualités). Impossible de confirmer une divergence malgré un z-score élevé de l'indice Fear & Greed.\"\n}\n```",
-      "ts": "2026-10-21T01:34:07.820408+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -3.285135515144748,
-      "value": 0.573,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique due à une confusion sémantique. Le 'SDI' dans les médias fait référence au 'Syndicat des Indépendants' (français) et non à une métrique on-chain ou à une baleine crypto. Aucune donnée significative sur le marché.\"\n}\n```",
-      "ts": "2026-10-21T02:04:14.353249+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.0251563491410103,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à l'ambiguïté de l'acronyme 'CPFP'. Les médias parlent de sujets sans rapport (centre de formation professionnelle, technique Bitcoin générique) alors que le z-score onchain détecte simplement une variation technique mineure des frais de minage, sans accumulation ni mouvement significatif de baleines.\"\n}\n```",
-      "ts": "2026-10-21T02:04:15.565532+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.0251563491410103,
       "value": 50.0,
@@ -349,6 +307,48 @@
       "value": 68,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.26) indiquant une euphorie retail excessive (Fear & Greed à 68) en anomie totale avec le silence médiatique (Google Actualités vide). Divergence classique de piégeage : les baleines distribuent discrètement dans la complaisance avant une correction.\"\n}\n```",
       "ts": "2026-10-22T10:16:53.753028+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.7454026891231704,
+      "value": 2560278.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.75, ~2.56M USD) indiquant une accumulation ou un mouvement de fonds actif, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Ce silence médiatique face à une activité de baleines inhabituelle suggère une accumulation silencieuse (accumulation phase) avant une potentialité de mouvement de prix, plutôt qu'une distribution publique.\"\n}\n```",
+      "ts": "2026-10-22T10:36:58.283291+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0857930150412,
+      "value": 0.704,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.09) sur le ticker IPT détectée, mais les actualités montrent une confusion sémantique totale entre des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et des sujets sans rapport (physique, religion). Aucune baleine crypto identifiable, bruit de fond médiatique non pertinent.\"\n}\n```",
+      "ts": "2026-10-22T10:42:01.614483+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139196,
+      "value": 68,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) couplé à une cupidité modérée (68) sans couverture médiatique significative : les baleines distribuent discrètement en haut de range pendant que le marché retail sous-estime le risque de correction.\"\n}\n```",
+      "ts": "2026-10-22T10:47:03.942567+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 8.763911113429437,
+      "value": 6234137.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique une accumulation massive de BTC par des entités institutionnelles, suggérant une confiance accrue dans le marché. Cependant, les titres médiatiques ne reflètent pas cette dynamique, indiquant une divergence potentielle entre les données brutes et le narratif médiatique. Les baleines pourraient bouger silencieusement, et le narratif médiatique pourrait être déconnecté de la réalité.\"\n}\n```",
+      "ts": "2026-10-22T11:07:10.023068+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2563376697950135,
+      "value": 1.815,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (long_short = 1.815, z-score 2.26) suggère une forte activité de trading long-short, ce qui pourrait indiquer une anticipation de mouvements de marché. Le narratif médiatique met en avant les fonds long-short comme solution dans des marchés agités, mais ne mentionne pas l'anomalie spécifique. Les titres mentionnent des fonds long-short et des stratégies de trading, mais pas l'anomalie onchain. La divergence suggère que les baleines pourraient bouger silencieusement, avec une anticipation de mouvements de marché non couverte par le narratif médiatique.\"\n}\n```",
+      "ts": "2026-10-22T11:07:12.825635+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.2360679774997885,
+      "value": 68,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes : absence de titres médiatiques significatifs dans le flux pour contraster avec le z-score élevé (68, optimisme modéré). Impossible de confirmer une divergence majeure sans le narratif textuel.\"\n}\n```",
+      "ts": "2026-10-22T11:17:15.387613+00:00"
     }
   ]
 }

@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-22T10:28:00Z
+# Hulk DIGEST — 2026-10-22T11:29:17Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,28 +12,28 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| WUSDT | IDLE | 1.32 | 5.89 | 3.93 | -0.04 | 3468048.11 | 16.74 | skipped_fast |
-| ETHUSDT | IDLE | 1.21 | 2.2 | 1.46 | -0.02 | 231518457.44 | 0.04 | skipped_fast |
-| XRPUSDT | IDLE | 1.11 | 2.02 | 1.29 | -0.01 | 33583670.58 | 1.5 | skipped_fast |
-| BTCUSDT | IDLE | 0.89 | 1.62 | 1.1 | -0.01 | 515811539.27 | 0.0 | skipped_fast |
-| HBARUSDT | IDLE | 1.57 | 2.81 | 2.22 | -0.04 | 1375807.32 | 6.19 | skipped_fast |
-| QNTUSDT | IDLE | 1.26 | 3.11 | 1.71 | -0.0 | 1317921.09 | 2.03 | skipped_fast |
-| CHIPUSDT | IDLE | 2.41 | 9.7 | 7.89 | -0.03 | 343358.94 | 11.48 | skipped_fast |
-| PYTHUSDT | IDLE | 1.46 | 4.01 | 2.46 | -0.07 | 649845.65 | 1.34 | skipped_fast |
-| EDELUSDT | IDLE | 1.62 | 2.96 | 1.86 | -0.02 | 553947.82 | 17.77 | skipped_fast |
-| ZBCNUSDT | IDLE | 1.39 | 4.29 | 0.19 | -0.03 | 247297.31 | 27.37 | skipped_fast |
-| CCUSDT | IDLE | 0.6 | 1.69 | 0.78 | -0.02 | 393665.6 | 9.54 | skipped_fast |
-| BIOUSDT | IDLE | 1.44 | 3.04 | 1.84 | -0.03 | 78335.37 | 4.17 | skipped_fast |
-| REDUSDT | IDLE | 1.47 | 2.79 | 2.02 | -0.02 | 81357.35 | 16.15 | skipped_fast |
-| RWAINCUSDT | IDLE | 1.69 | 3.21 | 1.11 | -0.01 | 61004.95 | 50.46 | skipped_fast |
-| KITEUSDT | IDLE | 1.01 | 1.82 | 1.33 | -0.03 | 59911.37 | 9.22 | skipped_fast |
-| RIZEUSDT | IDLE | 1.33 | 2.86 | 0.33 | 0.05 | 44978.16 | 58.68 | skipped_fast |
-| WAXLUSDT | IDLE | 1.76 | 6.13 | 3.58 | -0.07 | 58418.63 | 56.9 | skipped_fast |
-| IOTAUSDT | IDLE | 1.6 | 3.08 | 2.27 | -0.04 | 78446.35 | 33.22 | skipped_fast |
-| LAUSDT | IDLE | 1.32 | 3.52 | 1.74 | -0.04 | 58821.2 | 23.32 | skipped_fast |
-| FLUIDUSDT | IDLE | 0.56 | 2.8 | 2.65 | -0.02 | 19867.3 | 21.16 | skipped_fast |
-| RWAUSDT | IDLE | 0.31 | 0.55 | 0.47 | -0.01 | 52445.09 | 23.63 | skipped_fast |
-| MNSRYUSDT | IDLE | 0.48 | 0.86 | 0.68 | -0.0 | 39919.63 | 55.51 | skipped_fast |
+| WUSDT | IDLE | 1.08 | 4.69 | 4.02 | -0.05 | 3271197.86 | 19.14 | skipped_fast |
+| ETHUSDT | IDLE | 1.09 | 1.94 | 1.63 | -0.03 | 229035916.53 | 0.04 | skipped_fast |
+| XRPUSDT | IDLE | 1.01 | 1.79 | 1.48 | -0.02 | 32794345.08 | 0.75 | skipped_fast |
+| BTCUSDT | IDLE | 0.83 | 1.48 | 1.21 | -0.02 | 523361069.56 | 0.0 | skipped_fast |
+| HBARUSDT | IDLE | 1.11 | 2.0 | 1.49 | -0.05 | 1374630.38 | 4.96 | skipped_fast |
+| QNTUSDT | IDLE | 0.93 | 2.17 | 2.12 | -0.03 | 1285340.04 | 3.61 | skipped_fast |
+| PYTHUSDT | IDLE | 1.21 | 3.41 | 1.39 | -0.07 | 628412.85 | 2.66 | skipped_fast |
+| EDELUSDT | IDLE | 1.56 | 2.73 | 2.66 | -0.03 | 563423.39 | 26.99 | skipped_fast |
+| CHIPUSDT | IDLE | 1.3 | 5.36 | 3.41 | -0.04 | 341933.47 | 15.96 | skipped_fast |
+| ZBCNUSDT | IDLE | 1.8 | 5.15 | 0.59 | -0.05 | 228332.67 | 18.61 | skipped_fast |
+| CCUSDT | IDLE | 0.78 | 2.33 | 1.68 | -0.04 | 392196.88 | 6.76 | skipped_fast |
+| RWAINCUSDT | IDLE | 1.92 | 3.57 | 1.84 | -0.02 | 62902.19 | 11.34 | skipped_fast |
+| BIOUSDT | IDLE | 1.07 | 2.28 | 1.24 | -0.04 | 78551.51 | 4.17 | skipped_fast |
+| REDUSDT | IDLE | 1.03 | 1.96 | 1.72 | -0.02 | 80780.73 | 16.27 | skipped_fast |
+| KITEUSDT | IDLE | 1.04 | 1.83 | 1.65 | -0.04 | 60382.94 | 9.25 | skipped_fast |
+| RIZEUSDT | IDLE | 1.22 | 2.72 | 0.21 | 0.05 | 43977.08 | 56.42 | skipped_fast |
+| IOTAUSDT | IDLE | 1.16 | 2.25 | 1.59 | -0.04 | 78415.27 | 24.37 | skipped_fast |
+| WAXLUSDT | IDLE | 1.12 | 3.91 | 2.16 | -0.08 | 58876.13 | 32.75 | skipped_fast |
+| LAUSDT | IDLE | 0.94 | 2.44 | 1.67 | -0.04 | 58750.94 | 19.91 | skipped_fast |
+| FLUIDUSDT | IDLE | 0.66 | 3.41 | 3.3 | -0.04 | 19567.52 | 21.74 | skipped_fast |
+| RWAUSDT | IDLE | 0.52 | 0.95 | 0.55 | -0.01 | 52649.24 | 15.79 | skipped_fast |
+| MNSRYUSDT | IDLE | 0.35 | 0.63 | 0.51 | -0.0 | 40029.52 | 55.51 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
