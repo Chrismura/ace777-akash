@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.0546260952042257,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score élevé sur le CPFP reflète une congestion technique de mempool Bitcoin et des tutoriels grand public, totalement déconnectés des baleines crypto (bruit médiatique dominé par des homonymes institutionnels locaux et des faits divers).\"\n}\n```",
-      "ts": "2026-10-20T23:43:15.877633+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0546260952042257,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu : le signal on-chain (dust de 50.0) et les titres médiatiques font référence à de homonymes non-crypto (cinéma, actions traditionnelles, actualités locales), démontrant l'absence totale de corrélation ou de mouvement significatif de baleines.\"\n}\n```",
-      "ts": "2026-10-20T23:43:17.411827+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -7.828682220280051,
-      "value": 0.573,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (Z-score -7.83) entièrement liée à un bruit médiatique sur le syndicat patronal français 'SDI' (Indépendants), sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-10-21T00:03:21.116127+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 13.85717419230002,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (13.86) signalant une excitation du marché (Greed 63), mais absence de titres médiatiques spécifiques pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
-      "ts": "2026-10-21T00:03:22.317074+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -5.531358504583776,
       "value": 0.573,
@@ -349,6 +321,34 @@
       "value": 68,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un indice de peur et de cupidité élevé (68) montrant une euphorie modérée.\"\n}\n```",
       "ts": "2026-10-22T09:16:33.268268+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.8182390254901115,
+      "value": 0.823,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif. L'acronyme 'IPT' correspond ici à des entités traditionnelles (International Petroleum Corp, IMPACT Silver Corp) ou institutionnelles (École polytechnique), et non à un actif crypto. Aucune corrélation onchain valide.\"\n}\n```",
+      "ts": "2026-10-22T09:36:38.955956+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.2455999083651945,
+      "value": 0.008,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : Les données textuelles font référence au 'Syndicat des Indépendants' (SDI) et à l'actualité politique française, et non à une métrique onchain ou à l'activité de baleines crypto. Aucune corrélation financière détectable.\"\n}\n```",
+      "ts": "2026-10-22T09:46:41.839111+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.1393079901047094,
+      "value": 68,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z élevé (2.14) et la cupidité (68) sans couverture médiatique majeure signalent une euphorie de détail locale. Les baleines profitent de ce silence médiatique pour distribuer discrètement aux acheteurs tardifs avant un retournement.\"\n}\n```",
+      "ts": "2026-10-22T09:46:43.236344+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.11356946294029,
+      "value": 2741585.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 4.11) indique une activité de grande envergure des baleines, mais les titres médiatiques ne mentionnent pas cette activité. La divergence suggère que les baleines bougent silencieusement, et le narratif médiatique est potentiellement déconnecté de la réalité.\"\n}\n```",
+      "ts": "2026-10-22T10:01:47.870924+00:00"
     }
   ]
 }
