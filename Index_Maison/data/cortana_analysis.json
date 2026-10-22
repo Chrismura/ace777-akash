@@ -1,96 +1,45 @@
 {
-  "timestamp": 1792701318,
-  "date": "2026-10-22T20:35:18.887184+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792704919,
+  "date": "2026-10-22T21:35:19.882141+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.242300165275284,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de faible portée (z-score 2.24). Le narratif médiatique fait référence à des homonymes (formation politique, pharmacie, éducation) et à des tutoriels Bitcoin basique (CPFP). Aucune corrélation avec une accumulation ou distribution massive de baleines.\"\n}\n```",
-        "ts": 1792700288.762699
+        "metric": "ipt",
+        "zscore": 2.313519513608331,
+        "value": 1.057,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.31) due à un bruit lexical. Le ticker 'IPT' correspond à International Petroleum Corp. et à des homonymes non-crypto dans les médias, et non à une baleine sur un actif numérique.\"\n}\n```",
+        "ts": 1792703322.158872
       },
-      "fiche": "blocs_privilises",
+      "fiche": "rbf_eleve",
       "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
+        "prix": {
+          "value": 0.31,
+          "seuil": 1,
           "depasse": false
         },
-        "volume": {
-          "value": 2875,
-          "seuil": 0,
-          "depasse": true
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
         },
-        "prix": {
-          "value": -0.15,
-          "seuil": 0,
-          "depasse": true
+        "funding": {
+          "value": 6.4e-05,
+          "seuil": 0.001,
+          "depasse": false
         },
-        "sdi": {
-          "value": 0.012,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
+        "whales": {
+          "value": 1,
+          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
         "niveau": "neutre",
-        "action": "Garder les positions"
+        "action": "Observer"
       },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.242300165275284,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto (homonymes industriels/culturels). L'anomalie onchain (z-score 2.24) est trop faible pour signaler une accumulation majeure de baleines.\"\n}\n```",
-        "ts": 1792700303.687963
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 2875,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.15,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.012,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
+      "action": "Observer",
       "niveau": "neutre"
     }
   ],

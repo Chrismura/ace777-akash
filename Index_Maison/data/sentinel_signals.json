@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -2.6843306235110496,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit sémantique externe : le sigle 'SDI' dans les médias désigne un syndicat patronal français (Syndicat des Indépendants) et non un indicateur on-chain ou une baleine crypto. Aucune donnée de marché à analyser.\"\n}\n```",
-      "ts": "2026-10-22T08:46:18.507868+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.0784839343602877,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Greed élevé (68) couplé à un z-score de 2.08 signalant une euphorie retail anormale, contrastant avec un vide médiatique total (Google Actualités). Divergence classique de distribution : les baleines liquident silencieusement dans la surchauffe pendant que les médias traditionnels ignorent le mouvement, précurseur d'un retournement baissier.\"\n}\n```",
-      "ts": "2026-10-22T08:46:20.017549+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 5.6853513046264545,
-      "value": 3306500.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.69, +3.3M USD) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement sous le radar du retail.\"\n}\n```",
-      "ts": "2026-10-22T09:01:24.328777+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.3891479554345767,
       "value": 50.0,
@@ -349,6 +328,27 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto (homonymes industriels/culturels). L'anomalie onchain (z-score 2.24) est trop faible pour signaler une accumulation majeure de baleines.\"\n}\n```",
       "ts": "2026-10-22T20:18:23.687963+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.98918555989095,
+      "value": 3879886.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.99, volume ~$3.88M) totalement absente des flux médiatiques de Google Actualités. Classic silent accumulation par des baleines avant le réveil du retail.\"\n}\n```",
+      "ts": "2026-10-22T20:38:27.866926+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1458813515073674,
+      "value": 0.98,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique bruitée par des homonymies (International Petroleum Corp, École Polytechnique, IMPACT Silver Corp). Aucune donnée onchain pertinente pour une cryptomonnaie.\"\n}\n```",
+      "ts": "2026-10-22T20:38:29.696887+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.313519513608331,
+      "value": 1.057,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.31) due à un bruit lexical. Le ticker 'IPT' correspond à International Petroleum Corp. et à des homonymes non-crypto dans les médias, et non à une baleine sur un actif numérique.\"\n}\n```",
+      "ts": "2026-10-22T21:08:42.158872+00:00"
     }
   ]
 }
