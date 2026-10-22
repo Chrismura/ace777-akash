@@ -58,20 +58,21 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 51 | 2026-10-19T14:35:07Z | 14h | AUTRE | 0.004514 | IMPULSE_WAIT | 19.492 | 361.81 | 4200.0 | 4.65e-06 | 0.07 | -0.60 | -0.49 | POMPE_PIEGE (stab 1) | prix 0.004514 · poussière(panier) 19.5% · Amihud 4.65e-06 · delta +0.07 · mur moy 362$ · mur max (run) 4,200$ |
 | 52 | 2026-10-20T14:35:05Z | 14h | AUTRE | 0.004371 | IMPULSE | 2.2952 | 361.81 | 4200.0 | 5.33e-06 | 0.08 | 0.56 | 0.44 | POMPE_PIEGE (stab 5) | prix 0.004371 · poussière(panier) 2.3% · Amihud 5.33e-06 · delta +0.08 · mur moy 362$ · mur max (run) 4,200$ |
 | 53 | 2026-10-21T14:28:39Z | 14h | AUTRE | 0.004533 | IMPULSE_WAIT | None | 361.81 | 4200.0 | — | — | 0.40 | 0.03 | POMPE_PIEGE (stab 9) | prix 0.004533 · mur moy 362$ · mur max (run) 4,200$ |
+| 54 | 2026-10-22T14:35:08Z | 14h | AUTRE | 0.004848 | IMPULSE_WAIT | 8.7553 | 361.81 | 4200.0 | 5.82e-06 | 0.13 | -0.99 | -0.98 | POMPE_PIEGE (stab 13) | prix 0.004848 · poussière(panier) 8.8% · Amihud 5.82e-06 · delta +0.13 · mur moy 362$ · mur max (run) 4,200$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-17T16:03:25Z au 2026-10-21T14:28:39Z (12270 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-17T16:03:25Z au 2026-10-22T14:35:08Z (13520 points) — archives de rotation incluses._
 
 | # | De | prix | Vers | prix | Amplitude | Durée |
 |---|---|---|---|---|---|---|
 | 1 | pic 2026-10-18T14:14:35Z | 0.005532 | creux 2026-10-19T15:36:42Z | 0.004102 | 🔻 -25.8 % | 25 h (1.1 j) |
 
-**Cycle EN COURS : HAUSSE depuis le creux du 2026-10-19T15:36:42Z à 0.004102 → 0.004533 = **+10.5 %**** (extrême courant 0.004756)
+**Cycle EN COURS : HAUSSE depuis le creux du 2026-10-19T15:36:42Z à 0.004102 → 0.004848 = **+18.2 %**** (extrême courant 0.004873)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +1.87 $** sur 13 entrée(s) / 13 sortie(s) — dernier événement 2026-10-19T16:03:43Z
+- **Réalisé : +1.87 $** sur 14 entrée(s) / 13 sortie(s) — dernier événement 2026-10-22T11:03:39Z
 - **MFE donné en moyenne : +10.4 pts** par tour (pire tour : +39.4) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
