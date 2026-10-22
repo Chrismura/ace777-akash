@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.5687370443235813,
-      "value": 0.27474144270690504,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.57) à la hausse sans aucune couverture médiatique (silence total sur Google Actualités). C'est la signature classique d'accumulation furtive par des baleines avant un réveil du retail.\"\n}\n```",
-      "ts": "2026-10-22T08:31:09.742727+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.155489902059438,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique purement onchain (frais de transactions/saturation du mempool Bitcoin). Le bruit médiatique fait référence à de l'homonymie (formation politique, école, pharmacie) sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
-      "ts": "2026-10-22T08:31:11.263736+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.155489902059438,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score indique une légère agitation (dust mote/poussière), mais les actualités font référence à de l'art, du cinéma et des levées de fonds tech sans lien direct avec un mouvement massif de gros porteurs crypto. Bruit de fond médiatique sans corrélation on-chain majeure.\"\n}\n```",
-      "ts": "2026-10-22T08:31:13.103736+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -2.6843306235110496,
       "value": 0.004,
@@ -349,6 +328,27 @@
       "value": 1.206,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.206 (z-score 2.07) indique une forte agression acheteuse des preneurs de liquidité, tandis que le vide médiatique (Google Actualités muet) prouve l'absence de FOMO de détail.accumulation silencieuse en cours sous le radar.\"\n}\n```",
       "ts": "2026-10-22T19:07:16.132077+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.0476885210396705,
+      "value": 1.206,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.206 (z-score 2.05) indique une forte domination agressive des acheteurs (Taker Buy), contredisant l'apathie ou le silence des gros titres médiatiques. Accumulation silencieuse en cours.\"\n}\n```",
+      "ts": "2026-10-22T19:57:47.180660+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.242300165275284,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de faible portée (z-score 2.24). Le narratif médiatique fait référence à des homonymes (formation politique, pharmacie, éducation) et à des tutoriels Bitcoin basique (CPFP). Aucune corrélation avec une accumulation ou distribution massive de baleines.\"\n}\n```",
+      "ts": "2026-10-22T20:18:08.762699+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.242300165275284,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto (homonymes industriels/culturels). L'anomalie onchain (z-score 2.24) est trop faible pour signaler une accumulation majeure de baleines.\"\n}\n```",
+      "ts": "2026-10-22T20:18:23.687963+00:00"
     }
   ]
 }

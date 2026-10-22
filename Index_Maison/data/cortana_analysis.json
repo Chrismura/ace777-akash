@@ -1,35 +1,96 @@
 {
-  "timestamp": 1792697717,
-  "date": "2026-10-22T19:35:17.890499+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792701318,
+  "date": "2026-10-22T20:35:18.887184+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.0704024127231597,
-        "value": 1.206,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.206 (z-score 2.07) indique une forte agression acheteuse des preneurs de liquidité, tandis que le vide médiatique (Google Actualités muet) prouve l'absence de FOMO de détail.accumulation silencieuse en cours sous le radar.\"\n}\n```",
-        "ts": 1792696036.132077
+        "metric": "cpfp",
+        "zscore": 2.242300165275284,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de faible portée (z-score 2.24). Le narratif médiatique fait référence à des homonymes (formation politique, pharmacie, éducation) et à des tutoriels Bitcoin basique (CPFP). Aucune corrélation avec une accumulation ou distribution massive de baleines.\"\n}\n```",
+        "ts": 1792700288.762699
       },
-      "fiche": "taker_ratio",
+      "fiche": "blocs_privilises",
       "questions": {
-        "taker": {
-          "value": null,
-          "seuil": 1,
+        "duree": {
+          "value": 0,
+          "seuil": 0,
           "depasse": false
         },
+        "volume": {
+          "value": 2875,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": null,
-          "seuil": 1,
+          "value": -0.15,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.012,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
         "niveau": "neutre",
-        "action": "Observer"
+        "action": "Garder les positions"
       },
-      "action": "Observer",
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.242300165275284,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto (homonymes industriels/culturels). L'anomalie onchain (z-score 2.24) est trop faible pour signaler une accumulation majeure de baleines.\"\n}\n```",
+        "ts": 1792700303.687963
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 2875,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.15,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.012,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
       "niveau": "neutre"
     }
   ],

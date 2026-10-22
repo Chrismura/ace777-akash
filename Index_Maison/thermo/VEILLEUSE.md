@@ -1,4 +1,4 @@
-# Rapport Veilleuse — 2026-10-22T19:30:50.820875+00:00
+# Rapport Veilleuse — 2026-10-22T20:30:51.980773+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : hulk-mexc/scripts/short_btc.py (md5 diffère du registre)
