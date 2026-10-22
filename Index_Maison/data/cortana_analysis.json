@@ -1,61 +1,70 @@
 {
-  "timestamp": 1792668309,
-  "date": "2026-10-22T11:25:09.533583+00:00",
-  "n_analyses": 3,
+  "timestamp": 1792671910,
+  "date": "2026-10-22T12:25:10.592231+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 8.763911113429437,
-        "value": 6234137.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique une accumulation massive de BTC par des entités institutionnelles, suggérant une confiance accrue dans le marché. Cependant, les titres médiatiques ne reflètent pas cette dynamique, indiquant une divergence potentielle entre les données brutes et le narratif médiatique. Les baleines pourraient bouger silencieusement, et le narratif médiatique pourrait être déconnecté de la réalité.\"\n}\n```",
-        "ts": 1792667230.023068
+        "metric": "price_1h",
+        "zscore": 2.748319386776138,
+        "value": 0.31082395041150956,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.75) sur 1h sans couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines en l'absence de bruit de fond retail.\"\n}\n```",
+        "ts": 1792670256.233721
       },
-      "fiche": "whale_usd",
+      "fiche": "price_1h",
       "questions": {
-        "ventes": {
-          "value": 1149498.0,
-          "seuil": 0,
+        "pct_1h": {
+          "value": 0.13,
+          "seuil": -1,
           "depasse": true
         },
-        "achats": {
-          "value": 640778.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.16,
-          "seuil": 1,
+        "liq": {
+          "value": 3319449.0,
+          "seuil": 5000000,
           "depasse": false
+        },
+        "funding": {
+          "value": -3.1e-05,
+          "seuil": 0,
+          "depasse": true
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
-        "metric": "long_short",
-        "zscore": 2.2563376697950135,
-        "value": 1.815,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (long_short = 1.815, z-score 2.26) suggère une forte activité de trading long-short, ce qui pourrait indiquer une anticipation de mouvements de marché. Le narratif médiatique met en avant les fonds long-short comme solution dans des marchés agités, mais ne mentionne pas l'anomalie spécifique. Les titres mentionnent des fonds long-short et des stratégies de trading, mais pas l'anomalie onchain. La divergence suggère que les baleines pourraient bouger silencieusement, avec une anticipation de mouvements de marché non couverte par le narratif médiatique.\"\n}\n```",
-        "ts": 1792667232.825635
+        "metric": "ipt",
+        "zscore": 3.037121259622062,
+        "value": 0.879,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif : L'acronyme 'IPT' correspond ici à des entités traditionnelles (International Petroleum Corp, IMPACT Silver Corp) ou institutionnelles (Institut de Physique Théorique), et non à un actif crypto. Aucune divergence onchain pertinente n'existe pour ces tickers dans le contexte crypto.\"\n}\n```",
+        "ts": 1792670559.060954
       },
-      "fiche": "long_short",
+      "fiche": "rbf_eleve",
       "questions": {
-        "ratio_long_short": {
-          "value": 1.815,
-          "seuil": 2,
+        "prix": {
+          "value": 0.13,
+          "seuil": 1,
           "depasse": false
         },
-        "oi": {
-          "value": 92733.165,
-          "seuil": 120000,
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": -3.1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
@@ -69,22 +78,56 @@
     },
     {
       "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.2360679774997885,
-        "value": 68,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes : absence de titres médiatiques significatifs dans le flux pour contraster avec le z-score élevé (68, optimisme modéré). Impossible de confirmer une divergence majeure sans le narratif textuel.\"\n}\n```",
-        "ts": 1792667835.387613
+        "metric": "whale_usd",
+        "zscore": 3.4435481111052124,
+        "value": 3022834.0,
+        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 65,\n\"reason\": \"Divergence critique : un flux de 3M$ (z-score 3.44) est statistiquement significatif mais le vide médiatique ('Google Actualités') indique une accumulation silencieuse hors des radars. L'absence de bruit narratif face à une anomalie onchain forte suggère un positionnement discret avant un mouvement de prix, typique des baleines évitant la détection précoce.\"\n}",
+        "ts": 1792670860.718896
       },
-      "fiche": "fear_greed",
+      "fiche": "whale_usd",
       "questions": {
-        "peur": {
-          "value": 68,
-          "seuil": 25,
-          "depasse": true
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
         },
-        "cupidite": {
-          "value": 68,
-          "seuil": 75,
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.13,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.058192226741271,
+        "value": 1.82,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif massif. L'anomalie détectée (z-score 2.06) concerne des fonds actions/credit traditionnels (BNP Paribas, Blackstone) et non un actif crypto. Aucune corrélation onchain ou de marché crypto n'existe pour ces instruments. Le narratif médiatique est cohérent avec la réalité financière classique, il n'y a pas de divergence crypto.\"\n}",
+        "ts": 1792670861.800758
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.82,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 93209.529,
+          "seuil": 120000,
           "depasse": false
         }
       },
@@ -97,5 +140,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
