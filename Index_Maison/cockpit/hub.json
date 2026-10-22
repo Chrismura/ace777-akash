@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T01:08:12.139441+00:00",
+  "generated_at": "2026-10-22T07:10:58.947963+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 47
+      "calls_24h": 0
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "qwen/qwen3.8-27b",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 3
+      "calls_24h": 0
     },
     {
       "id": "nvidia",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 9
+      "calls_24h": 0
     },
     {
       "id": "cloudflare-workers-ai",
@@ -410,64 +410,64 @@
   ],
   "events": [
     {
-      "ts": "2026-10-22T00:40:51.050673+00:00",
+      "ts": "2026-10-22T07:10:58.239145+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-22T07:10:53.236980+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-22T07:10:47.821265+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-10-22T07:10:45.896330+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-10-22T07:10:41.923881+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (HTTP 400)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-10-22T07:10:40.911993+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-22T07:10:40.911502+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-22T07:10:39.602505+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-10-22T07:06:55.842170+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-22T00:40:51.050231+00:00",
+      "ts": "2026-10-22T07:06:55.841977+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: <urlopen error [Errno 60] Operation timed out> | budget: Budget temps requete depasse"
-    },
-    {
-      "ts": "2026-10-22T00:40:51.049986+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-22T00:40:51.049210+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "<urlopen error [Errno 60] Operation timed out>"
-    },
-    {
-      "ts": "2026-10-22T00:38:13.132489+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-22T00:38:13.132115+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: <urlopen error [Errno 60] Operation timed out> | budget: Budget temps requete depasse"
-    },
-    {
-      "ts": "2026-10-22T00:38:13.131863+00:00",
-      "kind": "error",
-      "title": "Budget temps requete depasse",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-22T00:38:13.131045+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "<urlopen error [Errno 60] Operation timed out>"
-    },
-    {
-      "ts": "2026-10-22T00:30:48.967629+00:00",
-      "kind": "timeout",
-      "title": "Patience Google Gemini (lenteur)",
-      "detail": "<urlopen error [Errno 60] Operation timed out>"
-    },
-    {
-      "ts": "2026-10-22T00:28:10.972821+00:00",
-      "kind": "timeout",
-      "title": "Patience Google Gemini (lenteur)",
-      "detail": "<urlopen error [Errno 60] Operation timed out>"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): <urlopen error The write operation timed out> | Roulement xingchen-agi/xing4.0-29b-a4b:free: reseau KO [E"
     }
   ],
   "tasks_quotas": {

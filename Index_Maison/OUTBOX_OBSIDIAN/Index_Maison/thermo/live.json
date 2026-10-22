@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-22T00:32Z",
-  "tsUnix": 1792629142,
+  "ts": "2026-10-22T06:49Z",
+  "tsUnix": 1792651753,
   "symbol": "BTCUSDT",
   "mark": 82871.88,
   "oi": 95099.952,
@@ -84,7 +84,7 @@
     "ACE soft: LIVE=MASTER_BASE_V8_6_FORTRESS_8H20_LIVE_COLOR.log · SKIP=935 · heat=2.7 · PnL sess=0.9024 · RED=0.",
     "C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.",
     "Pipeline Health 0.73 (⚠️ DÉGRADÉ) · 5 issue(s).",
-    "GEOPOL 🟡 0.2476 (attention) · 5/5 modules · ML:attention.",
+    "GEOPOL 🟡 0.4428 (attention) · 5/5 modules · ML:attention.",
     "Poussière onchain 0.0/100 (FAIBLE — onchain nominal) · blocs privatisés None%."
   ],
   "indicators": {
@@ -510,7 +510,7 @@
     "D31": "score",
     "D32": "score"
   },
-  "prevTs": "2026-10-22T00:00Z",
+  "prevTs": "2026-10-22T06:17Z",
   "source": "binance-fapi+coingecko+fng+okx-liq+bitbo-etf+deribit-gex+okx-rubik+ace-readonly",
   "wiredNote": "D26–D34 F&G/MC/alt/liq/ETF/GEX/volumes cachés · free + proxies · ACE lecture seule",
   "degraded": true,
@@ -532,7 +532,7 @@
     "whaleBlocsBtc": 318798.4,
     "whaleFragN": 0,
     "whaleFragBtc": 0,
-    "whaleCumul24hBtc": 22634686.4,
+    "whaleCumul24hBtc": 1593992.0,
     "whaleMoy7jBtc": 56823615.81,
     "whaleDir": "neutral",
     "whaleDirLabel": "neutral",
@@ -546,8 +546,8 @@
     "whaleEcartSeuil": 31779.8,
     "whaleAlerte": true,
     "whaleAlerteTexte": "Activité baleines : 25 gros bloc(s) (318798.4 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2.",
-    "dernierEvtMin": 1032,
-    "synthèse": "Direction onchain neutral | 25 gros bloc(s) 318798.4 BTC sur le scan récent, cumul 24h 22634686 BTC, source Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. Activité baleines : 25 gros bloc(s) (318798.4 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. | CPFP actif (conf 0/2) · poussière score 0.0/50 | indice onchain 0.0/100 (FAIBLE — onchain nominal)",
+    "dernierEvtMin": 1413,
+    "synthèse": "Direction onchain neutral | 25 gros bloc(s) 318798.4 BTC sur le scan récent, cumul 24h 1593992 BTC, source Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. Activité baleines : 25 gros bloc(s) (318798.4 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. | CPFP actif (conf 0/2) · poussière score 0.0/50 | indice onchain 0.0/100 (FAIBLE — onchain nominal)",
     "cpfpSignal": null,
     "cpfpScore": 0.0,
     "cpfpMode": "actif",
@@ -558,7 +558,7 @@
     "cpfpCarte2": false,
     "cpfpDustScore": 0.0,
     "cpfpDustDeclenche": false,
-    "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 920 cumulées 48h (seuil 1000) — max 0.0000 BTC",
+    "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 717 cumulées 48h (seuil 1000) — max 0.0000 BTC",
     "blocPrivatiseMode": "actif",
     "blocPrivatiseTauxFantome": null,
     "blocPrivatiseNbCachees": 7802,
@@ -571,7 +571,7 @@
     }
   },
   "pipeline_health": {
-    "timestamp": 1792630009,
+    "timestamp": 1792652620,
     "global_score": 0.73,
     "mode": "degrade",
     "mode_label": "⚠️ DÉGRADÉ",
@@ -624,21 +624,21 @@
     "n_issues": 5
   },
   "geopol": {
-    "score": 0.2476,
-    "ml_score": 0.1779,
+    "score": 0.4428,
+    "ml_score": 0.2828,
     "niveau": "attention",
     "emoji": "🟡",
     "ml": {
       "label": 1,
       "label_nom": "attention",
       "label_emoji": "🟡",
-      "probability": 0.5236,
-      "confidence": 0.5236,
-      "risk_score": 0.1779,
+      "probability": 0.6519,
+      "confidence": 0.6519,
+      "risk_score": 0.2828,
       "probas": {
-        "calme": 0.4714,
-        "attention": 0.5236,
-        "alerte": 0.005,
+        "calme": 0.2498,
+        "attention": 0.6519,
+        "alerte": 0.0983,
         "critique": 0.0
       },
       "feature_importances": {
@@ -697,38 +697,38 @@
         }
       },
       "defense_stocks": {
-        "score": 0.195,
+        "score": 0.2712,
         "categorie": "geopol",
         "source": "Yahoo Finance",
         "interpretation": "🟢 CALME — Secteur défense stable. Rien d'inhabituel.",
         "features": {
-          "sector_avg_change": 0.375,
-          "sector_breadth": 0.0,
-          "max_stock_move": 0.0,
+          "sector_avg_change": 0.3854,
+          "sector_breadth": 0.1667,
+          "max_stock_move": 0.152,
           "sector_correlation": 0.3
         }
       },
       "news_sentiment": {
-        "score": 0.0,
+        "score": 0.9,
         "categorie": "geopol",
         "source": "Google News RSS",
-        "interpretation": "🟢 CALME — Sentiment neutre ou positif. Rien d'inhabituel.",
+        "interpretation": "🚨 KILL SWITCH — Sentiment extrêmement négatif. 10 mots-clés de crise détectés. Réduire les positions. Ne pas trader.",
         "features": {
-          "negative_ratio": 0.0,
-          "keyword_hits": 0.0,
-          "source_diversity": 0.0,
+          "negative_ratio": 1.0,
+          "keyword_hits": 1.0,
+          "source_diversity": 1.0,
           "abstract_negativity": 0.0,
-          "neg_geo_raw": 0.0,
-          "neg_neutre_raw": 0.0
+          "neg_geo_raw": 0.75,
+          "neg_neutre_raw": 0.062
         }
       }
     },
-    "alerte": null,
+    "alerte": "🟡 news_sentiment: 🚨 KILL SWITCH — Sentiment extrêmement négatif. 10 mots-clés de crise détectés. Réduire les positions. Ne pas trader.",
     "nb_modules": 5,
     "nb_ok": 4,
     "scores_par_categorie": {
-      "geopol": 0.2476
+      "geopol": 0.4428
     },
-    "ts": "2026-10-22T00:58:46.200668+00:00"
+    "ts": "2026-10-22T07:06:32.476324+00:00"
   }
 }
