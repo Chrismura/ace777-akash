@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -2.9572474027645588,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par un homonyme politique ('Syndicat des Indépendants' français). Aucun rapport avec une métrique crypto ou le mouvement de baleines on-chain.\"\n}\n```",
-      "ts": "2026-10-22T08:16:04.248325+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.09625899971348,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) couplé à une avidité modérée (68) sans couverture médiatique significative ('Google Actualités' vide). Signe classique d'accumulation silencieuse ou de distribution en trompe-l'œil par les baleines avant un retournement de tendance.\"\n}\n```",
-      "ts": "2026-10-22T08:16:05.766726+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.5687370443235813,
       "value": 0.27474144270690504,
@@ -349,6 +335,20 @@
       "value": 0.89,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de données : 'ipt' fait référence à des homonymes non-crypto (International Petroleum Corp, IMPACT Silver, tournoi de physique) et non à un token sur la blockchain. Aucune baleine crypto détectée.\"\n}\n```",
       "ts": "2026-10-22T18:01:52.887392+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.8011733502430163,
+      "value": 1.131,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.80) détectée sur le ticker IPT, mais les résultats médiatiques révèlent une confusion lexicale totale (International Petroleum Corp, Tournoi International des Physiciens, IMPACT Silver). Aucune baleine crypto identifiable : le signal est un bruit de fond non pertinent ou une homonymie boursière traditionnelle.\"\n}\n```",
+      "ts": "2026-10-22T18:52:09.374916+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.0704024127231597,
+      "value": 1.206,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.206 (z-score 2.07) indique une forte agression acheteuse des preneurs de liquidité, tandis que le vide médiatique (Google Actualités muet) prouve l'absence de FOMO de détail.accumulation silencieuse en cours sous le radar.\"\n}\n```",
+      "ts": "2026-10-22T19:07:16.132077+00:00"
     }
   ]
 }

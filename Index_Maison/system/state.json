@@ -1,36 +1,35 @@
 {
-  "timestamp": "2026-10-22T18:36:03Z",
+  "timestamp": "2026-10-22T19:14:13Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "836d34dce06d3c94003461507666dac65e3fb6d2f7316d24f9f1f9a096dc6557",
+  "feed_hash": "6a31ee5994b3a73056a475d9204577aed0ab884166099d3859271a660f3fd34a",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 21,
+      "age_seconds": 36,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 300,
+      "age_seconds": 246,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 162,
+      "age_seconds": 48,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 5122547,
+      "age_seconds": 5124836,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 106,
-    "running": 16,
-    "planned": 90,
+    "running": 14,
+    "planned": 92,
     "running_list": [
-      "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
@@ -38,20 +37,20 @@
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
+      "com.ace777.sniffer-vieux-btc",
       "com.ace777.state-generator",
-      "com.ace777.superviseur-auto",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.thermo-quotidien",
       "com.ace777.vigie-live",
-      "com.ace777.whales"
+      "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
       "com.ace777.archi-vivante",
       "com.ace777.autopilote",
       "com.ace777.backup-check",
+      "com.ace777.bloc-privatise",
       "com.ace777.carte-paires",
       "com.ace777.catalogue",
       "com.ace777.chien-de-garde",
@@ -116,10 +115,11 @@
       "com.ace777.signal3-livre-ecorche",
       "com.ace777.sniffer-matin",
       "com.ace777.sniffer-ny",
-      "com.ace777.sniffer-vieux-btc",
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
       "com.ace777.superviseur",
+      "com.ace777.superviseur-auto",
+      "com.ace777.thermo-quotidien",
       "com.ace777.troupeau-inv",
       "com.ace777.veille-degradation",
       "com.ace777.veille-essaim-observation",
@@ -134,8 +134,8 @@
       "com.ace777.verdicteur-micro",
       "com.ace777.verif-setup",
       "com.ace777.watchdog",
+      "com.ace777.whales",
       "com.ace777.x402-agentic",
-      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
@@ -143,8 +143,8 @@
   "hub": {
     "status": "ok",
     "providers": 7,
-    "reseau": true,
-    "degrade": false
+    "reseau": false,
+    "degrade": true
   },
   "ram_raw": "The system has 8589934592 (524288 pages with a page size of 16384).",
   "hors_zone": {
@@ -179,7 +179,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-22T18:31:11Z",
+    "presence_at": "2026-10-22T19:01:11Z",
     "sizes_at": "2026-10-22T16:31:06Z"
   }
 }
