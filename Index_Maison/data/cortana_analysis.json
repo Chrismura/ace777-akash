@@ -1,133 +1,47 @@
 {
-  "timestamp": 1792686614,
-  "date": "2026-10-22T16:30:14.866475+00:00",
-  "n_analyses": 3,
+  "timestamp": 1792690515,
+  "date": "2026-10-22T17:35:15.940757+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.182023146218612,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : le pic CPFP onchain coïncide avec des recherches de tutoriels pour débloquer des transactions Bitcoin, sans corrélation avec une accumulation ou distribution massive de baleines.\"\n}\n```",
-        "ts": 1792685092.348431
+        "metric": "ipt",
+        "zscore": 2.524903992523991,
+        "value": 0.985,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : les données textuelles font référence à des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et à des actualités institutionnelles, sans lien avec une cryptomonnaie active sur la blockchain.\"\n}\n```",
+        "ts": 1792688799.149687
       },
-      "fiche": "blocs_privilises",
+      "fiche": "rbf_eleve",
       "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 421,
-          "seuil": 0,
-          "depasse": true
-        },
         "prix": {
-          "value": -0.06,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.02,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.182023146218612,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.18) sur des micro-transactions sans lien avec les baleines crypto. Le narratif médiatique concerne de l'art, des actions traditionnelles et du cinéma. Bruit absolu, aucune activité de baleine détectée.\"\n}\n```",
-        "ts": 1792685103.045798
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 421,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.06,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.02,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.0931765880636544,
-        "value": 2989090.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.09, ~2.99M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive des baleines sans FOMO public.\"\n}\n```",
-        "ts": 1792686332.491814
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 2989090.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.06,
+          "value": 0.04,
           "seuil": 1,
           "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 4.2e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

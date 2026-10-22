@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.1362987456584994,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence de titres Google Actualités exploitables). Le z-score élevé (2.14) indique une avidité notable, mais sans flux de gros porteurs vérifiables, impossible de confirmer une divergence claire.\"\n}\n```",
-      "ts": "2026-10-22T07:45:54.326994+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.6081050811024933,
-      "value": 0.27023252870879144,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.61) sur une heure avec un silence total des médias de masse : accumulation furtive classique par les baleines avant une cassure de prix.\"\n}\n```",
-      "ts": "2026-10-22T07:55:56.883184+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.0913781101598676,
-      "value": 0.884,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.09) détectée sur le ticker 'IPT', mais les données textuelles révèlent une confusion avec des homonymes traditionnels (International Petroleum Corp, École Polytechnique, IMPACT Silver) sans lien avec un actif crypto majeur ou une baleine blockchain identifiable.\"\n}\n```",
-      "ts": "2026-10-22T07:55:58.519362+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.072531768995848,
       "value": 3418556.0,
@@ -349,6 +328,27 @@
       "value": 2989090.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.09, ~2.99M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive des baleines sans FOMO public.\"\n}\n```",
       "ts": "2026-10-22T16:25:32.491814+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 6.259671449875484,
+      "value": 0.7308680752456609,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (6.26) couplé à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une percée des prix.\"\n}\n```",
+      "ts": "2026-10-22T16:50:59.334913+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.7438790063082052,
+      "value": 6438533.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une pollution sémantique : le z-score on-chain et les données de liquidations cryptos sont capturés par des actualités de presse locale sur des liquidations judiciaires d'entreprises traditionnelles. Aucune divergence macro ni mouvement de baleine détecté.\"\n}\n```",
+      "ts": "2026-10-22T16:51:22.933145+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.524903992523991,
+      "value": 0.985,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : les données textuelles font référence à des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et à des actualités institutionnelles, sans lien avec une cryptomonnaie active sur la blockchain.\"\n}\n```",
+      "ts": "2026-10-22T17:06:39.149687+00:00"
     }
   ]
 }
