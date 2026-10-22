@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-10-21 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-10-22 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 6 · En observation : 4 · En attente : 19 · De cote (payant) : 6**
+**Actifs : 6 · En observation : 0 · En attente : 19 · De cote (payant) : 6**
 
 ## ACTIFS
 
@@ -17,12 +17,7 @@
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
-| Role | Modele | Statut | Note |
-|------|--------|--------|------|
-| - | `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free` | openrouter-nemo-nano | 17/10 GO3 : teste live OK via cle maison (reponse OK). Integre EN OBSERVATION (hub ne rout |
-| - | `moonshotai/kimi-k3-free` | tokenrouter-kimi | 17/10 GO : cle maison rentree (.env), compte vivant 162 modeles, MAIS kimi-k3-free 503 x2  |
-| - | `z-ai/glm-4.7-flash-free` | zenmux-glm47 | 17/10 GO : cle maison, 429 au re-test (sature, a re-tester). Observation. |
-| - | `z-ai/glm-4.6v-flash-free` | zenmux-glm46v | 17/10 GO : cle maison, reponse VIDE en test (a re-tester). Vision. Observation. |
+*aucun*
 
 ## EN ATTENTE (cle manquante ou desactive)
 
