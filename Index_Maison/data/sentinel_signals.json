@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.072531768995848,
-      "value": 3418556.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à des faillites d'entreprises traditionnelles et à un fait divers isolé sur Monero (XMR). Aucune baleine crypto majeure détectée derrière ces flux de liquidations de ~3,4M$.\"\n}\n```",
-      "ts": "2026-10-22T08:16:02.611876+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -2.9572474027645588,
       "value": 0.008,
@@ -349,6 +342,13 @@
       "value": 0.985,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : les données textuelles font référence à des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et à des actualités institutionnelles, sans lien avec une cryptomonnaie active sur la blockchain.\"\n}\n```",
       "ts": "2026-10-22T17:06:39.149687+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1113718719962504,
+      "value": 0.89,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de données : 'ipt' fait référence à des homonymes non-crypto (International Petroleum Corp, IMPACT Silver, tournoi de physique) et non à un token sur la blockchain. Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-22T18:01:52.887392+00:00"
     }
   ]
 }
