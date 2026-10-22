@@ -1,98 +1,8 @@
 {
-  "timestamp": 1792674611,
-  "date": "2026-10-22T13:10:11.392527+00:00",
-  "n_analyses": 3,
+  "timestamp": 1792675811,
+  "date": "2026-10-22T13:30:11.777769+00:00",
+  "n_analyses": 2,
   "analyses": [
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.274567700305902,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au mempool Bitcoin (saturation/frais), sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique concerne des homonymes locaux sans pertinence macro-crypto.\"\n}\n```",
-        "ts": 1792673887.519658
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 31,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.02,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.016,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.274567700305902,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique mineure (z-score 2.27 sur du 'dust') totalement déconnectée des médias, lesquels font référence à de l'art, des actions traditionnelles ou du cinéma. Aucun mouvement significatif de baleine crypto détecté.\"\n}\n```",
-        "ts": 1792673919.376305
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 31,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.02,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.016,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "ipt",
@@ -104,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.02,
+          "value": 0.21,
           "seuil": 1,
           "depasse": false
         },
@@ -119,8 +29,42 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 2,
           "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 4.9106225674698205,
+        "value": 4200078.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.91) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
+        "ts": 1792674942.268231
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.21,
+          "seuil": 1,
           "depasse": false
         }
       },

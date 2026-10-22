@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.0548283737915,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (dust=50.0) noyée dans un bruit médiatique totalement déconnecté (cinéma, actions traditionnelles, actualités locales). Aucune corrélation avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-10-21T04:04:49.564912+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.2360679774997907,
       "value": 63,
@@ -349,6 +342,13 @@
       "value": 0.872,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée (bruit statistique) : le symbole 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et à des acronymes institutionnels sans lien avec la crypto.\"\n}\n```",
       "ts": "2026-10-22T13:04:35.310256+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.9106225674698205,
+      "value": 4200078.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.91) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-10-22T13:15:42.268231+00:00"
     }
   ]
 }
