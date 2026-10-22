@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-22T22:37:26Z
+# Hulk DIGEST — 2026-10-22T23:38:27Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,28 +12,28 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | IDLE | 0.94 | 1.77 | 0.73 | -0.05 | 30514655.98 | 1.53 | skipped_fast |
-| ETHUSDT | IDLE | 0.61 | 1.13 | 0.62 | -0.04 | 237543122.05 | 0.04 | skipped_fast |
-| BTCUSDT | IDLE | 0.33 | 0.63 | 0.15 | -0.04 | 464330531.87 | 0.0 | skipped_fast |
-| WUSDT | IDLE | 1.08 | 2.99 | 1.75 | -0.1 | 1284197.73 | 16.66 | skipped_fast |
-| HBARUSDT | IDLE | 0.8 | 1.59 | 0.13 | -0.06 | 1264275.9 | 6.27 | skipped_fast |
-| PYTHUSDT | IDLE | 1.54 | 3.53 | 3.17 | -0.09 | 566458.43 | 2.77 | skipped_fast |
-| EDELUSDT | IDLE | 1.35 | 3.64 | 0.86 | -0.07 | 517140.07 | 15.57 | skipped_fast |
-| RIZEUSDT | IDLE | 2.74 | 7.42 | 4.83 | -0.04 | 40316.07 | 35.95 | skipped_fast |
-| QNTUSDT | IDLE | 0.79 | 2.13 | 1.36 | -0.1 | 693789.67 | 2.66 | skipped_fast |
-| CHIPUSDT | IDLE | 1.24 | 5.03 | 1.42 | -0.09 | 223334.74 | 11.3 | skipped_fast |
-| RWAINCUSDT | IDLE | 1.81 | 3.47 | 1.01 | 0.01 | 49674.73 | 5.64 | skipped_fast |
-| ZBCNUSDT | IDLE | 1.09 | 2.3 | 0.66 | -0.04 | 196975.59 | 19.63 | skipped_fast |
-| CCUSDT | IDLE | 0.56 | 1.63 | 0.29 | -0.1 | 259194.18 | 7.79 | skipped_fast |
-| REDUSDT | IDLE | 1.22 | 2.28 | 1.19 | -0.06 | 86282.42 | 7.85 | skipped_fast |
-| BIOUSDT | IDLE | 0.82 | 1.72 | 0.8 | -0.07 | 62326.86 | 4.27 | skipped_fast |
-| KITEUSDT | IDLE | 0.8 | 1.49 | 0.8 | -0.03 | 60096.59 | 12.56 | skipped_fast |
-| FLUIDUSDT | IDLE | 1.47 | 4.16 | 1.23 | -0.08 | 22596.85 | 21.52 | skipped_fast |
-| IOTAUSDT | IDLE | 0.91 | 1.94 | 1.12 | -0.08 | 79873.67 | 22.64 | skipped_fast |
-| LAUSDT | IDLE | 0.72 | 1.98 | 0.88 | -0.09 | 55229.48 | 22.16 | skipped_fast |
-| WAXLUSDT | IDLE | 0.7 | 2.42 | 1.03 | -0.12 | 58538.78 | 66.4 | skipped_fast |
-| RWAUSDT | IDLE | 0.21 | 0.4 | 0.16 | -0.02 | 52496.99 | 15.95 | skipped_fast |
-| MNSRYUSDT | IDLE | 0.64 | 1.16 | 0.77 | -0.01 | 37739.29 | 65.78 | skipped_fast |
+| XRPUSDT | IDLE | 0.77 | 1.45 | 0.62 | -0.04 | 30049042.56 | 0.77 | n/a |
+| ETHUSDT | IDLE | 0.62 | 1.13 | 0.79 | -0.04 | 234581522.68 | 0.04 | no_map |
+| BTCUSDT | IDLE | 0.34 | 0.63 | 0.29 | -0.04 | 462857183.04 | 0.0 | no_map |
+| WUSDT | IDLE | 1.1 | 2.99 | 2.08 | -0.09 | 1238224.01 | 17.47 | tvl≈1,534,547,610 |
+| HBARUSDT | IDLE | 0.8 | 1.59 | 0.04 | -0.05 | 1247584.94 | 8.78 | empty_tvl |
+| PYTHUSDT | IDLE | 1.67 | 3.99 | 3.68 | -0.09 | 563994.12 | 1.39 | tvl≈164,380,455 |
+| EDELUSDT | IDLE | 1.47 | 3.9 | 1.42 | -0.07 | 514767.93 | 18.71 | no_map |
+| RIZEUSDT | WATCH_PULLBACK — tension haute + reflux | 2.78 | 7.42 | 5.64 | -0.06 | 39321.77 | 2.27 | no_map |
+| QNTUSDT | IDLE | 0.9 | 2.44 | 2.29 | -0.09 | 674644.09 | 2.15 | n/a |
+| CHIPUSDT | IDLE | 1.25 | 5.03 | 1.85 | -0.08 | 202191.78 | 15.86 | no_map |
+| RWAINCUSDT | IDLE | 1.8 | 3.47 | 0.84 | 0.02 | 49117.42 | 5.62 | no_map |
+| ZBCNUSDT | IDLE | 1.05 | 2.25 | 0.4 | -0.04 | 197760.04 | 18.23 | n/a |
+| CCUSDT | IDLE | 0.62 | 1.56 | 0.55 | -0.08 | 249622.16 | 5.86 | no_map |
+| REDUSDT | IDLE | 1.03 | 1.94 | 0.92 | -0.06 | 86674.5 | 9.29 | tvl≈3,506,358 |
+| BIOUSDT | IDLE | 0.81 | 1.64 | 1.14 | -0.07 | 60730.64 | 4.28 | n/a |
+| KITEUSDT | IDLE | 0.75 | 1.43 | 0.41 | -0.02 | 60614.79 | 9.19 | no_map |
+| FLUIDUSDT | IDLE | 1.57 | 4.16 | 1.64 | -0.08 | 7934.68 | 21.12 | tvl≈2,201,643,252 |
+| IOTAUSDT | IDLE | 0.91 | 1.85 | 1.32 | -0.07 | 79303.64 | 15.9 | no_map |
+| LAUSDT | IDLE | 0.74 | 1.98 | 0.7 | -0.08 | 55237.39 | 25.81 | no_map |
+| WAXLUSDT | IDLE | 0.72 | 2.31 | 1.34 | -0.11 | 58722.97 | 50.04 | no_map |
+| MNSRYUSDT | IDLE | 0.66 | 1.16 | 1.13 | -0.01 | 37206.16 | 65.78 | no_map |
+| RWAUSDT | IDLE | 0.13 | 0.24 | 0.08 | -0.02 | 51783.99 | 15.95 | no_map |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
