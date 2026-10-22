@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 2.2360679774997907,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes (flux Google Actualités vide) pour établir une divergence fiable, malgré un z-score de cupidité élevé (2.24) signalant une surchauffe potentielle.\"\n}\n```",
-      "ts": "2026-10-21T04:04:51.150716+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.1606910581817313,
-      "value": 0.573,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie non pertinente. Le SDI mentionné dans les actualités est le 'Syndicat des Indépendants' (français), aucun rapport avec la crypto ou un indicateur on-chain.\"\n}\n```",
-      "ts": "2026-10-21T04:34:55.901636+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.0816659994661326,
       "value": 63,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et de cupidité à 63 (cupidité modérée, z-score élevé) sans actualité majeure notable (vide médiatique). Absence de divergence claire : le marché est en surchauffe technique locale sans catalyseur narrative externe flagrant. Mouvement de baleines indétectable via ce seul indicateur.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 4200078.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.91) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
       "ts": "2026-10-22T13:15:42.268231+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1055750354747262,
+      "value": 0.809,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de ciblage : l'actif 'IPT' (International Petroleum Corp / IMPACT Silver) est une action traditionnelle (equity/commodity), pas une cryptomonnaie. Aucune donnée onchain ou mouvement de baleine crypto pertinent à analyser.\"\n}\n```",
+      "ts": "2026-10-22T13:46:04.542806+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0799961652628602,
+      "value": 1.933,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.08 (1.933), indiquant une surconcentration extrême des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur des produits institutionnels traditionnels et de la gestion de fonds macro. Cette euphorie unilatérale des gros porteurs sans couverture médiatique crypto signale un piège à liquidité imminent (excès de levier haussier propice à une purge).\"\n}\n```",
+      "ts": "2026-10-22T14:06:17.198878+00:00"
     }
   ]
 }

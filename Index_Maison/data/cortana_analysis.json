@@ -1,70 +1,26 @@
 {
-  "timestamp": 1792675811,
-  "date": "2026-10-22T13:30:11.777769+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792679412,
+  "date": "2026-10-22T14:30:12.872314+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.5219435632290907,
-        "value": 0.872,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée (bruit statistique) : le symbole 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et à des acronymes institutionnels sans lien avec la crypto.\"\n}\n```",
-        "ts": 1792674275.310256
+        "metric": "long_short",
+        "zscore": 2.0799961652628602,
+        "value": 1.933,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.08 (1.933), indiquant une surconcentration extrême des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur des produits institutionnels traditionnels et de la gestion de fonds macro. Cette euphorie unilatérale des gros porteurs sans couverture médiatique crypto signale un piège à liquidité imminent (excès de levier haussier propice à une purge).\"\n}\n```",
+        "ts": 1792677977.198878
       },
-      "fiche": "rbf_eleve",
+      "fiche": "long_short",
       "questions": {
-        "prix": {
-          "value": 0.21,
-          "seuil": 1,
+        "ratio_long_short": {
+          "value": 1.933,
+          "seuil": 2,
           "depasse": false
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": -3.6e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.9106225674698205,
-        "value": 4200078.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.91) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
-        "ts": 1792674942.268231
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.21,
-          "seuil": 1,
+        "oi": {
+          "value": 94819.902,
+          "seuil": 120000,
           "depasse": false
         }
       },
