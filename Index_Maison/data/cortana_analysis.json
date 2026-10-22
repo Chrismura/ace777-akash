@@ -1,42 +1,8 @@
 {
-  "timestamp": 1792671910,
-  "date": "2026-10-22T12:25:10.592231+00:00",
-  "n_analyses": 4,
+  "timestamp": 1792672210,
+  "date": "2026-10-22T12:30:10.689440+00:00",
+  "n_analyses": 3,
   "analyses": [
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 2.748319386776138,
-        "value": 0.31082395041150956,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.75) sur 1h sans couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines en l'absence de bruit de fond retail.\"\n}\n```",
-        "ts": 1792670256.233721
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.13,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 3319449.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": -3.1e-05,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "ipt",
@@ -48,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.13,
+          "value": 0.08,
           "seuil": 1,
           "depasse": false
         },
@@ -58,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": -3.1e-05,
+          "value": -3.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -92,23 +58,24 @@
           "depasse": false
         },
         "achats": {
-          "value": 0.0,
+          "value": 532319.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.13,
+          "value": 0.08,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -126,7 +93,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 93209.529,
+          "value": 93280.528,
           "seuil": 120000,
           "depasse": false
         }
