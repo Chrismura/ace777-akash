@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": -5.531358504583776,
-      "value": 0.573,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -5.53) sans rapport avec la crypto : le 'SDI' médiatique désigne un syndicat patronal français (Syndicat des Indépendants) et non un indicateur onchain. Faux positif absolu.\"\n}\n```",
-      "ts": "2026-10-21T00:33:36.694975+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 6.855654600401047,
-      "value": 63,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (6.86) pour un Fear & Greed à 63 montrant une accumulation agressive et silencieuse des baleines, totalement ignorée par l'absence de couverture médiatique notable (silence radio).\"\n}\n```",
-      "ts": "2026-10-21T00:33:38.099558+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": -3.7710695821922773,
       "value": 0.577,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Divergence anecdotique. Le 'SDI' des médias fait référence au Syndicat des Indépendants et des TPE (actualité politique française), tandis que l'anomalie on-chain (z-score -3.77) mesure une métrique crypto sans rapport. Fausse alerte par collision de sigles.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 2741585.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 4.11) indique une activité de grande envergure des baleines, mais les titres médiatiques ne mentionnent pas cette activité. La divergence suggère que les baleines bougent silencieusement, et le narratif médiatique est potentiellement déconnecté de la réalité.\"\n}\n```",
       "ts": "2026-10-22T10:01:47.870924+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.1083060292139604,
+      "value": 0.004,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE (politique/social), totalement déconnecté de la métrique on-chain. Aucune baleine crypto en mouvement.\"\n}\n```",
+      "ts": "2026-10-22T10:16:51.987863+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.2569988673340844,
+      "value": 68,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.26) indiquant une euphorie retail excessive (Fear & Greed à 68) en anomie totale avec le silence médiatique (Google Actualités vide). Divergence classique de piégeage : les baleines distribuent discrètement dans la complaisance avant une correction.\"\n}\n```",
+      "ts": "2026-10-22T10:16:53.753028+00:00"
     }
   ]
 }
