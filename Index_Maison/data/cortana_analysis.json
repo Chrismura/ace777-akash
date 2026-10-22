@@ -1,123 +1,140 @@
 {
-  "timestamp": 1792657506,
-  "date": "2026-10-22T08:25:06.613765+00:00",
+  "timestamp": 1792661107,
+  "date": "2026-10-22T09:25:07.483345+00:00",
   "n_analyses": 5,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 2.6081050811024933,
-        "value": 0.27023252870879144,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.61) sur une heure avec un silence total des médias de masse : accumulation furtive classique par les baleines avant une cassure de prix.\"\n}\n```",
-        "ts": 1792655756.883184
+        "metric": "whale_usd",
+        "zscore": 5.6853513046264545,
+        "value": 3306500.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.69, +3.3M USD) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement sous le radar du retail.\"\n}\n```",
+        "ts": 1792659684.328777
       },
-      "fiche": "price_1h",
+      "fiche": "whale_usd",
       "questions": {
-        "pct_1h": {
-          "value": -0.22,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 3454636.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": -1.1e-05,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 3.0913781101598676,
-        "value": 0.884,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.09) détectée sur le ticker 'IPT', mais les données textuelles révèlent une confusion avec des homonymes traditionnels (International Petroleum Corp, École Polytechnique, IMPACT Silver) sans lien avec un actif crypto majeur ou une baleine blockchain identifiable.\"\n}\n```",
-        "ts": 1792655758.519362
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.22,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": -1.1e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 2.072531768995848,
-        "value": 3418556.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique externe : les gros titres font référence à des faillites d'entreprises traditionnelles et à un fait divers isolé sur Monero (XMR). Aucune baleine crypto majeure détectée derrière ces flux de liquidations de ~3,4M$.\"\n}\n```",
-        "ts": 1792656962.611876
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 3454636.0,
+        "ventes": {
+          "value": 540443.0,
           "seuil": 0,
           "depasse": true
         },
-        "shorts": {
+        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
         "prix": {
-          "value": -0.22,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
         "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
       "niveau": "surveiller"
     },
     {
       "signal": {
+        "metric": "cpfp",
+        "zscore": 2.3891479554345767,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif technique : le pic de CPFP on-chain (Child-Pays-For-Parent) reflète une congestion classique du réseau Bitcoin ou des ajustements de frais par des utilisateurs de wallets, sans lien avec le bruit médiatique hétéroclite (fausses correspondances de mots-clés).\"\n}\n```",
+        "ts": 1792659685.982856
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 132,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.02,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.008,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.3891479554345767,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes culturels et technologiques ('Dust' cinéma, levée de fonds IA, art). Aucune corrélation onchain significative avec les mouvements de baleines cryptographiques.\"\n}\n```",
+        "ts": 1792659687.466297
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 132,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.02,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.008,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "sdi",
-        "zscore": -2.9572474027645588,
-        "value": 0.008,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par un homonyme politique ('Syndicat des Indépendants' français). Aucun rapport avec une métrique crypto ou le mouvement de baleines on-chain.\"\n}\n```",
-        "ts": 1792656964.248325
+        "zscore": -2.4521472512496163,
+        "value": 0.004,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le SDI mentionné dans les médias correspond au 'Syndicat des Indépendants' français et non à un indicateur on-chain ou crypto. L'anomalie statistique détectée est un bruit de fond sémantique sans aucun rapport avec les mouvements de baleines crypto.\"\n}\n```",
+        "ts": 1792660591.779804
       },
       "fiche": null,
       "interpretation": {
@@ -129,10 +146,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": 2.09625899971348,
+        "zscore": 2.08878282706224,
         "value": 68,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.10) couplé à une avidité modérée (68) sans couverture médiatique significative ('Google Actualités' vide). Signe classique d'accumulation silencieuse ou de distribution en trompe-l'œil par les baleines avant un retournement de tendance.\"\n}\n```",
-        "ts": 1792656965.766726
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un indice de peur et de cupidité élevé (68) montrant une euphorie modérée.\"\n}\n```",
+        "ts": 1792660593.268268
       },
       "fiche": "fear_greed",
       "questions": {
