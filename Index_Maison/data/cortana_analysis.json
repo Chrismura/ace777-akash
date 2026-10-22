@@ -1,20 +1,110 @@
 {
-  "timestamp": 1792672210,
-  "date": "2026-10-22T12:30:10.689440+00:00",
+  "timestamp": 1792674611,
+  "date": "2026-10-22T13:10:11.392527+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "cpfp",
+        "zscore": 2.274567700305902,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au mempool Bitcoin (saturation/frais), sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique concerne des homonymes locaux sans pertinence macro-crypto.\"\n}\n```",
+        "ts": 1792673887.519658
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 31,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.02,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.016,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.274567700305902,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique mineure (z-score 2.27 sur du 'dust') totalement déconnectée des médias, lesquels font référence à de l'art, des actions traditionnelles ou du cinéma. Aucun mouvement significatif de baleine crypto détecté.\"\n}\n```",
+        "ts": 1792673919.376305
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 31,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.02,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.016,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "ipt",
-        "zscore": 3.037121259622062,
-        "value": 0.879,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif : L'acronyme 'IPT' correspond ici à des entités traditionnelles (International Petroleum Corp, IMPACT Silver Corp) ou institutionnelles (Institut de Physique Théorique), et non à un actif crypto. Aucune divergence onchain pertinente n'existe pour ces tickers dans le contexte crypto.\"\n}\n```",
-        "ts": 1792670559.060954
+        "zscore": 2.5219435632290907,
+        "value": 0.872,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée (bruit statistique) : le symbole 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et à des acronymes institutionnels sans lien avec la crypto.\"\n}\n```",
+        "ts": 1792674275.310256
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.08,
+          "value": 0.02,
           "seuil": 1,
           "depasse": false
         },
@@ -24,77 +114,13 @@
           "depasse": false
         },
         "funding": {
-          "value": -3.3e-05,
+          "value": -3.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.4435481111052124,
-        "value": 3022834.0,
-        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 65,\n\"reason\": \"Divergence critique : un flux de 3M$ (z-score 3.44) est statistiquement significatif mais le vide médiatique ('Google Actualités') indique une accumulation silencieuse hors des radars. L'absence de bruit narratif face à une anomalie onchain forte suggère un positionnement discret avant un mouvement de prix, typique des baleines évitant la détection précoce.\"\n}",
-        "ts": 1792670860.718896
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 532319.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.08,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
-      },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.058192226741271,
-        "value": 1.82,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif massif. L'anomalie détectée (z-score 2.06) concerne des fonds actions/credit traditionnels (BNP Paribas, Blackstone) et non un actif crypto. Aucune corrélation onchain ou de marché crypto n'existe pour ces instruments. Le narratif médiatique est cohérent avec la réalité financière classique, il n'y a pas de divergence crypto.\"\n}",
-        "ts": 1792670861.800758
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.82,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 93280.528,
-          "seuil": 120000,
           "depasse": false
         }
       },
