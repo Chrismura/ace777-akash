@@ -1,15 +1,15 @@
 {
-  "timestamp": 1792781441,
-  "date": "2026-10-23T18:50:41.450646+00:00",
+  "timestamp": 1792783241,
+  "date": "2026-10-23T19:20:41.884370+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "whale_usd",
-        "zscore": 6.304738792053016,
-        "value": 5352062.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.30) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement hors du radar des médias de masse.\"\n}\n```",
-        "ts": 1792780128.12192
+        "zscore": 8.21483740158145,
+        "value": 7303126.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 8.21, soit 7.3M USD) couplée à un silence médiatique absolu (Google Actualités vide). Divergence classique d'accumulation furtive par les baleines loin des radars de la foule.\"\n}\n```",
+        "ts": 1792782536.435779
       },
       "fiche": "whale_usd",
       "questions": {
@@ -19,23 +19,24 @@
           "depasse": false
         },
         "achats": {
-          "value": 0.0,
+          "value": 1994284.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": -0.18,
+          "value": -0.03,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

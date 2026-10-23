@@ -1,14 +1,14 @@
 {
-  "ts": "2026-10-23T18:51:30.330964+00:00",
+  "ts": "2026-10-23T19:22:19.722052+00:00",
   "saison": "CHAUFFE",
   "emoji": "🌡️",
   "direction": "long",
-  "bascule": false,
-  "bascule_raison": "",
+  "bascule": true,
+  "bascule_raison": "CALME → CHAUFFE",
   "alignement": {
-    "nb_long": 3,
-    "nb_short": 0,
-    "score": 1.0,
+    "nb_long": 2,
+    "nb_short": 1,
+    "score": 0.33,
     "direction": "long"
   },
   "indices": {
@@ -20,7 +20,7 @@
     "pouls": {
       "direction": "neutre",
       "force": 0,
-      "brut": 8.7e-05
+      "brut": 8.1e-05
     },
     "bassin": {
       "direction": "long",
@@ -28,24 +28,25 @@
       "brut": "up"
     },
     "vortex": {
-      "direction": "long",
+      "direction": "short",
       "force": 0,
-      "brut": 0.19
+      "brut": -0.08
     },
     "essaim": {
       "direction": "long",
       "force": 2,
-      "brut": 2.079
+      "brut": 2.088
     },
     "baleines": {
       "direction": "neutre",
       "force": 0,
-      "brut": 1
+      "brut": 2
     }
   },
   "story": [
     "SAISON : CHAUFFE 🌡️ — température warn, bassin long.",
-    "Alignement : 3 haussiers / 0 baissiers."
+    "Alignement : 2 haussiers / 1 baissiers.",
+    "⚡ BASCULE : CALME → CHAUFFE — le ciel change, prépare-toi."
   ],
   "sources": [
     "live.json"
