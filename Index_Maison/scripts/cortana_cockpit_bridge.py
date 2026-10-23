@@ -2208,17 +2208,51 @@ def do_shortbtc() -> dict:
 
 def do_garde() -> dict:
     """Garde réserve cash (21/10, GO Christophe) — lit le live écrit par
-    hulk-mexc/scripts/garde_reserve_cash.py (cash vs réserve 200 $). Lecture seule."""
+    hulk-mexc/scripts/garde_reserve_cash.py (cash vs réserve 200 $). Lecture seule.
+    AUTO-RÉPARABLE (23/10, règle incassable) : si le live est absent, vieux (>1 h)
+    ou illisible, on RECALCULE à la volée depuis mission.json (même règle,
+    même seuil, jamais d'écriture moteur) et on réécrit le live en best-effort.
+    Le cockpit ne peut donc plus afficher une garde périmée. Réversible :
+    retirer le bloc self-heal (retombe sur lecture directe du live)."""
+    import time as _time
+    import os as _os
+    _RESERVE = float(_os.environ.get("RESERVE_CASH", "200"))
     live = HULK / "runs" / "garde_reserve_live.json"
-    if not live.exists():
-        return {"ok": False, "error": "garde_reserve_live.json absent (garde pas encore lancée ?)"}
+    mission = ROOT / "Index_Maison" / "cockpit" / "mission.json"
+
+    def _recalcule(source: str) -> dict:
+        from datetime import datetime, timezone
+        try:
+            h = (json.loads(mission.read_text(encoding="utf-8")) or {}).get("hulk", {}) or {}
+            cash = float(h.get("cash") or 0)
+        except Exception as e:
+            return {"ok": False, "error": f"garde self-heal impossible (mission illisible) : {e}"}
+        bloque = cash < _RESERVE
+        out = {"ok": True, "cached": False, "recalcule": True, "source": source,
+               "ts": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+               "cash": round(cash, 2), "reserve": _RESERVE, "bloque_achats": bloque,
+               "message": (f"cash {cash:.2f}$ < reserve {_RESERVE}$ -> BLOQUE_ACHATS (avis, non cable)"
+                            if bloque else f"cash {cash:.2f}$ >= reserve -> OK")}
+        try:
+            live.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+        except Exception:
+            pass  # best-effort : le live reste vieux mais la réponse est fraîche
+        return out
+
     try:
-        data = json.loads(live.read_text(encoding="utf-8"))
-        data["ok"] = True
-        data["cached"] = False
-        return data
-    except Exception as e:
-        return {"ok": False, "error": f"lecture garde_reserve_live.json : {e}"}
+        if live.exists():
+            age = _time.time() - live.stat().st_mtime
+            data = json.loads(live.read_text(encoding="utf-8"))
+            if age <= 3600 and data.get("ok"):
+                data["ok"] = True
+                data["cached"] = False
+                return data
+            return _recalcule(f"live périmé ({age/60:.0f} min) — recalculé depuis mission.json")
+    except Exception:
+        pass  # live illisible → self-heal ci-dessous, jamais d'erreur opaque
+    if not live.exists():
+        return _recalcule("live absent — calculé depuis mission.json")
+    return _recalcule("live illisible — recalculé depuis mission.json")
 
 
 def do_justesse() -> dict:

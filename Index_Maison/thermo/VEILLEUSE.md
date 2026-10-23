@@ -1,6 +1,9 @@
-# Rapport Veilleuse — 2026-10-23T19:51:20.541228+00:00
+# Rapport Veilleuse — 2026-10-23T20:51:21.779011+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
+- **INTRUSION** : Modification non déclarée : hulk-mexc/scripts/paper_diprip.py (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/thermo_quotidien_free.py (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/scripts/thermo_quotidien_free.py (md5 diffère du registre)
 - **INTRUSION** : Modification non déclarée : hulk-mexc/scripts/short_btc.py (md5 diffère du registre)
 - **INTRUSION** : Modification non déclarée : Index_Maison/cockpit/index.html (md5 diffère du registre)
 

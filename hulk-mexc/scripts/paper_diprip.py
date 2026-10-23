@@ -855,6 +855,26 @@ class PaperBot:
         self.mesure_reentry_on = cfg.get("MESURE_REENTRY_ON", "0").strip() not in ("0", "false", "False")
         self.mesure_reentry_guard = float(cfg.get("MESURE_REENTRY_MEM_GUARD_SEC", "86400"))
         self.mesure_souche_on = cfg.get("MESURE_SOUCHE_ON", "0").strip() not in ("0", "false", "False")
+        # === INTERRUPTEUR TEMPÊTE-DRAWDOWN PAR PAIRE (23/10/2026, GO Christophe
+        # « branche les seuils ») ===
+        # Mesuré AVANT câblage (chiffrage_seuils_tempete.py, 45 j bougies 1 h,
+        # walk-forward) : storm = creux depuis pic 15 j live (dd15_pct, déjà mesuré
+        # chaque cycle) >= seuil_interrupt de LA paire (2x range_med_7j,
+        # runs/seuils_paires_live.json). 8 paires jamais en storm (assurance
+        # gratuite), 6 rares (filet), ETH edge +1.8 pp/24 h évité ; MAIS exclusions
+        # (1 ligne, STORM_DD_EXCL) : FLUID+HBAR storm trop fréquent (19 %/58 % du
+        # temps → câbler les bloquerait = tuer l'amplitude, le joker + compounding),
+        # CHIP forward MEILLEUR en storm (+8.8 pp/24 h → bloquer coûterait des gains).
+        # Écart assumé vs POINT_GO « pic 30 j » : pic30 met CHIP en storm 78 % du
+        # temps (saignée lente) et exige 720 h de klines que le moteur ne lit pas ;
+        # pic15 live = même sens, sans étrangler l'amplitude. Ne bloque que les
+        # ENTREES (tout buy()) ; sorties/bags/souche/compounding intacts.
+        # Réversible : STORM_DD_GATE_ON=0 → comportement historique strict.
+        # Fail-open : paire sans seuil / dd absent / fichier illisible → jamais bloquée.
+        self.storm_dd_gate_on = cfg.get("STORM_DD_GATE_ON", "0").strip() not in ("0", "false", "False")
+        self.storm_dd_excl = {p.strip() for p in cfg.get("STORM_DD_EXCL", "").split(",") if p.strip()}
+        self._storm_seuils: dict = {}
+        self._storm_seuils_mtime: float = 0.0
         # GATE MURS L2 (09/09, audit edge HULK) : mur vivant minuscule = exécution
         # glissée garantie. Voir bloc __init__. OFF par défaut (obs 48h).
         self.wall_gate_on = cfg.get("WALL_GATE_ON", "0").strip() not in ("0", "false", "False")
@@ -1824,6 +1844,23 @@ class PaperBot:
         except Exception:
             return {}
 
+    def storm_seuil(self, pair: str) -> float:
+        """Seuil interrupt tempête-dd de LA paire (seuils_paires_live.json) — 0.0
+        si absent/exclu/illisible (fail-open : jamais bloquée). Recharge si le
+        fichier a été re-calibré (mtime) — auto-réparable, 1 stat local par appel."""
+        try:
+            if pair in self.storm_dd_excl:
+                return 0.0
+            p = RUNS / "seuils_paires_live.json"
+            mt = p.stat().st_mtime
+            if not self._storm_seuils or mt != self._storm_seuils_mtime:
+                d = json.loads(p.read_text(encoding="utf-8")) or {}
+                self._storm_seuils = (d.get("paires") or {}) if isinstance(d, dict) else {}
+                self._storm_seuils_mtime = mt
+            return float((self._storm_seuils.get(pair) or {}).get("seuil_interrupt_pct") or 0.0)
+        except Exception:
+            return 0.0
+
     def maybe_reentry(self, pair: str, price: float, sc: dict) -> bool:
         """Racheter plus bas après un dump post-exit. True si buy fait.
         MESURÉ (18/10/2026, GO Christophe, R17) : dump requis = dip_pct de LA
@@ -2463,6 +2500,25 @@ class PaperBot:
                 sc.get("cadence_pct"), f"SPREAD:{inv_spread:.0f}bps",
             )
             return
+        # === GATE TEMPÊTE-DRAWDOWN PAR PAIRE (23/10/2026, GO Christophe) ===
+        # Creux depuis pic 15 j live >= seuil_interrupt de LA paire → tempête →
+        # skip entrée (toutes portes buy : standard, GBAG, redeploy, re-entry).
+        # Sorties/bags/souche/compounding : INTACTS (on ne vend rien, on ne réduit
+        # aucune mise — on reste dans l'amplitude, c'est le joker). SKIP loggé,
+        # jamais muet. Fail-open : seuil 0 (exclue/sans seuil/sans dd) → on laisse passer.
+        if self.storm_dd_gate_on:
+            try:
+                _seuil_dd = self.storm_seuil(pair)
+                _dd15 = float(sc.get("dd15_pct") or 0.0)
+                if _seuil_dd > 0 and _dd15 >= _seuil_dd:
+                    say("warn", f"[{utc_now()}] BUY skip {pair} STORM_DD: dd15={_dd15:.1f}% >= seuil={_seuil_dd:.1f}% (paire, 2x range7j)")
+                    self.log(
+                        pair, "SKIP", regime, price, price, 0.0, 0.0,
+                        sc.get("cadence_pct"), f"STORM_DD:{_dd15:.1f}>={_seuil_dd:.1f}",
+                    )
+                    return
+            except Exception:
+                pass
         # === GATE TEMPÊTE MESURÉE (18/10/2026, GO Christophe « câble », R17) ===
         # Pas de spread fixe : thermomètre de LA paire (med+σ mesurés, filet_mesure).
         # Au-dessus = coût anormal pour ELLE → skip. Rebonds OK : on ne bloque que

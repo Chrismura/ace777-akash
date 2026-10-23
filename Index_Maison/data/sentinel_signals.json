@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.748319386776138,
-      "value": 0.31082395041150956,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.75) sur 1h sans couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines en l'absence de bruit de fond retail.\"\n}\n```",
-      "ts": "2026-10-22T11:57:36.233721+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 3.037121259622062,
       "value": 0.879,
@@ -349,6 +342,13 @@
       "value": 7303126.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 8.21, soit 7.3M USD) couplée à un silence médiatique absolu (Google Actualités vide). Divergence classique d'accumulation furtive par les baleines loin des radars de la foule.\"\n}\n```",
       "ts": "2026-10-23T19:08:56.435779+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.809353209142699,
+      "value": 4112588.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.81) pour un flux significatif de 4.11M$ de baleines sans aucune couverture médiatique (Google Actualités vide). Divergence classique d'accumulation silencieuse hors du radar retail.\"\n}\n```",
+      "ts": "2026-10-23T20:14:08.975044+00:00"
     }
   ]
 }

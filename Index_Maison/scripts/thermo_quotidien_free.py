@@ -765,8 +765,13 @@ def main() -> int:
             note="proxy dominance — pas index Blockchain Center exact",
         ),
         "D29": ind(
-            f"{liq.get('usd')/1e9:.2f} B$" if liq.get("usd") else None,
-            "hot" if (liq.get("usd") or 0) >= 5e8 else ("warn" if liq.get("usd") else "na"),
+            # FIX 23/10/2026 (boucle à la source) : affichage adaptatif (2 M$ =
+            # "2.01 M$", pas "0.00 B$") + level honnête (faible liq = calme = ok ;
+            # chaud si ≥500 M$). Avant : tout liq < 5e8 affichait warn + "0.00 B$".
+            # Réversible : remettre le format B$ et le warn. 0 ordre, lecture seule.
+            f"{liq.get('usd')/1e9:.2f} B$" if (liq.get("usd") or 0) >= 1e9
+            else (f"{liq.get('usd')/1e6:.2f} M$" if liq.get("usd") else None),
+            "hot" if (liq.get("usd") or 0) >= 5e8 else ("ok" if liq.get("usd") else "na"),
             "Liquidations 24h",
             note=liq.get("source") or "na",
         ),
@@ -838,7 +843,9 @@ def main() -> int:
     if alt_s.get("ok"):
         lecture.append(f"Alt season proxy : {alt_s.get('label')} (BTC.D {dom}%).")
     if liq.get("usd"):
-        lecture.append(f"Liquidations 24h proxy ≈ {liq.get('usd')/1e9:.2f} B$.")
+        _liq_txt = (f"{liq.get('usd')/1e9:.2f} B$" if liq.get("usd") >= 1e9
+                     else f"{liq.get('usd')/1e6:.2f} M$")
+        lecture.append(f"Liquidations 24h proxy ≈ {_liq_txt}.")
     if etf.get("btc") is not None:
         lecture.append(f"ETF net inflow : BTC {etf.get('btc')} M$ ({etf.get('source')}, BTC only).")
     if gex.get("ok"):
