@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.037121259622062,
-      "value": 0.879,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif : L'acronyme 'IPT' correspond ici à des entités traditionnelles (International Petroleum Corp, IMPACT Silver Corp) ou institutionnelles (Institut de Physique Théorique), et non à un actif crypto. Aucune divergence onchain pertinente n'existe pour ces tickers dans le contexte crypto.\"\n}\n```",
-      "ts": "2026-10-22T12:02:39.060954+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.4435481111052124,
       "value": 3022834.0,
@@ -349,6 +342,13 @@
       "value": 4112588.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.81) pour un flux significatif de 4.11M$ de baleines sans aucune couverture médiatique (Google Actualités vide). Divergence classique d'accumulation silencieuse hors du radar retail.\"\n}\n```",
       "ts": "2026-10-23T20:14:08.975044+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.6218312933728796,
+      "value": 0.5685203761069957,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.62) totalement ignorée par les médias traditionnels (Google Actualités vide). C'est la signature classique d'une accumulation furtive de baleines en amont d'un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-23T22:49:36.948459+00:00"
     }
   ]
 }
