@@ -602,6 +602,17 @@ désormais, et le drill est ce qui décide READY/TROU — donc ce que je regarde
 (16 radiées, tracées) · drill **READY** · veilleuse **STABLE** · règles d'or **10/12** (R10
 environnement, R19 jury à rejouer) · **0 ordre, 0 €**.
 
+### 13.6 Radiation 24/10 — violation session fantôme 23/10 20:11Z (GO Christophe 24/10)
+
+Acte : `Index_Maison/scripts/thermo_quotidien_free.py` modifié le 2026-10-23T20:11:07Z SANS
+pré-déclaration antérieure, par la session du 18/10 restée vivante (fantôme vérifié MORT depuis).
+Contenu BÉNIN : FIX affichage D29 liquidations (M$/B$ adaptatif + level `ok`, lecture seule,
+0 ordre). Défaut de PROCÉDURE (pas de --declarer AVANT), pas une manipulation — même famille E22.
+Radié de l'alarme SUR ORDRE EXPLICITE (GO 23/10 22:50 « sauvegarde + kill propre + radiation »,
+relai GO 24/10 « remettre sante »), JAMAIS effacé : couple daté/nommé dans
+`predemodifier.py::DETTE_CONSTATEE` + ici. Leçon : tuer les sessions fantômes AVANT la boucle
+du soir (check `ps` au session_debut).
+
 ---
 
 ## 14. E26 — Buffy a arrêté le paper après avoir mal compris une question (30/09/2026)

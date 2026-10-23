@@ -157,6 +157,15 @@ DETTE_CONSTATEE = {
     # (« --declarer AVANT ») n'a pas survécu 3 minutes. Contenu légitime (classement lu au code,
     # 0 non classé, compile OK), forme fautive. Radié sur le MÊME GO, jamais effacé (ici + §20).
     ("Index_Maison/scripts/inventaire_seuils_fixes.py", "2026-10-19T18:58:16Z"),
+    # ── 23/10/2026 — violation session FANTÔME 18/10, radiation SUR ORDRE EXPLICITE
+    # (GO Christophe 24/10 « denoncer les erreurs, remettre sante attention », relai du GO
+    # 23/10 22:50 « sauvegarde + kill propre session fantome + radiation dette constatee »).
+    # Acte : `thermo_quotidien_free.py` modifié le 2026-10-23T20:11:07Z SANS pré-déclaration
+    # antérieure (session du 18/10 encore vivante, fantôme vérifié MORT depuis — ps vide).
+    # Contenu BÉNIN et légitime : FIX affichage D29 liquidations (M$/B$ adaptatif + level ok au
+    # lieu de warn, lecture seule, 0 ordre, commit auto-sync 22:52). Défaut de PROCÉDURE
+    # (pas de --declarer), pas une manipulation. Radié de l'alarme, JAMAIS effacé (ici + §13).
+    ("Index_Maison/scripts/thermo_quotidien_free.py", "2026-10-23T20:11:07Z"),
 }
 
 
