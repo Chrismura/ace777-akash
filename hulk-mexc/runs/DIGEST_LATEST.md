@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-23T09:46:08Z
+# Hulk DIGEST — 2026-10-23T10:18:58Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,28 +12,28 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | IDLE | 0.59 | 1.06 | 0.85 | -0.0 | 25686478.26 | 1.52 | n/a |
-| ETHUSDT | IDLE | 0.49 | 0.89 | 0.55 | -0.0 | 231943617.03 | 0.04 | no_map |
-| BTCUSDT | IDLE | 0.28 | 0.51 | 0.35 | -0.0 | 346567215.34 | 0.0 | no_map |
-| WUSDT | IDLE | 2.41 | 4.27 | 3.68 | -0.01 | 687177.78 | 13.41 | tvl≈1,552,016,052 |
-| PYTHUSDT | IDLE | 1.96 | 3.51 | 2.74 | -0.03 | 652711.01 | 4.18 | tvl≈162,477,830 |
-| ZBCNUSDT | IDLE | 3.63 | 8.19 | 3.99 | -0.01 | 172890.16 | 4.5 | n/a |
-| EDELUSDT | IDLE | 1.58 | 2.99 | 2.56 | -0.06 | 403236.9 | 22.14 | no_map |
-| RIZEUSDT | WATCH_PULLBACK — tension haute + reflux | 2.75 | 11.91 | 8.92 | -0.1 | 45204.9 | 65.33 | no_map |
-| QNTUSDT | IDLE | 1.98 | 3.52 | 2.89 | -0.05 | 535219.12 | 2.7 | n/a |
-| CHIPUSDT | IDLE | 2.16 | 4.25 | 2.26 | 0.05 | 130484.52 | 17.65 | no_map |
-| HBARUSDT | IDLE | 1.84 | 3.25 | 2.9 | -0.02 | 309361.0 | 13.87 | empty_tvl |
-| CCUSDT | IDLE | 0.83 | 1.46 | 1.36 | -0.02 | 211282.37 | 8.78 | no_map |
-| RWAINCUSDT | IDLE | 1.25 | 2.3 | 1.32 | 0.02 | 50235.66 | 16.68 | no_map |
-| REDUSDT | IDLE | 0.98 | 1.73 | 1.59 | -0.01 | 82575.82 | 7.85 | tvl≈3,537,570 |
-| BIOUSDT | IDLE | 0.68 | 1.22 | 0.91 | 0.01 | 59226.4 | 4.19 | n/a |
-| KITEUSDT | IDLE | 0.56 | 1.05 | 0.41 | 0.0 | 57442.1 | 9.16 | no_map |
-| WAXLUSDT | IDLE | 1.76 | 3.13 | 2.54 | -0.03 | 56937.3 | 61.16 | no_map |
-| LAUSDT | IDLE | 0.9 | 1.7 | 0.72 | -0.0 | 53853.3 | 19.91 | no_map |
-| FLUIDUSDT | IDLE | 1.04 | 1.95 | 1.91 | -0.05 | 9555.94 | 21.14 | tvl≈2,210,434,474 |
-| IOTAUSDT | IDLE | 0.73 | 1.3 | 1.02 | -0.01 | 66057.59 | 24.58 | no_map |
-| RWAUSDT | IDLE | 0.8 | 1.51 | 0.63 | 0.0 | 52596.15 | 55.14 | no_map |
-| MNSRYUSDT | IDLE | 0.32 | 0.63 | 0.0 | 0.0 | 38064.7 | 65.78 | no_map |
+| XRPUSDT | IDLE | 0.57 | 1.04 | 0.6 | -0.01 | 25758030.03 | 2.27 | skipped_fast |
+| ETHUSDT | IDLE | 0.48 | 0.89 | 0.42 | -0.0 | 228916330.55 | 0.17 | skipped_fast |
+| BTCUSDT | IDLE | 0.26 | 0.5 | 0.18 | -0.0 | 342595437.55 | 0.0 | skipped_fast |
+| WUSDT | IDLE | 2.57 | 4.54 | 4.05 | -0.02 | 635959.57 | 16.45 | skipped_fast |
+| PYTHUSDT | IDLE | 1.95 | 3.51 | 2.65 | -0.04 | 669792.9 | 2.79 | skipped_fast |
+| QNTUSDT | IDLE | 2.84 | 5.94 | 4.36 | -0.07 | 652935.41 | 14.27 | skipped_fast |
+| ZBCNUSDT | IDLE | 3.58 | 8.19 | 3.2 | -0.02 | 174881.03 | 14.73 | skipped_fast |
+| EDELUSDT | IDLE | 1.92 | 3.48 | 2.44 | -0.06 | 398855.82 | 25.26 | skipped_fast |
+| RIZEUSDT | WATCH_PULLBACK — tension haute + reflux | 2.72 | 11.83 | 8.49 | -0.1 | 45133.12 | 65.33 | skipped_fast |
+| CHIPUSDT | IDLE | 1.87 | 3.57 | 2.59 | 0.04 | 125284.51 | 15.49 | skipped_fast |
+| HBARUSDT | IDLE | 1.93 | 3.44 | 2.83 | -0.02 | 326642.23 | 10.08 | skipped_fast |
+| CCUSDT | IDLE | 0.89 | 1.65 | 0.88 | -0.02 | 212267.0 | 9.71 | skipped_fast |
+| RWAINCUSDT | IDLE | 1.24 | 2.3 | 1.21 | 0.01 | 51174.05 | 5.55 | skipped_fast |
+| REDUSDT | IDLE | 1.03 | 1.82 | 1.61 | -0.02 | 82440.07 | 8.57 | skipped_fast |
+| BIOUSDT | IDLE | 0.77 | 1.39 | 1.0 | -0.0 | 59349.12 | 8.37 | skipped_fast |
+| KITEUSDT | IDLE | 0.63 | 1.22 | 0.28 | 0.01 | 58043.76 | 10.78 | skipped_fast |
+| WAXLUSDT | IDLE | 1.75 | 3.15 | 2.38 | -0.03 | 56312.98 | 44.09 | skipped_fast |
+| LAUSDT | IDLE | 1.1 | 2.19 | 0.11 | 0.0 | 53705.15 | 25.06 | skipped_fast |
+| FLUIDUSDT | IDLE | 1.12 | 1.95 | 1.91 | -0.04 | 9535.91 | 21.63 | skipped_fast |
+| RWAUSDT | IDLE | 0.76 | 1.43 | 0.63 | 0.0 | 51903.73 | 15.75 | skipped_fast |
+| IOTAUSDT | IDLE | 0.65 | 1.23 | 0.51 | -0.0 | 66201.0 | 22.21 | skipped_fast |
+| MNSRYUSDT | IDLE | 0.36 | 0.63 | 0.61 | -0.01 | 38216.17 | 65.78 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
