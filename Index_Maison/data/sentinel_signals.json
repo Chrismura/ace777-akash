@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.4201534780139196,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.42) couplé à une cupidité modérée (68) sans couverture médiatique significative : les baleines distribuent discrètement en haut de range pendant que le marché retail sous-estime le risque de correction.\"\n}\n```",
-      "ts": "2026-10-22T10:47:03.942567+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 8.763911113429437,
       "value": 6234137.0,
@@ -349,6 +342,13 @@
       "value": 1.489,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif détecté : 'IPT' fait référence à International Petroleum Corp. (action traditionnelle) et à des actualités institutionnelles/religieuses sans lien avec la crypto. Aucune activité de baleine crypto pertinente.\"\n}\n```",
       "ts": "2026-10-23T14:32:16.931883+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.548043633687686,
+      "value": 2038903.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.55) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse en amont d'un mouvement de prix.\"\n}\n```",
+      "ts": "2026-10-23T15:07:37.920208+00:00"
     }
   ]
 }
