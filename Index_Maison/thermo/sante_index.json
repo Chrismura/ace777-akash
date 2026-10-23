@@ -1,9 +1,10 @@
 {
-  "ts": "2026-10-23T16:50+00:00",
-  "updated": "2026-10-23T16:50Z",
+  "ts": "2026-10-23T17:50+00:00",
+  "updated": "2026-10-23T17:50Z",
   "etat": "ALERTE",
-  "chaines_ok": "14/15",
+  "chaines_ok": "13/15",
   "anomalies": [
+    "BALEINES coupée : scan file",
     "HULK : sonde runtime, contrat Cortana ou analyses figés"
   ],
   "degradees": [],
@@ -12,7 +13,7 @@
       "id": "baleines",
       "nom": "BALEINES",
       "chemin": "scan → pont → live.json.onchain → Ada + Cortana",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "scan (launchd whales)",
@@ -26,13 +27,13 @@
         },
         {
           "nom": "scan file",
-          "ok": true,
-          "detail": "âge 3 min"
+          "ok": false,
+          "detail": "âge 39 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 3 min"
+          "detail": "dernier événement il y a 39 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -42,12 +43,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 74.8 · zone VERT"
+          "detail": "voilure 76.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 8 min"
         }
       ]
     },
@@ -83,7 +84,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 2.7s · 22 paire(s) · btc=OK · ts=croissant · passe 32.9s · marge 12.1s sous le budget 45s du moteur · ⚠ PIRE CAS age 52.9s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.8s · 22 paire(s) · btc=OK · ts=croissant · passe 24.7s · marge 20.3s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +99,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": false,
-          "detail": "âge 3546 min"
+          "detail": "âge 3606 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -116,7 +117,7 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mission.json → cockpit",
@@ -144,7 +145,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 9 min"
         },
         {
           "nom": "mode",
@@ -343,7 +344,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -356,7 +357,7 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "SAPI calculé",
