@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.3891479554345767,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif technique : le pic de CPFP on-chain (Child-Pays-For-Parent) reflète une congestion classique du réseau Bitcoin ou des ajustements de frais par des utilisateurs de wallets, sans lien avec le bruit médiatique hétéroclite (fausses correspondances de mots-clés).\"\n}\n```",
-      "ts": "2026-10-22T09:01:25.982856+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.3891479554345767,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes culturels et technologiques ('Dust' cinéma, levée de fonds IA, art). Aucune corrélation onchain significative avec les mouvements de baleines cryptographiques.\"\n}\n```",
-      "ts": "2026-10-22T09:01:27.466297+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.4521472512496163,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le SDI mentionné dans les médias correspond au 'Syndicat des Indépendants' français et non à un indicateur on-chain ou crypto. L'anomalie statistique détectée est un bruit de fond sémantique sans aucun rapport avec les mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-22T09:16:31.779804+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.08878282706224,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un indice de peur et de cupidité élevé (68) montrant une euphorie modérée.\"\n}\n```",
-      "ts": "2026-10-22T09:16:33.268268+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.8182390254901115,
       "value": 0.823,
@@ -349,6 +321,34 @@
       "value": 1.057,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.31) due à un bruit lexical. Le ticker 'IPT' correspond à International Petroleum Corp. et à des homonymes non-crypto dans les médias, et non à une baleine sur un actif numérique.\"\n}\n```",
       "ts": "2026-10-22T21:08:42.158872+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0730834186785083,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) détecté onchain concerne la congestion classique du réseau Bitcoin et le mécanisme technique de rattrapage des frais de transaction. Les médias grand public font un mélange hétérogène sans rapport (formations professionnelles, actualité locale). Aucune accumulation cachée ni mouvement furtif de baleine : il s'agit d'un bruit technique sans portée macroéconomique.\"\n}\n```",
+      "ts": "2026-10-22T23:59:09.548759+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0730834186785083,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans lien avec la crypto (homonymes d'entreprises traditionnelles et d'art). L'anomalie 'dust' (z-score 2.07) est statistiquement faible et non corroborée par des flux onchain significatifs.\"\n}\n```",
+      "ts": "2026-10-22T23:59:11.938522+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -7.092582553113306,
+      "value": 50,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 35,\n  \"reason\": \"Indice de peur et d'avarice parfaitement neutre (50) avec un z-score extrême (-7.09) indiquant une anomalie statistique de volatilité, mais absence totale de titres médiatiques exploitables pour contraster le narratif. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-23T00:04:13.986564+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.946791002495126,
+      "value": 50,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.95) pour un indice de peur et de greta neutre (50) indique une anomalie statistique majeure. L'absence totale de couverture médiatique (Google Actualités vide) combinée à une telle compression de volatilité signale une accumulation furtive des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-23T00:34:19.800140+00:00"
     }
   ]
 }
