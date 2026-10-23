@@ -60,18 +60,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 53 | 2026-10-20T14:35:05Z | 14h | AUTRE | 0.00216 | COOLING | 2.2952 | 593.13 | 6505.46 | 1.02e-06 | 0.53 | 0.67 | 0.58 | POMPE_PIEGE (stab 1) | prix 0.00216 · poussière(panier) 2.3% · Amihud 1.02e-06 · delta +0.53 · mur moy 593$ · mur max (run) 6,505$ |
 | 54 | 2026-10-21T14:29:15Z | 14h | AUTRE | 0.002345 | IMPULSE_WAIT | None | 593.13 | 6505.46 | — | — | 0.43 | 0.13 | POMPE_PIEGE (stab 3) | prix 0.002345 · mur moy 593$ · mur max (run) 6,505$ |
 | 55 | 2026-10-22T14:35:08Z | 14h | AUTRE | 0.002304 | IMPULSE_WAIT | 8.7553 | 593.13 | 6505.46 | 1.17e-06 | 0.05 | 0.79 | 0.77 | neutre (stab 0) | prix 0.002304 · poussière(panier) 8.8% · Amihud 1.17e-06 · delta +0.05 · mur moy 593$ · mur max (run) 6,505$ |
+| 56 | 2026-10-23T14:34:51Z | 14h | AUTRE | 0.00221 | COOLING | 4.3678 | 593.13 | 6505.46 | 1.10e-06 | -0.01 | 0.91 | 0.91 | LEADER (stab 2) | prix 0.00221 · poussière(panier) 4.4% · Amihud 1.10e-06 · delta -0.01 · mur moy 593$ · mur max (run) 6,505$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-17T16:03:25Z au 2026-10-22T14:35:08Z (13500 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-18T19:25:54Z au 2026-10-23T14:34:51Z (13217 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-18T22:23:36Z à 0.001956 → 0.002304 = **+17.8 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-18T22:23:36Z à 0.001956 → 0.00221 = **+13.0 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +0.84 $** sur 18 entrée(s) / 18 sortie(s) — dernier événement 2026-10-22T07:06:17Z
+- **Réalisé : +0.84 $** sur 18 entrée(s) / 18 sortie(s) — dernier événement 2026-10-22T19:04:42Z
 - **MFE donné en moyenne : +2.0 pts** par tour (pire tour : +13.5) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

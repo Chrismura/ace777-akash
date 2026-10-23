@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -2.1083060292139604,
-      "value": 0.004,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE (politique/social), totalement déconnecté de la métrique on-chain. Aucune baleine crypto en mouvement.\"\n}\n```",
-      "ts": "2026-10-22T10:16:51.987863+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.2569988673340844,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 82,\n  \"reason\": \"Z-score élevé (2.26) indiquant une euphorie retail excessive (Fear & Greed à 68) en anomie totale avec le silence médiatique (Google Actualités vide). Divergence classique de piégeage : les baleines distribuent discrètement dans la complaisance avant une correction.\"\n}\n```",
-      "ts": "2026-10-22T10:16:53.753028+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.7454026891231704,
-      "value": 2560278.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.75, ~2.56M USD) indiquant une accumulation ou un mouvement de fonds actif, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Ce silence médiatique face à une activité de baleines inhabituelle suggère une accumulation silencieuse (accumulation phase) avant une potentialité de mouvement de prix, plutôt qu'une distribution publique.\"\n}\n```",
-      "ts": "2026-10-22T10:36:58.283291+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0857930150412,
-      "value": 0.704,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.09) sur le ticker IPT détectée, mais les actualités montrent une confusion sémantique totale entre des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et des sujets sans rapport (physique, religion). Aucune baleine crypto identifiable, bruit de fond médiatique non pertinent.\"\n}\n```",
-      "ts": "2026-10-22T10:42:01.614483+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.4201534780139196,
       "value": 68,
@@ -349,6 +321,34 @@
       "value": 1.399,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.399, z-score 2.10) indique une forte agression acheteuse sur le marché dérivé, tandis que le silence médiatique (absence de couverture Google Actualités) prouve une accumulation furtive des baleines sous le radar du grand public.\"\n}\n```",
       "ts": "2026-10-23T13:05:31.025504+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.158893098168576,
+      "value": 2441980.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain significative (z-score 3.16) avec un afflux de 2.4M$ par une baleine, combinée à un silence médiatique absolu (Google Actualités vide). Ce vide informationnel indique une accumulation furtive hors du radar grand public, typique d'un mouvement préparatoire haussier.\"\n}\n```",
+      "ts": "2026-10-23T14:01:49.988483+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 7.105506249623045,
+      "value": 0.9463286137635807,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score de 7.11) indique une forte divergence entre les données brutes et le narratif médiatique. Les titres médiatiques ne reflètent pas cette volatilité anormale, suggérant un mouvement silencieux de baleines crypto. Le marché semble sous-estimer le risque, ce qui pourrait entraîner une baisse de prix.\"\n}\n```",
+      "ts": "2026-10-23T14:16:55.469383+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.318532903515871,
+      "value": 3115229.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Divergence massive : les médias généralistes et les gros titres se focalisent sur des liquidations macro/tradfi (tribunaux de commerce) et un bruit superficiel sur les longs (431M), alors que l'anomalie on-chain montre un volume de liquidation très faible et ciblé (3.1M, z-score 2.32). Les baleines nettoient le carnet d'ordres sans panique générale, préparant un mouvement furtif.\"\n}\n```",
+      "ts": "2026-10-23T14:22:06.983885+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.603671268924877,
+      "value": 1.489,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif détecté : 'IPT' fait référence à International Petroleum Corp. (action traditionnelle) et à des actualités institutionnelles/religieuses sans lien avec la crypto. Aucune activité de baleine crypto pertinente.\"\n}\n```",
+      "ts": "2026-10-23T14:32:16.931883+00:00"
     }
   ]
 }
