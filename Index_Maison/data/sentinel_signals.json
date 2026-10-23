@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.1422323434848605,
-      "value": 1.815,
-      "analysis": "{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Divergence nulle : les titres médiatiques concernent des ETF actions long/short (BNP Paribas, SIFs), non un actif crypto spécifique. L'anomalie onchain (z-score 2.14) est statistiquement significative mais sans contexte d'actif, elle ne peut être corrélée à ce flux médiatique générique. Absence de signal de manipulation ou de divergence narrative exploitable.\"\n}",
-      "ts": "2026-10-22T11:37:19.189978+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.0816659994661326,
       "value": 68,
@@ -349,6 +342,13 @@
       "value": 9184101.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain extrême (z-score 13.79, +9.18M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive classique des baleines en période de 'bruit blanc' retail.\"\n}\n```",
       "ts": "2026-10-23T16:33:28.849556+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.304738792053016,
+      "value": 5352062.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.30) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement hors du radar des médias de masse.\"\n}\n```",
+      "ts": "2026-10-23T18:28:48.121920+00:00"
     }
   ]
 }
