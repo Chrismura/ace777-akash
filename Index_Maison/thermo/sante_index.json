@@ -1,6 +1,6 @@
 {
-  "ts": "2026-10-23T11:45+00:00",
-  "updated": "2026-10-23T11:45Z",
+  "ts": "2026-10-23T12:45+00:00",
+  "updated": "2026-10-23T12:45Z",
   "etat": "ALERTE",
   "chaines_ok": "14/15",
   "anomalies": [
@@ -42,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 83.7 · zone VERT"
+          "detail": "voilure 89.1 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 6 min"
         }
       ]
     },
@@ -83,7 +83,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.8 min · écart mtime/ts 2.5s · 22 paire(s) · btc=OK · ts=croissant · passe 24.4s · marge 20.6s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 2.7s · 22 paire(s) · btc=OK · ts=croissant · passe 26.0s · marge 19.0s sous le budget 45s du moteur · ⚠ PIRE CAS age 46.0s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": false,
-          "detail": "âge 3240 min"
+          "detail": "âge 3300 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -121,7 +121,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -167,7 +167,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "signaux",
@@ -185,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 0.1h"
         },
         {
           "nom": "modules OK",
@@ -333,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 20 min"
+          "detail": "âge 19 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -343,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "3 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -356,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 6 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.5"
+          "detail": "score 0.3"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

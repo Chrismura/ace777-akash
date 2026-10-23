@@ -1,23 +1,41 @@
 {
-  "ts": "2026-10-23T11:25:25Z",
+  "ts": "2026-10-23T12:25:48Z",
   "n_verifications": 25,
   "n_fails": 0,
   "n_fails_pendants": 0,
-  "n_warns": 1,
+  "n_warns": 3,
   "fails": [],
   "fails_pendants": [],
   "warns": [
     {
       "type": "murs",
+      "pair": "ETHUSDT",
+      "notre_bid_avg": 177592.18,
+      "ext_bid_5niv": 511.07,
+      "notre_ask_avg": 173455.49,
+      "ext_ask_5niv": 41160.87,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    },
+    {
+      "type": "murs",
       "pair": "HBARUSDT",
       "notre_bid_avg": 30739.91,
-      "ext_bid_5niv": 1109.68,
+      "ext_bid_5niv": 1167.62,
       "notre_ask_avg": 26144.54,
-      "ext_ask_5niv": 1390.24,
+      "ext_ask_5niv": 1159.19,
+      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
+    },
+    {
+      "type": "murs",
+      "pair": "EDELUSDT",
+      "notre_bid_avg": 1087.52,
+      "ext_bid_5niv": 449.34,
+      "notre_ask_avg": 826.19,
+      "ext_ask_5niv": 37.33,
       "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
     }
   ],
   "persistance_ticks": 3,
   "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (bloquant après 3 ticks consécutifs) · murs = warning informatif",
-  "lecture": "⚠️ 1 warning(s) murs (carnet déséquilibré) — prix OK"
+  "lecture": "⚠️ 3 warning(s) murs (carnet déséquilibré) — prix OK"
 }

@@ -1,27 +1,27 @@
 # OBSERVATOIRE DES MURS DE LIQUIDITÉ
-> 2026-10-23T11:34Z — 92066 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20261023_113415.csv
+> 2026-10-23T12:35Z — 92084 mesures sur 27 paires · CSVs ASPIRATION_CALIB + OBSERVATION_MURS · sonde observation OBSERVATION_MURS_20261023_123513.csv
 
 ## Les VRAIS murs (top 12 par mur bid moyen)
 
 | Paire | Mesures | Mur BID moy ($) | Mur BID max ($) | Mur ASK moy ($) | Spoof | Drop ≥15%/s |
 |---|---|---|---|---|---|---|
-| SOLUSDT | 2270 | 462483.01 | 2078362.86 | 448550.53 | 0 (0.0%) | 100 |
+| SOLUSDT | 2272 | 462540.93 | 2078362.86 | 448617.06 | 0 (0.0%) | 100 |
 | BTCUSDT | 1481 | 419926.18 | 1924444.32 | 488181.06 | 49 (3.31%) | 124 |
 | ETHUSDT | 1264 | 177592.18 | 1966688.05 | 173455.49 | 14 (1.11%) | 63 |
 | ADAUSDT | 36 | 102875.08 | 154143.34 | 92656.51 | 0 (0.0%) | 1 |
 | XRPUSDT | 8737 | 91589.68 | 606419.6 | 94098.68 | 376 (4.3%) | 1137 |
-| XLMUSDT | 2262 | 85310.3 | 312328.07 | 71839.62 | 0 (0.0%) | 76 |
-| ALGOUSDT | 2262 | 49105.17 | 180103.2 | 44148.59 | 0 (0.0%) | 68 |
+| XLMUSDT | 2264 | 85305.39 | 312328.07 | 71832.61 | 0 (0.0%) | 76 |
+| ALGOUSDT | 2264 | 49100.32 | 180103.2 | 44154.02 | 0 (0.0%) | 68 |
 | CHIPUSDT | 828 | 30766.68 | 61779.48 | 27298.12 | 32 (3.86%) | 53 |
 | HBARUSDT | 7426 | 30739.91 | 63738.72 | 26144.54 | 268 (3.61%) | 682 |
-| GOLD(PAXG)USDT | 2264 | 29607.86 | 191387.78 | 29000.64 | 0 (0.0%) | 187 |
+| GOLD(PAXG)USDT | 2266 | 29589.03 | 191387.78 | 29003.44 | 0 (0.0%) | 187 |
 | KITEUSDT | 391 | 28494.55 | 49707.9 | 26254.61 | 10 (2.56%) | 17 |
-| JASMYUSDT | 2262 | 15378.58 | 239378.61 | 11551.18 | 0 (0.0%) | 17 |
+| JASMYUSDT | 2264 | 15378.44 | 239378.61 | 11551.86 | 0 (0.0%) | 18 |
 
 ## Synthèse
-- **Total mesures** : 92066 (16-24/08, sonde aspiration)
+- **Total mesures** : 92084 (16-24/08, sonde aspiration)
 - **Spoofs détectés** : 1845 (2.0% des mesures) — murs de façade (fond puis se reconstruit)
-- **Chutes brutales de mur** (≥ 15%/s) : 4728 — le signal ACE « le mur s'effondre »
+- **Chutes brutales de mur** (≥ 15%/s) : 4731 — le signal ACE « le mur s'effondre »
 
 ## Lecture
 - Un mur BID épais = support réel (des acheteurs tiennent le prix)
