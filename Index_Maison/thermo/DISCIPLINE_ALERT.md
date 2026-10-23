@@ -1,3 +1,3 @@
-# DISCIPLINE ALERT — 2026-10-22T05:15:36Z
+# DISCIPLINE ALERT — 2026-10-23T05:15:32Z
 
-- CORTANA sous 50% (30.3%) — discipline NEUTRE active, à surveiller
+- CORTANA sous 50% (31.3%) — discipline NEUTRE active, à surveiller
