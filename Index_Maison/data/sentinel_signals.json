@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 8.763911113429437,
-      "value": 6234137.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique une accumulation massive de BTC par des entités institutionnelles, suggérant une confiance accrue dans le marché. Cependant, les titres médiatiques ne reflètent pas cette dynamique, indiquant une divergence potentielle entre les données brutes et le narratif médiatique. Les baleines pourraient bouger silencieusement, et le narratif médiatique pourrait être déconnecté de la réalité.\"\n}\n```",
-      "ts": "2026-10-22T11:07:10.023068+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.2563376697950135,
-      "value": 1.815,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (long_short = 1.815, z-score 2.26) suggère une forte activité de trading long-short, ce qui pourrait indiquer une anticipation de mouvements de marché. Le narratif médiatique met en avant les fonds long-short comme solution dans des marchés agités, mais ne mentionne pas l'anomalie spécifique. Les titres mentionnent des fonds long-short et des stratégies de trading, mais pas l'anomalie onchain. La divergence suggère que les baleines pourraient bouger silencieusement, avec une anticipation de mouvements de marché non couverte par le narratif médiatique.\"\n}\n```",
-      "ts": "2026-10-22T11:07:12.825635+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.2360679774997885,
       "value": 68,
@@ -349,6 +335,20 @@
       "value": 2038903.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.55) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse en amont d'un mouvement de prix.\"\n}\n```",
       "ts": "2026-10-23T15:07:37.920208+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.023794597978352,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au mempool Bitcoin (saturation/frais), sans rapport avec une accumulation de baleines. Le narratif médiatique est un bruit totalement déconnecté (actualités locales et généralistes sans lien avec la finance).\"\n}\n```",
+      "ts": "2026-10-23T16:03:06.598043+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.023794597978352,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les alertes 'dust' et les flux onchain pour le ticker DUST correspondent à des homonymies médiatiques sans rapport avec la crypto (partenariats d'entreprise traditionnels, cinéma, musique).\"\n}\n```",
+      "ts": "2026-10-23T16:03:22.566587+00:00"
     }
   ]
 }

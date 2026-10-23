@@ -1,7 +1,98 @@
 {
-  "timestamp": 1792770338,
-  "date": "2026-10-23T15:45:38.195772+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1792772438,
+  "date": "2026-10-23T16:20:38.822776+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.023794597978352,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au mempool Bitcoin (saturation/frais), sans rapport avec une accumulation de baleines. Le narratif médiatique est un bruit totalement déconnecté (actualités locales et généralistes sans lien avec la finance).\"\n}\n```",
+        "ts": 1792771386.598043
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 197,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.07,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.023794597978352,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les alertes 'dust' et les flux onchain pour le ticker DUST correspondent à des homonymies médiatiques sans rapport avec la crypto (partenariats d'entreprise traditionnels, cinéma, musique).\"\n}\n```",
+        "ts": 1792771402.566587
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 197,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.07,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
