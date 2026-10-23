@@ -1,26 +1,26 @@
 {
-  "ts_utc": "2026-10-23T07:43:39Z",
+  "ts_utc": "2026-10-23T08:43:17Z",
   "barre_s": 1.0,
-  "lectures_mesurees": 416,
-  "lectures_sans_mesure": 721,
-  "median_s": 1.058,
-  "p90_s": 2.034,
-  "max_s": 2.177,
-  "pct_sous_barre": 21.4,
-  "angle_mort_pct": 63.4,
+  "lectures_mesurees": 936,
+  "lectures_sans_mesure": 1630,
+  "median_s": 1.064,
+  "p90_s": 2.073,
+  "max_s": 12.064,
+  "pct_sous_barre": 20.8,
+  "angle_mort_pct": 63.5,
   "conforme": false,
-  "verdict": "médiane 1.058 s — BARRE 1.0 s NON TENUE sur les lectures mesurables ; 63.4 % des lectures (721) n'ont AUCUN délai mesuré",
+  "verdict": "médiane 1.064 s — BARRE 1.0 s NON TENUE sur les lectures mesurables ; 63.5 % des lectures (1630) n'ont AUCUN délai mesuré — et la barre < 1 s est INATTEIGNABLE pour une lecture complète à ce plancher réseau : c'est un ARBITRAGE, pas un retard à corriger",
   "plancher_physique": {
     "depth": {
       "n": 10,
-      "median_ms": 456,
-      "min_ms": 414
+      "median_ms": 1446,
+      "min_ms": 446
     },
     "price": {
       "n": 10,
-      "median_ms": 260,
-      "min_ms": 223
+      "median_ms": 314,
+      "min_ms": 258
     }
   },
-  "plancher_note": "un seul appel /depth coûte 456 ms : une lecture COMPLÈTE (2 appels + 0.5 s d'écart voulu pour mesurer la CHUTE) ne peut pas descendre sous 956 ms par construction"
+  "plancher_note": "un seul appel /depth coûte 1446 ms : une lecture COMPLÈTE (2 appels + 0.5 s d'écart voulu pour mesurer la CHUTE) ne peut pas descendre sous 1946 ms par construction"
 }

@@ -1,7 +1,211 @@
 {
-  "ts": 1792740893,
-  "utc": "2026-10-23T07:34:53.320105+00:00",
-  "ok": false,
-  "erreur": "URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
-  "essais": 4
+  "ts": 1792744508,
+  "utc": "2026-10-23T08:35:08.428428+00:00",
+  "ok": true,
+  "n_paires": 23,
+  "n_presentes_mexc": 23,
+  "paires_absentes": [],
+  "total_quote_24h_usd": 671030114.5,
+  "volume_glissant_3h": {
+    "ratio_vs_mm24h": 0.4,
+    "chute_pct": -60.0,
+    "vol_3h_usd": 1343622397.69,
+    "n_batchs_3h": 46,
+    "n_batchs_24h": 759,
+    "note": "Métrique EXPÉRIMENTALE — capture en cours pour trancher 02-06 vs volume."
+  },
+  "alerte": {
+    "ts": 1792744508,
+    "utc": "2026-10-23T08:35:08.428428+00:00",
+    "chute_pct": -60.0,
+    "vol_3h": 1343622397.69,
+    "mm24h_horaire": 1119311976.2,
+    "message": "Volume panier en chute -60.0% vs MM24h (fenêtre 3h) — info: la plage 02-06 restera la référence tant que le débat n'est pas tranché."
+  },
+  "paires": {
+    "ALGOUSDT": {
+      "presente": true,
+      "volume": 1312139.08,
+      "quoteVolume": 142180.4,
+      "count": null,
+      "priceChangePercent": "-0.0022",
+      "note": "observation murs"
+    },
+    "BTCUSDT": {
+      "presente": true,
+      "volume": 4384.03,
+      "quoteVolume": 357853534.85,
+      "count": null,
+      "priceChangePercent": "-0.0012",
+      "note": "banc de preuve, croisement prioritaire"
+    },
+    "CCUSDT": {
+      "presente": true,
+      "volume": 2120107.87,
+      "quoteVolume": 218061.53,
+      "count": null,
+      "priceChangePercent": "-0.0123",
+      "note": "OBSERVATION (GO Christophe 29/08 apres deepdive Canton) : Ca"
+    },
+    "CHIPUSDT": {
+      "presente": true,
+      "volume": 3043487.62,
+      "quoteVolume": 134333.73,
+      "count": null,
+      "priceChangePercent": "0.0365",
+      "note": "deepdive CHIP validé 29/08 (arbre qui cache la forêt) + cata"
+    },
+    "EDELUSDT": {
+      "presente": true,
+      "volume": 13000441.35,
+      "quoteVolume": 419750.46,
+      "count": null,
+      "priceChangePercent": "-0.0499",
+      "note": "deepdive 3 rounds 30/08 : NON 2-3.5/10, loterie assumée — se"
+    },
+    "ETHUSDT": {
+      "presente": true,
+      "volume": 96925.06,
+      "quoteVolume": 232164954.72,
+      "count": null,
+      "priceChangePercent": "-0.0008",
+      "note": "banc de preuve, croisement prioritaire"
+    },
+    "FLUIDUSDT": {
+      "presente": true,
+      "volume": 4239.73,
+      "quoteVolume": 9649.59,
+      "count": null,
+      "priceChangePercent": "-0.0362",
+      "note": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 7.4/10 — MOTEUR p"
+    },
+    "GOLD(PAXG)USDT": {
+      "presente": true,
+      "volume": 1131.06,
+      "quoteVolume": 4577129.12,
+      "count": null,
+      "priceChangePercent": "-0.0159",
+      "note": "observation murs (mur bid 40k$ déjà)"
+    },
+    "HBARUSDT": {
+      "presente": true,
+      "volume": 6172170.69,
+      "quoteVolume": 495701.71,
+      "count": null,
+      "priceChangePercent": "-0.0123",
+      "note": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 6.5/10 — SOCLE lo"
+    },
+    "IXSUSDT": {
+      "presente": true,
+      "volume": 52447.26,
+      "quoteVolume": 4522.76,
+      "count": null,
+      "priceChangePercent": "0.0242",
+      "note": "observation murs"
+    },
+    "JASMYUSDT": {
+      "presente": true,
+      "volume": 17885519.12,
+      "quoteVolume": 81824.02,
+      "count": null,
+      "priceChangePercent": "0.0128",
+      "note": "observation murs"
+    },
+    "MNSRYUSDT": {
+      "presente": true,
+      "volume": 5467743.72,
+      "quoteVolume": 38317.05,
+      "count": null,
+      "priceChangePercent": "-0.0045",
+      "note": "OBSERVATION (30/08 20:53, correction commit a50d756f6) : ver"
+    },
+    "PYTHUSDT": {
+      "presente": true,
+      "volume": 7512948.71,
+      "quoteVolume": 552706.31,
+      "count": null,
+      "priceChangePercent": "-0.0189",
+      "note": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 7.2-7.5/10 — MOTE"
+    },
+    "QNTUSDT": {
+      "presente": true,
+      "volume": 2397.83,
+      "quoteVolume": 459386.08,
+      "count": null,
+      "priceChangePercent": "-0.0401",
+      "note": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 5.7/10 (4.5-7.2) "
+    },
+    "REDUSDT": {
+      "presente": true,
+      "volume": 586850.48,
+      "quoteVolume": 82827.56,
+      "count": null,
+      "priceChangePercent": "-0.0112",
+      "note": "deepdive 3 rounds 30/08 : GO AVEC RÉSERVES 6.5-6.8/10 — MOTE"
+    },
+    "RIZEUSDT": {
+      "presente": true,
+      "volume": 9899407.51,
+      "quoteVolume": 45196.2,
+      "count": null,
+      "priceChangePercent": "-0.0786",
+      "note": "OBSERVATION (GO Christophe 29/08 apres deepdive) : T-RIZE RW"
+    },
+    "RWAUSDT": {
+      "presente": true,
+      "volume": 41874468.95,
+      "quoteVolume": 52813.24,
+      "count": null,
+      "priceChangePercent": "-0.0039",
+      "note": "OBSERVATION (NON famille 30/08 — 1.7/10) : RWA = Xend Financ"
+    },
+    "SOLUSDT": {
+      "presente": true,
+      "volume": 446051.16,
+      "quoteVolume": 46449727.05,
+      "count": null,
+      "priceChangePercent": "0.0074",
+      "note": "OBSERVATION — capture données pour set up personnalisé AVANT"
+    },
+    "XDCUSDT": {
+      "presente": true,
+      "volume": 4995395.68,
+      "quoteVolume": 172217.55,
+      "count": null,
+      "priceChangePercent": "-0.0237",
+      "note": "observation murs"
+    },
+    "XLMUSDT": {
+      "presente": true,
+      "volume": 2323552.02,
+      "quoteVolume": 411268.21,
+      "count": null,
+      "priceChangePercent": "-0.0039",
+      "note": "observation murs"
+    },
+    "XRPUSDT": {
+      "presente": true,
+      "volume": 20042541.93,
+      "quoteVolume": 26396490.4,
+      "count": null,
+      "priceChangePercent": "-0.0018",
+      "note": "majeure_manipulee, deepdive validé"
+    },
+    "ZAMAUSDT": {
+      "presente": true,
+      "volume": 1388115.26,
+      "quoteVolume": 103654.86,
+      "count": null,
+      "priceChangePercent": "0.0069",
+      "note": "observation murs"
+    },
+    "ZBCNUSDT": {
+      "presente": true,
+      "volume": 73235222.93,
+      "quoteVolume": 163867.11,
+      "count": null,
+      "priceChangePercent": "0.0133",
+      "note": "deepdive 3 rounds 30/08 : 4.5-6.5/10 divergent — observation"
+    }
+  }
 }

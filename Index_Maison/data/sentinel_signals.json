@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.8182390254901115,
-      "value": 0.823,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif. L'acronyme 'IPT' correspond ici à des entités traditionnelles (International Petroleum Corp, IMPACT Silver Corp) ou institutionnelles (École polytechnique), et non à un actif crypto. Aucune corrélation onchain valide.\"\n}\n```",
-      "ts": "2026-10-22T09:36:38.955956+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -2.2455999083651945,
-      "value": 0.008,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : Les données textuelles font référence au 'Syndicat des Indépendants' (SDI) et à l'actualité politique française, et non à une métrique onchain ou à l'activité de baleines crypto. Aucune corrélation financière détectable.\"\n}\n```",
-      "ts": "2026-10-22T09:46:41.839111+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.1393079901047094,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le score Z élevé (2.14) et la cupidité (68) sans couverture médiatique majeure signalent une euphorie de détail locale. Les baleines profitent de ce silence médiatique pour distribuer discrètement aux acheteurs tardifs avant un retournement.\"\n}\n```",
-      "ts": "2026-10-22T09:46:43.236344+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 4.11356946294029,
       "value": 2741585.0,
@@ -349,6 +328,27 @@
       "value": 50,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-4.95) pour un indice de peur et de greta neutre (50) indique une anomalie statistique majeure. L'absence totale de couverture médiatique (Google Actualités vide) combinée à une telle compression de volatilité signale une accumulation furtive des baleines loin des radars du retail.\"\n}\n```",
       "ts": "2026-10-23T00:34:19.800140+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.0488107606221004,
+      "value": 0.604,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Fausse alerte sémantique : l'acronyme 'SDI' dans les médias désigne le 'Syndicat des Indépendants' (politique/social en France) et non un indicateur de flux crypto. Aucune divergence on-chain détectée.\"\n}\n```",
+      "ts": "2026-10-23T07:44:35.587398+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.012335815634924,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) on-chain est un artéfact technique lié à la congestion du mempool Bitcoin et aux tentatives de correction de frais de transaction par des utilisateurs individuels, sans lien avec une accumulation ou distribution institutionnelle.\"\n}\n```",
+      "ts": "2026-10-23T08:04:41.398249+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.012335815634924,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'anomalie on-chain 'Dust' et le z-score (2.01) captent des micro-mouvements sans lien avec la crypto, pollués par homonymie avec des actualités financières traditionnelles (Dust SA) et des faits divers culturels.\"\n}\n```",
+      "ts": "2026-10-23T08:04:44.157808+00:00"
     }
   ]
 }
