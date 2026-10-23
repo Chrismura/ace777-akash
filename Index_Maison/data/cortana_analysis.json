@@ -1,96 +1,40 @@
 {
-  "timestamp": 1792772438,
-  "date": "2026-10-23T16:20:38.822776+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792774239,
+  "date": "2026-10-23T16:50:39.431047+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.023794597978352,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au mempool Bitcoin (saturation/frais), sans rapport avec une accumulation de baleines. Le narratif médiatique est un bruit totalement déconnecté (actualités locales et généralistes sans lien avec la finance).\"\n}\n```",
-        "ts": 1792771386.598043
+        "metric": "whale_usd",
+        "zscore": 13.78624286390602,
+        "value": 9184101.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain extrême (z-score 13.79, +9.18M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive classique des baleines en période de 'bruit blanc' retail.\"\n}\n```",
+        "ts": 1792773208.849556
       },
-      "fiche": "blocs_privilises",
+      "fiche": "whale_usd",
       "questions": {
-        "duree": {
-          "value": 0,
+        "ventes": {
+          "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
-        "volume": {
-          "value": 197,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.07,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.608,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
+        "achats": {
           "value": 0.0,
           "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.13,
+          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
         "niveau": "neutre",
-        "action": "Garder les positions"
+        "action": "Observer"
       },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.023794597978352,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les alertes 'dust' et les flux onchain pour le ticker DUST correspondent à des homonymies médiatiques sans rapport avec la crypto (partenariats d'entreprise traditionnels, cinéma, musique).\"\n}\n```",
-        "ts": 1792771402.566587
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 197,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.07,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.608,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
+      "action": "Observer",
       "niveau": "neutre"
     }
   ],

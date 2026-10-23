@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.2360679774997885,
-      "value": 68,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Données incomplètes : absence de titres médiatiques significatifs dans le flux pour contraster avec le z-score élevé (68, optimisme modéré). Impossible de confirmer une divergence majeure sans le narratif textuel.\"\n}\n```",
-      "ts": "2026-10-22T11:17:15.387613+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.1422323434848605,
       "value": 1.815,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les alertes 'dust' et les flux onchain pour le ticker DUST correspondent à des homonymies médiatiques sans rapport avec la crypto (partenariats d'entreprise traditionnels, cinéma, musique).\"\n}\n```",
       "ts": "2026-10-23T16:03:22.566587+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 13.78624286390602,
+      "value": 9184101.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain extrême (z-score 13.79, +9.18M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive classique des baleines en période de 'bruit blanc' retail.\"\n}\n```",
+      "ts": "2026-10-23T16:33:28.849556+00:00"
     }
   ]
 }
