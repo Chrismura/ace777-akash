@@ -8324,3 +8324,11 @@ Pas d’ordre — confrontation plus tard.
 - RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
 - LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-23T21:50:03Z — ALERT auto
+- RIZEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-23T21:50:58Z — ALERT auto
+- LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
