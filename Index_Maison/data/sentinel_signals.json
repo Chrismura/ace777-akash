@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.11356946294029,
-      "value": 2741585.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 4.11) indique une activité de grande envergure des baleines, mais les titres médiatiques ne mentionnent pas cette activité. La divergence suggère que les baleines bougent silencieusement, et le narratif médiatique est potentiellement déconnecté de la réalité.\"\n}\n```",
-      "ts": "2026-10-22T10:01:47.870924+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -2.1083060292139604,
       "value": 0.004,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. L'anomalie on-chain 'Dust' et le z-score (2.01) captent des micro-mouvements sans lien avec la crypto, pollués par homonymie avec des actualités financières traditionnelles (Dust SA) et des faits divers culturels.\"\n}\n```",
       "ts": "2026-10-23T08:04:44.157808+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.102694020588944,
+      "value": 1.399,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.399, z-score 2.10) indique une forte agression acheteuse sur le marché dérivé, tandis que le silence médiatique (absence de couverture Google Actualités) prouve une accumulation furtive des baleines sous le radar du grand public.\"\n}\n```",
+      "ts": "2026-10-23T13:05:31.025504+00:00"
     }
   ]
 }
