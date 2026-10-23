@@ -1,19 +1,49 @@
 {
-  "ts": "2026-10-22T23:59:34.487888+00:00",
+  "ts": "2026-10-23T05:59:38.092281+00:00",
   "statut": "FRAIS",
   "age_rapport_h": 0.0,
-  "bascules": [],
+  "bascules": [
+    {
+      "pair": "EDELUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "LEADER",
+      "corr_avant": -0.28,
+      "corr_maintenant": 0.532
+    },
+    {
+      "pair": "RWAUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.181,
+      "corr_maintenant": 0.025
+    },
+    {
+      "pair": "WUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.327,
+      "corr_maintenant": -0.027
+    },
+    {
+      "pair": "ZBCNUSDT",
+      "avant": "neutre",
+      "maintenant": "LEADER",
+      "corr_avant": -0.117,
+      "corr_maintenant": 0.304
+    }
+  ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
   "message": "🟢 Pattern divergence suivi et à jour.",
   "leaders": [
-    "RWAINCUSDT"
+    "EDELUSDT",
+    "RWAINCUSDT",
+    "ZBCNUSDT"
   ],
   "pompes_pieges": [
     "BIOUSDT",
     "BTCUSDT",
     "CCUSDT",
     "CHIPUSDT",
-    "EDELUSDT",
     "ETHUSDT",
     "FLUIDUSDT",
     "HBARUSDT",
@@ -24,34 +54,32 @@
     "QNTUSDT",
     "REDUSDT",
     "RIZEUSDT",
-    "RWAUSDT",
     "WAXLUSDT",
-    "WUSDT",
     "XRPUSDT"
   ],
   "stabilite": {
-    "BIOUSDT": 10,
-    "BTCUSDT": 31,
-    "CCUSDT": 37,
-    "CHIPUSDT": 31,
-    "EDELUSDT": 9,
-    "ETHUSDT": 31,
-    "FLUIDUSDT": 11,
-    "HBARUSDT": 9,
-    "IOTAUSDT": 9,
+    "BIOUSDT": 11,
+    "BTCUSDT": 32,
+    "CCUSDT": 38,
+    "CHIPUSDT": 32,
+    "EDELUSDT": 1,
+    "ETHUSDT": 32,
+    "FLUIDUSDT": 12,
+    "HBARUSDT": 10,
+    "IOTAUSDT": 10,
     "KITEUSDT": 0,
-    "LAUSDT": 30,
-    "MNSRYUSDT": 9,
-    "PYTHUSDT": 9,
-    "QNTUSDT": 11,
-    "REDUSDT": 10,
-    "RIZEUSDT": 15,
-    "RWAINCUSDT": 8,
-    "RWAUSDT": 8,
-    "WAXLUSDT": 8,
-    "WUSDT": 10,
-    "XRPUSDT": 9,
-    "ZBCNUSDT": 0
+    "LAUSDT": 31,
+    "MNSRYUSDT": 10,
+    "PYTHUSDT": 10,
+    "QNTUSDT": 12,
+    "REDUSDT": 11,
+    "RIZEUSDT": 16,
+    "RWAINCUSDT": 9,
+    "RWAUSDT": 0,
+    "WAXLUSDT": 9,
+    "WUSDT": 0,
+    "XRPUSDT": 10,
+    "ZBCNUSDT": 1
   },
   "recommande": "OBSERVER"
 }
