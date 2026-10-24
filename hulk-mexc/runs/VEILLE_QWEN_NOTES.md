@@ -8437,3 +8437,20 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-24T10:14:56Z — ALERT auto
 - WAXLUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-24T10:45:20Z — ALERT auto
+- LAUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T11:09:05Z — ALERT auto
+- LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T12:22:14Z — ALERT auto
+- LAUSDT: WATCH_PULLBACK — tension haute + reflux
+- WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T12:49:42Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

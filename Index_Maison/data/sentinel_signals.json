@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.8011733502430163,
-      "value": 1.131,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.80) détectée sur le ticker IPT, mais les résultats médiatiques révèlent une confusion lexicale totale (International Petroleum Corp, Tournoi International des Physiciens, IMPACT Silver). Aucune baleine crypto identifiable : le signal est un bruit de fond non pertinent ou une homonymie boursière traditionnelle.\"\n}\n```",
-      "ts": "2026-10-22T18:52:09.374916+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.0704024127231597,
-      "value": 1.206,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.206 (z-score 2.07) indique une forte agression acheteuse des preneurs de liquidité, tandis que le vide médiatique (Google Actualités muet) prouve l'absence de FOMO de détail.accumulation silencieuse en cours sous le radar.\"\n}\n```",
-      "ts": "2026-10-22T19:07:16.132077+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.0476885210396705,
-      "value": 1.206,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.206 (z-score 2.05) indique une forte domination agressive des acheteurs (Taker Buy), contredisant l'apathie ou le silence des gros titres médiatiques. Accumulation silencieuse en cours.\"\n}\n```",
-      "ts": "2026-10-22T19:57:47.180660+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.242300165275284,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique de faible portée (z-score 2.24). Le narratif médiatique fait référence à des homonymes (formation politique, pharmacie, éducation) et à des tutoriels Bitcoin basique (CPFP). Aucune corrélation avec une accumulation ou distribution massive de baleines.\"\n}\n```",
-      "ts": "2026-10-22T20:18:08.762699+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.242300165275284,
       "value": 50.0,
@@ -349,6 +321,34 @@
       "value": 1,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. L'anomalie détectée (z-score -2.63) concerne des ETF actions/credit classiques (BNP Paribas, Blackstone) et non un actif crypto. Le narratif médiatique traite de stratégies financières traditionnelles, sans lien avec les flux onchain crypto. Aucune divergence crypto détectée.\"\n}",
       "ts": "2026-10-24T08:41:44.218427+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 7.471521881031718,
+      "value": 8592848.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.47, ~8.6M USD) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-24T12:22:23.517997+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1508170428260804,
+      "value": 0.913,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond lexicale. 'ipt' correspond ici à des actualités sans rapport avec la crypto (International Petroleum Corp, tournoi de physique, théologie). Aucune baleine crypto détectée, anomalie statistique due à l'homonymie.\"\n}\n```",
+      "ts": "2026-10-24T13:02:33.243888+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.1442609980788343,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score élevé sur le CPFP reflète une congestion technique classique du réseau Bitcoin et des tutoriels grand public, sans lien avec une accumulation ou une distribution silencieuse de baleines.\"\n}\n```",
+      "ts": "2026-10-24T13:12:37.081888+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.1442609980788343,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités sur la sylviculture, les actions traditionnelles et la tech). Le 'dust' onchain est un artefact insignifiant, aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-24T13:12:39.625511+00:00"
     }
   ]
 }

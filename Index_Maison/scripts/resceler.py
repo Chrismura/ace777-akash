@@ -33,6 +33,42 @@ from pathlib import Path
 
 RACINE = Path(__file__).resolve().parent.parent.parent
 REG = RACINE / "Index_Maison" / "strategie" / "REGISTRE_SYNAPSES.json"
+JOURNAL_ECRIVAINS = RACINE / "Index_Maison" / "strategie" / "JOURNAL_ECRIVAINS.jsonl"
+
+
+def _ecrivain() -> dict:
+    """R22 (24/10/2026, ORDRE Christophe) : QUI touche QUOI — identité de l'écrivain
+    à chaque re-scellement. L'IA se déclare via $CODEBUFF_IA ou la dernière ligne de
+    DECLARATIONS_IA.jsonl ; le shell donne user + pid + chaîne des parents."""
+    qui = os.environ.get("CODEBUFF_IA", "").strip()
+    if not qui:
+        try:
+            _decl = RACINE / "Index_Maison" / "strategie" / "DECLARATIONS_IA.jsonl"
+            _lignes = [l for l in _decl.read_text(encoding="utf-8").splitlines() if l.strip()]
+            if _lignes:
+                _d = json.loads(_lignes[-1])
+                qui = "%s (%s, %s)" % (_d.get("ia", "?"), _d.get("modele", "?"),
+                                        _d.get("client", "?"))
+        except Exception:
+            pass
+    if not qui:
+        qui = "non-declare"
+    try:
+        import subprocess as _sp
+        _ppid = os.getppid()
+        _chaine = ["pid %s" % os.getpid()]
+        for _ in range(3):
+            _out = _sp.run(["ps", "-o", "comm=", "-o", "ppid=", "-p", str(_ppid)],
+                           capture_output=True, text=True, timeout=5)
+            _parts = _out.stdout.strip().split()
+            if not _parts:
+                break
+            _chaine.append("%s(pid %s)" % (_parts[0], _ppid))
+            _ppid = int(_parts[1])
+    except Exception:
+        _chaine = ["pid %s" % os.getpid()]
+    return {"ts": utc(), "ia": qui, "user": os.environ.get("USER", "?"),
+            "chaine": " <- ".join(_chaine)}
 
 
 def utc() -> str:
@@ -93,10 +129,22 @@ def cmd_fichier(nom: str, motif: str) -> int:
             if avant == actuel:
                 print(f"[=] {nom} déjà conforme")
                 return 0
+            _w = _ecrivain()
+            try:
+                with open(JOURNAL_ECRIVAINS, "a", encoding="utf-8") as _j:
+                    _j.write(json.dumps({"fichier": nom, "acte": "rescel",
+                                         "motif": motif, **_w}, ensure_ascii=False) + "\n")
+            except Exception as _e:
+                print(f"WARN journal écrivains : {_e}")
+            # R22-fix : le log ci-dessus modifie le journal lui-même — le md5 scellé
+            # est donc recalculé APRÈS l'écriture, jamais avant (sinon le journal
+            # serait en écart perpétuel par construction).
+            actuel = md5(cible)
             it["md5"] = actuel
             it["date"] = utc()
             it["_rescel"] = it.get("_rescel", [])
-            it["_rescel"].append({"ts": utc(), "motif": motif})
+            it["_rescel"].append({"ts": utc(), "motif": motif, "ecrivain": _w})
+            it["dernier_ecrivain"] = _w
             _ecrit(reg)
             print(f"backup : {bak.name}")
             print(f"[OK] {nom}\n     {avant} → {actuel}\n     motif : {motif}")
@@ -114,9 +162,16 @@ def cmd_ajouter(nom: str, role: str, origine: str) -> int:
     if any(str(i.get("nom")) == nom for i in reg.get("fichier", [])):
         print(f"[=] déjà au registre : {nom}")
         return 0
+    _w = _ecrivain()
+    try:
+        with open(JOURNAL_ECRIVAINS, "a", encoding="utf-8") as _j:
+            _j.write(json.dumps({"fichier": nom, "acte": "ajout", "role": role,
+                                 "origine": origine, **_w}, ensure_ascii=False) + "\n")
+    except Exception as _e:
+        print(f"WARN journal écrivains : {_e}")
     reg["fichier"].append({"nom": nom, "role": role or "instrument", "origine": origine or "",
                            "verif": "md5", "auto_modifiable": False, "md5": md5(cible),
-                           "date": utc(),
+                           "date": utc(), "dernier_ecrivain": _w,
                            "_ajout": [{"ts": utc(), "motif": "inscription au registre (R15 : "
                                                               "ce qui n'est pas déclaré n'existe pas)"}]})
     _ecrit(reg)

@@ -746,6 +746,20 @@ class PaperBot:
         # v1.4 : plus de bag 15% — pleine mise, puis 2× → moitié bag
         self.double_mult = float(cfg.get("STAKE_DOUBLE_MULT", "2.0"))
         self.stake_sell_frac = float(cfg.get("STAKE_SELL_FRAC", "0.50"))
+        # === SORTIES PAR TIERS (24/10/2026, GO Christophe « go tout cabler », §24) ===
+        # Chiffré AVANT câblage (BAC_A_SABLE/001) : XRP +1,55→+4,00 · ZBCN +0,66→+2,37.
+        # CORRIGÉ le 24/10 (boulette +2/+5 fixes pour tous → paliers AMP 0.5x/1x).
+        # RE-MESURÉ le 24/10 (GO « si tu calcules ca, cabler ») sur 213 trades réels
+        # (19 paires, rejeu par paire) : réel +52,50 · AMP +162,60 · +2/+5 +116,12
+        # · +5/+10 +228,33. Touche : +2 % 92 % · +5 % 77 % · +8 % 58 % · +10 % 48 %.
+        # → paliers FIXES +5/+10 (TIERS_P1_PCT/P2_PCT), 1/3 + 1/3, reste coureur.
+        # Fail-open : paliers à 0 → historique. Réversible : TIERS_ON=0 → historique strict.
+        self.tiers_on = cfg.get("TIERS_ON", "1").strip() not in ("0", "false", "False")
+        try:
+            self.tiers_p1_pct = float(cfg.get("TIERS_P1_PCT", "5.0"))
+            self.tiers_p2_pct = float(cfg.get("TIERS_P2_PCT", "10.0"))
+        except Exception:
+            self.tiers_p1_pct, self.tiers_p2_pct = 5.0, 10.0
         self.bag_crash_dd = float(cfg.get("BAG_CRASH_DD_PCT", "20"))
         # === GIVEBACK COUPLE A L'AMPLITUDE (09/10/2026, GO « go 1,2,3 ») ===
         # Le giveback du profil est calibré sur l'heure/le carnet ; la position court sur
@@ -3326,6 +3340,33 @@ class PaperBot:
         value = price * qty
         chg = (price / entry - 1.0) * 100.0
 
+        # === TIERS 24/10 (GO « tout cabler », §24 ; RE-MESURÉ 24/10 : paliers FIXES
+        # +5/+10 — 213 trades réels : +228,33 $ vs +162,60 AMP vs +116,12 +2/+5.
+        # 1/3 au P1, 1/3 au P2, le reste coureur en historique. 1 fois chacun (flag),
+        # loggé, jamais muet. Fail-open : paliers à 0/prix invalide → historique.
+        if getattr(self, "tiers_on", False):
+            try:
+                _tp1 = float(self.tiers_p1_pct); _tp2 = float(self.tiers_p2_pct)
+            except Exception:
+                _tp1 = _tp2 = 0.0
+            if entry > 0 and qty > 0 and _tp1 > 0:
+                if not p.get("tiers_p1_done") and chg >= _tp1:
+                    p["tiers_p1_done"] = True
+                    _q = float(p.get("qty") or 0.0) / 3.0
+                    if _q > 0:
+                        _proceeds = self.sell_trade(pair, price, f"TIERS_P1_+{_tp1:g}pct", qty=_q)
+                        self.add_pair_cash(pair, _proceeds)
+                        say("sell_ok", f"[{utc_now()}] TIERS_P1 {pair} +{_tp1:g}% 1/3 cash≈{_proceeds:.2f}$")
+                        return
+                if not p.get("tiers_p2_done") and chg >= _tp2:
+                    p["tiers_p2_done"] = True
+                    _q = float(p.get("qty") or 0.0) / 3.0
+                    if _q > 0:
+                        _proceeds = self.sell_trade(pair, price, f"TIERS_P2_+{_tp2:g}pct", qty=_q)
+                        self.add_pair_cash(pair, _proceeds)
+                        say("sell_ok", f"[{utc_now()}] TIERS_P2 {pair} +{_tp2:g}% 1/3 cash≈{_proceeds:.2f}$")
+                        return
+
         _cal = (_profils().get(pair) or {}).get("calib") or {}
         t_arm = float(_cal.get("trail_arm_pct") or 0)
         t_gb = float(_cal.get("trail_giveback_pct") or 0)
@@ -4076,7 +4117,8 @@ class PaperBot:
             f"BAG crash−{self.bag_crash_dd:.0f}%→{self.bag_crash_sell_frac*100:.0f}%  "
             f"lent−{self.bag_slow_dd:.0f}% DCA  "
             f"COMPOUND={'ON' if self.compound_on else 'OFF'} "
-            f"POLL={self.poll}s"
+            f"POLL={self.poll}s  "
+            f"TIERS={'ON +'+str(self.tiers_p1_pct)+'/+'+str(self.tiers_p2_pct) if getattr(self, 'tiers_on', False) else 'OFF'}"
         )
         print(
             f"GATES: STOP_COOLDOWN={self.stop_cooldown_h:.0f}h  "

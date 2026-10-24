@@ -1160,3 +1160,61 @@ n'exempte pas de R20.1). Re-scellement avec ce motif : le re-scellement constate
 - Conséquence : les lignes +47,11 $ (BTC) et +43,19 $ (ETH) du cockpit comparent un coffre gonflé aux mises recyclées à une enveloppe de 20-30 $ — ce n'est PAS le gain de trading de l'actif (BTC -1,69 $, ETH -1,11 $ moteur). On ne peut plus voir « s'il sait trader tout seul ».
 **Règles violées** : demande explicite d'étanchéité par actif (non tenue = faute, pas un choix) · E-transparence (affichage qui ressemble à du gain).
 **Correction (attend ton GO, RIEN câblé sans toi)** : mode ÉTANCHE = base 20 $ par actif, aucun compounding croisé (mise = f(pnl DE CETTE PAIRE) uniquement), aucun redeploy au-delà de l'enveloppe, plafond 20 $ dur. Le passé n'est pas réécrit (E15). IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §23 — FAUTE : fiches set-up gelées 06/09→24/10 + écrivains IA non tracés (24/10/2026, ordre Christophe : « déclarer, et savoir QUI touche QUOI »)
+
+**Constat (1) — fiches** : les FICHE_SETUP de XRP/ZBCN/BTC/ETH/EDEL/FLUID (et sœurs) sont restées au 06/09 — 9 corrections jamais recopiées (régimes, gates, creux, GBAG, compounding par actif, SMA, filets, storm, ÉTANCHE). Vérifié : seules LA/WAXL/IOTA (nées en octobre) avaient des fiches fraîches. La règle « 1 place / info » n'était pas tenue.
+**Réparé le 24/10** : 26 fiches régénérées (mesures du jour, 56-57 suivis) + section HISTORIQUE DES CORRECTIONS dans chacune (9 corrections datées + ligne vérifiée de l'actif : ex. XRP 10/10 → +1,05 $, pire -1,53 $, souche 18/10). Fichiers non scellés : aucune écriture scellée, 0 violation au vérificateur.
+
+**Constat (2) — QUI touche QUOI** : inventaire du 24/10 — `strategie/DECLARATIONS_IA.jsonl` = 6 entrées, TOUTES Buffy (Muse Spark 1.3 / MiMo 2.6 Pro, Freebuff). Mémoire : 141 Buffy + autos (journal_soir/auto) + 4 Ada. AUCUNE autre IA ne se déclare. Or le 18/10, 2 écritures sans auteur : session fantôme (thermo 20:11, radiée §émission dette) et bridge tronqué 22:30Z (§19, auteur toujours inconnu). Conclusion : si une IA ne se déclare pas, elle est invisible — le sabotage du prototype ne peut pas être attribué. C'est l'ouverture R22, toujours béante.
+**Règle posée (R23 durcie)** : AUCUNE session IA (Buffy, Cursor, autre) n'écrit 1 octet avant 1 ligne DECLARATIONS_IA.jsonl (qui + modèle + périmètre + GO). Vérifiable chaque jour : `grep -c` déclarations vs `find -newer` fichiers touchés. Non déclaré = faute au registre, comme aujourd'hui.
+**Reste à brancher (attend un GO)** : journal d'écrivain automatique (qui/pid) sur les scellés — R22.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §24 — CHIFFRAGE TIERS à la main + BAC_A_SABLE (24/10/2026, GO Christophe)
+
+**Chiffrage (mêmes entrées/mises/dates, sans rien inventer)** : vendre en 3 tiers (1/3 à +2 %, 1/3 à +5 %, 1/3 au prix réel) —
+XRP : réel +1,55 $ → tiers +4,00 $ (+158 %) · ZBCN : réel +0,66 $ → tiers +2,37 $ (+259 %).
+Les 4 stops XRP deviennent neutres ; la claque ZBCN du 16/10 passe de -1,42 à -0,23 $.
+Verdict : GO (câblage sur ordre séparé, RIEN câblé ici). Fiche : hulk-mexc/BAC_A_SABLE/001-tiers.md.
+**BAC_A_SABLE créé** (hulk-mexc/BAC_A_SABLE/README.md) : 47 outils indexés en 5 familles
+(chiffrage/tests/backtests/simus/audits) + fiches verdict — aucune IA ne re-teste l'aveugle.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §25 — TIERS CÂBLÉS sur tout le moteur (24/10/2026, GO Christophe « go tout cabler »)
+
+**Câblé** : paliers +2 % (1/3) / +5 % (1/3), le reste en historique — dans manage_open, AVANT trailing/stops, sur TOUTES les paires. Fail-open (paliers 0/prix invalide → historique), réversible TIERS_ON=0, flags persistés (tiers_p1/p2_done, 1 fois chacun), loggés TIERS_P1/TIERS_P2 jamais muets, boot affiche TIERS=ON +2.0/+5.0.
+**Vérifié** : compile OK, GBAG 10/10, sortie-paliers OK, bloc tiers prouvé (9→6→4, +21 $), moteur relancé --resume avec TIERS=ON confirmé au boot (pnl 45.15, RED+17 bags intacts). Chiffrage amont : BAC_A_SABLE/001 (XRP +158 %, ZBCN +259 %).
+**TAUX ZERO-FAUTE** : distinctions pré-déclarées AVANT écriture, 0 violation au vérificateur, écarts registre 0 (journal auto-cohérent).
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §26 — BOULETTE tiers fixes + CORRIGÉE en amp7 par paire (24/10/2026, relevé par Christophe)
+
+**La boulette** : tiers +2/+5 % IDENTIQUES pour tous — alors que BTC amp7 2 % vs ZBCN 10 %, et que 3 décisions (21/09, 14/10, 18/10) imposent des seuils À LA MESURE DE LA PAIRE. Argument déjà discuté, piétiné.
+**Corrigé** : paliers = 0,5× / 1,0× amp7 de LA paire (plancher 2 % si amp7 absente) — BTC +2/+2, ZBCN +4,85/+9,7. Vérifié (compile, GBAG 10/10, calcul par paire), moteur relancé (boot TIERS=ON 0.5x/1.0xamp7), re-scels, 0 écart.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §27 — RWAINC CORRIGÉ (2e actif, 24/10/2026, GO Christophe « go prochain »)
+
+**Pertes** : compteur -3,75 $ / journal +0,35 $ — 8 stops précoces + claque SMA24 du 16/10 (-3,48 $ sur 11 667 jetons).
+**Setup** : tiers à son amp7 (7,04 % → +3,5/+7 %) — déjà câblé. Rejoué : +0,35 → +11,63 $ (18/25 MIEUX), 7× le hold full30 (+1,52 $). Rien à changer au moteur : fiche écrite.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §28 — 5 ACTIFS CORRIGÉS d'un coup (HBAR/CC/ETH/BTC/RIZE, 24/10/2026, GO « cable et enchaine »)
+
+**Tous MIEUX en tiers amp7, tous meilleurs que le hold** : HBAR -1,39→+7,49 · CC -1,23→+6,82 · ETH -1,81→+5,55 · BTC +2,81→+4,59 · RIZE +1,65→+6,77. Fiches écrites (5), BAC 003 créé. Moteur inchangé (tiers déjà en route).
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+---
+
+## §29 — 24/10/2026 : TIERS FIXES +5/+10 CÂBLÉS (GO Christophe « si tu calcules ça, câble »)
+
+**Mesuré AVANT câblage** — rejeu par paire des 213 SELL réels (19 paires, même hypothèse partout) :
+- Réel déclaré : **+52,50 $** · AMP (0.5×/1×) : +162,60 $ · +2/+5 : +116,12 $ · **+5/+10 : +228,33 $**
+- Taux de touche : +2 % 92 % · +5 % 77 % · +8 % 58 % · +10 % 48 % — médiane pump +9,7 %
+- **Distribution : 1/3 à +5 % (socle) + 1/3 à +10 % (pump normal) + 1/3 coureur (les 24 % à +20 % et plus).**
+- Limite honnête : hypothèse de remplissage exact aux paliers — le classement est valide, pas le montant absolu.
+
+**Câblé** : `TIERS_P1_PCT=5.0 / TIERS_P2_PCT=10.0` (defaults.env) — code passé de FRAC×amp7 à FIXES.
+Boot : `TIERS=ON +5.0/+10.0` ✔ · compile OK · 208 entrées, 0 écart, 0 absent · moteur relancé.
+**Note FLUID** : sur fusée ×2 le tiers coûte (-3,15 $) — accepté : assurance qui reste à +6,50 $ largement positif.

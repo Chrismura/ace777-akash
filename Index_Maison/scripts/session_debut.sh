@@ -147,6 +147,20 @@ reveil_matin() {
 }
 reveil_matin
 
+echo "--- RÉSUMÉ IA (24/10/2026 : fini les vieilles infos — tout est lu FRAIS) ---"
+grep -m1 -A2 "Clin d" "$WS/THERMO_DERNIER.md" 2>/dev/null | head -3 || true
+grep -m1 -E "^\*\*Climat" "$WS/THERMO_DERNIER.md" 2>/dev/null || true
+echo "SOUS_L_OEIL: $(grep -m1 -E 'Verdict|Mode' "$WS/SOUS_L_OEIL.md" 2>/dev/null | head -c 100)"
+"$PY" -c 'import json;d=json.load(open("'"$ROOT"'/hulk-mexc/runs/PAPER_V1_20261018_100103_state.json"));print("HULK pnl=%+.2f pos=%s bags=%d base=%s"%(d.get("pnl_total",0),list(d.get("positions",{}).keys()),len(d.get("bags",{})),d.get("base_notional")))' || true
+grep -c "^## §" "$WS/REGISTRE_ECHECS_ET_ERREURS.md" 2>/dev/null | xargs -I{} echo "REGISTRE: {} paragraphes de fautes (lire le dernier avant d'agir)" || true
+grep "^## §" "$WS/REGISTRE_ECHECS_ET_ERREURS.md" 2>/dev/null | tail -1 || true
+grep -E "^NOTIONAL_USDT|^ETANCHE_ON|^ETANCHE_MISE_MAX" "$ROOT/hulk-mexc/config/defaults.env" 2>/dev/null | tr '\n' ' '; echo "(ETANCHE: base 20/actif, compounding SON pnl, cap 60)"
+echo
+echo "--- ZÉRO-FAUTE (visible par tous : 0 écart admis) ---"
+"$PY" "$WS/scripts/predemodifier.py" --verifier 2>&1 | tail -2 || true
+"$PY" "$WS/scripts/resceler.py" --liste 2>&1 | tail -3 || true
+echo
+
 echo "=== SESSION DÉBUT FIN — mode=$MODE ==="
 "$PY" "$WS/scripts/memoire_log.py" session_debut "★" "session" "début mode=$MODE" >/dev/null 2>&1 || true
 echo "Rappel validation: portes P0 hygiène → P1 outils → P2 run test (PROTOCOLE_VALIDATION_TEST_AVANT_REEL)"

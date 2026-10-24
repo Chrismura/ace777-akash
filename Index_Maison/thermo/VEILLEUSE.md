@@ -1,8 +1,4 @@
-# Rapport Veilleuse — 2026-10-24T10:21:41.046519+00:00
+# Rapport Veilleuse — 2026-10-24T13:21:44.432007+00:00
 
-## État : ✅ STABLE — tout est en ordre
-
-## Modifications DÉCLARÉES (R20.1) — annoncées AVANT l'acte, pas des intrusions
-- Modification DÉCLARÉE (R20.1) en attente de re-scellement : `Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md`
-
-*(Une modification déclarée passe hors alarme et hors alerte vocale ; elle doit être re-scellée par `resceler.py`.)*
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **INTRUSION** : Modification non déclarée : Index_Maison/strategie/JOURNAL_ECRIVAINS.jsonl (md5 diffère du registre)
