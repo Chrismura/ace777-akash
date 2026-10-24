@@ -88,6 +88,8 @@ check_heartbeat() {
     if python3 - <<'PY' >/dev/null 2>&1
 try:
     import socket
+    socket.setdefaulttimeout(8)  # FIX 24/10 (sante) : sans timeout, le DNS bloque
+    # le pulse 60 s+ sur hotspot metered (mesure : run 02:00Z pendu). Fail-fast.
     socket.getaddrinfo("api.binance.com", 443, socket.AF_INET, socket.SOCK_STREAM)
 except Exception:
     raise SystemExit(1)
@@ -218,10 +220,10 @@ for line in out.splitlines()[1:]:
     try: d[k.strip()] = int(v.strip().rstrip("."))
     except Exception: pass
 free = (d.get("Pages free", 0) + d.get("Pages speculative", 0) + d.get("Pages inactive", 0)) * ps / 1024 / 1024
-print(f"FREE_MB={free:.0f}")
-if free >= 400: print("RAM_LABEL=OK")
-elif free >= 200: print("RAM_LABEL=TIGHT")
-else: print("RAM_LABEL=CRITIQUE")
+print(f"ram_free={free:.0f}")
+if free >= 400: print("ram_label=OK")
+elif free >= 200: print("ram_label=TIGHT")
+else: print("ram_label=CRITIQUE")
 PY
 )"
 

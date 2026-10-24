@@ -1,62 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.058192226741271,
-      "value": 1.82,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif massif. L'anomalie détectée (z-score 2.06) concerne des fonds actions/credit traditionnels (BNP Paribas, Blackstone) et non un actif crypto. Aucune corrélation onchain ou de marché crypto n'existe pour ces instruments. Le narratif médiatique est cohérent avec la réalité financière classique, il n'y a pas de divergence crypto.\"\n}",
-      "ts": "2026-10-22T12:07:41.800758+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3498739504889374,
-      "value": 0.801,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif. L'acronyme 'IPT' correspond ici à des entités non-crypto (International Petroleum Corp, IMPACT Silver Corp, Institut de Physique). Aucune corrélation avec les mouvements de baleines crypto. Le bruit médiatique est purement contextuel et sans lien avec l'anomalie onchain.\"\n}\n```",
-      "ts": "2026-10-22T12:32:45.873976+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.274567700305902,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au mempool Bitcoin (saturation/frais), sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique concerne des homonymes locaux sans pertinence macro-crypto.\"\n}\n```",
-      "ts": "2026-10-22T12:58:07.519658+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.274567700305902,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique mineure (z-score 2.27 sur du 'dust') totalement déconnectée des médias, lesquels font référence à de l'art, des actions traditionnelles ou du cinéma. Aucun mouvement significatif de baleine crypto détecté.\"\n}\n```",
-      "ts": "2026-10-22T12:58:39.376305+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.5219435632290907,
-      "value": 0.872,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique faussée (bruit statistique) : le symbole 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et à des acronymes institutionnels sans lien avec la crypto.\"\n}\n```",
-      "ts": "2026-10-22T13:04:35.310256+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.9106225674698205,
-      "value": 4200078.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.91) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
-      "ts": "2026-10-22T13:15:42.268231+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1055750354747262,
-      "value": 0.809,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de ciblage : l'actif 'IPT' (International Petroleum Corp / IMPACT Silver) est une action traditionnelle (equity/commodity), pas une cryptomonnaie. Aucune donnée onchain ou mouvement de baleine crypto pertinent à analyser.\"\n}\n```",
-      "ts": "2026-10-22T13:46:04.542806+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.0799961652628602,
-      "value": 1.933,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score critique de 2.08 (1.933), indiquant une surconcentration extrême des positions acheteuses par les baleines. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur des produits institutionnels traditionnels et de la gestion de fonds macro. Cette euphorie unilatérale des gros porteurs sans couverture médiatique crypto signale un piège à liquidité imminent (excès de levier haussier propice à une purge).\"\n}\n```",
-      "ts": "2026-10-22T14:06:17.198878+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.5542791269407505,
       "value": 3338094.0,
@@ -349,6 +293,62 @@
       "value": 5915655.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le bruit médiatique est pollué par des fausses pistes juridiques traditionnelles (faillites d'entreprises, BODACC) et des liquidations de détail mineures (5,9M$ on-chain vs 431M$ fantasmés), masquant un flush sain des positions à levier excessif permettant aux baleines d'accumuler discrètement.\"\n}\n```",
       "ts": "2026-10-23T22:59:40.906204+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 16.94107434609743,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice parfaitement neutre (51) et absence totale de titres médiatiques significatifs. Aucune divergence notable détectée : le marché et les médias sont dans l'attentisme.\"\n}\n```",
+      "ts": "2026-10-24T00:19:51.859969+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1788523057076485,
+      "value": 0.5793692806682182,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.18) sur le prix à court terme sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant l'emballement du narratif public.\"\n}\n```",
+      "ts": "2026-10-24T00:25:09.826222+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.053106873135784,
+      "value": 3374967.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie d'accumulation on-chain (Z-score 3.05, ~3.37M USD) totalement ignorée par les médias (silence radio). Classique accumulation furtive de baleines loin du bruit de fond.\"\n}\n```",
+      "ts": "2026-10-24T00:25:15.117776+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.335839103296187,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Z-score élevé (6.34) sur un Fear & Greed neutre (51) combiné à un vide médiatique total suggère une accumulation discrète ou une phase de calme avant rupture, mais sans mouvement on-chain directionnel clair des baleines.\"\n}\n```",
+      "ts": "2026-10-24T00:50:20.206747+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1995716813955095,
+      "value": 0.6353601979708801,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (Z-score 3.20) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-24T00:55:29.943790+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.173308282444649,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée à la congestion du réseau (frais/mempool), sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique concerne des homonymes (éducation, pharmacie) ou des tutoriels techniques génériques.\"\n}\n```",
+      "ts": "2026-10-24T00:55:31.293726+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.173308282444649,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes non-crypto (agriculture, IA, actions traditionnelles, musique). L'anomalie onchain 'dust' (z-score 2.17) est trop faible et noyée dans du bruit sémantique non pertinent pour confirmer une accumulation ou distribution de baleines.\"\n}\n```",
+      "ts": "2026-10-24T00:55:32.977443+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.599331055039013,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice neutre (51) avec un z-score élevé indiquant une volatilité statistique, mais l'absence de titres médiatiques significatifs (Google Actualités vide/neutre) montre un vide informationnel. Pas de divergence claire détectée pour initier un mouvement de baleine.\"\n}\n```",
+      "ts": "2026-10-24T01:20:39.935811+00:00"
     }
   ]
 }

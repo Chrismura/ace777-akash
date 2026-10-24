@@ -1,63 +1,102 @@
 {
-  "ts": "2026-10-23T17:59:41.268145+00:00",
+  "ts": "2026-10-23T23:59:44.061319+00:00",
   "statut": "STALE",
-  "age_rapport_h": 12.0,
+  "age_rapport_h": 18.0,
   "bascules": [
     {
-      "pair": "RWAINCUSDT",
+      "pair": "CCUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.298,
+      "corr_maintenant": -0.11
+    },
+    {
+      "pair": "KITEUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.242,
+      "corr_maintenant": 0.076
+    },
+    {
+      "pair": "LAUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.294,
+      "corr_maintenant": -0.04
+    },
+    {
+      "pair": "MNSRYUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.242,
+      "corr_maintenant": -0.106
+    },
+    {
+      "pair": "RIZEUSDT",
+      "avant": "neutre",
+      "maintenant": "LEADER",
+      "corr_avant": 0.066,
+      "corr_maintenant": 0.199
+    },
+    {
+      "pair": "WUSDT",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": -0.102,
+      "corr_maintenant": -0.165
+    },
+    {
+      "pair": "ZBCNUSDT",
       "avant": "LEADER",
       "maintenant": "neutre",
-      "corr_avant": 0.282,
-      "corr_maintenant": -0.019
+      "corr_avant": 0.168,
+      "corr_maintenant": 0.056
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
-  "message": "🟡 Pattern suivi mais rapport vieux de 12h — vérifier le moteur (croisement_contexte.jsonl)",
+  "message": "🟡 Pattern suivi mais rapport vieux de 18h — vérifier le moteur (croisement_contexte.jsonl)",
   "leaders": [
     "EDELUSDT",
-    "ZBCNUSDT"
+    "RIZEUSDT"
   ],
   "pompes_pieges": [
     "BIOUSDT",
     "BTCUSDT",
-    "CCUSDT",
     "CHIPUSDT",
     "ETHUSDT",
     "FLUIDUSDT",
     "HBARUSDT",
     "IOTAUSDT",
-    "KITEUSDT",
-    "LAUSDT",
-    "MNSRYUSDT",
     "PYTHUSDT",
     "QNTUSDT",
     "REDUSDT",
     "WAXLUSDT",
+    "WUSDT",
     "XRPUSDT"
   ],
   "stabilite": {
-    "BIOUSDT": 13,
-    "BTCUSDT": 34,
-    "CCUSDT": 40,
-    "CHIPUSDT": 34,
-    "EDELUSDT": 3,
-    "ETHUSDT": 34,
-    "FLUIDUSDT": 14,
-    "HBARUSDT": 12,
-    "IOTAUSDT": 12,
-    "KITEUSDT": 2,
-    "LAUSDT": 33,
-    "MNSRYUSDT": 12,
-    "PYTHUSDT": 12,
-    "QNTUSDT": 14,
-    "REDUSDT": 13,
-    "RIZEUSDT": 0,
+    "BIOUSDT": 14,
+    "BTCUSDT": 35,
+    "CCUSDT": 0,
+    "CHIPUSDT": 35,
+    "EDELUSDT": 4,
+    "ETHUSDT": 35,
+    "FLUIDUSDT": 15,
+    "HBARUSDT": 13,
+    "IOTAUSDT": 13,
+    "KITEUSDT": 0,
+    "LAUSDT": 0,
+    "MNSRYUSDT": 0,
+    "PYTHUSDT": 13,
+    "QNTUSDT": 15,
+    "REDUSDT": 14,
+    "RIZEUSDT": 1,
     "RWAINCUSDT": 0,
     "RWAUSDT": 0,
-    "WAXLUSDT": 11,
-    "WUSDT": 0,
-    "XRPUSDT": 12,
-    "ZBCNUSDT": 3
+    "WAXLUSDT": 12,
+    "WUSDT": 1,
+    "XRPUSDT": 13,
+    "ZBCNUSDT": 0
   },
   "recommande": "CONFRONTER AVEC CORTANA/FAMILLE"
 }

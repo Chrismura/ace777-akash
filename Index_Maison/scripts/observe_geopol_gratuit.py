@@ -34,11 +34,36 @@ def get_json(url, timeout=20):
         return json.loads(r.read().decode("utf-8", "ignore"))
 
 
-def gdelt(query, n=3, attente=8.0):
+PENALTY_PATH = THERMO + "/geopol_gdelt_penalty.json"
+PENALTY_SECS = 1800.0  # 30 min sans GDELT après un 429 (fail-open poli)
+
+
+def gdelt_bloque():
+    """Vrai si un 429 récent impose le silence (penalty box auto)."""
+    try:
+        p = json.load(open(PENALTY_PATH, encoding="utf-8"))
+        return (time.time() - float(p.get("ts_epoch", 0))) < PENALTY_SECS
+    except Exception:
+        return False
+
+
+def gdelt_marque_429():
+    try:
+        json.dump({"ts_epoch": time.time(), "ts": utc(), "raison": "HTTP 429"},
+                  open(PENALTY_PATH, "w", encoding="utf-8"))
+    except Exception:
+        pass
+
+
+def gdelt(query, n=3, attente=15.0):
     """Top headlines GDELT artlist (gratuit, sans clé).
     Poli : n petit + pause entre appels (GDELT rate-limite vite : 429).
-    Un 429 -> une seule reprise après pause, sinon on note HS (fail-open)."""
+    Un 429 -> penalty box 30 min + une seule reprise longue, sinon HS (fail-open).
+    FIX 24/10 (sante) : les 429 en rafale du 23/10 venaient de re-runs manuels
+    trop rapprochés ; la penalty box évite de marteler pendant 30 min."""
     import urllib.error as _ue
+    if gdelt_bloque():
+        raise RuntimeError("penalty box (429 recent, reprise dans <30 min)")
     q = urllib.parse.quote(query)
     url = (f"https://api.gdeltproject.org/api/v2/doc/doc?query={q}"
            f"&mode=artlist&maxrecords={n}&format=json&sort=dateasc")
@@ -46,8 +71,14 @@ def gdelt(query, n=3, attente=8.0):
         d = get_json(url)
     except _ue.HTTPError as e:
         if getattr(e, "code", 0) == 429:
-            time.sleep(45.0)
-            d = get_json(url)
+            gdelt_marque_429()
+            time.sleep(120.0)
+            try:
+                d = get_json(url)
+            except _ue.HTTPError as e2:
+                if getattr(e2, "code", 0) == 429:
+                    gdelt_marque_429()
+                raise
         else:
             raise
     finally:
