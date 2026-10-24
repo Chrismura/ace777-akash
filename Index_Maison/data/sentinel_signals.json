@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 6.304738792053016,
-      "value": 5352062.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.30) couplée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement hors du radar des médias de masse.\"\n}\n```",
-      "ts": "2026-10-23T18:28:48.121920+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 8.21483740158145,
-      "value": 7303126.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 8.21, soit 7.3M USD) couplée à un silence médiatique absolu (Google Actualités vide). Divergence classique d'accumulation furtive par les baleines loin des radars de la foule.\"\n}\n```",
-      "ts": "2026-10-23T19:08:56.435779+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.809353209142699,
-      "value": 4112588.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.81) pour un flux significatif de 4.11M$ de baleines sans aucune couverture médiatique (Google Actualités vide). Divergence classique d'accumulation silencieuse hors du radar retail.\"\n}\n```",
-      "ts": "2026-10-23T20:14:08.975044+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.6218312933728796,
-      "value": 0.5685203761069957,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.62) totalement ignorée par les médias traditionnels (Google Actualités vide). C'est la signature classique d'une accumulation furtive de baleines en amont d'un mouvement de marché.\"\n}\n```",
-      "ts": "2026-10-23T22:49:36.948459+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 5.552727823541529,
-      "value": 5915655.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence : le bruit médiatique est pollué par des fausses pistes juridiques traditionnelles (faillites d'entreprises, BODACC) et des liquidations de détail mineures (5,9M$ on-chain vs 431M$ fantasmés), masquant un flush sain des positions à levier excessif permettant aux baleines d'accumuler discrètement.\"\n}\n```",
-      "ts": "2026-10-23T22:59:40.906204+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 16.94107434609743,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice parfaitement neutre (51) et absence totale de titres médiatiques significatifs. Aucune divergence notable détectée : le marché et les médias sont dans l'attentisme.\"\n}\n```",
-      "ts": "2026-10-24T00:19:51.859969+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.1788523057076485,
       "value": 0.5793692806682182,
@@ -349,6 +307,48 @@
       "value": 1.559,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.33) indique une domination agressive des acheteurs (Taker Buy) sur les carnets d'ordres, signalant une accumulation agressive des baleines. En l'absence de couverture médiatique notable (Google Actualités muet), cette pression d'achat reste un mouvement de 'smart money' totalement sous le radar public.\"\n}\n```",
       "ts": "2026-10-24T19:10:39.383674+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.148025103947717,
+      "value": 7720786.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.15, ~7.7M USD) dans le silence médiatique total. Accumulation invisible typique des 'smart money' avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-24T19:35:43.283999+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2701496573785067,
+      "value": 0.926,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.27) détectée sur un ticker 'ipt' qui correspond à des actions traditionnelles (International Petroleum Corp) ou à du bruit médiatique sans lien avec la crypto. Aucune baleine crypto identifiée : le 'narratif' est un mélange hors-sujet sans pertinence onchain.\"\n}\n```",
+      "ts": "2026-10-24T19:35:44.661742+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.1748160413096875,
+      "value": 1.559,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.17) indique une domination agressive des acheteurs sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Aucun narratif médiatique majeur ne reflète cette pression d'achat, prouvant une divergence totale et un mouvement de \"smart money\" silencieux avant une potentielle cassure haussière.\"\n}\n```",
+      "ts": "2026-10-24T19:40:46.641283+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.2517926607799494,
+      "value": 4558522.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur des liquidations mineures (4,5M$ vs 200M$ fantasmés) agitant le seuil psychologique des 80k$. Classique purge des positions acheteuses en retard, le z-score modéré indique un 'shakeout' de détail orchestré avant la reprise.\"\n}\n```",
+      "ts": "2026-10-24T20:05:51.097955+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1057453156699077,
+      "value": 4569282.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur des liquidations mineures (4,5M$ onchain vs 200M$ fantasmés par les médias) agissant comme un 'flush' classique des positions long à effet de levier. Les baleines profitent de cette capitulation de détail sous les 80k$ pour accumuler silencieusement.\"\n}\n```",
+      "ts": "2026-10-24T20:36:07.109712+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 5.629506328279927,
+      "value": 7139914.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.63, +7.1M USD) dans un silence médiatique absolu. Les baleines accumulent discrètement avant que le narratif public ne s'empare du mouvement.\"\n}\n```",
+      "ts": "2026-10-24T21:21:17.986245+00:00"
     }
   ]
 }
