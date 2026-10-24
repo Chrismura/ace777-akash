@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 6.259671449875484,
-      "value": 0.7308680752456609,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (6.26) couplé à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant une percée des prix.\"\n}\n```",
-      "ts": "2026-10-22T16:50:59.334913+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.7438790063082052,
       "value": 6438533.0,
@@ -349,6 +342,13 @@
       "value": 51,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence de données onchain concrètes (flux, volumes, positions) et de titres médiatiques spécifiques. L'indicateur Fear & Greed est neutre (51) et le z-score, bien que présent, ne peut être interprété sans contexte de volume ou de prix. Impossible de détecter une divergence ou un mouvement de baleines avec les informations fournies.\"\n}",
       "ts": "2026-10-24T04:21:21.009648+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.058242851648863,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice parfaitement neutre (51) malgré un z-score élevé, et absence de titres médiatiques significatifs. Pas de mouvement de baleine détectable ou de divergence exploitable.\"\n}\n```",
+      "ts": "2026-10-24T04:51:25.201712+00:00"
     }
   ]
 }

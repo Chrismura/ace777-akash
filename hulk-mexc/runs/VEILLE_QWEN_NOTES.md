@@ -8405,3 +8405,15 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-24T04:06:17Z — ALERT auto
 - LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-24T04:35:45Z — ALERT auto
+- REDUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T05:33:28Z — ALERT auto
+- LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T05:37:57Z — ALERT auto
+- REDUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
