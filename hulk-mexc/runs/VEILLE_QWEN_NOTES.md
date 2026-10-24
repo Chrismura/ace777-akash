@@ -8385,3 +8385,23 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-24T01:01:01Z — ALERT auto
 - LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-24T02:04:53Z — ALERT auto
+- WAXLUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T02:11:22Z — ALERT auto
+- LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T03:20:10Z — ALERT auto
+- WAXLUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T03:20:58Z — ALERT auto
+- REDUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T04:06:17Z — ALERT auto
+- LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

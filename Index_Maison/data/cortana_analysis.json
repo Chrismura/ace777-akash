@@ -1,139 +1,15 @@
 {
-  "timestamp": 1792804848,
-  "date": "2026-10-24T01:20:48.306767+00:00",
-  "n_analyses": 4,
+  "timestamp": 1792815951,
+  "date": "2026-10-24T04:25:51.603393+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 3.1995716813955095,
-        "value": 0.6353601979708801,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (Z-score 3.20) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines loin des radars du retail.\"\n}\n```",
-        "ts": 1792803329.94379
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.14,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 3200626.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 5e-05,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.173308282444649,
-        "value": 45.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée à la congestion du réseau (frais/mempool), sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique concerne des homonymes (éducation, pharmacie) ou des tutoriels techniques génériques.\"\n}\n```",
-        "ts": 1792803331.293726
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 102,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.14,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.173308282444649,
-        "value": 45.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes non-crypto (agriculture, IA, actions traditionnelles, musique). L'anomalie onchain 'dust' (z-score 2.17) est trop faible et noyée dans du bruit sémantique non pertinent pour confirmer une accumulation ou distribution de baleines.\"\n}\n```",
-        "ts": 1792803332.977443
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 102,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.14,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
         "metric": "fear_greed",
-        "zscore": 4.599331055039013,
+        "zscore": 2.2085178333914812,
         "value": 51,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice neutre (51) avec un z-score élevé indiquant une volatilité statistique, mais l'absence de titres médiatiques significatifs (Google Actualités vide/neutre) montre un vide informationnel. Pas de divergence claire détectée pour initier un mouvement de baleine.\"\n}\n```",
-        "ts": 1792804839.935811
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence de données onchain concrètes (flux, volumes, positions) et de titres médiatiques spécifiques. L'indicateur Fear & Greed est neutre (51) et le z-score, bien que présent, ne peut être interprété sans contexte de volume ou de prix. Impossible de détecter une divergence ou un mouvement de baleines avec les informations fournies.\"\n}",
+        "ts": 1792815681.009648
       },
       "fiche": "fear_greed",
       "questions": {
