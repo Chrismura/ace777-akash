@@ -21,7 +21,8 @@
     "2026-10-04": 8,
     "2026-10-16": 8,
     "2026-10-17": 8,
-    "2026-10-20": 8
+    "2026-10-20": 8,
+    "2026-10-24": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -3281,6 +3282,157 @@
       "usage": "chat",
       "avis_pour": "À tester si vous souhaitez expérimenter des capacités multimodales et de traitement d'images sans frais.",
       "avis_attention": "Ne convient pas pour le code ou le jugement stratégique textuel ; attention aux ressources nécessaires pour le faire tourner."
+    },
+    "e2c0efabb3aa": {
+      "section": "openrouter (:free)",
+      "item": "recursive/flint-v1.0:free",
+      "generated": "2026-10-24T08:57:48.594760+00:00",
+      "type": "Modèle expérimental gratuit disponible sur OpenRouter",
+      "forts": [
+        "Accès gratuit via OpenRouter",
+        "Idéal pour tester de nouvelles architectures",
+        "Léger et rapide"
+      ],
+      "faibles": [
+        "Performances non garanties sur des tâches complexes",
+        "Documentation et historique limités",
+        "Disponibilité liée aux quotas gratuits du fournisseur"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour enrichir notre veille de modèles gratuits et tester des alternatives légères sans impacter le budget cloud.",
+      "avis_attention": "Restez prudent sur les tâches critiques (scripts de trading ou jugement strict) tant qu'il n'a pas fait ses preuves en production."
+    },
+    "e03910d0ad62": {
+      "section": "inferx",
+      "item": "deepseek-v4.1-flash-1017",
+      "generated": "2026-10-24T08:57:49.807706+00:00",
+      "type": "Modèle flash rapide pour l'assistance et le prototypage léger",
+      "forts": [
+        "Réponses ultra-rapides",
+        "Idéal pour du prototypage de scripts Python simples",
+        "Gratuit et accessible"
+      ],
+      "faibles": [
+        "Profondeur d'analyse limitée par rapport aux poids lourds",
+        "Moins précis sur le jugement de signets complexes"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour obtenir des réponses instantanées lors de petits tests de code ou de requêtes exploratoires.",
+      "avis_attention": "Restez prudent sur les tâches critiques de stratégie ou d'audit de protocoles nécessitant une haute rigueur."
+    },
+    "a52f33236bc3": {
+      "section": "huggingface récents",
+      "item": "mradermacher/GLM-5.3-Flash-i1-GGUF",
+      "generated": "2026-10-24T08:57:51.043538+00:00",
+      "type": "Modèle de langage quantisé GGUF récent pour l'inférence locale ou les tests",
+      "forts": [
+        "Poids quantisé GGUF léger et rapide",
+        "Basé sur l'architecture récente GLM-5.3",
+        "Gratuit à récupérer via Hugging Face pour tests locaux"
+      ],
+      "faibles": [
+        "Nécessite une configuration matérielle locale (RAM/VRAM)",
+        "Performances variables selon la quantification choisie (i1)",
+        "Non intégré nativement dans les providers cloud principaux d'ACE777"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour explorer les architectures GLM récentes en local sans dépendre du cloud.",
+      "avis_attention": "Attention au format GGUF i1 qui demande des runtimes compatibles spécifiques et un pilotage local."
+    },
+    "07861ec5ca83": {
+      "section": "huggingface trending (montée)",
+      "item": "RecursiveSI/flint",
+      "generated": "2026-10-24T08:57:52.498344+00:00",
+      "type": "Modèle émergent open-source issu des tendances Hugging Face",
+      "forts": [
+        "Gratuit et accessible via l'écosystème open-source",
+        "Potentiel intéressant pour le prototypage rapide de code",
+        "Détecté parmi les tendances montantes de la communauté"
+      ],
+      "faibles": [
+        "Manque de recul sur la robustesse en production critique",
+        "Documentation et intégration native encore limitées",
+        "Performances variables selon la complexité des tâches logiques"
+      ],
+      "usage": "codeur",
+      "avis_pour": "À tester en sandbox pour évaluer sa pertinence sur de petits scripts Python utilitaires.",
+      "avis_attention": "Attention à sa stabilité et à l'absence de garantie de service à long terme."
+    },
+    "d525c5073e18": {
+      "section": "huggingface trending (montée)",
+      "item": "XHToken/Spark-X2.6-4B",
+      "generated": "2026-10-24T08:57:53.903375+00:00",
+      "type": "Modèle open-weights émergent orienté agents et raisonnement léger",
+      "forts": [
+        "Architecture récente et performante sur les tendances trending",
+        "Adapté au prototypage rapide de scripts Python",
+        "Gratuit et accessible via l'écosystème Hugging Face"
+      ],
+      "faibles": [
+        "Historique de performance en production encore court",
+        "Stabilité et limites de contexte à surveiller sur des tâches complexes",
+        "Non intégré nativement dans les routages prioritaires actuels"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester pour diversifier nos sources d'analyse et évaluer son agilité sur les scripts légers.",
+      "avis_attention": "Garder à l'esprit qu'il s'agit d'une offre émergente dont la fiabilité à long terme demande confirmation."
+    },
+    "43f63b57fb87": {
+      "section": "huggingface trending (montée)",
+      "item": "OpenMOSS-Team/MOSS-Image-Base",
+      "generated": "2026-10-24T08:57:55.826754+00:00",
+      "type": "Modèle de vision et d'image open-source en tendance sur Hugging Face",
+      "forts": [
+        "Architecture orientée traitement d'image et multimodal",
+        "Dynamique communautaire active (trending HF)",
+        "Poids open-source exploitable en local ou via API compatibles"
+      ],
+      "faibles": [
+        "Spécificité centrée sur l'image moins adaptée au pur code textuel",
+        "Documentation et intégration parfois techniques",
+        "Consommation en ressources potentiellement élevée"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester si vous cherchez à diversifier vos capacités d'analyse visuelle avec des architectures alternatives.",
+      "avis_attention": "Attention, ce modèle est taillé pour l'image et ne remplacera pas un LLM textuel pour le jugement ou les scripts Python."
+    },
+    "a1c129949070": {
+      "section": "huggingface trending (montée)",
+      "item": "Qwen/Qwen3.8-27B",
+      "generated": "2026-10-24T08:57:56.768828+00:00",
+      "type": "Modèle de langage open-source de grande taille (27B) hébergé sur Hugging Face",
+      "faibles": [
+        "Nécessite des ressources matérielles lourdes (GPU) pour une inférence locale rapide",
+        "Latence potentiellement élevée si utilisé via des endpoints gratuits partagés",
+        "Taille importante (27B) qui peut dépasser les limites de contexte ou de mémoire des API gratuites standard"
+      ],
+      "forts": [
+        "Grande capacité de raisonnement pour l'analyse complexe et la synthèse",
+        "Open-source, permettant une intégration locale ou sur des serveurs dédiés sans coûts d'API récurrents",
+        "Bonne qualité générale pour la génération de texte et le code en Python"
+      ],
+      "usage": "Analyste de stratégie ou générateur de fiches complexes nécessitant un raisonnement approfondi",
+      "avis_pour": "Excellente option pour les tâches d'analyse lourde si vous avez l'infrastructure pour l'héberger ou un accès à un endpoint performant.",
+      "avis_attention": "Vérifiez la disponibilité réelle d'un endpoint gratuit et stable, car les modèles de cette taille sont rarement accessibles gratuitement sans latence excessive."
+    },
+    "cf7f826b31ea": {
+      "section": "huggingface trending (montée)",
+      "item": "Comfy-Org/MOSS-Image",
+      "generated": "2026-10-24T08:57:57.553478+00:00",
+      "type": "Modèle de génération d'images open-source",
+      "forts": [
+        "Gratuit et accessible via Hugging Face",
+        "Qualité visuelle élevée pour la création d'assets",
+        "Communauté active et documentation technique"
+      ],
+      "faibles": [
+        "Inadapté au traitement de texte ou au code",
+        "Nécessite une infrastructure GPU lourde pour l'inférence",
+        "Aucune capacité d'analyse ou de raisonnement logique"
+      ],
+      "usage": "Génération de visuels pour les rapports ou l'interface cockpit",
+      "avis_pour": "Idéal pour créer des illustrations personnalisées sans coût de licence.",
+      "avis_attention": "Inutile pour nos tâches actuelles de scripting, d'analyse de marché ou de jugement de signets."
     }
   }
 }

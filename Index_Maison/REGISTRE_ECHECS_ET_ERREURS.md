@@ -1149,3 +1149,14 @@ n'exempte pas de R20.1). Re-scellement avec ce motif : le re-scellement constate
 3. Présent §21 (pré-déclaré, append-only, passé non réécrit).
 
 **Preuves** : sentinelle live OK exit 0 (C1 div 0,0003 $, 17 positions, state 0,0 min) · backtest 3 runs (1018/1016/1010) C1 0,0003 + C2 OK toutes paires, 0 mensonge · 3 tests synthétiques (DUST_DROP honnête ts+1 s apparié sans double-compte · mensonger détecté · sans-cause détecté). Dette procédure : 0 violation ce jour (R20.1 appliquée : --declarer avant chaque écriture). IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §22 — FAUTE : mélange inter-actifs — chaque actif devait rester étanche bag 10 $ + mise 20 $ (24/10/2026, ordre Christophe : « je t'avais déjà demandé de le faire »)
+
+**Constat** : la demande d'origine (bag ≈ 10 $ + mise 20 $ par actif, chacun gère ÇA et QUE ÇA, sans mélanger) n'est pas tenue. Preuves à la source, vérifiées le 24/10 :
+- Config : `NOTIONAL_USDT=30` (pas 20), `COMPOUND_ON=1 FRAC=0.50 MAX×3`, `CASH_REDEPLOY_ON=1`, `SEED_USDT=150/17` — la mise de référence est 30 $, pas 20 $.
+- Code : `current_notional(pair=None)` utilise le PnL GLOBAL (`pnl_total`) ; avec `pair` il utilise `pair_pnl` (câblé le 14/10 seulement). Les achats standard d'avant le 14/10 ont donc grossi avec les gains DES AUTRES. Ligne 4148 (heartbeat) est toujours globale.
+- Journal (run PAPER_V1_20261018_100103) : 15 achats BTC+ETH au-dessus de 20,50 $ — ex. BTC 57,85 $ le 24/09, 59,10 $ et 59,52 $ en redeploy, ETH 63,68 $ le 16/10.
+- Preuve du mélange : le 16/10, `pair_pnl ETH = -0,93 $` (mise étanche attendue ≈ 29,77 $) mais `pnl_total = +47,08 $` (mise globale 30+47,08×0,5 = 53,54 $, ×1,2 mur ≈ 64 $) = la mise réelle 63,68 $. L'argent des autres a payé la mise ETH. Idem BTC (mises 59 $ en `cash_redeploy`, possibles seulement parce que le cash de la paire a accumulé les ventes précédentes + compounding global).
+- Conséquence : les lignes +47,11 $ (BTC) et +43,19 $ (ETH) du cockpit comparent un coffre gonflé aux mises recyclées à une enveloppe de 20-30 $ — ce n'est PAS le gain de trading de l'actif (BTC -1,69 $, ETH -1,11 $ moteur). On ne peut plus voir « s'il sait trader tout seul ».
+**Règles violées** : demande explicite d'étanchéité par actif (non tenue = faute, pas un choix) · E-transparence (affichage qui ressemble à du gain).
+**Correction (attend ton GO, RIEN câblé sans toi)** : mode ÉTANCHE = base 20 $ par actif, aucun compounding croisé (mise = f(pnl DE CETTE PAIRE) uniquement), aucun redeploy au-delà de l'enveloppe, plafond 20 $ dur. Le passé n'est pas réécrit (E15). IA=Buffy (Muse Spark 1.3, Freebuff).

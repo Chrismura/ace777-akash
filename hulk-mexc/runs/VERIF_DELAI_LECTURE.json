@@ -1,14 +1,26 @@
 {
-  "ts_utc": "2026-10-24T07:26:58Z",
+  "ts_utc": "2026-10-24T10:27:34Z",
   "barre_s": 1.0,
-  "lectures_mesurees": 2822,
-  "lectures_sans_mesure": 4953,
-  "median_s": 0.986,
-  "p90_s": 1.994,
+  "lectures_mesurees": 3926,
+  "lectures_sans_mesure": 6884,
+  "median_s": 0.997,
+  "p90_s": 1.996,
   "max_s": 14.116,
-  "pct_sous_barre": 57.5,
+  "pct_sous_barre": 51.8,
   "angle_mort_pct": 63.7,
   "conforme": true,
-  "verdict": "médiane 0.986 s — BARRE 1.0 s TENUE sur les lectures mesurables ; 63.7 % des lectures (4953) n'ont AUCUN délai mesuré",
-  "plancher_physique": {}
+  "verdict": "médiane 0.997 s — BARRE 1.0 s TENUE sur les lectures mesurables ; 63.7 % des lectures (6884) n'ont AUCUN délai mesuré",
+  "plancher_physique": {
+    "depth": {
+      "n": 10,
+      "median_ms": 483,
+      "min_ms": 396
+    },
+    "price": {
+      "n": 10,
+      "median_ms": 263,
+      "min_ms": 231
+    }
+  },
+  "plancher_note": "un seul appel /depth coûte 483 ms : une lecture COMPLÈTE (2 appels + 0.5 s d'écart voulu pour mesurer la CHUTE) ne peut pas descendre sous 983 ms par construction"
 }

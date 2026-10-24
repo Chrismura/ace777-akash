@@ -844,6 +844,16 @@ class PaperBot:
         # 281,72 $ déployés (théorique 22×90 = 1 980 $). Cap 600 $ ≈ 2× le mesuré.
         # 0 = OFF (historique). Dépassement → SKIP GBAG_GATE/GLOBAL_CAP, jamais muet.
         self.compound_global_cap = float(cfg.get("COMPOUND_GLOBAL_CAP", "0"))
+        # === ÉTANCHE (24/10/2026, ORDRE Christophe « UNE DERNIERE FOIS », §22) ===
+        # 1 actif = 1 enveloppe : base 20 $, compounding sur SON pnl uniquement
+        # (jamais le pot commun), amplitude intacte. Coupure du mélange vérifiée
+        # le 24/10 (§22 : mise ETH 63,68 $ payée par le global +47,08 $ alors que
+        # la paire était à -0,93 $). Réversible : ETANCHE_ON=0 → historique exact.
+        self.etanche_on = cfg.get("ETANCHE_ON", "0").strip() not in ("0", "false", "False")
+        try:
+            self.etanche_mise_max = float(cfg.get("ETANCHE_MISE_MAX", "60"))
+        except Exception:
+            self.etanche_mise_max = 60.0
         self.reentry_on = cfg.get("REENTRY_ON", "1").strip() not in ("0", "false", "False")
         self.reentry_dd = float(cfg.get("REENTRY_DD_PCT", "6"))
         self.reentry_ttl = float(cfg.get("REENTRY_TTL_SEC", "7200"))
@@ -1212,7 +1222,12 @@ class PaperBot:
         compounding, chacun avec le sien. Sans `pair` : comportement historique exact
         (PnL global) — compatibilité tests et headline `notional_live` inchangée.
         """
-        ref = self.pnl_total if pair is None else float(self.pair_pnl.get(pair) or 0.0)
+        # ÉTANCHE (24/10/2026, §22) : sans paire on ne prend JAMAIS le pot commun —
+        # ref 0 (headline à la base). Avec paire : SON pnl uniquement, jamais le global.
+        if getattr(self, "etanche_on", False) and pair is None:
+            ref = 0.0
+        else:
+            ref = self.pnl_total if pair is None else float(self.pair_pnl.get(pair) or 0.0)
         if not self.compound_on:
             self.notional = self.base_notional
         else:
@@ -2489,6 +2504,12 @@ class PaperBot:
                 say("warn", f"[{utc_now()}] BUY skip {pair} WALLGATE: {why}")
                 self.log(pair, "SKIP", regime, price, price, 0.0, 0.0, sc.get("cadence_pct"), f"WALLGATE:{wb:.0f}USD")
                 return
+        # === CAP DUR ÉTANCHE (24/10/2026, §22) : 1 trade ne dépasse JAMAIS
+        # ETANCHE_MISE_MAX — ni le global, ni wall_mult, ni aucun multiplicateur
+        # ne peut faire payer à la paire l'argent des autres. Cap crié, jamais muet.
+        if getattr(self, "etanche_on", False) and trade_n > float(self.etanche_mise_max):
+            say("warn", f"[{utc_now()}] ETANCHE_CAP {pair} mise {trade_n:.2f}$ → {float(self.etanche_mise_max):.2f}$")
+            trade_n = float(self.etanche_mise_max)
         if trade_n < 1.0:
             return
         # famille 16/08 : garde spread au buy (même tier A) — paires mal classées (ex. QAIT 327 bps)
@@ -3470,7 +3491,9 @@ class PaperBot:
             need = sc.get("impulse_entry_pct", max(sc["dip_pct"], 5.0))
             if sc["dd6_pct"] < need:
                 return False
-        taken = self.take_pair_cash(pair)
+        # ÉTANCHE (24/10/2026, §22) : le redeploy ne réinvestit que l'argent DE LA
+        # PAIRE, borné au cap — jamais un centime d'une autre paire.
+        taken = self.take_pair_cash(pair, self.etanche_mise_max if getattr(self, "etanche_on", False) else None)
         if taken < 2.0:
             return False
         say(

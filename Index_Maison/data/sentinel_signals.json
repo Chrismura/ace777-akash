@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 3.7438790063082052,
-      "value": 6438533.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une pollution sémantique : le z-score on-chain et les données de liquidations cryptos sont capturés par des actualités de presse locale sur des liquidations judiciaires d'entreprises traditionnelles. Aucune divergence macro ni mouvement de baleine détecté.\"\n}\n```",
-      "ts": "2026-10-22T16:51:22.933145+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.524903992523991,
-      "value": 0.985,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de contexte : les données textuelles font référence à des actions traditionnelles (International Petroleum Corp, IMPACT Silver) et à des actualités institutionnelles, sans lien avec une cryptomonnaie active sur la blockchain.\"\n}\n```",
-      "ts": "2026-10-22T17:06:39.149687+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1113718719962504,
-      "value": 0.89,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de données : 'ipt' fait référence à des homonymes non-crypto (International Petroleum Corp, IMPACT Silver, tournoi de physique) et non à un token sur la blockchain. Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-22T18:01:52.887392+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.8011733502430163,
       "value": 1.131,
@@ -349,6 +328,27 @@
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice parfaitement neutre (51) malgré un z-score élevé, et absence de titres médiatiques significatifs. Pas de mouvement de baleine détectable ou de divergence exploitable.\"\n}\n```",
       "ts": "2026-10-24T04:51:25.201712+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.569452687620574,
+      "value": 0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le volume nul (z-score -2.57) est incohérent avec l'activité crypto réelle (fusion GMX/Solana). Les titres médiatiques sont majoritairement hors sujet (immobilier, santé, e-commerce), indiquant une erreur de corrélation ou un bruit de données plutôt qu'un mouvement de baleines.\"\n}",
+      "ts": "2026-10-24T08:41:41.793406+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -2.779272154923808,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 5,\n  \"reason\": \"Faux positif : Le 'SDI' mentionné dans les titres est le Syndicat des Industries (contexte politique/social français), non un indicateur onchain. Aucune corrélation avec l'activité crypto.\"\n}\n```",
+      "ts": "2026-10-24T08:41:43.000808+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.631894530621708,
+      "value": 1,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. L'anomalie détectée (z-score -2.63) concerne des ETF actions/credit classiques (BNP Paribas, Blackstone) et non un actif crypto. Le narratif médiatique traite de stratégies financières traditionnelles, sans lien avec les flux onchain crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-10-24T08:41:44.218427+00:00"
     }
   ]
 }

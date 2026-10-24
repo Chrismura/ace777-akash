@@ -157,6 +157,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 | 2026-10-09T1341Z | Buffy | ⚠ | Index_Maison/scripts | DEFAUT D'ORDRE (classe E22, 3e recidive du jour) : 2 fichiers NEUFS inscrits au registre a 11:31:51Z SANS pre-declaration anterieure (38 s apres avoir pourtant pre-declare le registre). Aucun scelle altere, fichiers neufs. RADIE en dette constatee sur decision Christophe (predemodifier.py::DETTE_CONSTATEE + §15.9), jamais efface. Drill repasse READY. 0 ordre, 0 EUR |
+| 2026-10-24T0952Z | Buffy (Muse Spark 1.3, Freebuff) | ★ | hulk-mexc/scripts/paper_diprip.py + config/defaults.env + §22 | ORDRE Christophe UNE DERNIERE FOIS : faute melange declaree §22 (mise ETH 63.68$ payee par global +47.08$ vs paire -0.93$) puis reparee — base 20$, compounding SON pnl uniquement, cap dur 60$, redeploy borne paire, amplitude intacte, 2 jokers gardes. Compile OK, per-pair verifie (ETH -0.93→19.77$), GBAG 10/10, re-scel x2, verifier 0 violation, moteur relance --resume (pnl 45.15 intact, RED+17 bags). 0 ordre reel, 0 €. |
 | 2026-10-23T1856Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-10-22T1853Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-10-21T1919Z | journal_soir | ★ | journal | snapshot soir auto |

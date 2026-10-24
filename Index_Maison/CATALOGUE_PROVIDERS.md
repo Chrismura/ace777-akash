@@ -1,8 +1,8 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-10-23 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-10-24 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
-**Actifs : 6 · En observation : 0 · En attente : 19 · De cote (payant) : 6**
+**Actifs : 5 · En observation : 0 · En attente : 20 · De cote (payant) : 6**
 
 ## ACTIFS
 
@@ -13,7 +13,6 @@
 | - | `deepseek-v4-flash-0731` | inferx | ACTIVE 09/08 - cle InferX OK (gratuite jusqu'au 12/08) - DeepSeek V4 Flash 284B/13B actifs |
 | - | `Qwen3-Coder-Next-FP8` | inferx-coder | REACTIVE 13/08 - Qwen3-Coder-Next, specialiste CODE (2e codeur). Offre gratuite a surveill |
 | - | `Devstral-2-123B-Instruct-2512-int4-AutoRound` | inferx-devstral | INTEGRE 16/08 (GO Christophe) - Devstral 123B, 2e codeur (file d'attente). | quota journal |
-| - | `xingchen-agi/xing4.0-29b-a4b:free` | xingchen-agi-xing4-0-29b-a4b-free | ROULEMENT AUTO 2026-10-18 : remplace openrouter-free (mort >2j) |
 
 ## EN OBSERVATION (48h avant activation, jamais route)
 
@@ -42,6 +41,7 @@
 | - | `deepseek-ai/deepseek-v4-pro-0813` | obs-1788416175 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation | ROLLBACK au |
 | - | `nex-agi/nex-n2.5-mini:free` | obs-1789103007 | auto queue_offres | VERDICT FAMILLE 18/08 : observation 48h avant activation | ROLLBACK au |
 | - | `nex-agi/nex-n2.5-pro:free` | nex-agi-nex-n2-5-pro-free | ROULEMENT AUTO 2026-09-23 : remplace groq (mort >2j) |
+| - | `xingchen-agi/xing4.0-29b-a4b:free` | xingchen-agi-xing4-0-29b-a4b-free | ROULEMENT AUTO 2026-10-18 : remplace openrouter-free (mort >2j) |
 
 ## DE COTE (payant / obsolète)
 
