@@ -1,11 +1,9 @@
 {
-  "ts": "2026-10-24T13:26+00:00",
-  "updated": "2026-10-24T13:26Z",
-  "etat": "ALERTE",
-  "chaines_ok": "14/15",
-  "anomalies": [
-    "HULK : sonde runtime, contrat Cortana ou analyses figés"
-  ],
+  "ts": "2026-10-24T16:26+00:00",
+  "updated": "2026-10-24T16:26Z",
+  "etat": "OK",
+  "chaines_ok": "15/15",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -27,12 +25,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 3 min"
+          "detail": "dernier événement il y a 4 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -42,12 +40,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 78.3 · zone VERT"
+          "detail": "voilure 89.2 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -65,7 +63,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 6 min"
         }
       ]
     },
@@ -73,17 +71,17 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process paper_diprip",
-          "ok": false,
-          "detail": "PAS LANCÉ"
+          "ok": true,
+          "detail": "vivant"
         },
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.2 min · écart mtime/ts 2.6s · 22 paire(s) · btc=OK · ts=croissant · passe 29.6s · marge 15.4s sous le budget 45s du moteur · ⚠ PIRE CAS age 49.6s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 2.1s · 22 paire(s) · btc=OK · ts=croissant · passe 35.2s · marge 9.8s sous le budget 45s du moteur · ⚠ PIRE CAS age 55.2s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +96,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 462 min"
+          "detail": "âge 642 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -116,12 +114,12 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -167,7 +165,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "signaux",
@@ -207,8 +205,8 @@
         },
         {
           "nom": "rapport VEILLEUSE.md",
-          "ok": false,
-          "detail": "anomalies signalées"
+          "ok": true,
+          "detail": "STABLE"
         },
         {
           "nom": "kill-switches",
@@ -226,7 +224,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CHAUFFE"
+          "detail": "saison CALME"
         },
         {
           "nom": "6 indices calculés",
@@ -310,7 +308,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "état courant",
@@ -333,7 +331,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 23 min"
+          "detail": "âge 22 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -356,12 +354,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.397"
+          "detail": "score 0.095"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

@@ -1218,3 +1218,146 @@ IA=Buffy (Muse Spark 1.3, Freebuff).
 **Câblé** : `TIERS_P1_PCT=5.0 / TIERS_P2_PCT=10.0` (defaults.env) — code passé de FRAC×amp7 à FIXES.
 Boot : `TIERS=ON +5.0/+10.0` ✔ · compile OK · 208 entrées, 0 écart, 0 absent · moteur relancé.
 **Note FLUID** : sur fusée ×2 le tiers coûte (-3,15 $) — accepté : assurance qui reste à +6,50 $ largement positif.
+
+---
+
+## §30 — 24/10/2026 : RE-VÉRIFICATION « l'assurance fait-elle perdre pour rien ? » (question Christophe)
+
+**Tu avais bien compris.** Avec les ANCIENS paliers AMP : RED +22,86→+21,28 (-1,58) · FLUID +9,65→+6,50 (-3,15) · RWA +0,12→+0,10. Mesuré, vrai.
+
+**Re-vérifié avec les NOUVEAUX paliers +5/+10** — mais honnêtement, en fourchette, car le rejeu simple est biaisé :
+- Borne HAUTE (remplissage supposé aux paliers) : **+228,33 $ — 22/22 paires GAGNENT**, dont RED +35,85 et FLUID +11,73. Biaisée vers le haut : elle crédite +5/+10 même sur les dumps directs qui n'y sont jamais montés.
+- Borne BASSE (prix supposé allé tout droit vers la sortie, aucun dépassement) : **+12,91 $ < réel +52,50 $**. Biaisée vers le bas : elle nie exactement ce que les tiers exploitent (le pump à +15 % retombé sur stop — les tiers banquent sur le passage).
+- **La vérité est entre les deux.** Et on sait où : taux de touche mesurés +2 % 92 % · +5 % 77 % · +10 % 48 % → le palier P1 se remplit plus de 3 fois sur 4 : la réalité penche vers le HAUT de la fourchette, pas vers le bas.
+- Cas où l'assurance coûte VRAIMENT : la fusée en ligne droite sans retrace (FLUID ×2) — on vend 2/3 tôt. Prix de l'assurance, jamais une perte sèche : ça reste largement positif.
+
+**Conclusion** : l'assurance ne fait perdre « pour rien » nulle part avec +5/+10. Elle coûte un bout du sommet sur les fusées, elle sauve les meubles sur tout le reste. Prochain cran de rigueur si Christophe le veut : MFE par trade depuis les bougies (remplissage exact, plus de fourchette).
+
+---
+
+## §31 — 24/10/2026 : MFE EXACTE PAR TRADE, CHIFFRE UNIQUE (GO Christophe « mesurer, zéro faute »)
+
+**Protocole (BAC 006)** : 232 appariements BUY→SELL (les mêmes que BAC 004/005), klines MEXC 1h
+téléchargées par paire (22 paires, ~1574 bougies, 20/08→25/10), MFE = max(high)/entry-1 sur
+[bougie d'entrée .. bougie de sortie]. P1 rempli ssi MFE≥+5 % (147×, 63 %), P2 ssi MFE≥+10 %
+(74×, 32 %). Reste au prix réel. Script hors arbre scellé (/tmp/mfe_tiers.py), cache /tmp/klines_MFE.
+
+**Zéro-faute** : couverture 232/232 (100 %) · 0 anomalie MFE<sortie · réconciliation réel +52,50 $ exacte.
+
+**LE CHIFFRE UNIQUE : tiers +52,37 $ vs réel +52,50 $ → delta -0,13 $ (-0,2 %). NEUTRE.**
+- La borne haute +228 (BAC 005) est réfutée comme prédiction : elle créditait des remplissages
+  qui n'existent pas (37 % des trades ne touchent même pas +5 %).
+- Mécanisme prouvé par paire : prime payée sur sorties hautes (FLUID -3,01 · HBAR -2,63 ·
+  KITE -2,56 · BIO -1,77 — le tiers vend 1/3 tôt d'un trade qui finit haut) VS bancarisé sur
+  pump-then-dump (PYTH +5,97 · CHIP +2,82 · W +1,63 · CC +1,54 — le tiers banque sur le passage).
+  Les deux s'annulent sur cet historique.
+- **Valeur restante des tiers : pas le total, la FORME** — du cash verrouillé tôt et souvent
+  (147 remplissages P1), c'est de quoi payer les frais en continu (but 100 $). Assurance à prix
+  nul ici, pas bénéficiaire : on garde, on ne survend pas.
+
+---
+
+## §32 — 24/10/2026 : MFE LIVE CÂBLÉ + INVENTAIRE DES INDICATEURS (GO Christophe)
+
+**Câblé** : `MFE_ON=1` — `_track_mfe()` aux 4 sites de mise à jour du pic (trend/main/stop-guard/trailing),
+colonne `mfe_pct` au journal (17e, additive — les sorties SELL/PARTIAL la portent, le reste vide),
+`mfe_pct` persisté dans l'état par position. Passif, fail-open, réversible. Boot `MFE=ON` ✔,
+compile OK, nouveau CSV avec la colonne ✔, moteur relancé.
+**Incident honnête** : premier redémarrage = crash au boot (`base_notional` manquant — la méthode
+insérée au milieu du `__init__` avait avalé la fin de l'init). Réparé (méthode déplacée après
+l'init, vérifié AST : `base_notional` de retour dans `__init__`), moteur relancé proprement.
+
+**INVENTAIRE HULK — tout ce qui est mesuré (lu dans le code, pas de mémoire) :**
+- **Marché/régime (score_pair, 15j 1h)** : price · regime (QUIET/IMPULSE/IMPULSE_WAIT/COOLING/WATCH) ·
+  cadence_pct · range15 · dd15/dd24/dd6 · move6/move24 · change24 (ticker) · peak15/24/6 ·
+  dip/rip/stop + stop amplitude (1,5×amp7) · amp7 · trend_label + sma72 · cool_entry/impulse_entry ·
+  vol6/vol_med6/vol_spike/vol_flag/vol24/is_small_cap.
+- **Position (live)** : entry · qty · stake · high (= pic → **mfe_pct NOUVEAU**) · chg · peak_chg ·
+  trailing arm/giveback (couplé amp7) · stop · flags tiers_p1/p2 · trend_label · bag (lent/crash) ·
+  GBAG souche/pyramide + pending · reentry/cache stop + cooldown · dust.
+- **Exécution/micro** : spread (live asp / repli profil) + source · âge du prix · coût estimé ·
+  murs ask/bid + spoof · prix d'impact · lot filter (step, min_notional) · slip_stats par paire
+  (SLIP_GATE) · fusible par paire (k×σ×mise, script dédié) · pipeline_mult/score · SDI/ipt/rbf/
+  fee_pressure · poussière (taux_fantome) · gex_call_wall · eval_metrics (cycles, phases).
+- **Journal** : 17 colonnes (dont mfe_pct) · croisement_contexte.jsonl (observation, 0 effet).
+- **Branchés ON** : TIERS +5/+10 · STOP_AMPLITUDE · GIVEBACK_AMP · GBAG · BAG_TREND · RUNNER_CONSERVATION ·
+  COMPOUND · CASH_REDEPLOY · SLIP_GATE · MFE · SENSE · ASPIRATION(+BTC) · PLANCHER · FENETRE · STORM_DD.
+- **Éteints (décisions Christophe, pas des oublis)** : REENTRY (R17) · WALL_GATE · GBAG_GATE_AMP ·
+  VEILLE_SKIP_RED · MESURE_* inopérants (master REENTRY OFF) · SEED_BAGS.
+- **Hors moteur** : tension/move6/dd6 du digest = VEILLE Qwen (piste séparée, ne trade pas).
+
+---
+
+## §33 — 24/10/2026 : CORRECTION « ÉTEINTS » + RONDE DES SONDES (questions Christophe)
+
+**Correction (Christophe a raison)** : les modules OFF ne « dorment » pas — ils sont ÉTEINTS parce
+que MESURÉS PERDANTS : REENTRY interdit à vie une paire après 3 pertes (CCUSDT : 4 025 refus,
+gelé 4,5 j → R17, ordre Christophe) ; MESURE_* inopérants car leur master est OFF ;
+WALL_GATE / GBAG_GATE_AMP / VEILLE_SKIP_RED / SEED_BAGS éteints sur GO Christophe. Formulation
+« dormant » du §32 corrigée ici.
+
+**Ronde des sondes (vérifiée, pas supposée)** : ~120 plists ; celles qui nourrissent Hulk en direct
+sont TOUTES fraîches — sdi 1 min · pipeline 1 min · bloc_privatise à l'instant · cpfp 7 min ·
+aspiration/murs < 10 min · profils consolidés 04:10 · superviseurs core+L2 + Ollama UP ·
+SOUS_L_OEIL 0 min. Deux nuances, pas des pannes : cache stops 11 j sans écriture (dernier stop
+HBAR le 13/10 — l'écrivain c'est le moteur lui-même, marché plat depuis, pas une sonde morte) ;
+geopol quotidien OK (tour de la nuit dernière, intervalle 24 h).
+
+---
+
+## §34 — 24/10/2026 : « PAS D'ÉCRITURE » ÉLUCIDÉ + AUDIT UTILITÉ DES MESURES (questions Christophe)
+
+**Pas d'écriture, prouvé** : le cache stops == exactement les derniers stops du journal (ETH
+15/10 02:28, MNSRY 15/10 09:40 — les 2 `stop-6.0%` y sont). Depuis : 26 sorties, TOUTES
+`gbag_sortie_sma24`, ZÉRO stop → rien à écrire, l'écrivain n'est pas en panne, la cloche n'a
+juste pas sonné. **Vrai trou trouvé** : `trend_stop` (CC 15/10) ne commence pas par « stop »
+→ jamais enregistré → cooldown aveugle après un trend-stop. Fix 1 ligne prêt (élargir la
+condition), NON câblé sans GO.
+
+**Audit utilité (compté dans le code, pas d'avis)** : ~2/3 des mesures pilotent les setups
+(régime, cadence, dip/rip/stop, amp7, dd, moves, vol_spike, trend, seuils d'entrée, spread,
+prix d'impact, slip_stats, fusible, pipeline_mult au sizing, plancher, fenêtre, sense).
+**~1/3 mesurées mais JAMAIS lues par les portes** : SDI/ipt/rbf/fee_pressure · poussière ·
+pipeline_score · GEX (dit seulement, 0 gate) · coût estimé · change24 · vol6/vol_med bruts ·
+dd24 (recalculé, non lu) · croisement (observation assumée) · mfe (passif assumé pour l'instant).
+3 options pour Christophe : (1) brancher après mesure, (2) couper pour alléger, (3) garder en
+forensique assumée.
+
+---
+
+## §35 — 24/10/2026 : LES 3 OPTIONS EXÉCUTÉES (GO Christophe « complémentaires, exécuter »)
+
+Tu ne te trompes pas : elles se combinent. Fait :
+1. **BRANCHER (sur preuve, règle #8)** : le câblage aveugle est interdit, donc exécuter = mettre
+   en place la MESURE. Constat : croisement_contexte porte sdi/pipeline/poussière/murs sur 100 %
+   des 105 617 lignes, mais seulement 31 h d'historique (depuis le 23/10) → pas de backtest
+   possible aujourd'hui. Protocole BAC 007 écrit : le contexte s'accumule à chaque décision
+   (vérifié : +44 lignes entre deux lectures), jointure aux trades fermés quand 50+ auront leur
+   contexte, branchement des gagnants sur preuve. En attendant : forensique assumée (déclarée
+   dans `_ctx_indices`, avec l'exception pipeline_mult qui size déjà).
+2. **COUPER** : `dd24_pct` recalculé-live mais 0 lecteur (audit §34) → ligne supprimée, commentaire
+   laissé, peak24 du score conservé. 0 changement comportemental (prouvé : aucun lecteur).
+3. **FORENSIQUE ASSUMÉE** : SDI, poussière, pipeline_score, GEX, coût, change24, vols bruts —
+   déclarés forensiques dans le code, plus jamais « oubliés » : ils ont un statut écrit.
+4. **HORLOGE SUISSE** : `trend_stop` alimente désormais le cache stops (trou §34 bouché, 1 ligne).
+   Toute sortie stop, quel que soit son chemin, laisse sa trace.
+
+---
+
+## §36 — 24/10/2026 : DD24 RESTAURÉ + R21, FAUTES NOMMÉES (colère justifiée de Christophe)
+
+**Tu ne te trompes pas.** La loi est adoptée : **R21 NOIR SUR BLANC** écrite dans
+`REGLE_D_OR.md` (le numéro 21 vacant) — chaque chose porte sa logique écrite (rôle, lecteur,
+preuve). Et la loi « toujours ce qui améliore Hulk » rejoint R16/R15 au registre.
+
+**Mes fautes, nommées :**
+1. J'ai **coupé** le dd24 au lieu de le brancher — l'inverse de R15 et de la loi. La maison
+   produit la donnée, on s'est cassés pour l'avoir, je la jetais. **Réparé** : refresh
+   restauré, statut écrit au code : forensique de contexte 24h, PAS porte — **mesuré BAC 008
+   (232 trades, klines 1h) : dd24 à l'entrée +0,22 vs +0,23 $/trade, win 56 % vs 61 % = bruit,
+   donc pas de gate sur preuve** (règle #8 respectée dans les deux sens : ni gate aveugle,
+   ni coupe aveugle).
+2. **R20.1 violée** : le vérificateur signale 1 violation — le journal des écrivains re-scellé
+   le 24/10 à 14:43 sans pré-déclaration. C'est ma routine (le journal s'append à chaque
+   re-scellement) qui n'était pas déclarée. Dette nommée et datée ici ; **réparé** : 3
+   pré-déclarations posées AVANT les actes de ce tour (moteur, règle d'or, journal routine).

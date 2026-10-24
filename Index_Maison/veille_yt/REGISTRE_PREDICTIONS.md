@@ -1,11 +1,23 @@
 ---
-date: 2026-10-16T0718Z
+date: 2026-10-24T1619Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-10-24T1616Z — Crypto Crew University : WARNING: WATCH THIS B4 NOVEMBER
+Lien : https://www.youtube.com/watch?v=FlDFTA4s7XE
+
+- ⏳ EN ATTENTE | [2024-10-23] Publication d'une vidéo bonus VIP sur cryptocrewuniversity.com (source : youtuber)
+- ⏳ EN ATTENTE | [2024-11-01] Clôture du RSI stochastique bimensuel du Bitcoin validant ou non une période de reprise atypique sous le niveau 20 (source : youtuber)
+- ⏳ EN ATTENTE | [2024-12-31] Absence de krach macroéconomique majeur ou d'effondrement structurel du Bitcoin imputable à une phase de récupération trop courte d'ici la fin de l'année (source : moi)
+
+### 2026-10-24T1619Z — Crypto Crew University : WARNING: THEY’RE LYING TO YOU – HERE’S THE TRUTH
+Lien : https://www.youtube.com/watch?v=kZ5q1K3KzqI
+
+- ⏳ EN ATTENTE | [2024-10-23] Publication de la video bonus VIP sur cryptocrewuniversity.com concernant l'indice S&P 500 et les cryptos (source : youtuber)
 
 ### 2026-10-16T0716Z — Crypto Crew University : BREAKING: WAVE TREND WARNING SIGNS
 Lien : https://www.youtube.com/watch?v=OGAIlXwmV1Q

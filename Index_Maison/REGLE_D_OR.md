@@ -369,6 +369,25 @@ au lieu de l'appeler « verdict ».
 **Mesure (R20.3)** : `verif_session_famille.py` crie dès que le dernier tour a **< 3** voix
 indépendantes ; le statut est écrit au fil et au cockpit.
 
+### R21 — NOIR SUR BLANC : CHAQUE CHOSE PORTE SA LOGIQUE ÉCRITE (ORDRE Christophe, 24/10/2026)
+> Mot pour mot : « **chaque chose, décision ou autre doit avoir sa logique claire et noir
+> sur blanc.** » + « **faire toujours ce qui améliore Hulk et pas le contraire, c'est la loi.** »
+
+**En une phrase** : aucun indicateur, aucune porte, aucune coupure n'existe sans sa logique
+**écrite au code et au registre** : **rôle** (porte / forensique / affichage), **lecteur** (qui le
+lit, fichier+ligne), **preuve** (mesure datée ou « non mesuré » déclaré). Un chiffre mesuré que
+personne ne lit est un **trou R15** : on le **branche sur preuve**, on ne le coupe pas — sauf
+preuve qu'il nuit (R16, chiffrée en dollars).
+
+**Pourquoi (la faute qui a produit cette règle)** : le 24/10 j'ai **coupé** le recalcul live du
+`dd24` au motif « 0 lecteur » — l'inverse de la loi : la maison s'est cassée à produire la
+donnée (pic 24h câblé) et je l'ai jetée au lieu de lui donner son rôle. R15 dit **brancher**,
+la loi dit **améliorer** : couper n'est ni l'un ni l'autre. Réparé le jour même : refresh
+**restauré**, statut écrit (forensique de contexte, pas porte — **mesuré BAC 008 : 232 trades,
++0,22 vs +0,23 $/trade = bruit, donc pas de gate**), dd24 déclaré avec sa preuve de non-porte.
+**Mesure (R21)** : tout nouvel indicateur naît avec son bloc « R21 » (rôle+lecteur+preuve) ;
+le vérificateur pourra exiger : 0 indicateur affiché sans statut écrit.
+
 ### R22 — AUCUNE ERREUR CONNUE SANS GARDE DEBOUT (ORDRE Christophe, 08/10/2026)
 > Mot pour mot : « c'est possible d'avoir une IA qui **améliore et anticipe** les erreurs ?
 > je veux que tout soit **clean et cohérent**, sinon pas de plus-value ni de réel. »

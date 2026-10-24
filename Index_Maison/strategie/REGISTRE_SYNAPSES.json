@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-10-24T13:28:40Z",
+  "updated": "2026-10-24T14:57:22Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,11 +30,11 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "1d1a0a754c1b37d1d7017642aefe1ea3",
+      "md5": "52abe62c0bc2da0b541c761a5801800c",
       "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-      "date": "2026-10-24T13:28:33Z",
+      "date": "2026-10-24T14:51:48Z",
       "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
       "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée).",
       "_rescel_20260922b": "REFROIDISSEMENT BORNÉ 22/09 (GO Christophe « bloquer un actif est un contre-sens »). REENTRY_MAX n'interdit plus une paire À VIE : nettoyé le compteur en mémoire (non persisté → deux comportements selon le redémarrage) ; le buy() lit désormais un refroidissement GRADUÉ et EXPIRANT adossé au cache de stops persisté (n stops × 6 h, plafond 24 h, expiré après 48 h sans stop) + DÉ-RISQUE ×0,5 après un stop (« rebuilding with smaller size »). Calibré après mesure : à l'horizon 6 h (durée de détention réelle) la garde PROTÈGE (−14,5 $) ; à 24 h elle coûte (+56,3 $) → on garde la protection des premières heures, on supprime le blocage long. ANTI-SILENCE : un refus de régime (WATCH/QUIET) n'est plus muet (1 ligne/h/paire au max) — CCUSDT était invisible 27 h.",
@@ -118,13 +118,43 @@
             "user": "christophe",
             "chaine": "pid 38000 <- bash(pid 37999) <- /Users/christoph(pid 37998) <- /Users/christoph(pid 59857)"
           }
+        },
+        {
+          "ts": "2026-10-24T14:22:57Z",
+          "motif": "Christophe 24/10 : MFE live cable (mfe_pct journal+etat, MFE_ON) + inventaire indicateurs §32",
+          "ecrivain": {
+            "ts": "2026-10-24T14:22:57Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 48972 <- bash(pid 48970) <- /Users/christoph(pid 48969) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:43:53Z",
+          "motif": "Christophe 24/10 : §35 3 options executees (trend_stop, dd24 coupe, forensique declaree, BAC 007)",
+          "ecrivain": {
+            "ts": "2026-10-24T14:43:53Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 52765 <- bash(pid 52762) <- /Users/christoph(pid 52761) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:51:48Z",
+          "motif": "Christophe 24/10 : §36 R21 + dd24 restaure + fautes nommees (R20.1 journal en dette)",
+          "ecrivain": {
+            "ts": "2026-10-24T14:51:48Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 54838 <- bash(pid 54835) <- /Users/christoph(pid 54834) <- /Users/christoph(pid 59857)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-24T13:28:33Z",
+        "ts": "2026-10-24T14:51:48Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 38000 <- bash(pid 37999) <- /Users/christoph(pid 37998) <- /Users/christoph(pid 59857)"
+        "chaine": "pid 54838 <- bash(pid 54835) <- /Users/christoph(pid 54834) <- /Users/christoph(pid 59857)"
       }
     },
     {
@@ -331,11 +361,11 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "bd8c7fcb6ec5570a5cdf9850a44ace3f",
+      "md5": "0a920b6f064f209c99c8c7a1fd980d06",
       "_rescel_20260918": "NOTIONAL_USDT 20→30 + PLANCHER_GATE_ON=1.",
       "note": "Re-scellé 2026-09-16T13:10Z (GO C., après audit R3 complet : 73/74 OK, seule dérive = ce fichier). La dérive = 2 GO votés du 15/09 jamais re-déclarés (R3) : ① 06:36Z REENTRY_MAX 1→3 + STOP_COOLDOWN_HOURS 4→1 + VOL_SPIKE_MIN_SMALL 1,5→1,2 + VEILLE_SKIP_RED_ON 1→0 (chantier anti-timing/anti-figage) ; ② 08:45Z SLIP_GATE_ON 0→1 (armement du gate anti-glissement après ses 48 h d'observation prévues le 09/09). Sentinelle indépendante : PnL cohérent (divergence 0,0005 $). Prochain changement de config = re-scellement immédiat.",
       "maj": "30/08 v3 (GO Christophe 14:15Z) : FINI l'observation — PAPER_OBSERVE_PAIRS vidée. QNT/FLUID/RWA/MNSRY seedées (10$ chacune, structure seed_inventory) + lignes SEED_START au CSV + SELL d'annulation du BUY parasite FLUID (09:54Z) pour rejeu exact. 16 positions, plus aucune paire observe. Tableau cockpit = 20 paires tradées. || RE-SCELLÉ 03/09 : Config modifiée session 31/08 12h18 — re-scellée post-audit 03/09 (GO Christophe).",
-      "date": "2026-10-24T13:28:33Z",
+      "date": "2026-10-24T14:22:58Z",
       "_rescel_20260921": "21/09 : + IMPULSE_SANS_REPLI_ON et IMPULSE_HORS_FENETRE_ON (set-up IMPULSE, documentés avec leur mesure). (Rappel 21/09 matin : doublon STOP_COOLDOWN_HOURS retiré.)",
       "_rescel_20260922b": "22/09 : REENTRY_MAX change de sens (nombre de stops avant refroidissement maximal, plus un blocage à vie) ; ajout REENTRY_COOLOFF_STEP_H=6 / REENTRY_COOLOFF_MAX_H=24 / REENTRY_RESET_H=48 / REENTRY_DERISK_MULT=0,5 / SILENCE_LOG_TTL_SEC=3600. Le doublon STOP_COOLDOWN_HOURS reste retiré.",
       "_rescel_20260922c": "22/09 : REENTRY_MAX et les 4 clés de refroidissement en heures RETIRÉES (R17 : aucun timing fixe). SILENCE_LOG_TTL_SEC=3600 conservée. STOP_COOLDOWN_HOURS=1 conservée telle quelle et DÉCLARÉE (antérieure, à re-mesurer par la règle #8, pas touchée).",
@@ -416,13 +446,23 @@
             "user": "christophe",
             "chaine": "pid 38005 <- bash(pid 37999) <- /Users/christoph(pid 37998) <- /Users/christoph(pid 59857)"
           }
+        },
+        {
+          "ts": "2026-10-24T14:22:58Z",
+          "motif": "Christophe 24/10 : MFE live cable (mfe_pct journal+etat, MFE_ON) + inventaire indicateurs §32",
+          "ecrivain": {
+            "ts": "2026-10-24T14:22:58Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 48977 <- bash(pid 48970) <- /Users/christoph(pid 48969) <- /Users/christoph(pid 59857)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-24T13:28:33Z",
+        "ts": "2026-10-24T14:22:58Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 38005 <- bash(pid 37999) <- /Users/christoph(pid 37998) <- /Users/christoph(pid 59857)"
+        "chaine": "pid 48977 <- bash(pid 48970) <- /Users/christoph(pid 48969) <- /Users/christoph(pid 59857)"
       }
     },
     {
@@ -2095,8 +2135,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "93d87a035db0b64eace2f26b5b09880b",
-      "date": "2026-10-24T12:46:03Z",
+      "md5": "e553d75a1235314570038ae5ca9ce2d5",
+      "date": "2026-10-24T14:51:48Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -2243,13 +2283,83 @@
             "user": "christophe",
             "chaine": "pid 29328 <- bash(pid 29324) <- /Users/christoph(pid 29323) <- /Users/christoph(pid 59857)"
           }
+        },
+        {
+          "ts": "2026-10-24T13:31:53Z",
+          "motif": "Christophe 24/10 : §30 re-verification assurance fourchette basse/haute + BAC 005",
+          "ecrivain": {
+            "ts": "2026-10-24T13:31:53Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 38931 <- bash(pid 38930) <- /Users/christoph(pid 38929) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T13:59:28Z",
+          "motif": "Christophe 24/10 : §31 MFE exacte chiffre unique +52,37 vs +52,50 + BAC 006",
+          "ecrivain": {
+            "ts": "2026-10-24T13:59:28Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 44323 <- bash(pid 44319) <- /Users/christoph(pid 44318) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:23:08Z",
+          "motif": "Christophe 24/10 : §32 MFE live + inventaire indicateurs",
+          "ecrivain": {
+            "ts": "2026-10-24T14:23:08Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 49156 <- bash(pid 49154) <- /Users/christoph(pid 49153) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:33:25Z",
+          "motif": "Christophe 24/10 : §33 correction eteints + ronde sondes OK",
+          "ecrivain": {
+            "ts": "2026-10-24T14:33:25Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 50896 <- bash(pid 50893) <- /Users/christoph(pid 50892) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:38:38Z",
+          "motif": "Christophe 24/10 : §34 ecriture elucidee + audit utilite mesures",
+          "ecrivain": {
+            "ts": "2026-10-24T14:38:38Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 51933 <- bash(pid 51931) <- /Users/christoph(pid 51930) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:43:53Z",
+          "motif": "Christophe 24/10 : §35 3 options executees (trend_stop, dd24 coupe, forensique declaree, BAC 007)",
+          "ecrivain": {
+            "ts": "2026-10-24T14:43:53Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 52770 <- bash(pid 52762) <- /Users/christoph(pid 52761) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:51:48Z",
+          "motif": "Christophe 24/10 : §36 R21 + dd24 restaure + fautes nommees (R20.1 journal en dette)",
+          "ecrivain": {
+            "ts": "2026-10-24T14:51:48Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 54846 <- bash(pid 54835) <- /Users/christoph(pid 54834) <- /Users/christoph(pid 59857)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-24T12:46:03Z",
+        "ts": "2026-10-24T14:51:48Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 29328 <- bash(pid 29324) <- /Users/christoph(pid 29323) <- /Users/christoph(pid 59857)"
+        "chaine": "pid 54846 <- bash(pid 54835) <- /Users/christoph(pid 54834) <- /Users/christoph(pid 59857)"
       }
     },
     {
@@ -2534,8 +2644,8 @@
       "origine": "GO Christophe 09/10/2026 — followup « sceller MEMOIRE_COLLAB.md au registre »",
       "verif": "vivant",
       "auto_modifiable": false,
-      "md5": "b1d532d2a487b531c8374dd0d19c4600",
-      "date": "2026-10-14T13:00:31Z",
+      "md5": "985cff912b505bf63c2e7aa5321f990f",
+      "date": "2026-10-24T13:38:24Z",
       "_ajout": [
         {
           "ts": "2026-10-09T10:11:17Z",
@@ -2593,8 +2703,24 @@
         {
           "ts": "2026-10-14T13:00:31Z",
           "motif": "ligne memoire 14/10 : GBAG_PYRAMIDE verifiee+branchee, compounding par actif, GBAG tous actifs, fix position somme"
+        },
+        {
+          "ts": "2026-10-24T13:38:24Z",
+          "motif": "Christophe 24/10 : but ultime 100$ + commande mini M5 Pro validee",
+          "ecrivain": {
+            "ts": "2026-10-24T13:38:24Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40169 <- bash(pid 40167) <- /Users/christoph(pid 40166) <- /Users/christoph(pid 59857)"
+          }
         }
-      ]
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-10-24T13:38:24Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 40169 <- bash(pid 40167) <- /Users/christoph(pid 40166) <- /Users/christoph(pid 59857)"
+      }
     },
     {
       "nom": "Index_Maison/scripts/memoire_log.py",
@@ -3185,13 +3311,13 @@
       "origine": "R22 24/10",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "9a14c714316f7280bb87cc7fe04b4d3d",
-      "date": "2026-10-24T13:28:40Z",
+      "md5": "7c02f475bdd6fd6ec1bcb2eb15037ce6",
+      "date": "2026-10-24T14:57:22Z",
       "dernier_ecrivain": {
-        "ts": "2026-10-24T13:28:40Z",
+        "ts": "2026-10-24T14:57:22Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 38025 <- bash(pid 38024) <- /Users/christoph(pid 38023) <- /Users/christoph(pid 59857)"
+        "chaine": "pid 55785 <- bash(pid 55784) <- /Users/christoph(pid 55782) <- /Users/christoph(pid 59857)"
       },
       "_ajout": [
         {
@@ -3259,6 +3385,117 @@
             "user": "christophe",
             "chaine": "pid 38025 <- bash(pid 38024) <- /Users/christoph(pid 38023) <- /Users/christoph(pid 59857)"
           }
+        },
+        {
+          "ts": "2026-10-24T13:31:55Z",
+          "motif": "Christophe 24/10 : routine apres §30",
+          "ecrivain": {
+            "ts": "2026-10-24T13:31:55Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 38943 <- bash(pid 38942) <- /Users/christoph(pid 38938) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T13:38:24Z",
+          "motif": "Christophe 24/10 : routine memoire but ultime",
+          "ecrivain": {
+            "ts": "2026-10-24T13:38:24Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40174 <- bash(pid 40167) <- /Users/christoph(pid 40166) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T13:59:28Z",
+          "motif": "Christophe 24/10 : routine apres §31",
+          "ecrivain": {
+            "ts": "2026-10-24T13:59:28Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 44328 <- bash(pid 44319) <- /Users/christoph(pid 44318) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:23:09Z",
+          "motif": "Christophe 24/10 : routine apres §32",
+          "ecrivain": {
+            "ts": "2026-10-24T14:23:09Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 49161 <- bash(pid 49154) <- /Users/christoph(pid 49153) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:33:25Z",
+          "motif": "Christophe 24/10 : routine apres §33",
+          "ecrivain": {
+            "ts": "2026-10-24T14:33:25Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 50901 <- bash(pid 50893) <- /Users/christoph(pid 50892) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:38:38Z",
+          "motif": "Christophe 24/10 : routine apres §34",
+          "ecrivain": {
+            "ts": "2026-10-24T14:38:38Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 51938 <- bash(pid 51931) <- /Users/christoph(pid 51930) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:43:53Z",
+          "motif": "Christophe 24/10 : routine apres §35",
+          "ecrivain": {
+            "ts": "2026-10-24T14:43:53Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 52775 <- bash(pid 52762) <- /Users/christoph(pid 52761) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:51:49Z",
+          "motif": "Christophe 24/10 : §36 R21 + dd24 restaure + fautes nommees (R20.1 journal en dette)",
+          "ecrivain": {
+            "ts": "2026-10-24T14:51:49Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 54855 <- bash(pid 54835) <- /Users/christoph(pid 54834) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-10-24T14:57:22Z",
+          "motif": "Christophe 24/10 : routine apres ajout constitution (R21)",
+          "ecrivain": {
+            "ts": "2026-10-24T14:57:22Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 55785 <- bash(pid 55784) <- /Users/christoph(pid 55782) <- /Users/christoph(pid 59857)"
+          }
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/REGLE_D_OR.md",
+      "role": "constitution operationnelle (R1-R23, R21 adoptee 24/10)",
+      "origine": "Christophe 24/10 : GO sceller la constitution",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "cdeaead5a19cfe8028d2d29aa2e7cde8",
+      "date": "2026-10-24T14:57:17Z",
+      "dernier_ecrivain": {
+        "ts": "2026-10-24T14:57:17Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 55764 <- bash(pid 55763) <- /Users/christoph(pid 55762) <- /Users/christoph(pid 59857)"
+      },
+      "_ajout": [
+        {
+          "ts": "2026-10-24T14:57:17Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
         }
       ]
     }

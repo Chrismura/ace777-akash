@@ -348,6 +348,9 @@ CSV_SCHEMA = [
     "spread_source",    #         "asp" = vue live, "profil" = repli figé
     "cout_estime_usdt", # GO 2 : frais+spread ESTIMÉS du mouvement (le PnL
                         #         inscrit reste BRUT — on ne le change pas)
+    # Colonne AJOUTÉE le 24/10/2026 (GO Christophe « ajouter le MFE », §32).
+    # ADDITIF comme le 23/09 : aucun ordre inchangé, anciens CSV gardent 16 cols.
+    "mfe_pct",          # MFE à la sortie (SELL/PARTIAL) : pic favorable % depuis l'entrée
 ]
 
 
@@ -760,6 +763,11 @@ class PaperBot:
             self.tiers_p2_pct = float(cfg.get("TIERS_P2_PCT", "10.0"))
         except Exception:
             self.tiers_p1_pct, self.tiers_p2_pct = 5.0, 10.0
+        # === MFE LIVE (24/10/2026, GO Christophe « ajouter le MFE », §32) ===
+        # Mesure PASSIVE : pic favorable depuis l'entrée, par position, sans AUCUN
+        # effet gate (fail-open, jamais d'exception). Sort au journal (mfe_pct) et
+        # persiste dans l'état via p["mfe_pct"]. Réversible : MFE_ON=0.
+        self.mfe_on = cfg.get("MFE_ON", "1").strip() not in ("0", "false", "False")
         self.bag_crash_dd = float(cfg.get("BAG_CRASH_DD_PCT", "20"))
         # === GIVEBACK COUPLE A L'AMPLITUDE (09/10/2026, GO « go 1,2,3 ») ===
         # Le giveback du profil est calibré sur l'heure/le carnet ; la position court sur
@@ -1189,6 +1197,18 @@ class PaperBot:
         signal.signal(signal.SIGINT, self._stop)
         signal.signal(signal.SIGTERM, self._stop)
 
+    def _track_mfe(self, p: dict, price: float) -> None:
+        """MFE live d'une position (24/10, GO Christophe §32) : (high/entry-1)*100.
+        Mesure PASSIVE, fail-open, aucun effet gate."""
+        if not getattr(self, "mfe_on", True):
+            return
+        try:
+            e = float(p.get("entry") or 0.0)
+            if e > 0:
+                p["mfe_pct"] = round((max(float(p.get("high") or e), float(price)) / e - 1.0) * 100.0, 2)
+        except Exception:
+            pass
+
     def get_pipeline_health_mult(self) -> float:
         """Lit pipeline_health.json et retourne le multiplicateur de taille (0-1)."""
         try:
@@ -1332,6 +1352,12 @@ class PaperBot:
 
     def _ctx_indices(self) -> dict:
         """Lit les indices globaux (poussière/SDI/pipeline_health) avec cache TTL 60 s.
+        §35 (24/10, GO Christophe) : SDI/ipt/rbf/fee_pressure, poussière,
+        pipeline_score, GEX = FORENSIQUE ASSUMÉE — écrits à chaque décision dans
+        croisement_contexte.jsonl (100 % des lignes, vérifié), ZÉRO lecture par les
+        portes. Protocole BAC 007 : jointure au fil des trades fermés, branchement
+        sur preuve quand 50+ trades auront leur contexte (pas de câblage aveugle).
+        pipeline_mult FAIT exception : lu au sizing (ligne ~1274), pas forensique.
         Fail-open total : tout échec de lecture → champ absent, jamais d'exception.
         Chemins : Index_Maison/data/ (produits par les agents launchd).
         """
@@ -1941,7 +1967,7 @@ class PaperBot:
         self.reentry.pop(pair, None)
         return True
 
-    def log(self, pair, event, regime, price, entry, qty, pnl, cadence, reason):
+    def log(self, pair, event, regime, price, entry, qty, pnl, cadence, reason, mfe=None):
         # Déduplication bornée des SKIP : le motif et le régime doivent rester
         # identiques. Toute opération, erreur ou transition continue d'être tracée.
         if str(event).upper() == "SKIP":
@@ -1996,6 +2022,7 @@ class PaperBot:
             spread_bps,
             spread_src,
             cout_est,
+            f"{float(mfe):.2f}" if mfe is not None else "",
         ]
         # GARDE-FOU DE SCHEMA (E15) : une ligne ne peut pas avoir une autre largeur que
         # l'en-tête. Si ça arrive, on le DIT (err) au lieu d'écrire un journal bancal.
@@ -2697,6 +2724,12 @@ class PaperBot:
         self.trades += 1
         event = "SELL" if sell_qty >= full_qty * 0.999 else "SELL_PARTIAL"
         inv_spread = float((self.inv.get(pair) or {}).get("spread_bps") or 0.0)
+        try:
+            _mfe_exit = ((max(float(p.get("high") or entry), float(price)) / float(entry)) - 1.0) * 100.0 if float(entry) > 0 else 0.0
+        except Exception:
+            _mfe_exit = None
+        if _mfe_exit is not None:
+            p["mfe_pct"] = round(_mfe_exit, 2)
         self.log(
             pair,
             event,
@@ -2707,6 +2740,7 @@ class PaperBot:
             pnl,
             p.get("cadence"),
             f"{reason} tier={self.tier(pair)} spread={inv_spread:.1f}bps",
+            mfe=_mfe_exit,
         )
         kind = "sell_ok" if pnl >= 0 else "sell_ko"
         tag = "EXIT" if event == "SELL" else "EXIT_PART"
@@ -2722,7 +2756,11 @@ class PaperBot:
         # SUPPRIMÉE (R17). Ce qui borne le risque d'une paire est désormais MESURÉ et
         # persisté : son fusible (k × σ × mise) et le cache de stops post-stop.
         # v1.5 : cache stop uniquement (pas stake_out / partial)
-        if event == "SELL" and str(reason).lower().startswith("stop"):
+        # §35 (24/10, GO Christophe « orloge suisse ») : trend_stop ALIMENTE aussi le
+        # cache (coupure aveugle trouvée §34 : CC 15/10 jamais enregistré). Tout stop,
+        # quel que soit son chemin, laisse sa trace.
+        _rsn = str(reason).lower()
+        if event == "SELL" and (_rsn.startswith("stop") or "trend_stop" in _rsn):
             record_stop(RUNS, pair, utc_now())
             say(
                 "warn",
@@ -3271,6 +3309,7 @@ class PaperBot:
             return
         tr = (sc or {}).get("trend_label") or p.get("trend_label") or "neutre"
         p["high"] = max(float(p.get("high") or entry), price)
+        self._track_mfe(p, price)
         peak = float(p["high"])
         chg = (price / entry - 1.0) * 100.0
         # --- stop AMPLITUDE (le core n'est jamais touché) ---
@@ -3337,6 +3376,7 @@ class PaperBot:
         qty = float(p["qty"])
         stake = float(p.get("stake") or entry * qty)
         p["high"] = max(float(p.get("high") or entry), price)
+        self._track_mfe(p, price)
         value = price * qty
         chg = (price / entry - 1.0) * 100.0
 
@@ -3385,6 +3425,7 @@ class PaperBot:
                     # LA VENTE SE DÉCIDE SUR CE PRIX-LÀ (frais), et le PnL qui suit aussi.
                     price, chg, value = _prix_imp, (_prix_imp / entry - 1.0) * 100.0, _prix_imp * qty
                     p["high"] = max(float(p.get("high") or entry), price)
+                    self._track_mfe(p, price)
                 # SPEC v2 (29/08) — Verrous 1&2 et Bloc 1/2 : garde-fou SELL full en forte amplitude
                 move24 = float(sc.get("move24_pct") or 0.0)
                 vol_spike = sc.get("vol_spike")
@@ -3437,6 +3478,7 @@ class PaperBot:
                     # LA VENTE SE DÉCIDE SUR CE PRIX-LÀ (frais), et le PnL qui suit aussi.
                     price, chg, value = _prix_imp, (_prix_imp / entry - 1.0) * 100.0, _prix_imp * qty
                     p["high"] = max(float(p.get("high") or entry), price)
+                    self._track_mfe(p, price)
                 # SPEC v2 (29/08) — garde-fou SELL full (branche standard, non-trailing)
                 move24 = float(sc.get("move24_pct") or 0.0)
                 vol_spike = sc.get("vol_spike")
@@ -3784,6 +3826,14 @@ class PaperBot:
             # OFF (défaut) : _gbag_cycle rend toujours True → identique à avant.
         if sc.get("peak6"):
             sc["dd6_pct"] = round((1.0 - price / sc["peak6"]) * 100.0, 2)
+        # R21 NOIR SUR BLANC (24/10, ordre Christophe — ma coupe §35 annulée, elle
+        # violait R15 : on branche, on ne coupe pas). dd24 = repli depuis le pic 24h,
+        # rafraîchi au prix live comme dd6/dd15. MESURÉ (BAC 008, 232 trades, klines 1h) :
+        # dd24 à l'entrée NE prédit PAS l'issue (+0,22 $/trade sous la médiane 5,3 % vs
+        # +0,23 au-dessus, win 56 % vs 61 % = bruit). STATUT : pas une porte — DONNÉE
+        # de contexte régime 24h (affichage, forensique, post-mortem), alimentée en
+        # continu. Si un jour un seuil dd24 sépare les issues sur preuve, il deviendra
+        # porte avec sa mesure — jamais avant (règle #8). peak24 porté par score_pair.
         if sc.get("peak24"):
             sc["dd24_pct"] = round((1.0 - price / sc["peak24"]) * 100.0, 2)
         if sc.get("peak15"):
@@ -4118,7 +4168,8 @@ class PaperBot:
             f"lent−{self.bag_slow_dd:.0f}% DCA  "
             f"COMPOUND={'ON' if self.compound_on else 'OFF'} "
             f"POLL={self.poll}s  "
-            f"TIERS={'ON +'+str(self.tiers_p1_pct)+'/+'+str(self.tiers_p2_pct) if getattr(self, 'tiers_on', False) else 'OFF'}"
+            f"TIERS={'ON +'+str(self.tiers_p1_pct)+'/+'+str(self.tiers_p2_pct) if getattr(self, 'tiers_on', False) else 'OFF'}  "
+            f"MFE={'ON' if getattr(self, 'mfe_on', False) else 'OFF'}"
         )
         print(
             f"GATES: STOP_COOLDOWN={self.stop_cooldown_h:.0f}h  "

@@ -8454,3 +8454,51 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-24T12:49:42Z — ALERT auto
 - EDELUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-24T13:32:04Z — ALERT auto
+- LAUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T13:52:41Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T14:11:39Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T14:34:53Z — ALERT auto
+- LAUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T15:03:53Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T15:12:01Z — ALERT auto
+- REDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T15:17:58Z — ALERT auto
+- KITEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T15:21:07Z — ALERT auto
+- WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T15:38:59Z — ALERT auto
+- LAUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T16:04:25Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T16:20:37Z — ALERT auto
+- KITEUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T16:25:39Z — ALERT auto
+- WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

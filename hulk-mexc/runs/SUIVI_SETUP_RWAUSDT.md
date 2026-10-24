@@ -61,18 +61,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 54 | 2026-10-21T14:01:22Z | 14h | AUTRE | 0.001278 | WATCH | None | None | None | — | — | 0.80 | 0.63 | POMPE_PIEGE (stab 2) | prix 0.001278 |
 | 55 | 2026-10-22T14:35:08Z | 14h | AUTRE | 0.00126 | WATCH | 8.7553 | None | None | 4.42e-07 | 0.01 | 0.96 | 0.95 | POMPE_PIEGE (stab 6) | prix 0.00126 · poussière(panier) 8.8% · Amihud 4.42e-07 · delta +0.01 |
 | 56 | 2026-10-23T14:34:51Z | 14h | AUTRE | 0.001273 | WATCH | 4.3678 | None | None | 5.92e-07 | -0.05 | 0.85 | 0.80 | neutre (stab 0) | prix 0.001273 · poussière(panier) 4.4% · Amihud 5.92e-07 · delta -0.05 |
+| 57 | 2026-10-24T14:34:08Z | 14h | AUTRE | 0.001258 | WATCH | 12.0729 | None | None | 6.75e-07 | -0.09 | 0.94 | 0.90 | POMPE_PIEGE (stab 1) | prix 0.001258 · poussière(panier) 12.1% · Amihud 6.75e-07 · delta -0.09 |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-18T19:25:54Z au 2026-10-23T14:34:51Z (13050 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-20T01:28:37Z au 2026-10-24T14:34:08Z (13033 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-18T19:58:34Z à 0.001244 → 0.001273 = **+2.3 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-22T16:23:36Z à 0.001249 → 0.001258 = **+0.7 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +0.48 $** sur 1 entrée(s) / 1 sortie(s) — dernier événement 2026-10-20T23:05:32Z
+- **Réalisé : +0.97 $** sur 2 entrée(s) / 2 sortie(s) — dernier événement 2026-10-20T23:05:32Z
 - **MFE donné en moyenne : +0.0 pts** par tour (pire tour : +0.0) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._
