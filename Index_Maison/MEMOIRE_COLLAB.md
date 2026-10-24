@@ -157,6 +157,7 @@ Intégration cockpit (2 lignes dans index.html) · passage au réel · cumul des
 
 | ts | Qui | Action | Où | Quoi |
 | 2026-10-09T1341Z | Buffy | ⚠ | Index_Maison/scripts | DEFAUT D'ORDRE (classe E22, 3e recidive du jour) : 2 fichiers NEUFS inscrits au registre a 11:31:51Z SANS pre-declaration anterieure (38 s apres avoir pourtant pre-declare le registre). Aucun scelle altere, fichiers neufs. RADIE en dette constatee sur decision Christophe (predemodifier.py::DETTE_CONSTATEE + §15.9), jamais efface. Drill repasse READY. 0 ordre, 0 EUR |
+| 2026-10-24T1854Z | journal_soir | ★ | journal | snapshot soir auto |
 | 2026-10-24T1246Z | Buffy (Muse Spark 1.3, Freebuff) | ★ | 5 fiches + BAC003 + §28 | GO enchaine : 5 actifs tous MIEUX tiers amp7 (HBAR+7.49 CC+6.82 ETH+5.55 BTC+4.59 RIZE+6.77), fiches ecrites, moteur inchange. 0 ordre reel, 0 EUR. |
 | 2026-10-24T1244Z | Buffy (Muse Spark 1.3, Freebuff) | ★ | FICHE_SETUP_RWAINCUSDT_20261024 + §27 | 2e actif : RWAINC stops precoces + claque SMA16/10 -3.48 -> tiers amp7 +0.35->+11.63 (7x hold), fiche ecrite, rien a changer moteur. 0 ordre reel, 0 EUR. |
 | 2026-10-24T1238Z | Buffy (Muse Spark 1.3, Freebuff) | ★ | defaults.env + FICHE_SETUP_KITEUSDT_20261024 | 1er actif : KITE -3.31 (5 stops + 3 girouettes) -> tiers amp7 +6.39 (25x hold), SLIP 3->2, cooldown/REENTRY laisses (R17/GO21/10), fiche ecrite, moteur relance TIERS confirme. 0 ordre reel, 0 EUR. |

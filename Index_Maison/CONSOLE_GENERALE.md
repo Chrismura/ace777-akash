@@ -1,14 +1,14 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-10-23 18:53 UTC · jour local **2026-10-23**
+Auto-refresh : 2026-10-24 18:53 UTC · jour local **2026-10-24**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
 | **ACE** | 🔴 STOP | Dernier tag `MASTER_BASE_V8_6_FORTRESS_8H20` · combo ≈ **+0.90 $** |
-| **Hulk paper** | 🟢 RUN | pnl_total ≈ **45.5070** · pos **1** |
-| **Hulk digest** | 🟢 RUN | mtime 2026-10-23T18:52Z |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **45.1788** · pos **0** |
+| **Hulk digest** | 🟢 RUN | mtime 2026-10-24T18:52Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |
@@ -72,8 +72,8 @@ Auto-refresh : 2026-10-23 18:53 UTC · jour local **2026-10-23**
 | `TEST_DUO_HARMONIC_5813_30M_V63` | +0.00 (n=0) | -0.42 (n=45) | **-0.42** |
 
 ## Hulk
-- Events : {'BUY': 244, 'SELL_PARTIAL': 115, 'SELL': 241, 'SKIP': 108484, 'BAG_ARM': 10, 'BAG_CRASH': 1, 'BAG_SELL': 2, 'BAG_DCA': 3, 'GBAG_SOUCHE': 15, 'GBAG_PYRAMIDE': 1}
-- Pairs ouvertes (state) : EDELUSDT
+- Events : {'BUY': 246, 'SELL_PARTIAL': 115, 'SELL': 244, 'SKIP': 108486, 'BAG_ARM': 10, 'BAG_CRASH': 1, 'BAG_SELL': 2, 'BAG_DCA': 3, 'GBAG_SOUCHE': 18, 'GBAG_PYRAMIDE': 1}
+- Pairs ouvertes (state) : —
 
 ## Liens
-[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-10-23]] · [[OSSATURE]]
+[[PLAN_DE_VOL]] · [[AUTO_PROCESSUS]] · [[AGORA]] · [[Cahier/Journal_2026-10-24]] · [[OSSATURE]]

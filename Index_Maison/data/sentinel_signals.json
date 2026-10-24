@@ -1,69 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.102694020588944,
-      "value": 1.399,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.399, z-score 2.10) indique une forte agression acheteuse sur le marché dérivé, tandis que le silence médiatique (absence de couverture Google Actualités) prouve une accumulation furtive des baleines sous le radar du grand public.\"\n}\n```",
-      "ts": "2026-10-23T13:05:31.025504+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.158893098168576,
-      "value": 2441980.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain significative (z-score 3.16) avec un afflux de 2.4M$ par une baleine, combinée à un silence médiatique absolu (Google Actualités vide). Ce vide informationnel indique une accumulation furtive hors du radar grand public, typique d'un mouvement préparatoire haussier.\"\n}\n```",
-      "ts": "2026-10-23T14:01:49.988483+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 7.105506249623045,
-      "value": 0.9463286137635807,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score de 7.11) indique une forte divergence entre les données brutes et le narratif médiatique. Les titres médiatiques ne reflètent pas cette volatilité anormale, suggérant un mouvement silencieux de baleines crypto. Le marché semble sous-estimer le risque, ce qui pourrait entraîner une baisse de prix.\"\n}\n```",
-      "ts": "2026-10-23T14:16:55.469383+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.318532903515871,
-      "value": 3115229.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Divergence massive : les médias généralistes et les gros titres se focalisent sur des liquidations macro/tradfi (tribunaux de commerce) et un bruit superficiel sur les longs (431M), alors que l'anomalie on-chain montre un volume de liquidation très faible et ciblé (3.1M, z-score 2.32). Les baleines nettoient le carnet d'ordres sans panique générale, préparant un mouvement furtif.\"\n}\n```",
-      "ts": "2026-10-23T14:22:06.983885+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.603671268924877,
-      "value": 1.489,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif détecté : 'IPT' fait référence à International Petroleum Corp. (action traditionnelle) et à des actualités institutionnelles/religieuses sans lien avec la crypto. Aucune activité de baleine crypto pertinente.\"\n}\n```",
-      "ts": "2026-10-23T14:32:16.931883+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.548043633687686,
-      "value": 2038903.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.55) sans aucune couverture médiatique correspondante, indiquant une accumulation silencieuse en amont d'un mouvement de prix.\"\n}\n```",
-      "ts": "2026-10-23T15:07:37.920208+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.023794597978352,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au mempool Bitcoin (saturation/frais), sans rapport avec une accumulation de baleines. Le narratif médiatique est un bruit totalement déconnecté (actualités locales et généralistes sans lien avec la finance).\"\n}\n```",
-      "ts": "2026-10-23T16:03:06.598043+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.023794597978352,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond : les alertes 'dust' et les flux onchain pour le ticker DUST correspondent à des homonymies médiatiques sans rapport avec la crypto (partenariats d'entreprise traditionnels, cinéma, musique).\"\n}\n```",
-      "ts": "2026-10-23T16:03:22.566587+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 13.78624286390602,
-      "value": 9184101.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Anomalie onchain extrême (z-score 13.79, +9.18M USD) dans le silence médiatique total (Google Actualités vide). Accumulation furtive classique des baleines en période de 'bruit blanc' retail.\"\n}\n```",
-      "ts": "2026-10-23T16:33:28.849556+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 6.304738792053016,
       "value": 5352062.0,
@@ -349,6 +286,69 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif complet. L'anomalie 'dust' concerne des homonymes lexicaux sans rapport avec la crypto (Dustin Group, le Dust Bowl, actualité musicale ou agricole). Aucune baleine détectée.\"\n}\n```",
       "ts": "2026-10-24T16:14:26.388978+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.342680355047804,
+      "value": 0.848,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte liée à une ambiguïté de ticker. Les données onchain/financières concernent 'International Petroleum Corp (SWB:IPT)', tandis que le narratif médiatique mélange des actualités sans rapport (École Polytechnique, Institut Pasteur de Tunis/IPT, etc.). Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-24T16:34:35.649966+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.2068576304056524,
+      "value": 1.454,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.454 (z-score 2.21) indique une forte agression acheteuse cachée sur le marché dérivé/spot, tandis que le vide médiatique (Google Actualités silencieux) prouve l'absence de FOMO public. C'est le profil typique d'accumulation furtive par les baleines avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-24T17:09:44.253809+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.7944545772987923,
+      "value": 3960781.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 2.79) sans couverture médiatique significative (Google Actualités silencieux). Accumulation discrète en cours avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-24T17:14:45.871815+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.1589712224751056,
+      "value": 1.081,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.16) sur le ticker IPT détectée, mais le narratif médiatique est totalement pollué par des homonymes non-crypto (International Petroleum Corp, École Polytechnique, théologie). Absence de signal pertinent.\"\n}\n```",
+      "ts": "2026-10-24T17:19:52.415691+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.074205045446332,
+      "value": 1.454,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.454, z-score 2.07) indique une forte agression acheteuse de la part des acheteurs sur les carnets d'ordres, totalement ignorée par les médias (silence radio). Cette asymétrie signale une accumulation furtive des baleines avant un mouvement de marché imprévu par le grand public.\"\n}\n```",
+      "ts": "2026-10-24T17:40:07.686986+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.1425907877980235,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au 'CPFP' (Child-Pays-For-Parent) confondue par les mots-clés avec des homonymes institutionnels et locaux sans lien avec une accumulation de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-24T18:15:15.694207+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.1425907877980235,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le bruit on-chain détecté concerne le ticker 'DUST', mais les actualités médiatiques font référence à des homonymes non cryptos (Dustin Group, Dust AI, art et cinéma). Il s'agit d'un faux signal ou de 'dust spam' sans accumulation réelle de baleines.\"\n}\n```",
+      "ts": "2026-10-24T18:15:19.349964+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.215621334821053,
+      "value": 5660015.0,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 78,\n\"reason\": \"Divergence majeure : une accumulation massive de 5.66M USD (z-score 4.22) coexiste avec une absence totale de couverture médiatique. Ce silence indique une accumulation discrète par des acteurs informés avant un potentiel mouvement de prix, typique d'un setup haussier précoce.\"\n}",
+      "ts": "2026-10-24T18:50:24.676908+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.3345200737279024,
+      "value": 1.559,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.33) indique une domination agressive des acheteurs (Taker Buy) sur les carnets d'ordres, signalant une accumulation agressive des baleines. En l'absence de couverture médiatique notable (Google Actualités muet), cette pression d'achat reste un mouvement de 'smart money' totalement sous le radar public.\"\n}\n```",
+      "ts": "2026-10-24T19:10:39.383674+00:00"
     }
   ]
 }

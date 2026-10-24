@@ -8502,3 +8502,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-24T16:25:39Z — ALERT auto
 - WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-24T16:39:11Z — ALERT auto
+- LAUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-24T17:05:50Z — ALERT auto
+- EDELUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

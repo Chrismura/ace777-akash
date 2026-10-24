@@ -1,97 +1,37 @@
 {
-  "timestamp": 1792859163,
-  "date": "2026-10-24T16:26:03.757881+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792870266,
+  "date": "2026-10-24T19:31:06.998964+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "cpfp",
-        "zscore": 2.2064793760081054,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec l'onchain : les articles traitent de techniques de transaction Bitcoin (CPFP) et d'homonymes institutionnels (centres de formation). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
-        "ts": 1792858456.53458
+        "metric": "taker_ratio",
+        "zscore": 2.3345200737279024,
+        "value": 1.559,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.33) indique une domination agressive des acheteurs (Taker Buy) sur les carnets d'ordres, signalant une accumulation agressive des baleines. En l'absence de couverture médiatique notable (Google Actualités muet), cette pression d'achat reste un mouvement de 'smart money' totalement sous le radar public.\"\n}\n```",
+        "ts": 1792869039.383674
       },
-      "fiche": "blocs_privilises",
+      "fiche": "taker_ratio",
       "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 2,
-          "seuil": 0,
+        "taker": {
+          "value": 1.559,
+          "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": -0.12,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
           "value": 0.0,
-          "seuil": 0,
+          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.2064793760081054,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif complet. L'anomalie 'dust' concerne des homonymes lexicaux sans rapport avec la crypto (Dustin Group, le Dust Bowl, actualité musicale ou agricole). Aucune baleine détectée.\"\n}\n```",
-        "ts": 1792858466.388978
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 2,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.12,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
