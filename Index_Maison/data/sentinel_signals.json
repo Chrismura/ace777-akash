@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 6.148025103947717,
-      "value": 7720786.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.15, ~7.7M USD) dans le silence médiatique total. Accumulation invisible typique des 'smart money' avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-24T19:35:43.283999+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2701496573785067,
-      "value": 0.926,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.27) détectée sur un ticker 'ipt' qui correspond à des actions traditionnelles (International Petroleum Corp) ou à du bruit médiatique sans lien avec la crypto. Aucune baleine crypto identifiée : le 'narratif' est un mélange hors-sujet sans pertinence onchain.\"\n}\n```",
-      "ts": "2026-10-24T19:35:44.661742+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.1748160413096875,
       "value": 1.559,
@@ -349,6 +335,20 @@
       "value": 4767641060.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique sur les volumes (z-score -2.26) non corroborée par le narratif médiatique, dont les titres proviennent d'actualités généralistes et culturelles sans rapport avec la crypto.\"\n}\n```",
       "ts": "2026-10-25T20:08:10.960679+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.8805092572171493,
+      "value": 4789682.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 2.88, ~4.79M USD) combinée à un silence médiatique absolu (Google Actualités vide). Les baleines accumulent discrètement sous le radar du retail.\"\n}\n```",
+      "ts": "2026-10-25T20:13:12.927182+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.0920476183582726,
+      "value": 4800590177.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (littérature, immobilier, mode, audition). Anomalie on-chain (z-score -2.09) non corrélée à un narratif pertinent.\"\n}\n```",
+      "ts": "2026-10-25T20:38:17.104012+00:00"
     }
   ]
 }
