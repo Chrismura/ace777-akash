@@ -8534,3 +8534,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-25T08:00:17Z — ALERT auto
 - WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-25T09:03:24Z — ALERT auto
+- WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

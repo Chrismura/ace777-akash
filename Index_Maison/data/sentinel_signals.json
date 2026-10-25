@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 7.471521881031718,
-      "value": 8592848.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 7.47, ~8.6M USD) en absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-24T12:22:23.517997+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1508170428260804,
-      "value": 0.913,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond lexicale. 'ipt' correspond ici à des actualités sans rapport avec la crypto (International Petroleum Corp, tournoi de physique, théologie). Aucune baleine crypto détectée, anomalie statistique due à l'homonymie.\"\n}\n```",
-      "ts": "2026-10-24T13:02:33.243888+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.1442609980788343,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 2.077,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.24) indique une sous-pondération historique des positions longues par la foule, tandis que les médias grand public font la promotion générale des stratégies long/short. Cette capitulation du retail contraste avec l'accumulation silencieuse typique des baleines avant un retournement haussier.\"\n}\n```",
       "ts": "2026-10-25T08:54:15.522867+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.6221878640558436,
+      "value": 2.05,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.05 avec un z-score de -2.62 indique une position vendeure extrême et anormale de la foule, tandis que le narratif médiatique est totalement déconnecté, focalisé sur des ETF traditionnels et de la gestion de fonds macro. Les baleines accumulent en silence contre le sentiment général.\"\n}\n```",
+      "ts": "2026-10-25T09:24:19.973196+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.403655936880452,
+      "value": 2.05,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.05 avec un z-score de -2.40 indique un positionnement de détail anormalement bas (capitulation des acheteurs ou excès de shorts), alors que les médias grand public banalisent et hypent les stratégies long/short. Classique divergence de capitulation : les baleines accumulent discrètement pendant que la foule shorte dans la mauvaise direction.\"\n}\n```",
+      "ts": "2026-10-25T09:54:26.417481+00:00"
     }
   ]
 }
