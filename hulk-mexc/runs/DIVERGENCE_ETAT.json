@@ -1,20 +1,63 @@
 {
-  "ts": "2026-10-25T05:59:56.914610+00:00",
+  "ts": "2026-10-25T11:59:59.860914+00:00",
   "statut": "FRAIS",
-  "age_rapport_h": 0.0,
+  "age_rapport_h": 6.0,
   "bascules": [
     {
+      "pair": "LAUSDT",
+      "avant": "neutre",
+      "maintenant": "LEADER",
+      "corr_avant": 0.048,
+      "corr_maintenant": 0.235
+    },
+    {
       "pair": "QNTUSDT",
+      "avant": "neutre",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": -0.087,
+      "corr_maintenant": -0.372
+    },
+    {
+      "pair": "REDUSDT",
       "avant": "POMPE_PIEGE",
       "maintenant": "neutre",
-      "corr_avant": -0.156,
-      "corr_maintenant": -0.087
+      "corr_avant": -0.205,
+      "corr_maintenant": 0.042
+    },
+    {
+      "pair": "RIZEUSDT",
+      "avant": "LEADER",
+      "maintenant": "POMPE_PIEGE",
+      "corr_avant": 0.183,
+      "corr_maintenant": -0.466
+    },
+    {
+      "pair": "RWAUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.432,
+      "corr_maintenant": -0.053
+    },
+    {
+      "pair": "WAXLUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "LEADER",
+      "corr_avant": -0.16,
+      "corr_maintenant": 0.198
+    },
+    {
+      "pair": "WUSDT",
+      "avant": "POMPE_PIEGE",
+      "maintenant": "neutre",
+      "corr_avant": -0.17,
+      "corr_maintenant": -0.106
     }
   ],
   "principe": "RIEN N'EST STATIQUE — signal suivi tant que les chiffres le confirment, abandonné dès inversion",
   "message": "🟢 Pattern divergence suivi et à jour.",
   "leaders": [
-    "RIZEUSDT"
+    "LAUSDT",
+    "WAXLUSDT"
   ],
   "pompes_pieges": [
     "BIOUSDT",
@@ -29,36 +72,34 @@
     "KITEUSDT",
     "MNSRYUSDT",
     "PYTHUSDT",
-    "REDUSDT",
-    "RWAUSDT",
-    "WAXLUSDT",
-    "WUSDT",
+    "QNTUSDT",
+    "RIZEUSDT",
     "XRPUSDT",
     "ZBCNUSDT"
   ],
   "stabilite": {
-    "BIOUSDT": 19,
-    "BTCUSDT": 40,
-    "CCUSDT": 5,
-    "CHIPUSDT": 40,
-    "EDELUSDT": 2,
-    "ETHUSDT": 40,
-    "FLUIDUSDT": 3,
-    "HBARUSDT": 18,
-    "IOTAUSDT": 18,
-    "KITEUSDT": 4,
-    "LAUSDT": 0,
-    "MNSRYUSDT": 2,
-    "PYTHUSDT": 18,
-    "QNTUSDT": 0,
-    "REDUSDT": 19,
-    "RIZEUSDT": 2,
+    "BIOUSDT": 20,
+    "BTCUSDT": 41,
+    "CCUSDT": 6,
+    "CHIPUSDT": 41,
+    "EDELUSDT": 3,
+    "ETHUSDT": 41,
+    "FLUIDUSDT": 4,
+    "HBARUSDT": 19,
+    "IOTAUSDT": 19,
+    "KITEUSDT": 5,
+    "LAUSDT": 1,
+    "MNSRYUSDT": 3,
+    "PYTHUSDT": 19,
+    "QNTUSDT": 1,
+    "REDUSDT": 0,
+    "RIZEUSDT": 1,
     "RWAINCUSDT": 0,
-    "RWAUSDT": 4,
-    "WAXLUSDT": 17,
-    "WUSDT": 6,
-    "XRPUSDT": 18,
-    "ZBCNUSDT": 4
+    "RWAUSDT": 0,
+    "WAXLUSDT": 1,
+    "WUSDT": 0,
+    "XRPUSDT": 19,
+    "ZBCNUSDT": 5
   },
   "recommande": "OBSERVER"
 }

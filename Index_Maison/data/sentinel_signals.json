@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.1442609980788343,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score élevé sur le CPFP reflète une congestion technique classique du réseau Bitcoin et des tutoriels grand public, sans lien avec une accumulation ou une distribution silencieuse de baleines.\"\n}\n```",
-      "ts": "2026-10-24T13:12:37.081888+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.1442609980788343,
       "value": 50.0,
@@ -349,6 +342,13 @@
       "value": 2.05,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.05 avec un z-score de -2.40 indique un positionnement de détail anormalement bas (capitulation des acheteurs ou excès de shorts), alors que les médias grand public banalisent et hypent les stratégies long/short. Classique divergence de capitulation : les baleines accumulent discrètement pendant que la foule shorte dans la mauvaise direction.\"\n}\n```",
       "ts": "2026-10-25T09:54:26.417481+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.0103114181393384,
+      "value": 2.055,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.055 avec un z-score de -2.01 indique une survente extrême des positions vendeuses ou un positionnement agressif des acheteurs, totalement ignoré par les médias traditionnels qui se focalisent sur des ETF equity et des fonds de crédit traditionnels. Divergence massive : accumulation silencieuse des baleines sur les produits dérivés crypto pendant que la presse mainstream regarde ailleurs.\"\n}\n```",
+      "ts": "2026-10-25T11:04:36.537289+00:00"
     }
   ]
 }

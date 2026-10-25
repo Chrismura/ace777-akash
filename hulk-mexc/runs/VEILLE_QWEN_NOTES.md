@@ -8542,3 +8542,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-25T10:49:08Z — ALERT auto
 - WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-25T11:22:43Z — ALERT auto
+- FLUIDUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-25T11:24:15Z — ALERT auto
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
