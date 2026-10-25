@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.2064793760081054,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif complet. L'anomalie 'dust' concerne des homonymes lexicaux sans rapport avec la crypto (Dustin Group, le Dust Bowl, actualité musicale ou agricole). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-10-24T16:14:26.388978+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.342680355047804,
-      "value": 0.848,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte liée à une ambiguïté de ticker. Les données onchain/financières concernent 'International Petroleum Corp (SWB:IPT)', tandis que le narratif médiatique mélange des actualités sans rapport (École Polytechnique, Institut Pasteur de Tunis/IPT, etc.). Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-24T16:34:35.649966+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.2068576304056524,
-      "value": 1.454,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.454 (z-score 2.21) indique une forte agression acheteuse cachée sur le marché dérivé/spot, tandis que le vide médiatique (Google Actualités silencieux) prouve l'absence de FOMO public. C'est le profil typique d'accumulation furtive par les baleines avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-24T17:09:44.253809+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.7944545772987923,
-      "value": 3960781.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 2.79) sans couverture médiatique significative (Google Actualités silencieux). Accumulation discrète en cours avant un mouvement de marché.\"\n}\n```",
-      "ts": "2026-10-24T17:14:45.871815+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 3.1589712224751056,
       "value": 1.081,
@@ -349,6 +321,34 @@
       "value": 5150454789.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sur un faux positif, totalement déconnectée des actualités (bruit médiatique sans rapport avec la crypto).\"\n}\n```",
       "ts": "2026-10-25T17:07:00.151852+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1138852137034885,
+      "value": 0.939,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 70,\n  \"reason\": \"L'anomalie onchain (ipt = 0.939, z-score 2.11) pourrait indiquer une activité anormale ou une opportunité d'investissement, mais les titres médiatiques ne mentionnent pas directement l'IPT. Les sujets médiatiques sont variés et ne semblent pas directement liés à l'anomalie onchain. Il n'y a pas de preuve claire que les baleines bougent silencieusement ou que le narratif soit déconnecté de la réalité.\"\n}\n```",
+      "ts": "2026-10-25T17:22:05.900497+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.079862492454984,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto. Le sigle SDI désigne ici le 'Syndicat des Indépendants' français réagissant à des faits divers, créant un faux signal statistique (z-score 3.08) sans aucun lien avec des mouvements de baleines on-chain.\"\n}\n```",
+      "ts": "2026-10-25T17:27:08.965264+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.2084607891688104,
+      "value": 5123970802.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 12,\n  \"reason\": \"Anomalie statistique de volume onchain sans rapport avec les titres médiatiques hors-sujet (littérature, immobilier, art, armement). Bruit de fond, pas de mouvement silencieux de baleine détecté.\"\n}\n```",
+      "ts": "2026-10-25T17:37:12.750052+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.9967256061101395,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI liée à un homonyme (Syndicat des Indépendants et TPE - SDI) dans l'actualité politique française, totalement déconnectée des marchés crypto ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-10-25T17:57:20.262319+00:00"
     }
   ]
 }

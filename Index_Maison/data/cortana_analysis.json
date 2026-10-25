@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792947989,
-  "date": "2026-10-25T17:06:29.959041+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792951590,
+  "date": "2026-10-25T18:06:30.992552+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -3.7608850440993074,
-        "value": 5609913913.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sans aucun rapport avec la crypto (bruit médiatique sur Marc Levy, l'immobilier et la mode). Données non significatives.\"\n}\n```",
-        "ts": 1792946206.706704
+        "zscore": -3.2084607891688104,
+        "value": 5123970802.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 12,\n  \"reason\": \"Anomalie statistique de volume onchain sans rapport avec les titres médiatiques hors-sujet (littérature, immobilier, art, armement). Bruit de fond, pas de mouvement silencieux de baleine détecté.\"\n}\n```",
+        "ts": 1792949832.750052
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.03,
+          "value": 0.01,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.7e-05,
+          "value": 6.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -41,6 +41,21 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 3.9967256061101395,
+        "value": 0.62,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI liée à un homonyme (Syndicat des Indépendants et TPE - SDI) dans l'actualité politique française, totalement déconnectée des marchés crypto ou des mouvements de baleines.\"\n}\n```",
+        "ts": 1792951040.262319
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

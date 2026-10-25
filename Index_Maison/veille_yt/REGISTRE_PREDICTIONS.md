@@ -1,11 +1,17 @@
 ---
-date: 2026-10-24T1619Z
+date: 2026-10-25T1716Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-10-25T1716Z — Crypto Crew University : BREAKING: LARGEST BULL FLAG BREAKOUT IN HISTORY
+Lien : https://www.youtube.com/watch?v=4WpAJxcyUzk
+
+- ⏳ EN ATTENTE | [2024-10-23] Diffusion de la vidéo bonus VIP sur cryptocrewuniversity.com (source : youtuber)
+- ⏳ EN ATTENTE | [2026-12-31] Le S&P 500 enregistre un sommet majeur ou un retournement historique consécutif à sa sortie de pattern bimensuel (source : moi)
 
 ### 2026-10-24T1616Z — Crypto Crew University : WARNING: WATCH THIS B4 NOVEMBER
 Lien : https://www.youtube.com/watch?v=FlDFTA4s7XE

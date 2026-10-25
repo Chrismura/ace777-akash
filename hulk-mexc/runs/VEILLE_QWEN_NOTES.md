@@ -8566,3 +8566,11 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-25T17:01:05Z — ALERT auto
 - FLUIDUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-25T17:36:16Z — ALERT auto
+- ZBCNUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-25T17:54:28Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
