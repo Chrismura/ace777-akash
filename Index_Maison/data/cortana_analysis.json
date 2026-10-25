@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792944088,
-  "date": "2026-10-25T16:01:28.800370+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792946189,
+  "date": "2026-10-25T16:36:29.403164+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -4.535865971925148,
-        "value": 6215233336.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -4.54) mais les titres médiatiques concernent la culture, l'immobilier et la littérature (Marc Levy). Bruit de fond absolu, aucune corrélation crypto : faux positif des sentinelles.\"\n}\n```",
-        "ts": 1792942575.041331
+        "zscore": -4.051541922919533,
+        "value": 5949562457.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique due à un bruit de fond sans rapport avec la crypto (les titres médiatiques traitent de littérature, d'immobilier, de mode et de tatouage). Aucune baleine détectée.\"\n}\n```",
+        "ts": 1792944390.527588
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 8.2e-05,
+          "value": 7.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -45,15 +45,15 @@
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.8242754692382595,
-        "value": 1.091,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.82) détectée sur le ticker 'IPT', mais le bruit médiatique fait référence à des sujets totalement hétérogènes (pétrole, physique, fondation locale, violences sexuelles) sans aucun lien avec une cryptomonnaie active ou des flux de baleines crypto identifiables. Faux positif probable.\"\n}\n```",
-        "ts": 1792942877.625558
+        "zscore": 2.097437282713804,
+        "value": 0.934,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.10) sans lien avec la crypto. Les 'données brutes' et le ticker 'ipt' renvoient ici à des actions traditionnelles (International Petroleum Corp) ou des institutions, totalement déconnectées des flux de baleines crypto. Bruit de fond médiatique sans signal exploitable.\"\n}\n```",
+        "ts": 1792945293.900385
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.0,
           "seuil": 1,
           "depasse": false
         },
@@ -63,7 +63,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 8.2e-05,
+          "value": 7.6e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -80,6 +80,41 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 15.075213825983067,
+        "value": 17638416.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 15.08, ~17.6M USD) sans aucune couverture médiatique correspondante. Accumulation silencieuse de baleines totalement déconnectée du bruit public.\"\n}\n```",
+        "ts": 1792945595.84464
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 597069.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.0,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

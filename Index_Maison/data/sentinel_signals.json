@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.119694196012861,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit statistique pur (z-score 2.12). Les 'mouvements' détectés concernent des homonymes lexicaux sans lien avec la crypto (actions Dust Group, actualités sur l'IA, écologie et musique).\"\n}\n```",
-      "ts": "2026-10-24T15:13:37.294094+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.859308600432415,
-      "value": 0.8902853987086234,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 4.86) totalement absente des radars médiatiques. Classic 'silent accumulation' : les baleines déclenchent un mouvement brusque avant que le bruit public ne s'installe.\"\n}\n```",
-      "ts": "2026-10-24T15:18:43.461420+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.445081627071139,
-      "value": 0.906,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une homonymie. Le symbole IPT (International Petroleum Corp / Tournoi de Physique) n'a aucune relation avec une cryptomonnaie ou une baleine on-chain.\"\n}\n```",
-      "ts": "2026-10-24T15:38:57.141262+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.358846169448888,
-      "value": 0.7774897355073973,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.36) en totale absence de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant que le narratif public ne se mette en place.\"\n}\n```",
-      "ts": "2026-10-24T15:49:03.261253+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.2064793760081054,
       "value": 50.0,
@@ -349,6 +321,34 @@
       "value": 1.091,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.82) détectée sur le ticker 'IPT', mais le bruit médiatique fait référence à des sujets totalement hétérogènes (pétrole, physique, fondation locale, violences sexuelles) sans aucun lien avec une cryptomonnaie active ou des flux de baleines crypto identifiables. Faux positif probable.\"\n}\n```",
       "ts": "2026-10-25T15:41:17.625558+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -4.051541922919533,
+      "value": 5949562457.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique due à un bruit de fond sans rapport avec la crypto (les titres médiatiques traitent de littérature, d'immobilier, de mode et de tatouage). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-10-25T16:06:30.527588+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.097437282713804,
+      "value": 0.934,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.10) sans lien avec la crypto. Les 'données brutes' et le ticker 'ipt' renvoient ici à des actions traditionnelles (International Petroleum Corp) ou des institutions, totalement déconnectées des flux de baleines crypto. Bruit de fond médiatique sans signal exploitable.\"\n}\n```",
+      "ts": "2026-10-25T16:21:33.900385+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 15.075213825983067,
+      "value": 17638416.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 15.08, ~17.6M USD) sans aucune couverture médiatique correspondante. Accumulation silencieuse de baleines totalement déconnectée du bruit public.\"\n}\n```",
+      "ts": "2026-10-25T16:26:35.844640+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.7608850440993074,
+      "value": 5609913913.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sans aucun rapport avec la crypto (bruit médiatique sur Marc Levy, l'immobilier et la mode). Données non significatives.\"\n}\n```",
+      "ts": "2026-10-25T16:36:46.706704+00:00"
     }
   ]
 }
