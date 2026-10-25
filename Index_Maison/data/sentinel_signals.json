@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.4370077867439135,
-      "value": 0.63606001719545,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.44) sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines avant que le bruit public ne génère le FOMO.\"\n}\n```",
-      "ts": "2026-10-24T14:48:08.675844+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 4.922506646146023,
       "value": 6836875.0,
@@ -349,6 +342,13 @@
       "value": 1.096,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif massif. L'acronyme 'IPT' dans les données onchain/crypto ne correspond à aucun actif majeur connu. Les titres médiatiques confirment une confusion sémantique totale : ils référencent une société pétrolière canadienne (International Petroleum Corp), des violences sexistes (IPT en France) et un tournoi physique. Il n'y a aucune divergence crypto, mais une erreur d'identification du symbole. Aucune action de baleine détectée.\"\n}\n```",
       "ts": "2026-10-25T13:25:13.487502+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.436050098219303,
+      "value": 7669931093.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sans aucun rapport avec la crypto (bruit médiatique sur Marc Levy, l'immobilier et le tatouage). Faux positif absolu.\"\n}\n```",
+      "ts": "2026-10-25T14:35:39.639214+00:00"
     }
   ]
 }
