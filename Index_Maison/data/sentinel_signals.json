@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.270464910389608,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond absolu. Les données onchain détectent un actif sans liquidité (« dust ») et les actualités parlent d'entreprises homonymes (Dustin Group), d'art ou d'agriculture. Aucune baleine crypto active ici, le signal est un faux positif.\"\n}\n```",
-      "ts": "2026-10-24T03:06:02.041254+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.604569788618419,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-24T03:21:09.272792+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.3869801881466537,
       "value": 51,
@@ -349,6 +335,20 @@
       "value": 54,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score on-chain élevé indiquant une anomalie de volatilité potentielle.\"\n}\n```",
       "ts": "2026-10-25T02:32:51.906433+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6457513110645903,
+      "value": 54,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Données insuffisantes : le titre 'Google Actualités' est vide de contenu spécifique et le z-score de 2.65 sur un Fear & Greed de 54 (zone neutre) ne constitue pas une anomalie onchain significative sans corrélation avec des flux de trésorerie ou des mouvements de volume. Impossible de détecter une divergence réelle ou une action de baleines avec ces informations.\"\n}\n```",
+      "ts": "2026-10-25T03:02:55.759281+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 54,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (54) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-25T03:33:09.071644+00:00"
     }
   ]
 }
