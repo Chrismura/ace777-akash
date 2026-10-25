@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.074205045446332,
-      "value": 1.454,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (1.454, z-score 2.07) indique une forte agression acheteuse de la part des acheteurs sur les carnets d'ordres, totalement ignorée par les médias (silence radio). Cette asymétrie signale une accumulation furtive des baleines avant un mouvement de marché imprévu par le grand public.\"\n}\n```",
-      "ts": "2026-10-24T17:40:07.686986+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.1425907877980235,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée au 'CPFP' (Child-Pays-For-Parent) confondue par les mots-clés avec des homonymes institutionnels et locaux sans lien avec une accumulation de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-24T18:15:15.694207+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.1425907877980235,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 5021377522.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (littérature, immobilier, art, armement). Données onchain non pertinentes pour une analyse de baleines.\"\n}\n```",
       "ts": "2026-10-25T18:07:26.896896+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.6849042900506226,
+      "value": 5005038164.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (littérature, immobilier, art, défense).\"\n}\n```",
+      "ts": "2026-10-25T18:37:32.832120+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.588879536347329,
+      "value": 4831571851.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le bruit médiatique ne concerne que de la littérature, de l'immobilier, de la mode et des lunettes. Aucune baleine crypto détectée, le z-score négatif indique juste un calme plat on-chain.\"\n}\n```",
+      "ts": "2026-10-25T19:07:45.644714+00:00"
     }
   ]
 }
