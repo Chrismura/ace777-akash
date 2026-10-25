@@ -8587,3 +8587,11 @@ Pas d’ordre — confrontation plus tard.
 - EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
 - FLUIDUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-25T21:28:08Z — ALERT auto
+- EDELUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-25T21:37:09Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

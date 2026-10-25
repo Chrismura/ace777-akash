@@ -1,37 +1,67 @@
 {
-  "timestamp": 1792962394,
-  "date": "2026-10-25T21:06:34.315376+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792965995,
+  "date": "2026-10-25T22:06:35.372498+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": -2.0920476183582726,
-        "value": 4800590177.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (littérature, immobilier, mode, audition). Anomalie on-chain (z-score -2.09) non corrélée à un narratif pertinent.\"\n}\n```",
-        "ts": 1792960697.104012
+        "metric": "whale_usd",
+        "zscore": 3.931232294282101,
+        "value": 6201438.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.93, flux de 6.2M USD) en l'absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique des baleines sous le radar du retail.\"\n}\n```",
+        "ts": 1792965224.123343
       },
-      "fiche": "rbf_eleve",
+      "fiche": "whale_usd",
       "questions": {
+        "ventes": {
+          "value": 1697537.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 851268.0,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": 0.0,
+          "value": 0.5,
           "seuil": 1,
           "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 2.5873642292826795,
+        "value": 0.35096298030060646,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Hausse brutale du prix (z-score 2.59) dans le silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant l'emballement public.\"\n}\n```",
+        "ts": 1792965525.77126
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.5,
+          "seuil": -1,
+          "depasse": true
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
+        "liq": {
+          "value": 3068021.0,
+          "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 4.2e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 3,
-          "seuil": 5,
-          "depasse": false
+          "value": 3.4e-05,
+          "seuil": 0,
+          "depasse": true
         }
       },
       "interpretation": {
@@ -43,5 +73,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

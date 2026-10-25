@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-25T21:08:43+00:00",
+  "ts": "2026-10-25T22:09:53+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -274,7 +274,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "828 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "829 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -287,11 +287,11 @@
           "delta_votes": 5
         },
         {
-          "amendement": "SingleAssetVault",
+          "amendement": "DynamicMPT",
           "delta_votes": 4
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "SingleAssetVault",
           "delta_votes": 4
         },
         {
@@ -307,7 +307,7 @@
           "delta_votes": -1
         },
         {
-          "amendement": "Batch",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
@@ -315,7 +315,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 87/154 = 56.5 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 87/156 = 55.8 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -351,9 +351,9 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 51,
+          "directionnels": 53,
           "corect": 33,
-          "n": 93
+          "n": 95
         },
         {
           "indice": "etfBtcM",
@@ -394,7 +394,7 @@
           "directionnels": 6,
           "corrects": 2,
           "neutres": 56,
-          "t_stat": -5.33
+          "t_stat": -5.59
         }
       ]
     },

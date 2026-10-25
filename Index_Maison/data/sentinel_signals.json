@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.1748160413096875,
-      "value": 1.559,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.17) indique une domination agressive des acheteurs sur les carnets d'ordres, signalant une accumulation agressive par les baleines. Aucun narratif médiatique majeur ne reflète cette pression d'achat, prouvant une divergence totale et un mouvement de \"smart money\" silencieux avant une potentielle cassure haussière.\"\n}\n```",
-      "ts": "2026-10-24T19:40:46.641283+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.2517926607799494,
-      "value": 4558522.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique sur des liquidations mineures (4,5M$ vs 200M$ fantasmés) agitant le seuil psychologique des 80k$. Classique purge des positions acheteuses en retard, le z-score modéré indique un 'shakeout' de détail orchestré avant la reprise.\"\n}\n```",
-      "ts": "2026-10-24T20:05:51.097955+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.1057453156699077,
       "value": 4569282.0,
@@ -349,6 +335,20 @@
       "value": 4800590177.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (littérature, immobilier, mode, audition). Anomalie on-chain (z-score -2.09) non corrélée à un narratif pertinent.\"\n}\n```",
       "ts": "2026-10-25T20:38:17.104012+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.931232294282101,
+      "value": 6201438.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.93, flux de 6.2M USD) en l'absence totale de couverture médiatique (Google Actualités vide). Accumulation furtive classique des baleines sous le radar du retail.\"\n}\n```",
+      "ts": "2026-10-25T21:53:44.123343+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.5873642292826795,
+      "value": 0.35096298030060646,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Hausse brutale du prix (z-score 2.59) dans le silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant l'emballement public.\"\n}\n```",
+      "ts": "2026-10-25T21:58:45.771260+00:00"
     }
   ]
 }

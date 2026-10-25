@@ -1,49 +1,50 @@
 {
-  "timestamp": "2026-10-25T21:08:44Z",
+  "timestamp": "2026-10-25T22:08:56Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "a3ab1e322f1d497c91389030361b23a9d4dd5969430106579e9a4a83d6b43b4a",
+  "feed_hash": "700ea9c8f39c6080ba9529f450adccabb5ec90c26c1cfc6699c5b6a95f68c572",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 8,
+      "age_seconds": 0,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 120,
+      "age_seconds": 304,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 82,
+      "age_seconds": 85,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 5390907,
+      "age_seconds": 5394519,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 106,
-    "running": 14,
-    "planned": 92,
+    "running": 15,
+    "planned": 91,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
+      "com.ace777.cortana.urgent",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
       "com.ace777.prise-ia",
-      "com.ace777.satellite-aspiration",
       "com.ace777.state-generator",
-      "com.ace777.superviseur",
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live"
+      "com.ace777.thermo-quotidien",
+      "com.ace777.vigie-live",
+      "com.ace777.xrpl-arbitrage"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -59,7 +60,6 @@
       "com.ace777.cortana-analyzer",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -107,6 +107,7 @@
       "com.ace777.routeur-auto",
       "com.ace777.rwa-yields",
       "com.ace777.sante-index",
+      "com.ace777.satellite-aspiration",
       "com.ace777.scoreur-registre",
       "com.ace777.sentinel",
       "com.ace777.sentinelle-independante",
@@ -117,8 +118,8 @@
       "com.ace777.sniffer-vieux-btc",
       "com.ace777.sonde-volume-panier",
       "com.ace777.suivi-setup-red",
+      "com.ace777.superviseur",
       "com.ace777.superviseur-auto",
-      "com.ace777.thermo-quotidien",
       "com.ace777.troupeau-inv",
       "com.ace777.veille-degradation",
       "com.ace777.veille-essaim-observation",
@@ -135,7 +136,6 @@
       "com.ace777.watchdog",
       "com.ace777.whales",
       "com.ace777.x402-agentic",
-      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
@@ -179,7 +179,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-25T21:02:11Z",
+    "presence_at": "2026-10-25T22:02:11Z",
     "sizes_at": "2026-10-25T16:32:06Z"
   }
 }
