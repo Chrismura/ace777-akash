@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.1442609980788343,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualités sur la sylviculture, les actions traditionnelles et la tech). Le 'dust' onchain est un artefact insignifiant, aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-24T13:12:39.625511+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.5924814567873455,
-      "value": 0.6891435139539825,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative entre les données brutes et le narratif médiatique. Le z-score de 3.59 suggère une activité anormale des baleines crypto, probablement des mouvements de fonds importants. Les titres médiatiques ne mentionnent pas cette anomalie, indiquant une possible déconnexion entre le marché et le narratif médiatique.\"\n}\n```",
-      "ts": "2026-10-24T14:17:58.356245+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.4370077867439135,
       "value": 0.63606001719545,
@@ -349,6 +335,20 @@
       "value": 2.055,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.055 avec un z-score de -2.01 indique une survente extrême des positions vendeuses ou un positionnement agressif des acheteurs, totalement ignoré par les médias traditionnels qui se focalisent sur des ETF equity et des fonds de crédit traditionnels. Divergence massive : accumulation silencieuse des baleines sur les produits dérivés crypto pendant que la presse mainstream regarde ailleurs.\"\n}\n```",
       "ts": "2026-10-25T11:04:36.537289+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.3457183033952442,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 5,\n  \"reason\": \"Faux positif : Le 'SDI' mentionné dans les titres fait référence au Service Départemental d'Incendie et de Secours (contexte français : pillages à Nice, lettre au gouvernement), et non à un indicateur onchain ou un actif crypto. Aucune divergence crypto détectée.\"\n}\n```",
+      "ts": "2026-10-25T13:25:12.075333+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.0729870738645153,
+      "value": 1.096,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif massif. L'acronyme 'IPT' dans les données onchain/crypto ne correspond à aucun actif majeur connu. Les titres médiatiques confirment une confusion sémantique totale : ils référencent une société pétrolière canadienne (International Petroleum Corp), des violences sexistes (IPT en France) et un tournoi physique. Il n'y a aucune divergence crypto, mais une erreur d'identification du symbole. Aucune action de baleine détectée.\"\n}\n```",
+      "ts": "2026-10-25T13:25:13.487502+00:00"
     }
   ]
 }
