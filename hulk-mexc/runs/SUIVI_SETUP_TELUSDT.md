@@ -62,6 +62,7 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 55 | ? | -1h | AUTRE | None | None | None | None | None | 1.49e-06 | -0.35 | — | — | neutre (stab None) | prix ? · Amihud 1.49e-06 · delta -0.35 |
 | 56 | ? | -1h | AUTRE | None | None | None | None | None | 2.27e-06 | -0.18 | — | — | neutre (stab None) | prix ? · Amihud 2.27e-06 · delta -0.18 |
 | 57 | ? | -1h | AUTRE | None | None | None | None | None | 2.42e-06 | 0.17 | — | — | neutre (stab None) | prix ? · Amihud 2.42e-06 · delta +0.17 |
+| 58 | ? | -1h | AUTRE | None | None | None | None | None | 2.23e-06 | -0.27 | — | — | neutre (stab None) | prix ? · Amihud 2.23e-06 · delta -0.27 |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
@@ -69,7 +70,7 @@ _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +2.93 $** sur 20 entrée(s) / 20 sortie(s) — dernier événement 2026-10-05T08:08:38Z
+- **Réalisé : +1.47 $** sur 10 entrée(s) / 10 sortie(s) — dernier événement 2026-10-05T08:08:38Z
 - **MFE donné en moyenne : +3.2 pts** par tour (pire tour : +9.3) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

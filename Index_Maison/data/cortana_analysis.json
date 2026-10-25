@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792940487,
-  "date": "2026-10-25T15:01:27.749408+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792944088,
+  "date": "2026-10-25T16:01:28.800370+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.436050098219303,
-        "value": 7669931093.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sans aucun rapport avec la crypto (bruit médiatique sur Marc Levy, l'immobilier et le tatouage). Faux positif absolu.\"\n}\n```",
-        "ts": 1792938939.639214
+        "zscore": -4.535865971925148,
+        "value": 6215233336.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -4.54) mais les titres médiatiques concernent la culture, l'immobilier et la littérature (Marc Levy). Bruit de fond absolu, aucune corrélation crypto : faux positif des sentinelles.\"\n}\n```",
+        "ts": 1792942575.041331
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.34,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,46 @@
           "depasse": false
         },
         "funding": {
-          "value": 8.5e-05,
+          "value": 8.2e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.8242754692382595,
+        "value": 1.091,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.82) détectée sur le ticker 'IPT', mais le bruit médiatique fait référence à des sujets totalement hétérogènes (pétrole, physique, fondation locale, violences sexuelles) sans aucun lien avec une cryptomonnaie active ou des flux de baleines crypto identifiables. Faux positif probable.\"\n}\n```",
+        "ts": 1792942877.625558
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.02,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 8.2e-05,
           "seuil": 0.001,
           "depasse": false
         },
