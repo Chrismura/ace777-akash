@@ -1,62 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.1788523057076485,
-      "value": 0.5793692806682182,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.18) sur le prix à court terme sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant l'emballement du narratif public.\"\n}\n```",
-      "ts": "2026-10-24T00:25:09.826222+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.053106873135784,
-      "value": 3374967.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte anomalie d'accumulation on-chain (Z-score 3.05, ~3.37M USD) totalement ignorée par les médias (silence radio). Classique accumulation furtive de baleines loin du bruit de fond.\"\n}\n```",
-      "ts": "2026-10-24T00:25:15.117776+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 6.335839103296187,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Z-score élevé (6.34) sur un Fear & Greed neutre (51) combiné à un vide médiatique total suggère une accumulation discrète ou une phase de calme avant rupture, mais sans mouvement on-chain directionnel clair des baleines.\"\n}\n```",
-      "ts": "2026-10-24T00:50:20.206747+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.1995716813955095,
-      "value": 0.6353601979708801,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (Z-score 3.20) en l'absence totale de couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines loin des radars du retail.\"\n}\n```",
-      "ts": "2026-10-24T00:55:29.943790+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.173308282444649,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique liée à la congestion du réseau (frais/mempool), sans lien avec une accumulation ou distribution de baleines. Le bruit médiatique concerne des homonymes (éducation, pharmacie) ou des tutoriels techniques génériques.\"\n}\n```",
-      "ts": "2026-10-24T00:55:31.293726+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.173308282444649,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes non-crypto (agriculture, IA, actions traditionnelles, musique). L'anomalie onchain 'dust' (z-score 2.17) est trop faible et noyée dans du bruit sémantique non pertinent pour confirmer une accumulation ou distribution de baleines.\"\n}\n```",
-      "ts": "2026-10-24T00:55:32.977443+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.599331055039013,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avarice neutre (51) avec un z-score élevé indiquant une volatilité statistique, mais l'absence de titres médiatiques significatifs (Google Actualités vide/neutre) montre un vide informationnel. Pas de divergence claire détectée pour initier un mouvement de baleine.\"\n}\n```",
-      "ts": "2026-10-24T01:20:39.935811+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.7626978003610825,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (51) couplé à un z-score élevé (3.76) suggérant une anomalie statistique locale sans impulsion directionnelle claire des baleines.\"\n}\n```",
-      "ts": "2026-10-24T01:50:45.127829+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.958974164768042,
       "value": 3490825.0,
@@ -349,6 +293,62 @@
       "value": 7139914.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 5.63, +7.1M USD) dans un silence médiatique absolu. Les baleines accumulent discrètement avant que le narratif public ne s'empare du mouvement.\"\n}\n```",
       "ts": "2026-10-24T21:21:17.986245+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.9433223797276713,
+      "value": 4371333.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (Z-score 2.94, ~4.37M USD) dans un silence médiatique absolu (Google Actualités vide). Accumulation furtive typique hors radar retail avant un mouvement directionnel.\"\n}\n```",
+      "ts": "2026-10-24T22:46:45.954165+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0059368392448684,
+      "value": 0.88,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Erreur de ciblage : l'actif 'IPT' détecté par la sentinelle correspond ici à des actualités sur des actions traditionnelles (International Petroleum Corp) ou des institutions (École Polytechnique), sans lien avec un protocole crypto ou une activité de baleine onchain.\"\n}\n```",
+      "ts": "2026-10-24T22:56:48.249194+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 4.355909085456853,
+      "value": 2.232,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 2.23 (z-score 4.36) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par les médias (silence médiatique). Classic accumulation furtive de baleines avant un re-pricing.\"\n}\n```",
+      "ts": "2026-10-24T23:06:52.094135+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1289702360211873,
+      "value": 5257024.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique excessive amplifiée par des liquidations mineures (5,2 M$ onchain vs 200 M$ fantômes dans les titres). Divergence classique de capitulation des 'faibles mains' (shaking out retail) orchestrée pendant que les baleines absorbent le dip sous 80k$.\"\n}\n```",
+      "ts": "2026-10-24T23:36:58.369120+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.669163322304683,
+      "value": 2.232,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score critique (3.67) sur le taker_ratio (2.232) indiquant une forte agression acheteuse cachée, totalement ignorée par le silence médiatique. Accumulation silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-24T23:36:59.518768+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 25.753161982806777,
+      "value": 54,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (54) mais z-score anormalement élevé (25.75) indiquant une anomalie statistique de volatilité ou de volume. Absence de narratif médiatique dominant pour corroborer un mouvement de baleine unilatéral.\"\n}\n```",
+      "ts": "2026-10-25T00:02:04.390935+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.2100558789895337,
+      "value": 2.232,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (z-score 3.21) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée ou sous-estimée par le silence médiatique actuel. Accumulation silencieuse des baleines avant un mouvement de rupture.\"\n}\n```",
+      "ts": "2026-10-25T00:07:06.110469+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.855654600401044,
+      "value": 54,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (6.86) sur l'indice de peur et de cupidité mais absence de données médiatiques contextuelles (titres vides). Impossible de confirmer une divergence significative entre accumulation silencieuse et narratif public.\"\n}\n```",
+      "ts": "2026-10-25T00:32:10.986121+00:00"
     }
   ]
 }

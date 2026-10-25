@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-10-24 22:19 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-10-25 00:46 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,7 +22,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-10-24 22:19Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-10-25 00:46Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -31,29 +31,17 @@
 
 ## Veille du jour
 
-- [Santé]
-  · hub : OK (7 providers)
-  · réseau (DNS) : OK
-  · sources en erreur : 0
-- [Énergie du jour]
-  · appels : 28 (cloud 28)
-  · budget cloud : 624 max
-  · par provider : gemini=25, groq=3
-- [Nouvelles offres détectées (non intégrées)]
-  · recursive/flint-v1.0:free
-  · nvidia/nemotron-3.5-super-vl:free
-  · dots-studio/dots-3-note-preview:free
-  … 111 offres/pépites détectées ce matin
+- VEILLE du jour : pas encore passée
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-10-24T22:19:45.993024Z ETHUSDT 2341.4 0.0001 67.5 declenche=oui
-  · 2026-10-24T22:19:45.993158Z ETHUSDT 2341.39 0.0001 67.5 declenche=oui
-  · 2026-10-24T22:19:45.993212Z ETHUSDT 2341.32 0.0001 67.6 declenche=oui
-  · 2026-10-24T22:19:46.131824Z ETHUSDT 2341.31 0.0001 67.6 declenche=oui
+  · 2026-10-25T00:46:51.895230Z ETHUSDT 2360.9 0.0001 92.5 declenche=oui
+  · 2026-10-25T00:46:51.895348Z ETHUSDT 2360.88 0.0001 92.5 declenche=oui
+  · 2026-10-25T00:46:51.895467Z ETHUSDT 2360.87 0.0001 92.6 declenche=oui
+  · 2026-10-25T00:46:51.959540Z ETHUSDT 2360.86 0.0001 92.6 declenche=oui
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
-- 1088 signets X résumés (quota aujourd'hui : 1/50)
+- 1088 signets X résumés (quota aujourd'hui : 0/50)
 - 183 fiches IA d'offres en cache (quota 8/jour)
 
 ---

@@ -1,7 +1,37 @@
 {
-  "timestamp": 1792881070,
-  "date": "2026-10-24T22:31:10.272410+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1792889772,
+  "date": "2026-10-25T00:56:12.793773+00:00",
+  "n_analyses": 1,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 6.855654600401044,
+        "value": 54,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Z-score élevé (6.86) sur l'indice de peur et de cupidité mais absence de données médiatiques contextuelles (titres vides). Impossible de confirmer une divergence significative entre accumulation silencieuse et narratif public.\"\n}\n```",
+        "ts": 1792888330.986121
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 54,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 54,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
