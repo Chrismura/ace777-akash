@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.1589712224751056,
-      "value": 1.081,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 3.16) sur le ticker IPT détectée, mais le narratif médiatique est totalement pollué par des homonymes non-crypto (International Petroleum Corp, École Polytechnique, théologie). Absence de signal pertinent.\"\n}\n```",
-      "ts": "2026-10-24T17:19:52.415691+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.074205045446332,
       "value": 1.454,
@@ -349,6 +342,13 @@
       "value": 0.62,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI liée à un homonyme (Syndicat des Indépendants et TPE - SDI) dans l'actualité politique française, totalement déconnectée des marchés crypto ou des mouvements de baleines.\"\n}\n```",
       "ts": "2026-10-25T17:57:20.262319+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.9448844657102815,
+      "value": 5021377522.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (littérature, immobilier, art, armement). Données onchain non pertinentes pour une analyse de baleines.\"\n}\n```",
+      "ts": "2026-10-25T18:07:26.896896+00:00"
     }
   ]
 }
