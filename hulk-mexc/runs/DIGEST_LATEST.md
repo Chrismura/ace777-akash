@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-25T01:56:06Z
+# Hulk DIGEST — 2026-10-25T02:57:04Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,28 +12,28 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | IDLE | 0.73 | 1.43 | 0.15 | 0.01 | 25479838.71 | 1.53 | n/a |
-| ETHUSDT | IDLE | 0.66 | 1.3 | 0.12 | -0.01 | 121578482.25 | 0.04 | no_map |
-| BTCUSDT | IDLE | 0.39 | 0.77 | 0.1 | -0.0 | 246906553.27 | 0.0 | no_map |
-| WUSDT | IDLE | 1.24 | 2.79 | 1.24 | -0.05 | 782285.05 | 30.28 | tvl≈1,502,800,555 |
-| PYTHUSDT | IDLE | 1.78 | 3.36 | 1.35 | 0.01 | 522674.35 | 1.41 | tvl≈156,270,678 |
-| EDELUSDT | IDLE | 1.3 | 3.24 | 1.15 | -0.06 | 587309.76 | 29.81 | no_map |
-| ZBCNUSDT | IDLE | 2.35 | 5.28 | 3.48 | 0.01 | 227838.75 | 16.09 | n/a |
-| RIZEUSDT | IMPULSE_WAIT — spike en cours, pas chase | 3.09 | 8.8 | 1.89 | -0.01 | 42309.44 | 62.58 | no_map |
-| CHIPUSDT | IDLE | 2.4 | 7.21 | 3.03 | 0.03 | 87504.11 | 15.62 | no_map |
-| LAUSDT | IDLE | 2.1 | 11.5 | 9.29 | -0.09 | 104981.49 | 25.4 | no_map |
-| QNTUSDT | IDLE | 1.59 | 3.11 | 0.42 | -0.01 | 365346.94 | 2.21 | n/a |
-| REDUSDT | IDLE | 1.32 | 3.09 | 3.0 | 0.01 | 99248.94 | 14.96 | tvl≈3,668,942 |
-| KITEUSDT | IDLE | 1.56 | 2.86 | 1.76 | -0.04 | 60193.59 | 13.96 | no_map |
-| CCUSDT | IDLE | 0.66 | 1.19 | 0.85 | -0.02 | 222751.18 | 9.89 | no_map |
-| BIOUSDT | IDLE | 1.23 | 2.25 | 1.38 | -0.03 | 66147.15 | 4.38 | n/a |
-| WAXLUSDT | IDLE | 2.34 | 5.99 | 4.9 | 0.0 | 56662.3 | 43.34 | no_map |
-| RWAINCUSDT | IDLE | 0.74 | 1.49 | 0.0 | 0.01 | 54004.52 | 10.84 | no_map |
-| FLUIDUSDT | IDLE | 1.73 | 3.56 | 1.39 | -0.05 | 13084.07 | 22.62 | tvl≈2,188,440,831 |
-| HBARUSDT | IDLE | 0.59 | 1.14 | 0.28 | -0.0 | 198412.57 | 6.42 | empty_tvl |
-| IOTAUSDT | IDLE | 1.09 | 2.01 | 1.11 | -0.03 | 68064.74 | 27.42 | no_map |
-| RWAUSDT | IDLE | 0.32 | 0.64 | 0.0 | -0.0 | 54204.3 | 55.53 | no_map |
-| MNSRYUSDT | IDLE | 0.42 | 0.74 | 0.64 | -0.01 | 37669.6 | 77.07 | no_map |
+| XRPUSDT | IDLE | 0.91 | 1.82 | 0.01 | 0.02 | 25743902.19 | 1.52 | skipped_fast |
+| ETHUSDT | IDLE | 0.81 | 1.59 | 0.19 | -0.01 | 123034485.16 | 0.04 | skipped_fast |
+| BTCUSDT | IDLE | 0.43 | 0.84 | 0.08 | -0.0 | 250067658.03 | 0.0 | skipped_fast |
+| WUSDT | IDLE | 1.3 | 2.79 | 2.18 | -0.06 | 778573.56 | 66.9 | skipped_fast |
+| PYTHUSDT | IDLE | 1.77 | 3.36 | 1.24 | 0.0 | 519593.59 | 2.81 | skipped_fast |
+| ZBCNUSDT | IDLE | 2.37 | 5.28 | 3.88 | 0.01 | 228347.59 | 14.79 | skipped_fast |
+| EDELUSDT | IDLE | 0.82 | 2.08 | 0.49 | -0.06 | 591746.96 | 13.21 | skipped_fast |
+| RIZEUSDT | IMPULSE_WAIT — spike en cours, pas chase | 3.08 | 8.8 | 1.79 | -0.01 | 42248.04 | 43.94 | skipped_fast |
+| CHIPUSDT | IDLE | 1.91 | 5.62 | 3.2 | 0.02 | 87430.19 | 17.87 | skipped_fast |
+| QNTUSDT | IDLE | 1.83 | 3.56 | 0.71 | -0.0 | 364493.69 | 0.55 | skipped_fast |
+| REDUSDT | IDLE | 1.61 | 3.84 | 3.29 | -0.0 | 99434.39 | 15.68 | skipped_fast |
+| KITEUSDT | IDLE | 1.71 | 3.0 | 2.83 | -0.05 | 60276.16 | 13.22 | skipped_fast |
+| LAUSDT | IDLE | 2.06 | 11.5 | 7.6 | -0.04 | 107421.98 | 21.61 | skipped_fast |
+| CCUSDT | IDLE | 0.7 | 1.26 | 0.9 | -0.02 | 219650.84 | 6.93 | skipped_fast |
+| BIOUSDT | IDLE | 1.25 | 2.25 | 1.64 | -0.03 | 66438.63 | 4.39 | skipped_fast |
+| RWAINCUSDT | IDLE | 0.91 | 1.71 | 0.7 | -0.0 | 54418.53 | 5.44 | skipped_fast |
+| WAXLUSDT | IDLE | 2.3 | 5.99 | 4.24 | -0.01 | 57024.57 | 51.17 | skipped_fast |
+| HBARUSDT | IDLE | 0.62 | 1.22 | 0.1 | -0.0 | 200503.66 | 11.52 | skipped_fast |
+| FLUIDUSDT | IDLE | 1.38 | 2.8 | 1.39 | -0.04 | 13054.05 | 21.26 | skipped_fast |
+| IOTAUSDT | IDLE | 1.13 | 2.01 | 1.63 | -0.03 | 68001.28 | 25.26 | skipped_fast |
+| RWAUSDT | IDLE | 0.34 | 0.64 | 0.24 | -0.0 | 53850.06 | 15.87 | skipped_fast |
+| MNSRYUSDT | IDLE | 0.38 | 0.74 | 0.14 | -0.01 | 37652.65 | 77.07 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
