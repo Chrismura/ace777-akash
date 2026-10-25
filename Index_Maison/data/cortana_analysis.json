@@ -1,7 +1,68 @@
 {
-  "timestamp": 1792914980,
-  "date": "2026-10-25T07:56:20.275027+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1792918581,
+  "date": "2026-10-25T08:56:21.270386+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.184128874704091,
+        "value": 1.917,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.917 (z-score 2.18) indique une forte agression acheteuse cachée sur les carnets d'ordres, totalement ignorée par le silence médiatique actuel. Accumulation silencieuse des baleines.\"\n}\n```",
+        "ts": 1792917552.303264
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.917,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.27,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.2371320111991966,
+        "value": 2.077,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le Z-score extrêmement bas (-2.24) indique une sous-pondération historique des positions longues par la foule, tandis que les médias grand public font la promotion générale des stratégies long/short. Cette capitulation du retail contraste avec l'accumulation silencieuse typique des baleines avant un retournement haussier.\"\n}\n```",
+        "ts": 1792918455.522867
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.077,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 93076.358,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    }
+  ],
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
