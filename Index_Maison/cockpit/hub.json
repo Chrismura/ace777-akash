@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T17:05:36.820194+00:00",
+  "generated_at": "2026-10-25T17:07:07.779208+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 138
+      "calls_24h": 140
     },
     {
       "id": "openrouter-free",
@@ -283,10 +283,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 92,
-    "remaining": 532
+    "consumed": 94,
+    "remaining": 530
   },
   "queue": [
+    {
+      "ts": "2026-10-25T17:07:00.151180+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.8
+    },
+    {
+      "ts": "2026-10-25T17:05:58.901372+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.44
+    },
     {
       "ts": "2026-10-25T17:04:49.273033+00:00",
       "task": "supervise.decision",
@@ -390,25 +406,21 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 7.55
-    },
-    {
-      "ts": "2026-10-25T14:35:39.637817+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.88
-    },
-    {
-      "ts": "2026-10-25T14:03:52.179634+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.07
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-25T17:07:00.150081+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-25T17:05:58.900174+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-10-25T17:04:49.272418+00:00",
       "kind": "message",
@@ -455,18 +467,6 @@
       "ts": "2026-10-25T16:55:21.506625+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-25T16:55:19.737207+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-25T16:55:17.370538+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     }
   ],

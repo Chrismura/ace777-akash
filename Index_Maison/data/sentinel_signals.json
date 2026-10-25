@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.2064793760081054,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec l'onchain : les articles traitent de techniques de transaction Bitcoin (CPFP) et d'homonymes institutionnels (centres de formation). Aucune accumulation ou mouvement significatif de baleines détecté.\"\n}\n```",
-      "ts": "2026-10-24T16:14:16.534580+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.2064793760081054,
       "value": 50.0,
@@ -349,6 +342,13 @@
       "value": 5609913913.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sans aucun rapport avec la crypto (bruit médiatique sur Marc Levy, l'immobilier et la mode). Données non significatives.\"\n}\n```",
       "ts": "2026-10-25T16:36:46.706704+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -3.663832234454483,
+      "value": 5150454789.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sur un faux positif, totalement déconnectée des actualités (bruit médiatique sans rapport avec la crypto).\"\n}\n```",
+      "ts": "2026-10-25T17:07:00.151852+00:00"
     }
   ]
 }
