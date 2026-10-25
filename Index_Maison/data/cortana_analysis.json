@@ -1,20 +1,20 @@
 {
-  "timestamp": 1792955192,
-  "date": "2026-10-25T19:06:32.130720+00:00",
-  "n_analyses": 1,
+  "timestamp": 1792956992,
+  "date": "2026-10-25T19:36:32.696931+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": -2.6849042900506226,
-        "value": 5005038164.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (littérature, immobilier, art, défense).\"\n}\n```",
-        "ts": 1792953452.83212
+        "zscore": -2.588879536347329,
+        "value": 4831571851.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le bruit médiatique ne concerne que de la littérature, de l'immobilier, de la mode et des lunettes. Aucune baleine crypto détectée, le z-score négatif indique juste un calme plat on-chain.\"\n}\n```",
+        "ts": 1792955265.644714
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.0,
+          "value": -0.09,
           "seuil": 1,
           "depasse": false
         },
@@ -24,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 5.7e-05,
+          "value": 5e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -41,6 +41,41 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.518840606745386,
+        "value": 5787567.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.52) indiquant une accumulation massive et anormale de capitaux par les baleines, totalement ignorée par les médias (silence radio médiatique). Classique divergence d'accumulation discrète avant un mouvement de marché haussier.\"\n}\n```",
+        "ts": 1792955568.152914
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 909994.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 1261689.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.09,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

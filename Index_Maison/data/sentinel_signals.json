@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.1425907877980235,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le bruit on-chain détecté concerne le ticker 'DUST', mais les actualités médiatiques font référence à des homonymes non cryptos (Dustin Group, Dust AI, art et cinéma). Il s'agit d'un faux signal ou de 'dust spam' sans accumulation réelle de baleines.\"\n}\n```",
-      "ts": "2026-10-24T18:15:19.349964+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 4.215621334821053,
-      "value": 5660015.0,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 78,\n\"reason\": \"Divergence majeure : une accumulation massive de 5.66M USD (z-score 4.22) coexiste avec une absence totale de couverture médiatique. Ce silence indique une accumulation discrète par des acteurs informés avant un potentiel mouvement de prix, typique d'un setup haussier précoce.\"\n}",
-      "ts": "2026-10-24T18:50:24.676908+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.3345200737279024,
       "value": 1.559,
@@ -349,6 +335,20 @@
       "value": 4831571851.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le bruit médiatique ne concerne que de la littérature, de l'immobilier, de la mode et des lunettes. Aucune baleine crypto détectée, le z-score négatif indique juste un calme plat on-chain.\"\n}\n```",
       "ts": "2026-10-25T19:07:45.644714+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.518840606745386,
+      "value": 5787567.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.52) indiquant une accumulation massive et anormale de capitaux par les baleines, totalement ignorée par les médias (silence radio médiatique). Classique divergence d'accumulation discrète avant un mouvement de marché haussier.\"\n}\n```",
+      "ts": "2026-10-25T19:12:48.152914+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.424799932198772,
+      "value": 4777872212.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent (littérature, immobilier, mode, audition). Aucune donnée crypto exploitable.\"\n}\n```",
+      "ts": "2026-10-25T19:37:58.171814+00:00"
     }
   ]
 }
