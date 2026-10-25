@@ -1,4 +1,4 @@
-# Rapport Veilleuse — 2026-10-25T00:51:58.547154+00:00
+# Rapport Veilleuse — 2026-10-25T01:31:59.365788+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : Index_Maison/strategie/JOURNAL_ECRIVAINS.jsonl (md5 diffère du registre)
