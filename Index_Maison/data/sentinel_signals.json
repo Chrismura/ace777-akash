@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.23606797749979,
-      "value": 54,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avidité neutre (54) avec un z-score modéré (2.24) et absence de titres médiatiques significatifs. Pas de divergence notable détectée.\"\n}\n```",
-      "ts": "2026-10-25T04:03:23.660455+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.081665999466133,
-      "value": 54,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (54) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-25T04:33:30.028054+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.3299349148189554,
-      "value": 1.917,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.917 (z-score 2.33) indique une forte agression acheteuse par les gros porteurs sur le marché dérivés/spot, totalement ignorée par un silence médiatique absolu (Google Actualités vide). Divergence classique d'accumulation furtive avant un mouvement de cassure haussier.\"\n}\n```",
-      "ts": "2026-10-25T08:09:05.954185+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.184128874704091,
-      "value": 1.917,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.917 (z-score 2.18) indique une forte agression acheteuse cachée sur les carnets d'ordres, totalement ignorée par le silence médiatique actuel. Accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-25T08:39:12.303264+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.2371320111991966,
       "value": 2.077,
@@ -349,6 +321,34 @@
       "value": 50,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence de données onchain concrètes (flux de baleines, volume, etc.) et absence de contenu médiatique exploitable (titre vide). Impossible de détecter une divergence sans données brutes.\"\n}",
       "ts": "2026-10-26T03:05:21.204367+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.447811282332615,
+      "value": 2.244,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score élevé de 2.45, indiquant un positionnement excessivement haussier et surpeuplé des traders particuliers. En contraste total, les médias traditionnels promeuvent massivement les stratégies 'long/short' comme protection face à des marchés agités, créant une diversion narrative. Cette surchauffe des positions acheteuses combinée à l'euphorie médiatique est un signal classique de piégeage des taureaux (bull trap) par les baleines.\"\n}\n```",
+      "ts": "2026-10-26T03:35:27.791509+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.420153478013915,
+      "value": 50,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré un indice neutre à 50 et un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines loin du bruit de fond.\"\n}\n```",
+      "ts": "2026-10-26T03:35:29.078295+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.5435947870042463,
+      "value": 2.256,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.54) et ratio long/short extrême (2.256) signalent un positionnement acheteur excessivement surpeuplé, typique d'un piège à liquidité (excès d'optimisme retail/baleines en tendance tardive). Le narratif médiatique se focalise sur des produits traditionnels et des stratégies long/short de couverture, ignorant totalement la surchauffe spéculative imminente sur les dérivés.\"\n}\n```",
+      "ts": "2026-10-26T04:05:35.103447+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.236067977499791,
+      "value": 50,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (z-score de peur extrême -2.24 malgré un marché neutre à 50). Absence de bruit de fond = accumulation furtive des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-26T04:05:36.337447+00:00"
     }
   ]
 }

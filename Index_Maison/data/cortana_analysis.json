@@ -1,25 +1,25 @@
 {
-  "timestamp": 1792984300,
-  "date": "2026-10-26T03:11:40.808434+00:00",
+  "timestamp": 1792987901,
+  "date": "2026-10-26T04:11:41.919794+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.435533404035562,
-        "value": 2.236,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. L'anomalie onchain (z-score 2.44) est attribuée à des flux ETF traditionnels (BNP Paribas, Blackstone Credit) et non à des actifs crypto. Le narratif médiatique est cohérent avec des mouvements de fonds classiques, sans divergence réelle avec la blockchain crypto.\"\n}",
-        "ts": 1792983920.615922
+        "zscore": 2.5435947870042463,
+        "value": 2.256,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.54) et ratio long/short extrême (2.256) signalent un positionnement acheteur excessivement surpeuplé, typique d'un piège à liquidité (excès d'optimisme retail/baleines en tendance tardive). Le narratif médiatique se focalise sur des produits traditionnels et des stratégies long/short de couverture, ignorant totalement la surchauffe spéculative imminente sur les dérivés.\"\n}\n```",
+        "ts": 1792987535.103447
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.244,
+          "value": 2.256,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 94797.715,
+          "value": 94646.55,
           "seuil": 120000,
           "depasse": false
         }
@@ -36,10 +36,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.6457513110645903,
+        "zscore": -2.236067977499791,
         "value": 50,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence de données onchain concrètes (flux de baleines, volume, etc.) et absence de contenu médiatique exploitable (titre vide). Impossible de détecter une divergence sans données brutes.\"\n}",
-        "ts": 1792983921.204367
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (z-score de peur extrême -2.24 malgré un marché neutre à 50). Absence de bruit de fond = accumulation furtive des baleines loin des radars du retail.\"\n}\n```",
+        "ts": 1792987536.337447
       },
       "fiche": "fear_greed",
       "questions": {
