@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -2.6457513110645903,
-      "value": 50,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence de données onchain concrètes (flux de baleines, volume, etc.) et absence de contenu médiatique exploitable (titre vide). Impossible de détecter une divergence sans données brutes.\"\n}",
-      "ts": "2026-10-26T03:05:21.204367+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.447811282332615,
       "value": 2.244,
@@ -349,6 +342,13 @@
       "value": 1.669,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.669 avec un z-score élevé de 2.93 indique une domination agressive des acheteurs (Taker Buy) que les médias ignorent totalement (silence radio). Cette accumulation silencieuse et agressive par les baleines précède généralement une cassure haussière avant que le narratif public ne s'aligne.\"\n}\n```",
       "ts": "2026-10-26T22:33:29.158394+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.6592412106634167,
+      "value": 1.669,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.66) indique une forte agression acheteuse cachée sous le radar médiatique (silence radio). Divergence classique d'accumulation agressive par les baleines avant un mouvement de cassure.\"\n}\n```",
+      "ts": "2026-10-26T23:03:34.044492+00:00"
     }
   ]
 }

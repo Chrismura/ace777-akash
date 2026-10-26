@@ -1,38 +1,38 @@
 {
-  "timestamp": 1793054823,
-  "date": "2026-10-26T22:47:03.396363+00:00",
+  "timestamp": 1793057524,
+  "date": "2026-10-26T23:32:04.793756+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "taker_ratio",
-        "zscore": 2.933888413413701,
+        "zscore": 2.6592412106634167,
         "value": 1.669,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.669 avec un z-score élevé de 2.93 indique une domination agressive des acheteurs (Taker Buy) que les médias ignorent totalement (silence radio). Cette accumulation silencieuse et agressive par les baleines précède généralement une cassure haussière avant que le narratif public ne s'aligne.\"\n}\n```",
-        "ts": 1793054009.158394
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.66) indique une forte agression acheteuse cachée sous le radar médiatique (silence radio). Divergence classique d'accumulation agressive par les baleines avant un mouvement de cassure.\"\n}\n```",
+        "ts": 1793055814.044492
       },
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.669,
+          "value": 0.835,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -0.13,
+          "value": 0.0,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
       },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
