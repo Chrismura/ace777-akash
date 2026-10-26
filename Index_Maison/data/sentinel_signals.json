@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "taker_ratio",
-      "zscore": 4.355909085456853,
-      "value": 2.232,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 2.23 (z-score 4.36) indique une agression massive des acheteurs (Taker Buy) totalement ignorée par les médias (silence médiatique). Classic accumulation furtive de baleines avant un re-pricing.\"\n}\n```",
-      "ts": "2026-10-24T23:06:52.094135+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.1289702360211873,
-      "value": 5257024.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique excessive amplifiée par des liquidations mineures (5,2 M$ onchain vs 200 M$ fantômes dans les titres). Divergence classique de capitulation des 'faibles mains' (shaking out retail) orchestrée pendant que les baleines absorbent le dip sous 80k$.\"\n}\n```",
-      "ts": "2026-10-24T23:36:58.369120+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.669163322304683,
-      "value": 2.232,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score critique (3.67) sur le taker_ratio (2.232) indiquant une forte agression acheteuse cachée, totalement ignorée par le silence médiatique. Accumulation silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-24T23:36:59.518768+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 25.753161982806777,
-      "value": 54,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (54) mais z-score anormalement élevé (25.75) indiquant une anomalie statistique de volatilité ou de volume. Absence de narratif médiatique dominant pour corroborer un mouvement de baleine unilatéral.\"\n}\n```",
-      "ts": "2026-10-25T00:02:04.390935+00:00"
-    },
-    {
-      "metric": "taker_ratio",
       "zscore": 3.2100558789895337,
       "value": 2.232,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio élevé (z-score 3.21) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée ou sous-estimée par le silence médiatique actuel. Accumulation silencieuse des baleines avant un mouvement de rupture.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 50,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (z-score -22.61) sur le Fear & Greed à 50 combinée à un silence médiatique absolu. Indique une accumulation invisible des baleines hors radar grand public, précurseur classique d'un mouvement haussier violent.\"\n}\n```",
       "ts": "2026-10-26T00:04:13.508108+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.915687443926371,
+      "value": 5128498.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le narratif médiatique hurle au krach et à la panique suite à des liquidations massives (815M$), créant un sentiment de capitulation de masse. En réalité, le z-score des liquidations spécifiques détectées (5,1M$) montre un bruit de fond mineur sur les carnets, révélant un 'flush' superficiel des positions à effet de levier excessif. Les baleines profitent de cette panique médiatique pour accumuler en silence sous 80k$ pendant que les suiveurs fuient.\"\n}\n```",
+      "ts": "2026-10-26T00:24:17.390306+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.8556546004010395,
+      "value": 50,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-6.86) pour un indice de peur/greed neutre (50) combiné à un vide médiatique total (Google Actualités sans écho). C'est la signature classique d'accumulation silencieuse par les baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-10-26T00:34:21.767510+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.3420854937948112,
+      "value": 5056206.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le narratif médiatique hurle au krach et panique sur des liquidations massives (815M$), alors que l'anomalie on-chain réelle montre un volume modéré de 5M$ (z-score 3.34). Cette surmédiatisation de la peur est un classique 'shakeout' orchestré pour piéger les suiveurs pendant que les baleines accumulent en silence.\"\n}\n```",
+      "ts": "2026-10-26T00:54:27.175303+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.7958315233127236,
+      "value": 50,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -4.80) avec un indice de peur/avidité neutre (50) et un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-26T01:04:29.684684+00:00"
     }
   ]
 }

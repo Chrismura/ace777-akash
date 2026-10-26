@@ -1,30 +1,30 @@
 {
-  "timestamp": 1792973497,
-  "date": "2026-10-26T00:11:37.639269+00:00",
+  "timestamp": 1792977098,
+  "date": "2026-10-26T01:11:38.786459+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "liquidations",
-        "zscore": 4.335352518792937,
-        "value": 4939651.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence massive : les médias généralistes hurlent au krach et paniquent sur des liquidations macro (815M$), mais l'anomalie onchain réelle est faible (4,9M$, z-score 4.34). Panique manufacturée par la presse pour secourir les derniers 'weak hands' pendant que les baleines accumulent en silence sous les 80k$.\"\n}\n```",
-        "ts": 1792972450.923357
+        "zscore": 3.3420854937948112,
+        "value": 5056206.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le narratif médiatique hurle au krach et panique sur des liquidations massives (815M$), alors que l'anomalie on-chain réelle montre un volume modéré de 5M$ (z-score 3.34). Cette surmédiatisation de la peur est un classique 'shakeout' orchestré pour piéger les suiveurs pendant que les baleines accumulent en silence.\"\n}\n```",
+        "ts": 1792976067.175303
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 4277873.0,
+          "value": 4292973.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 848398.0,
+          "value": 887288.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.09,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         }
@@ -41,10 +41,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -22.60777517266651,
+        "zscore": -4.7958315233127236,
         "value": 50,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (z-score -22.61) sur le Fear & Greed à 50 combinée à un silence médiatique absolu. Indique une accumulation invisible des baleines hors radar grand public, précurseur classique d'un mouvement haussier violent.\"\n}\n```",
-        "ts": 1792973053.508108
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -4.80) avec un indice de peur/avidité neutre (50) et un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines loin du radar public.\"\n}\n```",
+        "ts": 1792976669.684684
       },
       "fiche": "fear_greed",
       "questions": {
