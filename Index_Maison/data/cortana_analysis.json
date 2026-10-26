@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793035317,
-  "date": "2026-10-26T17:21:57.405398+00:00",
-  "n_analyses": 4,
+  "timestamp": 1793035617,
+  "date": "2026-10-26T17:26:57.512246+00:00",
+  "n_analyses": 5,
   "analyses": [
     {
       "signal": {
@@ -14,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.35,
+          "value": 0.24,
           "seuil": 1,
           "depasse": false
         },
@@ -53,9 +53,9 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 0.0,
+          "value": 504268.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "achats": {
           "value": 0.0,
@@ -63,18 +63,19 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.35,
+          "value": 0.24,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -105,7 +106,46 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.0438493717833084,
+        "value": 0.867,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.04) sur un ticker brouillé par du bruit médiatique sans lien avec la crypto (pétrole, actualités académiques et religieuses). Absence totale de signal on-chain pertinent.\"\n}\n```",
+        "ts": 1793035548.359245
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.24,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
