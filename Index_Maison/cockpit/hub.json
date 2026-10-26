@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T15:23:13.914598+00:00",
+  "generated_at": "2026-10-26T15:25:15.303944+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 182
+      "calls_24h": 183
     },
     {
       "id": "openrouter-free",
@@ -283,10 +283,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 121,
-    "remaining": 503
+    "consumed": 122,
+    "remaining": 502
   },
   "queue": [
+    {
+      "ts": "2026-10-26T15:24:47.299244+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 32.27
+    },
     {
       "ts": "2026-10-26T15:22:47.954398+00:00",
       "task": "supervise.decision",
@@ -398,17 +406,15 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 5.89
-    },
-    {
-      "ts": "2026-10-26T12:20:56.863707+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 13.26
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-26T15:24:47.298763+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-10-26T15:22:47.953892+00:00",
       "kind": "message",
@@ -462,12 +468,6 @@
       "kind": "failover",
       "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-10-26T15:21:28.763124+00:00",
-      "kind": "blacklist",
-      "title": "Pause Groq (Qwen 3.8 27B, gratuit) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
     }
   ],
   "tasks_quotas": {
