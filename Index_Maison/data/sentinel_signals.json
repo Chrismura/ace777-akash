@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -4.051541922919533,
-      "value": 5949562457.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique due à un bruit de fond sans rapport avec la crypto (les titres médiatiques traitent de littérature, d'immobilier, de mode et de tatouage). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-10-25T16:06:30.527588+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.097437282713804,
       "value": 0.934,
@@ -349,6 +342,13 @@
       "value": 7443153.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 4.81, accumulation de ~7.4M USD) totalement ignorée par les médias (silence radio). Divergence classique de 'smart money' accumulant dans l'ombre avant un mouvement de marché.\"\n}\n```",
       "ts": "2026-10-26T10:12:12.373456+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.8044523225984386,
+      "value": 0.5453878478864027,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative entre les données brutes et le narratif médiatique. Le prix a montré une volatilité anormale (z-score 2.80), suggérant un mouvement de baleines crypto. Cependant, les titres médiatiques ne reflètent pas cette volatilité, indiquant un narratif potentiellement déconnecté de la réalité.\"\n}\n```",
+      "ts": "2026-10-26T13:27:43.933584+00:00"
     }
   ]
 }
