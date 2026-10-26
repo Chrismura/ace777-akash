@@ -1,20 +1,20 @@
 {
-  "timestamp": 1793033216,
-  "date": "2026-10-26T16:46:56.750487+00:00",
-  "n_analyses": 2,
+  "timestamp": 1793035317,
+  "date": "2026-10-26T17:21:57.405398+00:00",
+  "n_analyses": 4,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.6706380873592055,
-        "value": 10660739963.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif liée à un homonyme sémantique ('volume' scolaire/matériel) dans les flux RSS. Aucune donnée crypto réelle détectée.\"\n}\n```",
-        "ts": 1793032120.375085
+        "zscore": 2.6111148395100243,
+        "value": 10954412450.0,
+        "analysis": "```json\n{\"signal\": \"neutral\", \"confidence\": 15, \"reason\": \"Bruit médiatique non pertinent (actualités tech, bateaux et éducation sans rapport avec la crypto). Anomalie de volume on-chain isolée sans confirmation narrative.\"}\n```",
+        "ts": 1793033963.795048
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.67,
+          "value": 0.35,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -44,28 +44,28 @@
     },
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 2.943885540082616,
-        "value": 0.7131494087427526,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.94) combiné à un silence médiatique absolu : accumulation furtive typique des baleines avant une cassure haussière.\"\n}\n```",
-        "ts": 1793032741.871473
+        "metric": "whale_usd",
+        "zscore": 3.004800334374794,
+        "value": 4193015.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.0) pour un montant de 4,19M$ sans aucune couverture médiatique (Google Actualités vide).典型的 accumulation silencieuse par une baleine loin du bruit de détail.\"\n}\n```",
+        "ts": 1793034884.036971
       },
-      "fiche": "price_1h",
+      "fiche": "whale_usd",
       "questions": {
-        "pct_1h": {
-          "value": -0.67,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 2592586.0,
-          "seuil": 5000000,
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         },
-        "funding": {
-          "value": 0.0001,
+        "achats": {
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.35,
+          "seuil": 1,
+          "depasse": false
         }
       },
       "interpretation": {
@@ -75,6 +75,36 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": -2.4187438832318704,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le z-score faible de la métrique CPFP (Child-Pays-For-Parent) reflète simplement une congestion minime du mempool Bitcoin, sans lien avec une accumulation de baleines. Les médias grand public mélangent des homonymes (finances publiques, établissements), confirmant l'absence de signal macro ou de mouvement significatif.\"\n}\n```",
+        "ts": 1793035212.554067
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": -2.4187438832318704,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit statistique). Le narratif médiatique fait référence à de la culture pop, de la mode et du jeu vidéo sans lien avec la crypto. Aucune baleine détectée.\"\n}\n```",
+        "ts": 1793035233.167198
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
