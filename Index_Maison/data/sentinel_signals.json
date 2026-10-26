@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.786686766751983,
-      "value": 0.40763851519711736,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.79) détectant un mouvement de prix significatif (+1h) en l'absence totale de couverture médiatique (Google Actualités vide). C'accumulation silencieuse classique par les baleines loin du bruit de fond de retail.\"\n}\n```",
-      "ts": "2026-10-25T23:29:04.185032+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 4.335352518792937,
-      "value": 4939651.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Divergence massive : les médias généralistes hurlent au krach et paniquent sur des liquidations macro (815M$), mais l'anomalie onchain réelle est faible (4,9M$, z-score 4.34). Panique manufacturée par la presse pour secourir les derniers 'weak hands' pendant que les baleines accumulent en silence sous les 80k$.\"\n}\n```",
-      "ts": "2026-10-25T23:54:10.923357+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -22.60777517266651,
-      "value": 50,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (z-score -22.61) sur le Fear & Greed à 50 combinée à un silence médiatique absolu. Indique une accumulation invisible des baleines hors radar grand public, précurseur classique d'un mouvement haussier violent.\"\n}\n```",
-      "ts": "2026-10-26T00:04:13.508108+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.915687443926371,
-      "value": 5128498.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le narratif médiatique hurle au krach et à la panique suite à des liquidations massives (815M$), créant un sentiment de capitulation de masse. En réalité, le z-score des liquidations spécifiques détectées (5,1M$) montre un bruit de fond mineur sur les carnets, révélant un 'flush' superficiel des positions à effet de levier excessif. Les baleines profitent de cette panique médiatique pour accumuler en silence sous 80k$ pendant que les suiveurs fuient.\"\n}\n```",
-      "ts": "2026-10-26T00:24:17.390306+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.8556546004010395,
-      "value": 50,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-6.86) pour un indice de peur/greed neutre (50) combiné à un vide médiatique total (Google Actualités sans écho). C'est la signature classique d'accumulation silencieuse par les baleines loin du radar retail.\"\n}\n```",
-      "ts": "2026-10-26T00:34:21.767510+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 3.3420854937948112,
       "value": 5056206.0,
@@ -349,6 +314,41 @@
       "value": 0.867,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.04) sur un ticker brouillé par du bruit médiatique sans lien avec la crypto (pétrole, actualités académiques et religieuses). Absence totale de signal on-chain pertinent.\"\n}\n```",
       "ts": "2026-10-26T17:25:48.359245+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.4995339186818977,
+      "value": 11139007069.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités high-tech, maritimes et scolaires). Anomalie statistique de volume non corrélée à un actif numérique identifiable.\"\n}\n```",
+      "ts": "2026-10-26T17:30:58.863930+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.318467439665226,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (SDI) déclenchée par un homonyme (Syndrome de Défense des Indépendants ou Samsung SDI) dans l'actualité générale, sans rapport avec la crypto. Bruit médiatique sans substance onchain.\"\n}\n```",
+      "ts": "2026-10-26T17:31:12.254116+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.4131238463616613,
+      "value": 11333193841.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur l'iPhone, un bateau et l'immobilier). Le z-score on-chain élevé (2.41) est totalement déconnecté des actualités crypto, signalant soit du bruit statistique, soit une inactivité totale des médias sur un mouvement purement algorithmique.\"\n}\n```",
+      "ts": "2026-10-26T18:01:36.921030+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.9504342406283786,
+      "value": 0.624,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.95) due à une collision de homonymes : l'algorithme crypto détecte du bruit lié au 'Syndicat des Indépendants (SDI)' et à 'Samsung SDI' dans l'actualité française et industrielle, sans lien avec une baleine crypto.\"\n}\n```",
+      "ts": "2026-10-26T18:01:53.396077+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.8000065212437173,
+      "value": 1.286,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de tickers. L'indicateur on-chain 'ipt' capte du bruit ou un actif sans lien avec l'action boursière International Petroleum Corp (SWB:IPT) ou l'événement académique français. Aucune baleine crypto pertinente détectée.\"\n}\n```",
+      "ts": "2026-10-26T18:17:13.262120+00:00"
     }
   ]
 }

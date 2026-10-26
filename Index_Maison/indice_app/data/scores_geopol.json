@@ -1,19 +1,19 @@
 {
   "geopol": {
-    "score": 0.4097,
-    "ml_score": 0.2437,
+    "score": 0.4361,
+    "ml_score": 0.2619,
     "niveau": "attention",
     "emoji": "🟡",
     "ml": {
       "label": 1,
       "label_nom": "attention",
       "label_emoji": "🟡",
-      "probability": 0.5152,
-      "confidence": 0.5152,
-      "risk_score": 0.2437,
+      "probability": 0.5696,
+      "confidence": 0.5696,
+      "risk_score": 0.2619,
       "probas": {
-        "calme": 0.3768,
-        "attention": 0.5152,
+        "calme": 0.3224,
+        "attention": 0.5696,
         "alerte": 0.108,
         "critique": 0.0
       },
@@ -54,7 +54,7 @@
         }
       },
       "jets_adsb": {
-        "score": 0.0158,
+        "score": 0.0077,
         "categorie": "geopol",
         "source": "OpenSky Network",
         "interpretation": "🟢 CALME — Trafic normal autour de DC. Rien d'inhabituel.",
@@ -62,7 +62,7 @@
           "military_surge": 0.0,
           "military_ratio": 0.0,
           "altitude_avg": 0.0,
-          "velocity_avg": 0.1575
+          "velocity_avg": 0.0771
         }
       },
       "oil_price": {
@@ -78,15 +78,15 @@
         }
       },
       "defense_stocks": {
-        "score": 0.5898,
+        "score": 0.73,
         "categorie": "geopol",
         "source": "Yahoo Finance",
-        "interpretation": "🟡 ATTENTION — Légère hausse du secteur défense. À surveiller.",
+        "interpretation": "🔴 ALERTE — Actions défense en hausse significative. Stress géopolitique en cours. Surveiller de près.",
         "features": {
-          "sector_avg_change": 0.4679,
-          "sector_breadth": 0.6667,
-          "max_stock_move": 0.955,
-          "sector_correlation": 0.3
+          "sector_avg_change": 0.4729,
+          "sector_breadth": 1.0,
+          "max_stock_move": 0.704,
+          "sector_correlation": 1.0
         }
       },
       "news_sentiment": {
@@ -99,7 +99,7 @@
           "keyword_hits": 1.0,
           "source_diversity": 1.0,
           "abstract_negativity": 0.0,
-          "neg_geo_raw": 0.7,
+          "neg_geo_raw": 0.775,
           "neg_neutre_raw": 0.094
         }
       }
@@ -108,8 +108,8 @@
     "nb_modules": 5,
     "nb_ok": 5,
     "scores_par_categorie": {
-      "geopol": 0.4097
+      "geopol": 0.4361
     },
-    "ts": "2026-10-25T18:13:42.626312+00:00"
+    "ts": "2026-10-26T18:13:51.765492+00:00"
   }
 }
