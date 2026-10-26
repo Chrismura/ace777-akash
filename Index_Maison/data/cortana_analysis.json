@@ -1,45 +1,96 @@
 {
-  "timestamp": 1793044019,
-  "date": "2026-10-26T19:46:59.926908+00:00",
-  "n_analyses": 1,
+  "timestamp": 1793046420,
+  "date": "2026-10-26T20:27:00.639675+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": 2.04180066679399,
-        "value": 11476526639.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume détectée (z-score 2.04), mais les titres médiatiques sont complètement hors-sujet (actualités tech, faits divers et Bourse traditionnelle). Aucune corrélation onchain exploitable : bruit de fond ou faux signal.\"\n}\n```",
-        "ts": 1793043153.687093
+        "metric": "cpfp",
+        "zscore": -2.057677948593422,
+        "value": 5.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur l'éducation et la politique locale en Afrique). Le z-score faible du CPFP reflète une absence d'activité notable sur les frais de transaction, contredisant toute accumulation ou mouvement significatif de baleines.\"\n}\n```",
+        "ts": 1793044659.47634
       },
-      "fiche": "rbf_eleve",
+      "fiche": "blocs_privilises",
       "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 218,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": 0.08,
-          "seuil": 1,
-          "depasse": false
+          "value": -0.12,
+          "seuil": 0,
+          "depasse": true
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
         },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
         "niveau": "neutre",
-        "action": "Observer"
+        "action": "Garder les positions"
       },
-      "action": "Observer",
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": -2.057677948593422,
+        "value": 5.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -2.06) totalement non corrélée au bruit médiatique, lequel fait référence à de la culture pop, de la musique et des actions boursières traditionnelles sans lien avec la crypto.\"\n}\n```",
+        "ts": 1793044663.237395
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 218,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.12,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
       "niveau": "neutre"
     }
   ],

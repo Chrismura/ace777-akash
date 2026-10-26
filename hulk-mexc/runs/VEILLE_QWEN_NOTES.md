@@ -8677,3 +8677,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-26T18:38:21Z — ALERT auto
 - CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-26T19:51:50Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

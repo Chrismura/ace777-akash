@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -3.8729833462074166,
-      "value": 50,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (-3.87) sur le Fear & Greed malgré une neutralité apparente (50), combiné à un black-out médiatique total (Google Actualités vide). C'est la signature classique d'accumulation silencieuse des baleines sous le radar de la foule.\"\n}\n```",
-      "ts": "2026-10-26T01:34:37.117083+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.650842260198213,
-      "value": 0.5333239866195494,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 3.65) suggère un mouvement de fonds significatif, potentiellement des achats de baleines. Cependant, l'absence de titres médiatiques pertinents indique un narratif déconnecté ou une opération silencieuse. La divergence entre les données brutes et le narratif médiatique suggère une opportunité d'achat.\"\n}\n```",
-      "ts": "2026-10-26T01:39:39.119882+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.777381287818737,
-      "value": 2.236,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 89,\n  \"reason\": \"Z-score extrêmement élevé (2.78) sur le ratio long/short, indiquant un posicionnement acheteur excessif de la foule. Le narratif médiatique grand public flatte naïvement les stratégies 'long-short' comme refuge, créant un piège de liquidité classique parfait pour une chasse aux stops par les baleines.\"\n}\n```",
-      "ts": "2026-10-26T02:05:00.385340+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.316624790355397,
-      "value": 50,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (50) avec un z-score très bas (-3.32) indiquant un assèchement statistique de la volatilité, couplé à une absence totale de narratif médiatique pertinent. Aucun mouvement furtif significatif détecté : le marché est en phase d'attente.\"\n}\n```",
-      "ts": "2026-10-26T02:05:01.615791+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.597112435932553,
       "value": 2.236,
@@ -349,6 +321,34 @@
       "value": 11476526639.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume détectée (z-score 2.04), mais les titres médiatiques sont complètement hors-sujet (actualités tech, faits divers et Bourse traditionnelle). Aucune corrélation onchain exploitable : bruit de fond ou faux signal.\"\n}\n```",
       "ts": "2026-10-26T19:32:33.687093+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": -2.057677948593422,
+      "value": 5.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur l'éducation et la politique locale en Afrique). Le z-score faible du CPFP reflète une absence d'activité notable sur les frais de transaction, contredisant toute accumulation ou mouvement significatif de baleines.\"\n}\n```",
+      "ts": "2026-10-26T19:57:39.476340+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": -2.057677948593422,
+      "value": 5.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -2.06) totalement non corrélée au bruit médiatique, lequel fait référence à de la culture pop, de la musique et des actions boursières traditionnelles sans lien avec la crypto.\"\n}\n```",
+      "ts": "2026-10-26T19:57:43.237395+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": -2.0270004739844527,
+      "value": 5.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -2.03) due à une faible activité sur la métrique CPFP (Child-Pays-For-Parent), mais le bruit médiatique est totalement décorrélé (mélange de tutoriels techniques et de faits divers locaux sans rapport avec un mouvement macro de baleines crypto).\"\n}\n```",
+      "ts": "2026-10-26T20:27:56.069762+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": -2.0270004739844527,
+      "value": 5.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique absolu (musique, baskets, jeux vidéo). L'anomalie onchain 'dust' est un bruit statistique sans corrélation avec une accumulation ou distribution de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-26T20:27:57.587168+00:00"
     }
   ]
 }
