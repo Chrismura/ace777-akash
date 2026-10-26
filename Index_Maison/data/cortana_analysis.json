@@ -1,43 +1,8 @@
 {
-  "timestamp": 1793031716,
-  "date": "2026-10-26T16:21:56.304969+00:00",
-  "n_analyses": 3,
+  "timestamp": 1793032016,
+  "date": "2026-10-26T16:26:56.406019+00:00",
+  "n_analyses": 2,
   "analyses": [
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 4.621127057387249,
-        "value": 7515440.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 4.62, volume ~7.5M USD) totalement ignorée par les médias traditionnels (Google Actualités vide). Divergence classique d'accumulation silencieuse hors du radar retail.\"\n}\n```",
-        "ts": 1793029925.514004
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 757496.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.31,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
-      },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -49,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.31,
+          "value": -0.3,
           "seuil": 1,
           "depasse": false
         },
@@ -64,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
