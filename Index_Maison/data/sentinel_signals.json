@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.097437282713804,
-      "value": 0.934,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.10) sans lien avec la crypto. Les 'données brutes' et le ticker 'ipt' renvoient ici à des actions traditionnelles (International Petroleum Corp) ou des institutions, totalement déconnectées des flux de baleines crypto. Bruit de fond médiatique sans signal exploitable.\"\n}\n```",
-      "ts": "2026-10-25T16:21:33.900385+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 15.075213825983067,
-      "value": 17638416.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 15.08, ~17.6M USD) sans aucune couverture médiatique correspondante. Accumulation silencieuse de baleines totalement déconnectée du bruit public.\"\n}\n```",
-      "ts": "2026-10-25T16:26:35.844640+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -3.7608850440993074,
       "value": 5609913913.0,
@@ -349,6 +335,20 @@
       "value": 0.5453878478864027,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative entre les données brutes et le narratif médiatique. Le prix a montré une volatilité anormale (z-score 2.80), suggérant un mouvement de baleines crypto. Cependant, les titres médiatiques ne reflètent pas cette volatilité, indiquant un narratif potentiellement déconnecté de la réalité.\"\n}\n```",
       "ts": "2026-10-26T13:27:43.933584+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1265122347143808,
+      "value": 8859655115.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.13) totalement decorrelee du narratif mediatique, car les donnees textuelles capturent des actualites sans rapport (iPhone, education, basket, immobilier) dues a l'ambiguite du mot 'volume' dans le langage courant. Aucun signal de baleine crypto detecte.\"\n}\n```",
+      "ts": "2026-10-26T13:53:07.927757+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.772325193792426,
+      "value": 0.9410162308090775,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie de prix majeure (Z-score 4.77) totalement ignorée par les médias (silence radio). Divergence classique de accumulation furtive par les baleines avant un mouvement de rupture.\"\n}\n```",
+      "ts": "2026-10-26T13:58:44.015568+00:00"
     }
   ]
 }
