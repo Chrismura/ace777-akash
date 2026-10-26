@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": -2.436050098219303,
-      "value": 7669931093.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sans aucun rapport avec la crypto (bruit médiatique sur Marc Levy, l'immobilier et le tatouage). Faux positif absolu.\"\n}\n```",
-      "ts": "2026-10-25T14:35:39.639214+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.7773534227743335,
-      "value": 7471723378.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (actualité générale et littéraire). Le z-score négatif indique une anomalie de volume faible, mais l'absence de corrélation narrative rend toute conclusion sur les baleines impossible.\"\n}\n```",
-      "ts": "2026-10-25T15:06:00.670230+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": -4.535865971925148,
       "value": 6215233336.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -4.54) mais les titres médiatiques concernent la culture, l'immobilier et la littérature (Marc Levy). Bruit de fond absolu, aucune corrélation crypto : faux positif des sentinelles.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 2.281,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.67 (2.28), révélant un positionnement excessivement haussier des traders de détail. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur la gestion de fonds traditionnels et institutionnels, ignorant l'imminence d'un piège à liquidité propice à une purge imminente des positions longues.\"\n}\n```",
       "ts": "2026-10-26T05:06:02.111850+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.4584055116132446,
+      "value": 2.281,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.46) sur le ratio long/short indiquant un optimisme excessif et un positionnement sur-alourdi de la foule, totalement ignoré par les médias traditionnels focalisés sur des ETF macro et des fonds equity institutionnels.\"\n}\n```",
+      "ts": "2026-10-26T05:36:19.971052+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2848133161863506,
+      "value": 2.281,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif probable. L'anomalie onchain (z-score 2.28) est faible et les titres médiatiques concernent des fonds d'investissement traditionnels (BNP Paribas, Blackstone) et des actions spécifiques, sans lien direct avec les flux crypto ou les mouvements de baleines numériques. Aucune divergence significative détectée.\"\n}\n```",
+      "ts": "2026-10-26T06:06:25.884467+00:00"
     }
   ]
 }
