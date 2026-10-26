@@ -1,15 +1,49 @@
 {
-  "timestamp": 1792987901,
-  "date": "2026-10-26T04:11:41.919794+00:00",
-  "n_analyses": 2,
+  "timestamp": 1792989702,
+  "date": "2026-10-26T04:41:42.504315+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "price_1h",
+        "zscore": 2.882530292406191,
+        "value": 0.5061650905516579,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.88) sur 1h indiquant une impulsion de prix anormale, combiné à un silence total des médias (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique.\"\n}\n```",
+        "ts": 1792988138.714445
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.59,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 1835443.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.1e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "long_short",
-        "zscore": 2.5435947870042463,
+        "zscore": 2.373567680506222,
         "value": 2.256,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.54) et ratio long/short extrême (2.256) signalent un positionnement acheteur excessivement surpeuplé, typique d'un piège à liquidité (excès d'optimisme retail/baleines en tendance tardive). Le narratif médiatique se focalise sur des produits traditionnels et des stratégies long/short de couverture, ignorant totalement la surchauffe spéculative imminente sur les dérivés.\"\n}\n```",
-        "ts": 1792987535.103447
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.37 (2.256), indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant ce temps, le narratif médiatique se focalise de manière générique et dispersée sur la finance traditionnelle (fonds OPCVM et ETF long/short), ignorant totalement l'excès de levier spéculatif en cours sur le marché crypto. Classic setup de 'piège à taureaux' (long squeeze imminent).\"\n}\n```",
+        "ts": 1792989351.680132
       },
       "fiche": "long_short",
       "questions": {
@@ -19,7 +53,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 94646.55,
+          "value": 94505.302,
           "seuil": 120000,
           "depasse": false
         }
@@ -36,10 +70,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.236067977499791,
+        "zscore": -2.0816659994661326,
         "value": 50,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (z-score de peur extrême -2.24 malgré un marché neutre à 50). Absence de bruit de fond = accumulation furtive des baleines loin des radars du retail.\"\n}\n```",
-        "ts": 1792987536.337447
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score -2.08) avec un indice de Peur/Greed neutre (50) combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant un mouvement de rupture inattendu.\"\n}\n```",
+        "ts": 1792989353.002838
       },
       "fiche": "fear_greed",
       "questions": {
