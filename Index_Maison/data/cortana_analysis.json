@@ -1,20 +1,20 @@
 {
-  "timestamp": 1793042819,
-  "date": "2026-10-26T19:26:59.622841+00:00",
+  "timestamp": 1793044019,
+  "date": "2026-10-26T19:46:59.926908+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.116160257150297,
-        "value": 11368708456.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique total sans rapport avec la crypto (homonymie sur le mot 'volume' : iPhone, bateaux, classes d'école). Aucune baleine détectée, anomalie statistique non pertinente.\"\n}\n```",
-        "ts": 1793041347.680815
+        "zscore": 2.04180066679399,
+        "value": 11476526639.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume détectée (z-score 2.04), mais les titres médiatiques sont complètement hors-sujet (actualités tech, faits divers et Bourse traditionnelle). Aucune corrélation onchain exploitable : bruit de fond ou faux signal.\"\n}\n```",
+        "ts": 1793043153.687093
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.12,
+          "value": 0.08,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
