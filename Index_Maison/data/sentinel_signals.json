@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 3.3420854937948112,
-      "value": 5056206.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le narratif médiatique hurle au krach et panique sur des liquidations massives (815M$), alors que l'anomalie on-chain réelle montre un volume modéré de 5M$ (z-score 3.34). Cette surmédiatisation de la peur est un classique 'shakeout' orchestré pour piéger les suiveurs pendant que les baleines accumulent en silence.\"\n}\n```",
-      "ts": "2026-10-26T00:54:27.175303+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.7958315233127236,
-      "value": 50,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -4.80) avec un indice de peur/avidité neutre (50) et un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par les baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-26T01:04:29.684684+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 3.0284244548852985,
       "value": 5097395.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique excessive ('815 M$ de liquidations', 'chute sous 80k$') alors que l'anomalie onchain montre un volume de liquidation réel modéré de ~5M$ (z-score 3.03). Classic flush des 'weak hands' orchestré par les baleines pour accumuler en silence sous le radar de la peur publique.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.286,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de tickers. L'indicateur on-chain 'ipt' capte du bruit ou un actif sans lien avec l'action boursière International Petroleum Corp (SWB:IPT) ou l'événement académique français. Aucune baleine crypto pertinente détectée.\"\n}\n```",
       "ts": "2026-10-26T18:17:13.262120+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.233100787868667,
+      "value": 11317467784.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.23) entièrement liée à du bruit sémantique et des homonymies dans les médias généralistes (iPhone, navires, classes scolaires). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
+      "ts": "2026-10-26T18:32:18.318129+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.116160257150297,
+      "value": 11368708456.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique total sans rapport avec la crypto (homonymie sur le mot 'volume' : iPhone, bateaux, classes d'école). Aucune baleine détectée, anomalie statistique non pertinente.\"\n}\n```",
+      "ts": "2026-10-26T19:02:27.680815+00:00"
     }
   ]
 }
