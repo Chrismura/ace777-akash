@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.597112435932553,
-      "value": 2.236,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short extrêmement élevé (z-score 2.60) indique un marché ultra-saturé d'optimisme spéculatif, tandis que le narratif médiatique se focalise de manière totalement déconnectée sur des produits financiers traditionnels (ETF, fonds UCITS, Blackstone). Cette surconcentration de positions acheteuses sans soutien structurel réel prépare le terrain pour un 'long squeeze' imminent orchestré par les baleines.\"\n}\n```",
-      "ts": "2026-10-26T02:35:06.297840+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.932575659723039,
-      "value": 50,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (Google Actualités vide) couplée à un z-score de peur extrême (-2.93) pour un Fear & Greed neutre (50). Le marché est sous-estimé et accumulé en silence par les baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-26T02:35:07.723914+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.435533404035562,
       "value": 2.236,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. L'anomalie onchain (z-score 2.44) est attribuée à des flux ETF traditionnels (BNP Paribas, Blackstone Credit) et non à des actifs crypto. Le narratif médiatique est cohérent avec des mouvements de fonds classiques, sans divergence réelle avec la blockchain crypto.\"\n}",
@@ -349,6 +335,20 @@
       "value": 5.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique absolu (musique, baskets, jeux vidéo). L'anomalie onchain 'dust' est un bruit statistique sans corrélation avec une accumulation ou distribution de baleines crypto.\"\n}\n```",
       "ts": "2026-10-26T20:27:57.587168+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.406098735476296,
+      "value": 0.969,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif massif. L'acronyme 'IPT' dans les données onchain/crypto est ici confondu avec des entités non-crypto : International Petroleum Corp (actions), Institut Polytechnique de Toulouse (éducation), et IPT (violences sexistes). Aucune corrélation avec les mouvements de baleines crypto. Le z-score est statistiquement pertinent mais contextuellement nul pour le marché des cryptomonnaies.\"\n}\n```",
+      "ts": "2026-10-26T21:53:20.908335+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.2930788502429373,
+      "value": 1.669,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.669 (z-score 3.29) indique une domination massive et anormale des acheteurs agressifs (Taker Buys), totalement ignorée par un silence médiatique absolu. Divergence classique d'accumulation furtive par les baleines.\"\n}\n```",
+      "ts": "2026-10-26T22:03:23.226308+00:00"
     }
   ]
 }
