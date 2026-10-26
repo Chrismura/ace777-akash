@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-26T07:15:37Z
+# Hulk DIGEST — 2026-10-26T07:17:46Z
 
 - **Piste :** VEILLE (séparée du paper Hulk)
 - Source trading : **MEXC spot**
@@ -12,28 +12,28 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | IDLE | 0.94 | 1.77 | 0.69 | -0.01 | 16868597.42 | 1.55 | n/a |
-| ETHUSDT | IDLE | 0.82 | 1.59 | 0.39 | -0.01 | 105039718.08 | 0.04 | no_map |
-| BTCUSDT | IDLE | 0.58 | 1.14 | 0.2 | -0.01 | 206005954.65 | 0.28 | no_map |
-| PYTHUSDT | IDLE | 1.33 | 2.73 | 2.61 | 0.03 | 786787.32 | 2.73 | tvl≈164,901,421 |
-| CHIPUSDT | IMPULSE_WAIT — spike en cours, pas chase | 4.06 | 10.26 | 1.62 | 0.04 | 101843.2 | 17.3 | no_map |
-| WUSDT | IDLE | 1.34 | 2.38 | 2.04 | -0.04 | 463962.01 | 17.15 | tvl≈1,516,537,043 |
-| LAUSDT | IDLE | 4.29 | 8.72 | 4.24 | -0.04 | 61723.94 | 24.46 | no_map |
-| QNTUSDT | IDLE | 1.14 | 3.44 | 0.28 | 0.05 | 742237.11 | 4.12 | n/a |
-| RWAINCUSDT | IDLE | 2.37 | 4.28 | 3.88 | -0.07 | 66762.21 | 35.15 | no_map |
-| ZBCNUSDT | IDLE | 1.62 | 2.92 | 2.41 | 0.01 | 180186.25 | 22.53 | n/a |
-| REDUSDT | IDLE | 1.97 | 3.63 | 2.13 | -0.02 | 60502.47 | 10.4 | tvl≈3,568,863 |
-| KITEUSDT | IDLE | 1.64 | 3.01 | 1.81 | -0.0 | 53504.67 | 20.56 | no_map |
-| BIOUSDT | IDLE | 1.39 | 2.52 | 1.7 | -0.02 | 60970.18 | 9.1 | n/a |
-| CCUSDT | IDLE | 0.88 | 1.58 | 1.2 | 0.0 | 161132.57 | 0.99 | no_map |
-| EDELUSDT | IDLE | 0.87 | 2.1 | 1.37 | 0.06 | 144410.49 | 34.62 | no_map |
-| HBARUSDT | IDLE | 0.86 | 1.57 | 1.01 | -0.01 | 180583.66 | 5.21 | empty_tvl |
-| WAXLUSDT | IDLE | 1.69 | 2.98 | 2.62 | -0.01 | 52798.94 | 52.53 | no_map |
-| RIZEUSDT | IDLE | 0.53 | 1.0 | 0.39 | 0.0 | 33057.33 | 55.27 | no_map |
-| IOTAUSDT | IDLE | 1.12 | 2.01 | 1.55 | -0.03 | 62756.81 | 23.78 | no_map |
-| FLUIDUSDT | IDLE | 0.28 | 1.49 | 0.0 | -0.02 | 19116.06 | 21.42 | tvl≈2,176,151,080 |
-| RWAUSDT | IDLE | 0.14 | 0.24 | 0.24 | -0.01 | 52739.53 | 23.89 | no_map |
-| MNSRYUSDT | IDLE | 0.29 | 0.57 | 0.03 | -0.01 | 38157.63 | 60.17 | no_map |
+| XRPUSDT | IDLE | 0.94 | 1.77 | 0.76 | -0.01 | 16896621.07 | 0.78 | skipped_fast |
+| ETHUSDT | IDLE | 0.83 | 1.59 | 0.4 | -0.01 | 105081579.13 | 0.04 | skipped_fast |
+| BTCUSDT | IDLE | 0.59 | 1.14 | 0.22 | -0.01 | 205958793.45 | 0.0 | skipped_fast |
+| PYTHUSDT | IDLE | 1.42 | 2.92 | 2.73 | 0.03 | 788687.56 | 4.1 | skipped_fast |
+| CHIPUSDT | IMPULSE_WAIT — spike en cours, pas chase | 4.07 | 10.26 | 1.96 | 0.03 | 101939.9 | 17.32 | skipped_fast |
+| WUSDT | IDLE | 1.42 | 2.51 | 2.21 | -0.04 | 467368.75 | 14.58 | skipped_fast |
+| LAUSDT | IDLE | 4.28 | 8.72 | 4.05 | -0.04 | 61657.24 | 22.67 | skipped_fast |
+| QNTUSDT | IDLE | 1.14 | 3.44 | 0.26 | 0.05 | 742714.2 | 4.12 | skipped_fast |
+| RWAINCUSDT | IDLE | 2.38 | 4.28 | 4.05 | -0.07 | 66549.87 | 11.72 | skipped_fast |
+| ZBCNUSDT | IDLE | 1.62 | 2.92 | 2.41 | 0.01 | 180183.57 | 26.21 | skipped_fast |
+| REDUSDT | IDLE | 1.98 | 3.63 | 2.24 | -0.03 | 60526.46 | 9.02 | skipped_fast |
+| KITEUSDT | IDLE | 1.65 | 3.01 | 1.88 | -0.0 | 53584.29 | 14.3 | skipped_fast |
+| BIOUSDT | IDLE | 1.38 | 2.52 | 1.65 | -0.02 | 61024.93 | 9.09 | skipped_fast |
+| CCUSDT | IDLE | 0.88 | 1.58 | 1.21 | 0.0 | 161169.35 | 6.96 | skipped_fast |
+| EDELUSDT | IDLE | 0.84 | 2.1 | 0.87 | 0.06 | 143348.85 | 31.46 | skipped_fast |
+| HBARUSDT | IDLE | 0.86 | 1.57 | 0.97 | -0.01 | 180593.72 | 6.52 | skipped_fast |
+| WAXLUSDT | IDLE | 1.69 | 2.98 | 2.7 | -0.01 | 52623.31 | 52.53 | skipped_fast |
+| RIZEUSDT | IDLE | 0.52 | 1.0 | 0.3 | 0.0 | 33034.99 | 55.27 | skipped_fast |
+| IOTAUSDT | IDLE | 1.12 | 2.01 | 1.55 | -0.03 | 62811.71 | 23.78 | skipped_fast |
+| FLUIDUSDT | IDLE | 0.28 | 1.49 | 0.0 | -0.02 | 19116.06 | 21.43 | skipped_fast |
+| RWAUSDT | IDLE | 0.13 | 0.24 | 0.16 | -0.01 | 52696.53 | 23.89 | skipped_fast |
+| MNSRYUSDT | IDLE | 0.31 | 0.57 | 0.34 | -0.01 | 38229.95 | 60.17 | skipped_fast |
 
 ## Consignes Qwen (manuel — ne pilote pas le paper)
 1. Résumer en 5 lignes : qui spike, qui dump, illiquide (spread/vol).
