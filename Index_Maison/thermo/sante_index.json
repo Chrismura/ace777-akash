@@ -1,11 +1,9 @@
 {
-  "ts": "2026-10-26T01:38+00:00",
-  "updated": "2026-10-26T01:38Z",
-  "etat": "ALERTE",
-  "chaines_ok": "14/15",
-  "anomalies": [
-    "HULK : sonde runtime, contrat Cortana ou analyses figés"
-  ],
+  "ts": "2026-10-26T02:08+00:00",
+  "updated": "2026-10-26T02:08Z",
+  "etat": "OK",
+  "chaines_ok": "15/15",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -27,12 +25,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 4 min"
+          "detail": "dernier événement il y a 5 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -47,7 +45,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 5 min"
         }
       ]
     },
@@ -65,7 +63,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 10 min"
         }
       ]
     },
@@ -73,7 +71,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -82,8 +80,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": false,
-          "detail": "mode fichier · JSON · âge ts 1.7 min · écart mtime/ts 2.9s · 22 paire(s) · btc=OK · ts=croissant · passe 31.6s · marge 13.4s sous le budget 45s du moteur · ⚠ PIRE CAS age 51.6s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "ok": true,
+          "detail": "mode fichier · JSON · âge ts 1.1 min · écart mtime/ts 2.3s · 22 paire(s) · btc=OK · ts=croissant · passe 29.1s · marge 15.9s sous le budget 45s du moteur · ⚠ PIRE CAS age 49.1s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +96,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1133 min"
+          "detail": "âge 1163 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -121,7 +119,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -343,7 +341,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "2 warn(s) carnet déséquilibré (info)"
+          "detail": "3 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -356,12 +354,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.309"
+          "detail": "score 0.071"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

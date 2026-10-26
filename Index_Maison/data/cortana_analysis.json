@@ -1,50 +1,45 @@
 {
-  "timestamp": 1792978899,
-  "date": "2026-10-26T01:41:39.313375+00:00",
-  "n_analyses": 3,
+  "timestamp": 1792980699,
+  "date": "2026-10-26T02:11:39.771880+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "liquidations",
-        "zscore": 3.0284244548852985,
-        "value": 5097395.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Panique médiatique excessive ('815 M$ de liquidations', 'chute sous 80k$') alors que l'anomalie onchain montre un volume de liquidation réel modéré de ~5M$ (z-score 3.03). Classic flush des 'weak hands' orchestré par les baleines pour accumuler en silence sous le radar de la peur publique.\"\n}\n```",
-        "ts": 1792977874.77894
+        "metric": "long_short",
+        "zscore": 2.777381287818737,
+        "value": 2.236,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 89,\n  \"reason\": \"Z-score extrêmement élevé (2.78) sur le ratio long/short, indiquant un posicionnement acheteur excessif de la foule. Le narratif médiatique grand public flatte naïvement les stratégies 'long-short' comme refuge, créant un piège de liquidité classique parfait pour une chasse aux stops par les baleines.\"\n}\n```",
+        "ts": 1792980300.38534
       },
-      "fiche": "liquidations",
+      "fiche": "long_short",
       "questions": {
-        "longs": {
-          "value": 1157710.0,
-          "seuil": 0,
+        "ratio_long_short": {
+          "value": 2.236,
+          "seuil": 2,
           "depasse": true
         },
-        "shorts": {
-          "value": 804894.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.58,
-          "seuil": 1,
+        "oi": {
+          "value": 94521.5,
+          "seuil": 120000,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
         "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
       },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
       "niveau": "surveiller"
     },
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -3.8729833462074166,
+        "zscore": -3.316624790355397,
         "value": 50,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême (-3.87) sur le Fear & Greed malgré une neutralité apparente (50), combiné à un black-out médiatique total (Google Actualités vide). C'est la signature classique d'accumulation silencieuse des baleines sous le radar de la foule.\"\n}\n```",
-        "ts": 1792978477.117083
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (50) avec un z-score très bas (-3.32) indiquant un assèchement statistique de la volatilité, couplé à une absence totale de narratif médiatique pertinent. Aucun mouvement furtif significatif détecté : le marché est en phase d'attente.\"\n}\n```",
+        "ts": 1792980301.615791
       },
       "fiche": "fear_greed",
       "questions": {
@@ -57,40 +52,6 @@
           "value": 50,
           "seuil": 75,
           "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 3.650842260198213,
-        "value": 0.5333239866195494,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 3.65) suggère un mouvement de fonds significatif, potentiellement des achats de baleines. Cependant, l'absence de titres médiatiques pertinents indique un narratif déconnecté ou une opération silencieuse. La divergence entre les données brutes et le narratif médiatique suggère une opportunité d'achat.\"\n}\n```",
-        "ts": 1792978779.119882
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": -0.58,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 1962604.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3.4e-05,
-          "seuil": 0,
-          "depasse": true
         }
       },
       "interpretation": {

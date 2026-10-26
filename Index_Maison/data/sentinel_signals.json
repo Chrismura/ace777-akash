@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 3.872983346207417,
-      "value": 54,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avarice neutre (54) avec un z-score élevé, mais absence de données contextuelles médiatiques significatives pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-25T01:32:23.829715+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.3166247903554,
-      "value": 54,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Le score Fear & Greed à 54 (neutre) associé à un z-score élevé (3.32) indique une forte anomalie statistique de volatilité ou de volume d'activité cachée, mais l'absence de titres médiatiques significatifs suggère une phase d'accumulation discrète (accumulation stealth) des baleines sans FOMO public.\"\n}\n```",
-      "ts": "2026-10-25T02:02:44.483201+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.932575659723036,
       "value": 54,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques insuffisantes pour établir une divergence significative, malgré un z-score on-chain élevé indiquant une anomalie de volatilité potentielle.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0.5333239866195494,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 3.65) suggère un mouvement de fonds significatif, potentiellement des achats de baleines. Cependant, l'absence de titres médiatiques pertinents indique un narratif déconnecté ou une opération silencieuse. La divergence entre les données brutes et le narratif médiatique suggère une opportunité d'achat.\"\n}\n```",
       "ts": "2026-10-26T01:39:39.119882+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.777381287818737,
+      "value": 2.236,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 89,\n  \"reason\": \"Z-score extrêmement élevé (2.78) sur le ratio long/short, indiquant un posicionnement acheteur excessif de la foule. Le narratif médiatique grand public flatte naïvement les stratégies 'long-short' comme refuge, créant un piège de liquidité classique parfait pour une chasse aux stops par les baleines.\"\n}\n```",
+      "ts": "2026-10-26T02:05:00.385340+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.316624790355397,
+      "value": 50,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (50) avec un z-score très bas (-3.32) indiquant un assèchement statistique de la volatilité, couplé à une absence totale de narratif médiatique pertinent. Aucun mouvement furtif significatif détecté : le marché est en phase d'attente.\"\n}\n```",
+      "ts": "2026-10-26T02:05:01.615791+00:00"
     }
   ]
 }
