@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T08:16:57.722684+00:00",
+  "generated_at": "2026-10-26T08:18:28.574049+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 163
+      "calls_24h": 164
     },
     {
       "id": "openrouter-free",
@@ -283,10 +283,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 80,
-    "remaining": 544
+    "consumed": 81,
+    "remaining": 543
   },
   "queue": [
+    {
+      "ts": "2026-10-26T08:17:56.100209+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.14
+    },
     {
       "ts": "2026-10-26T08:16:23.319989+00:00",
       "task": "supervise.decision",
@@ -398,17 +406,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 3.07
-    },
-    {
-      "ts": "2026-10-26T07:34:28.704073+00:00",
-      "task": "coffre.ask",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.96
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-26T08:17:56.099760+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-26T08:17:54.960106+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-10-26T08:16:23.319659+00:00",
       "kind": "message",
@@ -456,18 +468,6 @@
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-26T08:16:16.675615+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-26T08:16:12.412619+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
