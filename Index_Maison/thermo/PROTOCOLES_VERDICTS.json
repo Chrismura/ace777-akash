@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-26T16:26:31+00:00",
+  "ts": "2026-10-26T16:47:41+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -274,7 +274,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "847 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "848 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -315,7 +315,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 30/56 = 53.6 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 87/156 = 55.8 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -327,74 +327,74 @@
         },
         {
           "indice": "bassine",
+          "directionnels": 4,
+          "corect": 4,
+          "n": 10
+        },
+        {
+          "indice": "btc",
           "directionnels": 3,
-          "corect": 3,
+          "corect": null,
+          "n": 18
+        },
+        {
+          "indice": "chat",
+          "directionnels": 2,
+          "corect": null,
           "n": 9
         },
         {
           "indice": "chg24",
-          "directionnels": 1,
-          "corect": null,
-          "n": 4
+          "directionnels": 3,
+          "corect": 2,
+          "n": 6
+        },
+        {
+          "indice": "croisements",
+          "directionnels": 53,
+          "corect": 33,
+          "n": 95
+        },
+        {
+          "indice": "etfBtcM",
+          "directionnels": 3,
+          "corect": 2,
+          "n": 10
         },
         {
           "indice": "fearGreed",
-          "directionnels": 28,
-          "corect": 15,
-          "n": 94
+          "directionnels": 40,
+          "corect": 22,
+          "n": 106
+        },
+        {
+          "indice": "geopol",
+          "directionnels": 6,
+          "corect": 2,
+          "n": 62
         },
         {
           "indice": "gexPutCall",
           "directionnels": 1,
           "corect": 1,
           "n": 13
-        },
-        {
-          "indice": "indice_onchain",
-          "directionnels": 1,
-          "corect": null,
-          "n": 12
-        },
-        {
-          "indice": "liq24Usd",
-          "directionnels": 2,
-          "corect": 2,
-          "n": 11
-        },
-        {
-          "indice": "radar",
-          "directionnels": 15,
-          "corect": 6,
-          "n": 85
-        },
-        {
-          "indice": "sdi",
-          "directionnels": 1,
-          "corect": 1,
-          "n": 11
-        },
-        {
-          "indice": "verre",
-          "directionnels": 3,
-          "corect": 2,
-          "n": 15
         }
       ]
     },
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.4097 « attention » (ML 0.2437) · 56 avis enregistrés dont 0 directionnels (0 correct(s)) · 56 NEUTRE",
+      "faits": "score actuel 0.4097 « attention » (ML 0.2437) · 62 avis enregistrés dont 6 directionnels (2 correct(s)) · 56 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
-      "alerte": "",
+      "alerte": "1 avis correct sur 6 directionnels : à cette cadence le critère ne sera pas tranchable dans la fenêtre",
       "detail": [
         {
           "indice": "geopol",
-          "n": 56,
-          "directionnels": 0,
-          "corrects": 0,
+          "n": 62,
+          "directionnels": 6,
+          "corrects": 2,
           "neutres": 56,
-          "t_stat": 7.48
+          "t_stat": -5.59
         }
       ]
     },
@@ -451,6 +451,6 @@
     "verdicts_rendus": 2,
     "en_attente": 4,
     "impossibles": 1,
-    "avec_alerte": 4
+    "avec_alerte": 5
   }
 }

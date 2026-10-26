@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -2.424799932198772,
-      "value": 4777872212.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique non pertinent (littérature, immobilier, mode, audition). Aucune donnée crypto exploitable.\"\n}\n```",
-      "ts": "2026-10-25T19:37:58.171814+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.2580478110784092,
-      "value": 4767641060.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique sur les volumes (z-score -2.26) non corroborée par le narratif médiatique, dont les titres proviennent d'actualités généralistes et culturelles sans rapport avec la crypto.\"\n}\n```",
-      "ts": "2026-10-25T20:08:10.960679+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 2.8805092572171493,
       "value": 4789682.0,
@@ -349,6 +335,20 @@
       "value": 0.628,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une confusion sémantique. Le signal 'SDI' capté fait référence à un syndicat professionnel français (Syndicat des Indépendants) et à des actualités politiques/fait divers, sans aucun rapport avec l'écosystème crypto ou une quelconque baleine.\"\n}\n```",
       "ts": "2026-10-26T16:03:11.895645+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.6706380873592055,
+      "value": 10660739963.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie de faux positif liée à un homonyme sémantique ('volume' scolaire/matériel) dans les flux RSS. Aucune donnée crypto réelle détectée.\"\n}\n```",
+      "ts": "2026-10-26T16:28:40.375085+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.943885540082616,
+      "value": 0.7131494087427526,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.94) combiné à un silence médiatique absolu : accumulation furtive typique des baleines avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-26T16:39:01.871473+00:00"
     }
   ]
 }
