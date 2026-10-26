@@ -1,25 +1,25 @@
 {
-  "timestamp": 1792980699,
-  "date": "2026-10-26T02:11:39.771880+00:00",
+  "timestamp": 1792984300,
+  "date": "2026-10-26T03:11:40.808434+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "long_short",
-        "zscore": 2.777381287818737,
+        "zscore": 2.435533404035562,
         "value": 2.236,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 89,\n  \"reason\": \"Z-score extrêmement élevé (2.78) sur le ratio long/short, indiquant un posicionnement acheteur excessif de la foule. Le narratif médiatique grand public flatte naïvement les stratégies 'long-short' comme refuge, créant un piège de liquidité classique parfait pour une chasse aux stops par les baleines.\"\n}\n```",
-        "ts": 1792980300.38534
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. L'anomalie onchain (z-score 2.44) est attribuée à des flux ETF traditionnels (BNP Paribas, Blackstone Credit) et non à des actifs crypto. Le narratif médiatique est cohérent avec des mouvements de fonds classiques, sans divergence réelle avec la blockchain crypto.\"\n}",
+        "ts": 1792983920.615922
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.236,
+          "value": 2.244,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 94521.5,
+          "value": 94797.715,
           "seuil": 120000,
           "depasse": false
         }
@@ -36,10 +36,10 @@
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -3.316624790355397,
+        "zscore": -2.6457513110645903,
         "value": 50,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (50) avec un z-score très bas (-3.32) indiquant un assèchement statistique de la volatilité, couplé à une absence totale de narratif médiatique pertinent. Aucun mouvement furtif significatif détecté : le marché est en phase d'attente.\"\n}\n```",
-        "ts": 1792980301.615791
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence de données onchain concrètes (flux de baleines, volume, etc.) et absence de contenu médiatique exploitable (titre vide). Impossible de détecter une divergence sans données brutes.\"\n}",
+        "ts": 1792983921.204367
       },
       "fiche": "fear_greed",
       "questions": {
