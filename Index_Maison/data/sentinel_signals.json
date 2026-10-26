@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -4.535865971925148,
-      "value": 6215233336.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score -4.54) mais les titres médiatiques concernent la culture, l'immobilier et la littérature (Marc Levy). Bruit de fond absolu, aucune corrélation crypto : faux positif des sentinelles.\"\n}\n```",
-      "ts": "2026-10-25T15:36:15.041331+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.8242754692382595,
       "value": 1.091,
@@ -349,6 +342,13 @@
       "value": 2.281,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif probable. L'anomalie onchain (z-score 2.28) est faible et les titres médiatiques concernent des fonds d'investissement traditionnels (BNP Paribas, Blackstone) et des actions spécifiques, sans lien direct avec les flux crypto ou les mouvements de baleines numériques. Aucune divergence significative détectée.\"\n}\n```",
       "ts": "2026-10-26T06:06:25.884467+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.1148844271883562,
+      "value": 2.28,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : un ratio Long/Short de 2.28 (z-score 2.11) indique une surconcentration excessive des traders particuliers en position acheteuse, typique d'un piège à liquidité. Pendant ce temps, le narratif médiatique se focalise sur les produits institutionnels traditionnels (ETF, OPCVM), masquant une distribution silencieuse des baleines sur le marché crypto.\"\n}\n```",
+      "ts": "2026-10-26T06:36:38.822898+00:00"
     }
   ]
 }
