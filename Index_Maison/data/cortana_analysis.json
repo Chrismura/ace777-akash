@@ -1,20 +1,55 @@
 {
-  "timestamp": 1793028114,
-  "date": "2026-10-26T15:21:54.816720+00:00",
+  "timestamp": 1793031716,
+  "date": "2026-10-26T16:21:56.304969+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
+        "metric": "whale_usd",
+        "zscore": 4.621127057387249,
+        "value": 7515440.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 4.62, volume ~7.5M USD) totalement ignorée par les médias traditionnels (Google Actualités vide). Divergence classique d'accumulation silencieuse hors du radar retail.\"\n}\n```",
+        "ts": 1793029925.514004
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 757496.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.31,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
+    },
+    {
+      "signal": {
         "metric": "volume",
-        "zscore": 2.749782425968188,
-        "value": 9765776721.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif manifeste. Les titres médiatiques sur le 'volume' concernent des actualités sans rapport (éducation, iPhone, basket), indiquant que l'anomalie on-chain détectée est probablement du bruit statistique ou un bug d'interprétation des données, et non une accumulation ou distribution de baleines.\"\n}\n```",
-        "ts": 1793026484.314304
+        "zscore": 2.809912419660605,
+        "value": 10466643744.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent d'actualités générales et de smartphones, sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
+        "ts": 1793030252.060336
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.27,
+          "value": -0.31,
           "seuil": 1,
           "depasse": false
         },
@@ -45,10 +80,10 @@
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 2.011502833720973,
-        "value": 0.612,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Divergence nulle : le signal 'SDI' et les actualités font référence au 'Syndicat des Indépendants' (SDI) face aux pillages et factures, et non à une métrique on-chain de baleines crypto. Bruit médiatique sans lien avec la blockchain.\"\n}\n```",
-        "ts": 1793026504.003246
+        "zscore": 5.825950912586592,
+        "value": 0.628,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une confusion sémantique. Le signal 'SDI' capté fait référence à un syndicat professionnel français (Syndicat des Indépendants) et à des actualités politiques/fait divers, sans aucun rapport avec l'écosystème crypto ou une quelconque baleine.\"\n}\n```",
+        "ts": 1793030591.895645
       },
       "fiche": null,
       "interpretation": {
@@ -56,45 +91,6 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 3.029395649741585,
-        "value": 1.088,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de ticker. Le signal onchain 'IPT' correspond à un bruit de fond ou une action/token sans lien avec les actualités médiatiques (qui traitent d'une entreprise pétrolière traditionnelle et d'une école). Aucune activité significative de baleines crypto détectée.\"\n}\n```",
-        "ts": 1793027142.814325
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.27,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

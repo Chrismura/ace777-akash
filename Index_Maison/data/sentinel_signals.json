@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 3.9967256061101395,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie SDI liée à un homonyme (Syndicat des Indépendants et TPE - SDI) dans l'actualité politique française, totalement déconnectée des marchés crypto ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-10-25T17:57:20.262319+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.9448844657102815,
-      "value": 5021377522.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (littérature, immobilier, art, armement). Données onchain non pertinentes pour une analyse de baleines.\"\n}\n```",
-      "ts": "2026-10-25T18:07:26.896896+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.6849042900506226,
-      "value": 5005038164.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (littérature, immobilier, art, défense).\"\n}\n```",
-      "ts": "2026-10-25T18:37:32.832120+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -2.588879536347329,
-      "value": 4831571851.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Le bruit médiatique ne concerne que de la littérature, de l'immobilier, de la mode et des lunettes. Aucune baleine crypto détectée, le z-score négatif indique juste un calme plat on-chain.\"\n}\n```",
-      "ts": "2026-10-25T19:07:45.644714+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.518840606745386,
-      "value": 5787567.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+3.52) indiquant une accumulation massive et anormale de capitaux par les baleines, totalement ignorée par les médias (silence radio médiatique). Classique divergence d'accumulation discrète avant un mouvement de marché haussier.\"\n}\n```",
-      "ts": "2026-10-25T19:12:48.152914+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -2.424799932198772,
       "value": 4777872212.0,
@@ -349,6 +314,41 @@
       "value": 1.088,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de ticker. Le signal onchain 'IPT' correspond à un bruit de fond ou une action/token sans lien avec les actualités médiatiques (qui traitent d'une entreprise pétrolière traditionnelle et d'une école). Aucune activité significative de baleines crypto détectée.\"\n}\n```",
       "ts": "2026-10-26T15:05:42.814325+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.621420584609197,
+      "value": 9877325778.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent d'actualités générales (iPhone, éducation, sport) sans aucun rapport avec la crypto ou un actif spécifique.\"\n}\n```",
+      "ts": "2026-10-26T15:25:59.319961+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.1711841122055433,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le signal 'SDI' détecté ici ne concerne pas la crypto, mais le 'Syndicat des Indépendants' (SDI) dans l'actualité politique et sociale française (pillages de commerces, factures énergétiques). Aucune baleine crypto ou donnée onchain n'est impliquée. Divergence nulle, confusion de contexte.\"\n}\n```",
+      "ts": "2026-10-26T15:31:27.543152+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.621127057387249,
+      "value": 7515440.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 4.62, volume ~7.5M USD) totalement ignorée par les médias traditionnels (Google Actualités vide). Divergence classique d'accumulation silencieuse hors du radar retail.\"\n}\n```",
+      "ts": "2026-10-26T15:52:05.514004+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.809912419660605,
+      "value": 10466643744.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent d'actualités générales et de smartphones, sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-10-26T15:57:32.060336+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 5.825950912586592,
+      "value": 0.628,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une confusion sémantique. Le signal 'SDI' capté fait référence à un syndicat professionnel français (Syndicat des Indépendants) et à des actualités politiques/fait divers, sans aucun rapport avec l'écosystème crypto ou une quelconque baleine.\"\n}\n```",
+      "ts": "2026-10-26T16:03:11.895645+00:00"
     }
   ]
 }

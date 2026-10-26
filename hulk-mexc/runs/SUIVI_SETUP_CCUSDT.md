@@ -63,14 +63,15 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 56 | 2026-10-23T14:34:51Z | 14h | AUTRE | 0.10367 | COOLING | 4.3678 | 2477.5 | 25444.66 | 5.79e-07 | -0.21 | 0.63 | 0.71 | POMPE_PIEGE (stab 39) | prix 0.10367 · poussière(panier) 4.4% · Amihud 5.79e-07 · delta -0.21 · mur moy 2,478$ · mur max (run) 25,445$ |
 | 57 | 2026-10-24T14:34:03Z | 14h | AUTRE | 0.0996 | COOLING | 12.0729 | 2477.5 | 25444.66 | 5.83e-07 | -0.10 | 0.65 | 0.71 | POMPE_PIEGE (stab 2) | prix 0.0996 · poussière(panier) 12.1% · Amihud 5.83e-07 · delta -0.10 · mur moy 2,478$ · mur max (run) 25,445$ |
 | 58 | 2026-10-25T15:35:02Z | 15h | AUTRE | 0.10292 | COOLING | 8.0698 | 2477.5 | 25444.66 | 7.41e-07 | -0.26 | 0.82 | 0.77 | POMPE_PIEGE (stab 6) | prix 0.10292 · poussière(panier) 8.1% · Amihud 7.41e-07 · delta -0.26 · mur moy 2,478$ · mur max (run) 25,445$ |
+| 59 | 2026-10-26T15:34:58Z | 15h | AUTRE | 0.1013 | COOLING | 4.687 | 2477.5 | 25444.66 | 7.85e-07 | 0.08 | 0.83 | 0.91 | POMPE_PIEGE (stab 10) | prix 0.1013 · poussière(panier) 4.7% · Amihud 7.85e-07 · delta +0.08 · mur moy 2,478$ · mur max (run) 25,445$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-22T01:35:57Z au 2026-10-25T15:35:02Z (12327 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-23T07:34:33Z au 2026-10-26T15:34:58Z (11907 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-24T15:26:36Z à 0.09792 → 0.10292 = **+5.1 %**
+**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-24T15:26:36Z à 0.09792 → 0.1013 = **+3.5 %**
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
