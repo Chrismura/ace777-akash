@@ -8631,3 +8631,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-26T10:04:48Z — ALERT auto
 - ZBCNUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-26T10:30:45Z — ALERT auto
+- QNTUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
