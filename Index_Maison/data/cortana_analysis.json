@@ -1,30 +1,30 @@
 {
-  "timestamp": 1792989702,
-  "date": "2026-10-26T04:41:42.504315+00:00",
+  "timestamp": 1792991503,
+  "date": "2026-10-26T05:11:43.059407+00:00",
   "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "price_1h",
-        "zscore": 2.882530292406191,
-        "value": 0.5061650905516579,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.88) sur 1h indiquant une impulsion de prix anormale, combiné à un silence total des médias (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique.\"\n}\n```",
-        "ts": 1792988138.714445
+        "zscore": 2.7063448237550616,
+        "value": 0.5198717130489028,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Anomalie de prix significative (z-score 2.71) en l'absence totale de couverture médiatique. Absence de signaux on-chain clairs de baleines (pas de données de volume ou de flux net). Impossible de confirmer une accumulation ou une distribution silencieuse sans données de transactions majeures.\"\n}\n```",
+        "ts": 1792990256.916252
       },
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.59,
+          "value": -0.06,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1835443.0,
+          "value": 2872637.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 7.1e-05,
+          "value": 7.3e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -39,21 +39,55 @@
     },
     {
       "signal": {
+        "metric": "whale_usd",
+        "zscore": 2.5719642942518304,
+        "value": 4170166.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.57, ~4.17M USD) sans aucune couverture médiatique grand public. Accumulation silencieuse classique en zone de sous-radar avant une cassure haussière.\"\n}\n```",
+        "ts": 1792990559.63393
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.06,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
         "metric": "long_short",
-        "zscore": 2.373567680506222,
-        "value": 2.256,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.37 (2.256), indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant ce temps, le narratif médiatique se focalise de manière générique et dispersée sur la finance traditionnelle (fonds OPCVM et ETF long/short), ignorant totalement l'excès de levier spéculatif en cours sur le marché crypto. Classic setup de 'piège à taureaux' (long squeeze imminent).\"\n}\n```",
-        "ts": 1792989351.680132
+        "zscore": 2.6659871411173013,
+        "value": 2.281,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.67 (2.28), révélant un positionnement excessivement haussier des traders de détail. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur la gestion de fonds traditionnels et institutionnels, ignorant l'imminence d'un piège à liquidité propice à une purge imminente des positions longues.\"\n}\n```",
+        "ts": 1792991162.11185
       },
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.256,
+          "value": 2.281,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 94505.302,
+          "value": 94377.342,
           "seuil": 120000,
           "depasse": false
         }
@@ -66,35 +100,6 @@
       },
       "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
       "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.0816659994661326,
-        "value": 50,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score -2.08) avec un indice de Peur/Greed neutre (50) combiné à un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant un mouvement de rupture inattendu.\"\n}\n```",
-        "ts": 1792989353.002838
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 50,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 50,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
