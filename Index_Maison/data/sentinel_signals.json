@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -3.7608850440993074,
-      "value": 5609913913.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sans aucun rapport avec la crypto (bruit médiatique sur Marc Levy, l'immobilier et la mode). Données non significatives.\"\n}\n```",
-      "ts": "2026-10-25T16:36:46.706704+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -3.663832234454483,
-      "value": 5150454789.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique de volume sur un faux positif, totalement déconnectée des actualités (bruit médiatique sans rapport avec la crypto).\"\n}\n```",
-      "ts": "2026-10-25T17:07:00.151852+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1138852137034885,
-      "value": 0.939,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 70,\n  \"reason\": \"L'anomalie onchain (ipt = 0.939, z-score 2.11) pourrait indiquer une activité anormale ou une opportunité d'investissement, mais les titres médiatiques ne mentionnent pas directement l'IPT. Les sujets médiatiques sont variés et ne semblent pas directement liés à l'anomalie onchain. Il n'y a pas de preuve claire que les baleines bougent silencieusement ou que le narratif soit déconnecté de la réalité.\"\n}\n```",
-      "ts": "2026-10-25T17:22:05.900497+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.079862492454984,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto. Le sigle SDI désigne ici le 'Syndicat des Indépendants' français réagissant à des faits divers, créant un faux signal statistique (z-score 3.08) sans aucun lien avec des mouvements de baleines on-chain.\"\n}\n```",
-      "ts": "2026-10-25T17:27:08.965264+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": -3.2084607891688104,
-      "value": 5123970802.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 12,\n  \"reason\": \"Anomalie statistique de volume onchain sans rapport avec les titres médiatiques hors-sujet (littérature, immobilier, art, armement). Bruit de fond, pas de mouvement silencieux de baleine détecté.\"\n}\n```",
-      "ts": "2026-10-25T17:37:12.750052+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 3.9967256061101395,
       "value": 0.62,
@@ -349,6 +314,41 @@
       "value": 0.9410162308090775,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie de prix majeure (Z-score 4.77) totalement ignorée par les médias (silence radio). Divergence classique de accumulation furtive par les baleines avant un mouvement de rupture.\"\n}\n```",
       "ts": "2026-10-26T13:58:44.015568+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.526449534511167,
+      "value": 9343480155.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie de volume purement anecdotique : les titres médiatiques renvoient à des bruits de fond hors crypto (iPhone, éducation, sport, immobilier). Aucune corrélation avec une accumulation ou distribution de baleines.\"\n}\n```",
+      "ts": "2026-10-26T14:24:12.643314+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.8416665598998043,
+      "value": 0.6559198690644141,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain forte (z-score 2.84) sans couverture médiatique correspondante. Ce silence des médias face à un mouvement de prix significatif suggère une accumulation silencieuse par des acteurs institutionnels ou des baleines avant une expansion du narratif.\"\n}\n```",
+      "ts": "2026-10-26T14:49:16.637017+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.749782425968188,
+      "value": 9765776721.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif manifeste. Les titres médiatiques sur le 'volume' concernent des actualités sans rapport (éducation, iPhone, basket), indiquant que l'anomalie on-chain détectée est probablement du bruit statistique ou un bug d'interprétation des données, et non une accumulation ou distribution de baleines.\"\n}\n```",
+      "ts": "2026-10-26T14:54:44.314304+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.011502833720973,
+      "value": 0.612,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Divergence nulle : le signal 'SDI' et les actualités font référence au 'Syndicat des Indépendants' (SDI) face aux pillages et factures, et non à une métrique on-chain de baleines crypto. Bruit médiatique sans lien avec la blockchain.\"\n}\n```",
+      "ts": "2026-10-26T14:55:04.003246+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.029395649741585,
+      "value": 1.088,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de ticker. Le signal onchain 'IPT' correspond à un bruit de fond ou une action/token sans lien avec les actualités médiatiques (qui traitent d'une entreprise pétrolière traditionnelle et d'une école). Aucune activité significative de baleines crypto détectée.\"\n}\n```",
+      "ts": "2026-10-26T15:05:42.814325+00:00"
     }
   ]
 }

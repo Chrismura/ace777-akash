@@ -1,20 +1,20 @@
 {
-  "timestamp": 1793024513,
-  "date": "2026-10-26T14:21:53.071504+00:00",
-  "n_analyses": 2,
+  "timestamp": 1793028114,
+  "date": "2026-10-26T15:21:54.816720+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
         "metric": "volume",
-        "zscore": 2.1265122347143808,
-        "value": 8859655115.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.13) totalement decorrelee du narratif mediatique, car les donnees textuelles capturent des actualites sans rapport (iPhone, education, basket, immobilier) dues a l'ambiguite du mot 'volume' dans le langage courant. Aucun signal de baleine crypto detecte.\"\n}\n```",
-        "ts": 1793022787.927757
+        "zscore": 2.749782425968188,
+        "value": 9765776721.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif manifeste. Les titres médiatiques sur le 'volume' concernent des actualités sans rapport (éducation, iPhone, basket), indiquant que l'anomalie on-chain détectée est probablement du bruit statistique ou un bug d'interprétation des données, et non une accumulation ou distribution de baleines.\"\n}\n```",
+        "ts": 1793026484.314304
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.4,
+          "value": 0.27,
           "seuil": 1,
           "depasse": false
         },
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 8e-05,
+          "value": 0.0001,
           "seuil": 0.001,
           "depasse": false
         },
@@ -44,28 +44,48 @@
     },
     {
       "signal": {
-        "metric": "price_1h",
-        "zscore": 4.772325193792426,
-        "value": 0.9410162308090775,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie de prix majeure (Z-score 4.77) totalement ignorée par les médias (silence radio). Divergence classique de accumulation furtive par les baleines avant un mouvement de rupture.\"\n}\n```",
-        "ts": 1793023124.015568
+        "metric": "sdi",
+        "zscore": 2.011502833720973,
+        "value": 0.612,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Divergence nulle : le signal 'SDI' et les actualités font référence au 'Syndicat des Indépendants' (SDI) face aux pillages et factures, et non à une métrique on-chain de baleines crypto. Bruit médiatique sans lien avec la blockchain.\"\n}\n```",
+        "ts": 1793026504.003246
       },
-      "fiche": "price_1h",
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 3.029395649741585,
+        "value": 1.088,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de ticker. Le signal onchain 'IPT' correspond à un bruit de fond ou une action/token sans lien avec les actualités médiatiques (qui traitent d'une entreprise pétrolière traditionnelle et d'une école). Aucune activité significative de baleines crypto détectée.\"\n}\n```",
+        "ts": 1793027142.814325
+      },
+      "fiche": "rbf_eleve",
       "questions": {
-        "pct_1h": {
-          "value": 0.4,
-          "seuil": -1,
-          "depasse": true
+        "prix": {
+          "value": 0.27,
+          "seuil": 1,
+          "depasse": false
         },
-        "liq": {
-          "value": 3079163.0,
-          "seuil": 5000000,
+        "paires": {
+          "value": 0,
+          "seuil": 3,
           "depasse": false
         },
         "funding": {
-          "value": 8e-05,
-          "seuil": 0,
-          "depasse": true
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
         }
       },
       "interpretation": {
