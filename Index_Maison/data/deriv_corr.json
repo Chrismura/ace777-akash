@@ -1,6 +1,6 @@
 {
- "ts": "2026-10-25T23:05Z",
- "mark": 80376.5,
+ "ts": "2026-10-26T00:06Z",
+ "mark": 80032.8,
  "correlations": {
   "prix_oi": {
    "r": 0.527,
@@ -8,32 +8,36 @@
    "label": "Open interest vs prix"
   },
   "prix_funding": {
-   "r": -0.231,
-   "lecture": "corrélation faible (-0.231) — les deux évoluent en sens opposé",
+   "r": -0.211,
+   "lecture": "corrélation faible (-0.211) — les deux évoluent en sens opposé",
    "label": "Funding vs prix"
   },
   "prix_longshort": {
-   "r": -0.901,
-   "lecture": "corrélation forte (-0.901) — les deux évoluent en sens opposé",
+   "r": -0.904,
+   "lecture": "corrélation forte (-0.904) — les deux évoluent en sens opposé",
    "label": "Ratio long/short vs prix"
   },
   "prix_taker": {
-   "r": -0.044,
-   "lecture": "corrélation quasi nulle (-0.044) — les deux évoluent en sens opposé",
+   "r": -0.031,
+   "lecture": "corrélation quasi nulle (-0.031) — les deux évoluent en sens opposé",
    "label": "Achats/ventes agressifs vs prix"
   }
  },
  "liquidations": {
   "clusters_2000usd": {
+   "78000": {
+    "long": 1398359.0,
+    "short": 0.0
+   },
    "80000": {
-    "long": 470193.0,
-    "short": 25548.0
+    "long": 175738.0,
+    "short": 0.0
    }
   },
-  "longs_below_usd": 470193.0,
+  "longs_below_usd": 1574097.0,
   "longs_above_usd": 0,
-  "shorts_below_usd": 25548.0,
+  "shorts_below_usd": 0.0,
   "shorts_above_usd": 0,
-  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 0.5 M$ de LONGS liquidés à 76-78k (contre 0.0 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
+  "lecture": "Le gros de la liquidité est EN DESSOUS du prix : 1.6 M$ de LONGS liquidés à 76-78k (contre 0.0 M$ de shorts au-dessus, à 80k) — si le prix casse ces supports, les liquidations long forcées peuvent accélérer la baisse (cascade)."
  }
 }
