@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.943885540082616,
-      "value": 0.7131494087427526,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.94) combiné à un silence médiatique absolu : accumulation furtive typique des baleines avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-26T16:39:01.871473+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.6111148395100243,
       "value": 10954412450.0,
@@ -349,6 +342,13 @@
       "value": 1.133,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de tickers. Les données onchain/trading concernent 'International Petroleum Corp (SWB:IPT)', tandis que le narratif médiatique mélange des actualités académiques (École polytechnique) et religieuses sans aucun rapport avec la crypto ou les flux de baleines.\"\n}\n```",
       "ts": "2026-10-27T15:58:47.257346+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.0101142419100797,
+      "value": 3265810.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure détectée : accumulation silencieuse de 3.26M USD (z-score > 3) en l'absence totale de couverture médiatique (bruit de fond nul). Ce silence indique une accumulation discrète par des acteurs informés, typique des phases pré-impulsion haussière.\"\n}\n```",
+      "ts": "2026-10-27T17:24:03.398612+00:00"
     }
   ]
 }
