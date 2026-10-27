@@ -1,170 +1,49 @@
 {
-  "timestamp": 1793099304,
-  "date": "2026-10-27T11:08:24.371346+00:00",
-  "n_analyses": 9,
+  "timestamp": 1793100204,
+  "date": "2026-10-27T11:23:24.641323+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": -4.588129636067533,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique pure (z-score -4.59, volume nul) provoquée par un bruit médiatique totalement déconnecté de la crypto (carburant, littérature, utilitaires Renault, transport maritime). Aucune baleine détectée : les données reflètent un bruit de fond non-financier.\"\n}\n```",
-        "ts": 1793098253.524867
+        "metric": "whale_usd",
+        "zscore": 2.749767846195958,
+        "value": 3264651.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain significative (z-score 2.75, +3.2M USD) dans un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar grand public.\"\n}\n```",
+        "ts": 1793098594.641202
       },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": -5.0804125095373935,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie statistique extrême (z-score -5.08) montrant un assèchement total des liquidations onchain, contrastant avec le bruit médiatique macro/local. Absence de capitulation forcée : les baleines absorbent l'offre en silence sous les 80k$ sans déclencher de cascade vendeuse.\"\n}\n```",
-        "ts": 1793098261.451805
-      },
-      "fiche": "liquidations",
+      "fiche": "whale_usd",
       "questions": {
-        "longs": {
-          "value": 333009.0,
+        "ventes": {
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
-        "shorts": {
-          "value": 992373.0,
+        "achats": {
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.14,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "shorts > longs",
-        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
-        "niveau": "info",
-        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
-      },
-      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": -7.509596683793352,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique hors-sujet (batteries Samsung, actualités politiques et boursières traditionnelles). Aucune relation avec un actif crypto ou un mouvement de baleine pertinent.\"\n}\n```",
-        "ts": 1793098270.299059
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": -2.0494136121940243,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP à 0) noyée dans du bruit médiatique sans rapport avec l'activité des baleines crypto.\"\n}\n```",
-        "ts": 1793098276.76201
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": -2.0494136121940243,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique non significative. Le z-score négatif de la poussière (dust) onchain coïncide uniquement avec du bruit médiatique non lié à la crypto (musique, jeux vidéo, actualités générales). Aucune accumulation cachée de baleine détectée.\"\n}\n```",
-        "ts": 1793098278.490054
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -8.217119915130649,
-        "value": 1,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrême à -8.22 sur le ratio long/short (capitulation massive des positions vendeuses ou surengagement short des 'retail'). Pendant que les médias généralistes discutent de stratégies traditionnelles long/short sur les OPCVM, les baleines crypto positionnent un squeeze violent par une asymétrie de positioning historique.\"\n}\n```",
-        "ts": 1793098287.169865
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.383,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 98144.061,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": -2.1785417643556655,
-        "value": 0.5,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.5 (z-score -2.18) indique une domination massive des ordres d'achat passifs (limite) par rapport aux ventes agressives (taker sell), suggérant une accumulation discrète par les baleines. Le silence médiatique total (Google Actualités vide) confirme l'absence de FOMO de détail, signalant un creux d'accumulation classique avant une impulsion haussière.\"\n}\n```",
-        "ts": 1793098288.659682
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 0.864,
-          "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": 0.14,
+          "value": -0.09,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
         "metric": "fear_greed",
-        "zscore": -2.1557037884480863,
+        "zscore": -2.013114894621606,
         "value": 48,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.16) pour un Indice de Peur et de Greffe neutre (48) combiné à un silence médiatique total : les baleines accumulent discrètement dans l'indifférence générale avant un mouvement de rupture.\"\n}\n```",
-        "ts": 1793098292.634813
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (z-score -2.01 sur le Fear & Greed à 48) combinée à une anomalie de volume cachée. Les baleines accumulent dans l'angle mort des médias avant un mouvement directionnel fort.\"\n}\n```",
+        "ts": 1793100102.100643
       },
       "fiche": "fear_greed",
       "questions": {
@@ -186,42 +65,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.749767846195958,
-        "value": 3264651.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain significative (z-score 2.75, +3.2M USD) dans un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar grand public.\"\n}\n```",
-        "ts": 1793098594.641202
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 2199937.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 532213.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.14,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
