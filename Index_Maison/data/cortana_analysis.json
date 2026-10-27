@@ -1,20 +1,20 @@
 {
-  "timestamp": 1793113708,
-  "date": "2026-10-27T15:08:28.580243+00:00",
+  "timestamp": 1793117609,
+  "date": "2026-10-27T16:13:29.638383+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.4807098859090284,
-        "value": 1.091,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.48) sur un ticker ambigu ('IPT') pollué par des homonymes non-crypto (International Petroleum Corp, École Polytechnique). Aucun mouvement de baleine avéré lié à un actif numérique pertinent.\"\n}\n```",
-        "ts": 1793113415.677564
+        "zscore": 2.4980180751107217,
+        "value": 1.133,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de tickers. Les données onchain/trading concernent 'International Petroleum Corp (SWB:IPT)', tandis que le narratif médiatique mélange des actualités académiques (École polytechnique) et religieuses sans aucun rapport avec la crypto ou les flux de baleines.\"\n}\n```",
+        "ts": 1793116727.257346
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
