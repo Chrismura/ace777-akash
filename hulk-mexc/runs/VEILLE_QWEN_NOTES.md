@@ -8701,3 +8701,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-27T14:17:52Z — ALERT auto
 - QNTUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-27T14:54:05Z — ALERT auto
+- KITEUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)

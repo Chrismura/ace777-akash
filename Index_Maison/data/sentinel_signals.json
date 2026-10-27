@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 5.825950912586592,
-      "value": 0.628,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte due à une confusion sémantique. Le signal 'SDI' capté fait référence à un syndicat professionnel français (Syndicat des Indépendants) et à des actualités politiques/fait divers, sans aucun rapport avec l'écosystème crypto ou une quelconque baleine.\"\n}\n```",
-      "ts": "2026-10-26T16:03:11.895645+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.6706380873592055,
       "value": 10660739963.0,
@@ -349,6 +342,13 @@
       "value": 1.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.32) sur un ticker (IPT) pollué par du bruit sémantique non-crypto (International Petroleum Corp, École Polytechnique, actualités religieuses). Absence de mouvement de baleine avéré sur une cryptomonnaie pertinente.\"\n}\n```",
       "ts": "2026-10-27T14:12:32.529301+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4807098859090284,
+      "value": 1.091,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.48) sur un ticker ambigu ('IPT') pollué par des homonymes non-crypto (International Petroleum Corp, École Polytechnique). Aucun mouvement de baleine avéré lié à un actif numérique pertinent.\"\n}\n```",
+      "ts": "2026-10-27T15:03:35.677564+00:00"
     }
   ]
 }
