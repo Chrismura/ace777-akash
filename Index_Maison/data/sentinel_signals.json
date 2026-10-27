@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.7063448237550616,
-      "value": 0.5198717130489028,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 40,\n  \"reason\": \"Anomalie de prix significative (z-score 2.71) en l'absence totale de couverture médiatique. Absence de signaux on-chain clairs de baleines (pas de données de volume ou de flux net). Impossible de confirmer une accumulation ou une distribution silencieuse sans données de transactions majeures.\"\n}\n```",
-      "ts": "2026-10-26T04:50:56.916252+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.5719642942518304,
-      "value": 4170166.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.57, ~4.17M USD) sans aucune couverture médiatique grand public. Accumulation silencieuse classique en zone de sous-radar avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-26T04:55:59.633930+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.6659871411173013,
-      "value": 2.281,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.67 (2.28), révélant un positionnement excessivement haussier des traders de détail. Pendant ce temps, le narratif médiatique est totalement déconnecté, focalisé sur la gestion de fonds traditionnels et institutionnels, ignorant l'imminence d'un piège à liquidité propice à une purge imminente des positions longues.\"\n}\n```",
-      "ts": "2026-10-26T05:06:02.111850+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.4584055116132446,
-      "value": 2.281,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.46) sur le ratio long/short indiquant un optimisme excessif et un positionnement sur-alourdi de la foule, totalement ignoré par les médias traditionnels focalisés sur des ETF macro et des fonds equity institutionnels.\"\n}\n```",
-      "ts": "2026-10-26T05:36:19.971052+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.2848133161863506,
-      "value": 2.281,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif probable. L'anomalie onchain (z-score 2.28) est faible et les titres médiatiques concernent des fonds d'investissement traditionnels (BNP Paribas, Blackstone) et des actions spécifiques, sans lien direct avec les flux crypto ou les mouvements de baleines numériques. Aucune divergence significative détectée.\"\n}\n```",
-      "ts": "2026-10-26T06:06:25.884467+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.1148844271883562,
       "value": 2.28,
@@ -349,6 +314,41 @@
       "value": 48,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.93) combiné à un sentiment neutre (48) et un vide médiatique total (Google Actualités sans écho) : classic setup d'accumulation silencieuse par les baleines loin du bruit de fond.\"\n}\n```",
       "ts": "2026-10-27T02:34:18.073265+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": -2.2724771304626112,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée à un acronyme ambigu (CPFP = Child-Pays-For-Parent vs actualité locale/politique). Aucune baleine crypto identifiée dans le bruit médiatique sans rapport.\"\n}\n```",
+      "ts": "2026-10-27T02:39:19.813225+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": -2.2724771304626112,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique mineure (z-score -2.27) sur la poussière (dust) totalement ignorée par les médias, dont les occurrences du mot font référence à de la culture pop, des sneakers et de l'histoire. Aucun mouvement significatif de baleines crypto détecté.\"\n}\n```",
+      "ts": "2026-10-27T02:39:21.444822+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645903,
+      "value": 48,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -2.65) avec un indice de peur et de cupidité neutre (48) et un vide médiatique total (Google Actualités). Silence radio des médias de masse couplé à une déviation standard extrême = accumulation discrète des baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-27T03:04:26.572312+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 4.971615586896341,
+      "value": 5291117.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.97) couplé à une absence totale de couverture médiatique (silence radio de Google Actualités). C'accumulation furtive typique des baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-10-27T03:24:30.752146+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.420153478013921,
+      "value": 48,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré un indice de peur neutre (48) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin des radars du retail.\"\n}\n```",
+      "ts": "2026-10-27T03:34:33.856109+00:00"
     }
   ]
 }
