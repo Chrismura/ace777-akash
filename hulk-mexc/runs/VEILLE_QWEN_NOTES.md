@@ -8713,3 +8713,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-27T15:38:42Z — ALERT auto
 - WUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-27T17:34:42Z — ALERT auto
+- LAUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
