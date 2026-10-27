@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": 2.5435947870042463,
-      "value": 2.256,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.54) et ratio long/short extrême (2.256) signalent un positionnement acheteur excessivement surpeuplé, typique d'un piège à liquidité (excès d'optimisme retail/baleines en tendance tardive). Le narratif médiatique se focalise sur des produits traditionnels et des stratégies long/short de couverture, ignorant totalement la surchauffe spéculative imminente sur les dérivés.\"\n}\n```",
-      "ts": "2026-10-26T04:05:35.103447+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.236067977499791,
-      "value": 50,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (z-score de peur extrême -2.24 malgré un marché neutre à 50). Absence de bruit de fond = accumulation furtive des baleines loin des radars du retail.\"\n}\n```",
-      "ts": "2026-10-26T04:05:36.337447+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.882530292406191,
-      "value": 0.5061650905516579,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.88) sur 1h indiquant une impulsion de prix anormale, combiné à un silence total des médias (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant toute couverture médiatique.\"\n}\n```",
-      "ts": "2026-10-26T04:15:38.714445+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": 2.373567680506222,
       "value": 2.256,
       "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.37 (2.256), indiquant un positionnement acheteur excessivement surpeuplé par la foule. Pendant ce temps, le narratif médiatique se focalise de manière générique et dispersée sur la finance traditionnelle (fonds OPCVM et ETF long/short), ignorant totalement l'excès de levier spéculatif en cours sur le marché crypto. Classic setup de 'piège à taureaux' (long squeeze imminent).\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 48,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (z-score -6.86) sur un Fear & Greed à 48 combiné à un silence médiatique absolu. Absence totale de FOMO public malgré des valorisations stables, ce qui indique une accumulation silencieuse par les baleines loin du bruit de fond.\"\n}\n```",
       "ts": "2026-10-27T00:33:52.164760+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.795831523312714,
+      "value": 48,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Données incomplètes. Absence de flux sortants significatifs des exchanges et absence de titres médiatiques exploitables pour contraster le z-score neutre (48).\"\n}\n```",
+      "ts": "2026-10-27T01:03:57.408164+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.5315893041984765,
+      "value": 2982646.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.53, volume ~2.98M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique traduisant une accumulation discrète hors radar retail.\"\n}\n```",
+      "ts": "2026-10-27T01:24:00.769753+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.8729833462074166,
+      "value": 48,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -3.87) sur un Fear & Greed neutre (48) couplé à un silence médiatique absolu. Historiquement, cette indifférence des médias combinée à une décote de volatilité trahit une accumulation discrète des baleines loin des radars de la foule.\"\n}\n```",
+      "ts": "2026-10-27T01:34:08.272651+00:00"
     }
   ]
 }
