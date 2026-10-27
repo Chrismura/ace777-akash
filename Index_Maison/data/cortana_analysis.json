@@ -1,43 +1,47 @@
 {
-  "timestamp": 1793124811,
-  "date": "2026-10-27T18:13:31.613603+00:00",
+  "timestamp": 1793128412,
+  "date": "2026-10-27T19:13:32.572240+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.0361014375321704,
-        "value": 3413022.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.04, ~3.4M USD) sans couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique des baleines loin du radar public.\"\n}\n```",
-        "ts": 1793123679.932848
+        "metric": "ipt",
+        "zscore": 2.3110736817819673,
+        "value": 1.139,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique détectée sur un ticker boursier traditionnel (International Petroleum Corp / SWB:IPT) ou confusion de mots-clés (IPT / physique), sans aucun rapport avec l'activité onchain de baleines crypto. Bruit médiatique sans substance financière.\"\n}\n```",
+        "ts": 1793127291.281386
       },
-      "fiche": "whale_usd",
+      "fiche": "rbf_eleve",
       "questions": {
-        "ventes": {
-          "value": 579999.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
+        "prix": {
+          "value": 0.16,
+          "seuil": 1,
           "depasse": false
         },
-        "prix": {
-          "value": 0.06,
-          "seuil": 1,
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
