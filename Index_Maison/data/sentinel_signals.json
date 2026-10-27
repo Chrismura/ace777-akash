@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.621420584609197,
-      "value": 9877325778.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent d'actualités générales (iPhone, éducation, sport) sans aucun rapport avec la crypto ou un actif spécifique.\"\n}\n```",
-      "ts": "2026-10-26T15:25:59.319961+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.1711841122055433,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Le signal 'SDI' détecté ici ne concerne pas la crypto, mais le 'Syndicat des Indépendants' (SDI) dans l'actualité politique et sociale française (pillages de commerces, factures énergétiques). Aucune baleine crypto ou donnée onchain n'est impliquée. Divergence nulle, confusion de contexte.\"\n}\n```",
-      "ts": "2026-10-26T15:31:27.543152+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 4.621127057387249,
       "value": 7515440.0,
@@ -349,6 +335,20 @@
       "value": 48,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indifférence médiatique totale (z-score -2.01 sur le Fear & Greed à 48) combinée à une anomalie de volume cachée. Les baleines accumulent dans l'angle mort des médias avant un mouvement directionnel fort.\"\n}\n```",
       "ts": "2026-10-27T11:21:42.100643+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.7038220682413123,
+      "value": 0.6240229111650564,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.70) en l'absence totale de couverture médiatique (silence radio sur Google Actualités). C'est la signature classique d'accumulation silencieuse par les baleines avant que le narratif public ne se mette en place.\"\n}\n```",
+      "ts": "2026-10-27T12:51:59.831955+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.0456043587094634,
+      "value": 1120211.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : les médias amplifient la panique (bruit sur des liquidations macro/tradfi et un BTC sous 80k$), mais le z-score on-chain (-2.05) prouve un assèchement total des liquidations crypto réelles. Les baleines absorbent l'offre en silence pendant que la foule cède à la psychose médiatique.\"\n}\n```",
+      "ts": "2026-10-27T12:52:08.041381+00:00"
     }
   ]
 }
