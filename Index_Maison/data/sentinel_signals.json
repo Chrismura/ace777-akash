@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.621127057387249,
-      "value": 7515440.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 4.62, volume ~7.5M USD) totalement ignorée par les médias traditionnels (Google Actualités vide). Divergence classique d'accumulation silencieuse hors du radar retail.\"\n}\n```",
-      "ts": "2026-10-26T15:52:05.514004+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.809912419660605,
-      "value": 10466643744.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit de fond : les titres médiatiques parlent d'actualités générales et de smartphones, sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-10-26T15:57:32.060336+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 5.825950912586592,
       "value": 0.628,
@@ -349,6 +335,20 @@
       "value": 1120211.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : les médias amplifient la panique (bruit sur des liquidations macro/tradfi et un BTC sous 80k$), mais le z-score on-chain (-2.05) prouve un assèchement total des liquidations crypto réelles. Les baleines absorbent l'offre en silence pendant que la foule cède à la psychose médiatique.\"\n}\n```",
       "ts": "2026-10-27T12:52:08.041381+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.6285067401677766,
+      "value": 1.077,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur l'actif 'ipt' totalement polluée par du bruit médiatique hétérogène (actions, tournois de physique, actualités religieuses/sociales). Aucune baleine crypto identifiable : le signal onchain est un artefact de ticker ambigu ou un faux positif.\"\n}\n```",
+      "ts": "2026-10-27T13:22:24.026174+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3166285452185584,
+      "value": 1.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.32) sur un ticker (IPT) pollué par du bruit sémantique non-crypto (International Petroleum Corp, École Polytechnique, actualités religieuses). Absence de mouvement de baleine avéré sur une cryptomonnaie pertinente.\"\n}\n```",
+      "ts": "2026-10-27T14:12:32.529301+00:00"
     }
   ]
 }
