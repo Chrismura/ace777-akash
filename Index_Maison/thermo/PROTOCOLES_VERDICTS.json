@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-27T03:37:25+00:00",
+  "ts": "2026-10-27T11:09:27+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -7,7 +7,7 @@
       "critere": "R4 : juger à T+72h la direction réelle du BTC · R6 : verdict 08/11/2026 si ≥ 55 % de HIT sur ≥ 20 cas",
       "faits": "23 paires enregistrées · 5 divergente(s) · 3 jugée(s) · 2 HIT",
       "verdict": "EN ATTENTE (3 cas jugé(s) sur 20 requis)",
-      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.8 divergence(s)/semaine → environ 4.4 cas au 08/11",
+      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.8 divergence(s)/semaine → environ 4.3 cas au 08/11",
       "detail": [
         {
           "paire": "paire-008",
@@ -274,7 +274,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "859 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "860 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -307,7 +307,7 @@
           "delta_votes": -1
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
@@ -315,7 +315,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 87/161 = 54.0 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 87/159 = 54.7 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -351,9 +351,9 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 56,
+          "directionnels": 55,
           "corect": 33,
-          "n": 98
+          "n": 97
         },
         {
           "indice": "etfBtcM",
@@ -363,9 +363,9 @@
         },
         {
           "indice": "fearGreed",
-          "directionnels": 41,
+          "directionnels": 40,
           "corect": 22,
-          "n": 107
+          "n": 106
         },
         {
           "indice": "geopol",
@@ -394,7 +394,7 @@
           "directionnels": 6,
           "corrects": 2,
           "neutres": 57,
-          "t_stat": -5.67
+          "t_stat": -5.42
         }
       ]
     },
