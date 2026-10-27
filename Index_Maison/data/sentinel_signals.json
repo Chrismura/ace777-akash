@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": -2.4187438832318704,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit statistique). Le narratif médiatique fait référence à de la culture pop, de la mode et du jeu vidéo sans lien avec la crypto. Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-10-26T17:20:33.167198+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.0438493717833084,
       "value": 0.867,
@@ -349,6 +342,13 @@
       "value": 1.274,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte. L'indicateur 'ipt' fait référence à International Petroleum Corp ou à des acronymes institutionnels/universitaires (École Polytechnique), et non à un actif crypto manipulé par des baleines. Aucune donnée onchain pertinente.\"\n}\n```",
       "ts": "2026-10-27T20:05:10.832890+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.233758648754237,
+      "value": 3423114.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain majeure (z-score 3.23, accumulation de 3.4M$) en absence totale de couverture médiatique (Google Actualités muet). Disjonction classique de phase d'accumulation silencieuse par les baleines avant un mouvement impulsif.\"\n}\n```",
+      "ts": "2026-10-27T23:25:39.757824+00:00"
     }
   ]
 }
