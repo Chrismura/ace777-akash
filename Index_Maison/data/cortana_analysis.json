@@ -1,38 +1,37 @@
 {
-  "timestamp": 1793057524,
-  "date": "2026-10-26T23:32:04.793756+00:00",
+  "timestamp": 1793061126,
+  "date": "2026-10-27T00:32:06.449624+00:00",
   "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.6592412106634167,
-        "value": 1.669,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.66) indique une forte agression acheteuse cachée sous le radar médiatique (silence radio). Divergence classique d'accumulation agressive par les baleines avant un mouvement de cassure.\"\n}\n```",
-        "ts": 1793055814.044492
+        "metric": "fear_greed",
+        "zscore": -5.027293925217199,
+        "value": 48,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-5.03) combiné à un indice de peur/avidité neutre (48) et un vide médiatique total indique une accumulation invisible des baleines loin du radar public.\"\n}\n```",
+        "ts": 1793059425.50295
       },
-      "fiche": "taker_ratio",
+      "fiche": "fear_greed",
       "questions": {
-        "taker": {
-          "value": 0.835,
-          "seuil": 1,
-          "depasse": false
+        "peur": {
+          "value": 48,
+          "seuil": 25,
+          "depasse": true
         },
-        "prix": {
-          "value": 0.0,
-          "seuil": 1,
+        "cupidite": {
+          "value": 48,
+          "seuil": 75,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
