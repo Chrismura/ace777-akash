@@ -1,12 +1,10 @@
 {
-  "ts": "2026-10-28T00:17+00:00",
-  "updated": "2026-10-28T00:17Z",
+  "ts": "2026-10-28T01:19+00:00",
+  "updated": "2026-10-28T01:19Z",
   "etat": "ALERTE",
-  "chaines_ok": "12/15",
+  "chaines_ok": "14/15",
   "anomalies": [
-    "HULK : sonde runtime, contrat Cortana ou analyses figés",
-    "GEOPOL : score figé ou modules en erreur",
-    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
+    "HULK : sonde runtime, contrat Cortana ou analyses figés"
   ],
   "degradees": [],
   "chaines": [
@@ -44,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 99.8 · zone VERT"
+          "detail": "voilure 89.4 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 6 min"
         }
       ]
     },
@@ -67,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 37 min"
+          "detail": "âge 4 min"
         }
       ]
     },
@@ -84,8 +82,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": false,
-          "detail": "mode fichier · JSON · âge ts 1.3 min · écart mtime/ts 2.0s · 22 paire(s) · btc=OK · ts=croissant · passe 21.9s · marge 23.1s sous le budget 45s du moteur"
+          "ok": true,
+          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 2.2s · 22 paire(s) · btc=OK · ts=croissant · passe 26.0s · marge 19.0s sous le budget 45s du moteur · ⚠ PIRE CAS age 46.0s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
         },
         {
           "nom": "corrélation BTC",
@@ -100,12 +98,12 @@
         {
           "nom": "cortana_pilot.json",
           "ok": false,
-          "detail": "âge 2492 min"
+          "detail": "âge 2554 min"
         },
         {
           "nom": "cortana_analysis.json",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 4 min"
         }
       ]
     },
@@ -146,7 +144,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mode",
@@ -169,7 +167,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "signaux",
@@ -182,7 +180,7 @@
       "id": "geopol",
       "nom": "GEOPOL",
       "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "geopol.ts frais",
@@ -191,8 +189,8 @@
         },
         {
           "nom": "modules OK",
-          "ok": false,
-          "detail": "4/5 modules"
+          "ok": true,
+          "detail": "5/5 modules"
         }
       ]
     },
@@ -284,7 +282,7 @@
         {
           "nom": "rapport veille_degradation_etat.json",
           "ok": true,
-          "detail": "SAIN · âge 1 min"
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -345,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "aucun"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -353,17 +351,17 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": false,
-          "detail": "âge 35 min"
+          "ok": true,
+          "detail": "âge 6 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.4"
+          "detail": "score 0.313"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

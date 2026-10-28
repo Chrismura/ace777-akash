@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.4131238463616613,
-      "value": 11333193841.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur l'iPhone, un bateau et l'immobilier). Le z-score on-chain élevé (2.41) est totalement déconnecté des actualités crypto, signalant soit du bruit statistique, soit une inactivité totale des médias sur un mouvement purement algorithmique.\"\n}\n```",
-      "ts": "2026-10-26T18:01:36.921030+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.9504342406283786,
-      "value": 0.624,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 3.95) due à une collision de homonymes : l'algorithme crypto détecte du bruit lié au 'Syndicat des Indépendants (SDI)' et à 'Samsung SDI' dans l'actualité française et industrielle, sans lien avec une baleine crypto.\"\n}\n```",
-      "ts": "2026-10-26T18:01:53.396077+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.8000065212437173,
-      "value": 1.286,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une confusion de tickers. L'indicateur on-chain 'ipt' capte du bruit ou un actif sans lien avec l'action boursière International Petroleum Corp (SWB:IPT) ou l'événement académique français. Aucune baleine crypto pertinente détectée.\"\n}\n```",
-      "ts": "2026-10-26T18:17:13.262120+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.233100787868667,
       "value": 11317467784.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.23) entièrement liée à du bruit sémantique et des homonymies dans les médias généralistes (iPhone, navires, classes scolaires). Aucune corrélation avec une activité de baleine crypto.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrême à -6.49 sur le ratio Long/Short : capitulation totale de la foule positionnée en short pendant que les médias grand public banalisent les stratégies défensives Long/Short. Conditions parfaites pour un 'short squeeze' violent orchestré par les baleines.\"\n}\n```",
       "ts": "2026-10-28T00:17:37.739608+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.8046280379014803,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé (2.80) indiquant une volatilité statistique sans consensus de marché. Absence de narratif dominant notable (Google Actualités plat). Les baleines maintiennent le silence en attendant un catalyseur directionnel.\"\n}\n```",
+      "ts": "2026-10-28T00:22:40.212517+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.588815689512777,
+      "value": 2798748.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique une accumulation massive de USD par des baleines, suggérant un sentiment bullish. Cependant, les titres médiatiques ne mentionnent pas cette activité, indiquant une divergence potentielle entre les données brutes et le narratif médiatique. Les baleines pourraient bouger silencieusement, et le narratif médiatique pourrait être déconnecté de la réalité.\"\n}\n```",
+      "ts": "2026-10-28T00:27:42.001971+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.645326764762356,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles dans les titres). Le z-score élevé du Fear & Greed (51) signale une indécision de marché, mais l'absence de narratif médiatique dominant empêche de confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-28T00:55:01.908384+00:00"
     }
   ]
 }
