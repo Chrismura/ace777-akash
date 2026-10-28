@@ -56,7 +56,7 @@
    "enabled": true,
    "free": true,
    "status": "actif-reteste-20261017",
-   "last_ok_ts": 1792994885.118581,
+   "last_ok_ts": 1793167685.965649,
    "last_err": ""
   },
   {
@@ -87,7 +87,7 @@
    "note": "ACTIVE 11/08 - cle Mistral OK (plan experiment 1 Md tokens/mois) - Codestral = modele code | 17/10 REACTIVÉ : codestral-latest testé live OK contenu réel (trial experiment toujours vivant).",
    "enabled": true,
    "free": false,
-   "last_ok_ts": 1792994885.118581,
+   "last_ok_ts": 1793167685.965649,
    "last_err": "",
    "status": "actif-reteste-20261017"
   },
@@ -109,12 +109,12 @@
    "name": "OpenRouter Juge (nemotron-3-super-120b free) - verificateur independant",
    "kind": "cloud",
    "base_url": "https://openrouter.ai/api/v1",
-   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "model": "nvidia/nemotron-3.5-super-vl:free",
    "api_key_env": "OPENROUTER_API_KEY",
    "enabled": false,
    "order": 7,
    "timeout": 120,
-   "note": "REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | quota journalier épuisé le 17/08 → reset automatique",
+   "note": "REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | quota journalier épuisé le 17/08 → reset automatique | 17/10+ REPARE-ID auto : nvidia/nemotron-3-super-120b-a12b:free mort (http404) -> nvidia/nemotron-3.5-super-vl:free testé OK ('The user said \"Dis juste: ok\" which is French for \"Just say: ok\". They'). enabled inchangé.",
    "free": true,
    "last_ok_ts": 1790572085.68032,
    "last_err": "",
