@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "dust",
-      "zscore": -2.057677948593422,
-      "value": 5.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score -2.06) totalement non corrélée au bruit médiatique, lequel fait référence à de la culture pop, de la musique et des actions boursières traditionnelles sans lien avec la crypto.\"\n}\n```",
-      "ts": "2026-10-26T19:57:43.237395+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": -2.0270004739844527,
-      "value": 5.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score -2.03) due à une faible activité sur la métrique CPFP (Child-Pays-For-Parent), mais le bruit médiatique est totalement décorrélé (mélange de tutoriels techniques et de faits divers locaux sans rapport avec un mouvement macro de baleines crypto).\"\n}\n```",
-      "ts": "2026-10-26T20:27:56.069762+00:00"
-    },
-    {
-      "metric": "dust",
       "zscore": -2.0270004739844527,
       "value": 5.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique absolu (musique, baskets, jeux vidéo). L'anomalie onchain 'dust' est un bruit statistique sans corrélation avec une accumulation ou distribution de baleines crypto.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (51) avec un z-score élevé signalant une volatilité statistique, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
       "ts": "2026-10-28T02:55:43.709519+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0957034464752367,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score modéré (2.10) et absence de signal médiatique fort. Aucune divergence significative détectée : le marché et les médias sont en phase d'attente.\"\n}\n```",
+      "ts": "2026-10-28T03:25:53.118147+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0164995703068462,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-28T03:56:02.408076+00:00"
     }
   ]
 }
