@@ -1603,3 +1603,27 @@ Proposition : **juger à 50 signaux chacun ≈ 3 semaines** de régime normal. E
 compter en signaux pas en jours (le plat produit peu). Premier bilan proposé : quand
 REENTRY_SHADOW + PLANCHER_SHADOW totalisent 50 lignes chacun au CSV, ou le 18/11 si le
 marché se réveille avant.
+
+---
+
+## §45 — 28/10/2026 : PLAN FERMÉ — 5 QUESTIONS, 5 BUTIORS, FINI L'ÉTALEMENT
+
+**GO : dire ce qui est branché, ce qui est compris, ce qu'on observe — et ne plus découvrir
+au fil de l'eau. Posture desk quant : le temps est une ressource.**
+
+**Branchés** : tiers/GBAG/MFE/slips/compound/sense/storm/plancher-veto + 2 shadows (0 ordre,
+testés) + 15 régimes + 19 fiches + satellite re-rythmé + R24 + short BTC paper +1,07 $.
+
+**Compris (chiffré)** : edge bull/range-vol, gates pile ou face, paliers 3×, plancher 70,7 %,
+hedge +9/+20/+39 $, petites mises NON justifiées, bear = court et vite. Benchmark top :
+market-neutre +14,4 % vs directionnel -2,5 % (2025), funding arb +115 %/6 mois, pairs
+BTC-ETH +14,9 % Sharpe 2,23 — notre hedge va dans leur sens.
+
+**À observer — 5 questions fermées** (`hulk-mexc/BAC_A_SABLE/PLAN_OBSERVATION_FERME.md`,
+rescellé) : Q1 shadow re-entry (50 lignes, 18/11), Q2 shadow plancher (50 lignes, 18/11),
+Q3 hedge Nado (15 j post-faucet), Q4 signaux range/basse (18/11), Q5 ACE HF (audit, 30/11).
+Aucune Q6 sans GO + §. Bilan le 18/11.
+
+**Manques desk** : vitesse (pas de HFT sans flux privé — hors budget, non promis), ticks
+(GARCH si Q4 donne matière), Cortana comme juge quand Q1-Q2 auront parlé, savoir dispersé
+refermé par ce plan.
