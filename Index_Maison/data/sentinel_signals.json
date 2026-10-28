@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.04180066679399,
-      "value": 11476526639.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume détectée (z-score 2.04), mais les titres médiatiques sont complètement hors-sujet (actualités tech, faits divers et Bourse traditionnelle). Aucune corrélation onchain exploitable : bruit de fond ou faux signal.\"\n}\n```",
-      "ts": "2026-10-26T19:32:33.687093+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": -2.057677948593422,
-      "value": 5.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (articles sur l'éducation et la politique locale en Afrique). Le z-score faible du CPFP reflète une absence d'activité notable sur les frais de transaction, contredisant toute accumulation ou mouvement significatif de baleines.\"\n}\n```",
-      "ts": "2026-10-26T19:57:39.476340+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": -2.057677948593422,
       "value": 5.0,
@@ -349,6 +335,20 @@
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques vides (Google Actualités non spécifié) malgré un z-score on-chain élevé (2.39) pour un sentiment neutre (51). Indice insuffisant pour confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
       "ts": "2026-10-28T01:55:28.779306+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.278995442013668,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé (2.28) suggérant une transition de volatilité imminente, mais l'absence de titres médiatiques significatifs indique un calme plat avant tempête. Pas de divergence majeure détectée pour l'instant.\"\n}\n```",
+      "ts": "2026-10-28T02:25:36.744701+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.1827157308386163,
+      "value": 51,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (51) avec un z-score élevé signalant une volatilité statistique, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
+      "ts": "2026-10-28T02:55:43.709519+00:00"
     }
   ]
 }

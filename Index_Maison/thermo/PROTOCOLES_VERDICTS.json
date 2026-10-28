@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-28T02:22:56+00:00",
+  "ts": "2026-10-28T03:23:39+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -274,7 +274,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "874 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "875 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -315,86 +315,25 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 39/68 = 57.4 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 0/0 = None %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
-      "detail": [
-        {
-          "indice": "altSeason",
-          "directionnels": 1,
-          "corect": null,
-          "n": 8
-        },
-        {
-          "indice": "bassine",
-          "directionnels": 3,
-          "corect": 3,
-          "n": 9
-        },
-        {
-          "indice": "chg24",
-          "directionnels": 1,
-          "corect": null,
-          "n": 4
-        },
-        {
-          "indice": "croisements",
-          "directionnels": 4,
-          "corect": 4,
-          "n": 46
-        },
-        {
-          "indice": "fearGreed",
-          "directionnels": 30,
-          "corect": 17,
-          "n": 96
-        },
-        {
-          "indice": "geopol",
-          "directionnels": 2,
-          "corect": 1,
-          "n": 60
-        },
-        {
-          "indice": "gexPutCall",
-          "directionnels": 1,
-          "corect": 1,
-          "n": 13
-        },
-        {
-          "indice": "indice_onchain",
-          "directionnels": 1,
-          "corect": null,
-          "n": 12
-        },
-        {
-          "indice": "liq24Usd",
-          "directionnels": 2,
-          "corect": 2,
-          "n": 11
-        },
-        {
-          "indice": "radar",
-          "directionnels": 19,
-          "corect": 8,
-          "n": 90
-        }
-      ]
+      "detail": []
     },
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3932 « attention » (ML 0.2298) · 60 avis enregistrés dont 2 directionnels (1 correct(s)) · 58 NEUTRE",
+      "faits": "score actuel 0.3932 « attention » (ML 0.2298) · 0 avis enregistrés dont 0 directionnels (0 correct(s)) · 0 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "",
       "detail": [
         {
           "indice": "geopol",
-          "n": 60,
-          "directionnels": 2,
-          "corrects": 1,
-          "neutres": 58,
-          "t_stat": 6.97
+          "n": null,
+          "directionnels": 0,
+          "corrects": 0,
+          "neutres": null,
+          "t_stat": null
         }
       ]
     },
