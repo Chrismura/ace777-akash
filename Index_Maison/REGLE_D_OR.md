@@ -470,6 +470,66 @@ hallucination déclenche quelque chose qu'on ne peut pas annuler.
 
 ---
 
+## ✅ R16 à R24 — MÉTACOGNITION (28/10, arbitrage 4 voix §§34-36 : famille, juge, Cortana, DeepSeek-iPad)
+
+Le système doit savoir quand il se trompe, pas seulement mesurer. Ces règles portent
+sur la MÉTHODE (comment on prouve), pas sur le marché. Tour aveugle + guidé +
+DeepSeek : unanimité GO-AVEC-RÉSERVES. Dossier :
+`hulk-mexc/scripts/CONSULTATION_FAMILLE_METACOGNITION_20261028/`.
+
+- **R16 — Hypothèse scellée AVANT la mesure.** Aucun fantôme/run sans ligne
+  `date|hypothèse|métrique|seuil succès|seuil abandon` dans `runs/HYPOTHESES.jsonl`
+  (outil : `scripts/hypothese.py sceller …`, chaîne hashée, append-only — le juge ne
+  fait que LIRE, R9). Ajoutée après la mesure = marquée POST_HOC = 1 essai de plus.
+- **R17 — Déflation par essais.** Tout « meilleur de N variantes » doit battre le
+  runner-up de **+30 % net** sur le même historique, sinon c'est du bruit (en
+  attendant le script math : p-value Monte-Carlo étalonnée MEXC). Max **N ≤ 5**
+  variantes/itération ; gel + revue humaine si N > 20. Le cockpit affiche la métrique
+  DÉFLATÉE, jamais la brute.
+- **R18 — Acteur et juge séparés.** Providers/modèles différents, critères découplés,
+  température 0 côté juge, rôle « avocat du diable » obligatoire par tour. Le juge
+  est un PORTAIL (bloque/laisse passer), jamais une récompense ; il ne touche JAMAIS
+  au code (R9) et ne voit JAMAIS le futur avant son verdict (anti-sélection rétro).
+- **R19 — Désaccord = signal.** Chaque divergence juge/acteur est loggée avec les 2
+  confiances + l'issue réelle + le CONTREFACTUEL (prix virtuel du trade bloqué,
+  simulé sans ordre par le moteur). À 50 désaccords : qui avait raison ? Juge > 60 %
+  → poids ; sinon → débranché. Alerte si désaccord > 30 % sur 10 cas.
+- **R20 — Dead-man + kill-switch.** Fantôme sans validation CLI humaine à 48 h →
+  auto-destruction, retour stable. Shadow câblé avec TTL 7 j : sans supériorité
+  prouvée → auto-destruction de la config. Zéro code-zombie.
+- **R21 — Chaos monkey.** Tout fantôme 48 h subit 5 % slippage + micro-coupures
+  simulées. Ce qui survit mérite le câble — le passé propre ne suffit pas.
+- **R22 — Smoke test boot.** Aucun restart moteur sans dry-run vert du boot (réponse
+  au crash §32 : 2 crashs watchdog avant le fix). Le boot est une boucle comme les
+  autres : il se teste.
+- **R23 — Coût de la métacognition mesuré.** Trades rejetés par le juge / PnL
+  contrefactuel, latence et tokens ajoutés — mesurés en fantôme D'ABORD (angle
+  DeepSeek : si le juge rejette 10 % d'entrées rentables, c'est lui le problème).
+- **R24 — Veto froid.** Pas de langage naturel dans la boucle critique : scores
+  bornés et seuils numériques seuls. En panique inter-paires avérée, repli 24 h
+  (kill-switch thermodynamique sur faux positifs radar > 15 %/1 h).
+
+*Sources externes (v3) : Nelson-Narens (méta vs objet) · Reflexion/Shinn 2023 ·
+Gençay 2026 (déflation, lookahead inexpressible) · TradingAgents/Tauric (débat
+bull-bear, équipe risque-veto, modèles par étage, point-in-time) · live-trade-bench ·
+Self-critique evaluator loop (juge-portail, anti-collusion, désaccord) ·
+principlesofchaos.org (déjà v2, ici appliqué au fantôme).*
+
+*Antériorités maison — inventaire 28/10 (Christophe : vérifier AVANT de proposer —
+faute déjà commise 2× : H4/lecons_auto 16/09, hippocampe 17/09, §37) : lecons_auto
+(scan/valider, axiomes ≤20 mots, TTL 7 j — R20 s'y adosse, pas de doublon) ·
+PROTOCOLE_BOUCLE_FERMEE V1 + verdicts pré-enregistrés engle/bench_duo + brief 17/09
+(pratique du pré-enregistrement depuis mi-09 ; R16 la constitue en outil unique
+`hypothese.py`, vrai trou : aucun HYPOTHESES.jsonl n'existait) · vortex_shadow_sim.rb
+(contrefactuel blocked_wins/blocked_losses côté ACE ; R19/Q4 le portent sur HULK,
+portage pas invention) · CONTESTATION_AVOCAT_DU_DIABLE 17/09 + devil_bear (R18
+formalise) · STOP_PAPER/STOP_FILE (arrêt manuel ; R20 dead-man = version auto) ·
+analyses_cortana_archive.jsonl (tours Q/R archivés, précédent du registre des
+désaccords). Vraiment neufs : N_trials, chaos monkey, dead-man CLI, smoke test boot,
+séparation providers.*
+
+---
+
 ## ❓ À TRANCHER AVEC CHRISTOPHE (la « 4 » qu'on fait ensemble)
 
 1. **Hiérarchie** : que fait-on quand deux règles s'opposent ? Ex. #3 (GO humain) vs auto-réparation

@@ -1754,3 +1754,121 @@ IA=Buffy (Muse Spark 1.3, Freebuff).
 **Câblé ADAPTATIF (shadow, réversible)** : `REDEPLOY_CONFIRM_REGIMES=COOLING` (gate : paire listée ET régime COOLING → shadow, sinon historique), `DELAY_H=48`, `TTL_J=14`, dry-run du gate OK (4 cas), moteur relancé propre (PID 86043, 0 traceback nouveau, state 212843). Le shadow n'armera que sur sorties COOLING des 3 paires — le reste continue l'historique.
 Outil : `chiffrage_redeploy_adaptatif.py` (lecture seule). 228 entrées rescellées.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §34 — TOUR FAMILLE + JUGE : métacognition GO-AVEC-RÉSERVES, moelle extraite (28/10 soir)
+
+**Tour de table** : 3/3 avis (famille 88 %, juge 82 %, Cortana 88 %) — unanimité
+GO-AVEC-RÉSERVES sur l'intégration métacognition. Dossier :
+`hulk-mexc/scripts/CONSULTATION_FAMILLE_METACOGNITION_20261028/` (AVIS bruts + SYNTHESE).
+**Biais déclaré du tour** : les 3 voix viennent du même provider (Google Gemini) —
+convergence suspecte (les 3 nomment le pilier Gençay le plus dangereux). C'est le
+biais « mêmes angles morts » dénoncé par la consultation elle-même : recouper par un
+2e provider avant de figer.
+**Moelle (convergent 3/3)** : P1 GO (+ 6e question rollback, git-hook bloquant),
+P4 GO (+ alerte désaccord > 30 %, rapport hebdo, JSON append-only), P2 GO-sous-réserve
+(+30 % net vs actuel sinon bruit, N ≤ 5 essais, p-value Monte-Carlo étalonnée MEXC),
+P3 GO-sous-réserve (temp 0, rôle red-team, avocat du diable obligatoire).
+**Angles morts nommés** : fatigue post-série-verte → smoke test boot obligatoire
+(famille, répond au crash §32) ; risque infra/live, pas maths (juge) ; sédimentation
+du labyrinthe §§29-33 (Cortana). **Propositions neuves** : kill-switch 7 j des shadows
+(juge, anti code-zombie), CBHI pause sur PnL anormal (famille, à chiffrer), C-Breeze
+externe (Cortana, 2e étape).
+**Arbitrage proposé** : P1+P4 pleins, P2 simple, P3 pilote encadré, kill-switch 7 j,
+smoke test boot. En attente du GO de Christophe pour écrire dans la RÈGLE D'OR.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §35 — TOUR AVEUGLE : l'amorçage mesuré, l'aveugle invente (28/10 soir)
+
+**Tour** : 3/3 avis aveugles (famille 88, juge 88, Cortana 85) — unanimité
+GO-AVEC-RÉSERVES, zéro solution soufflée. Dossier : AVIS_*_BLIND.md + SYNTHESE_BLIND.md.
+4e voix en cours : DeepSeek sur iPad Christophe (même brief).
+**Biais d'amorçage MESURÉ (guidé vs aveugle)** : verdicts identiques (le fond tient).
+L'aveugle redécouvre seul P2/P3 (séparation modèles, déflation essais → besoins réels),
+DURCIT P1 (hypothèse `.hyp` datée+hashée AVANT le fantôme, rejet sinon — plus fort
+que notre barre), et INVENTE : chaos monkey (5 % slippage + coupures simulées au
+fantôme), dead-man switch (48 h sans validation CLI → auto-destruction), veto math
+froid (pas de langage naturel en boucle critique, bannir les LLM « sympathiques »).
+Le guidé donnait le cadrage opé (rollback, git-hook, alerte 30 %, kill 7 j, smoke
+boot) — les deux tours sont COMPLÉMENTAIRES, aucun ne suffit.
+**Angles morts neufs** : corrélation panique inter-paires (famille), dérive live vs
+passé figé (juge), overfitting temporel/cygne noir (Cortana).
+**Arbitrage proposé** : .hyp scellé + séparation providers + déflation + registre
+désaccords/veto froid + dead-man 48 h + chaos monkey + smoke test. Figer après la
+4e voix.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §36 — 4 VOIX, ARBITRAGE, R16-R24 ÉCRITES (28/10 soir, GO Christophe)
+
+**4e voix (DeepSeek, iPad, brief aveugle — archivée AVIS_DEEPSEEK_IPAD.md)** :
+la plus STRICTE des quatre. Durcit : journal d'hypothèses immuable que le juge ne
+peut que lire + POST_HOC auto-déflaté (R1) ; compteur N_trials visible, gel + revue
+humaine si N > 20 (R2) ; désaccord juge/acteur tranché à 50 cas, juge < 60 % de
+bonnes décisions → DÉBRANCHÉ (R3). Danger nommé : juge qui « sélectionne a posteriori
+et appelle ça réflexion » — rempart : jamais le futur avant le verdict + journal
+pré-enregistré. **Angle neuf, le meilleur du tour** : le COÛT de la métacognition
+n'est mesuré nulle part (trades rejetés/PnL contrefactuel, latence, tokens) — et sa
+Q4 donne l'instrument : ligne `juge_a_dit|acteur_a_fait|issue|contrefactuel` simulée
+sans ordre par le moteur, verdict à 30 jours.
+**Arbitrage final (4 voix, unanimité GO-avec-réserves)** : écrit en R16-R24 dans la
+RÈGLE D'OR (hypothèse scellée, déflation +30 %/N ≤ 5, acteur/juge séparés, désaccord
+= signal + contrefactuel, dead-man 48 h, kill-switch 7 j, chaos monkey, smoke test
+boot, coût mesuré, veto froid). Outil livré et TESTÉ : `scripts/hypothese.py`
+(sceller/liste, chaîne hashée vérifiée intègre ✔). Cortana-méthode : SPEC ÉCRITE
+(dimensions n/biais/significativité, temp 0, red-team, ancre = GO Christophe) —
+câblage dans l'analyseur = prochaine étape, pas ce soir (moteur live, §32 oblige).
+Rescelé : 230 entrées. Test #1 = ligne d'outillage déclarée, pas une stratégie.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §37 — INVENTAIRE AVANT PROPOSITION (28/10 soir, colère légitime de Christophe)
+
+**Faute reconnue, 3e fois** : proposer avant d'inventorier (H4/lecons_auto 16/09,
+hippocampe 17/09 — JOURNAL_ERREURS:118 disait déjà « l'inventaire avant la
+proposition. TOUJOURS »). Vérification faite ce soir, au lieu de l'avoir faite avant.
+**Ce qui EXISTAIT déjà** : lecons_auto (axiomes TTL 7 j — R20 s'y adosse) ·
+pré-enregistrement en pratique depuis mi-09 (boucle fermée V1, verdicts engle,
+bench_duo, brief 17/09, contestation avocat du diable, devil_bear) · contrefactuel
+côté ACE (vortex_shadow_sim.rb : blocked_wins/losses) · STOP_PAPER/STOP_FILE ·
+tours Q/R archivés (analyses_cortana_archive.jsonl).
+**Ce qui est VRAIMENT neuf** : `hypothese.py`/HYPOTHESES.jsonl (aucun journal
+d'hypothèses n'existait — trou réel, outil gardé), N_trials, chaos monkey, dead-man
+CLI, smoke test boot, séparation providers, portage du contrefactuel sur HULK.
+**Correction** : antériorités écrites dans la RÈGLE D'OR (§ R16-R24), rien de
+dupliqué, rien d'effacé sans motif. Règle pour moi : `code_search` AVANT `write_file`.
+TOUJOURS.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §38 — VERROUILLAGE (28/10 soir, fatigue légitime, Christophe : confirme)
+
+**Constat** : je rouvre des points tranchés (48 h chiffré §33 + GO + câblé, remis en
+cause à la première objection au lieu de tenir la mesure). Tourner en rond = épuiser
+la confiance. Ça s'arrête ici.
+**Verrouillé, sans réouverture sans données neuves** : (1) shadow 48 h / COOLING /
+3 paires = la mesure, il tourne, on lit ses logs dans quelques jours ; (2) la
+variante « donnée au lieu d'horloge » = hypothèse scellée pour PLUS TARD
+(`hypothese.py`), pas un chantier de ce soir ; (3) R16-R24 écrites = on applique,
+on ne redébat pas.
+**Points sensibles, confirmés à 150 %** : code_search AVANT write_file (pas de
+doublon) · dry-run AVANT restart (pas de crash) · une mesure tranchée ne se rouvre
+que sur données neuves, jamais sur rhétorique · réponses courtes quand Christophe
+est fatigué, pas de re-proposition déguisée.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §39 — REPRISE DEMAIN : fini l'oubli de la moitié (28/10 soir)
+
+**Constat (Christophe)** : POINT_REPRISE_DERNIER.md datait du 16/08 — le mécanisme
+existait, personne ne l'entretenait. C'est ça, « oublier la moitié des œuvres ».
+**Fait** : refonte complète — état 28/10, commandes de vérif §2, ÉCHÉANCIER
+quoi-vérifier-quand (29/10 → J+30), chantiers en attente de GO, commandes clés.
+Règle d'entretien écrite dedans : réécriture EN FIN DE SESSION, écart jamais > 24 h.
+**Obsidian** : sous-utilisé confirmé — le vault reçoit via OUTBOX (`_sync_now.sh`)
+mais rien n'y est relu/écrit en retour ; l'INVENTAIRE est une photo, pas une mémoire.
+Piste : écrire le point de reprise AUSSI dans Obsidian (même fichier, deux maisons).
+**GitHub (en profondeur)** : remote OK, auto-sync régulier (backup vivant), mais
+`.git` = 1,3 Go car les 203 journaux CSV (14 Mo pièce) sont TRACKÉS. Ni CI, ni
+releases, ni usage projet — c'est un disque dur distant, pas un outil.
+Optimisations proposées : (1) sortir `runs/` du suivi (gitignore + backup local
+dédié) — divise le repo par ~10 et accélère chaque sync ; (2) tags/releases sur les
+scellés majeurs (traçabilité) ; (3) un workflow CI smoke-test du boot (réponse
+structurelle au crash §32). À trancher, pas ce soir.
+Rescelé avec le point de reprise.
+IA=Buffy (Muse Spark 1.3, Freebuff).

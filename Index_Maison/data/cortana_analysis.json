@@ -1,62 +1,8 @@
 {
-  "timestamp": 1793223690,
-  "date": "2026-10-28T21:41:30.294927+00:00",
-  "n_analyses": 17,
+  "timestamp": 1793227291,
+  "date": "2026-10-28T22:41:31.316295+00:00",
+  "n_analyses": 18,
   "analyses": [
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 3.17337397036245,
-        "value": 0.616,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants (TPE/commerces français), totalement déconnecté de la blockchain et des mouvements de baleines crypto.\"\n}\n```",
-        "ts": 1793205342.089433
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.97613585031417,
-        "value": 1.151,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une ambiguïté de ticker. Les données onchain capturent du bruit ou un actif sans rapport avec le ticker traditionnel 'IPT' (International Petroleum Corp / École Polytechnique), démontrant une absence totale de corrélation avec un mouvement de baleine crypto.\"\n}\n```",
-        "ts": 1793205351.77353
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.14,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "whale_usd",
@@ -78,7 +24,7 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         }
@@ -147,17 +93,17 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 4205833.0,
+          "value": 4204917.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 9e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -201,12 +147,12 @@
           "depasse": true
         },
         "shorts": {
-          "value": 1845120.0,
+          "value": 1844203.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         }
@@ -231,17 +177,17 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 4205833.0,
+          "value": 4204917.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 9e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -270,12 +216,12 @@
           "depasse": true
         },
         "shorts": {
-          "value": 1845120.0,
+          "value": 1844203.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         }
@@ -300,17 +246,17 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 4205833.0,
+          "value": 4204917.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 9e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -339,12 +285,12 @@
           "depasse": true
         },
         "shorts": {
-          "value": 1845120.0,
+          "value": 1844203.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         }
@@ -379,7 +325,7 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         }
@@ -408,12 +354,12 @@
           "depasse": true
         },
         "shorts": {
-          "value": 1845120.0,
+          "value": 1844203.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         }
@@ -453,7 +399,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.14,
+          "value": -0.06,
           "seuil": 1,
           "depasse": false
         },
@@ -463,7 +409,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 9e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -480,6 +426,70 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.03246455330269,
+        "value": 3568708.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.03, volume ~$3.56M) couplée à un silence total dans les médias mainstream (Google Actualités). Les baleines accumulent ou positionnent discrètement du capital sans éveiller de FOMO public.\"\n}\n```",
+        "ts": 1793224390.70272
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.06,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": -2.0174004203719265,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP à zéro) noyée dans un bruit médiatique sans rapport (actualités locales et politiques). Aucune baleine détectée ; simple absence de transactions nécessitant une accélération des frais.\"\n}\n```",
+        "ts": 1793226195.209139
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": -2.0174004203719265,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal de 'dust' onchain est un faux positif complet, pollué par l'actualité culturelle et musicale liée au mot 'dust' (poussière).\"\n}\n```",
+        "ts": 1793226196.753641
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
