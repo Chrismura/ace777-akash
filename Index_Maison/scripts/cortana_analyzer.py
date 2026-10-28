@@ -13,6 +13,7 @@ Date : 2026-08-25
 """
 
 import json
+import os
 import re
 import time
 from pathlib import Path
@@ -361,9 +362,12 @@ def run_analysis():
     print(f"  Fiches: {len(fiches)}")
     print(f"  Signaux: {len(signals)}")
     
-    # 2. Analyser chaque signal récent (dernières 30 min)
+    # 2. Analyser chaque signal récent — FENÊTRE MESURÉE (28/10 §50) : le sentinel
+    # émet ~1,6/h, la fenêtre 30 min jetait 48/50 signaux → l'analyzer ne voyait rien.
+    # 6 h par défaut (≈10 signaux/run), réglable sans toucher le code. Réversible.
+    _window = float(os.environ.get("CORTANA_SIGNAL_WINDOW_SEC", "21600"))
     now = time.time()
-    recent_signals = [s for s in signals if now - s.get("ts", 0) < 1800]
+    recent_signals = [s for s in signals if now - s.get("ts", 0) < _window]
     
     analyses = []
     for signal in recent_signals:

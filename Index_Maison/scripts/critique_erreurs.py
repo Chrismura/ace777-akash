@@ -76,6 +76,10 @@ SIGNATURES = {
     "E7_symptome_pas_cause": r"symptôme",
     "E8_limites_cachees": r"limite non (écrite|déclarée)",
     "E9_empiler_le_meme_jour": r"retiré le jour même|posé puis retiré|empil(é|er)",
+    "E27_couverture_source_incomplete": r"fente de \d+ ?h|sans vérifier.*span|monde.*ne voyait|historique insuffisant",
+    "E28_capteur_mort": r"colonne vide|capteur mort|jamais remplie|mfe.*vide|non remplies?/total",
+    "E29_organe_muet_non_diagnostique": r"muet.*sans.*diagnostic|proposals \[\]|tuyau.*non ouvert|famine",
+    "E30_motifs_jamais_recroises": r"jamais (recroisé|croisé)|deuxième stop|STOP2|sans suivre.*reste",
 }
 
 

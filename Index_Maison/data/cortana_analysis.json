@@ -1,8 +1,195 @@
 {
-  "timestamp": 1793205684,
-  "date": "2026-10-28T16:41:24.939413+00:00",
-  "n_analyses": 2,
+  "timestamp": 1793208685,
+  "date": "2026-10-28T17:31:25.748934+00:00",
+  "n_analyses": 11,
   "analyses": [
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": -2.0067159965747736,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (mélange de SEO crypto générique et d'actualités locales sans rapport avec l'actif 'CPFP'). Aucune accumulation ou mouvement de baleine détecté ; l'anomalie on-chain est un faux signal statistique.\"\n}\n```",
+        "ts": 1793188720.112438
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": -2.0067159965747736,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain non pertinente. Le narratif médiatique concerne des motos électriques, de la musique et des baskets, totalement déconnecté de l'écosystème crypto.\"\n}\n```",
+        "ts": 1793188721.63232
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 2.6695956437304744,
+        "value": 0.4351621543907225,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.67) sur une bougie horaire sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par des baleines cherchant à éviter le FOMO retail avant un mouvement majeur.\"\n}\n```",
+        "ts": 1793190227.756343
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.01,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2312094.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9.9e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 4.305103180828996,
+        "value": 0.7073505622206988,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.31) couplé à un silence médiatique total (Google Actualités vide) : accumulation furtive typique de baleines avant une cassure de prix.\"\n}\n```",
+        "ts": 1793192035.845544
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.01,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2312094.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9.9e-05,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.987171244750246,
+        "value": 4385171.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.99) indiquant une accumulation massive et anormale de capitaux par les baleines, totalement ignorée par les médias (silence radio de Google Actualités). Divergence classique de 'smart money' accumulant dans l'ombre avant le réveil du narratif public.\"\n}\n```",
+        "ts": 1793195361.249512
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 1341070.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.01,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 3.037078079349288,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte on-chain. Le signal SDI détecté correspond au 'Syndicat des Indépendants et TPE' (actualité socio-économique française) et non à une métrique crypto ou à une baleine de marché.\"\n}\n```",
+        "ts": 1793201099.065184
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.5478643469425837,
+        "value": 1.074,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte : 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp) ou à des acronymes institutionnels sans rapport avec la crypto. Aucune donnée onchain pertinente.\"\n}\n```",
+        "ts": 1793201120.628402
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.01,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 2,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
     {
       "signal": {
         "metric": "sdi",
@@ -29,7 +216,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.06,
+          "value": 0.01,
           "seuil": 1,
           "depasse": false
         },
@@ -39,12 +226,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 9.1e-05,
+          "value": 9.9e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -56,7 +243,57 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.459589027224064,
+        "value": 4021789.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.46, ~$4M) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors des radars grand public.\"\n}\n```",
+        "ts": 1793206269.736314
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 1341070.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.01,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.8184082940835764,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie sémantique due à une confusion d'homonyme : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE en France, sans aucun rapport avec la crypto ou des mouvements de baleines onchain.\"\n}\n```",
+        "ts": 1793207188.987865
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

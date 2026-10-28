@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": -7.509596683793352,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique hors-sujet (batteries Samsung, actualités politiques et boursières traditionnelles). Aucune relation avec un actif crypto ou un mouvement de baleine pertinent.\"\n}\n```",
-      "ts": "2026-10-27T10:51:10.299059+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": -2.0494136121940243,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP à 0) noyée dans du bruit médiatique sans rapport avec l'activité des baleines crypto.\"\n}\n```",
-      "ts": "2026-10-27T10:51:16.762010+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": -2.0494136121940243,
       "value": 0,
@@ -349,6 +335,20 @@
       "value": 1.151,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une ambiguïté de ticker. Les données onchain capturent du bruit ou un actif sans rapport avec le ticker traditionnel 'IPT' (International Petroleum Corp / École Polytechnique), démontrant une absence totale de corrélation avec un mouvement de baleine crypto.\"\n}\n```",
       "ts": "2026-10-28T16:35:51.773530+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.459589027224064,
+      "value": 4021789.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.46, ~$4M) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors des radars grand public.\"\n}\n```",
+      "ts": "2026-10-28T16:51:09.736314+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.8184082940835764,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie sémantique due à une confusion d'homonyme : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE en France, sans aucun rapport avec la crypto ou des mouvements de baleines onchain.\"\n}\n```",
+      "ts": "2026-10-28T17:06:28.987865+00:00"
     }
   ]
 }

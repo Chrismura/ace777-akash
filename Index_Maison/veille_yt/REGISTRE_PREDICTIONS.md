@@ -1,11 +1,16 @@
 ---
-date: 2026-10-25T1716Z
+date: 2026-10-28T1718Z
 type: registre_predictions
 ---
 
 # 📓 Registre des prédictions — la vérification du banc d'essai
 
 Chaque prédiction est notée avec sa date limite. Le script `verifier_predictions.py` re-vérifie les échues (statut VRAIE/FAUSSE/NON VÉRIFIABLE).
+
+### 2026-10-28T1716Z — Crypto Crew University : HALVING LIES? – WILL MATH BE PROVEN WRONG
+Lien : https://www.youtube.com/watch?v=tp78FKX8pMc
+
+- ⏳ EN ATTENTE | [2025-11-30] Le cours du Bitcoin subira un mouvement de marché majeur ou un changement de structure marquant début novembre (source : youtuber)
 
 ### 2026-10-25T1716Z — Crypto Crew University : BREAKING: LARGEST BULL FLAG BREAKOUT IN HISTORY
 Lien : https://www.youtube.com/watch?v=4WpAJxcyUzk
