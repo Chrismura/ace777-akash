@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.406098735476296,
-      "value": 0.969,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif massif. L'acronyme 'IPT' dans les données onchain/crypto est ici confondu avec des entités non-crypto : International Petroleum Corp (actions), Institut Polytechnique de Toulouse (éducation), et IPT (violences sexistes). Aucune corrélation avec les mouvements de baleines crypto. Le z-score est statistiquement pertinent mais contextuellement nul pour le marché des cryptomonnaies.\"\n}\n```",
-      "ts": "2026-10-26T21:53:20.908335+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.2930788502429373,
-      "value": 1.669,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Taker ratio à 1.669 (z-score 3.29) indique une domination massive et anormale des acheteurs agressifs (Taker Buys), totalement ignorée par un silence médiatique absolu. Divergence classique d'accumulation furtive par les baleines.\"\n}\n```",
-      "ts": "2026-10-26T22:03:23.226308+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.933888413413701,
-      "value": 1.669,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Un taker_ratio de 1.669 avec un z-score élevé de 2.93 indique une domination agressive des acheteurs (Taker Buy) que les médias ignorent totalement (silence radio). Cette accumulation silencieuse et agressive par les baleines précède généralement une cassure haussière avant que le narratif public ne s'aligne.\"\n}\n```",
-      "ts": "2026-10-26T22:33:29.158394+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.6592412106634167,
       "value": 1.669,
@@ -349,6 +328,27 @@
       "value": 7572623.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.28, ~7.5M USD) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation furtive de baleines en zone de silence médiatique.\"\n}\n```",
       "ts": "2026-10-28T06:57:21.155325+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.099208757827552,
+      "value": 3790025.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.10, ~3.79M USD) combinée à un silence total dans les médias (Google Actualités vide). Les baleines accumulent discrètement sous le radar médiatique, signalant un mouvement furtif avant toute hype publique.\"\n}\n```",
+      "ts": "2026-10-28T08:02:41.803283+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.2618354812140167,
+      "value": 1.496,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.26) indique une forte agression acheteuse sur les carnets d'ordres, masquée par un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant un réveil du narratif public.\"\n}\n```",
+      "ts": "2026-10-28T08:07:45.080354+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.3738934443227406,
+      "value": 0.5032406686244828,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.37) totalement ignorée par les médias (silence radio absolu). Signal classique d'accumulation furtive par les baleines loin du radar de la foule.\"\n}\n```",
+      "ts": "2026-10-28T08:27:52.348255+00:00"
     }
   ]
 }

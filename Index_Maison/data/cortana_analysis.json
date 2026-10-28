@@ -1,15 +1,15 @@
 {
-  "timestamp": 1793172374,
-  "date": "2026-10-28T07:26:14.233813+00:00",
-  "n_analyses": 1,
+  "timestamp": 1793175975,
+  "date": "2026-10-28T08:26:15.750656+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "whale_usd",
-        "zscore": 8.28050944166117,
-        "value": 7572623.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.28, ~7.5M USD) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation furtive de baleines en zone de silence médiatique.\"\n}\n```",
-        "ts": 1793170641.155325
+        "zscore": 3.099208757827552,
+        "value": 3790025.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.10, ~3.79M USD) combinée à un silence total dans les médias (Google Actualités vide). Les baleines accumulent discrètement sous le radar médiatique, signalant un mouvement furtif avant toute hype publique.\"\n}\n```",
+        "ts": 1793174561.803283
       },
       "fiche": "whale_usd",
       "questions": {
@@ -24,7 +24,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.18,
           "seuil": 1,
           "depasse": false
         }
@@ -36,6 +36,36 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.2618354812140167,
+        "value": 1.496,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.26) indique une forte agression acheteuse sur les carnets d'ordres, masquée par un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant un réveil du narratif public.\"\n}\n```",
+        "ts": 1793174865.080354
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.496,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.18,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
