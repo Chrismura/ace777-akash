@@ -71,13 +71,21 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+# === SYMBOLE PARAMÉTRÉ (28/10/2026, §47 GO tous les shorts) ===
+# SHORT_SYMBOL=BTCUSDT (défaut : fichiers legacy et décisions inchangés)
+# | ETHUSDT | XRPUSDT... — même signal, même garde-fous, fichiers suffixés.
+# Zéro effet sur BTC : SYM=BTCUSDT reproduit l'exact comportement d'avant.
+SYM = os.environ.get("SHORT_SYMBOL", "BTCUSDT").strip().upper() or "BTCUSDT"
+SYM_TAG = "btc" if SYM == "BTCUSDT" else SYM.replace("USDT", "").lower()
+_NOM = "btc" if SYM == "BTCUSDT" else SYM_TAG
+_PREFIX = f"[SHORT-{SYM_TAG.upper()}]"
 ROOT = Path(__file__).resolve().parents[1]
 RUNS = ROOT / "runs"
 SRC = RUNS / "croisement_contexte.jsonl"
-STATE = RUNS / "short_btc_state.json"
-LIVE = RUNS / "short_btc_live.json"
-JOURNAL = RUNS / "short_btc_journal.csv"
-SIGNAUX = RUNS / "short_btc_signaux.jsonl"
+STATE = RUNS / f"short_{SYM_TAG}_state.json"
+LIVE = RUNS / f"short_{SYM_TAG}_live.json"
+JOURNAL = RUNS / f"short_{SYM_TAG}_journal.csv"
+SIGNAUX = RUNS / f"short_{SYM_TAG}_signaux.jsonl"
 
 # ---- paramètres (modifiables, cohérents avec l'esprit du moteur) ----
 NOTIONAL_USDT = 5.0        # marge isolée du short (le notionnel vient du DYN ci-dessous)
@@ -133,13 +141,28 @@ def now_h() -> int:
     return int(time.time()) // 3600
 
 
+def _iter_lignes(path: str):
+    import gzip as _gzip
+    opener = _gzip.open if path.endswith(".gz") else open
+    try:
+        with opener(path, "rt", encoding="utf-8", errors="ignore") as f:
+            for l in f:
+                l = l.strip()
+                if l:
+                    yield l
+    except FileNotFoundError:
+        return
+
+
 def load_rows() -> list[dict]:
+    # BOUCLER LA BOUCLE (28/10 §48) : le live seul ne couvre que ~5 h (rotation)
+    # → « historique insuffisant » permanent. On lit d'abord les archives de
+    # rotation (*.gz, les plus vieilles d'abord) puis le live. Zéro réseau.
+    import glob as _glob
     rows = []
-    with open(SRC, encoding="utf-8") as f:
-        for l in f:
-            l = l.strip()
-            if not l:
-                continue
+    archives = sorted(_glob.glob(str(RUNS / "croisement_contexte.jsonl.*.gz")))
+    for path in archives + [str(SRC)]:
+        for l in _iter_lignes(path):
             try:
                 rows.append(json.loads(l))
             except Exception:
@@ -187,7 +210,7 @@ def range24_btc(rows):
     now = time.time()
     px, t0 = [], None
     for r in rows:
-        if r.get("pair") != "BTCUSDT":
+        if r.get("pair") != SYM:
             continue
         try:
             ts, px_ = float(r.get("ts") or 0), float(r.get("price"))
@@ -210,9 +233,9 @@ def calculer_signal(rows) -> dict:
     if not rows:
         out["detail"] = "aucune donnée"
         return out
-    last = dernier_point(rows, "BTCUSDT")
+    last = dernier_point(rows, SYM)
     if last is None:
-        out["detail"] = "pas de point BTC"
+        out["detail"] = f"pas de point {SYM}"
         return out
     age_min = (time.time() - last[0]) / 60.0
     out["frais"] = age_min <= FRAIS_MAX_AGE_MIN
@@ -227,7 +250,7 @@ def calculer_signal(rows) -> dict:
 
     hb = hourly_m6(rows)
     hours = sorted(set().union(*[set(v.keys()) for v in hb.values()]))
-    if "BTCUSDT" not in hb or len(hours) < 10:
+    if SYM not in hb or len(hours) < 10:
         out["detail"] = "historique insuffisant"
         return out
     pan = {}
@@ -238,9 +261,9 @@ def calculer_signal(rows) -> dict:
     # A. corr directionnelle BTC (protocole divergence, angle 3)
     xs, ys = [], []
     for h in hours:
-        if h not in hb["BTCUSDT"] or pan.get(h) is None or pan.get(h + FWD_H * 3600) is None:
+        if h not in hb[SYM] or pan.get(h) is None or pan.get(h + FWD_H * 3600) is None:
             continue
-        xs.append(hb["BTCUSDT"][h])
+        xs.append(hb[SYM][h])
         ys.append(pan[h + FWD_H * 3600] - pan[h])
     corr_dir_btc = corr(xs, ys) if len(xs) >= 5 else None
     score_a = 0
@@ -284,7 +307,7 @@ def calculer_signal(rows) -> dict:
     cible = time.time() - 24 * 3600
     best_old = None
     for r in rows:
-        if r.get("pair") == "BTCUSDT":
+        if r.get("pair") == SYM:
             ts = r.get("ts")
             if ts <= cible and (best_old is None or ts > best_old[0]):
                 best_old = (ts, r.get("price"))
@@ -304,18 +327,23 @@ def calculer_signal(rows) -> dict:
         "frais": age_min <= FRAIS_MAX_AGE_MIN,
         "score": score,
         "corr_dir_btc": round(corr_dir_btc, 3) if corr_dir_btc is not None else None,
+        "corr_dir": round(corr_dir_btc, 3) if corr_dir_btc is not None else None,
         "pct_pompe": round(pct_pompe, 1),
         "m6_btc": round(m6_btc or 0, 2),
+        "m6": round(m6_btc or 0, 2),
         "move24_btc": round(move24, 2),
+        "move24": round(move24, 2),
         "range24_btc": _r24,
+        "range24": _r24,
         "session_ok": session_ok,
         "session_utc": hr,
         "prix_btc": prix_now,
+        "prix": prix_now,
         "ts_prix": last[0],
         "n_paires": len(hb),
         "detail": (f"score {score} = contexte {score_a} (corr_dir {corr_dir_btc and round(corr_dir_btc,2)}) "
                    f"+ surchauffe {score_b} ({pct_pompe:.0f}% paires >{PIC_SEUIL}%) "
-                   f"+ btc {score_c} (m6 {m6_btc and round(m6_btc,2)}%) "
+                   f"+ {_NOM} {score_c} (m6 {m6_btc and round(m6_btc,2)}%) "
                    f"+ momentum {score_d} (24h {move24:+.2f}%)"),
     })
     return out
@@ -371,7 +399,7 @@ def notionnel_dynamique() -> float:
 
 def gerer(sig: dict, st: dict) -> None:
     pos = st.get("position")
-    prix = sig.get("prix_btc")
+    prix = sig.get("prix_btc", sig.get("prix"))
     frais = sig.get("frais", False)
     score = sig.get("score", 0)
     corr = sig.get("corr_dir_btc")
@@ -422,7 +450,7 @@ def gerer(sig: dict, st: dict) -> None:
             st["n_trades"] = st.get("n_trades", 0) + 1
             st["position"] = None
             journaliser_trade(st, trade)
-            print(f"[SHORT-BTC] SORTIE {raison} @ {prix_sortie} — pnl {pnl_usd:+.2f}$ ({pnl_pct:+.2f}%)")
+            print(f"{_PREFIX} SORTIE {raison} @ {prix_sortie} — pnl {pnl_usd:+.2f}$ ({pnl_pct:+.2f}%)")
         return
 
     # ---- ENTRÉE ----
@@ -451,7 +479,7 @@ def gerer(sig: dict, st: dict) -> None:
             "sl_pct": _sl_entry,
             "detail_signal": sig.get("detail"),
         }
-        print(f"[SHORT-BTC] ENTRÉE short @ {prix} ({motif}, SL {_sl_src} = {_sl_entry} %) — {sig.get('detail')}")
+        print(f"{_PREFIX} ENTRÉE short @ {prix} ({motif}, SL {_sl_src} = {_sl_entry} %) — {sig.get('detail')}")
 
 
 def ecrire_live(sig: dict, st: dict) -> None:
@@ -461,8 +489,10 @@ def ecrire_live(sig: dict, st: dict) -> None:
         "ts": utc(),
         "frais": sig.get("frais", False),
         "signal": {k: sig.get(k) for k in (
-            "score", "corr_dir_btc", "pct_pompe", "m6_btc", "move24_btc",
-            "session_ok", "session_utc", "prix_btc", "range24_btc", "detail")},
+            "score", "corr_dir_btc", "corr_dir", "pct_pompe", "m6_btc", "m6",
+            "move24_btc", "move24", "session_ok", "session_utc", "prix_btc",
+            "prix", "range24_btc", "range24", "detail")},
+        "sym": SYM,
         "position": pos,
         "pnl_total": st.get("pnl_total", 0.0),
         "capital": st.get("capital", CAPITAL0),
@@ -474,6 +504,7 @@ def ecrire_live(sig: dict, st: dict) -> None:
         f.write(json.dumps({
             "ts": utc(),
             "score": sig.get("score"),
+            "sym": SYM,
             "corr_dir_btc": sig.get("corr_dir_btc"),
             "pct_pompe": sig.get("pct_pompe"),
             "m6_btc": sig.get("m6_btc"),
@@ -489,7 +520,7 @@ def run_once() -> int:
     try:
         rows = load_rows()
     except Exception as e:
-        print(f"[SHORT-BTC] ERR lecture {SRC}: {e}")
+        print(f"{_PREFIX} ERR lecture {SRC}: {e}")
         return 1
     sig = calculer_signal(rows)
     st = charger_state()
@@ -497,7 +528,7 @@ def run_once() -> int:
     sauver_state(st)
     ecrire_live(sig, st)
     pos = st.get("position")
-    print(f"[SHORT-BTC] score={sig.get('score')} frais={sig.get('frais')} "
+    print(f"{_PREFIX} score={sig.get('score')} frais={sig.get('frais')} "
           f"session={sig.get('session_ok')} position={'OUVERTE @ '+str(pos['prix_entree']) if pos else 'aucune'} "
           f"pnl_total={st.get('pnl_total'):+.2f}$")
     return 0
@@ -510,7 +541,7 @@ def main() -> int:
         try:
             run_once()
         except Exception as e:
-            print(f"[SHORT-BTC] ERR {e}")
+            print(f"{_PREFIX} ERR {e}")
         time.sleep(LOOP_SEC)
     return 0
 

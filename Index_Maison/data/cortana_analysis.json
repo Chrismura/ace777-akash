@@ -1,15 +1,15 @@
 {
-  "timestamp": 1793201783,
-  "date": "2026-10-28T15:36:23.378617+00:00",
+  "timestamp": 1793205384,
+  "date": "2026-10-28T16:36:24.873780+00:00",
   "n_analyses": 2,
   "analyses": [
     {
       "signal": {
         "metric": "sdi",
-        "zscore": 3.037078079349288,
+        "zscore": 3.17337397036245,
         "value": 0.616,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte on-chain. Le signal SDI détecté correspond au 'Syndicat des Indépendants et TPE' (actualité socio-économique française) et non à une métrique crypto ou à une baleine de marché.\"\n}\n```",
-        "ts": 1793201099.065184
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants (TPE/commerces français), totalement déconnecté de la blockchain et des mouvements de baleines crypto.\"\n}\n```",
+        "ts": 1793205342.089433
       },
       "fiche": null,
       "interpretation": {
@@ -21,15 +21,15 @@
     {
       "signal": {
         "metric": "ipt",
-        "zscore": 2.5478643469425837,
-        "value": 1.074,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte : 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp) ou à des acronymes institutionnels sans rapport avec la crypto. Aucune donnée onchain pertinente.\"\n}\n```",
-        "ts": 1793201120.628402
+        "zscore": 2.97613585031417,
+        "value": 1.151,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une ambiguïté de ticker. Les données onchain capturent du bruit ou un actif sans rapport avec le ticker traditionnel 'IPT' (International Petroleum Corp / École Polytechnique), démontrant une absence totale de corrélation avec un mouvement de baleine crypto.\"\n}\n```",
+        "ts": 1793205351.77353
       },
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.09,
+          "value": 0.01,
           "seuil": 1,
           "depasse": false
         },
@@ -39,7 +39,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 7.6e-05,
+          "value": 8.8e-05,
           "seuil": 0.001,
           "depasse": false
         },

@@ -8780,3 +8780,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-28T15:31:59Z — ALERT auto
 - CCUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-28T16:09:57Z — ALERT auto
+- RWAINCUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

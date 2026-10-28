@@ -915,6 +915,10 @@ class PaperBot:
         self.wall_stale_sec = float(cfg.get("WALL_STALE_SEC", "120"))
         # v1.5 gates
         self.stop_cooldown_h = float(cfg.get("STOP_COOLDOWN_HOURS", "2"))
+        # CONVERSION POST-PARTIEL (28/10/2026, §48 GO stops — MESURÉ AVANT CÂBLAGE) :
+        # après un 1er stop partiel, le reste passe en trail au lieu du 2e stop dur.
+        # Réversible : STOP_POST_PARTIEL_TRAIL=0 = historique strict.
+        self.stop_post_partiel_trail = cfg.get("STOP_POST_PARTIEL_TRAIL", "1").strip() not in ("0", "false", "False")
         # === GATE ANTI-GLISSEMENT (09/09/2026, audit edge HULK — GO Christophe) ===
         # 16 jours de CSV : les stops glissent STRUCTURELLEMENT (RIZE +3.1pp, RWAINC +1.2pp
         # en moyenne au-delà du nominal — 12/19 stops glissés). On MÈSE le glissement par
@@ -1736,9 +1740,12 @@ class PaperBot:
                         except CircuitOpenException:
                             say("warn", "[CB] BTC stale (satellite) — entrées bloquées")
                     return
-                self.aspiration_degraded_reason = "ASPIRATION_STALE"
+                _age_sat = (time.time() - ts_live) if ts_live else -1
+                self.aspiration_degraded_reason = (
+                    f"ASPIRATION_STALE:age={_age_sat:.0f}s_sat-ts={ts_live}"
+                )
             except FileNotFoundError:
-                self.aspiration_degraded_reason = "ASPIRATION_MISSING"
+                self.aspiration_degraded_reason = "ASPIRATION_MISSING:satellite-off-ou-jamais-ecrit"
             except (ValueError, TypeError, json.JSONDecodeError):
                 self.aspiration_degraded_reason = "ASPIRATION_INVALID"
             except Exception as e:
@@ -3584,6 +3591,22 @@ class PaperBot:
                     price, chg, value = _prix_imp, (_prix_imp / entry - 1.0) * 100.0, _prix_imp * qty
                     p["high"] = max(float(p.get("high") or entry), price)
                     self._track_mfe(p, price)
+                # CONVERSION POST-PARTIEL (28/10 §48 — 118 stops : 52 % rebondissent
+                # >+2 % en 24 h, et les restes mouraient au 2e stop 45× -14,50 $ / dust
+                # 24× au lieu de suivre le rebond). Après un 1er partiel, le reste
+                # passe en TRAIL : floor = pic - giveback (pic à jour ci-dessus) ;
+                # si jamais monté, filet secours = stop - giveback. Chute continue
+                # → vend t_gb plus bas (marginal) ; rebond → suivi. Pas de 2e stop dur.
+                if p.get("guard_last") == "SELL_PARTIAL" and self.stop_post_partiel_trail:
+                    _stop_cfg = float(p.get("stop") or 6)
+                    _peak = float(p.get("high") or entry)
+                    _peak_chg = (_peak / entry - 1.0) * 100.0
+                    _floor = (_peak_chg - t_gb) if _peak_chg >= t_arm else (-_stop_cfg - t_gb)
+                    if chg <= _floor:
+                        _proceeds = self.sell_trade(pair, price, f"trail_post_stop_floor{_floor:.1f}")
+                        self.add_pair_cash(pair, _proceeds)
+                        p["guard_last"] = "TRAIL_POST_STOP"
+                    return
                 # SPEC v2 (29/08) — Verrous 1&2 et Bloc 1/2 : garde-fou SELL full en forte amplitude
                 move24 = float(sc.get("move24_pct") or 0.0)
                 vol_spike = sc.get("vol_spike")

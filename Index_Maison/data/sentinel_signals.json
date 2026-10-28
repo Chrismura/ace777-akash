@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": -4.588129636067533,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie technique pure (z-score -4.59, volume nul) provoquée par un bruit médiatique totalement déconnecté de la crypto (carburant, littérature, utilitaires Renault, transport maritime). Aucune baleine détectée : les données reflètent un bruit de fond non-financier.\"\n}\n```",
-      "ts": "2026-10-27T10:50:53.524867+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -5.0804125095373935,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Anomalie statistique extrême (z-score -5.08) montrant un assèchement total des liquidations onchain, contrastant avec le bruit médiatique macro/local. Absence de capitulation forcée : les baleines absorbent l'offre en silence sous les 80k$ sans déclencher de cascade vendeuse.\"\n}\n```",
-      "ts": "2026-10-27T10:51:01.451805+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": -7.509596683793352,
       "value": 0,
@@ -349,6 +335,20 @@
       "value": 1.074,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte : 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp) ou à des acronymes institutionnels sans rapport avec la crypto. Aucune donnée onchain pertinente.\"\n}\n```",
       "ts": "2026-10-28T15:25:20.628402+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.17337397036245,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants (TPE/commerces français), totalement déconnecté de la blockchain et des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-28T16:35:42.089433+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.97613585031417,
+      "value": 1.151,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une ambiguïté de ticker. Les données onchain capturent du bruit ou un actif sans rapport avec le ticker traditionnel 'IPT' (International Petroleum Corp / École Polytechnique), démontrant une absence totale de corrélation avec un mouvement de baleine crypto.\"\n}\n```",
+      "ts": "2026-10-28T16:35:51.773530+00:00"
     }
   ]
 }
