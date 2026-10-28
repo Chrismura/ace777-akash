@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-28T13:36:33+00:00",
+  "ts": "2026-10-28T14:33:26+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -274,7 +274,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "885 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "886 snapshots · 113 amendements suivis · (a) 6 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -295,19 +295,19 @@
           "delta_votes": 3
         },
         {
-          "amendement": "Sponsor",
-          "delta_votes": 2
-        },
-        {
           "amendement": "XChainBridge",
           "delta_votes": -2
+        },
+        {
+          "amendement": "Sponsor",
+          "delta_votes": 2
         },
         {
           "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
