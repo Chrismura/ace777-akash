@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.0438493717833084,
-      "value": 0.867,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.04) sur un ticker brouillé par du bruit médiatique sans lien avec la crypto (pétrole, actualités académiques et religieuses). Absence totale de signal on-chain pertinent.\"\n}\n```",
-      "ts": "2026-10-26T17:25:48.359245+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.4995339186818977,
-      "value": 11139007069.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (actualités high-tech, maritimes et scolaires). Anomalie statistique de volume non corrélée à un actif numérique identifiable.\"\n}\n```",
-      "ts": "2026-10-26T17:30:58.863930+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.318467439665226,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (SDI) déclenchée par un homonyme (Syndrome de Défense des Indépendants ou Samsung SDI) dans l'actualité générale, sans rapport avec la crypto. Bruit médiatique sans substance onchain.\"\n}\n```",
-      "ts": "2026-10-26T17:31:12.254116+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.4131238463616613,
       "value": 11333193841.0,
@@ -349,6 +328,27 @@
       "value": 3423114.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain majeure (z-score 3.23, accumulation de 3.4M$) en absence totale de couverture médiatique (Google Actualités muet). Disjonction classique de phase d'accumulation silencieuse par les baleines avant un mouvement impulsif.\"\n}\n```",
       "ts": "2026-10-27T23:25:39.757824+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -4.532123456953095,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie non-pertinente pour la crypto : les données et titres fournis concernent l'actualité macroéconomique (carburant), boursière traditionnelle (MEMS) et le gaming (GTA VI), sans aucun lien avec l'activité on-chain de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-28T00:17:33.535629+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -3.681338650987386,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires d'entreprises traditionnelles et un flash de prix standard, alors que le z-score on-chain (-3.68) indique une absence totale de liquidations de positions crypto. Les baleines absorbent la baisse à 79.8k sans panique systémique.\"\n}\n```",
+      "ts": "2026-10-28T00:17:36.388391+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -6.491387016055814,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrême à -6.49 sur le ratio Long/Short : capitulation totale de la foule positionnée en short pendant que les médias grand public banalisent les stratégies défensives Long/Short. Conditions parfaites pour un 'short squeeze' violent orchestré par les baleines.\"\n}\n```",
+      "ts": "2026-10-28T00:17:37.739608+00:00"
     }
   ]
 }

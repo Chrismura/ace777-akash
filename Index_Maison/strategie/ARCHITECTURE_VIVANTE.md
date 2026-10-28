@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-10-27 23:23 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-10-28 00:15 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,36 +22,24 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-10-27 23:22Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-10-28 00:15Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
 - HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+44.57 $** · 0 fills
-- Saison : MOUVEMENT 🌀 · 
+- Saison : CALME 🧊 · 
 
 ## Veille du jour
 
-- [Santé]
-  · hub : OK (6 providers)
-  · réseau (DNS) : KO — aucune source externe ne résout (hors-ligne)
-  · sources en erreur : 8
-- [Énergie du jour]
-  · appels : 20 (cloud 20)
-  · budget cloud : 624 max
-  · par provider : gemini=20
-- [Nouvelles offres détectées (non intégrées)]
-  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
-  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
-  · ERR: <urlopen error [Errno 8] nodename nor servname provided, or
-  … 21 offres/pépites détectées ce matin
+- VEILLE du jour : pas encore passée
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-10-27T23:23:03.531794Z ETHUSDT 2347.79 0.0005 142.4 declenche=oui
-  · 2026-10-27T23:23:03.531836Z ETHUSDT 2347.79 0.0005 142.8 declenche=oui
-  · 2026-10-27T23:23:03.531933Z ETHUSDT 2347.83 0.0005 142.8 declenche=oui
-  · 2026-10-27T23:23:03.531978Z ETHUSDT 2347.79 0.0005 144.4 declenche=oui
+  · 2026-10-28T00:15:35.194394Z ETHUSDT 2347.52 0.0002 20.4 declenche=non
+  · 2026-10-28T00:15:36.259092Z ETHUSDT 2347.51 0.0002 20.6 declenche=non
+  · 2026-10-28T00:15:36.626857Z ETHUSDT 2347.52 0.0002 20.6 declenche=non
+  · 2026-10-28T00:15:37.182196Z BTCUSDT 80798.0 0.0000 6.2 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1105 signets X résumés (quota aujourd'hui : 0/50)
 - 183 fiches IA d'offres en cache (quota 8/jour)

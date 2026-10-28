@@ -1,10 +1,12 @@
 {
-  "ts": "2026-10-27T23:27+00:00",
-  "updated": "2026-10-27T23:27Z",
+  "ts": "2026-10-28T00:17+00:00",
+  "updated": "2026-10-28T00:17Z",
   "etat": "ALERTE",
-  "chaines_ok": "14/15",
+  "chaines_ok": "12/15",
   "anomalies": [
-    "HULK : sonde runtime, contrat Cortana ou analyses figés"
+    "HULK : sonde runtime, contrat Cortana ou analyses figés",
+    "GEOPOL : score figé ou modules en erreur",
+    "SAPI : sdi_latest.json figé — la pépite poussière institutionnelle ne tourne plus"
   ],
   "degradees": [],
   "chaines": [
@@ -27,12 +29,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 6 min"
+          "detail": "dernier événement il y a 1 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -42,12 +44,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 89.2 · zone VERT"
+          "detail": "voilure 99.8 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -65,7 +67,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 37 min"
         }
       ]
     },
@@ -82,8 +84,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.4 min · écart mtime/ts 2.7s · 22 paire(s) · btc=OK · ts=croissant · passe 25.2s · marge 19.8s sous le budget 45s du moteur · ⚠ PIRE CAS age 45.2s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "ok": false,
+          "detail": "mode fichier · JSON · âge ts 1.3 min · écart mtime/ts 2.0s · 22 paire(s) · btc=OK · ts=croissant · passe 21.9s · marge 23.1s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +100,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": false,
-          "detail": "âge 2442 min"
+          "detail": "âge 2492 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -144,7 +146,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 6 min"
         },
         {
           "nom": "mode",
@@ -167,7 +169,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "signaux",
@@ -180,17 +182,17 @@
       "id": "geopol",
       "nom": "GEOPOL",
       "chemin": "indice_app (5 modules) → live.json.geopol → juge + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 0.1h"
         },
         {
           "nom": "modules OK",
-          "ok": true,
-          "detail": "5/5 modules"
+          "ok": false,
+          "detail": "4/5 modules"
         }
       ]
     },
@@ -333,7 +335,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 26 min"
+          "detail": "âge 12 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -343,7 +345,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "aucun"
         }
       ]
     },
@@ -351,17 +353,17 @@
       "id": "sapi",
       "nom": "SAPI POUSSIÈRE",
       "chemin": "silent_drain_index.compute_sdi (SAPI) → sdi_latest.json → thermo_quotidien → live.json.sapi → Cortana + cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "sdi_latest.json (SAPI dedans)",
-          "ok": true,
-          "detail": "âge 2 min"
+          "ok": false,
+          "detail": "âge 35 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.372"
+          "detail": "score 0.4"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -379,7 +381,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 14 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "veille d'essaim active",
