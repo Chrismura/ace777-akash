@@ -1,7 +1,62 @@
 {
-  "timestamp": 1793198182,
-  "date": "2026-10-28T14:36:22.351080+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1793201783,
+  "date": "2026-10-28T15:36:23.378617+00:00",
+  "n_analyses": 2,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 3.037078079349288,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte on-chain. Le signal SDI détecté correspond au 'Syndicat des Indépendants et TPE' (actualité socio-économique française) et non à une métrique crypto ou à une baleine de marché.\"\n}\n```",
+        "ts": 1793201099.065184
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.5478643469425837,
+        "value": 1.074,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte : 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp) ou à des acronymes institutionnels sans rapport avec la crypto. Aucune donnée onchain pertinente.\"\n}\n```",
+        "ts": 1793201120.628402
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.09,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 7.6e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 4.971615586896341,
-      "value": 5291117.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement élevé (4.97) couplé à une absence totale de couverture médiatique (silence radio de Google Actualités). C'accumulation furtive typique des baleines loin du radar retail.\"\n}\n```",
-      "ts": "2026-10-27T03:24:30.752146+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.420153478013921,
-      "value": 48,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.42) malgré un indice de peur neutre (48) et un vide médiatique total. C'est la signature classique d'accumulation silencieuse par les baleines loin des radars du retail.\"\n}\n```",
-      "ts": "2026-10-27T03:34:33.856109+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": -4.588129636067533,
       "value": 0,
@@ -349,6 +335,20 @@
       "value": 4385171.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.99) indiquant une accumulation massive et anormale de capitaux par les baleines, totalement ignorée par les médias (silence radio de Google Actualités). Divergence classique de 'smart money' accumulant dans l'ombre avant le réveil du narratif public.\"\n}\n```",
       "ts": "2026-10-28T13:49:21.249512+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.037078079349288,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte on-chain. Le signal SDI détecté correspond au 'Syndicat des Indépendants et TPE' (actualité socio-économique française) et non à une métrique crypto ou à une baleine de marché.\"\n}\n```",
+      "ts": "2026-10-28T15:24:59.065184+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5478643469425837,
+      "value": 1.074,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte : 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp) ou à des acronymes institutionnels sans rapport avec la crypto. Aucune donnée onchain pertinente.\"\n}\n```",
+      "ts": "2026-10-28T15:25:20.628402+00:00"
     }
   ]
 }
