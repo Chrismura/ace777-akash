@@ -828,6 +828,15 @@ class PaperBot:
         # gate 3 % pire, sélection par paire non généralisable → ALL RESTE, porte OFF.
         self.gbag_gate_amp_on = cfg.get("GBAG_GATE_AMP_ON", "0").strip() not in ("0", "false", "False")
         self.gbag_min_amp7 = float(cfg.get("GBAG_MIN_AMP7", "2.0"))
+        # §27 (28/10/2026, ORDRE Christophe — boucle sur les RAISON) : SORTIE GBAG
+        # EN 2 TEMPS. Mesuré : 30 sorties SMA24, 13 whipsaws (vendu bas, racheté
+        # plus haut sous 7 j, surcoût +3,88 $ — dont 7 le 16/10 en synchro sur 10
+        # paires). 1er signal = moitié dehors (miroir du guard_partial_50 des
+        # stops), le reste à la 2e clôture sous SMA ; remontée = on désarme.
+        # Réversible en 1 ligne : GBAG_EXIT_CONFIRM_ON=0 → sortie totale historique.
+        self.gbag_exit_confirm_on = cfg.get("GBAG_EXIT_CONFIRM_ON", "1").strip() not in ("0", "false", "False")
+        self.gbag_exit_first_frac = float(cfg.get("GBAG_EXIT_FIRST_FRAC", "0.5"))
+        self.gbag_exit_armed: dict[str, bool] = {}
         self.bt_stop_mult = float(cfg.get("BAG_TREND_STOP_AMP", "1.5"))
         self.bt_up_p1 = float(cfg.get("BAG_UP_P1_AMP", "0.6"))
         self.bt_up_p2 = float(cfg.get("BAG_UP_P2_AMP", "1.2"))
@@ -2223,6 +2232,7 @@ class PaperBot:
                 "bag_dca": self.bag_dca,
                 "gbag_pending": self.gbag_pending,
                 "gbag_histo": self.gbag_histo,
+                "gbag_exit_armed": self.gbag_exit_armed,
                 "conservation": self.conservation,
                 "pair_cash": self.pair_cash,
                 "reentry": self.reentry,
@@ -2355,6 +2365,7 @@ class PaperBot:
             self.bag_dca = st.get("bag_dca") or {}
             self.gbag_pending = st.get("gbag_pending") or {}
             self.gbag_histo = st.get("gbag_histo") or {}
+            self.gbag_exit_armed = {str(k): True for k in (st.get("gbag_exit_armed") or {})}
             self.conservation = st.get("conservation") or {}
             self.pair_cash = st.get("pair_cash") or {}
             self.reentry = st.get("reentry") or {}
@@ -3453,17 +3464,39 @@ class PaperBot:
                         p["gbag_last_add"] = c
                         self.log(pair, "GBAG_PYRAMIDE", regime, price, price, q, 0.0, cad,
                                  f"gbag_tranche{tr + 1}_add{self.gbag_add_step:g}")
-            # SORTIE TOTALE du tradable dès une clôture < SMA24
+            # SORTIE GBAG EN 2 TEMPS (§27) : 1ère clôture < SMA = moitié dehors,
+            # 2e clôture sous SMA = le reste ; remontée au-dessus = on désarme.
             if c < s_e:
-                proceeds = self.sell_trade(pair, price, "gbag_sortie_sma24")
-                self.add_pair_cash(pair, proceeds)
-                if amp7:
-                    self.gbag_pending[pair] = c * (1.0 - self.gbag_rebuy_frac * amp7 / 100.0)
-                say("gbag", f"[{utc_now()}] GBAG SORTIE {pair} clôture {c:.6g} < SMA{n_e}"
-                           f" → cash {proceeds:.2f} $" +
-                           (f" · rachat armé à {self.gbag_pending[pair]:.6g}"
-                            f" ({self.gbag_rebuy_frac:g}×amp7={amp7:.1f} %)" if amp7 else
-                            " · pas de rachat (amp7 non mesurée, règle #8)"))
+                _armed = bool((self.gbag_exit_armed or {}).get(pair))
+                if self.gbag_exit_confirm_on and not _armed and float(p.get("qty") or 0) > 0:
+                    # sell_trade applique déjà le stepSize (et vide tout si poussière).
+                    proceeds = self.sell_trade(pair, price, "gbag_sortie_sma24_partiel50",
+                                               qty=float(p["qty"]) * self.gbag_exit_first_frac)
+                    self.add_pair_cash(pair, proceeds)
+                    self.gbag_exit_armed[pair] = True
+                    if amp7:
+                        self.gbag_pending[pair] = c * (1.0 - self.gbag_rebuy_frac * amp7 / 100.0)
+                    say("gbag", f"[{utc_now()}] GBAG SORTIE 1/2 {pair} clôture {c:.6g} < SMA{n_e}"
+                               f" → cash {proceeds:.2f} $ (moitié, confirmation à la prochaine clôture)" +
+                               (f" · rachat armé à {self.gbag_pending[pair]:.6g}" if amp7 else
+                                " · pas de rachat (amp7 non mesurée, règle #8)"))
+                else:
+                    proceeds = self.sell_trade(pair, price, "gbag_sortie_sma24")
+                    self.add_pair_cash(pair, proceeds)
+                    if pair in (self.gbag_exit_armed or {}):
+                        self.gbag_exit_armed.pop(pair, None)
+                    if amp7:
+                        self.gbag_pending[pair] = c * (1.0 - self.gbag_rebuy_frac * amp7 / 100.0)
+                    say("gbag", f"[{utc_now()}] GBAG SORTIE {pair} clôture {c:.6g} < SMA{n_e}"
+                               f" → cash {proceeds:.2f} $" +
+                               (f" · rachat armé à {self.gbag_pending[pair]:.6g}"
+                                f" ({self.gbag_rebuy_frac:g}×amp7={amp7:.1f} %)" if amp7 else
+                                " · pas de rachat (amp7 non mesurée, règle #8)"))
+            elif pair in (self.gbag_exit_armed or {}):
+                self.gbag_exit_armed.pop(pair, None)
+                self.log(pair, "GBAG_DESARMEE", regime, price, price, 0, 0.0, cad,
+                         f"sma24_recuperee_cloture_{c:.6g}_>=_SMA{n_e}")
+                say("gbag", f"[{utc_now()}] GBAG DESARMEE {pair} clôture {c:.6g} >= SMA{n_e} — la moitié gardée repart")
         elif p is not None:
             # PORTE (gate ON) : position ouverte par la gestion historique → on la
             # laisse à son propriétaire, JAMAIS de hijack. tick_pair reprend la main.

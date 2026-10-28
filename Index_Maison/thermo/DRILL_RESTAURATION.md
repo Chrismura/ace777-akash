@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-10-28T19:42Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-28T20:36Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `7e6c18e9f7` du 2026-10-28T19:42:49+01:00
-- Fichiers suivis modifiés sur disque : **108**
+- Branche `main` · HEAD `c373abc9d8` du 2026-10-28T20:42:54+01:00
+- Fichiers suivis modifiés sur disque : **112**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 38273 au total, dont **15 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 38289 au total, dont **15 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_oss20.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
@@ -26,8 +26,7 @@
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
 - Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **158**
-- 🔴 **1 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
-  - `hulk-mexc/scripts/couts_communs.py`
+- ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
@@ -35,7 +34,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_gtbc_77g/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_9k_8titl/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **108/108**
 
 ## 4. Organes invoqués par les agents
@@ -52,18 +51,18 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-28T18:41Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-28T19:42Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **193** · écarts : **0** · absents : **0**
+- Entrées md5 vérifiées : **195** · écarts : **0** · absents : **0**
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
 - Déclarations au registre : **262** · règle active depuis `2026-09-23T15:30:00Z`
 - Dette constatée **31** (27-29/09, datée et nommée, radiée de l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)
-- 🔴 **9 modification(s) scellée(s) SANS pré-déclaration antérieure** :
+- 🔴 **11 modification(s) scellée(s) SANS pré-déclaration antérieure** :
   - `hulk-mexc/scripts/chiffrage_pnl_net.py` — re-scellé le 2026-10-28T19:36:07Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/observe_nado.py` — re-scellé le 2026-10-24T19:11:49Z SANS pré-déclaration antérieure
   - `Index_Maison/PLATEFORMES.md` — re-scellé le 2026-10-28T09:21:12Z SANS pré-déclaration antérieure
@@ -73,6 +72,8 @@
   - `hulk-mexc/BAC_A_SABLE/PROTOCOLE_BOUCLE_FERMEE.md` — re-scellé le 2026-10-28T16:39:57Z SANS pré-déclaration antérieure
   - `hulk-mexc/scripts/garde_reconciliation.py` — re-scellé le 2026-10-28T19:36:07Z SANS pré-déclaration antérieure
   - `hulk-mexc/scripts/couts_communs.py` — re-scellé le 2026-10-28T19:36:08Z SANS pré-déclaration antérieure
+  - `hulk-mexc/runs/TOPO_HOLDS.md` — re-scellé le 2026-10-28T20:00:41Z SANS pré-déclaration antérieure
+  - `hulk-mexc/scripts/chiffrage_entree_retest.py` — re-scellé le 2026-10-28T20:24:35Z SANS pré-déclaration antérieure
 
 ## 6. Couverture des classes d'erreur — anticiper l'erreur SUIVANTE
 - Dénominateur **lu au registre** : **30 classes** (E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12, E13, E14, E15, E16, E17, E18, E19, E20, E21, E22, E23, E24, E25, E26, E27, E28, E29, E30)
@@ -84,9 +85,8 @@
   - **E30** — classe au registre SANS garde declaree (gardes_erreurs.json)
 
 ## 7. Verdict
-- 🔴 **3 trou(s) à combler :**
-  - 1 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (hulk-mexc/scripts/couts_communs.py)
-  - 9 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : chiffrage_pnl_net.py, observe_nado.py, PLATEFORMES.md…
+- 🔴 **2 trou(s) à combler :**
+  - 11 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : chiffrage_pnl_net.py, observe_nado.py, PLATEFORMES.md…
   - 4 classe(s) d'erreur CONNUE(S) dont la garde déclarée est absente ou NON BRANCHÉE (R15 : hors de la boucle = n'existe pas) : E27, E28, E29, E30
 
 ---

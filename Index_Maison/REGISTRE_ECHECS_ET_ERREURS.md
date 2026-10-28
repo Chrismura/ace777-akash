@@ -1675,3 +1675,35 @@ IA=Buffy (Muse Spark 1.3, Freebuff).
 **Correction** : UN SEUL cash par ligne (le compte rejoué, le vrai), dépassement nommé quand négatif, poche reléguée au diagnostic unique du header (title). Le détail par paire reste dans mission.json pour l'audit.
 **Règle** : une info d'audit n'a pas sa place sur chaque ligne d'un tableau de pilotage — une fois en note, une fois en JSON, jamais douze.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §26 — TOPO HOLDS : le full-30 est LE match, le compounding est une plus-value (28/10 soir, ordre de Christophe)
+
+**Contexte** : deux fautes de ma part — j'ai parlé en € au lieu de $ (argent réel du portefeuille : dollars), et j'ai donné le résultat sur le hold-10 alors que tout se joue sur le full-30. Christophe rappelle la loi de la maison : règles, brut, discipline, chasse aux erreurs, gains.
+
+**Méthode (lue dans la maison avant d'écrire)** : REGLE_D_OR (compounding = levier de base avec l'amplitude, jamais plafonné, il se déclare), GO 20/10 (full-30 = benchmark honnête, tout le budget investi), MEMOIRE 12/10 et 04/09 (fantôme EDEL, règle observe). Le cockpit affichait le verdict hold-10 en premier : inversé — **SCORE et À RETENIR mènent désormais sur le full-30**, hold-10 en 2e juge.
+
+**TOPO** (`hulk-mexc/runs/TOPO_HOLDS.md`) : Hulk 871,63 $ vs hold-10 681,61 $ (+190,02 $, +27,9 %) vs **full-30 804,83 $ (+66,80 $, +8,3 % — le seul chiffre qui compte)**. Compounding : +241,92 $ remis au travail sur 10 paires → +163,55 $ d'écart vs full-30 portés par elles. Pertes : -23,65 $ (9 paires) + coûts -15,11 $ (frais 4,66 + spread 10,46) ; gagnantes +52,80 $ ; net réalisé +29,17 $, latent -13,62 $, portefeuille +15,55 $.
+**Erreur trouvée en chemin (mindset)** : EDEL réinvestit le plus (+36,56 $) mais perd vs full-30 (-38,45 $) — le compounding ne rachète pas un point d'entrée 4× moins bon ; QNT/XRP/ZBCN pareil. Leçon : le levier compounding amplifie l'entrée, il ne la corrige pas.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §27 — BOUCLE SUR LES RAISON : la sortie GBAG vendait le creux en une fois (28/10 soir, ordre de Christophe : « fais la boucle, confirme, améliore »)
+
+**Contexte** : boucle exigée sur les RAISON des 366 bookings. Verdict : les pertes sont dominées par les stops (-48 $) et UNE faute de setup confirmée — pas une opinion.
+
+**E-SORTIE-GBAG (grave, setup, confirmée à la source)** : la sortie GBAG vendait TOUT dès la 1ère clôture < SMA24, sans confirmation ni filtre chop (les entrées, elles, sont gatées par amp7). Mesuré : 30 sorties, 13 whipsaws (revendu plus haut sous 7 j), surcoût +3,88 $ — dont 7 groupées le 16/10 (BTC/HBAR/RWAINC revendus +2,1/+6,1/+15,0 % plus cher 2-4 j plus tard). Cause : setup posé sans miroir du guard_partial_50 des stops (moitié d'abord). **Correction câblée** : 1er signal = 50 % dehors (`gbag_sortie_sma24_partiel50`), le reste à la 2e clôture sous SMA, remontée = `GBAG_DESARMEE`. Réversible en 1 ligne (`GBAG_EXIT_CONFIRM_ON=0`). Persisté au state (`gbag_exit_armed`, fail-open {}). Moteur relancé avec le fix, garde 9/9 verte.
+
+**Piste stops refermée (pas de faute live)** : les stops à 6,0 % du 06-07/10 tournaient sur l'ancien code (règle amplitude 1,5×amp7 câblée le 05/10, moteur relancé le 08/10 — fenêtre ops). Depuis : stops à 6,11-16,02 % = règle large active. Rien à câbler ; leçon : dater la prise d'effet d'un setup au redémarrage, pas au commit.
+
+**PATTERN (mindset)** : chaque RAISON est une piste, chaque piste se mesure, chaque mesure confirmée se câble réversible. Le journal est le carnet de bord : 366 lignes, 0 divergence.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §28 — ALERTE CORTANA VÉRIFIÉE + ATTAQUE DU POINT D'ENTRÉE (28/10 soir, ordre de Christophe)
+
+**Alerte** : aucun cri actif (cris.json vide, urgent « rien de nouveau », chien nominal). Seuls des WATCH : baleines en distribution sur portefeuilles suivis (-2,5 à -4,2k BTC/24h — à noter : le flux exchanges dit l'inverse, accumulation -5,2k/48h ; deux lentilles, pas de trade à en tirer), poussière mempool, 1 news Fed (info, pas d'action). Climat warn 66. Rien ne touche le moteur. Vérifié, pas d'intervention.
+
+**Attaque de l'entrée (mesuré, pas câblé — R8)** : 61 % des entrées GBAG plongent -6 %+ sous 7 j (moyenne -5,76 % au creux). Deux replays sur les 18 entrées testables :
+(1) breakout servi vs creux-5j servi (hindsight) : -3,31 % vs +2,61 % à 30 j — l'écart qui a motivé l'attaque ;
+(2) règle TRADABLE (limite au prix du signal, 5 j) : servie 15/18 mais -4,64 % à 30 j — PIRE que le breakout. **Idée « acheter le creux » TUÉE par la mesure** : la limite attrape un couteau qui tombe. C'est exactement pour ça qu'on mesure avant de câbler.
+**Vrai visage** : les entrées popent +6 à +11 % à 72 h puis s'effacent à 30 j (-3,31 %). L'argent se fait dans les 72 h + la sortie (trailing, fix §27), pas en tenant 30 j. La fuite côté entrée, c'est le RACHAT plus haut après sortie (whipsaws +3,88 $, §27) — déjà en cours de réparation, pas l'achat initial.
+**Prochaine piste** : sortir en force dans les 72 h (trailing resserré quand ça pousse vite ?) — à chiffrer avant tout câblage.
+IA=Buffy (Muse Spark 1.3, Freebuff).
