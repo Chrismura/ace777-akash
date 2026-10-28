@@ -280,8 +280,8 @@ def main() -> int:
                     miss += 1
         print(f"{label:>28} {tot:>+11.2f} {tot - tot_reel:>+10.2f} "
               f"{(str(round(100 * miss / max(n7, 1))) + '% repartent') if n7 else '—':>12}")
-    print("\nR8 : 1 h (pas le carnet), frais ignorés, entrées au dernier BUY. "
-          "Un câblage exigera GO + shadow.")
+    print("\nR8 : 1 h (pas le carnet), frais ignorés, ancres remontées ARRIÈRE, "
+          "arms datés via git, pics sur plus-hauts horaires. Un câblage exigera GO + shadow.")
     return 0
 
 

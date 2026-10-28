@@ -1707,3 +1707,50 @@ IA=Buffy (Muse Spark 1.3, Freebuff).
 **Vrai visage** : les entrées popent +6 à +11 % à 72 h puis s'effacent à 30 j (-3,31 %). L'argent se fait dans les 72 h + la sortie (trailing, fix §27), pas en tenant 30 j. La fuite côté entrée, c'est le RACHAT plus haut après sortie (whipsaws +3,88 $, §27) — déjà en cours de réparation, pas l'achat initial.
 **Prochaine piste** : sortir en force dans les 72 h (trailing resserré quand ça pousse vite ?) — à chiffrer avant tout câblage.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §29 — TRAILING RESSERRÉ DANS LES 72 H : chiffré, TUÉ par la mesure (28/10 soir, ordre de Christophe : « chiffre-moi ça »)
+
+**Question fermée** : sortir EN FORCE quand ça pousse vite (+X % sous 72 h → giveback resserré) bat-il le trailing actuel ? Replay bougie-par-bougie sur les 137 sorties trailing, simulateur FIDÈLE : 137/137 retrouvées, écart médian 0,9 h (garde-fou ±12 h).
+**Verdict** : NON, on ne câble pas. Référence simu +127,49 $ (réel +142,24 $ — biais -14,76 du 1 h vs ticks) ; meilleur resserrage (+4 % → gb×0,75) : +132,85 $, soit +5,36 $ au-dessus de la référence mais TOUJOURS -9,39 $ sous le réel — dans la marge du biais. Et 89-90 % des sorties « repartent » au-dessus sous 7 j QUEL QUE SOIT le réglage : resserrer ne change rien au repart, ça vend juste un peu plus tôt pour presque rien.
+**Vraie leçon** : le trailing actuel capte déjà l'essentiel des 72 h fastes ; le gisement n'est pas « sortir plus tôt » mais le coût du repart (laissé sur la table) — piste = ré-entrée, pas sortie précoce.
+**Erreurs trouvées et tuées en chemin (mindset, 4 itérations)** : (1) « 1h » rejeté par MEXC (400) — le bon intervalle est « 60m » ; (2) simu sans ARM → sorties sur micro-replis ; (3) ancre au dernier BUY → 409 h d'écart (le compounding ajoute tard) — remontée ARRIÈRE depuis la sortie ; (4) arms d'aujourd'hui sur trades d'août → arms DATÉS via git (stables : BTC 1,5/ETH 2,0/CHIP 7,7/RIZE 11,4) ; (5) VRAIE cause des +450 h : MEXC ignore endTime seul + plafond 500 bougies — la pagination arrière ramenait 3× les mêmes 500 dernières bougies (cache Oct-08→28). Pagination AVANT startTime+endTime + dédup → 137/137. Le garde-fou a tenu 4 fois avant de valider — c'est son métier.
+Outil : `hulk-mexc/scripts/chiffrage_trailing_serre.py` (lecture seule, 0 ordre). Caches régénérables : `runs/KLINES_1H/`, `runs/ARM_HIST.json` (pas des scellés).
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §30 — RÉ-ENTRÉE APRÈS REPART : +77 $ sur le papier, DÉJÀ captés — piste enterrée (28/10 soir, ordre de Christophe : « chiffre tout ça »)
+
+**Question fermée** : le repart (§29 : 90 % des sorties trailing repassent au-dessus sous 7 j) est-il rattrapable par une ré-entrée systématique ? Replay : 137 sorties avec suivi ≥14 j, ré-entrée si close ≥ sortie×1,005 sous 7 j, même qty, même trailing, sortie forcée à +14 j.
+**Brut** : R1 = 122 ré-entrées (89 %), +77,56 $ ajoutés (+54 % sur les +142,24 $ du trailing), 85 % gagnantes, médiane +0,45 $/trade. R2 (seuil +2 %) : 113 ré-entrées, +63,17 $. Coûts : ~0,03 $/ligne (~15 $ sur 244 lignes) — le net resterait à +62 $.
+**Mais (honnêteté)** : chevauchement 121/122 (99 %) — le moteur RACHÈTE DÉJÀ dans la fenêtre (reentry_dump, cash_redeploy). Le +77 $ n'est pas un edge additionnel empilable : le cash est déjà déployé, une règle en plus empilerait des positions, pas du PnL propre. **Piste enterrée comme règle nouvelle. Bonne nouvelle inversée : le moteur fait déjà le boulot du repart — c'est validé par la mesure au lieu d'être supposé.**
+**Reste (pas ce soir)** : audit d'attribution — combien des +77 $ les ré-entrées existantes les captent VRAIMENT (leurs PnL sont dans le journal, c'est mesurable). Si elles en laissent sur la table, LA piste sera leur réglage, pas une règle de plus.
+Outil : `hulk-mexc/scripts/chiffrage_reentree_repart.py` (lecture seule, 0 ordre). R8 : 1 h, frais ignorés, pas de lookahead.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §31 — ATTRIBUTION DU REPART : le moteur ne capte que 51 % — et 4 paires le rendent (28/10 soir, GO Christophe)
+
+**Question fermée** : des +77,56 $ de repart R1 (§30), combien les ré-entrées EXISTANTES captent-elles vraiment ? Fenêtre par fenêtre : ventes réelles de positions ouvertes APRÈS notre sortie (ancre arrière, positions à cheval exclues — 0 cas, le moteur solde puis rachète).
+**Verdict** : capté réel +39,61 $ sur +77,56 $ simulés = **51 %**. Restent ~38 $ sur la table — pas un edge nouveau à empiler, mais un RÉGLAGE des ré-entrées existantes.
+**Le mécanisme (lu au journal, deux exhibits)** : le `cash_redeploy` rachète AU PRIX DE SORTIE, sans confirmation, puis mange des stops larges en cascade. RWAINC : réel -21,20 $ vs +6,40 $ simu (ex. 22/09 : sortie trailing +3,56 $, rachat instantané 0,002130 $, cascade stop -6,5 %). TEL : réel -8,75 $ vs +16,11 $ simu (29/09 : rachat 0,002348 $ au sommet, stop -8,72 % : -4,95 $). KITE (-6,06 vs +8,58), PYTH (-7,94 vs +5,49) : même pattern. Ces 4 paires rendent -43,95 $ là où R1 discipliné (confirmation +0,5 %, trailing) faisait +36,58 $ — écart +80 $.
+**À l'inverse, ne pas toucher** : W (+28,94 réel vs +20,49 simu), RED (+30,50 vs -8,52), ZBCN (+11,52 vs +3,41) — leur redéploiement BAT la règle mécanique. Le réglage sera PAR PAIRE, pas global.
+**Piste proposée (pas câblée ce soir — GO + shadow requis)** : sur les 4 paires, exiger confirmation avant redéploiement (close ≥ sortie×1,005 sous 7 j, style R1) au lieu du rachat instantané. Réversible en 1 ligne, shadow 0 ordre d'abord.
+Outil : `hulk-mexc/scripts/chiffrage_attribution_reentree.py` (lecture seule, 0 ordre). R8 : 1 h, frais ignorés, attribution conservatrice.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §32 — VARIANTES CHIFFRÉES (V4 gagne) + SHADOW BRANCHÉ + TEL PURGÉ (28/10 soir, GO Christophe)
+
+**Variantes sur les 28 sorties des 4 paires** : V0 instantané +28,63 $ · V1 +0,5 % +36,57 $ · V2 +1 % +36,16 $ · V3 +2 % +34,09 $ · **V4 +0,5 % ≥24 h après +49,04 $, 88 % gagnantes**. Leçon : ce n'est pas le seuil qui paie, c'est le DÉLAI — le rachat-immédiat rate le creux réel puis mange le stop. V4 = règle shadow.
+**Shadow branché (0 ordre, réversible 1 ligne)** : `REDEPLOY_CONFIRM_ON=1`, paires RWAINC/KITE/PYTH (TEL exclue, retirée). Rachetait instantané → arme `REDEPLOY_SHADOW_ARMED`, journalise `REDEPLOY_SHADOW_ACHAT` si +0,5 % confirmé après 24 h (fenêtre 7 j) ou `REDEPLOY_SHADOW_EXPIRE` sinon. Jamais de buy. État persisté (`redeploy_pending`).
+**TEL purgé (3e demande — mea culpa, c'est fini)** : hors PAPER_PAIRS depuis le 05/10 mais `reentry` armé + notionals survivants au state (rachat encore possible). Purge câblée dans `_retirer_paires_hors_portefeuille` (reentry + pendings hors-pairs) + exclusion des hors-pairs du calcul des notionals affichés. Historique `pair_pnl` conservé (comptabilité, pas du trading). Vérifié au state 211227 : TEL absent du reentry, moteur vivant, 366 trades, 0 trade parasite.
+**ERREUR DÉCLARÉE (mindset)** : ma 1re insertion a coupé la boucle de retrait en deux — le `say` final hors-boucle référençait `pair` non lié quand aucune position hors-pairs → `UnboundLocalError` au boot, 2 crashs watchdog avant le fix. Réparé (say remis dans la boucle, purge après), dry-run OK, moteur relancé proprement (PID 82615, state 211227). Leçon : toute modif du boot se dry-rune avant restart — le watchdog relance, mais 2 crashs c'est 2 de trop.
+Outils : `chiffrage_redeploy_variantes.py` (§32), `paper_diprip.py` + `defaults.env` rescellés. 227 entrées, 0 absent (2 écarts = journaux vivants).
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §33 — PAS DE FIXE : 48 h/14 j + COOLING seul (28/10 soir, GO Christophe)
+
+**Questions de Christophe** : (1) fantôme en arrière-plan ? (2) pourquoi le shadow sur 3 paires seulement ? (3) le délai fixe est suspect — les temps varient selon période et trend.
+**(1) Fantôme : AUCUN.** 1 seul `paper_diprip --resume` (PID 86043 = lock file, lock vivant), 1 `digest_watch --live`, 1 `satellite_aspiration --once` (transitoire, normal). Zéro doublon, zéro orphelin des 3 restarts (kill -9 propres, watchdog relance unique).
+**(2) Pourquoi 3 paires : parce que mesuré, pas préférence.** Les 4 perdantes (RWAINC/TEL/KITE/PYTH) rendent -43,95 $ là où R1 faisait +36,58 $ (§31) — ce sont les SEULES où le rachat instantané détruit de la valeur. W (+28,94 réel vs +20,49 simu), RED (+30,50 vs -8,52), ZBCN (+11,52 vs +3,41) BATTENT la règle mécanique : leur redéploiement instantané est bon, y mettre une confirmation DÉTRUIRAIT du PnL. TEL exclue car retirée du portefeuille (purgée §32). Règle maison : on ne touche que ce qui perd, prouvé.
+**(3) Pas de fixe — vérifié, Christophe avait raison.** Balayage délai×TTL sur 28 sorties : 0 h→+36,38 $ · 12 h→+35,73 $ · **24 h→+50,44 $ · 48 h→+52,89 $** (TTL 7≈14 j, le TTL compte peu). Split régime : **COOLING +50,23 $ (12 trades) vs IMPULSE +1,29 $ (11)** — TOUT l'edge est post-dump ; en trend qui court, la confirmation achète le sommet. Split trend : pic ≥10 % +45,56 $ vs mou +7,33 $ (cohérent : COOLING après gros pic = rebond).
+**Câblé ADAPTATIF (shadow, réversible)** : `REDEPLOY_CONFIRM_REGIMES=COOLING` (gate : paire listée ET régime COOLING → shadow, sinon historique), `DELAY_H=48`, `TTL_J=14`, dry-run du gate OK (4 cas), moteur relancé propre (PID 86043, 0 traceback nouveau, state 212843). Le shadow n'armera que sur sorties COOLING des 3 paires — le reste continue l'historique.
+Outil : `chiffrage_redeploy_adaptatif.py` (lecture seule). 228 entrées rescellées.
+IA=Buffy (Muse Spark 1.3, Freebuff).

@@ -865,6 +865,44 @@ class PaperBot:
             "false",
             "False",
         )
+        # === CONFIRMATION REDEPLOY (28/10/2026, GO Christophe, §§31-33) ===
+        # Sur les paires qui rendent (RWAINC/TEL/KITE/PYTH : -43,95 $ réels vs
+        # +36,58 $ R1), le cash_redeploy rachète AU PRIX DE SORTIE puis mange des
+        # stops en cascade. §33 (balayage délai×TTL + régime) : le 24 h/7 j fixe
+        # est battu par 48 h/14 j (+52,89 $ vs +50,44 $), et TOUT l'edge est sur
+        # les sorties COOLING (+50,23 $ / 12 trades) vs IMPULSE (+1,29 $ / 11).
+        # Donc ADAPTATIF : confirmation 48 h/TTL 14 j sur sorties COOLING ; les
+        # sorties IMPULSE gardent le rachat instantané historique (pas de shadow).
+        # Shadow 0 ordre : on arme + on journalise, on n'achète JAMAIS.
+        # Réversible : REDEPLOY_CONFIRM_ON=0 = rachat instantané historique.
+        self.redeploy_confirm_on = cfg.get("REDEPLOY_CONFIRM_ON", "0").strip() not in (
+            "0",
+            "false",
+            "False",
+        )
+        self.redeploy_confirm_pairs = {
+            p.strip().upper()
+            for p in str(cfg.get("REDEPLOY_CONFIRM_PAIRS", "") or "").split(",")
+            if p.strip()
+        }
+        self.redeploy_confirm_regimes = {
+            r.strip().upper()
+            for r in str(cfg.get("REDEPLOY_CONFIRM_REGIMES", "COOLING") or "").split(",")
+            if r.strip()
+        }
+        try:
+            self.redeploy_confirm_buf = float(cfg.get("REDEPLOY_CONFIRM_BUF_PCT", "0.5"))
+        except Exception:
+            self.redeploy_confirm_buf = 0.5
+        try:
+            self.redeploy_confirm_delay = float(cfg.get("REDEPLOY_CONFIRM_DELAY_H", "24")) * 3600.0
+        except Exception:
+            self.redeploy_confirm_delay = 24 * 3600.0
+        try:
+            self.redeploy_confirm_ttl = float(cfg.get("REDEPLOY_CONFIRM_TTL_J", "7")) * 86400.0
+        except Exception:
+            self.redeploy_confirm_ttl = 7 * 86400.0
+        self.redeploy_pending: dict[str, dict] = {}
         self.base_notional = float(cfg.get("NOTIONAL_USDT", "20"))
         self.notional = self.base_notional
         self.compound_on = cfg.get("COMPOUND_ON", "1").strip() not in ("0", "false", "False")
@@ -2215,7 +2253,7 @@ class PaperBot:
         # affiche la vérité par actif — plus un seul levier global qui ment sur 22.
         _notionals = {
             p: round(float(self.current_notional(p)), 2)
-            for p in sorted(set(self.pairs) | set(self.pos) | set(self.bags) | set(self.pair_pnl))
+            for p in sorted(set(self.pairs) | set(self.pos) | set(self.bags) | set(self.conservation))
         }
         _nl = self.current_notional()  # headline global (compat) — self.notional restauré
         data = json.dumps(
@@ -2236,6 +2274,7 @@ class PaperBot:
                 "conservation": self.conservation,
                 "pair_cash": self.pair_cash,
                 "reentry": self.reentry,
+                "redeploy_pending": getattr(self, "redeploy_pending", {}),
                 "scores": self.scores,
                 "pairs": self.pairs,
                 "wall_melt_events": self.wall_melt_events[-50:],  # garder les 50 derniers
@@ -2369,6 +2408,7 @@ class PaperBot:
             self.conservation = st.get("conservation") or {}
             self.pair_cash = st.get("pair_cash") or {}
             self.reentry = st.get("reentry") or {}
+            self.redeploy_pending = st.get("redeploy_pending") or {}
             self.scores = st.get("scores") or {}
             # 05/10/2026 (GO « le faire correctement ») : purge des scores ORPHELINS.
             # Un score de paire retirée du portefeuille restait dans le state à vie et
@@ -3833,6 +3873,19 @@ class PaperBot:
             need = sc.get("impulse_entry_pct", max(sc["dip_pct"], 5.0))
             if sc["dd6_pct"] < need:
                 return False
+        # CONFIRMATION (28/10, §§31-33) : sur les paires listées ET régime
+        # concerné (COOLING : tout l'edge, §33), pas de rachat instantané — on
+        # arme un pending shadow (0 ordre) : confirmation +0,5 % pas avant le
+        # délai, fenêtre TTL. Hors régime → historique (pas de shadow).
+        if (self.redeploy_confirm_on and pair in self.redeploy_confirm_pairs
+                and str(regime or "").upper() in self.redeploy_confirm_regimes):
+            if pair not in self.redeploy_pending:
+                self.redeploy_pending[pair] = {"ref": price, "ts": time.time()}
+                self.log(pair, "REDEPLOY_SHADOW_ARMED", regime, price, price, 0.0, 0.0,
+                         sc.get("cadence_pct"),
+                         f"shadow_arme ref={price:.6g} attente +{self.redeploy_confirm_buf:g}% "
+                         f"apres {self.redeploy_confirm_delay / 3600:.0f}h (0 ordre, mesure)")
+            return False
         # ÉTANCHE (24/10/2026, §22) : le redeploy ne réinvestit que l'argent DE LA
         # PAIRE, borné au cap — jamais un centime d'une autre paire.
         taken = self.take_pair_cash(pair, self.etanche_mise_max if getattr(self, "etanche_on", False) else None)
@@ -3844,6 +3897,39 @@ class PaperBot:
         )
         self.buy(pair, price, sc, f"cash_redeploy_{taken:.2f}", notion=taken)
         return pair in self.pos
+
+    def maybe_redeploy_confirm(self, pair: str, price: float, sc: dict) -> None:
+        """Shadow confirmation redeploy (28/10/2026, GO Christophe, §§31-32).
+        0 ordre : journalise ce que la règle V4 aurait fait (ARMED à l'armement,
+        ACHAT quand +buf% confirmé après le délai, EXPIRE passé le TTL). Ne buy
+        JAMAIS, ne touche à aucun cash. Réversible : REDEPLOY_CONFIRM_ON=0."""
+        if not self.redeploy_confirm_on:
+            return
+        info = (self.redeploy_pending or {}).get(pair)
+        if not info:
+            return
+        try:
+            ref = float(info.get("ref") or 0)
+            t0 = float(info.get("ts") or 0)
+        except Exception:
+            self.redeploy_pending.pop(pair, None)
+            return
+        now = time.time()
+        if ref <= 0 or now - t0 > self.redeploy_confirm_ttl:
+            self.log(pair, "REDEPLOY_SHADOW_EXPIRE", sc.get("regime") or "QUIET", price,
+                     ref, 0.0, 0.0, sc.get("cadence_pct"),
+                     f"shadow_expire ref={ref:.6g} sans +{self.redeploy_confirm_buf:g}% "
+                     f"sous {self.redeploy_confirm_ttl / 86400:.0f}j (0 ordre, mesure)")
+            self.redeploy_pending.pop(pair, None)
+            return
+        if now - t0 < self.redeploy_confirm_delay:
+            return  # délai anti-rachat-immédiat : silence, on attend (V4)
+        if price >= ref * (1 + self.redeploy_confirm_buf / 100.0):
+            self.log(pair, "REDEPLOY_SHADOW_ACHAT", sc.get("regime") or "QUIET", price,
+                     ref, 0.0, 0.0, sc.get("cadence_pct"),
+                     f"shadow_aurait_achete +{(price / ref - 1) * 100:.2f}%>=+{self.redeploy_confirm_buf:g}% "
+                     f"apres {(now - t0) / 3600:.1f}h ref={ref:.6g} (0 ordre, mesure)")
+            self.redeploy_pending.pop(pair, None)
 
     def vol_ok_for_entry(self, sc: dict, regime: str) -> tuple[bool, str]:
         if sc.get("pair") and self.is_bag(str(sc.get("pair"))):
@@ -4113,6 +4199,8 @@ class PaperBot:
 
         if self.maybe_reentry(pair, price, sc):
             return
+
+        self.maybe_redeploy_confirm(pair, price, sc)
 
         self.maybe_enter(pair, price, sc)
 
@@ -4412,6 +4500,22 @@ class PaperBot:
                 f"RETRAIT_PAIRE {pair}: soldée au marché paper (hors PAPER_PAIRS) "
                 f"— plus aucune capture ni décision pour cette paire",
             )
+        # 28/10/2026 (GO Christophe « efface-moi ce TEL ») : une paire retirée ne
+        # doit laisser AUCUN armement vivant — le reentry TEL armé le 05/10 pouvait
+        # encore déclencher un rachat. Purge reentry + pendings redeploy hors pairs.
+        # (hors de la boucle : la boucle ne tourne que s'il reste des positions).
+        _purges = [p for p in list(self.reentry) if p not in set(self.pairs)]
+        for _p in _purges:
+            self.reentry.pop(_p, None)
+        _purges += [p for p in list(getattr(self, "redeploy_pending", {}) or {})
+                    if p not in set(self.pairs)]
+        for _p in list(getattr(self, "redeploy_pending", {}) or {}):
+            if _p not in set(self.pairs):
+                self.redeploy_pending.pop(_p, None)
+        _purges = sorted(set(_purges))
+        if _purges:
+            say("hdr", f"RETRAIT_PAIRE : armements purgés ({','.join(_purges)}) — "
+                         f"plus aucun rachat possible hors portefeuille")
 
     def run(self) -> int:
         say(

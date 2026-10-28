@@ -1,3 +1,5 @@
-# Rapport Veilleuse — 2026-10-28T20:38:15.923329+00:00
+# Rapport Veilleuse — 2026-10-28T21:38:17.192504+00:00
 
-## État : ✅ STABLE — tout est en ordre
+## État : ⚠️ ANOMALIES DÉTECTÉES
+- **INTRUSION** : Modification non déclarée : Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/strategie/JOURNAL_ECRIVAINS.jsonl (md5 diffère du registre)
