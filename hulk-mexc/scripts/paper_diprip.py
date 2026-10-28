@@ -1132,11 +1132,12 @@ class PaperBot:
         # FIX 31/08 (Phase 3) : le TTL BTC doit épouser la cadence RÉELLE de la source
         # (même principe que le GEX ci-dessous). En mode inline, le cœur sonde le prix
         # chaque probe → TTL 10s cohérent. En mode fichier, le satellite écrit
-        # aspiration_live.json avec un intervalle RÉEL de ~29s (StartInterval 20s + ~9s
-        # d'exécution mesurés : 5 profondeurs de carnet). Le cœur n'accepte le fichier
-        # que s'il a ≤45s (`frais` dans probe_aspiration) → on aligne le TTL sur cette
-        # MÊME fenêtre (45s) pour éliminer les faux positifs par intermittence.
-        _btc_ttl = 10.0 if self.aspiration_src != "fichier" else 45.0
+        # aspiration_live.json avec un intervalle RÉEL de ~60s (28/10 : passe 54,5s
+        # mesurée, StartInterval 60s — voir satellite_aspiration.py). L'âge max d'une
+        # vue saine = duree_max (54,5) + intervalle (60) ≈ 115 + marge → 120s.
+        # Le cœur n'accepte le fichier que s'il a ≤120s (`frais` dans probe_aspiration)
+        # → on aligne le TTL sur cette MÊME fenêtre (120s). Au-delà = vraie panne.
+        _btc_ttl = 10.0 if self.aspiration_src != "fichier" else 120.0
         self.cb_btc = TradeCircuitBreaker(ttl_seconds=_btc_ttl, failure_threshold=3, cooldown_seconds=30.0)
         self.cb_gex = TradeCircuitBreaker(ttl_seconds=7200.0, failure_threshold=2, cooldown_seconds=60.0)
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
@@ -1631,14 +1632,15 @@ class PaperBot:
         # tourne en continu et écrit runs/aspiration_live.json (atomique). On LIT ce
         # fichier au lieu de sonder le carnet soi-même → moins d'appels réseau dans le
         # cœur + isolation des pannes réseau. RÉVERSIBLE via ASPIRATION_SRC (fichier|inline).
-        # Si le fichier est absent / stale (>45s), on retombe en inline (fallback sûr).
+        # Si le fichier est absent / stale (>120s = duree_max 54,5 + intervalle 60
+        # + marge, 28/10), on retombe en inline (fallback sûr).
         if self.aspiration_src == "fichier":
             self.aspiration_degraded = False
             self.aspiration_degraded_reason = ""
             try:
                 live = json.loads((RUNS / "aspiration_live.json").read_text(encoding="utf-8"))
                 ts_live = int(live.get("ts") or 0)
-                frais = bool(ts_live and (time.time() - ts_live) <= 45)
+                frais = bool(ts_live and (time.time() - ts_live) <= 120)
                 if frais:
                     for pair, a in (live.get("paires") or {}).items():
                         if a.get("ok"):
@@ -1875,7 +1877,15 @@ class PaperBot:
             say("err", f"[ACCUM] write_err {e}")
 
     def arm_reentry(self, pair: str, price: float, high: float):
-        if not self.reentry_on:
+        # SHADOW 28/10/2026 (GO Christophe « arme et journalise shadow en continu », R21) :
+        # même quand REENTRY_ON=0, on ARME (flag shadow=1) pour mesurer en continu ce qui
+        # se serait passé. L'achat reste INTERDIT : maybe_reentry ne buy JAMAIS en shadow,
+        # il journalise REENTRY_SHADOW au CSV (aurait-acheté / aurait-skippé + motif).
+        # Rôle : preuve continue du coût/bénéfice du re-entry OFF. Lecteur : registre/BAC.
+        # Preuve : rejou 28/10 des 141 SELL depuis R17 (37 dips ≥6 %, recovery méd +8,8 %
+        # au meilleur cas, 0 setup depuis le 07/10 — plat actuel).
+        shadow = (not self.reentry_on) and bool(getattr(self, "mesure_reentry_on", False))
+        if not self.reentry_on and not shadow:
             return
         peak = max(price, float(high or price))
         self.reentry[pair] = {
@@ -1883,12 +1893,14 @@ class PaperBot:
             "exit": price,
             "ts": time.time(),
             "armed": utc_now(),
+            "shadow": 1 if shadow else 0,
         }
         print(
             paint(
                 C.REENTRY,
                 f"[{utc_now()}] REENTRY  armé {pair}  peak={peak:.6f}  "
-                f"besoin dump≥{self.reentry_dd}%  ttl={int(self.reentry_ttl)}s",
+                f"besoin dump≥{self.reentry_dd}%  ttl={int(self.reentry_ttl)}s"
+                f"{' SHADOW (0 ordre)' if shadow else ''}",
             )
         )
 
@@ -1921,9 +1933,13 @@ class PaperBot:
         MESURÉ (18/10/2026, GO Christophe, R17) : dump requis = dip_pct de LA
         paire (repli REENTRY_DD_PCT) ; désarme quand le prix a RÉCUPÉRÉ ≥ peak —
         jamais l'horloge. Le TTL restant n'est qu'un garde-fou anti-fuite mémoire."""
-        if not self.reentry_on or pair not in self.reentry or pair in self.pos:
+        if pair not in self.reentry or pair in self.pos:
             return False
         info = self.reentry[pair]
+        if info.get("shadow") and not self.reentry_on:
+            return self._shadow_reentry(pair, price, sc, info)
+        if not self.reentry_on:
+            return False
         peak = float(info.get("peak") or 0)
         if peak > 0 and price >= peak:
             # Récupéré : le creux n'existe plus → on désarme (mesuré, pas de clock).
@@ -1966,6 +1982,53 @@ class PaperBot:
         )
         self.reentry.pop(pair, None)
         return True
+
+    def _shadow_reentry(self, pair: str, price: float, sc: dict, info: dict) -> bool:
+        """Re-entry FANTÔME (28/10/2026, GO Christophe, R21) : rejoue EXACTEMENT les
+        mêmes portes que maybe_reentry (récupération, TTL, régime, dip paire, sense,
+        volume) mais ne touche JAMAIS à buy — il JOURNALISE au CSV :
+          REENTRY_SHADOW_ACHAT quand le vrai aurait acheté (dip + gates OK),
+          REENTRY_SHADOW_SKIP  quand le dip est là mais sense/vol refuse (une fois).
+        Récupération / TTL / régime KO / dip insuffisant = silence + attente (comme le
+        vrai, sans spam) ; récupération et TTL expirent l'armement (pop, comme le vrai).
+        Retourne toujours False (aucune position ouverte ici)."""
+        peak = float(info.get("peak") or 0)
+        if peak > 0 and price >= peak:
+            self.reentry.pop(pair, None)
+            return False
+        ttl = self.reentry_ttl
+        if self.mesure_reentry_guard > 0:
+            ttl = self.mesure_reentry_guard  # garde-fou mémoire, PAS un signal
+        if time.time() - float(info["ts"]) > ttl:
+            self.reentry.pop(pair, None)
+            return False
+        if mode_entree(pair) == "IMPULSE" and sc.get("regime") != "IMPULSE":
+            return False
+        if peak <= 0:
+            return False
+        dd_req = self.reentry_dd
+        try:
+            dd_req = float(self.filet_mesure(pair).get("reentry_dd_pct") or dd_req)
+        except Exception:
+            pass
+        dd = (1.0 - price / peak) * 100.0
+        if dd < dd_req:
+            return False
+        ok, why = self.sense_ok(pair, sc, "IMPULSE")
+        vok, vwhy = self.vol_ok_for_entry(sc, "IMPULSE") if ok else (False, "")
+        if not ok or not vok:
+            if not info.get("skip_logged"):
+                info["skip_logged"] = 1
+                self.log(pair, "REENTRY_SHADOW_SKIP", sc.get("regime") or "QUIET", price,
+                         float(info.get("exit") or price), 0.0, 0.0, sc.get("cadence_pct"),
+                         f"shadow_skip {'sense=' + str(why) if not ok else vwhy} "
+                         f"dip={dd:.1f}>= {dd_req} (0 ordre, mesure)")
+            return False
+        self.log(pair, "REENTRY_SHADOW_ACHAT", sc.get("regime") or "QUIET", price,
+                 float(info.get("exit") or price), 0.0, 0.0, sc.get("cadence_pct"),
+                 f"shadow_aurait_achete dip={dd:.1f}>= {dd_req} from={peak:.6f} (0 ordre, mesure)")
+        self.reentry.pop(pair, None)
+        return False
 
     def log(self, pair, event, regime, price, entry, qty, pnl, cadence, reason, mfe=None):
         # Déduplication bornée des SKIP : le motif et le régime doivent rester

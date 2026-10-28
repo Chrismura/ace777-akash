@@ -1361,3 +1361,45 @@ preuve). Et la loi « toujours ce qui améliore Hulk » rejoint R16/R15 au regis
    le 24/10 à 14:43 sans pré-déclaration. C'est ma routine (le journal s'append à chaque
    re-scellement) qui n'était pas déclarée. Dette nommée et datée ici ; **réparé** : 3
    pré-déclarations posées AVANT les actes de ce tour (moteur, règle d'or, journal routine).
+
+---
+
+## §37 — 28/10/2026 : SHADOW RE-ENTRY EN CONTINU + SATELLITE RE-RYTHMÉ + PLAT VÉRIFIÉ DEHORS
+
+**GO Christophe : « arme et journalise shadow, vérifie le plat sur 3 actifs hors prototype, fais ce qu'il y a à faire ».**
+
+**1. Re-entry remesuré (pas rallumé).** Rejou des 141 SELL depuis R17 sur cache klines local :
+40 % auraient replongé ≥6 % dans les 48 h (recovery méd +8,8 % au meilleur cas, sans frais/filtres).
+MAIS dernier setup le 07/10 : **depuis 3 semaines de plat, zéro manque**. Rallumer aujourd'hui
+ne changerait rien. Décision : reste OFF, et le shadow prend le relais en continu.
+
+**2. Shadow re-entry branché et testé 5/5.** `arm_reentry` arme même quand OFF (flag shadow=1),
+`_shadow_reentry` rejoue les mêmes portes (récup, TTL, régime, dip paire, sense, volume) et
+journalise `REENTRY_SHADOW_ACHAT` / `REENTRY_SHADOW_SKIP` au CSV — **0 appel buy possible
+(prouvé par test : AssertionError si buy tenté)**. R21 écrite au code (rôle/lecteur/preuve).
+Pré-déclaré AVANT l'acte (DECLARATIONS_IA.jsonl 28/10).
+
+**3. Satellite : le retard était structurel, pas un incident.** Passe 54,5 s séquentielle >
+intervalle 20 s → chevauchement + stale permanent. Fix : StartInterval 20→60 s (plist),
+budgets 45→**120 s** des deux côtés — 120 = duree_max (54,5) + intervalle (60) + marge
+(mon premier 75 était sous-dimensionné, le calcul `risque_stale` l'a prouvé : 18,8+60>75).
+Vérifié : **risque_stale=false** pour la première fois, âge 81,8 s < 120. Moteur relancé par
+le watchdog, boot TIERS+MFE, 0 Traceback lié au code (les 2 du log = crash 24/10 connu +
+`No space` disque sur save_state, reboot propre derrière).
+
+**4. Plat vérifié HORS prototype (MEXC direct, 7 j klines 1 h).** CHIP amp7j 11 % +8 %/24 h,
+RED 8,4 % +5 %, CC 5,35 % +7,5 %, BTC 1,97 % 0 bougie >3 %. Nuance honnête : le plat, c'est
+BTC et les entrées (SENSE/tension refuse, COOLING 82 %) — pas les small-caps qui bougent
+en intraday. Tes rouges viennent de sorties GBAG de positions prises dans le mou, pas d'un
+moteur cassé. Piste non touchée (pas de GO) : le sense est peut-être trop strict vs ranges
+5-11 % — à mesurer avant tout réglage (règle #8).
+
+**5. Nouvelles mesures, état :** MFE 5 sorties depuis 24/10 ✓ · BAC 007 6/50 contexte ✓ ·
+trend_stop→cache 0 stop = normal (que du GBAG) ✓ · dd24 forensique ✓ · Nado sonde+PLATEFORMES ✓ ·
+MESURE_REENTRY_ON était branché mais AVEUGLE (armement coupé) — réparé par le shadow ci-dessus.
+
+**Dettes nommées :** (a) 2 re-scellements (sonde Nado 24/10, PLATEFORMES 28/10) sans pré-déclaration
+écrite préalable — GO oral existant, mais R20 veut l'écrit AVANT. (b) Dimensionnement 75 s
+intermédiaire corrigé en 120 s sur preuve, même périmètre déclaré. (c) Disque Data à 99 %
+(3 Go libres) : un `No space` a déjà tué un save_state — ménage à prévoir, hors périmètre,
+signalé sans y toucher.

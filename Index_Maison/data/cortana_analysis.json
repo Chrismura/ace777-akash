@@ -1,45 +1,30 @@
 {
-  "timestamp": 1793179877,
-  "date": "2026-10-28T09:31:17.190616+00:00",
-  "n_analyses": 3,
+  "timestamp": 1793183478,
+  "date": "2026-10-28T10:31:18.287168+00:00",
+  "n_analyses": 1,
   "analyses": [
     {
       "signal": {
-        "metric": "volume",
-        "zscore": -4.257070166584338,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de contexte : les données textuelles concernent des actions traditionnelles (Unilever, Heineken) et non un actif cryptographique. Aucune baleine crypto détectée, le volume nul correspond à une absence de données sur le réseau pour cette requête.\"\n}\n```",
-        "ts": 1793178778.051449
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
         "metric": "liquidations",
-        "zscore": -3.126833447717393,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique (z-score -3.13) montrant une absence totale de liquidations de positions crypto, contrastant avec le bruit médiatique local et macro. Les baleines ne subissent aucune pression vendeuse forcée, préparant une accumulation silencieuse sans risque de cascade de liquidations.\"\n}\n```",
-        "ts": 1793178781.173135
+        "zscore": 3.1518696965853703,
+        "value": 3874084.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux ('liquidations judiciaires' en Bretagne). La véritable anomalie on-chain (z-score 3.15 sur les liquidations crypto à 79.75k$) indique un 'flush' technique des positions excédentaires, nettoyant le marché sans panique fondamentale.\"\n}\n```",
+        "ts": 1793182397.049369
       },
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 7400.0,
+          "value": 202379.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 3701180.0,
+          "value": 3671704.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.01,
+          "value": -0.03,
           "seuil": 1,
           "depasse": false
         }
@@ -52,35 +37,6 @@
       },
       "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
       "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -3.9910490333857767,
-        "value": 1,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.99) indiquant une sous-exposition massive des positions long par rapport aux short, tandis que les médias grand public font l'éloge tardif des stratégies Long/Short. Classic setup de capitulation des suiveurs de tendance juste avant un short squeeze initié par les baleines.\"\n}\n```",
-        "ts": 1793178783.741109
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 1.884,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 96478.075,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

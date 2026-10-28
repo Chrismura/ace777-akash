@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -4.795831523312714,
-      "value": 48,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Données incomplètes. Absence de flux sortants significatifs des exchanges et absence de titres médiatiques exploitables pour contraster le z-score neutre (48).\"\n}\n```",
-      "ts": "2026-10-27T01:03:57.408164+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.5315893041984765,
-      "value": 2982646.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.53, volume ~2.98M USD) dans un silence médiatique absolu (Google Actualités vide). Divergence classique traduisant une accumulation discrète hors radar retail.\"\n}\n```",
-      "ts": "2026-10-27T01:24:00.769753+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -3.8729833462074166,
       "value": 48,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -3.87) sur un Fear & Greed neutre (48) couplé à un silence médiatique absolu. Historiquement, cette indifférence des médias combinée à une décote de volatilité trahit une accumulation discrète des baleines loin des radars de la foule.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.99) indiquant une sous-exposition massive des positions long par rapport aux short, tandis que les médias grand public font l'éloge tardif des stratégies Long/Short. Classic setup de capitulation des suiveurs de tendance juste avant un short squeeze initié par les baleines.\"\n}\n```",
       "ts": "2026-10-28T09:13:03.741109+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.5776938087367194,
+      "value": 3871643.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique une activité de liquidations massive, suggérant une forte volatilité et une possible correction du marché. Les titres médiatiques se concentrent sur des liquidations judiciaires dans le Sud-Finistère, ce qui ne reflète pas l'activité onchain. Les baleines pourraient être en train de bouger silencieusement, profitant de la volatilité pour ajuster leurs positions. Le narratif médiatique est déconnecté de la réalité onchain.\"\n}\n```",
+      "ts": "2026-10-28T09:43:10.486149+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.1518696965853703,
+      "value": 3874084.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux ('liquidations judiciaires' en Bretagne). La véritable anomalie on-chain (z-score 3.15 sur les liquidations crypto à 79.75k$) indique un 'flush' technique des positions excédentaires, nettoyant le marché sans panique fondamentale.\"\n}\n```",
+      "ts": "2026-10-28T10:13:17.049369+00:00"
     }
   ]
 }

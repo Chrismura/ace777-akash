@@ -71,13 +71,17 @@ LOOP_SEC = 20.0          # cadence d'écriture (le moteur a une boucle 20s aussi
 # un plafond EXPLICITE (le levier historique ASPIRATION_MAX_PAIRS=5 est conservé).
 MAX_PAIRS = int(os.environ.get("ASPIRATION_MAX_PAIRS", "0"))   # 0 = DÉRIVÉ de l'univers du moteur
 # ── LE VRAI PLAFOND N'EST PAS LE NOMBRE DE PAIRES, C'EST LE TEMPS ────────────────────────────
-# Une passe réelle a été CHRONOMÉTRÉE le 08/10 : 24,9 s pour 22 paires (8 « full » = 2 lectures,
-# 14 « light » = 1). Le plist relance toutes les 20 s et l'âge de la vue oscille 1 → ~40 s, donc
-# SOUS le seuil de fraîcheur du moteur (45 s dans paper_diprip, mode fichier) — mais avec ~5 s de
-# marge seulement. Ces deux constantes servent à le DIRE dans le fichier (duree_s, marge_s,
-# risque_stale) au lieu de l'espérer ; ce sont des déclarations, pas des seuils de décision.
-CADENCE_PLIST_SEC = 20.0      # StartInterval du plist com.ace777.satellite-aspiration
-FRAICHEUR_BUDGET_SEC = 45.0   # seuil du moteur : la vue n'est lue que si age <= 45 s
+# 28/10/2026 (GO Christophe « fais ce qu'il y a à faire », R21) : MESURÉ duree_s=54,5 s
+# pour 22 paires (MEXC ralenti : ~2,5 s/paire, pire que les 24,9 s du 08/10) ALORS QUE le
+# plist relançait toutes les 20 s → chevauchement permanent (2 process vus), âge ~54 s
+# > budget 45 s → risque_stale=true EN PERMANENCE. L'horloge ne suivait pas son rythme.
+# REMÈDE : intervalle 60 s (passe 54,5 + jitter < 60, plus de chevauchement) et budgets
+# 120 s des deux côtés (satellite + moteur) : age_max = duree_max (54,5) + intervalle (60)
+# = ~115 + marge → 120. Sous 120, la vue est lue ; au-delà, STALE (vraie panne).
+# Rôle : une vue fraîche SANS faux STALE. Lecteur : moteur (probe_aspiration) + cockpit.
+# Preuve : aspiration_live.json du 28/10 (duree_s 54.5, marge_s -9.5, risque_stale true).
+CADENCE_PLIST_SEC = 60.0      # StartInterval du plist com.ace777.satellite-aspiration
+FRAICHEUR_BUDGET_SEC = 120.0  # seuil du moteur : la vue n'est lue que si age <= 120 s
 # ── MESURE QUI A CORRIGÉ LE GO 3 LE JOUR MÊME (23/09) ─────────────────────────────────────
 # Première version : 20 paires × 2 lectures /depth ⇒ passe de 35,8 s ⇒ avec StartInterval=20 s,
 # l'âge de la vue oscillait **4 → 55 s**, donc AU-DESSUS du seuil « frais » de 45 s du moteur →
