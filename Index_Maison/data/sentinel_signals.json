@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.6592412106634167,
-      "value": 1.669,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.66) indique une forte agression acheteuse cachée sous le radar médiatique (silence radio). Divergence classique d'accumulation agressive par les baleines avant un mouvement de cassure.\"\n}\n```",
-      "ts": "2026-10-26T23:03:34.044492+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -5.027293925217199,
-      "value": 48,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-5.03) combiné à un indice de peur/avidité neutre (48) et un vide médiatique total indique une accumulation invisible des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-27T00:03:45.502950+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -6.855654600401052,
-      "value": 48,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique extrême (z-score -6.86) sur un Fear & Greed à 48 combiné à un silence médiatique absolu. Absence totale de FOMO public malgré des valorisations stables, ce qui indique une accumulation silencieuse par les baleines loin du bruit de fond.\"\n}\n```",
-      "ts": "2026-10-27T00:33:52.164760+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -4.795831523312714,
       "value": 48,
@@ -349,6 +328,27 @@
       "value": 0.5032406686244828,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.37) totalement ignorée par les médias (silence radio absolu). Signal classique d'accumulation furtive par les baleines loin du radar de la foule.\"\n}\n```",
       "ts": "2026-10-28T08:27:52.348255+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -4.257070166584338,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de contexte : les données textuelles concernent des actions traditionnelles (Unilever, Heineken) et non un actif cryptographique. Aucune baleine crypto détectée, le volume nul correspond à une absence de données sur le réseau pour cette requête.\"\n}\n```",
+      "ts": "2026-10-28T09:12:58.051449+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -3.126833447717393,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique (z-score -3.13) montrant une absence totale de liquidations de positions crypto, contrastant avec le bruit médiatique local et macro. Les baleines ne subissent aucune pression vendeuse forcée, préparant une accumulation silencieuse sans risque de cascade de liquidations.\"\n}\n```",
+      "ts": "2026-10-28T09:13:01.173135+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.9910490333857767,
+      "value": 1,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.99) indiquant une sous-exposition massive des positions long par rapport aux short, tandis que les médias grand public font l'éloge tardif des stratégies Long/Short. Classic setup de capitulation des suiveurs de tendance juste avant un short squeeze initié par les baleines.\"\n}\n```",
+      "ts": "2026-10-28T09:13:03.741109+00:00"
     }
   ]
 }

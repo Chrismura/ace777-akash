@@ -1,6 +1,6 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-10-27 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-10-28 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
 **Actifs : 5 · En observation : 0 · En attente : 20 · De cote (payant) : 6**
 
@@ -26,7 +26,7 @@
 | missions / JUGE | `qwen-3.8-max-free` | nara | ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK |  |
 | analyse BTC / elaboration | `nvidia/nemotron-3-ultra-550b-a55b` | nvidia | ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde |
 | - | `@cf/meta/llama-3.1-8b-instruct` | cloudflare-workers-ai | 10k Neurons/jour gratuits - necessite account_id dans base_url + token |
-| - | `nvidia/nemotron-3-super-120b-a12b:free` | openrouter-juge | REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | |
+| - | `nvidia/nemotron-3.5-super-vl:free` | openrouter-juge | REACTIVE 13/08 - nemotron-3-super-120b free teste OK. Juge independant (maker!=checker). | |
 | - | `x-ai/grok-4.5` | grok | Branche 08/08 (GO Christophe) : missions de qualite, ~$2/M tokens |
 | - | `nvidia/nemotron-3-ultra-550b-a55b:free` | openrouter-ultra | REACTIVE 13/08 - nemotron-3-ultra-550b free. Analyse forte, 2e avis expert. | quota journa |
 | - | `deepseek-ai/deepseek-coder-6.7b-instruct` | nvidia-coder | INTEGRE 16/08 (GO Christophe) - DeepSeek-Coder 6.7B, codeur specialise (file d'attente). | |

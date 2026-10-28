@@ -1,31 +1,76 @@
 {
-  "timestamp": 1793175975,
-  "date": "2026-10-28T08:26:15.750656+00:00",
-  "n_analyses": 2,
+  "timestamp": 1793179877,
+  "date": "2026-10-28T09:31:17.190616+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.099208757827552,
-        "value": 3790025.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.10, ~3.79M USD) combinée à un silence total dans les médias (Google Actualités vide). Les baleines accumulent discrètement sous le radar médiatique, signalant un mouvement furtif avant toute hype publique.\"\n}\n```",
-        "ts": 1793174561.803283
+        "metric": "volume",
+        "zscore": -4.257070166584338,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de contexte : les données textuelles concernent des actions traditionnelles (Unilever, Heineken) et non un actif cryptographique. Aucune baleine crypto détectée, le volume nul correspond à une absence de données sur le réseau pour cette requête.\"\n}\n```",
+        "ts": 1793178778.051449
       },
-      "fiche": "whale_usd",
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": -3.126833447717393,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique (z-score -3.13) montrant une absence totale de liquidations de positions crypto, contrastant avec le bruit médiatique local et macro. Les baleines ne subissent aucune pression vendeuse forcée, préparant une accumulation silencieuse sans risque de cascade de liquidations.\"\n}\n```",
+        "ts": 1793178781.173135
+      },
+      "fiche": "liquidations",
       "questions": {
-        "ventes": {
-          "value": 0.0,
+        "longs": {
+          "value": 7400.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
-        "achats": {
-          "value": 0.0,
+        "shorts": {
+          "value": 3701180.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.18,
+          "value": -0.01,
           "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -3.9910490333857767,
+        "value": 1,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.99) indiquant une sous-exposition massive des positions long par rapport aux short, tandis que les médias grand public font l'éloge tardif des stratégies Long/Short. Classic setup de capitulation des suiveurs de tendance juste avant un short squeeze initié par les baleines.\"\n}\n```",
+        "ts": 1793178783.741109
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.884,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 96478.075,
+          "seuil": 120000,
           "depasse": false
         }
       },
@@ -36,36 +81,6 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.2618354812140167,
-        "value": 1.496,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.26) indique une forte agression acheteuse sur les carnets d'ordres, masquée par un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant un réveil du narratif public.\"\n}\n```",
-        "ts": 1793174865.080354
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.496,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.18,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
