@@ -8721,3 +8721,7 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-28T00:17:31Z — ALERT auto
 - FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-28T01:23:14Z — ALERT auto
+- FLUIDUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
