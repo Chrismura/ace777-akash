@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -8.217119915130649,
-      "value": 1,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Z-score extrême à -8.22 sur le ratio long/short (capitulation massive des positions vendeuses ou surengagement short des 'retail'). Pendant que les médias généralistes discutent de stratégies traditionnelles long/short sur les OPCVM, les baleines crypto positionnent un squeeze violent par une asymétrie de positioning historique.\"\n}\n```",
-      "ts": "2026-10-27T10:51:27.169865+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": -2.1785417643556655,
-      "value": 0.5,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 0.5 (z-score -2.18) indique une domination massive des ordres d'achat passifs (limite) par rapport aux ventes agressives (taker sell), suggérant une accumulation discrète par les baleines. Le silence médiatique total (Google Actualités vide) confirme l'absence de FOMO de détail, signalant un creux d'accumulation classique avant une impulsion haussière.\"\n}\n```",
-      "ts": "2026-10-27T10:51:28.659682+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.1557037884480863,
-      "value": 48,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.16) pour un Indice de Peur et de Greffe neutre (48) combiné à un silence médiatique total : les baleines accumulent discrètement dans l'indifférence générale avant un mouvement de rupture.\"\n}\n```",
-      "ts": "2026-10-27T10:51:32.634813+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.749767846195958,
-      "value": 3264651.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie on-chain significative (z-score 2.75, +3.2M USD) dans un silence médiatique absolu (Google Actualités vide). Classique accumulation furtive de baleines loin du radar grand public.\"\n}\n```",
-      "ts": "2026-10-27T10:56:34.641202+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -2.013114894621606,
       "value": 48,
@@ -349,6 +321,34 @@
       "value": 0.62,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE, sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
       "ts": "2026-10-28T17:36:44.034292+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.2973433150898734,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, Stampede Drilling). Aucune anomalie on-chain liée aux crypto-baleines, le signal 'SDI' capté est un faux positif sémantique.\"\n}\n```",
+      "ts": "2026-10-28T18:07:05.535989+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.1620348350069114,
+      "value": 0.5190248719568524,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.16) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-10-28T18:37:13.266067+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.095275995540551,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les titres concernent des homonymes (Syndicat des Indépendants, Samsung SDI, Stampede Drilling) et non une entité ou un token crypto. Aucune donnée onchain pertinente.\"\n}\n```",
+      "ts": "2026-10-28T18:37:21.664838+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.2447366545110388,
+      "value": 4867017.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Aucune baleine crypto détectée derrière ce z-score non pertinent pour les flux onchain.\"\n}\n```",
+      "ts": "2026-10-28T18:42:31.577070+00:00"
     }
   ]
 }

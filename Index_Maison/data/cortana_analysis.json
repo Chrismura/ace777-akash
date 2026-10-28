@@ -1,72 +1,8 @@
 {
-  "timestamp": 1793209285,
-  "date": "2026-10-28T17:41:25.936499+00:00",
+  "timestamp": 1793212887,
+  "date": "2026-10-28T18:41:27.119246+00:00",
   "n_analyses": 12,
   "analyses": [
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": -2.0067159965747736,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (mélange de SEO crypto générique et d'actualités locales sans rapport avec l'actif 'CPFP'). Aucune accumulation ou mouvement de baleine détecté ; l'anomalie on-chain est un faux signal statistique.\"\n}\n```",
-        "ts": 1793188720.112438
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": -2.0067159965747736,
-        "value": 0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain non pertinente. Le narratif médiatique concerne des motos électriques, de la musique et des baskets, totalement déconnecté de l'écosystème crypto.\"\n}\n```",
-        "ts": 1793188721.63232
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 2.6695956437304744,
-        "value": 0.4351621543907225,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.67) sur une bougie horaire sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par des baleines cherchant à éviter le FOMO retail avant un mouvement majeur.\"\n}\n```",
-        "ts": 1793190227.756343
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.07,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 2305461.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "price_1h",
@@ -78,12 +14,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.07,
+          "value": 0.2,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2305461.0,
+          "value": 4867017.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -112,29 +48,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
+          "value": 1233222.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
-        "achats": {
-          "value": 1263220.0,
-          "seuil": 0,
-          "depasse": true
-        },
         "prix": {
-          "value": 0.07,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -162,7 +98,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.07,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -177,7 +113,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -216,7 +152,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.07,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -231,7 +167,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -255,29 +191,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
+          "value": 1233222.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
-        "achats": {
-          "value": 1263220.0,
-          "seuil": 0,
-          "depasse": true
-        },
         "prix": {
-          "value": 0.07,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -308,7 +244,71 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 3.2973433150898734,
+        "value": 0.62,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, Stampede Drilling). Aucune anomalie on-chain liée aux crypto-baleines, le signal 'SDI' capté est un faux positif sémantique.\"\n}\n```",
+        "ts": 1793210825.535989
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.1620348350069114,
+        "value": 0.5190248719568524,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.16) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin du radar grand public.\"\n}\n```",
+        "ts": 1793212633.266067
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.2,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 4867017.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.095275995540551,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les titres concernent des homonymes (Syndicat des Indépendants, Samsung SDI, Stampede Drilling) et non une entité ou un token crypto. Aucune donnée onchain pertinente.\"\n}\n```",
+        "ts": 1793212641.664838
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
