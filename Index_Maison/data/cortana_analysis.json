@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793208685,
-  "date": "2026-10-28T17:31:25.748934+00:00",
-  "n_analyses": 11,
+  "timestamp": 1793209285,
+  "date": "2026-10-28T17:41:25.936499+00:00",
+  "n_analyses": 12,
   "analyses": [
     {
       "signal": {
@@ -44,17 +44,17 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.01,
+          "value": 0.07,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2312094.0,
+          "value": 2305461.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 9.9e-05,
+          "value": 0.0001,
           "seuil": 0,
           "depasse": true
         }
@@ -78,17 +78,17 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.01,
+          "value": 0.07,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2312094.0,
+          "value": 2305461.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 9.9e-05,
+          "value": 0.0001,
           "seuil": 0,
           "depasse": true
         }
@@ -112,29 +112,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 1341070.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
+        "achats": {
+          "value": 1263220.0,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": 0.01,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -162,7 +162,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -172,7 +172,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 9.9e-05,
+          "value": 0.0001,
           "seuil": 0.001,
           "depasse": false
         },
@@ -216,7 +216,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -226,7 +226,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 9.9e-05,
+          "value": 0.0001,
           "seuil": 0.001,
           "depasse": false
         },
@@ -255,29 +255,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 1341070.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
+        "achats": {
+          "value": 1263220.0,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": 0.01,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -293,7 +293,22 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 3.7597121534959532,
+        "value": 0.62,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE, sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
+        "ts": 1793209004.034292
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

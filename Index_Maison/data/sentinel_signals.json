@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": -2.0494136121940243,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique non significative. Le z-score négatif de la poussière (dust) onchain coïncide uniquement avec du bruit médiatique non lié à la crypto (musique, jeux vidéo, actualités générales). Aucune accumulation cachée de baleine détectée.\"\n}\n```",
-      "ts": "2026-10-27T10:51:18.490054+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -8.217119915130649,
       "value": 1,
@@ -349,6 +342,13 @@
       "value": 0.616,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie sémantique due à une confusion d'homonyme : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE en France, sans aucun rapport avec la crypto ou des mouvements de baleines onchain.\"\n}\n```",
       "ts": "2026-10-28T17:06:28.987865+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.7597121534959532,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE, sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
+      "ts": "2026-10-28T17:36:44.034292+00:00"
     }
   ]
 }
