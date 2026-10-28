@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793219789,
-  "date": "2026-10-28T20:36:29.240107+00:00",
-  "n_analyses": 14,
+  "timestamp": 1793220089,
+  "date": "2026-10-28T20:41:29.339697+00:00",
+  "n_analyses": 15,
   "analyses": [
     {
       "signal": {
@@ -29,7 +29,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.44,
+          "value": -0.48,
           "seuil": 1,
           "depasse": false
         },
@@ -44,7 +44,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -83,7 +83,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.44,
+          "value": -0.48,
           "seuil": 1,
           "depasse": false
         },
@@ -98,7 +98,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -122,9 +122,9 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 687240.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "achats": {
           "value": 0.0,
@@ -132,19 +132,18 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.44,
+          "value": -0.48,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -202,7 +201,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.44,
+          "value": -0.48,
           "seuil": -1,
           "depasse": true
         },
@@ -261,7 +260,7 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.44,
+          "value": -0.48,
           "seuil": 1,
           "depasse": false
         }
@@ -286,7 +285,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.44,
+          "value": -0.48,
           "seuil": -1,
           "depasse": true
         },
@@ -330,7 +329,7 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.44,
+          "value": -0.48,
           "seuil": 1,
           "depasse": false
         }
@@ -355,7 +354,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.44,
+          "value": -0.48,
           "seuil": -1,
           "depasse": true
         },
@@ -377,6 +376,41 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.2339093989643315,
+        "value": 4217144.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Aucune baleine crypto en mouvement, données onchain non corrélées.\"\n}\n```",
+        "ts": 1793219872.894197
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 2139811.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 2077333.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.48,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+      },
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"

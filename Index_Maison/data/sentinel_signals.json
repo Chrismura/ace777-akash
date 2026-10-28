@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "ipt",
-      "zscore": 2.6285067401677766,
-      "value": 1.077,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur l'actif 'ipt' totalement polluée par du bruit médiatique hétérogène (actions, tournois de physique, actualités religieuses/sociales). Aucune baleine crypto identifiable : le signal onchain est un artefact de ticker ambigu ou un faux positif.\"\n}\n```",
-      "ts": "2026-10-27T13:22:24.026174+00:00"
-    },
-    {
-      "metric": "ipt",
       "zscore": 2.3166285452185584,
       "value": 1.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.32) sur un ticker (IPT) pollué par du bruit sémantique non-crypto (International Petroleum Corp, École Polytechnique, actualités religieuses). Absence de mouvement de baleine avéré sur une cryptomonnaie pertinente.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 0.5287888815354136,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (Z-score 2.84) détectée dans un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant que le narratif public ne se forme.\"\n}\n```",
       "ts": "2026-10-28T20:27:50.038597+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.2339093989643315,
+      "value": 4217144.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Aucune baleine crypto en mouvement, données onchain non corrélées.\"\n}\n```",
+      "ts": "2026-10-28T20:37:52.894197+00:00"
     }
   ]
 }
