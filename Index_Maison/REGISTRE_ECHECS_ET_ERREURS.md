@@ -1521,3 +1521,85 @@ Détail : `hulk-mexc/BAC_A_SABLE/PV_BAISSE_CRASH.md`. 0 câblage.
 61 sorties bear : réel -21,26 $, short BTC 20 $/24h +30,19 $, combiné +8,93 $.
 Corrélation 70 %. Proposition : Nado testnet en observation (BTC-PERP, spread 0,12 bps),
 15 j de paper, puis décision. Pas de short réel sans nouveau GO explicite.
+
+---
+
+## §42 — 28/10/2026 : R24 SUR-MESURE + PALIERS PAR ACTIF + HEDGE XRP GAGNANT
+
+**GO : paliers sur top 3 volatiles avec frais + shorts multi-perps + règle sur-mesure.**
+
+**1. R24 inscrite dans la constitution** (le numéro 24 était vacant) : aucun réglage commun
+par défaut — filet mesuré par actif, et tout changement vérifié actif par actif avant
+généralisation. La preuve qui la fait naître : QNT perdant d'un coup (-21,95 $), gagnant
+en paliers (+21,27 $) — une moyenne globale aurait tout raté.
+
+**2. Paliers par actif (frais 0,1%/côté déduits, affichés).** RIZE : paliers 2,2× mieux
+(+133 $ vs +61 $, win 85 %). EDEL : indifférent (+12,68 $ vs +11,20 $). QNT : paliers
+obligatoires (+21 $ vs -22 $). Frais négligeables (0,20 $/trade) sauf EDEL à surveiller
+(net/frais 2,8×). Politique : RIZE+QNT en paliers, EDEL au choix.
+
+**3. Shorts multi-perps.** Nado : BTC/ETH/XRP/SOL/BNB live, **HBAR+QNT absents** (pas de
+hedge direct). Mesuré : XRP meilleur hedge (+39 $ combiné), puis ETH (+20 $), puis BTC
+(+9 $) — logique, nos bags sont des alts. Levier : 1x en observation, 2x max sur preuve.
+Venue : Nado testnet, 15 j, puis décision.
+
+**4. Bear et volatiles — réponse à ta remarque.** Tu as raison : les volatiles rebondissent
+souvent en bear — mais ils ne tiennent pas (+5 % : 4,8 % des cas). Donc bear = trader
+court et vite (scalps, shorts), jamais hold. Le quasi-stop reste pour le buy-and-hold ;
+les rebonds se jouent en sortie rapide. Meilleurs setups proposés : plancher-achat en
+3 paliers (RIZE/QNT) + hedge short XRP en bear + petites mises range/basse + plein régime
+bull/range-haute. 0 câblage — tes GO pour chaque mise en place.
+
+---
+
+## §43 — 28/10/2026 : 15 RÉGIMES CRÉÉS + 19 FICHES + SHADOW PLANCHER ACTIF
+
+**GO : les régimes créés, enregistrés dans chaque fiche, déclaration faite avant (R23, ce tour).**
+
+**1. Les 15 régimes existent** (`hulk-mexc/strategie/REGIMES_ACTIFS.json`, rescellé) :
+12 cases (direction × vol × liquidité) + STORM/CRASH/EUPHORIE, seuils mesurés (chg24
+±1,5 %, amp7j 2 %, spread SENSE), politiques graduées §42. 0 effet moteur : document de
+référence.
+
+**2. Chaque fiche d'actif porte sa politique** (`universe_profils.json`, rescellé) :
+champ `regime_politique` sur 19/19. RIZE : paliers (BAC +133 $). EDEL : indifférent.
+QNT : paliers obligatoires (+21 $ vs -22 $) + hedge via XRP/BTC (pas de perp QNT sur
+Nado). 16 autres : squelette prudent + extension au fil des signaux (R24).
+
+**3. Shadow plancher-achat actif et testé 3/3** : journalise PLANCHER_SHADOW 1/paire-jour
+quand CONFIRMÉ/ACHETÉ, avec le plan 3 paliers de l'actif — 0 ordre. OBSERVATION silencieuse,
+dédup vérifiée. `PLANCHER_SHADOW_ON=1`.
+
+**4. Multiplicateur régime câblé mais OFF** (`regime_mult`, même famille que wall/slip_mult,
+fail-open ×1.0) : range/basse ×0.5, bear ×0.25. `REGIME_MISE_ON=0` = comportement inchangé.
+Activation = BAC « 25-50 % en range/basse » d'abord (règle #8) + nouveau GO.
+
+**5. Observation shorts Nado (proposée, non lancée).** Venue prête (testnet, BTC/ETH/XRP
+spreads mesurés), mais pas de clé/ordre : attend le faucet + 15 j paper + GO. HBAR/QNT
+sans perp → hedge indirect.
+
+**Vérifs** : déclaration R23 AVANT tout acte ✓ · compile OK ✓ · shadow testé 3/3 + OFF prouvé
+×1.0 ✓ · moteur relancé watchdog (TIERS+MFE, 0 Traceback log frais, CSV 12:09) ✓ ·
+rescellements légitimes (pré-déclarés) ✓.
+
+---
+
+## §44 — 28/10/2026 : BAC PETITES MISES (NON JUSTIFIÉ EN L'ÉTAT) + DURÉE SHADOWS 3 SEMAINES
+
+**GO 1 : BAC petites mises.** v1 (1 seul BUY réel en range/basse) puis v2/v3 (refus rejoués
+comme entrées hypothétiques, TP+8/stop-10%/timeout48h, frais 0,1 %) :
+- Range/basse : 7 signaux seulement, tous gagnants (+47 $ à 100 %) — trop peu pour conclure.
+- RANGE global : 299 refus rejoués → M100 +27,80 $ mais médiane **-0,86 $**, win 44 %.
+  Miser petit divise la perte par 4 (M25 +6,14 $) mais ne crée pas de gain : la médiane
+  reste négative à toutes les tailles.
+**Verdict honnête : le BAC ne justifie PAS d'allumer REGIME_MISE_ON.** Le range/basse est
+trop rare pour trancher, le range global est perdant en médiane même à 25 %. Pistes avant
+tout allumage : cibler plancher-achat (70,7 % rebonds) plutôt que les refus génériques, ou
+attendre plus de signaux range/basse. Bouton reste OFF. 0 câblage changé.
+
+**GO 2 : durée d'accumulation des shadows.** Rythme mesuré : plancher ~15 signaux/semaine,
+re-entry (SELL) ~25/semaine en régime normal (ralenti actuel : 3-9/semaine en plat).
+Proposition : **juger à 50 signaux chacun ≈ 3 semaines** de régime normal. En plat actuel,
+compter en signaux pas en jours (le plat produit peu). Premier bilan proposé : quand
+REENTRY_SHADOW + PLANCHER_SHADOW totalisent 50 lignes chacun au CSV, ou le 18/11 si le
+marché se réveille avant.

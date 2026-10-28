@@ -921,6 +921,10 @@ class PaperBot:
         # paire et on réduit la taille des ré-entrées sur les paires qui font traverser
         # leurs stops. OFF par défaut dans defaults.env (obs 48h), fail-open sans données.
         self.slip_gate_on = cfg.get("SLIP_GATE_ON", "0").strip() not in ("0", "false", "False")
+        # REGIME_MISE (28/10/2026, GO Christophe « go », R21/R24) : OFF par défaut
+        # (×1.0 partout = comportement inchangé). ON → petites mises range/basse (×0.5),
+        # quasi-stop bear (×0.25). Politique par actif via regime_politique (profils).
+        self.regime_mise_on = cfg.get("REGIME_MISE_ON", "0").strip() not in ("0", "false", "False")
         self.slip_gate_min_stops = max(1, int(float(cfg.get("SLIP_GATE_MIN_STOPS", "3"))))
         self.slip_gate_slip_pp = float(cfg.get("SLIP_GATE_SLIP_PP", "1.0"))
         self.slip_gate_mult = float(cfg.get("SLIP_GATE_MULT", "0.5"))
@@ -941,6 +945,7 @@ class PaperBot:
         # d'acheter le couteau ; dès CONFIRME/ACHETE, l'entrée redevient libre.
         # ON par défaut (appliqué) ; PLANCHER_GATE_ON=0 le désactive en 1 ligne.
         self.plancher_gate_on = cfg.get("PLANCHER_GATE_ON", "1").strip() not in ("0", "false", "False")
+        self.plancher_shadow_on = cfg.get("PLANCHER_SHADOW_ON", "1").strip() not in ("0", "false", "False")
         # === FENÊTRE D'ENTRÉE AU CREUX (21/09/2026, GO Christophe) — carte_fenetres_entree.json ===
         # Mesuré : entrer dans la fenêtre de creux au lieu des heures réelles = +32 % à
         # notionnels identiques (sortie +2 % inchangée). ON par défaut ; ENTREE_FENETRE_ON=0
@@ -1503,6 +1508,50 @@ class PaperBot:
             return self.slip_gate_mult
         return 1.0
 
+    def regime_mult(self, pair: str) -> float:
+        """MULTIPLICATEUR RÉGIME (28/10/2026, GO Christophe « go », R21/R24) : module la
+        mise selon le régime BTC (direction × vol) — même famille que wall_mult/slip_mult.
+        OFF par défaut (REGIME_MISE_ON=0 → ×1.0 partout, comportement inchangé). Quand ON :
+        range/basse → ×0.5 (petites mises au lieu de refus, §42) ; bear/haute → ×0.25
+        (quasi-stop, §42) ; bear/basse → ×0.25 ; le reste → ×1.0.
+        Politique par actif lue de regime_politique si présente (R24), sinon défaut ci-dessus.
+        Rôle : sur-mesure par régime. Lecteur : sizing (buy). Preuve : BAC 28/10 (281 sorties).
+        Fail-open : toute erreur/donnée absente → ×1.0."""
+        if not getattr(self, "regime_mise_on", False):
+            return 1.0
+        try:
+            # chg24 BTC : prix live vs cache klines local (replay_cache, lecture seule).
+            btc_now = float(getattr(self, "btc_price", 0) or 0)
+            if not btc_now:
+                return 1.0
+            chg = None
+            try:
+                import glob as _glob
+                _kl = json.load(open(sorted(_glob.glob(str(RUNS / "replay_cache" / "BTCUSDT_1h_45j.json")))[0]))
+                _t = time.time()
+                _px24 = None
+                for _k in _kl:
+                    if _k["t"] / 1000 <= _t - 24 * 3600:
+                        _px24 = _k["c"]
+                    else:
+                        break
+                if _px24:
+                    chg = (btc_now / float(_px24) - 1.0) * 100.0
+            except Exception:
+                chg = None
+            if chg is None:
+                return 1.0
+            try:
+                amp = float((((self.profils.get(pair) or {}).get("regime_politique") or {}).get("amp7j_med")) or 2.0)
+            except Exception:
+                amp = 2.0
+            trend = "bull" if chg > 1.5 else ("bear" if chg < -1.5 else "range")
+            vol = "haute" if amp >= 2.0 else "basse"
+            table = {"range/basse": 0.5, "bear/haute": 0.25, "bear/basse": 0.25}
+            return table.get(f"{trend}/{vol}", 1.0)
+        except Exception:
+            return 1.0
+
     def check_wall_melt(self, pair: str):
         """Détection post-choc : si BTC a chuté >$150 et que le mur bid fond >20% →
         signal d'alerte (la liquidité retire)."""
@@ -1580,6 +1629,36 @@ class PaperBot:
             self._plancher_cache = cache
             self._plancher_cache_ts = now
         return plancher_veto_decision(self._plancher_cache.get(pair))
+
+    def _shadow_plancher(self, pair: str, price: float, sc: dict, regime: str) -> None:
+        """Fantôme plancher-achat (28/10, GO Christophe, R21/R24) : si la dernière entrée
+        d'historique de LA paire est CONFIRME/ACHETE, journalise PLANCHER_SHADOW (une fois
+        par paire-jour : `skip_logged` évite le spam) avec le plan simulé en 3 paliers
+        (33 % signal / 33 % -3 % / 33 % -6 % si touchés sous 6 h) et le suivi +24 h.
+        ZÉRO ordre, ZÉRO position. Retourne toujours None."""
+        try:
+            d = (self._plancher_cache or {}).get(pair) or {}
+        except Exception:
+            return
+        if d.get("phase") not in ("CONFIRME", "ACHETE"):
+            return
+        key = (pair, utc_now()[:10])
+        seen = getattr(self, "_plancher_shadow_vus", None)
+        if seen is None:
+            seen = self._plancher_shadow_vus = set()
+        if key in seen:
+            return
+        seen.add(key)
+        pol = "3 paliers"
+        try:
+            pol = ((self.profils.get(pair) or {}).get("regime_politique") or {}).get("plancher", pol)
+        except Exception:
+            pass
+        self.log(pair, "PLANCHER_SHADOW", regime, price, price, 0.0, 0.0,
+                 sc.get("cadence_pct"),
+                 f"shadow_plancher phase={d.get('phase')} drop={d.get('drop_depuis_pic_pct')}% "
+                 f"C1={d.get('C1_murs_stables')} C2={d.get('C2_spread_ok')} "
+                 f"C3={d.get('C3_rebond_ok')} | plan={pol} (0 ordre, suivi +24h)")
 
     def sense_ok(self, pair: str, sc: dict, regime: str) -> tuple[bool, str]:
         if not self.sense_on:
@@ -2520,6 +2599,18 @@ class PaperBot:
                     sc.get("cadence_pct"), f"PLANCHER:{_pwhy}",
                 )
                 return
+        # SHADOW PLANCHER-ACHAT (28/10/2026, GO Christophe « go », R21/R24) : quand le
+        # plancher est CONFIRMÉ/ACHETÉ pour la paire (C3 rebond OK), on JOURNALISE ce qui
+        # se serait passé en 3 paliers (BAC 28/10 : +167 $ vs +51 $ d'un coup, QNT sauvée)
+        # — 0 ordre, 0 position. Rôle : preuve continue avant paliers réels. Lecteur :
+        # registre/BAC. Preuve : plancher 70,7 % rebonds ≥3 %/24h (58 rejoués, §40).
+        # Politique par actif lue du champ regime_politique (R24 : RIZE/QNT paliers,
+        # EDEL indifférent). Réversible : PLANCHER_SHADOW_ON=0.
+        try:
+            if getattr(self, "plancher_shadow_on", False):
+                self._shadow_plancher(pair, price, sc, regime)
+        except Exception:
+            pass
         ok, why = self.sense_ok(pair, sc, regime)
         if not ok:
             say("warn", f"[{utc_now()}] BUY skip {pair} sense={why}")
@@ -2545,6 +2636,10 @@ class PaperBot:
         # TAILLE ADAPTATIVE MURS (25/08, GO Christophe) : mur solide → ×1.2, mur fragile → ×0.6
         if notion is None:  # pas de cash_redeploy (déjà calibré)
             trade_n = trade_n * self.wall_mult(pair)
+        # MULTIPLICATEUR RÉGIME (28/10/2026, GO Christophe) : OFF = ×1.0 (inchangé).
+        # ON : range/basse ×0.5, bear ×0.25 (politiques §42, par actif si renseigné).
+        if notion is None:
+            trade_n = trade_n * self.regime_mult(pair)
         # FUSIBLE ÉTAGE 2 (10/09, GO Christophe) : détarage linéaire — entre 0 et
         # 100 % du budget de perte de la paire, la mise est rabotée progressivement
         # (on freine avant le mur). Ne s'applique que sur mise STANDARD (pas de

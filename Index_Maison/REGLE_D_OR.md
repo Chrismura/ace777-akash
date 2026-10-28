@@ -444,6 +444,23 @@ sait *ce qui* a échoué, plus *qui* doit apprendre de l'erreur. C'est exactemen
 qui s'est déclaré, pas qui a physiquement tapé ; la garde mécanique (contrôleur branché sur la
 cadence) est un **chantier à GO** séparé.
 
+### R24 — SUR-MESURE, VÉRIFIÉ CAS PAR CAS (ORDRE Christophe, 28/10/2026)
+> Mot pour mot : « nous faisons du sur mesure, verifier toujours cas par cas, c une regle. »
+
+**En une phrase** : aucun réglage, aucune porte, aucune mise n'est commune à tous les actifs
+par défaut — chaque actif porte son filet mesuré, et **tout changement est vérifié actif par
+actif avant d'être généralisé** (un résultat global ne prouve rien pour un actif donné).
+
+**Pourquoi (le cas qui la fait naître)** : le 28/10/2026, le BAC paliers sur 55 signaux
+disait « petits paliers ≈ 3× mieux » — mais par actif : RIZE +133 $ vs +61 $ (paliers
+indispensables), EDEL +12,68 $ vs +11,20 $ (indifférent), QNT +21,27 $ vs -21,95 $ (paliers
+qui sauvent un actif perdant). Une moyenne globale aurait imposé les paliers partout —
+y compris où ils ne servent à rien. Le sur-mesure, c'est RIZE ≠ EDEL ≠ QNT, prouvé.
+
+**Mesure (R24)** : tout BAC affiche le tableau **par actif** (n, total, médiane, win, frais) ;
+une généralisation à tout l'univers exige le même tableau vert sur **chaque** actif concerné
+— sinon, politique par actif, pas globale.
+
 ### Amélioration de #3 — DOUBLE CONTRÔLE pour toute action irréversible
 > Source externe : **two-person rule / dual control** (https://en.wikipedia.org/wiki/Two-person_rule).
 
