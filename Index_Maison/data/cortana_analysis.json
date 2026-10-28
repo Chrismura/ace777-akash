@@ -1,23 +1,8 @@
 {
-  "timestamp": 1793230592,
-  "date": "2026-10-28T23:36:32.338641+00:00",
-  "n_analyses": 16,
+  "timestamp": 1793230892,
+  "date": "2026-10-28T23:41:32.466900+00:00",
+  "n_analyses": 15,
   "analyses": [
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 3.7597121534959532,
-        "value": 0.62,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE, sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
-        "ts": 1793209004.034292
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
     {
       "signal": {
         "metric": "sdi",
@@ -44,7 +29,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": -1,
           "depasse": true
         },
@@ -54,7 +39,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 7e-05,
+          "value": 6.8e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -103,7 +88,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -128,7 +113,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": -1,
           "depasse": true
         },
@@ -138,7 +123,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 7e-05,
+          "value": 6.8e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -172,7 +157,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -197,7 +182,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": -1,
           "depasse": true
         },
@@ -207,7 +192,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 7e-05,
+          "value": 6.8e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -241,7 +226,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -271,24 +256,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 627055.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -311,7 +295,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -351,7 +335,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -361,7 +345,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 7e-05,
+          "value": 6.8e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -395,24 +379,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 627055.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.1,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
