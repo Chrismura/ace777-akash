@@ -1,4 +1,4 @@
-# Hulk DIGEST — 2026-10-28T06:26:17Z
+# Hulk DIGEST — 2026-10-28T07:27:26Z
 
 > ⚠️ **SCAN DÉGRADÉ (réseau)** — données partielles, veille hors délai.
 
@@ -14,21 +14,21 @@
 
 | pair | hint | tension | move6% | dd6% | chg24% | vol USDT | spread bps | DefiLlama |
 |------|------|---------|--------|------|--------|----------|------------|-----------|
-| XRPUSDT | IDLE | 0.8 | 1.42 | 1.18 | 0.02 | 19518323.8 | 2.26 | n/a |
-| ETHUSDT | IDLE | 0.65 | 1.21 | 0.61 | 0.02 | 245496762.96 | 0.04 | no_map |
-| BTCUSDT | IDLE | 0.39 | 0.74 | 0.3 | 0.02 | 304087493.52 | 0.0 | no_map |
-| WUSDT | IDLE | 0.92 | 1.86 | 0.95 | 0.04 | 636222.47 | 22.63 | tvl≈1,522,776,135 |
-| RWAINCUSDT | WATCH_PULLBACK — tension haute + reflux | 2.71 | 5.68 | 5.24 | -0.08 | 58995.13 | 6.84 | no_map |
-| PYTHUSDT | IDLE | 1.37 | 2.41 | 2.18 | -0.01 | 363954.41 | 2.76 | tvl≈162,833,822 |
-| ZBCNUSDT | IDLE | 1.9 | 3.66 | 2.56 | -0.04 | 203748.16 | 22.52 | n/a |
-| RIZEUSDT | IDLE | 2.43 | 4.52 | 2.31 | 0.03 | 36255.88 | 59.1 | no_map |
-| CCUSDT | IDLE | 0.91 | 1.6 | 1.5 | 0.01 | 235858.58 | 9.11 | no_map |
-| CHIPUSDT | IDLE | 1.23 | 3.01 | 2.83 | 0.04 | 121682.68 | 16.67 | no_map |
-| HBARUSDT | IDLE | 1.04 | 1.9 | 1.23 | -0.0 | 351758.01 | 3.93 | empty_tvl |
-| BIOUSDT | IDLE | 0.99 | 1.82 | 1.05 | 0.02 | 68435.45 | 8.81 | n/a |
-| REDUSDT | IDLE | 0.63 | 1.33 | 0.55 | 0.06 | 57807.48 | 14.94 | tvl≈3,858,198 |
-| KITEUSDT | IDLE | 0.48 | 0.86 | 0.63 | 0.05 | 60018.66 | 11.04 | no_map |
-| EDELUSDT | ERR | — | — | — | — | — | — | scan_deadline |
+| XRPUSDT | IDLE | 0.85 | 1.48 | 1.45 | 0.02 | 19555896.97 | 0.75 | skipped_fast |
+| ETHUSDT | IDLE | 0.44 | 0.78 | 0.66 | 0.02 | 242604995.69 | 0.21 | skipped_fast |
+| BTCUSDT | IDLE | 0.25 | 0.44 | 0.34 | 0.02 | 295690008.64 | 0.0 | skipped_fast |
+| PYTHUSDT | IDLE | 1.63 | 2.87 | 2.64 | -0.02 | 365307.59 | 1.39 | skipped_fast |
+| WUSDT | IDLE | 0.68 | 1.32 | 1.08 | 0.02 | 616299.07 | 18.78 | skipped_fast |
+| EDELUSDT | IDLE | 1.54 | 2.75 | 2.14 | 0.02 | 350987.71 | 24.55 | skipped_fast |
+| ZBCNUSDT | IDLE | 1.82 | 3.51 | 2.49 | -0.04 | 205872.08 | 20.6 | skipped_fast |
+| RWAINCUSDT | IDLE | 2.03 | 4.04 | 3.69 | -0.08 | 57495.96 | 34.16 | skipped_fast |
+| RIZEUSDT | IDLE | 2.43 | 4.52 | 2.24 | 0.03 | 36177.13 | 61.36 | skipped_fast |
+| CCUSDT | IDLE | 1.05 | 1.86 | 1.66 | 0.01 | 239612.44 | 8.1 | skipped_fast |
+| CHIPUSDT | IDLE | 1.17 | 3.01 | 1.82 | 0.07 | 119118.4 | 14.67 | skipped_fast |
+| HBARUSDT | IDLE | 1.02 | 1.79 | 1.72 | -0.01 | 372626.67 | 9.21 | skipped_fast |
+| KITEUSDT | IDLE | 0.99 | 1.75 | 1.52 | 0.03 | 60306.11 | 13.72 | skipped_fast |
+| BIOUSDT | IDLE | 0.89 | 1.55 | 1.53 | 0.02 | 81929.09 | 17.69 | skipped_fast |
+| REDUSDT | IDLE | 0.83 | 1.64 | 1.34 | 0.04 | 58153.72 | 14.39 | skipped_fast |
 | QNTUSDT | ERR | — | — | — | — | — | — | scan_deadline |
 | FLUIDUSDT | ERR | — | — | — | — | — | — | scan_deadline |
 | RWAUSDT | ERR | — | — | — | — | — | — | scan_deadline |

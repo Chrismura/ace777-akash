@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": -2.0270004739844527,
-      "value": 5.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique absolu (musique, baskets, jeux vidéo). L'anomalie onchain 'dust' est un bruit statistique sans corrélation avec une accumulation ou distribution de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-26T20:27:57.587168+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.406098735476296,
       "value": 0.969,
@@ -349,6 +342,13 @@
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
       "ts": "2026-10-28T03:56:02.408076+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 8.28050944166117,
+      "value": 7572623.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.28, ~7.5M USD) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation furtive de baleines en zone de silence médiatique.\"\n}\n```",
+      "ts": "2026-10-28T06:57:21.155325+00:00"
     }
   ]
 }
