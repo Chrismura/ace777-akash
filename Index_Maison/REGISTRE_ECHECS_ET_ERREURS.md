@@ -1643,3 +1643,35 @@ refermé par ce plan.
 
 **PATTERN COMMUN (pire que chaque faute)** : E20/E23/E24/E25 = « juger le moteur contre un critère qu'il n'utilise pas » ; §22 = l'inverse — **« ne pas regarder ce que le moteur utilise vraiment »** (span réel, colonnes réelles, tuyaux réels, enchaînements réels). Dans les deux cas, je parle DEPUIS UN ÉCRAN au lieu de la source. Les BAC rejouent des mondes que je n'ai pas vérifiés, donc mes conclusions « mesurées » reposaient parfois sur du vide — la question de Christophe (« comment être sûr si tu ne joues pas tout au bac ? ») est légitime et reste ouverte : le protocole ci-dessous la ferme mécaniquement.
 **Réponse** : `hulk-mexc/BAC_A_SABLE/PROTOCOLE_BOUCLE_FERMEE.md` (28/10) — 6 verrous inspirés des pros (SR 11-7/26-2 : effective challenge indépendant ; aviation : checklist ; clinique : pré-enregistrement ; post-mortem blameless). Appliqué à ce tour même (table d'application §49). IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §23 — FAUTES GRAVES : les tableaux qui se contredisent (28/10 soir, ordre de Christophe : « fixe ces putains de tableaux »)
+
+**Contexte** : Christophe signale un gros écart des totaux gains entre le matin et le soir. Audit à la source : l'intraday est innocent (1 seul trade, CHIP -0,37 $ à 12h01). Le vrai mal est plus vieux : **trois chiffres coexistent pour le même réalisé** — moteur 44,28 $, chiffrage « brut » 47,84 $, compteur par paire -2,06 $ — et aucun garde ne les réconcilie. Le coup d'œil portefeuille demandé depuis le début n'existe pas.
+
+**E-DIVERGENCE — le chiffrage ignorait une famille de pertes (grave)** : `chiffrage_pnl_net.py` ne comptait que SELL/SELL_PARTIAL/BAG_SELL. Le `BAG_CRASH` EDEL du 05/09 (-3,5578 $, filet qui largue 90 % sur crash -38,5 %) passait sous le radar → brut surestimé de +3,56 $ (7-8 % du total). Preuve : somme des 366 bookings = 44,2791 $ = moteur 44,2788 $, 0 divergence sur 109 171 lignes — le journal est juste, le compteur du tableau était faux. **Règles violées** : E28 (liste d'événements comptés jamais validée contre le livre du moteur) · E-RECOUPEMENT (familles d'événements jamais croisées entre elles). **Correction (ce tour)** : le chiffrage compte tout booking (|pnl_usdt| > 0) par construction, et la garde crie si journal ≠ moteur.
+
+**E-TRONCATURE — le compteur par paire a perdu 46 $ d'historique (grave, touche le live)** : `pair_pnl` (né le 14/10) n'a été alimenté par le nouveau code qu'au redémarrage suivant → tous les bookings intermédiaires (dont CHIP -11,46 $ du 14/10) n'y sont jamais entrés. Somme actuelle -2,06 $ contre 44,28 $ réels. Conséquence live : `current_notional` taille les mises sur ce compteur → **sous-mise systématique des gagnants** (RED +0,11 affiché vs +18,45 réel, EDEL +0,02 vs +6,27, QNT -0,03 vs +5,50, W 0 vs +6,71). **Règles violées** : E-couverture (nouvelle clé sans reprise d'historique) · #4 (le sizing ne voit pas le même monde que le journal). **Correction (ce tour)** : au resume, `pair_pnl` est reconstruit depuis le journal si et seulement si journal == état (tolérance 0,01 $, n bookings == trades) — sinon on garde l'état et on crie. Autoguérison + fail-closed.
+
+**PATTERN** : §22 disait « ne pas regarder ce que le moteur utilise vraiment » — ici c'est l'inverse symétrique : **des tableaux qui ne lisent pas le même livre que le moteur** (filtre d'événements incomplet, compteur partiel). Un chiffre affiché sans réconciliation automatique contre sa source est un avis, pas une mesure. D'où la garde : journal == moteur == par-paire, à chaque run, sinon KO.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §24 — FAUTES GRAVES (cockpit) : trois coûts, un faux plafond, des étiquettes qui accusent (28/10 soir, ordre de Christophe : « tous les tableaux du cockpit corrects, fini le bidouillage »)
+
+**Contexte** : le passé du 12/10 (EDEL +37,45 $ fantômes) avait fait corriger le rejeu au cas par cas, mais le cockpit gardait TROIS modèles de coûts et un ⚠ structurellement faux. Christophe colle le tableau : net 39,28 $ (cockpit) vs 29,17 $ (portefeuille), « (paper $218,62) », 4 paires « au-delà du plafond moteur ».
+
+**E-COUTS (grave, affichage)** : header = brut − frais(5bps) − 0 → net 39,28 $, spread ~10,46 $ jamais déduit, pendant que « slip total 20,74 $ » re-sommait la colonne (frais INCLUS → double compte). **Correction** : module unique `couts_communs.py` — brut 44,28 − frais 4,66 − spread 10,46 = coûts 15,11 = net 29,17, IDENTIQUE au chiffrage et au cockpit (garde 9/9). Le spread est enfin nommé et déduit.
+
+**E-PLAFOND (grave, fausse alarme)** : le ⚠ comparait le net investi du rejeu (cumul achats−ventes) au plafond moteur (mise×3) → CHIP/ETH/EDEL/BTC criés alors que leurs mises sont 19–24 $ < 60 $. R14 : une alarme qui sonne sur du normal tue la confiance. **Correction** : la brèche se juge sur la mise moteur (`notionals_par_paire`) ; par-paire et top-level cohérents ; `overBudget` vide et VRAI.
+
+**E-ETIQUETTE (moyen, confiance)** : « (paper $X) » et « ($0 moteur) » présentaient deux notions (compte rejoué vs poche ventes-seules) comme un soupçon. **Correction** : libellés explicites « poche moteur — ventes seules », % d'écart par ligne sur la même base que le total (hold, plus budget), note du modèle dans chaque tableau. Les chiffres n'ont pas changé de valeur — ils ont cessé d'accuser.
+
+**PATTERN** : §23 fermait les livres du moteur ; §24 ferme l'ÉCRAN — un tableau n'est juste que si (a) il lit la source unique, (b) ses alarmes portent sur la grandeur qu'elles nomment, (c) ses bases de % sont les mêmes en ligne et au total. La garde l'impose : cockpit == chiffrage au centime, sinon KO.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §25 — E-BRUIT : le tableau criait sur chaque ligne au lieu d'une seule (28/10 soir, suite ordre cockpit-correct)
+
+**Contexte** : après §24, le tableau affichait « (poche $X) » sur 12 lignes + des cash négatifs non expliqués. Question de Christophe : « ???? ».
+**Fait** : les chiffres sont VRAIS — cash négatifs (ETH -0,19 $, KITE -0,57 $…) = paires ayant dépensé au-delà de leur budget (compounding sur pool commun, normal en paper) ; écarts poche = l'effet structurel documenté, dans les deux sens (RED poche +39,85, W +19,16, RWA -20 parce que la poche ne paie jamais les achats).
+**Correction** : UN SEUL cash par ligne (le compte rejoué, le vrai), dépassement nommé quand négatif, poche reléguée au diagnostic unique du header (title). Le détail par paire reste dans mission.json pour l'audit.
+**Règle** : une info d'audit n'a pas sa place sur chaque ligne d'un tableau de pilotage — une fois en note, une fois en JSON, jamais douze.
+IA=Buffy (Muse Spark 1.3, Freebuff).

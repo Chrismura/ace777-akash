@@ -1,42 +1,8 @@
 {
-  "timestamp": 1793212887,
-  "date": "2026-10-28T18:41:27.119246+00:00",
+  "timestamp": 1793216488,
+  "date": "2026-10-28T19:41:28.138609+00:00",
   "n_analyses": 12,
   "analyses": [
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 4.305103180828996,
-        "value": 0.7073505622206988,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.31) couplé à un silence médiatique total (Google Actualités vide) : accumulation furtive typique de baleines avant une cassure de prix.\"\n}\n```",
-        "ts": 1793192035.845544
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.2,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 4867017.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "whale_usd",
@@ -48,7 +14,7 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 1233222.0,
+          "value": 544517.0,
           "seuil": 0,
           "depasse": true
         },
@@ -58,7 +24,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.2,
+          "value": 0.35,
           "seuil": 1,
           "depasse": false
         }
@@ -98,7 +64,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.2,
+          "value": 0.35,
           "seuil": 1,
           "depasse": false
         },
@@ -152,7 +118,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.2,
+          "value": 0.35,
           "seuil": 1,
           "depasse": false
         },
@@ -191,7 +157,7 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 1233222.0,
+          "value": 544517.0,
           "seuil": 0,
           "depasse": true
         },
@@ -201,7 +167,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.2,
+          "value": 0.35,
           "seuil": 1,
           "depasse": false
         }
@@ -271,12 +237,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.2,
+          "value": 0.35,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 4867017.0,
+          "value": 2439121.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -308,6 +274,41 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 3.2447366545110388,
+        "value": 4867017.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Aucune baleine crypto détectée derrière ce z-score non pertinent pour les flux onchain.\"\n}\n```",
+        "ts": 1793212951.57707
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 257830.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 2181291.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.35,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"

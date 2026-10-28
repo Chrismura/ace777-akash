@@ -526,8 +526,7 @@ def load_hulk():
         out["fees"] = round(fee_total, 4)
         out["feeTrades"] = fee_trades
         # P2 : comptabilité paper séparée, sans altérer le PnL décisionnel du moteur.
-        # Les frais et le slippage sont des estimations d'audit, jamais des fills réels.
-        out["pnlGross"] = round(float(out.get("pnl") or 0.0), 4)
+        # Les frais et le slippage sont des estimations d'audit, jamais des fills réels.        out["pnlGross"] = round(float(out.get("pnl") or 0.0), 4)
         slip_bps = 0.0
         try:
             slip_bps = float((state_data or {}).get("PAPER_SLIPPAGE_BPS") or 0.0)
@@ -538,10 +537,31 @@ def load_hulk():
             abs(float(r.get("price") or 0.0) * float(r.get("qty") or 0.0)) * slip_bps / 10000.0
             for r in rows if r.get("price") is not None and r.get("qty") is not None
         ), 4)
-        out["pnlNetEstimated"] = round(
-            out["pnlGross"] - float(out["fees"] or 0.0) - float(out["slippageEstimated"] or 0.0), 4
-        )
-        out["accountingNote"] = "PnL moteur brut; frais/slippage estimés séparément par le feed"
+        # §24 (28/10, ORDRE Christophe « fini le bidouillage ») : MODÈLE DE COÛTS
+        # UNIQUE — le même que le chiffrage (couts_communs). Avant, ce header
+        # montrait frais 5bps seuls (spread ignoré → net surestimé ~10 $) pendant
+        # que le chiffrage disait autre chose. Maintenant : brut − frais − spread.
+        _cc = None
+        try:
+            import sys as _sys
+            _sys.path.insert(0, str(ROOT / "hulk-mexc" / "scripts"))
+            from couts_communs import couts_journal as _couts_journal
+            if csv_p is not None and csv_p.exists():
+                _cc = _couts_journal(csv_p, ROOT / "hulk-mexc")
+        except Exception:
+            _cc = None
+        if _cc is not None:
+            out["fees"] = _cc["frais"]
+            out["spreadEstime"] = _cc["spread"]
+            out["coutsEstimes"] = _cc["couts"]
+            out["pnlNetEstimated"] = _cc["net"]
+            out["accountingNote"] = ("PnL moteur brut ; frais+spread = modèle UNIQUE §24 "
+                                       "(couts_communs, identique au chiffrage)")
+        else:
+            out["pnlNetEstimated"] = round(
+                out["pnlGross"] - float(out["fees"] or 0.0) - float(out["slippageEstimated"] or 0.0), 4)
+            out["accountingNote"] = ("PnL moteur brut ; modèle unique indisponible "
+                                       "(repli legacy — à auditer, voir §24)")
 
     # ——— WALLET : origine → réel vs statique (buy & hold) ———
     # Origine (point zéro Christophe 19/08) : 10 $ crypto + 20 $ cash = 30 $.
@@ -951,8 +971,17 @@ def load_hulk():
         else:
             full30_par_paire[_pair] = _budget
         _net = net_investi.get(_pair, 0.0)
-        if _net > plafond_par_paire + 0.01:
-            over_budget.append(_pair)          # vraie brèche : au-delà du plafond moteur
+        # §24 (28/10) : FINI LE FAUX ⚠. La « vraie brèche » se juge sur la MISE
+        # que le moteur applique VRAIMENT (notionals_par_paire, base×3 max), pas
+        # sur le net investi du rejeu (cumul d'achats − ventes, autre notion).
+        # Mesuré : CHIP/ETH/EDEL/BTC criés alors que leurs mises sont 19–24 $ < 60 $.
+        _mise_mot = 0.0
+        try:
+            _mise_mot = float((mise_all or {}).get(_pair) or 0.0)
+        except Exception:
+            _mise_mot = 0.0
+        if _mise_mot > plafond_par_paire + 0.01:
+            over_budget.append(_pair)          # vraie brèche : mise moteur au-delà du plafond
         elif _net > _budget + 0.01:
             compound_actif.append(_pair)       # compounding : voulu, borné, déclaré
     reel_w = sum(reel_par_paire.values())
@@ -1079,10 +1108,12 @@ def load_hulk():
                     "ecart": round(reel_par_paire.get(_p, 0.0) - hold_par_paire.get(_p, 0.0), 2),
                     "full30": round(full30_par_paire.get(_p, 0.0), 2),
                     "ecartFull30": round(reel_par_paire.get(_p, 0.0) - full30_par_paire.get(_p, 0.0), 2),
-                    "over": net_investi.get(_p, 0.0) > plafond_par_paire + 0.01,
+                    # §24 : « over » = la MISE moteur dépasse le plafond (même
+                    # règle que la liste overBudget — fini le ⚠ fantôme). Le
+                    # compounding (↗) reste le net investi du rejeu > budget.
+                    "over": float((mise_all or {}).get(_p) or 0.0) > plafond_par_paire + 0.01,
                     "compound": (budget_par_paire.get(_p, 0.0) + 0.01
-                                 < net_investi.get(_p, 0.0)
-                                 <= plafond_par_paire + 0.01),
+                                 < net_investi.get(_p, 0.0)),
                 }
                 for _p in _all_pairs
             ],
@@ -1117,13 +1148,23 @@ def load_hulk():
     for _pp, _vv in _spread_par_paire.items():
         _slip_med[_pp] = round(sorted(_vv)[len(_vv) // 2], 1) if _vv else 0.0
     _slip_pires = sorted(((_pp, _mm) for _pp, _mm in _slip_med.items() if _mm > 0), key=lambda x: -x[1])[:5]
+    # §24 : les coûts affichés ici = le modèle UNIQUE (== chiffrage), pas la
+    # colonne journal partielle. Le slip des stops reste une info séparée (state).
+    try:
+        _cc_pairs = (_cc or {}).get("par_paire") or {}
+        for _pp in list(_cout_par_paire.keys()):
+            if _pp in _cc_pairs:
+                _cout_par_paire[_pp] = float(_cc_pairs[_pp]["couts"])
+        _cout_total_u = (_cc or {}).get("couts", round(sum(_cout_par_paire.values()), 2))
+    except Exception:
+        _cout_total_u = round(sum(_cout_par_paire.values()), 2)
     out["hulkVsHold"]["slippage"] = {
-        "coutTotal": round(sum(_cout_par_paire.values()), 2),
+        "coutTotal": _cout_total_u,
         "piresSpreads": [{"pair": _pp, "medBps": _mm} for _pp, _mm in _slip_pires],
         "alerte": [_pp for _pp, _mm in _slip_pires if _mm >= 50.0],
         "brides": sorted([_pp for _pp in _all_pairs if _slip_aff.get(_pp, {}).get("bride")]),
         "gateOn": bool(_slip_on),
-        "note": "Spreads medians MESURES au journal (live). Slip des stops PERSISTE au state depuis le 16/10 (GO 13/10). SLIP_GATE ON au config (l'ancien commentaire OFF etait perime, corrige 16/10).",
+        "note": "Couts = modele UNIQUE §24 (frais+spread par booking, == chiffrage). Spreads medians MESURES au journal (live). Slip des stops PERSISTE au state depuis le 16/10 (GO 13/10, info separee). SLIP_GATE ON au config.",
     }
     out["conseils"] = load_hulk_conseils()
     return out

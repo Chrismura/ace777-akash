@@ -2278,6 +2278,50 @@ class PaperBot:
                     pass
             raise
 
+    def _reparer_pair_pnl_depuis_journal(self) -> None:
+        """§23 (28/10/2026, ORDRE Christophe) : AUTOGUÉRISON du compteur par paire.
+        `pair_pnl` avait perdu ~46 $ d'historique : clé née le 14/10, alimentée
+        seulement au redémarrage suivant (RED +0,11 affiché vs +18,45 réels →
+        sous-mise des gagnants via current_notional). Le journal est append-only
+        et chaque booking y écrit son pnl_usdt : on le resomme par paire.
+        FAIL-CLOSED : on n'adopte que si journal == état (écart ≤ 0,01 $ ET
+        n bookings == trades) — sinon on garde l'état et on CRIE, on ne devine pas.
+        Réversible : un resume suivant avec un journal cohérent répare à nouveau."""
+        try:
+            if not self.csv_path.exists():
+                if int(getattr(self, "trades", 0) or 0) == 0:
+                    return  # premier run, rien à réparer
+                say("err", "RESUME §23 : journal absent avec des trades en état — pair_pnl gardé, à auditer")
+                return
+            _tot = 0.0
+            _par: dict[str, float] = {}
+            _n = 0
+            with open(self.csv_path, newline="", encoding="utf-8", errors="replace") as _fh:
+                for _r in csv.DictReader(_fh):
+                    try:
+                        _p = float(_r.get("pnl_usdt") or 0.0)
+                    except (TypeError, ValueError):
+                        continue
+                    if abs(_p) <= 1e-9:
+                        continue
+                    _n += 1
+                    _tot += _p
+                    _k = str(_r.get("pair") or "").upper()
+                    if _k:
+                        _par[_k] = float(_par.get(_k, 0.0)) + _p
+            if _n == 0 and int(getattr(self, "trades", 0) or 0) == 0:
+                return  # journal vide + état vierge : rien à réparer
+            if abs(_tot - float(self.pnl_total)) <= 0.01 and _n == int(self.trades):
+                _avant = sum(float(v) for v in (self.pair_pnl or {}).values())
+                self.pair_pnl = {k: round(v, 4) for k, v in _par.items()}
+                say("hdr", f"RESUME §23 : pair_pnl reconstruit depuis le journal "
+                           f"({_n} bookings, {_avant:+.2f}$ -> {sum(_par.values()):+.2f}$) — sizing par actif à nouveau vrai")
+            else:
+                say("err", f"RESUME §23 : pair_pnl NON reconstruit "
+                           f"(journal {_tot:+.4f}$/{_n} vs état {float(self.pnl_total):+.4f}$/{self.trades}) — état gardé, à auditer")
+        except Exception as e:  # noqa: BLE001
+            say("err", f"RESUME §23 : rebuild pair_pnl impossible ({e}) — état gardé")
+
     def resume_state(self) -> bool:
         """Reprend le DERNIER état NON VIERGE (positions + bags + cash) au lieu
         de re-seed. --resume (24/08, Christophe : « tenir les positions pendant
@@ -2371,6 +2415,7 @@ class PaperBot:
                            f"sous l'en-tête courant ({len(CSV_SCHEMA)} colonnes)")
             except Exception as e:                   # noqa: BLE001
                 say("err", f"[csv] RESUME_COPIE_ERR: {e}")
+        self._reparer_pair_pnl_depuis_journal()
         say("hdr", f"RESUME depuis {f.name} — {len(self.pos)} pos, "
                    f"{len(self.bags)} bags, cash {sum(self.pair_cash.values()):.2f}$, "
                    f"pnl {self.pnl_total:+.4f}$, trades {self.trades}")
