@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T14:34:12.965884+00:00",
+  "generated_at": "2026-10-28T14:37:14.834516+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 127
+      "calls_24h": 128
     },
     {
       "id": "openrouter-free",
@@ -283,10 +283,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 102,
-    "remaining": 522
+    "consumed": 103,
+    "remaining": 521
   },
   "queue": [
+    {
+      "ts": "2026-10-28T14:36:19.820718+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 45.23
+    },
     {
       "ts": "2026-10-28T13:49:21.248665+00:00",
       "task": "analyse.profonde",
@@ -398,17 +406,21 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.01
-    },
-    {
-      "ts": "2026-10-28T10:13:17.048635+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.9
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-28T14:36:19.820228+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-28T14:35:34.588712+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-10-28T14:12:15.956725+00:00",
       "kind": "http",
@@ -456,18 +468,6 @@
       "kind": "timeout",
       "title": "Patience Groq (Qwen 3.8 27B, gratuit) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-10-28T14:12:00.337198+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-28T14:12:00.336570+00:00",
-      "kind": "ratelimit",
-      "title": "429 Google Gemini -> pause 60s + bascule",
-      "detail": ""
     }
   ],
   "tasks_quotas": {
