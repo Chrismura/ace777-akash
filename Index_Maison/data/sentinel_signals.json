@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": -3.8729833462074166,
-      "value": 48,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score -3.87) sur un Fear & Greed neutre (48) couplé à un silence médiatique absolu. Historiquement, cette indifférence des médias combinée à une décote de volatilité trahit une accumulation discrète des baleines loin des radars de la foule.\"\n}\n```",
-      "ts": "2026-10-27T01:34:08.272651+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": -3.316624790355405,
       "value": 48,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Z-score extrême à -3.32 indique une peur irrationnelle ou une indifférence totale de la foule (Fear & Greed à 48), contrastant avec un silence médiatique absolu. Historiquement, c'est la configuration classique d'accumulation silencieuse par les baleines loin des radars.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 3874084.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux ('liquidations judiciaires' en Bretagne). La véritable anomalie on-chain (z-score 3.15 sur les liquidations crypto à 79.75k$) indique un 'flush' technique des positions excédentaires, nettoyant le marché sans panique fondamentale.\"\n}\n```",
       "ts": "2026-10-28T10:13:17.049369+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.8464225395643723,
+      "value": 3874084.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux sans rapport avec la crypto. Anomalie de liquidations onchain (z-score 2.85) trop faible pour confirmer un mouvement de baleine.\"\n}\n```",
+      "ts": "2026-10-28T10:43:22.982486+00:00"
     }
   ]
 }

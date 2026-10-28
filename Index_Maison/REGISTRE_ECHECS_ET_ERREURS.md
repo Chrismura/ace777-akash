@@ -1403,3 +1403,121 @@ MESURE_REENTRY_ON était branché mais AVEUGLE (armement coupé) — réparé pa
 intermédiaire corrigé en 120 s sur preuve, même périmètre déclaré. (c) Disque Data à 99 %
 (3 Go libres) : un `No space` a déjà tué un save_state — ménage à prévoir, hors périmètre,
 signalé sans y toucher.
+
+---
+
+## §38 — 28/10/2026 : GATES MESURÉS (PILE OU FACE) + DISQUE SAUVÉ SANS PERTE + 3 SIGNETS TREND
+
+**GO Christophe : « mesurer trop stricte + prévoir trends + bookmarks, résoudre disque sans rien perdre ».**
+
+**1. Le sense n'est pas le coupable — les vrais bloqueurs sont VOL/MUR/FENETRE.**
+Sur 28/09-26/10, le SENSE ne refuse presque rien (12 cas). Les 108 k SKIP viennent de
+VOL (53 k), MUR-FAIBLE (15 k), FENETRE (11 k), MUR-CASSE. Rejou de 139 refus uniques
+(paire-jour-motif) sur klines : **44,6 % BONS refus** (le prix chutait ≥2 %, pas de +2 %) /
+**52,5 % MANQUÉS** (le prix a pris +2 % dans 24 h) / 2,9 % neutres. Les gates jouent à
+pile ou face légèrement défavorable — elles filtrent presque autant de bonnes occasions
+que de pièges. Mesure au max 24 h des deux côtés (symétrique, la comparaison tient ; sortie
+réelle GBAG < max, frais non déduits — à affiner avant tout réglage, règle #8).
+
+**2. Décliné par trend BTC (bull >+1,5 % / bear <-1,5 % / range, chg24 au moment du refus).**
+70 % des refus tombent en RANGE (97/139) : 56,7 % manquent +2 %, 25,8 % manquent +5 %,
+gain médian +2,57 %. En bull : 33 % manqués (les gates laissent passer, moins de refus).
+En bear : 52 % manquent +2 % mais 4,8 % seulement +5 % (rebonds qui retombent).
+**Lecture : le régime qui coûte, c'est le RANGE mou** — ni trend à suivre, ni panique à
+éviter. C'est exactement le marché actuel. Exemples : QNT +17,3 % manqué le 28/09 (bear),
+RED +12,2 % le 02/10 (range), ZBCN +10,2 % le 30/09 (range).
+
+**3. Trois signets à approfondir (discussion demandée).**
+- GARCH/Engle (22/08, @Hrundel75, avis garder) : la direction est du bruit, la volatilité
+  est prévisible (~70 %) → dimensionner les positions sur la volatilité, pas sur la direction.
+- The GARCH Method (16/09, @milesdeutscher, open source) : framework quant + indicateurs
+  TradingView + skills agents IA — cité pour Alpha et Beta.
+- 15 régimes mathématiques (23/10, @RitOnchain, avis garder, TOUT RÉCENT) : au lieu de nos
+  5 états (QUIET/WATCH/COOLING/IMPULSE/IMPULSE_WAIT) ou des 3 classiques, une fiche issue
+  d'un forum quant privé. Piste : nos portes actuelles sont binaires par régime ; 15 régimes
+  permettraient des gates graduées (ex : range-mou → mises réduites au lieu de refus secs).
+Question pour la discussion : nos 5 régimes suffisent-ils, ou le range actuel prouve qu'il
+manque un état « range-mou » avec sa propre politique (petites mises plutôt que NO_TRADE) ?
+
+**4. Disque sauvé SANS PERTE (pré-déclaré AVANT).**
+Projet 5,4 Go : 7 cumulatifs archivés (cp → gzip → tronqué → gunzip -t vérifié) :
+PAPER/DIGEST_WATCHDOG_STDOUT, journal_radar, journal_intention, cortana_urgent_poll,
+history, croisement_contexte — ~300 Mo → ~12 Mo, **0 octet perdu**. Vérifié : moteur vivant
+(34609), state frais, contexte repart (46 Ko), rescelé. Restent, NON touchés (à décider
+ensemble) : .git 1,2 Go (histoire + index Cursor — intouchable sans perte), .venv-kronos
+483 Mo (torch, recréable via pip), 201 backups registre 31 Mo (filet de sécurité — proposer
+n'en garder que 30 ?). À noter : le disque Data est à 99 % (3 Go libres) et le projet n'en
+est que 5 Go — le plein vient d'ailleurs (hors périmètre : à diagnostiquer ensemble si tu veux).
+
+**Dette :** fichier DECL_TMP.jsonl créé par erreur pendant la manip, supprimé aussitôt (vide,
+jamais commité). Signalé pour la transparence.
+
+---
+
+## §39 — 28/10/2026 : 15 RÉGIMES CREUSÉS, CHIFFRÉS, NON CÂBLÉS
+
+**GO : sur-mesure + creuser les 15 régimes. 483 Mo : d'accord, ça ne résoudrait rien — abandonné.**
+
+**1. La fiche est un fantôme.** Post X = teasing sans image lisible, aucune reprise en
+ligne. On ne copie pas du vent : grille reconstruite maison (direction × vol × liquidité
+= 12 + 3 extrêmes = 15), avec nos mesures. Note : `hulk-mexc/BAC_A_SABLE/REGIMES_15.md`
+(rescellée). 0 câblage (R15 : mesurer avant câbler).
+
+**2. Le chiffre qui décide : 281 sorties classées.** Bull +40 $, range/haute +41 $,
+bear -21 $. Notre edge gagne quand ça monte ou quand ça bouge, perd quand ça baisse.
+Le range/basse (le plat actuel) : 5 trades, portes fermées, et les refus manquent +2,6 %.
+Proposition : bear/haute → quasi-stop ; range/basse → petites mises (25-50 %) au lieu de
+refus secs ; le reste → inchangé. Par actif : le régime module la MISE, les seuils restent
+ceux du filet mesuré de la paire.
+
+**3. Reste à chiffrer avant tout GO câblage :** rejou 25-50 % en range/basse (BAC),
+GARCH en continu (signet 22/08), 6 cases d'abord puis 15 si besoin.
+
+**Avenant §39 (28/10, transparence R14).** Le vérificateur signale REGIMES_15.md rescellé
+« sans pré-déclaration antérieure » alors que mon intention était écrite AVANT dans
+DECLARATIONS_IA.jsonl. Leçon : le gardien ne lit que `--declarer FICHIER` (predemodifier),
+pas les intentions en prose. Faute de format, pas de fond — mais faute quand même, et le
+passé ne s'efface pas (le --declarer post-acte n'autorise que le futur). Désormais :
+**--declarer le fichier au gardien AVANT de le créer/modifier**, toujours, en plus de
+la ligne d'intention. Dette close par la leçon.
+
+---
+
+## §40 — 28/10/2026 : PV EN BAISSE/CRASH — LE PLANCHER PRÉDIT LES REBONDS (70,7 %)
+
+**GO : « Hulk doit apprendre à générer des PV en baisse et surtout en crash ».**
+
+**1. Top desks (Arkham + doctrine).** Short, puts, range, accumulation, scalping, stablecoin
+yield. Traduction spot-only (pas de short) : (a) le cash est une position — racheter plus
+bas ; (b) acheter les cascades de liquidations ; (c) range support/résistance ; (d) prime
+de spread en crash ; (e) quasi-stop pour préserver. Rien de nouveau sous le soleil — sauf
+que (b), on l'a DÉJÀ, mesuré, sous-exploité.
+
+**2. Plancher confirmé mesuré : 70,7 % de rebonds ≥3 %/24h (58 rejoués, médiane +7,4 %,
+moyenne +12,3 %, RIZE/EDEL/QNT).** Le veto actuel : 0 blocage (chutes ≥25 % rares). Le
+plancher n'est pas une garde — c'est un signal d'achat qui dort. Proposition : shadow
+PLANCHER_SHADOW (comme le shadow re-entry), puis paliers 25 % sur preuve. Idée d'origine
+Christophe (« plancher confirmé en shadow ») : validée par la mesure.
+
+**3. Flottille.** Ollama local (qwen3.5:4b) interrogé : a compris « crash » comme les jeux
+de hasard — inutilisable, noté pour ne pas refaire. Web (Arkham 06/2026) + mesures maison
+à la place. La famille (consultations) reste mobilisable sur spec si besoin.
+
+**4. Vol.** Hulk ON +44,65 $, satellite frais, hub OK, ACE OFF (attendu). Short BTC +1,07 $.
+Note : `hulk-mexc/BAC_A_SABLE/PV_BAISSE_CRASH.md` (rescellée).
+
+---
+
+## §41 — 28/10/2026 : PALIERS CHIFFRÉS (3× MIEUX) + HEDGE VALIDÉ EN PRINCIPE
+
+**GO : chiffrer paliers (petits/gros/d'un coup) + évaluer le concept hedge.**
+
+**1. BAC paliers : petits paliers ≈ 3× mieux.** 55 signaux plancher rejoués, règles de
+sortie communes : d'un coup +50,65 $ (win 60 %), 3 petits +167,35 $ (win 73 %), moitié
++166,63 $ (win 71 %). Les paliers sauvent les trades qui dippent puis rebondissent.
+Détail : `hulk-mexc/BAC_A_SABLE/PV_BAISSE_CRASH.md`. 0 câblage.
+
+**2. Hedge bags-long + short perps : validé en principe, à observer.**
+61 sorties bear : réel -21,26 $, short BTC 20 $/24h +30,19 $, combiné +8,93 $.
+Corrélation 70 %. Proposition : Nado testnet en observation (BTC-PERP, spread 0,12 bps),
+15 j de paper, puis décision. Pas de short réel sans nouveau GO explicite.
