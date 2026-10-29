@@ -36,10 +36,11 @@ SORTIE (première condition atteinte)
 
 GARDES-FOUS
 -----------
-  - 29/10 (GO Christophe, R17 : jamais de fixe) : entrées 24/7. L'ancien ban nuit
-    est FALSIFIÉ par nos données (mesure_gate_nuit_shorts.py : nuit 53,5 %/-0,407 %,
-    n=2920 vs jour 64,9 %/-0,782 %, n=1318). La nuit paie moins → taille réduite
-    (NUIT_NOTIONNEL_MULT = 0,5, ratio mesuré), jamais d'interdiction.
+  - 29/10 soir (GO Christophe, 2e passe) : entrées 24/7 ET taille à RISQUE CONSTANT
+    (l'ère du ×0,5 nocturne est morte : un multiplicateur d'horloge est encore une
+    règle fixe). La taille suit la VOLATILITÉ mesurée (ATR range24 de la paire),
+    normalisée sur une cible de risque — comme les desks pro. Aucune heure, aucun
+    multiplicateur : le marché décide, pas l'horloge.
   - Données fraîches obligatoires : si le dernier point de BTC a plus de
     FRAIS_MAX_AGE_MIN minutes → PAS d'entrée (et pas de décision de sortie
     non plus : on garde la position et on le signale).
@@ -130,11 +131,16 @@ SL_ADAPT_FRAC = float(os.environ.get("SHORT_BTC_SL_ADAPT_FRAC", "0.5"))
 TTL_H = 24.0               # time-out d'une position (heures)
 SESSION_START_UTC, SESSION_END_UTC = 8, 17   # repère JOUR/NUIT (08-17h UTC) — 29/10 :
 # ce n'est PLUS un ban (le ban nuit est MORT, falsifié : nuit 53,5 %/-0,407 % n=2920).
-# Jour/nuit ne fait que MODULER la taille (NUIT_NOTIONNEL_MULT, ratio mesuré).
-NUIT_NOTIONNEL_MULT = float(os.environ.get("SHORT_NUIT_MULT", "0.5"))
-# 0,5 = ratio des médianes +24h mesuré (nuit -0,407 / jour -0,782 ≈ 0,52, arrondi
-# déclaré) sur 4 238 signaux d'entrée BTC (mesure_gate_nuit_shorts.py, 29/10).
-# La taille suit l'edge mesuré, jamais une horloge. Réversible : SHORT_NUIT_MULT=1.
+# 29/10 soir : plus AUCUN multiplicateur d'horloge (l'ancien NUIT_NOTIONNEL_MULT
+# était une règle fixe déguisée — « réduire de moitié la nuit » ne mesure rien).
+# La taille suit le RISQUE : notionnel ∝ 1 / volatilité, cible constante.
+RISK_ON = os.environ.get("SHORT_RISK_SIZING", "1").strip() not in ("0", "false", "False")
+# Cible de risque = % de perte du notionnel au stop. 1,0 % = si le SL adaptatif
+# (0,5×range24) est touché, on perd ~1 % du notionnel engagé, que la mer soit
+# calme ou agitée. Réglable sans toucher au code. Réversible : SHORT_RISK_SIZING=0.
+RISK_CIBLE_PCT = float(os.environ.get("SHORT_RISK_CIBLE_PCT", "1.0"))
+RISK_MIN_MULT = float(os.environ.get("SHORT_RISK_MIN_MULT", "0.3"))
+RISK_MAX_MULT = float(os.environ.get("SHORT_RISK_MAX_MULT", "2.5"))
 FRAIS_MAX_AGE_MIN = 15.0   # données plus vieilles → pas de décision
 LOOP_SEC = 300             # boucle (5 min ; le moteur écrit ~1 point/min)
 PIC_SEUIL = 3.0            # seuil « pompe » pour la surchauffe instantanée (%)
@@ -439,6 +445,30 @@ def notionnel_dynamique() -> float:
         return NOTIONAL_USDT
 
 
+def multiplicateur_risque(sl_pct) -> tuple:
+    """Taille à RISQUE CONSTANT (29/10 soir, doctrine desk) : notionnel ∝ 1/volatilité.
+
+    Le SL adaptatif vaut 0,5 × range24 (la volatilité mesurée de la paire). Si on
+    gardait un notionnel fixe, un marché agité ferait perdre plus cher au stop
+    qu'un marché calme : le risque varierait avec la météo. Ici on inverse :
+    mult = RISK_CIBLE_PCT / SL%  → perdre ~RISK_CIBLE_PCT du notionnel au stop,
+    quelle que soit la volatilité. Borné [RISK_MIN_MULT, RISK_MAX_MULT] pour ne
+    jamais sur-engager sur un range ridicule ni mourir sur un range énorme.
+    Aucune heure, aucun multiplicateur de session : la mesure décide.
+    """
+    if not RISK_ON:
+        return 1.0, "risque constant OFF"
+    try:
+        sl = float(sl_pct)
+    except (TypeError, ValueError):
+        return 1.0, "SL illisible → taille de base"
+    if sl <= 0:
+        return 1.0, "SL nul → taille de base"
+    mult = RISK_CIBLE_PCT / sl
+    mult = max(RISK_MIN_MULT, min(mult, RISK_MAX_MULT))
+    return round(mult, 3), f"risque constant {RISK_CIBLE_PCT:.2f}%/SL {sl:.2f}% = ×{mult:.2f}"
+
+
 def gerer(sig: dict, st: dict) -> None:
     pos = st.get("position")
     prix = sig.get("prix_btc", sig.get("prix"))
@@ -506,7 +536,8 @@ def gerer(sig: dict, st: dict) -> None:
         entree_ok = (score is not None and score >= SCORE_ENTREE)
         motif = f"score {score} ≥ {SCORE_ENTREE}"
     # 29/10 (GO Christophe) : entrées 24/7 — le ban nuit est tué (R17 : jamais de
-    # fixe). session_ok reste LOGGÉ (mesure, scorer) mais ne bloque PLUS rien.
+    # fixe). session_ok reste LOGGÉ (mesure, scorer) mais ne bloque PLUS rien et
+    # 29/10 soir : ne module plus RIEN (le ×0,5 était encore un fixe).
     if prix is not None and sig.get("ok") and entree_ok and frais:
         _r24e = sig.get("range24_btc")
         if SL_ADAPT_ON and isinstance(_r24e, (int, float)):
@@ -515,10 +546,10 @@ def gerer(sig: dict, st: dict) -> None:
         else:
             _sl_entry = SL_PCT
             _sl_src = "fixe 1,5 % (range24 indisponible ou OFF)"
-        _notionnel = notionnel_dynamique()
-        _session_jour = bool(sig.get("session_ok"))
-        if not _session_jour:
-            _notionnel = round(_notionnel * NUIT_NOTIONNEL_MULT, 2)
+        _base = notionnel_dynamique()
+        _mult_risque, _risk_src = multiplicateur_risque(_sl_entry)
+        _notionnel = round(_base * _mult_risque, 2)
+        _session_jour = bool(sig.get("session_ok"))  # LOGGÉ seul, ne module plus rien
         st["position"] = {
             "session_jour": _session_jour,
             "ts_entree": utc(), "ts_entree_epoch": time.time(),
@@ -527,7 +558,7 @@ def gerer(sig: dict, st: dict) -> None:
             "sl_pct": _sl_entry,
             "detail_signal": sig.get("detail"),
         }
-        print(f"{_PREFIX} ENTRÉE short @ {prix} ({motif}, SL {_sl_src} = {_sl_entry} %) — {sig.get('detail')}")
+        print(f"{_PREFIX} ENTRÉE short @ {prix} ({motif}, SL {_sl_src} = {_sl_entry} %, notionnel {_notionnel} $ [{_risk_src}]) — {sig.get('detail')}")
 
 
 def ecrire_live(sig: dict, st: dict) -> None:

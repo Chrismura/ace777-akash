@@ -1,6 +1,6 @@
-# DISCIPLINE ALERT — 2026-10-29T08:42:17Z
+# DISCIPLINE ALERT — 2026-10-29T23:42:55Z
 
-- CORTANA sous 50% (11.1%) — discipline NEUTRE active, à surveiller
+- CORTANA sous 50% (4.8%) — discipline NEUTRE active, à surveiller
 - DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
 - SEUIL NON RANGÉ : 8 clé(s) décident sans être classées (ETANCHE_MISE_MAX, STOP_POST_PARTIEL_TRAIL, TIERS_P1_PCT, TIERS_P2_PCT, GBAG_EXIT_FIRST_FRAC, REDEPLOY_CONFIRM_BUF_PCT) — R17 : toute garde se mesure ou se déclare
-- Tendance à la baisse : 29% → 11.1%
+- Tendance à la baisse : 11% → 4.8%

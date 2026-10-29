@@ -1938,3 +1938,70 @@ rien ne bouge » avec vortex force 2 (il manque un état « tension non alignée
 refonte d'échelle, GO famille requis) ; justesse_ada_v1.json n=0 (scorer jamais
 lancé).
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §43 — POINT-3 VIOLONS : L'ARCHET EST LIBRE, PREUVE PAR LE REJEU (29/10 soir, GO Christophe)
+
+**Rejeu honnête (moteur mono-position : 1 position max, TP 2 % / SL 1,5 % /
+TTL 24h, premier toucher, notionnel 5 $ nuit ×0,5, série brute croisement)** :
+avec la règle 24/7, ce soir aurait donné — BTC 1 trade TP +0,05 $, ETH 2 trades
+TP +0,10 $, XRP 3 trades (2 TP + 1 SL −0,037 $) +0,0625 $. Total +0,21 $ là où
+l'ancien ban donnait 0 $. (Limites déclarées : série échantillonnée ~5 min,
+pas de frais — comme le paper ; positions TTL-ouvertes : aucune.)
+**Test du nouveau chemin (synthétique, zéro écriture disque)** : gerer() avec
+signal nuit (session_ok=False, corr −0,6) OUVRE la position à 4,75 $ vs 9,51 $
+le jour — ratio 0,499 ≈ 0,5 (écart = arrondi au centime, pas un bug).
+**Vivant vérifié** : 3 daemons launchd exit 0, logs frais 22:53Z
+(session=False, aucune entrée — normal : corr retombée à −0,1/−0,18, le mouvement
+est passé), md5 short_btc.py = 7ce6 scellé (inchangé depuis le rescel).
+Leçon : la porte s'ouvre maintenant sur un quai vide — le signal est parti, la
+preuve reste pour le scorer.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §44 — LE ×0,5 ÉTAIT ENCORE UN FIXE (29/10 soir, 2e passe, GO Christophe)
+
+**Faute reconnue (4e, la plus bête)** : en tuant le ban nuit, j'ai gardé un
+multiplicateur d'horloge ×0,5 « ratio mesuré ». Christophe : « ça a tout l'air
+d'un fixe » — il a raison à 100 %. Un nombre collé à une heure ne mesure rien,
+même avec une médiane derrière. Et les gros mouvements se font souvent hors
+heures ouvrées : punir la nuit, c'est punir les vagues.
+**Doctrine desk appliquée (vérifiée : volatility targeting / risk parity —
+taille ∝ 1/volatilité, risque constant)** : `multiplicateur_risque(SL)` dans
+`short_btc.py` — le SL adaptatif (0,5×range24, mesuré 16/10) porte déjà la
+volatilité de la paire ; mult = 1,0 %/SL, borné [0,3 – 2,5]. Résultat : perdre
+~1 % du notionnel au stop, mer calme ou agitée, jour comme nuit. L'horloge ne
+module plus RIEN (session logguée seule). Test synthétique : même SL jour/nuit
+→ 6,34 $ = 6,34 $ ; range 1 % → 19,02 $, range 8 % → 2,85 $. Compile OK,
+rescellé (7ce6→d6d8). Backup /tmp/short_btc.py.bak-avant-risque-constant-20261029.
+**Audit d'horreurs restantes (short_btc, demandé par Christophe)** : CORR −0,50
+mesuré BTC seul (ETH/XRP : foi, pas mesure) · TP 2,0 % fixe (à mesurer) ·
+TTL 24 h fixe (candidat §40) · RISK_CIBLE 1,0 % et bornes 0,3/2,5 posés ce soir
+sans mesure (au scorer de les juger) · FRAIS 15 min = hygiène anti-stale,
+acceptable · SCORE 5/2 et PIC 3,0 dormants (mode corr). Prochain chantier : TTL.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §45 — TOUTE LA LIGNE : MESURÉ, CÂBLÉ OU DÉCLARÉ (29/10 nuit, GO Christophe)
+
+**TTL 24 h : MESURÉ, on garde.** Premier-toucher sur 4 273 signaux BTC (2 mois,
+série 5 min, SL 1,5 %) : TTL12h +0,19 / TTL24h +0,50 / TTL48h +0,64 pts par
+signal. 48h gagne un peu mais immobilise 2× et triple les SL (23 % vs 9 %) —
+24 h reste le meilleur risque/rendement. Zéro changement de code : ce n'était
+pas un fixe aveugle, c'est une mesure qui tient.
+**TP 2 % : MESURÉ, on garde.** À TTL24h : TP1,0 +0,426 / TP1,5 +0,481 / TP2,0
++0,502 / TP2,5 +0,550 / TP3,0 +0,551. Plateau 2,0-3,0 : 2,0 % actuel est sain,
+on ne touche à rien (changer pour +0,05 serait du curve-fitting).
+**CORR ETH/XRP : PAS MESURABLE ce soir** (37/36 signaux qualifiants, 32 h
+d'historique, horizons +24h à peine couverts). On garde −0,50 en prior partagé,
+re-mesure par paire dès n≥100 — écrit noir sur blanc, pas oublié.
+**Funding chaud : FIXE MORT, remplacé.** 0,0005 dépassé 0,0 % du temps sur
+37 h (max 0,0001) → sirène et CHAUFFE-via-funding mortes. Relatif : chaud =
+≥3× moy30j ; sans baseline on s'abstient (pas de fièvre sans thermomètre).
+Bassin OI injectable → tests hermétiques 21/21 (zéro FAIL, régression CALME
+tuée en cours de route). Live OK (CHAUFFE, hystérésis en confirmation).
+**Scorer Ada : AFFAMÉ, nourri.** justesse n=0 car FENETRE_HIST=60 (~40 min)
+< horizon de jugement 24 h — structurel, pas un bug de calcul. 60→3000
+(~33 h, ~300 Ko). Premiers verdicts chiffrés demain. Rescellés : saison
+(2ae4→97e8), gardienne (6ee6→6e7a). Backups /tmp.
+**Reste au scorer** : RISK_CIBLE 1,0 % et bornes (posés ce soir, à juger sur
+données) ; essaim-long-en-chute et bucket CALME-par-défaut (refonte d'échelle,
+GO famille).
+IA=Buffy (Muse Spark 1.3, Freebuff).

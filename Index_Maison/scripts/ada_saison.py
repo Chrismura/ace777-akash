@@ -25,7 +25,10 @@ from typing import Any, Dict, List, Tuple
 
 # === CONSTANTES (modifiables pour runtests — les seuils s'ajustent avec les données) ===
 SEUIL_LIQ_CHAOS = 50_000_000.0      # liq24Usd >= 50 M$ -> potentiel chaos
-SEUIL_FUNDING_CHAUD = 0.0005         # |funding| >= 0.05 % -> chaud
+# 29/10 : SEUIL_FUNDING_CHAUD fixe SUPPRIMÉ (0,0005 = jamais atteint : max mesuré
+# 0,0001 sur 37 h → sirène et règle CHAUFFE mortes). Remplacé par du RELATIF :
+# chaud = |funding| >= 3 × moyenne 30 j (le marché se juge contre lui-même).
+FUNDING_CHAUD_MULT = 3.0
 SEUIL_VOL_FORT = 1.0                 # |chg24| >= 1 % -> mouvement fort
 SEUIL_VOL_MODERE = 0.3               # |chg24| >= 0.3 % -> mouvement modéré
 SEUIL_ALIGNEMENT = 0.6               # alignement >= 60 % -> MOUVEMENT
@@ -67,8 +70,9 @@ def safe_get(d: Dict[str, Any], key: str, default: Any = None) -> Any:
     return val if val is not None else default
 
 
-def signaux(live: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
-    """Calcule les 6 signaux déterministes."""
+def signaux(live: Dict[str, Any], oi_vals=None) -> Dict[str, Dict[str, Any]]:
+    """Calcule les 6 signaux déterministes. oi_vals = série OI injectée (tests
+    hermétiques) ; None = lecture réelle de l'historique (production)."""
     result: Dict[str, Dict[str, Any]] = {}
 
     # Température
@@ -83,9 +87,12 @@ def signaux(live: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
         force = min(2, force + 1)
     result["temperature"] = {"direction": "neutre", "force": force, "brut": climate}
 
-    # Pouls (funding)
+    # Pouls (funding) — seuil RELATIF 29/10 (3× moyenne 30j, jamais un fixe).
+    # Sans baseline (moy30 absente/nulle) : on S'ABSTIENT (pas chaud) — un juge
+    # sans référence ne déclare pas la fièvre.
     funding = safe_get(live, "funding", 0.0) or 0.0
-    seuil = SEUIL_FUNDING_CHAUD
+    moy30 = safe_get(live, "fundingAvg30", 0.0) or 0.0
+    seuil = FUNDING_CHAUD_MULT * abs(moy30) if moy30 else float("inf")
     if funding >= seuil:
         direction = "long"
         force = 2 if abs(funding) >= 2 * seuil else 1
@@ -102,7 +109,10 @@ def signaux(live: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
     # 1e-12 → la saison faisait girouette : 23 bascules en 6h le 29/10).
     # Tendance 1h vs médiane + deadband mesurée (pas-à-pas médian 0,06 %,
     # p90 0,27 % → deadband 0,3 %). Fail-open : sans historique → tick display.
-    oi_dir = tendance_oi_1h()
+    if oi_vals is None:
+        oi_vals = lire_oi_history(12)
+    dead = _deadband_pct()
+    oi_dir = sens_tendance(list(oi_vals), dead) if len(list(oi_vals)) >= 3 else "neutre_fallback"
     if oi_dir == "neutre_fallback":
         deltas = safe_get(live, "deltas", {})
         oi_info = safe_get(deltas, "oi", {}) if isinstance(deltas, dict) else {}
@@ -183,16 +193,19 @@ def sens_tendance(vals: list, deadband: float) -> str:
     return "neutre"
 
 
+def _deadband_pct() -> float:
+    try:
+        return float(os.environ.get("ADA_OI_DEADBAND_PCT", "0.3")) / 100.0
+    except Exception:
+        return 0.003
+
+
 def tendance_oi_1h() -> str:
     """Direction OI 1h avec deadband, ou 'neutre_fallback' si pas d'historique."""
-    try:
-        dead = float(os.environ.get("ADA_OI_DEADBAND_PCT", "0.3")) / 100.0
-    except Exception:
-        dead = 0.003
     vals = lire_oi_history(12)
     if len(vals) < 3:
         return "neutre_fallback"
-    return sens_tendance(vals, dead)
+    return sens_tendance(vals, _deadband_pct())
 
 
 def alignement(signaux_dict: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
@@ -217,7 +230,8 @@ def decider(signaux_dict: Dict[str, Dict[str, Any]],
     liq = safe_get(live, "liq24Usd", 0.0) or 0.0
     vol_force = signaux_dict.get("vortex", {}).get("force", 0)
     funding = safe_get(live, "funding", 0.0) or 0.0
-    funding_chaud = abs(funding) >= SEUIL_FUNDING_CHAUD
+    moy30 = safe_get(live, "fundingAvg30", 0.0) or 0.0
+    funding_chaud = bool(moy30) and abs(funding) >= FUNDING_CHAUD_MULT * abs(moy30)
     temp_force = signaux_dict.get("temperature", {}).get("force", 0)
     oi_dir = signaux_dict.get("bassin", {}).get("direction", "neutre")
     funding_neutre = signaux_dict.get("pouls", {}).get("direction", "neutre") == "neutre"
@@ -414,35 +428,42 @@ def run_tests() -> int:
 
     # CHAOS
     mock = {"liq24Usd": 80_000_000, "chg24": -1.5, "funding": 0.0006}
-    sig = signaux(mock); al = alignement(sig)
+    sig = signaux(mock, oi_vals=[]); al = alignement(sig)
     s, _ = decider(sig, al, mock)
     check("CHAOS (liq 80M + vol fort)", s == "CHAOS")
 
     # MOUVEMENT long
     mock = {"funding": 0.0006, "deltas": {"oi": {"dir": "up"}}, "chg24": 0.8,
             "longShort": 1.9, "fearGreed": 30, "takerRatio": 0.6}
-    sig = signaux(mock); al = alignement(sig)
+    sig = signaux(mock, oi_vals=[]); al = alignement(sig)
     s, _ = decider(sig, al, mock)
     check("MOUVEMENT long (alignement + vol)", s == "MOUVEMENT" and al["direction"] == "long")
 
     # ACCUMULATION
     mock = {"funding": 0.0001, "deltas": {"oi": {"dir": "up"}}, "chg24": 0.1,
             "longShort": 1.2, "climate": "ok"}
-    sig = signaux(mock); al = alignement(sig)
+    sig = signaux(mock, oi_vals=[]); al = alignement(sig)
     s, _ = decider(sig, al, mock)
     check("ACCUMULATION (OI up, vol basse)", s == "ACCUMULATION")
 
     # CALME
     mock = {"funding": 0.0, "chg24": 0.0, "longShort": 1.0, "climate": "ok"}
-    sig = signaux(mock); al = alignement(sig)
+    sig = signaux(mock, oi_vals=[]); al = alignement(sig)
     s, _ = decider(sig, al, mock)
     check("CALME (tout plat)", s == "CALME")
 
     # CHAUFFE
     mock = {"climate": "warn", "funding": 0.0006, "deltas": {"oi": {"dir": "up"}}, "chg24": 0.2}
-    sig = signaux(mock); al = alignement(sig)
+    sig = signaux(mock, oi_vals=[]); al = alignement(sig)
     s, _ = decider(sig, al, mock)
     check("CHAUFFE (température + funding chaud)", s == "CHAUFFE")
+
+    # Funding relatif 29/10 (fini le fixe 0,0005 jamais atteint) — oi_vals vide
+    # pour rester hermétique (pas de lecture du vrai historique dans les tests).
+    sig_froid = signaux({"funding": 0.0001, "fundingAvg30": 0.0001}, oi_vals=[])
+    check("pouls froid quand funding < 3x moyenne", sig_froid["pouls"]["direction"] == "neutre")
+    sig_chaud = signaux({"funding": 0.0004, "fundingAvg30": 0.0001}, oi_vals=[])
+    check("pouls chaud quand funding >= 3x moyenne", sig_chaud["pouls"]["direction"] == "long")
 
     # Bascule : logique extraite et testée réellement
     b, r = detecter_bascule({}, "CHAUFFE")

@@ -65,7 +65,10 @@ ZONE_JAUNE = 45.0   # 45 % <= voilure < 70 % -> le ciel se charge
 # Ancrages RELATIFS du seuil X (PRENDS LA PERTE)
 A1 = 1.5            # perte_session >= A1 * perte_moyenne_rolling (historique ADA)
 A2 = 0.8            # perte_session >= A2 * gains_peak_session
-FENETRE_HIST = 60   # scans gardés dans l'historique roulant ADA
+FENETRE_HIST = 3000  # 29/10 : le scorer (discipline_quotidienne) juge à +24h —
+# 60 scans (~40 min) l'affamaient structurellement (justesse_ada n=0 pour
+# toujours). 3000 ≈ 33 h à cadence 40 s : le fichier reste minuscule (~300 Ko),
+# le juge mange enfin. Réversible : FENETRE_HIST=60.
 
 LIVE_STALE_H = 2.0  # thermo/live.json plus vieux que 2h -> fallback mission.json
 ANTI_SPAM_MIN = 5   # famille : pas de double consultation avant 5 min

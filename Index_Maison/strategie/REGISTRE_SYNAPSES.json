@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-10-29T22:31:18Z",
+  "updated": "2026-10-29T23:45:37Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -284,9 +284,28 @@
       "origine": "fondation F3 + chantiers 15/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "6ee6c3dd041337b395a1dbec0779774d",
+      "md5": "6e7a611b4271df5ebc52f9a18eaca65d",
       "note": "déclaré manuel 2026-08-19T09:11Z (fix voix Denise + bug whales 19/08) | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09)",
-      "maj": "Correctif session 31/08 10h52 — re-scellement post-audit 03/09."
+      "maj": "Correctif session 31/08 10h52 — re-scellement post-audit 03/09.",
+      "date": "2026-10-29T23:45:37Z",
+      "_rescel": [
+        {
+          "ts": "2026-10-29T23:45:37Z",
+          "motif": "29/10 toute-ligne : FENETRE_HIST 60 -> 3000 (le scorer +24h etait affame : justesse n=0 structurel). Compile OK.",
+          "ecrivain": {
+            "ts": "2026-10-29T23:45:37Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 25244 <- bash(pid 25236) <- /Users/christoph(pid 25235) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-10-29T23:45:37Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 25244 <- bash(pid 25236) <- /Users/christoph(pid 25235) <- /Users/christoph(pid 4107)"
+      }
     },
     {
       "nom": "Index_Maison/scripts/thermo_quotidien_free.py",
@@ -2814,8 +2833,8 @@
       "origine": "Créé avant le 08/10/2026 mais JAMAIS inscrit au registre (trou R15 trouvé par le rituel des scellés du 08/10 : un organe qui tourne en production et que personne ne surveille). Inscrit le 08/10/2026 (go Christophe) en même temps que le signal corrigé (pre-déclaration enregistrée avant l'acte).",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "7ce64802327fe2aba5b07e92db821941",
-      "date": "2026-10-29T21:18:47Z",
+      "md5": "d6d8505477a884926391b79ebce3491d",
+      "date": "2026-10-29T23:24:20Z",
       "_ajout": [
         {
           "ts": "2026-10-08T09:15:29Z",
@@ -2860,13 +2879,23 @@
             "user": "christophe",
             "chaine": "pid 94489 <- bash(pid 94488) <- /Users/christoph(pid 94487) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-10-29T23:24:20Z",
+          "motif": "29/10 soir 2e passe (GO Christophe) : tue le x0,5 nuit (encore un fixe) -> taille a RISQUE CONSTANT (mult = 1%/SL, bornes 0,3-2,5) ; l'horloge ne module plus rien. Test synthetique jour/nuit EGAL + compile OK. Backup /tmp/short_btc.py.bak-avant-risque-constant-20261029.",
+          "ecrivain": {
+            "ts": "2026-10-29T23:24:20Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 21129 <- bash(pid 21128) <- /Users/christoph(pid 21127) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-29T21:18:47Z",
+        "ts": "2026-10-29T23:24:20Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 94489 <- bash(pid 94488) <- /Users/christoph(pid 94487) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 21129 <- bash(pid 21128) <- /Users/christoph(pid 21127) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -4814,18 +4843,30 @@
       "origine": "",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "2ae430a10377e66d6429b03577ab8233",
-      "date": "2026-10-29T22:31:18Z",
+      "md5": "97e8951fd6c6b6d85e90a4b3f1ebffda",
+      "date": "2026-10-29T23:45:37Z",
       "dernier_ecrivain": {
-        "ts": "2026-10-29T22:31:18Z",
+        "ts": "2026-10-29T23:45:37Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 9937 <- bash(pid 9936) <- /Users/christoph(pid 9935) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 25239 <- bash(pid 25236) <- /Users/christoph(pid 25235) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
           "ts": "2026-10-29T22:31:18Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-10-29T23:45:37Z",
+          "motif": "29/10 toute-ligne : funding chaud FIXE 0.0005 (jamais atteint) -> relatif 3x moy30 + abstention sans baseline ; bassin OI injectable (tests hermetiques 21/21) ; hysteresis N=3. Live OK.",
+          "ecrivain": {
+            "ts": "2026-10-29T23:45:37Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 25239 <- bash(pid 25236) <- /Users/christoph(pid 25235) <- /Users/christoph(pid 4107)"
+          }
         }
       ]
     }

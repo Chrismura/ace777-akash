@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T22:52:04.422200+00:00",
+  "generated_at": "2026-10-29T23:52:44.474307+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 138
+      "calls_24h": 141
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "qwen/qwen3.8-27b",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 8
+      "calls_24h": 12
     },
     {
       "id": "nvidia",
@@ -283,10 +283,82 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 162,
-    "remaining": 462
+    "consumed": 171,
+    "remaining": 453
   },
   "queue": [
+    {
+      "ts": "2026-10-29T23:52:37.821961+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.86
+    },
+    {
+      "ts": "2026-10-29T23:52:04.145225+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.34
+    },
+    {
+      "ts": "2026-10-29T23:51:10.602517+00:00",
+      "task": "analyse.profonde",
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "kind": "cloud",
+      "duration_s": 1.54
+    },
+    {
+      "ts": "2026-10-29T23:51:08.189712+00:00",
+      "task": "analyse.profonde",
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "kind": "cloud",
+      "duration_s": 0.51
+    },
+    {
+      "ts": "2026-10-29T23:51:07.222949+00:00",
+      "task": "analyse.profonde",
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "kind": "cloud",
+      "duration_s": 0.5
+    },
+    {
+      "ts": "2026-10-29T23:46:05.380561+00:00",
+      "task": "analyse.profonde",
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "kind": "cloud",
+      "duration_s": 0.46
+    },
+    {
+      "ts": "2026-10-29T23:26:00.906102+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.87
+    },
+    {
+      "ts": "2026-10-29T23:25:59.412353+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.31
+    },
+    {
+      "ts": "2026-10-29T23:20:57.110575+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.93
+    },
     {
       "ts": "2026-10-29T22:52:02.246498+00:00",
       "task": "supervise.decision",
@@ -334,140 +406,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.18
-    },
-    {
-      "ts": "2026-10-29T22:05:36.102110+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.27
-    },
-    {
-      "ts": "2026-10-29T21:51:41.564809+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.85
-    },
-    {
-      "ts": "2026-10-29T21:50:56.989309+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.86
-    },
-    {
-      "ts": "2026-10-29T21:50:32.605297+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.53
-    },
-    {
-      "ts": "2026-10-29T21:20:25.365094+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.2
-    },
-    {
-      "ts": "2026-10-29T21:20:23.683454+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 7.34
-    },
-    {
-      "ts": "2026-10-29T21:05:13.629587+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.98
-    },
-    {
-      "ts": "2026-10-29T20:50:55.543044+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.07
-    },
-    {
-      "ts": "2026-10-29T20:50:37.197418+00:00",
-      "task": "supervise.decision",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.64
     }
   ],
   "events": [
     {
-      "ts": "2026-10-29T22:52:02.245403+00:00",
+      "ts": "2026-10-29T23:52:37.821424+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-10-29T22:51:42.934302+00:00",
+      "ts": "2026-10-29T23:52:04.144590+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-10-29T22:50:52.463539+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-29T22:50:51.610077+00:00",
+      "ts": "2026-10-29T23:52:02.801056+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-10-29T22:50:08.844696+00:00",
+      "ts": "2026-10-29T23:51:10.602127+00:00",
+      "kind": "message",
+      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-29T23:51:08.189107+00:00",
+      "kind": "message",
+      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-29T23:51:07.222280+00:00",
+      "kind": "message",
+      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-29T23:50:15.167323+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-29T22:50:08.844324+00:00",
+      "ts": "2026-10-29T23:50:15.166776+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T22:50:08.841238+00:00",
+      "ts": "2026-10-29T23:50:15.164634+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T22:50:04.654450+00:00",
+      "ts": "2026-10-29T23:50:09.660872+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-29T22:50:00.130960+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
-      "detail": "HTTP Error 429: Too Many Requests"
-    },
-    {
-      "ts": "2026-10-29T22:49:55.924989+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
-      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {
@@ -534,10 +534,10 @@
       "note": "tri signets lot 2 - analyse de veille (08/08) | FIX 11/08: provider mort désactivé, route gemini -> nvidia"
     },
     "analyse.profonde": {
-      "provider": "gemini",
+      "provider": "groq",
       "fallback": "huggingface",
       "secondary": "nara",
-      "note": "ROUTEUR AUTO (2026-08-22T01:35): nvidia -> gemini (score 60.0 -> 100.0, delta 40.0) | ANALYSE PROFONDE (17/08): nvidia (lent mais gratuit, DeepSeek V4) -> nara -> gemini"
+      "note": "ROUTEUR AUTO (2026-10-29T23:48): gemini -> groq (score 60.0 -> 100.0, delta 40.0) | ROUTEUR AUTO (2026-08-22T01:35): nvidia -> gemini (score 60.0 -> 100.0, delta 40.0) | ANALYSE PROFONDE (17/08): nvidia (lent mais gratuit, DeepSeek V4) -> nara -> gemini"
     },
     "signets.juge": {
       "provider": "nara",
