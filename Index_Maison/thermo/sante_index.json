@@ -1,9 +1,11 @@
 {
-  "ts": "2026-10-29T02:36+00:00",
-  "updated": "2026-10-29T02:36Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-10-29T02:46+00:00",
+  "updated": "2026-10-29T02:46Z",
+  "etat": "ALERTE",
+  "chaines_ok": "14/15",
+  "anomalies": [
+    "HULK : sonde runtime, contrat Cortana ou analyses figés"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 4 min"
+          "detail": "dernier événement il y a 2 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -40,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 89.2 · zone VERT"
+          "detail": "voilure 78.3 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -63,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 10 min"
         }
       ]
     },
@@ -71,7 +73,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -80,8 +82,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": true,
-          "detail": "mode fichier · JSON · âge ts 1.2 min · écart mtime/ts 1.9s · 22 paire(s) · btc=OK · ts=croissant · passe 71.9s · marge 48.1s sous le budget 45s du moteur · ⚠ PIRE CAS age 91.9s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "ok": false,
+          "detail": "mode fichier · JSON · âge ts 1.4 min · écart mtime/ts 2.5s · 22 paire(s) · btc=OK · ts=croissant · passe 20.0s · marge 100.0s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 1192 min"
+          "detail": "âge 1202 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -119,7 +121,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -224,7 +226,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CALME"
+          "detail": "saison CHAUFFE"
         },
         {
           "nom": "6 indices calculés",
@@ -308,7 +310,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "état courant",
@@ -331,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 19 min"
+          "detail": "âge 29 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 3 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.5"
+          "detail": "score 0.216"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -377,7 +379,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 15 min"
+          "detail": "âge 25 min"
         },
         {
           "nom": "veille d'essaim active",
