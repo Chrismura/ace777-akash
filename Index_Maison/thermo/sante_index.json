@@ -1,11 +1,9 @@
 {
-  "ts": "2026-10-29T12:06+00:00",
-  "updated": "2026-10-29T12:06Z",
-  "etat": "ALERTE",
-  "chaines_ok": "14/15",
-  "anomalies": [
-    "HULK : sonde runtime, contrat Cortana ou analyses figés"
-  ],
+  "ts": "2026-10-29T12:21+00:00",
+  "updated": "2026-10-29T12:21Z",
+  "etat": "OK",
+  "chaines_ok": "15/15",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -27,12 +25,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 5 min"
+          "detail": "dernier événement il y a 1 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -42,12 +40,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 78.3 · zone VERT"
+          "detail": "voilure 89.2 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -65,7 +63,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -73,7 +71,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -82,8 +80,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": false,
-          "detail": "mode fichier · JSON · âge ts 1.3 min · écart mtime/ts 2.3s · 22 paire(s) · btc=OK · ts=croissant · passe 21.7s · marge 98.3s sous le budget 45s du moteur"
+          "ok": true,
+          "detail": "mode fichier · JSON · âge ts 0.9 min · écart mtime/ts 2.1s · 22 paire(s) · btc=OK · ts=croissant · passe 27.7s · marge 92.3s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +96,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 204 min"
+          "detail": "âge 219 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -121,7 +119,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -144,7 +142,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 7 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "mode",
@@ -185,7 +183,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -226,7 +224,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CHAUFFE"
+          "detail": "saison CALME"
         },
         {
           "nom": "6 indices calculés",
@@ -333,7 +331,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 17 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -356,7 +354,7 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "SAPI calculé",
@@ -379,7 +377,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 15 min"
+          "detail": "âge 30 min"
         },
         {
           "nom": "veille d'essaim active",
