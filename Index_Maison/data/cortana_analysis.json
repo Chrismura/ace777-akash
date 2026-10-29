@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793265381,
-  "date": "2026-10-29T09:16:21.268206+00:00",
-  "n_analyses": 3,
+  "timestamp": 1793268982,
+  "date": "2026-10-29T10:16:22.462649+00:00",
+  "n_analyses": 5,
   "analyses": [
     {
       "signal": {
@@ -19,24 +19,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 2118619.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.23,
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -49,12 +48,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.502,
+          "value": 1.624,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.23,
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         }
@@ -79,12 +78,72 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.502,
+          "value": 1.624,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.23,
+          "value": -0.08,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.264994174678421,
+        "value": 1.502,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.502 (z-score 2.26) indique une agression massive des acheteurs (Taker Buy) sur le marché des dérivés, montrant une accumulation agressive des baleines en silence, tandis que le vide médiatique (aucun narratif dominant) prouve que le grand public dort encore.\"\n}\n```",
+        "ts": 1793266784.183349
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.624,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.08,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.6512987310752925,
+        "value": 1.624,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de preneurs (taker_ratio à 1.624, z-score 2.65) indique une agression massive à l'achat par les acheteurs sur le marché dérivé/au comptant, totalement ignorée par l'absence de couverture médiatique (silence radio). Les baleines accumulent agressivement sous le radar public.\"\n}\n```",
+        "ts": 1793268593.679837
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.624,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         }

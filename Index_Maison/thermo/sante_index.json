@@ -1,9 +1,11 @@
 {
-  "ts": "2026-10-29T09:16+00:00",
-  "updated": "2026-10-29T09:16Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-10-29T10:16+00:00",
+  "updated": "2026-10-29T10:16Z",
+  "etat": "ALERTE",
+  "chaines_ok": "14/15",
+  "anomalies": [
+    "HULK : sonde runtime, contrat Cortana ou analyses figés"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 6 min"
+          "detail": "dernier événement il y a 5 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -45,7 +47,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -63,7 +65,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 7 min"
         }
       ]
     },
@@ -71,7 +73,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -80,8 +82,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": true,
-          "detail": "mode fichier · JSON · âge ts 1.0 min · écart mtime/ts 2.3s · 22 paire(s) · btc=OK · ts=croissant · passe 19.0s · marge 101.0s sous le budget 45s du moteur"
+          "ok": false,
+          "detail": "mode fichier · JSON · âge ts 1.4 min · écart mtime/ts 2.4s · 22 paire(s) · btc=OK · ts=croissant · passe 20.6s · marge 99.4s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +98,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 34 min"
+          "detail": "âge 94 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -183,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -331,7 +333,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 28 min"
+          "detail": "âge 27 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -341,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.3"
+          "detail": "score 0.5"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

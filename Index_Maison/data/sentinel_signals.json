@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 2.507430959862454,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 70,\n  \"reason\": \"L'indice de peur/avidité de 51 avec un z-score de 2.51 indique une légère divergence entre les données onchain et le marché. Les titres médiatiques ne mentionnent pas explicitement cette anomalie, ce qui suggère une absence de narratif médiatique significatif pour le moment. Les baleines pourraient être en mouvement, mais sans preuve directe, le signal reste neutre.\"\n}\n```",
-      "ts": "2026-10-28T01:25:19.735975+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.386416097553724,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données médiatiques vides (Google Actualités non spécifié) malgré un z-score on-chain élevé (2.39) pour un sentiment neutre (51). Indice insuffisant pour confirmer une accumulation ou une distribution cachée des baleines.\"\n}\n```",
-      "ts": "2026-10-28T01:55:28.779306+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.278995442013668,
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé (2.28) suggérant une transition de volatilité imminente, mais l'absence de titres médiatiques significatifs indique un calme plat avant tempête. Pas de divergence majeure détectée pour l'instant.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 1.502,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (taker_ratio = 1.502, z-score 2.44) suggère une activité de trading intense et potentiellement des mouvements de fonds par les baleines. Cependant, l'absence de titres médiatisés pertinents indique un narratif médiatique potentiellement déconnecté de la réalité. Les baleines pourraient être en train de bouger silencieusement, ce qui pourrait être un signal bullish.\"\n}\n```",
       "ts": "2026-10-29T09:09:37.283586+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.264994174678421,
+      "value": 1.502,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.502 (z-score 2.26) indique une agression massive des acheteurs (Taker Buy) sur le marché des dérivés, montrant une accumulation agressive des baleines en silence, tandis que le vide médiatique (aucun narratif dominant) prouve que le grand public dort encore.\"\n}\n```",
+      "ts": "2026-10-29T09:39:44.183349+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.6512987310752925,
+      "value": 1.624,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de preneurs (taker_ratio à 1.624, z-score 2.65) indique une agression massive à l'achat par les acheteurs sur le marché dérivé/au comptant, totalement ignorée par l'absence de couverture médiatique (silence radio). Les baleines accumulent agressivement sous le radar public.\"\n}\n```",
+      "ts": "2026-10-29T10:09:53.679837+00:00"
     }
   ]
 }
