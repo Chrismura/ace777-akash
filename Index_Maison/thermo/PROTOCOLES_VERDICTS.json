@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-28T23:44:33+00:00",
+  "ts": "2026-10-29T00:45:17+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -274,7 +274,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "895 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "896 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -299,15 +299,15 @@
           "delta_votes": 3
         },
         {
-          "amendement": "fixXChainRewardRounding",
-          "delta_votes": -1
-        },
-        {
           "amendement": "XChainBridge",
           "delta_votes": -1
         },
         {
-          "amendement": "Batch",
+          "amendement": "fixXChainRewardRounding",
+          "delta_votes": -1
+        },
+        {
+          "amendement": "PermissionDelegation",
           "delta_votes": 0
         }
       ]
@@ -347,16 +347,10 @@
     {
       "protocole": "paternes-btc (Kronos)",
       "critere": "mesure en continu des paternes validés (50w×200w + RSI hebdo, MACD daily = filtre, cycle) — verdict à n ≥ 30 cycles",
-      "faits": "41 cycles · régime HAUSSIER (écart 50w/200w 13.3 %, RSI hebdo 65) · MACD histogramme -368 · BTC 76540 → 80000 (+4.5 %)",
+      "faits": "42 cycles · régime HAUSSIER (écart 50w/200w 13.3 %, RSI hebdo 67) · MACD histogramme -309 · BTC 76540 → 80808 (+5.6 %)",
       "verdict": "EN ATTENTE (il manque 0 cycle(s) — cadence quotidienne → ~0 jour(s))",
       "alerte": "",
       "detail": [
-        {
-          "ts": "2026-10-23T17:59:08Z",
-          "prix": 81315.73,
-          "regime": "HAUSSIER",
-          "rsi_w": 67.4
-        },
         {
           "ts": "2026-10-24T17:59:05Z",
           "prix": 81069.69,
@@ -380,6 +374,12 @@
           "prix": 80000.34,
           "regime": "HAUSSIER",
           "rsi_w": 65.4
+        },
+        {
+          "ts": "2026-10-29T00:32:22Z",
+          "prix": 80808.65,
+          "regime": "HAUSSIER",
+          "rsi_w": 66.6
         }
       ]
     },
