@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": -2.0067159965747736,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique non pertinent (mélange de SEO crypto générique et d'actualités locales sans rapport avec l'actif 'CPFP'). Aucune accumulation ou mouvement de baleine détecté ; l'anomalie on-chain est un faux signal statistique.\"\n}\n```",
-      "ts": "2026-10-28T11:58:40.112438+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": -2.0067159965747736,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain non pertinente. Le narratif médiatique concerne des motos électriques, de la musique et des baskets, totalement déconnecté de l'écosystème crypto.\"\n}\n```",
-      "ts": "2026-10-28T11:58:41.632320+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.6695956437304744,
-      "value": 0.4351621543907225,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.67) sur une bougie horaire sans aucune couverture médiatique (Google Actualités vide). C'est la signature classique d'accumulation silencieuse par des baleines cherchant à éviter le FOMO retail avant un mouvement majeur.\"\n}\n```",
-      "ts": "2026-10-28T12:23:47.756343+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.305103180828996,
-      "value": 0.7073505622206988,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (4.31) couplé à un silence médiatique total (Google Actualités vide) : accumulation furtive typique de baleines avant une cassure de prix.\"\n}\n```",
-      "ts": "2026-10-28T12:53:55.845544+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.987171244750246,
       "value": 4385171.0,
@@ -349,6 +321,34 @@
       "value": 13695332066.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume isolée sans corrélation pertinente avec le narratif médiatique actuel, dominé par l'actualité macroéconomique et corporate traditionnelle.\"\n}\n```",
       "ts": "2026-10-29T16:12:58.776505+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.122962916248371,
+      "value": 1.717,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short affiche un z-score extrêmement bas (-2.12), indiquant une capitulation des positions acheteuses et un pessimisme excessif des 'retail'. Pendant que les médias généralistes et financiers font la promotion passive des stratégies 'long/short' traditionnelles, les baleines crypto nettoient le carnet d'ordres en positionnant un contre-pied massif. Cette asymétrie signale un point d'inflexion propice à un 'short squeeze'.\"\n}\n```",
+      "ts": "2026-10-29T16:38:22.526334+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.4097390994437395,
+      "value": 14394213916.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 3.41) totalement ignorée par les médias grand public, focalisés sur l'actualité macro/tradfi. Classique accumulation silencieuse de baleines avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-29T16:43:44.156365+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 20.640839997802285,
+      "value": 19377738.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain massive (z-score 20.64, ~$19.3M) dans un silence médiatique absolu (Google Actualités vide). Divergence parfaite : accumulation silencieuse des baleines loin des radars de la foule.\"\n}\n```",
+      "ts": "2026-10-29T16:54:05.620939+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.8162139974241596,
+      "value": 1.217,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.82) détectée sur le ticker IPT, mais les résultats médiatiques renvoient à des homonymes non-crypto (International Petroleum Corp, École Polytechnique, fondation suisse). Bruit de données, aucune baleine crypto identifiable derrière ce signal.\"\n}\n```",
+      "ts": "2026-10-29T16:54:25.798447+00:00"
     }
   ]
 }

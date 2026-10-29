@@ -1,162 +1,8 @@
 {
-  "timestamp": 1793290877,
-  "date": "2026-10-29T16:21:17.360181+00:00",
+  "timestamp": 1793293578,
+  "date": "2026-10-29T17:06:18.136541+00:00",
   "n_analyses": 14,
   "analyses": [
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.0249699061298863,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) détecté est un artéfact sémantique. L'analyse des médias montre que l'anomalie on-chain est déclenchée par du bruit (terme technique Bitcoin vs homonymes d'actualités locales et politiques). Aucune baleine détectée : le narratif médiatique n'est pas déconnecté, il s'agit juste d'un faux positif lexical.\"\n}\n```",
-        "ts": 1793270100.033219
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 9,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.09,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.0249699061298863,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie onchain 'dust' détectée correspond à une terminologie homonyme totalement polluée par la culture pop, la mode (Nike) et la musique (Peter Padou), sans aucun rapport avec des mouvements de baleines crypto. Divergence nulle, simple interférence sémantique.\"\n}\n```",
-        "ts": 1793270107.626886
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 9,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.09,
-          "seuil": 0,
-          "depasse": true
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.44290303959822,
-        "value": 1.624,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.44) indique une domination agressive des acheteurs sur le marché dérivé, révélant une accumulation agressive des baleines. Le vide médiatique (Google Actualités silencieux) prouve l'absence de FOMO de détail, confirmant une phase d'accumulation discrète avant une cassure haussière.\"\n}\n```",
-        "ts": 1793270411.951784
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.077,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.09,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.996703578669239,
-        "value": 3298274.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.00, ~3.3M USD) en absence totale de couverture médiatique (Google Actualités vide). C'accumulation furtive typique des baleines loin du radar public.\"\n}\n```",
-        "ts": 1793271917.081632
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.09,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "ipt",
@@ -168,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -237,12 +83,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.09,
+          "value": -0.07,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2459908.0,
+          "value": 2711693.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -271,7 +117,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -315,17 +161,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 9,
+          "value": 190,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.09,
+          "value": -0.07,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0,
           "depasse": true
         },
@@ -360,17 +206,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 9,
+          "value": 190,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.09,
+          "value": -0.07,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0,
           "depasse": true
         },
@@ -400,7 +246,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -444,7 +290,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 96718.57,
+          "value": 95166.43,
           "seuil": 120000,
           "depasse": false
         }
@@ -468,7 +314,149 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": -0.07,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.122962916248371,
+        "value": 1.717,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short affiche un z-score extrêmement bas (-2.12), indiquant une capitulation des positions acheteuses et un pessimisme excessif des 'retail'. Pendant que les médias généralistes et financiers font la promotion passive des stratégies 'long/short' traditionnelles, les baleines crypto nettoient le carnet d'ordres en positionnant un contre-pied massif. Cette asymétrie signale un point d'inflexion propice à un 'short squeeze'.\"\n}\n```",
+        "ts": 1793291902.526334
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.717,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 95166.43,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 3.4097390994437395,
+        "value": 14394213916.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 3.41) totalement ignorée par les médias grand public, focalisés sur l'actualité macro/tradfi. Classique accumulation silencieuse de baleines avant un mouvement de marché.\"\n}\n```",
+        "ts": 1793292224.156365
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.07,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 20.640839997802285,
+        "value": 19377738.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie onchain massive (z-score 20.64, ~$19.3M) dans un silence médiatique absolu (Google Actualités vide). Divergence parfaite : accumulation silencieuse des baleines loin des radars de la foule.\"\n}\n```",
+        "ts": 1793292845.620939
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 1648380.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.07,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.8162139974241596,
+        "value": 1.217,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.82) détectée sur le ticker IPT, mais les résultats médiatiques renvoient à des homonymes non-crypto (International Petroleum Corp, École Polytechnique, fondation suisse). Bruit de données, aucune baleine crypto identifiable derrière ce signal.\"\n}\n```",
+        "ts": 1793292865.798447
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -497,5 +485,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
