@@ -8800,3 +8800,24 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-29T01:11:06Z — ALERT auto
 - IOTAUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-29T01:49:39Z — ALERT auto
+- WAXLUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-29T02:05:35Z — ALERT auto
+- BIOUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-29T02:12:16Z — ALERT auto
+- CCUSDT: WATCH_PULLBACK — tension haute + reflux
+- IOTAUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-29T02:29:02Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
+
+### 2026-10-29T02:36:29Z — ALERT auto
+- QNTUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)
