@@ -1,135 +1,73 @@
 {
-  "timestamp": 1793249198,
-  "date": "2026-10-29T04:46:38.151473+00:00",
-  "n_analyses": 4,
+  "timestamp": 1793264781,
+  "date": "2026-10-29T09:06:21.055928+00:00",
+  "n_analyses": 2,
   "analyses": [
     {
       "signal": {
-        "metric": "sdi",
-        "zscore": 2.09293977062714,
-        "value": 0.616,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur : 'SDI' correspond ici à des entités non-crypto (Société des Ingénieurs, Samsung SDI, Stampede Drilling). Aucune corrélation onchain ou narrative crypto détectée.\"\n}",
-        "ts": 1793233419.184055
+        "metric": "whale_usd",
+        "zscore": 6.281910291756435,
+        "value": 6843525.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.28, ~6.84M USD) en absence totale de couverture médiatique (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin du radar retail.\"\n}\n```",
+        "ts": 1793249978.844913
       },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.5166714528508916,
-        "value": 1.014,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 5,\n\"reason\": \"Fausse alerte : 'IPT' correspond ici à des entités non-crypto (International Petroleum Corp, Institut Polytechnique de Toulouse, etc.). Aucune corrélation avec les mouvements de baleines crypto ou le narratif onchain.\"\n}",
-        "ts": 1793233420.115732
-      },
-      "fiche": "rbf_eleve",
+      "fiche": "whale_usd",
       "questions": {
-        "prix": {
-          "value": 0.3,
-          "seuil": 1,
+        "ventes": {
+          "value": 0.0,
+          "seuil": 0,
           "depasse": false
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6e-06,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 2.8167622726095534,
-        "value": 0.5716241369728148,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.82) détectant une volatilité anormale à la hausse, totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation agressive de baleines avant une percée narrative.\"\n}\n```",
-        "ts": 1793237938.527023
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.3,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 2570156.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6e-06,
+        "achats": {
+          "value": 1047383.0,
           "seuil": 0,
           "depasse": true
+        },
+        "prix": {
+          "value": 0.02,
+          "seuil": 1,
+          "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     },
     {
       "signal": {
-        "metric": "ipt",
-        "zscore": 2.206255092064674,
-        "value": 0.964,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une collision de ticker (IPT = International Petroleum Corp. / École Polytechnique). Aucune baleine crypto détectée, le bruit médiatique concerne la finance traditionnelle et des actualités académiques sans rapport avec la blockchain.\"\n}\n```",
-        "ts": 1793240346.069048
+        "metric": "taker_ratio",
+        "zscore": 2.124592436320017,
+        "value": 1.432,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.432 (z-score 2.12) indique une forte domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines avant le réveil du retail.\"\n}\n```",
+        "ts": 1793250589.315548
       },
-      "fiche": "rbf_eleve",
+      "fiche": "taker_ratio",
       "questions": {
-        "prix": {
-          "value": 0.3,
+        "taker": {
+          "value": 0.921,
           "seuil": 1,
           "depasse": false
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 6e-06,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
+        "prix": {
+          "value": 0.02,
+          "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

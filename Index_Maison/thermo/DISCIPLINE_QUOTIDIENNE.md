@@ -1,13 +1,15 @@
-# DISCIPLINE QUOTIDIENNE — 2026-10-28T06:15:57Z
+# DISCIPLINE QUOTIDIENNE — 2026-10-29T08:42:17Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (29.4%) — discipline NEUTRE active, à surveiller
-- 🔴 SEUIL NON RANGÉ : 3 clé(s) décident sans être classées (ETANCHE_MISE_MAX, TIERS_P1_PCT, TIERS_P2_PCT) — R17 : toute garde se mesure ou se déclare
+- 🔴 CORTANA sous 50% (11.1%) — discipline NEUTRE active, à surveiller
+- 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
+- 🔴 SEUIL NON RANGÉ : 8 clé(s) décident sans être classées (ETANCHE_MISE_MAX, STOP_POST_PARTIEL_TRAIL, TIERS_P1_PCT, TIERS_P2_PCT, GBAG_EXIT_FIRST_FRAC, REDEPLOY_CONFIRM_BUF_PCT) — R17 : toute garde se mesure ou se déclare
+- 🔴 Tendance à la baisse : 29% → 11.1%
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 29.4%
-- Analyses notées : 170/578
-- Par indice : altSeason 1/8; bassine 5/11; btc 3/18; chat 4/9; chg24 2/6; croisements 40/100; etfBtcM 2/11; etfEthM 2/12; etfXrpM 2/12; fearGreed 35/108; geopol 9/64; gexPutCall 4/13; indice_onchain 1/12; liq24Usd 4/11; longShort 2/12; oi 0/13; onchain 2/11; panierDownPct 0/1; pipeline_health 2/6; radar 44/95; rbf 1/6; score 0/12; sdi 2/12; verre 3/15
+- Score global : 11.1% (29% → 11.1% : baisse ≥ 5 pts)
+- Analyses notées : 1/9
+- Par indice : chat 0/1; croisements 0/3; fearGreed 0/1; geopol 0/1; indice_onchain 0/1; radar 1/1; verre 0/1
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
@@ -18,15 +20,15 @@
 - Détail : DERIVE_MEMOIRE.md — instables/critiques à revoir (contexte, données, prompt).
 
 ## AGORA (leçons apprises, chantier E4)
-- Leçons actives : 23 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
+- Leçons actives : 20 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
 - lecons_auto.py : scan → staging → validation (discipline 07h15, APRÈS la note).
 
 ## ERREURS (6ᵉ partie du cycle — post-mortem branché, R15/R17.5)
-- Registre : 26 classes d'erreur · non branché : 0 · récidives depuis la correction : 0
+- Registre : 30 classes d'erreur · non branché : 0 · récidives depuis la correction : 0
 - REGISTRE_ECHECS_ET_ERREURS.md : consulté AVANT de proposer une garde (sinon on repaie).
 
 ## SEUILS FIXES (R17 — la mesure doit décider)
-- 172 clés de config · **46 seuils DÉCIDENT sans mesure** · non classés : 3
+- 183 clés de config · **46 seuils DÉCIDENT sans mesure** · non classés : 8
 - SEUILS_FIXES_DERNIER.md : la liste chiffrée des seuils à passer à la mesure.
 
 ## SORTIE PILOTÉE PAR LA MESURE (GO 3 — suivi en vol)

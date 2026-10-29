@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 2.8046280379014803,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé (2.80) indiquant une volatilité statistique sans consensus de marché. Absence de narratif dominant notable (Google Actualités plat). Les baleines maintiennent le silence en attendant un catalyseur directionnel.\"\n}\n```",
-      "ts": "2026-10-28T00:22:40.212517+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.588815689512777,
-      "value": 2798748.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain indique une accumulation massive de USD par des baleines, suggérant un sentiment bullish. Cependant, les titres médiatiques ne mentionnent pas cette activité, indiquant une divergence potentielle entre les données brutes et le narratif médiatique. Les baleines pourraient bouger silencieusement, et le narratif médiatique pourrait être déconnecté de la réalité.\"\n}\n```",
-      "ts": "2026-10-28T00:27:42.001971+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.645326764762356,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Données incomplètes (absence de flux de gros portefeuilles dans les titres). Le z-score élevé du Fear & Greed (51) signale une indécision de marché, mais l'absence de narratif médiatique dominant empêche de confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-28T00:55:01.908384+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 2.507430959862454,
       "value": 51,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 70,\n  \"reason\": \"L'indice de peur/avidité de 51 avec un z-score de 2.51 indique une légère divergence entre les données onchain et le marché. Les titres médiatiques ne mentionnent pas explicitement cette anomalie, ce qui suggère une absence de narratif médiatique significatif pour le moment. Les baleines pourraient être en mouvement, mais sans preuve directe, le signal reste neutre.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 0.964,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une collision de ticker (IPT = International Petroleum Corp. / École Polytechnique). Aucune baleine crypto détectée, le bruit médiatique concerne la finance traditionnelle et des actualités académiques sans rapport avec la blockchain.\"\n}\n```",
       "ts": "2026-10-29T02:19:06.069048+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.281910291756435,
+      "value": 6843525.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.28, ~6.84M USD) en absence totale de couverture médiatique (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-10-29T04:59:38.844913+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.124592436320017,
+      "value": 1.432,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.432 (z-score 2.12) indique une forte domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines avant le réveil du retail.\"\n}\n```",
+      "ts": "2026-10-29T05:09:49.315548+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.443741072698964,
+      "value": 1.502,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (taker_ratio = 1.502, z-score 2.44) suggère une activité de trading intense et potentiellement des mouvements de fonds par les baleines. Cependant, l'absence de titres médiatisés pertinents indique un narratif médiatique potentiellement déconnecté de la réalité. Les baleines pourraient être en train de bouger silencieusement, ce qui pourrait être un signal bullish.\"\n}\n```",
+      "ts": "2026-10-29T09:09:37.283586+00:00"
     }
   ]
 }
