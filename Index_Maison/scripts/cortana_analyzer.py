@@ -435,10 +435,13 @@ def run_analysis():
     # 4. Annonce vocale si nécessaire
     annoncer_analyse(analyses)
     
-    # 5. Sauvegarde
+    # 5. Sauvegarde ATOMIQUE (29/10, GO Christophe : le scorer 5 min lit ce
+    # fichier en continu — un open "w" direct expose une lecture tronquée).
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT, "w") as f:
+    _tmp = OUTPUT.with_suffix(".tmp")
+    with open(_tmp, "w") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
+    os.replace(_tmp, OUTPUT)
     
     print(f"  Résultat: {OUTPUT}")
     return result

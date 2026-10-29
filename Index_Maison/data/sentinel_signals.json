@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.095275995540551,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les titres concernent des homonymes (Syndicat des Indépendants, Samsung SDI, Stampede Drilling) et non une entité ou un token crypto. Aucune donnée onchain pertinente.\"\n}\n```",
-      "ts": "2026-10-28T18:37:21.664838+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.2447366545110388,
-      "value": 4867017.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Aucune baleine crypto détectée derrière ce z-score non pertinent pour les flux onchain.\"\n}\n```",
-      "ts": "2026-10-28T18:42:31.577070+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.1390441493535257,
-      "value": 0.5402571423563929,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.14) dans un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin du radar retail.\"\n}\n```",
-      "ts": "2026-10-28T19:52:42.695174+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.143070906850287,
-      "value": 4036495.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers juridiques locaux ('liquidations judiciaires' en Bretagne). La véritable anomalie (Z-score 2.14 sur 4M$ de liquidations crypto suite au test des 79.75k$) montre un 'flush' sain des positions acheteuses excessives, éliminant le levier faible sans panique systémique. Accumulation discrète en cours.\"\n}\n```",
-      "ts": "2026-10-28T20:07:46.169455+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.8407070297346326,
-      "value": 0.5287888815354136,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (Z-score 2.84) détectée dans un silence médiatique absolu (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines avant que le narratif public ne se forme.\"\n}\n```",
-      "ts": "2026-10-28T20:27:50.038597+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.2339093989643315,
-      "value": 4217144.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes juridiques locaux (faillites d'entreprises traditionnelles). Aucune baleine crypto en mouvement, données onchain non corrélées.\"\n}\n```",
-      "ts": "2026-10-28T20:37:52.894197+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.704424005555567,
-      "value": 3223785.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.70, ~3.2M USD) en totale absence de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique avant une cassure de prix.\"\n}\n```",
-      "ts": "2026-10-28T21:02:57.067192+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.1582910323157543,
       "value": 4285150.0,
@@ -349,6 +300,55 @@
       "value": 1.116,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique erronée ou bruit de fond. Les 'données onchain' pour IPT (International Petroleum Corp / ticker boursier) n'ont aucune pertinence crypto, et le narratif médiatique mélange des actualités académiques et institutionnelles sans lien avec une activité de baleine ou un actif numérique.\"\n}\n```",
       "ts": "2026-10-29T19:44:48.915561+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.3167932586617144,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.32) non pertinente pour la crypto : le sigle 'SDI' fait référence à des actualités macroéconomiques françaises (Syndicat des Indépendants) et industrielles (Samsung SDI, Stampede Drilling) sans lien avec un actif blockchain ou un mouvement de baleine.\"\n}\n```",
+      "ts": "2026-10-29T19:54:52.009470+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0272339330612135,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte hausse des utilisations de CPFP (Child-Pays-For-Parent) on-chain (z-score 2.03), indiquant une congestion intentionnelle ou une anticipation de mouvements de fonds majeurs par des acteurs avisés, alors que le narratif médiatique grand public reste totalement déconnecté (bruit institutionnel, politique et tutoriels basique).\"\n}\n```",
+      "ts": "2026-10-29T19:54:53.540533+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0272339330612135,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique absolu. Les mentions de 'DUST' dans l'actualité concernent des levées de fonds en IA (entreprise Dust) et de la culture pop/sneakers, sans aucun lien on-chain avec une cryptomonnaie ou une accumulation de baleines.\"\n}\n```",
+      "ts": "2026-10-29T19:54:55.091326+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.6042311395285407,
+      "value": 0.6678807854874624,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.60) couplé à un silence médiatique total (zéro couverture Google Actualités) : signature classique d'accumulation furtive par les baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-10-29T20:09:58.347421+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2236115418350364,
+      "value": 1.182,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie non pertinente. L'indicateur 'ipt' (IPC / International Petroleum Corp ou homonymes institutionnels) ne correspond pas à un actif crypto significatif dans ce contexte. Bruit médiatique sans lien avec des mouvements de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-29T20:15:01.712516+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.990302810642712,
+      "value": 1.197908582418361,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 4.99) totalement ignorée par les médias traditionnels (Google Actualités). Silence médiatique typique d'une accumulation furtive par des baleines avant un mouvement de grande envergure.\"\n}\n```",
+      "ts": "2026-10-29T20:40:07.047813+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.5124535680770115,
+      "value": 15698475761.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain anormal (z-score 2.51) n'est pas soutenu par le narratif crypto (un seul article mineur sur Visa). La majorité des titres concernent des secteurs traditionnels (Renault, Unilever, eau minérale), indiquant que l'anomalie onchain est probablement du bruit statistique ou une rotation interne non médiatisée, sans signal directionnel clair.\"\n}",
+      "ts": "2026-10-29T20:50:09.661795+00:00"
     }
   ]
 }

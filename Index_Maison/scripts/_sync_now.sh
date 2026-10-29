@@ -17,3 +17,5 @@ mkdir -p "$VAULT/Index_Maison/A_Mon_Attention" && cp -f "$OB/A_Mon_Attention/"*.
 # --- 09/08 : AUTO_EVOL/IDEES.md (Qwen-elabore ecrit ICI) ne remontait JAMAIS ---
 mkdir -p "$VAULT/AUTO_EVOL" && cp -f "$OB/AUTO_EVOL/IDEES.md" "$VAULT/AUTO_EVOL/IDEES.md" && echo OK AUTO_EVOL/IDEES.md
 echo SYNC_VIA_TERMINAL_DONE
+# --- 29/10 : dossier Cortana Self-Model (GO Christophe) ---
+mkdir -p "$VAULT/Cortana_SelfModel" && cp -f "$OB/Cortana_SelfModel/"*.md "$VAULT/Cortana_SelfModel/" && echo OK Cortana_SelfModel/

@@ -1,14 +1,14 @@
 # Console générale — clin d’œil
 
-Auto-refresh : 2026-10-29 17:49 UTC · jour local **2026-10-29**
+Auto-refresh : 2026-10-29 19:53 UTC · jour local **2026-10-29**
 
 ## Feu tricolore
 
 | Jambe | État | Détail |
 |-------|------|--------|
 | **ACE** | 🔴 STOP | Dernier tag `MASTER_BASE_V8_6_FORTRESS_8H20` · combo ≈ **+0.90 $** |
-| **Hulk paper** | 🔴 STOP | pnl_total ≈ **44.0198** · pos **1** |
-| **Hulk digest** | 🔴 STOP | mtime 2026-10-29T17:44Z |
+| **Hulk paper** | 🟢 RUN | pnl_total ≈ **44.0198** · pos **1** |
+| **Hulk digest** | 🟢 RUN | mtime 2026-10-29T19:52Z |
 | **Punk** | 🔴 STOP | — · idle |
 | **Ollama** | 🟢 RUN | |
 | **Obsidian** | 🟢 | vault `Obsidian_ACE777` |

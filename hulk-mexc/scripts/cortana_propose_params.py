@@ -50,7 +50,7 @@ def appeler_hub(payload, tentatives=3, delais=(0, 10, 30)):
         try:
             req = urllib.request.Request(HUB, data=json.dumps(payload).encode("utf-8"),
                                          headers={"Content-Type": "application/json"})
-            with urllib.request.urlopen(req, timeout=None) as r:
+            with urllib.request.urlopen(req, timeout=120) as r:  # 29/10 GO Christophe : timeout 120s (jamais de job pendu si le hub fige)
                 return json.loads(r.read().decode())
         except Exception as e:
             last = e
