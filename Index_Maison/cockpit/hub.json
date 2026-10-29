@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T02:47:40.138802+00:00",
+  "generated_at": "2026-10-29T03:47:52.322157+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 163
+      "calls_24h": 160
     },
     {
       "id": "openrouter-free",
@@ -283,10 +283,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 10,
-    "remaining": 614
+    "consumed": 11,
+    "remaining": 613
   },
   "queue": [
+    {
+      "ts": "2026-10-29T03:47:01.169651+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.87
+    },
     {
       "ts": "2026-10-29T02:46:59.974532+00:00",
       "task": "supervise.decision",
@@ -398,76 +406,68 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.77
-    },
-    {
-      "ts": "2026-10-28T22:23:16.752894+00:00",
-      "task": "analyse.profonde",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.78
     }
   ],
   "events": [
     {
-      "ts": "2026-10-29T02:46:59.973357+00:00",
+      "ts": "2026-10-29T03:47:01.169326+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-10-29T02:46:46.769227+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-29T02:46:45.963659+00:00",
+      "ts": "2026-10-29T03:47:00.294546+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-10-29T02:41:56.102786+00:00",
+      "ts": "2026-10-29T03:42:02.987800+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-29T02:41:56.101862+00:00",
+      "ts": "2026-10-29T03:42:02.987437+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T02:41:56.098300+00:00",
+      "ts": "2026-10-29T03:42:02.985551+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T02:41:51.360261+00:00",
+      "ts": "2026-10-29T03:41:58.403245+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T02:41:47.197920+00:00",
+      "ts": "2026-10-29T03:41:53.924958+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T02:41:43.567543+00:00",
+      "ts": "2026-10-29T03:41:49.329221+00:00",
       "kind": "failover",
       "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-10-29T02:41:41.385854+00:00",
+      "ts": "2026-10-29T03:41:48.230857+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-10-29T03:41:48.230468+00:00",
+      "kind": "blacklist",
+      "title": "Pause Groq (Qwen 3.8 27B, gratuit) (3 echecs) 15min",
+      "detail": "backoff x1 -> re-essai auto"
     }
   ],
   "tasks_quotas": {

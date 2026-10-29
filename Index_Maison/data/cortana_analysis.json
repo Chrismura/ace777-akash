@@ -1,131 +1,8 @@
 {
-  "timestamp": 1793241995,
-  "date": "2026-10-29T02:46:35.942409+00:00",
-  "n_analyses": 11,
+  "timestamp": 1793245597,
+  "date": "2026-10-29T03:46:37.143360+00:00",
+  "n_analyses": 7,
   "analyses": [
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.704424005555567,
-        "value": 3223785.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 2.70, ~3.2M USD) en totale absence de couverture médiatique (silence radio sur Google Actualités). Accumulation furtive classique avant une cassure de prix.\"\n}\n```",
-        "ts": 1793221377.067192
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.38,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 2.1582910323157543,
-        "value": 4285150.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (liquidations judiciaires d'entreprises locales en France). Aucune corrélation avec des mouvements de baleines crypto ou des liquidations on-chain significatives.\"\n}\n```",
-        "ts": 1793221679.103556
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 2797896.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.38,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 2.220022804850887,
-        "value": 0.616,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, Stampede Drilling, Syndicat des Indépendants). Aucune corrélation on-chain pertinente détectée.\"\n}\n```",
-        "ts": 1793222883.563142
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 3.0548369581821913,
-        "value": 1.072,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.05) sur le ticker 'ipt' totalement polluée par du bruit médiatique hétérogène (pétrole, physique, théologie). Aucune donnée on-chain pertinente ou mouvement de baleine crypto détecté.\"\n}\n```",
-        "ts": 1793222885.294307
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.38,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 1.7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "whale_usd",
@@ -147,7 +24,7 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.38,
+          "value": -0.21,
           "seuil": 1,
           "depasse": false
         }
@@ -216,7 +93,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.38,
+          "value": -0.21,
           "seuil": 1,
           "depasse": false
         },
@@ -226,7 +103,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 1.7e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -255,17 +132,17 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.38,
+          "value": -0.21,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2797896.0,
+          "value": 2674868.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 1.7e-05,
+          "value": 1e-05,
           "seuil": 0,
           "depasse": true
         }
@@ -289,7 +166,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.38,
+          "value": -0.21,
           "seuil": 1,
           "depasse": false
         },
@@ -299,7 +176,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 1.7e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -318,5 +195,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
