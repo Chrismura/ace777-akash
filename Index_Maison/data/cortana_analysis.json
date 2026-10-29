@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793276485,
-  "date": "2026-10-29T12:21:25.713327+00:00",
-  "n_analyses": 7,
+  "timestamp": 1793280087,
+  "date": "2026-10-29T13:21:27.638688+00:00",
+  "n_analyses": 9,
   "analyses": [
     {
       "signal": {
@@ -14,24 +14,24 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.691,
+          "value": 1.008,
           "seuil": 1,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.31,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -44,24 +44,24 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.691,
+          "value": 1.008,
           "seuil": 1,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.31,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -74,24 +74,24 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.691,
+          "value": 1.008,
           "seuil": 1,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.31,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -109,17 +109,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 17,
+          "value": 290,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.31,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.62,
           "seuil": 0,
           "depasse": true
         },
@@ -154,17 +154,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 17,
+          "value": 290,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.31,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.62,
           "seuil": 0,
           "depasse": true
         },
@@ -194,24 +194,24 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.691,
+          "value": 1.008,
           "seuil": 1,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.31,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -229,13 +229,53 @@
           "depasse": false
         },
         "achats": {
-          "value": 0.0,
+          "value": 585963.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": 0.31,
           "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
+      },
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.1808812737658587,
+        "value": 0.992,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT) confondue par l'algorithme avec des homonymes non-crypto (International Petroleum Corp., École Polytechnique). Aucun mouvement de baleine crypto détecté, le 'narratif médiatique' ne concerne pas un actif numérique.\"\n}\n```",
+        "ts": 1793279740.407075
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.31,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 9.9e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
           "depasse": false
         }
       },
@@ -246,7 +286,22 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.78864019724551,
+        "value": 0.62,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique (SDI = Syndicat des Indépendants et TPE) capturée par erreur par l'algorithme crypto. Aucun lien avec des mouvements de baleines on-chain ou de la crypto-économie. Bruit médiatique pur.\"\n}\n```",
+        "ts": 1793280073.951867
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

@@ -1,9 +1,11 @@
 {
-  "ts": "2026-10-29T12:21+00:00",
-  "updated": "2026-10-29T12:21Z",
-  "etat": "OK",
-  "chaines_ok": "15/15",
-  "anomalies": [],
+  "ts": "2026-10-29T13:21+00:00",
+  "updated": "2026-10-29T13:21Z",
+  "etat": "ALERTE",
+  "chaines_ok": "14/15",
+  "anomalies": [
+    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)"
+  ],
   "degradees": [],
   "chaines": [
     {
@@ -25,12 +27,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 1 min"
+          "detail": "dernier événement il y a 5 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -40,12 +42,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 89.2 · zone VERT"
+          "detail": "voilure 78.5 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 4 min"
         }
       ]
     },
@@ -81,7 +83,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.9 min · écart mtime/ts 2.1s · 22 paire(s) · btc=OK · ts=croissant · passe 27.7s · marge 92.3s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 2.1s · 22 paire(s) · btc=OK · ts=croissant · passe 18.6s · marge 101.4s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -96,12 +98,12 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 219 min"
+          "detail": "âge 280 min"
         },
         {
           "nom": "cortana_analysis.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -114,7 +116,7 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "mission.json → cockpit",
@@ -183,7 +185,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.0h"
+          "detail": "âge 0.1h"
         },
         {
           "nom": "modules OK",
@@ -224,7 +226,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CALME"
+          "detail": "saison CHAUFFE"
         },
         {
           "nom": "6 indices calculés",
@@ -237,7 +239,7 @@
       "id": "vigie",
       "nom": "VIGIE MARCHÉ",
       "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process vigie_live",
@@ -246,8 +248,8 @@
         },
         {
           "nom": "journal_radar.log",
-          "ok": true,
-          "detail": "âge 0 min"
+          "ok": false,
+          "detail": "âge 5 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -280,7 +282,7 @@
         {
           "nom": "rapport veille_degradation_etat.json",
           "ok": true,
-          "detail": "SAIN · âge 0 min"
+          "detail": "SAIN · âge 1 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -308,7 +310,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "état courant",
@@ -341,7 +343,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "2 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -354,12 +356,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.3"
+          "detail": "score 0.715"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -377,7 +379,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 30 min"
+          "detail": "âge 29 min"
         },
         {
           "nom": "veille d'essaim active",

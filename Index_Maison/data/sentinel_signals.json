@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 8.28050944166117,
-      "value": 7572623.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (Z-score 8.28, ~7.5M USD) sans couverture médiatique significative (Google Actualités muet). Divergence classique de accumulation furtive de baleines en zone de silence médiatique.\"\n}\n```",
-      "ts": "2026-10-28T06:57:21.155325+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.099208757827552,
-      "value": 3790025.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.10, ~3.79M USD) combinée à un silence total dans les médias (Google Actualités vide). Les baleines accumulent discrètement sous le radar médiatique, signalant un mouvement furtif avant toute hype publique.\"\n}\n```",
-      "ts": "2026-10-28T08:02:41.803283+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.2618354812140167,
       "value": 1.496,
@@ -349,6 +335,20 @@
       "value": 3298274.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.00, ~3.3M USD) en absence totale de couverture médiatique (Google Actualités vide). C'accumulation furtive typique des baleines loin du radar public.\"\n}\n```",
       "ts": "2026-10-29T11:05:17.081632+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1808812737658587,
+      "value": 0.992,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT) confondue par l'algorithme avec des homonymes non-crypto (International Petroleum Corp., École Polytechnique). Aucun mouvement de baleine crypto détecté, le 'narratif médiatique' ne concerne pas un actif numérique.\"\n}\n```",
+      "ts": "2026-10-29T13:15:40.407075+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.78864019724551,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique (SDI = Syndicat des Indépendants et TPE) capturée par erreur par l'algorithme crypto. Aucun lien avec des mouvements de baleines on-chain ou de la crypto-économie. Bruit médiatique pur.\"\n}\n```",
+      "ts": "2026-10-29T13:21:13.951867+00:00"
     }
   ]
 }
