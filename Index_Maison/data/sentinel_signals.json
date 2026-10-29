@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": -3.681338650987386,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Bruit médiatique parasité par des faits divers locaux de liquidations judiciaires d'entreprises traditionnelles et un flash de prix standard, alors que le z-score on-chain (-3.68) indique une absence totale de liquidations de positions crypto. Les baleines absorbent la baisse à 79.8k sans panique systémique.\"\n}\n```",
-      "ts": "2026-10-28T00:17:36.388391+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -6.491387016055814,
       "value": 1,
@@ -349,6 +342,13 @@
       "value": 1.014,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 5,\n\"reason\": \"Fausse alerte : 'IPT' correspond ici à des entités non-crypto (International Petroleum Corp, Institut Polytechnique de Toulouse, etc.). Aucune corrélation avec les mouvements de baleines crypto ou le narratif onchain.\"\n}",
       "ts": "2026-10-29T00:23:40.115732+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.8167622726095534,
+      "value": 0.5716241369728148,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.82) détectant une volatilité anormale à la hausse, totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation agressive de baleines avant une percée narrative.\"\n}\n```",
+      "ts": "2026-10-29T01:38:58.527023+00:00"
     }
   ]
 }
