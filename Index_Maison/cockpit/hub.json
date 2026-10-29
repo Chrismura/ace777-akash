@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T18:50:02.646830+00:00",
+  "generated_at": "2026-10-29T19:50:17.156500+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 139
+      "calls_24h": 144
     },
     {
       "id": "openrouter-free",
@@ -53,7 +53,7 @@
       "model": "codestral-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 17
+      "calls_24h": 18
     },
     {
       "id": "cloudflare-workers-ai",
@@ -283,191 +283,191 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 99,
-    "remaining": 525
+    "consumed": 139,
+    "remaining": 485
   },
   "queue": [
     {
-      "ts": "2026-10-29T18:49:48.055267+00:00",
+      "ts": "2026-10-29T19:49:49.393460+00:00",
       "task": "supervise.decision",
       "provider": "mistral",
       "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 1.05
+    },
+    {
+      "ts": "2026-10-29T19:44:48.914560+00:00",
+      "task": "analyse.profonde",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.19
+    },
+    {
+      "ts": "2026-10-29T19:33:07.703902+00:00",
+      "task": "cortana.analyse",
+      "provider": "mistral",
+      "model": "codestral-latest",
+      "kind": "cloud",
+      "duration_s": 3.83
+    },
+    {
+      "ts": "2026-10-29T19:33:03.365788+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 0.9
     },
     {
-      "ts": "2026-10-29T18:49:35.896816+00:00",
-      "task": "supervise.decision",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.82
-    },
-    {
-      "ts": "2026-10-29T18:39:29.888713+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-10-29T19:33:01.930290+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.15
+      "duration_s": 3.86
     },
     {
-      "ts": "2026-10-29T18:24:26.093763+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-10-29T19:32:58.031218+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 5.3
+      "duration_s": 1.97
     },
     {
-      "ts": "2026-10-29T17:54:14.973801+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-10-29T19:32:55.528873+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 16.57
+      "duration_s": 3.28
     },
     {
-      "ts": "2026-10-29T17:53:36.697729+00:00",
-      "task": "ada.sanity",
+      "ts": "2026-10-29T19:32:52.210327+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 11.5
+      "duration_s": 0.93
     },
     {
-      "ts": "2026-10-29T17:49:46.751881+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-10-29T19:32:47.479230+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 23.02
+      "duration_s": 3.04
     },
     {
-      "ts": "2026-10-29T17:49:34.548686+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-10-29T19:32:44.397864+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 10.83
+      "duration_s": 1.37
     },
     {
-      "ts": "2026-10-29T17:42:14.264053+00:00",
-      "task": "bench.cure.mistral",
-      "provider": "mistral",
-      "model": "codestral-latest",
-      "kind": "cloud",
-      "duration_s": 0.73
-    },
-    {
-      "ts": "2026-10-29T17:42:13.521730+00:00",
-      "task": "bench.cure.groq",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.24
-    },
-    {
-      "ts": "2026-10-29T17:42:13.231362+00:00",
-      "task": "bench.cure.gemini",
+      "ts": "2026-10-29T19:32:42.497199+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 84.07
+      "duration_s": 6.18
     },
     {
-      "ts": "2026-10-29T17:40:26.636143+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-10-29T19:32:36.274823+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 11.02
+      "duration_s": 4.7
     },
     {
-      "ts": "2026-10-29T17:22:32.760427+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-10-29T19:32:30.949182+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 13.42
+      "duration_s": 4.63
     },
     {
-      "ts": "2026-10-29T17:19:45.132968+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-10-29T19:32:26.267310+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 10.75
+      "duration_s": 0.97
     },
     {
-      "ts": "2026-10-29T17:15:04.126704+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-10-29T19:32:21.630883+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 9.38
+      "duration_s": 3.12
     }
   ],
   "events": [
     {
-      "ts": "2026-10-29T18:49:48.055032+00:00",
+      "ts": "2026-10-29T19:49:49.393231+00:00",
       "kind": "message",
       "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
       "detail": "bascule"
     },
     {
-      "ts": "2026-10-29T18:49:48.054535+00:00",
+      "ts": "2026-10-29T19:49:49.392818+00:00",
       "kind": "filet-universel",
       "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
       "detail": "supervise.decision"
     },
     {
-      "ts": "2026-10-29T18:49:47.153138+00:00",
+      "ts": "2026-10-29T19:49:48.339150+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-10-29T18:49:47.152726+00:00",
+      "ts": "2026-10-29T19:49:48.338904+00:00",
       "kind": "failover",
       "title": "Saute (blacklist) depuis Google Gemini",
       "detail": "0 attente"
     },
     {
-      "ts": "2026-10-29T18:49:39.852608+00:00",
+      "ts": "2026-10-29T19:49:47.107162+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-29T18:49:39.850794+00:00",
+      "ts": "2026-10-29T19:49:47.106758+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): blacklist du jour (saute) | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
+      "detail": "Google Gemini: blacklist du jour (saute) | Groq (Qwen 3.8 27B, gratuit): blacklist du jour (saute) | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T18:49:39.848352+00:00",
+      "ts": "2026-10-29T19:49:47.104121+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T18:49:35.896509+00:00",
-      "kind": "message",
-      "title": "« Mistral La Plateforme (essai gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-10-29T18:49:35.896052+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Mistral La Plateforme (essai gratuit) » a repondu hors chaine",
-      "detail": "supervise.decision"
-    },
-    {
-      "ts": "2026-10-29T18:49:35.132465+00:00",
+      "ts": "2026-10-29T19:49:42.157903+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-29T19:49:37.023489+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-29T19:49:32.173725+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
+      "detail": "HTTP Error 400: Bad Request"
     }
   ],
   "tasks_quotas": {

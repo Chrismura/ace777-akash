@@ -1,19 +1,19 @@
 {
   "version": "v2",
-  "n": 831,
-  "total_hit": 7,
-  "total_scored": 11,
-  "pct": 63.6,
+  "n": 839,
+  "total_hit": 9,
+  "total_scored": 20,
+  "pct": 45.0,
   "directionnel": {
     "hit": 2,
-    "n": 3,
-    "pct": 66.7
+    "n": 6,
+    "pct": 33.3
   },
-  "t_stat_global": 0.9,
+  "t_stat_global": -0.45,
   "par_ere": {
     "depuis_0309": {
-      "hit": 7,
-      "n": 11
+      "hit": 9,
+      "n": 20
     }
   },
   "seuil_move_pct": 0.3,
@@ -34,55 +34,88 @@
       "verdict": null,
       "n_min_verdict": 20
     },
+    "chat": {
+      "hit": 0,
+      "n": 1,
+      "dir_n": 1,
+      "neutre": 7,
+      "t_stat": -1.0,
+      "verdict": null,
+      "n_min_verdict": 20
+    },
     "croisements": {
       "hit": 1,
-      "n": 2,
-      "dir_n": 2,
+      "n": 4,
+      "dir_n": 4,
       "dir_hit": 1,
       "neutre": 42,
-      "t_stat": 0.0,
+      "t_stat": -1.0,
+      "verdict": null,
+      "n_min_verdict": 20
+    },
+    "etfEthM": {
+      "hit": 1,
+      "n": 1,
+      "neutre": 13,
+      "t_stat": 1.0,
+      "verdict": null,
+      "n_min_verdict": 20
+    },
+    "etfXrpM": {
+      "hit": 1,
+      "n": 1,
+      "neutre": 13,
+      "t_stat": 1.0,
       "verdict": null,
       "n_min_verdict": 20
     },
     "fearGreed": {
       "hit": 2,
-      "n": 2,
+      "n": 3,
       "dir_n": 1,
       "dir_hit": 1,
-      "neutre": 68,
-      "t_stat": 1.41,
+      "neutre": 69,
+      "t_stat": 0.58,
       "verdict": null,
       "n_min_verdict": 20
     },
     "geopol": {
       "hit": 1,
-      "n": 2,
-      "neutre": 60,
-      "t_stat": 0.0,
+      "n": 3,
+      "neutre": 61,
+      "t_stat": -0.58,
       "verdict": null,
       "n_min_verdict": 20
     },
-    "indice_onchain": {
-      "hit": 1,
-      "n": 1,
-      "neutre": 12,
-      "t_stat": 1.0,
-      "verdict": null,
-      "n_min_verdict": 20
-    },
-    "radar": {
-      "hit": 1,
-      "n": 1,
-      "neutre": 73,
-      "t_stat": 1.0,
-      "verdict": null,
-      "n_min_verdict": 20
-    },
-    "verre": {
+    "gexPutCall": {
       "hit": 1,
       "n": 1,
       "neutre": 13,
       "t_stat": 1.0,
+      "verdict": null,
+      "n_min_verdict": 20
+    },
+    "indice_onchain": {
+      "hit": 0,
+      "n": 1,
+      "neutre": 12,
+      "t_stat": -1.0,
+      "verdict": null,
+      "n_min_verdict": 20
+    },
+    "radar": {
+      "hit": 2,
+      "n": 2,
+      "neutre": 74,
+      "t_stat": 1.41,
+      "verdict": null,
+      "n_min_verdict": 20
+    },
+    "verre": {
+      "hit": 0,
+      "n": 1,
+      "neutre": 13,
+      "t_stat": -1.0,
       "verdict": null,
       "n_min_verdict": 20
     }
@@ -93,21 +126,21 @@
     "avis": "LONG",
     "horizon": "1 semaine",
     "confiance": "faible",
-    "statut": "FLAT ➖",
-    "detail": "81142 -> 81095 (-0.06%)",
-    "move_pct": -0.06,
+    "statut": "MISS ❌",
+    "detail": "81142 -> 80802 (-0.42%)",
+    "move_pct": -0.42,
     "indice_move_pct": null
   },
   "zone_morte": {
     "seuil_funding": 0.0002
   },
   "evitement": {
-    "neutre_signal": 8,
-    "n_avis": 805,
-    "taux_pct": 1.0,
+    "neutre_signal": 14,
+    "n_avis": 813,
+    "taux_pct": 1.7,
     "alerte": false,
     "seuil_pct": 60.0,
     "note": "NEUTRE émis alors que le signal existe — si >60% des avis, alarme évitement"
   },
-  "ts": "2026-10-29T17:41:17.604048+00:00"
+  "ts": "2026-10-29T19:34:24.904952+00:00"
 }

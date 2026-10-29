@@ -8899,3 +8899,7 @@ Pas d’ordre — confrontation plus tard.
 - QNTUSDT: WATCH_PULLBACK — tension haute + reflux
 - CHIPUSDT: WATCH_PULLBACK — tension haute + reflux
 (compléter: confirmé ? risque ?)
+
+### 2026-10-29T18:53:45Z — ALERT auto
+- PYTHUSDT: WATCH_PULLBACK — tension haute + reflux
+(compléter: confirmé ? risque ?)

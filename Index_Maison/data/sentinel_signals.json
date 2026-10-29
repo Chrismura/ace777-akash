@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 2.8184082940835764,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie sémantique due à une confusion d'homonyme : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE en France, sans aucun rapport avec la crypto ou des mouvements de baleines onchain.\"\n}\n```",
-      "ts": "2026-10-28T17:06:28.987865+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.7597121534959532,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE, sans aucun rapport avec la crypto ou des mouvements de baleines.\"\n}\n```",
-      "ts": "2026-10-28T17:36:44.034292+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.2973433150898734,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, Stampede Drilling). Aucune anomalie on-chain liée aux crypto-baleines, le signal 'SDI' capté est un faux positif sémantique.\"\n}\n```",
-      "ts": "2026-10-28T18:07:05.535989+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.1620348350069114,
-      "value": 0.5190248719568524,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.16) couplé à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par des baleines loin du radar grand public.\"\n}\n```",
-      "ts": "2026-10-28T18:37:13.266067+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.095275995540551,
       "value": 0.616,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique externe : les titres concernent des homonymes (Syndicat des Indépendants, Samsung SDI, Stampede Drilling) et non une entité ou un token crypto. Aucune donnée onchain pertinente.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 1.182,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Erreur de ciblage : l'anomalie 'IPT' détectée correspond à des actions traditionnelles (International Petroleum Corp.) ou des actualités institutionnelles sans lien avec la crypto-sphère ou le mouvement de baleines onchain.\"\n}\n```",
       "ts": "2026-10-29T18:39:29.890181+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.053134874872502,
+      "value": 14081892011.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.05) totalement ignorée par les médias traditionnels focalisés sur l'actualité macro/corporate. Forte divergence indiquant une accumulation silencieuse de gros porteurs, notamment liée à l'adoption institutionnelle des stablecoins (signalé en creux par BeInCrypto).\"\n}\n```",
+      "ts": "2026-10-29T18:54:34.546133+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4967949786083086,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique : le signal fait référence au syndicat patronal français SDI (Syndicat des Indépendants) et aux TPE, sans aucun rapport avec les cryptomonnaies ou les flux on-chain de baleines.\"\n}\n```",
+      "ts": "2026-10-29T18:54:35.968296+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.0082356859005315,
+      "value": 1.065,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif absolu. L'anomalie 'ipt' détectée par le modèle correspond à de l'homonymie lexicale (International Petroleum Corp, École Polytechnique, fondation IPT) dans les médias, sans aucun rapport avec l'activité onchain d'une crypto-baleine.\"\n}\n```",
+      "ts": "2026-10-29T19:09:41.081003+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.060330875666941,
+      "value": 1.116,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique erronée ou bruit de fond. Les 'données onchain' pour IPT (International Petroleum Corp / ticker boursier) n'ont aucune pertinence crypto, et le narratif médiatique mélange des actualités académiques et institutionnelles sans lien avec une activité de baleine ou un actif numérique.\"\n}\n```",
+      "ts": "2026-10-29T19:44:48.915561+00:00"
     }
   ]
 }
