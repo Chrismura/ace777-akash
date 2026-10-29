@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793264781,
-  "date": "2026-10-29T09:06:21.055928+00:00",
-  "n_analyses": 2,
+  "timestamp": 1793265381,
+  "date": "2026-10-29T09:16:21.268206+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
@@ -19,12 +19,12 @@
           "depasse": false
         },
         "achats": {
-          "value": 1047383.0,
+          "value": 2118619.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.02,
+          "value": 0.23,
           "seuil": 1,
           "depasse": false
         }
@@ -49,25 +49,55 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.921,
+          "value": 1.502,
           "seuil": 1,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.02,
+          "value": 0.23,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
       },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.443741072698964,
+        "value": 1.502,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (taker_ratio = 1.502, z-score 2.44) suggère une activité de trading intense et potentiellement des mouvements de fonds par les baleines. Cependant, l'absence de titres médiatisés pertinents indique un narratif médiatique potentiellement déconnecté de la réalité. Les baleines pourraient être en train de bouger silencieusement, ce qui pourrait être un signal bullish.\"\n}\n```",
+        "ts": 1793264977.283586
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.502,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.23,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

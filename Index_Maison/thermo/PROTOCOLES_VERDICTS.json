@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-29T09:09:35+00:00",
+  "ts": "2026-10-29T09:18:04+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -299,11 +299,11 @@
           "delta_votes": 3
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "XChainBridge",
           "delta_votes": -1
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
@@ -336,17 +336,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.3642 « calme » (ML 0.1896) · 1 avis enregistrés dont 0 directionnels (0 correct(s)) · 59 NEUTRE",
+      "faits": "score actuel 0.3642 « calme » (ML 0.1896) · 2 avis enregistrés dont 0 directionnels (0 correct(s)) · 60 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "",
       "detail": [
         {
           "indice": "geopol",
-          "n": 1,
+          "n": 2,
           "directionnels": 0,
           "corrects": 0,
-          "neutres": 59,
-          "t_stat": -1.0
+          "neutres": 60,
+          "t_stat": 0.0
         }
       ]
     },
