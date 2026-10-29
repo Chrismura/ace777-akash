@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 2.278995442013668,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé (2.28) suggérant une transition de volatilité imminente, mais l'absence de titres médiatiques significatifs indique un calme plat avant tempête. Pas de divergence majeure détectée pour l'instant.\"\n}\n```",
-      "ts": "2026-10-28T02:25:36.744701+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.1827157308386163,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité totalement neutre (51) avec un z-score élevé signalant une volatilité statistique, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-28T02:55:43.709519+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.0957034464752367,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score modéré (2.10) et absence de signal médiatique fort. Aucune divergence significative détectée : le marché et les médias sont en phase d'attente.\"\n}\n```",
-      "ts": "2026-10-28T03:25:53.118147+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.0164995703068462,
-      "value": 51,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Indice de peur et d'avidité neutre (51) avec un z-score élevé, mais absence de titres médiatiques significatifs pour contraster. Données insuffisantes pour confirmer une accumulation ou une distribution silencieuse des baleines.\"\n}\n```",
-      "ts": "2026-10-28T03:56:02.408076+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 8.28050944166117,
       "value": 7572623.0,
@@ -349,6 +321,34 @@
       "value": 1.624,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de preneurs (taker_ratio à 1.624, z-score 2.65) indique une agression massive à l'achat par les acheteurs sur le marché dérivé/au comptant, totalement ignorée par l'absence de couverture médiatique (silence radio). Les baleines accumulent agressivement sous le radar public.\"\n}\n```",
       "ts": "2026-10-29T10:09:53.679837+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0249699061298863,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) détecté est un artéfact sémantique. L'analyse des médias montre que l'anomalie on-chain est déclenchée par du bruit (terme technique Bitcoin vs homonymes d'actualités locales et politiques). Aucune baleine détectée : le narratif médiatique n'est pas déconnecté, il s'agit juste d'un faux positif lexical.\"\n}\n```",
+      "ts": "2026-10-29T10:35:00.033219+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0249699061298863,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie onchain 'dust' détectée correspond à une terminologie homonyme totalement polluée par la culture pop, la mode (Nike) et la musique (Peter Padou), sans aucun rapport avec des mouvements de baleines crypto. Divergence nulle, simple interférence sémantique.\"\n}\n```",
+      "ts": "2026-10-29T10:35:07.626886+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.44290303959822,
+      "value": 1.624,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.44) indique une domination agressive des acheteurs sur le marché dérivé, révélant une accumulation agressive des baleines. Le vide médiatique (Google Actualités silencieux) prouve l'absence de FOMO de détail, confirmant une phase d'accumulation discrète avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-29T10:40:11.951784+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.996703578669239,
+      "value": 3298274.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.00, ~3.3M USD) en absence totale de couverture médiatique (Google Actualités vide). C'accumulation furtive typique des baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-29T11:05:17.081632+00:00"
     }
   ]
 }

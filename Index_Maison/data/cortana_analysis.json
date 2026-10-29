@@ -1,15 +1,225 @@
 {
-  "timestamp": 1793269283,
-  "date": "2026-10-29T10:21:23.164303+00:00",
-  "n_analyses": 5,
+  "timestamp": 1793272884,
+  "date": "2026-10-29T11:21:24.340392+00:00",
+  "n_analyses": 7,
   "analyses": [
     {
       "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.443741072698964,
+        "value": 1.502,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (taker_ratio = 1.502, z-score 2.44) suggère une activité de trading intense et potentiellement des mouvements de fonds par les baleines. Cependant, l'absence de titres médiatisés pertinents indique un narratif médiatique potentiellement déconnecté de la réalité. Les baleines pourraient être en train de bouger silencieusement, ce qui pourrait être un signal bullish.\"\n}\n```",
+        "ts": 1793264977.283586
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 0.838,
+          "seuil": 1,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.13,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+      },
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.264994174678421,
+        "value": 1.502,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.502 (z-score 2.26) indique une agression massive des acheteurs (Taker Buy) sur le marché des dérivés, montrant une accumulation agressive des baleines en silence, tandis que le vide médiatique (aucun narratif dominant) prouve que le grand public dort encore.\"\n}\n```",
+        "ts": 1793266784.183349
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 0.838,
+          "seuil": 1,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.13,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+      },
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.6512987310752925,
+        "value": 1.624,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de preneurs (taker_ratio à 1.624, z-score 2.65) indique une agression massive à l'achat par les acheteurs sur le marché dérivé/au comptant, totalement ignorée par l'absence de couverture médiatique (silence radio). Les baleines accumulent agressivement sous le radar public.\"\n}\n```",
+        "ts": 1793268593.679837
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 0.838,
+          "seuil": 1,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.13,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+      },
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.0249699061298863,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le pic de CPFP (Child-Pays-For-Parent) détecté est un artéfact sémantique. L'analyse des médias montre que l'anomalie on-chain est déclenchée par du bruit (terme technique Bitcoin vs homonymes d'actualités locales et politiques). Aucune baleine détectée : le narratif médiatique n'est pas déconnecté, il s'agit juste d'un faux positif lexical.\"\n}\n```",
+        "ts": 1793270100.033219
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 82,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.13,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.0249699061298863,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie onchain 'dust' détectée correspond à une terminologie homonyme totalement polluée par la culture pop, la mode (Nike) et la musique (Peter Padou), sans aucun rapport avec des mouvements de baleines crypto. Divergence nulle, simple interférence sémantique.\"\n}\n```",
+        "ts": 1793270107.626886
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 82,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.13,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.44290303959822,
+        "value": 1.624,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.44) indique une domination agressive des acheteurs sur le marché dérivé, révélant une accumulation agressive des baleines. Le vide médiatique (Google Actualités silencieux) prouve l'absence de FOMO de détail, confirmant une phase d'accumulation discrète avant une cassure haussière.\"\n}\n```",
+        "ts": 1793270411.951784
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 0.838,
+          "seuil": 1,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.13,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
+      },
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
         "metric": "whale_usd",
-        "zscore": 6.281910291756435,
-        "value": 6843525.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.28, ~6.84M USD) en absence totale de couverture médiatique (Google Actualités vide). Divergence classique de accumulation furtive par les baleines loin du radar retail.\"\n}\n```",
-        "ts": 1793249978.844913
+        "zscore": 2.996703578669239,
+        "value": 3298274.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.00, ~3.3M USD) en absence totale de couverture médiatique (Google Actualités vide). C'accumulation furtive typique des baleines loin du radar public.\"\n}\n```",
+        "ts": 1793271917.081632
       },
       "fiche": "whale_usd",
       "questions": {
@@ -24,7 +234,7 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.11,
+          "value": -0.13,
           "seuil": 1,
           "depasse": false
         }
@@ -36,127 +246,7 @@
       },
       "action": "Observer",
       "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.124592436320017,
-        "value": 1.432,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.432 (z-score 2.12) indique une forte domination agressive des acheteurs (Taker Buys) sur les carnets d'ordres, totalement ignorée par le vide médiatique actuel. Accumulation silencieuse des baleines avant le réveil du retail.\"\n}\n```",
-        "ts": 1793250589.315548
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.624,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.11,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.443741072698964,
-        "value": 1.502,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (taker_ratio = 1.502, z-score 2.44) suggère une activité de trading intense et potentiellement des mouvements de fonds par les baleines. Cependant, l'absence de titres médiatisés pertinents indique un narratif médiatique potentiellement déconnecté de la réalité. Les baleines pourraient être en train de bouger silencieusement, ce qui pourrait être un signal bullish.\"\n}\n```",
-        "ts": 1793264977.283586
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.624,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.11,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.264994174678421,
-        "value": 1.502,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.502 (z-score 2.26) indique une agression massive des acheteurs (Taker Buy) sur le marché des dérivés, montrant une accumulation agressive des baleines en silence, tandis que le vide médiatique (aucun narratif dominant) prouve que le grand public dort encore.\"\n}\n```",
-        "ts": 1793266784.183349
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.624,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.11,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.6512987310752925,
-        "value": 1.624,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de preneurs (taker_ratio à 1.624, z-score 2.65) indique une agression massive à l'achat par les acheteurs sur le marché dérivé/au comptant, totalement ignorée par l'absence de couverture médiatique (silence radio). Les baleines accumulent agressivement sous le radar public.\"\n}\n```",
-        "ts": 1793268593.679837
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.624,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.11,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
