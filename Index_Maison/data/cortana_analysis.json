@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793293578,
-  "date": "2026-10-29T17:06:18.136541+00:00",
-  "n_analyses": 14,
+  "timestamp": 1793294178,
+  "date": "2026-10-29T17:16:18.298709+00:00",
+  "n_analyses": 16,
   "analyses": [
     {
       "signal": {
@@ -14,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -83,12 +83,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2711693.0,
+          "value": 2645642.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -117,7 +117,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         },
@@ -132,7 +132,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -161,17 +161,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 190,
+          "value": 268,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.612,
+          "value": 0.604,
           "seuil": 0,
           "depasse": true
         },
@@ -206,17 +206,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 190,
+          "value": 268,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.612,
+          "value": 0.604,
           "seuil": 0,
           "depasse": true
         },
@@ -246,7 +246,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         },
@@ -261,7 +261,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -285,12 +285,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.717,
+          "value": 1.648,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 95166.43,
+          "value": 94324.054,
           "seuil": 120000,
           "depasse": false
         }
@@ -314,7 +314,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         },
@@ -329,7 +329,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -353,12 +353,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 1.717,
+          "value": 1.648,
           "seuil": 2,
           "depasse": false
         },
         "oi": {
-          "value": 95166.43,
+          "value": 94324.054,
           "seuil": 120000,
           "depasse": false
         }
@@ -382,7 +382,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         },
@@ -397,7 +397,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -421,29 +421,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 1648380.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
+        "achats": {
+          "value": 812881.0,
+          "seuil": 0,
+          "depasse": true
+        },
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -456,7 +456,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.07,
+          "value": -0.22,
           "seuil": 1,
           "depasse": false
         },
@@ -471,7 +471,75 @@
           "depasse": false
         },
         "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.5378609459144403,
+        "value": 1.648,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.54) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, totalement ignoré par les médias traditionnels qui focalisent sur les fonds equity classiques.\"\n}\n```",
+        "ts": 1793293793.632011
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.648,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 94324.054,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 3.2622694621515356,
+        "value": 14771188016.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique sur un volume global déconnectée des données crypto : les gros titres mentionnent de l'eau en bouteille, Renault et Unilever, sans lien avec une accumulation ou distribution silencieuse de baleines crypto.\"\n}\n```",
+        "ts": 1793294104.128203
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.22,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
           "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -485,5 +553,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

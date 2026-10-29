@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.987171244750246,
-      "value": 4385171.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.99) indiquant une accumulation massive et anormale de capitaux par les baleines, totalement ignorée par les médias (silence radio de Google Actualités). Divergence classique de 'smart money' accumulant dans l'ombre avant le réveil du narratif public.\"\n}\n```",
-      "ts": "2026-10-28T13:49:21.249512+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.037078079349288,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Fausse alerte on-chain. Le signal SDI détecté correspond au 'Syndicat des Indépendants et TPE' (actualité socio-économique française) et non à une métrique crypto ou à une baleine de marché.\"\n}\n```",
-      "ts": "2026-10-28T15:24:59.065184+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.5478643469425837,
       "value": 1.074,
@@ -349,6 +335,20 @@
       "value": 1.217,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.82) détectée sur le ticker IPT, mais les résultats médiatiques renvoient à des homonymes non-crypto (International Petroleum Corp, École Polytechnique, fondation suisse). Bruit de données, aucune baleine crypto identifiable derrière ce signal.\"\n}\n```",
       "ts": "2026-10-29T16:54:25.798447+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.5378609459144403,
+      "value": 1.648,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.54) sur le ratio long/short indiquant un positionnement contrarien massif des institutionnels, totalement ignoré par les médias traditionnels qui focalisent sur les fonds equity classiques.\"\n}\n```",
+      "ts": "2026-10-29T17:09:53.632011+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.2622694621515356,
+      "value": 14771188016.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique sur un volume global déconnectée des données crypto : les gros titres mentionnent de l'eau en bouteille, Renault et Unilever, sans lien avec une accumulation ou distribution silencieuse de baleines crypto.\"\n}\n```",
+      "ts": "2026-10-29T17:15:04.128203+00:00"
     }
   ]
 }
