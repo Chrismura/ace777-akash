@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-29T17:22:37+00:00",
+  "ts": "2026-10-29T17:49:32+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -274,7 +274,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "907 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "909 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -287,11 +287,11 @@
           "delta_votes": 7
         },
         {
-          "amendement": "SingleAssetVault",
+          "amendement": "DynamicMPT",
           "delta_votes": 6
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "SingleAssetVault",
           "delta_votes": 6
         },
         {
@@ -307,7 +307,7 @@
           "delta_votes": -1
         },
         {
-          "amendement": "Batch",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
@@ -353,16 +353,10 @@
     {
       "protocole": "paternes-btc (Kronos)",
       "critere": "mesure en continu des paternes validés (50w×200w + RSI hebdo, MACD daily = filtre, cycle) — verdict à n ≥ 30 cycles",
-      "faits": "42 cycles · régime HAUSSIER (écart 50w/200w 13.3 %, RSI hebdo 67) · MACD histogramme -309 · BTC 76540 → 80808 (+5.6 %)",
+      "faits": "43 cycles · régime HAUSSIER (écart 50w/200w 12.4 %, RSI hebdo 71) · MACD histogramme -225 · BTC 76540 → 81275 (+6.2 %)",
       "verdict": "EN ATTENTE (il manque 0 cycle(s) — cadence quotidienne → ~0 jour(s))",
       "alerte": "",
       "detail": [
-        {
-          "ts": "2026-10-24T17:59:05Z",
-          "prix": 81069.69,
-          "regime": "HAUSSIER",
-          "rsi_w": 67.0
-        },
         {
           "ts": "2026-10-25T17:59:02Z",
           "prix": 80771.9,
@@ -386,6 +380,12 @@
           "prix": 80808.65,
           "regime": "HAUSSIER",
           "rsi_w": 66.6
+        },
+        {
+          "ts": "2026-10-29T17:49:24Z",
+          "prix": 81275.48,
+          "regime": "HAUSSIER",
+          "rsi_w": 71.3
         }
       ]
     },

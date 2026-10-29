@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.5478643469425837,
-      "value": 1.074,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte : 'IPT' fait référence à des actions traditionnelles (International Petroleum Corp) ou à des acronymes institutionnels sans rapport avec la crypto. Aucune donnée onchain pertinente.\"\n}\n```",
-      "ts": "2026-10-28T15:25:20.628402+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 3.17337397036245,
       "value": 0.616,
@@ -349,6 +342,13 @@
       "value": 14771188016.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique sur un volume global déconnectée des données crypto : les gros titres mentionnent de l'eau en bouteille, Renault et Unilever, sans lien avec une accumulation ou distribution silencieuse de baleines crypto.\"\n}\n```",
       "ts": "2026-10-29T17:15:04.128203+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.3854404589100073,
+      "value": 1.648,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short affiche un z-score extrêmement bas (-2.39), traduisant une capitulation des positions acheteuses de détail ou un positionnement massivement vendeur. Pendant ce temps, le narratif médiatique grand public se focalise sur des produits traditionnels (fonds equity long/short), ignorant totalement l'accumulation furtive sous-jacente. Classic setup de 'short squeeze' imminent.\"\n}\n```",
+      "ts": "2026-10-29T17:40:26.637114+00:00"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793294478,
-  "date": "2026-10-29T17:21:18.352801+00:00",
-  "n_analyses": 16,
+  "timestamp": 1793295678,
+  "date": "2026-10-29T17:41:18.715751+00:00",
+  "n_analyses": 17,
   "analyses": [
     {
       "signal": {
@@ -14,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -83,12 +83,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2782585.0,
+          "value": 2780212.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -117,7 +117,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -161,17 +161,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 3634,
+          "value": 479,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0,
           "depasse": true
         },
@@ -206,17 +206,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 3634,
+          "value": 479,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0,
           "depasse": true
         },
@@ -246,7 +246,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -290,7 +290,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 94305.693,
+          "value": 94127.152,
           "seuil": 120000,
           "depasse": false
         }
@@ -314,7 +314,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -358,7 +358,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 94305.693,
+          "value": 94127.152,
           "seuil": 120000,
           "depasse": false
         }
@@ -382,7 +382,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -426,24 +426,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 789387.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -456,7 +455,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -500,7 +499,7 @@
           "depasse": false
         },
         "oi": {
-          "value": 94305.693,
+          "value": 94127.152,
           "seuil": 120000,
           "depasse": false
         }
@@ -524,7 +523,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.23,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -541,6 +540,35 @@
         "whales": {
           "value": 0,
           "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.3854404589100073,
+        "value": 1.648,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short affiche un z-score extrêmement bas (-2.39), traduisant une capitulation des positions acheteuses de détail ou un positionnement massivement vendeur. Pendant ce temps, le narratif médiatique grand public se focalise sur des produits traditionnels (fonds equity long/short), ignorant totalement l'accumulation furtive sous-jacente. Classic setup de 'short squeeze' imminent.\"\n}\n```",
+        "ts": 1793295626.637114
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.648,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 94127.152,
+          "seuil": 120000,
           "depasse": false
         }
       },
