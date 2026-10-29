@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 3.17337397036245,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique due à une collision de sigles : le 'SDI' médiatique désigne le Syndicat des Indépendants (TPE/commerces français), totalement déconnecté de la blockchain et des mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-28T16:35:42.089433+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.97613585031417,
-      "value": 1.151,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une ambiguïté de ticker. Les données onchain capturent du bruit ou un actif sans rapport avec le ticker traditionnel 'IPT' (International Petroleum Corp / École Polytechnique), démontrant une absence totale de corrélation avec un mouvement de baleine crypto.\"\n}\n```",
-      "ts": "2026-10-28T16:35:51.773530+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.459589027224064,
-      "value": 4021789.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Activité anormale des baleines (z-score 3.46, ~$4M) dans un silence médiatique total (Google Actualités vide). Accumulation furtive hors des radars grand public.\"\n}\n```",
-      "ts": "2026-10-28T16:51:09.736314+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.8184082940835764,
       "value": 0.616,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie sémantique due à une confusion d'homonyme : le 'SDI' médiatique désigne le Syndicat des Indépendants et TPE en France, sans aucun rapport avec la crypto ou des mouvements de baleines onchain.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 1.648,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short affiche un z-score extrêmement bas (-2.39), traduisant une capitulation des positions acheteuses de détail ou un positionnement massivement vendeur. Pendant ce temps, le narratif médiatique grand public se focalise sur des produits traditionnels (fonds equity long/short), ignorant totalement l'accumulation furtive sous-jacente. Classic setup de 'short squeeze' imminent.\"\n}\n```",
       "ts": "2026-10-29T17:40:26.637114+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.060582575402888,
+      "value": 15028259634.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (Z-score 3.06) totalement déconnectée des bruits médiatiques traditionnels (eau, auto, Unilever), mais directement corrélée à l'accélération x10 des volumes de stablecoins (infrastructure Visa/crypto). Accumulation silencieuse des institutionnels dans l'angle mort des médias grand public.\"\n}\n```",
+      "ts": "2026-10-29T17:54:14.975364+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.4615891611905485,
+      "value": 14487832349.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique sur le volume global sans lien avec le bruit médiatique générique (eau, automobile, stablecoins Visa). Aucune accumulation ou distribution spécifique de baleine crypto détectée derrière ce faux signal.\"\n}\n```",
+      "ts": "2026-10-29T18:24:26.139735+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.628369368750016,
+      "value": 1.182,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Erreur de ciblage : l'anomalie 'IPT' détectée correspond à des actions traditionnelles (International Petroleum Corp.) ou des actualités institutionnelles sans lien avec la crypto-sphère ou le mouvement de baleines onchain.\"\n}\n```",
+      "ts": "2026-10-29T18:39:29.890181+00:00"
     }
   ]
 }

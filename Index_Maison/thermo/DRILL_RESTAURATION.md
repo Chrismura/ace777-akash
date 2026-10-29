@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-10-29T17:49Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-29T18:49Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `56ddeed16d` du 2026-10-29T18:23:25+01:00
-- Fichiers suivis modifiés sur disque : **105**
+- Branche `main` · HEAD `79dd81df21` du 2026-10-29T18:52:34+01:00
+- Fichiers suivis modifiés sur disque : **104**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 38638 au total, dont **15 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 38656 au total, dont **15 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_oss20.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
@@ -34,7 +34,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_yygvfwqi/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_42wgb5zs/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **108/108**
 
 ## 4. Organes invoqués par les agents
@@ -51,14 +51,15 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-29T17:22Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-29T17:49Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **203** · écarts : **2** · absents : **0**
+- Entrées md5 vérifiées : **203** · écarts : **3** · absents : **0**
   - ⚠️ md5 différent : `Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md`
+  - ⚠️ md5 différent : `hulk-mexc/scripts/short_btc.py`
   - ⚠️ md5 différent : `Index_Maison/strategie/JOURNAL_ECRIVAINS.jsonl`
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
@@ -96,7 +97,7 @@
 
 ## 7. Verdict
 - 🔴 **3 trou(s) à combler :**
-  - 2 scellé(s) dont le md5 ne correspond plus
+  - 3 scellé(s) dont le md5 ne correspond plus
   - 19 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : chiffrage_pnl_net.py, observe_nado.py, PLATEFORMES.md…
   - 4 classe(s) d'erreur CONNUE(S) dont la garde déclarée est absente ou NON BRANCHÉE (R15 : hors de la boucle = n'existe pas) : E27, E28, E29, E30
 

@@ -154,19 +154,53 @@ def _iter_lignes(path: str):
         return
 
 
-def load_rows() -> list[dict]:
+def load_rows(max_span_h: float = 30.0, max_rows: int = 120000) -> list[dict]:
     # BOUCLER LA BOUCLE (28/10 §48) : le live seul ne couvre que ~5 h (rotation)
-    # → « historique insuffisant » permanent. On lit d'abord les archives de
-    # rotation (*.gz, les plus vieilles d'abord) puis le live. Zéro réseau.
+    # → « historique insuffisant » permanent. On lit le live PUIS les archives
+    # les plus récentes d'abord, et on s'arrête dès que le span couvre
+    # max_span_h (30 h >> besoin 24 h range + 10 h corr). FIX 29/10 mémoire :
+    # l'ancienne version lisait TOUT (live 56 Mo + 210 Mo décompressés ≈ 400 k
+    # lignes ≈ 200 Mo/processus × 3 jobs //5 min → swap + freeze MacBook 8 Go).
+    # Plafond max_rows : on garde les plus récents (tri ts décroissant).
     import glob as _glob
-    rows = []
-    archives = sorted(_glob.glob(str(RUNS / "croisement_contexte.jsonl.*.gz")))
-    for path in archives + [str(SRC)]:
+    import os as _os
+    archives = _glob.glob(str(RUNS / "croisement_contexte.jsonl.*.gz"))
+    # plus récentes d'abord (mtime décroissant) pour stop précoce
+    try:
+        archives.sort(key=lambda p: _os.path.getmtime(p), reverse=True)
+    except Exception:
+        archives = sorted(archives, reverse=True)
+    rows: list[dict] = []
+    t_min: float | None = None
+    t_max: float | None = None
+
+    def _span_ok() -> bool:
+        return (t_min is not None and t_max is not None
+                and (t_max - t_min) >= max_span_h * 3600)
+
+    for path in [str(SRC)] + archives:
         for l in _iter_lignes(path):
             try:
-                rows.append(json.loads(l))
+                r = json.loads(l)
             except Exception:
-                pass
+                continue
+            rows.append(r)
+            try:
+                ts = float(r.get("ts") or 0)
+            except (TypeError, ValueError):
+                continue
+            if ts > 0:
+                t_min = ts if t_min is None or ts < t_min else t_min
+                t_max = ts if t_max is None or ts > t_max else t_max
+        if _span_ok():
+            break
+    if len(rows) > max_rows:
+        # garder les plus récents (ts=0 en dernier)
+        try:
+            rows.sort(key=lambda r: float(r.get("ts") or 0))
+        except Exception:
+            pass
+        rows = rows[-max_rows:]
     return rows
 
 

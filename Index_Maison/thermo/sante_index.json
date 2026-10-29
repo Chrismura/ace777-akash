@@ -1,14 +1,9 @@
 {
-  "ts": "2026-10-29T17:49+00:00",
-  "updated": "2026-10-29T17:49Z",
-  "etat": "ALERTE",
-  "chaines_ok": "12/15",
-  "anomalies": [
-    "HULK : sonde runtime, contrat Cortana ou analyses figés",
-    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
-    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
-    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
-  ],
+  "ts": "2026-10-29T18:49+00:00",
+  "updated": "2026-10-29T18:49Z",
+  "etat": "OK",
+  "chaines_ok": "15/15",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -30,12 +25,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 9 min"
+          "detail": "dernier événement il y a 2 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -45,12 +40,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 86.4 · zone VERT"
+          "detail": "voilure 89.2 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 6 min"
         }
       ]
     },
@@ -68,7 +63,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 11 min"
+          "detail": "âge 9 min"
         }
       ]
     },
@@ -76,17 +71,17 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process paper_diprip",
-          "ok": false,
-          "detail": "PAS LANCÉ"
+          "ok": true,
+          "detail": "vivant"
         },
         {
           "nom": "aspiration runtime",
-          "ok": false,
-          "detail": "mode fichier · JSON · âge ts 5.4 min · écart mtime/ts 3.2s · 22 paire(s) · btc=OK · ts=croissant · passe 70.3s · marge 49.7s sous le budget 45s du moteur · ⚠ PIRE CAS age 90.3s > 45s (la prochaine passe part au plus tard après la cadence 20s) — entrées coupées si ça arrive"
+          "ok": true,
+          "detail": "mode fichier · JSON · âge ts 1.0 min · écart mtime/ts 2.7s · 22 paire(s) · btc=OK · ts=croissant · passe 25.0s · marge 95.0s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -101,12 +96,12 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 547 min"
+          "detail": "âge 607 min"
         },
         {
           "nom": "cortana_analysis.json",
           "ok": true,
-          "detail": "âge 8 min"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -124,12 +119,12 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -147,7 +142,7 @@
         {
           "nom": "cpfp_detect.json",
           "ok": true,
-          "detail": "âge 14 min"
+          "detail": "âge 10 min"
         },
         {
           "nom": "mode",
@@ -170,7 +165,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 9 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "signaux",
@@ -229,7 +224,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison ACCUMULATION"
+          "detail": "saison CALME"
         },
         {
           "nom": "6 indices calculés",
@@ -242,7 +237,7 @@
       "id": "vigie",
       "nom": "VIGIE MARCHÉ",
       "chemin": "vigie_live.py → journal_radar.log → alertes (relance superviseur-process + superviseur-core + vigie-live)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process vigie_live",
@@ -251,8 +246,8 @@
         },
         {
           "nom": "journal_radar.log",
-          "ok": false,
-          "detail": "âge 272 min"
+          "ok": true,
+          "detail": "âge 0 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -275,7 +270,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -284,8 +279,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": false,
-          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 5 min"
+          "ok": true,
+          "detail": "SAIN · âge 1 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -294,8 +289,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": false,
-          "detail": "ALERTE"
+          "ok": true,
+          "detail": "OK"
         }
       ]
     },
@@ -313,7 +308,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "état courant",
@@ -336,7 +331,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 34 min"
+          "detail": "âge 30 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -359,12 +354,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.3"
+          "detail": "score 0.706"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -382,7 +377,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 31 min"
+          "detail": "âge 30 min"
         },
         {
           "nom": "veille d'essaim active",

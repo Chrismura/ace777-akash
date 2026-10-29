@@ -1,15 +1,15 @@
 {
-  "ts": "2026-10-29T17:51:52.473950+00:00",
+  "ts": "2026-10-29T18:50:21.269258+00:00",
   "saison": "CALME",
   "emoji": "🧊",
-  "direction": "long",
-  "bascule": true,
-  "bascule_raison": "ACCUMULATION → CALME",
+  "direction": "short",
+  "bascule": false,
+  "bascule_raison": "",
   "alignement": {
-    "nb_long": 2,
-    "nb_short": 1,
+    "nb_long": 1,
+    "nb_short": 2,
     "score": 0.33,
-    "direction": "long"
+    "direction": "short"
   },
   "indices": {
     "temperature": {
@@ -20,7 +20,7 @@
     "pouls": {
       "direction": "neutre",
       "force": 0,
-      "brut": 0.0001
+      "brut": 9.3e-05
     },
     "bassin": {
       "direction": "short",
@@ -28,14 +28,14 @@
       "brut": "down"
     },
     "vortex": {
-      "direction": "long",
-      "force": 0,
-      "brut": 0.03
+      "direction": "short",
+      "force": 1,
+      "brut": -0.41
     },
     "essaim": {
       "direction": "long",
       "force": 2,
-      "brut": 1.648
+      "brut": 1.735
     },
     "baleines": {
       "direction": "neutre",
@@ -45,8 +45,8 @@
   },
   "story": [
     "SAISON : CALME 🧊 — hiver, ADA dort.",
-    "Alignement : 2 haussiers / 1 baissiers.",
-    "⚡ BASCULE : ACCUMULATION → CALME — le ciel change, prépare-toi."
+    "Alignement : 1 haussiers / 2 baissiers.",
+    "Le vent se lève (-0.41 % sur 24h) — pas encore un vortex."
   ],
   "sources": [
     "live.json"
