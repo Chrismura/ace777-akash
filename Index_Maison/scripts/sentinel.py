@@ -201,7 +201,8 @@ Les baleines bougent-elles silencieusement ? Le narratif est-il déconnecté de 
             {"role": "user", "content": user},
         ],
         "max_tokens": 800,
-        "temperature": 0.3,
+        "temperature": 0,  # 29/10 GO point-1 : verdicts rejouables (le juge ne doit pas
+        # changer d'avis sur les memes entrees ; la variance, c'est du bruit, pas de l'analyse)
     }).encode()
     
     req = urllib.request.Request(HUB, data=payload, headers={"Content-Type": "application/json"})

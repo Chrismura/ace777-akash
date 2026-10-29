@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": -2.0174004203719265,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique mineure (CPFP à zéro) noyée dans un bruit médiatique sans rapport (actualités locales et politiques). Aucune baleine détectée ; simple absence de transactions nécessitant une accélération des frais.\"\n}\n```",
-      "ts": "2026-10-28T22:23:15.209139+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": -2.0174004203719265,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Le signal de 'dust' onchain est un faux positif complet, pollué par l'actualité culturelle et musicale liée au mot 'dust' (poussière).\"\n}\n```",
-      "ts": "2026-10-28T22:23:16.753641+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.09293977062714,
-      "value": 0.616,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur : 'SDI' correspond ici à des entités non-crypto (Société des Ingénieurs, Samsung SDI, Stampede Drilling). Aucune corrélation onchain ou narrative crypto détectée.\"\n}",
-      "ts": "2026-10-29T00:23:39.184055+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.5166714528508916,
-      "value": 1.014,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 5,\n\"reason\": \"Fausse alerte : 'IPT' correspond ici à des entités non-crypto (International Petroleum Corp, Institut Polytechnique de Toulouse, etc.). Aucune corrélation avec les mouvements de baleines crypto ou le narratif onchain.\"\n}",
-      "ts": "2026-10-29T00:23:40.115732+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.8167622726095534,
-      "value": 0.5716241369728148,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (+2.82) détectant une volatilité anormale à la hausse, totalement ignorée par les médias (silence radio). C'est la signature classique d'accumulation agressive de baleines avant une percée narrative.\"\n}\n```",
-      "ts": "2026-10-29T01:38:58.527023+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.206255092064674,
       "value": 0.964,
@@ -349,6 +314,41 @@
       "value": 17547579380.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Divergence totale : l'anomalie onchain (volume 17.5B, z-score 2.88) est massivement déconnectée du flux médiatique dominé par des news traditionnelles (Renault, Unilever, Wattwiller). Le seul lien crypto est le volume de stablecoins Visa, mais cela ne justifie pas un pic de trading spot/derivés de cette ampleur sans couverture dédiée. Le silence médiatique sur un tel pic de volume suggère soit un wash trading, soit une rotation institutionnelle non couverte, mais l'absence de catalyseur narratif clair empêche de qualifier le signal de directionnel fiable.\"\n}",
       "ts": "2026-10-29T21:50:32.606674+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.4410180342880774,
+      "value": 1.264,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.44) sur le ticker IPT détectée par erreur de classification. Les actualités font référence à l'action boursière SWB:IPT (International Petroleum Corp) et à des institutions (École polytechnique, Fondation IPT), totalement étrangères à l'écosystème crypto. Aucune baleine crypto identifiée.\"\n}\n```",
+      "ts": "2026-10-29T22:05:36.102808+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.217103423154004,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte sémantique : l'acronyme 'SDI' dans les actualités fait référence au 'Syndicat des Indépendants' (TPE françaises) et non à un indicateur on-chain de baleines crypto. Aucune donnée de marché pertinente à analyser.\"\n}\n```",
+      "ts": "2026-10-29T22:15:38.979204+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.851008242147715,
+      "value": 18238746241.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (18.2B) est massif, mais le flux médiatique est dominé par des actualités macro-économiques classiques (Renault, Unilever, Wattwiller) et une seule mention crypto (Visa/Stablecoins) qui ne justifie pas un z-score de 2.85. Le narratif est déconnecté de l'anomalie onchain, mais sans signal directionnel clair (achat/vente) ni contexte de panique ou d'euphorie, il s'agit probablement d'un flux institutionnel routinier ou d'un artefact de données non couvert par la presse.\"\n}",
+      "ts": "2026-10-29T22:20:43.126417+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2736732153639325,
+      "value": 1.235,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.27) détectée sur le ticker 'ipt', mais le bruit médiatique et on-chain fait référence à de l'actionnariat traditionnel (International Petroleum Corp), à des actualités académiques (École polytechnique) ou à des fondations sans lien avec la crypto. Aucune baleine crypto détectée, simple collision de symboles boursiers/mots-clés.\"\n}\n```",
+      "ts": "2026-10-29T22:45:49.345317+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.7935191980292835,
+      "value": 18756198538.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.79) contrastant avec des actualités macro/traditionnelles sans lien direct, masquant une accumulation agressive de baleines sur les infrastructures de paiement (stablecoins).\"\n}\n```",
+      "ts": "2026-10-29T22:50:52.465375+00:00"
     }
   ]
 }

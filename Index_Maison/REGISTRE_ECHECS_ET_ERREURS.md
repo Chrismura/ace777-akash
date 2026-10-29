@@ -1895,3 +1895,46 @@ la question obligatoire « est-ce au TOP ou y a-t-il place à amélioration ? »
 boucle à la source → teste → valide → branche. Prochain candidat déclaré : TTL 24 h
 (fixe, jamais mesuré — dormeurs TIME_OUT +0,18 en indice).
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §41 — POINT-1 CORTANA : LE TAMBOUR BATTAIT À CONTRE-TEMPS (29/10 soir, GO Christophe)
+
+**Jugement après-coup (prix bruts croisement_contexte, +1h/+4h)** : verdicts
+sentinel 10 dernières h — **bullish 0/12 à +1h, 0/8 à +4h** (tous confiance
+75-95, tous suivis de baisse −0,9 % à −3 %). Bearish 1/1 juste. Neutral ~moitié
+(pile ou face, normal). Le récit « accumulation furtive / silence médiatique =
+baleines » a raté 14 fois de suite : en plein crash, divergence ≠ accumulation.
+**Causes mesurées à la source** : (1) `blocs_privilises.json` : clés `" seuil"`/
+`" calcul"` avec espaces → `q.get("seuil",0)` = 0 partout → questions non
+discriminantes (tout depasse=True). Nettoyé à la main, vérifié (volume 2 vs 100
+→ False, sdi 0,616 vs 0,3 → True), testé via evaluate_questions. (2) Température
+LLM sentinel 0,3 → **0** (un juge ne change pas d'avis sur les mêmes entrées ;
+variance = bruit). py_compile OK, rescellé. (3) Fiche `long_short` dit « carburant
+baissier » pendant que le LLM sentinel dit bullish 85-92 : deux voix, un fichier.
+(4) `sdi_eleve` : 0 ouverture (trigger valeur>0,7 vs signaux émis sur z) — fiche
+morte. (5) `duree` = 0 en dur (TODO) force toujours « pic bref » — prochain à
+calculer. (6) long_short ×4 mêmes valeurs (L/S gelé 2,145 ~20 min en plein crash :
+donnée lente jugée comme rapide). (7) Incident : `sentinel.py --help` inexistant
+→ a lancé un vrai cycle (1 déclenchement volume, aucun signal persisté, quota −1).
+Noté : tester les CLI en dry-run d'abord.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §42 — POINT-2 ADA : LA VIGIE DISAIT TOUT ET SON CONTRAIRE (29/10 soir, GO Christophe)
+
+**Mesuré à la source** : saison 20+ bascules en 6h (CALME↔CHAUFFE↔ACCUMULATION↔
+MOUVEMENT + sens long/short), paliers de 8 à 60 min. Cause racine : decider() est
+une fonction pure du snapshot instantané, et son entrée OI (deltas.oi.dir) est un
+tick display 5-min (seuil 1e-12 : up/down au moindre micro-mouvement, OI 93k ±
+0,05 %). L'œil LENT lisait une donnée RAPIDE → girouette. Effet domino : chaque
+bascule allumait la sirène « bascule de saison » + faisait sauter storm 0,7→0,46
+et voilure 78→89 % en pleine chute (lue à tort comme « ça va mieux »).
+**Réparé à la main** (`ada_saison.py`, backup /tmp, --test 18/18, cycle live OK,
+rescellé) : (1) hystérésis — candidate confirmée N=3 runs (ADA_SAISON_CONFIRMER)
+avant publication/bascule ; (2) bassin OI 1h vs médiane + deadband 0,3 %
+(mesurée : pas-à-pas médian 0,06 %, p90 0,27 %), fail-open vers le tick.
+**Non touché, déclaré** : bleed ≡ 0 car journal alpha session = 0 (ACE ne trade
+pas ; HULK −0,12 uPnl non vu — élargir le périmètre = chantier) ; seuil funding
+« chaud » 0,0005 inatteignable (réel 1e-05) ; bucket CALME par défaut dit « hiver,
+rien ne bouge » avec vortex force 2 (il manque un état « tension non alignée » —
+refonte d'échelle, GO famille requis) ; justesse_ada_v1.json n=0 (scorer jamais
+lancé).
+IA=Buffy (Muse Spark 1.3, Freebuff).

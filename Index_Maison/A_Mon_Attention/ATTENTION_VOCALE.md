@@ -1,11 +1,11 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Alerte Baleine. Gros print détecté, environ 3064251 dollars, 3 transaction proxy. Source Binance.. Provenance cortana_watch_whale.
+> Alerte Gros mouvement. Bitcoin une heure -0.32 pour cent, quatre heures -2.58 pour cent.. Provenance cortana_watch_move.
 
 ## Meta
 - statut: IDLE
-- ts: 20261029T2119Z
+- ts: 20261029T2210Z
 - pertinence: PERTINENT
 - sentiment: URGENT
 - compte: thermo-free

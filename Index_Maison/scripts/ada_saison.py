@@ -34,6 +34,11 @@ SEUIL_WHALE_USD = 5_000_000.0
 SEUIL_FEAR_EXTREME = 25
 SEUIL_GREED_EXTREME = 75
 LIVE_STALE_H = 2                     # live.json plus vieux que 2h -> fallback mission.json
+# 29/10 (GO point-2, 20 bascules en 6h) : HYSTÉRÉSIS — une saison candidate doit
+# être confirmée N runs de suite avant publication/bascule. Sans ça, decider()
+# (fonction pure du snapshot instantané) fait girouette à chaque bruit d'OI.
+# Réversible : ADA_SAISON_CONFIRMER=1 (comportement d'avant).
+CONFIRMER_N = int(os.environ.get("ADA_SAISON_CONFIRMER", "3"))
 
 # === CHEMINS ===
 BASE_DIR = os.path.join(os.path.expanduser("~"), "ace777-test-day1", "Index_Maison")
@@ -92,10 +97,17 @@ def signaux(live: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
         force = 0
     result["pouls"] = {"direction": direction, "force": force, "brut": funding}
 
-    # Bassin (OI)
-    deltas = safe_get(live, "deltas", {})
-    oi_info = safe_get(deltas, "oi", {}) if isinstance(deltas, dict) else {}
-    oi_dir = safe_get(oi_info, "dir", "flat") if isinstance(oi_info, dict) else "flat"
+    # Bassin (OI) — 29/10 : la saison est l'œil LENT, elle ne lit PLUS le tick
+    # display 5-min (deltas.oi.dir : up/down au moindre micro-mouvement, seuil
+    # 1e-12 → la saison faisait girouette : 23 bascules en 6h le 29/10).
+    # Tendance 1h vs médiane + deadband mesurée (pas-à-pas médian 0,06 %,
+    # p90 0,27 % → deadband 0,3 %). Fail-open : sans historique → tick display.
+    oi_dir = tendance_oi_1h()
+    if oi_dir == "neutre_fallback":
+        deltas = safe_get(live, "deltas", {})
+        oi_info = safe_get(deltas, "oi", {}) if isinstance(deltas, dict) else {}
+        tick = safe_get(oi_info, "dir", "flat") if isinstance(oi_info, dict) else "flat"
+        oi_dir = tick if tick in ("up", "down") else "flat"
     direction = "long" if oi_dir == "up" else ("short" if oi_dir == "down" else "neutre")
     result["bassin"] = {"direction": direction, "force": 1 if direction != "neutre" else 0,
                         "brut": oi_dir}
@@ -132,6 +144,55 @@ def signaux(live: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
     result["baleines"] = {"direction": "neutre", "force": force, "brut": whale_n}
 
     return result
+
+
+def lire_oi_history(n: int = 12) -> list:
+    """Dernières valeurs OI de thermo/history.jsonl (fenêtre ~1h). [] si illisible."""
+    try:
+        hist = os.path.join(BASE_DIR, "thermo", "history.jsonl")
+        vals = []
+        with open(hist, encoding="utf-8") as f:
+            for ln in f:
+                ln = ln.strip()
+                if not ln:
+                    continue
+                try:
+                    r = json.loads(ln)
+                    if r.get("oi"):
+                        vals.append(float(r["oi"]))
+                except Exception:
+                    continue
+        return vals[-n:] if vals else []
+    except Exception:
+        return []
+
+
+def sens_tendance(vals: list, deadband: float) -> str:
+    """Tendance vs médiane de la fenêtre : up/down/neutre (pure, testable)."""
+    import statistics as _st
+    if len(vals) < 3:
+        return "neutre"
+    ref = _st.median(vals[:-1])
+    if not ref:
+        return "neutre"
+    d = (vals[-1] - ref) / ref
+    if d > deadband:
+        return "up"
+    if d < -deadband:
+        return "down"
+    return "neutre"
+
+
+def tendance_oi_1h() -> str:
+    """Direction OI 1h avec deadband, ou 'neutre_fallback' si pas d'historique."""
+    try:
+        dead = float(os.environ.get("ADA_OI_DEADBAND_PCT", "0.3")) / 100.0
+    except Exception:
+        dead = 0.003
+    vals = lire_oi_history(12)
+    if len(vals) < 3:
+        return "neutre_fallback"
+    return sens_tendance(vals, dead)
 
 
 def alignement(signaux_dict: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
@@ -184,6 +245,25 @@ def detecter_bascule(etat: Dict[str, Any], saison: str) -> Tuple[bool, str]:
     if not previous or previous == saison:
         return False, ""
     return True, "%s → %s" % (previous, saison)
+
+
+def confirmer_saison(etat: Dict[str, Any], calculee: str) -> Tuple[str, bool, str, Dict[str, Any]]:
+    """Hystérésis 29/10 : publie la saison CONFIRMÉE, pas la girouette.
+    Renvoie (saison_publiee, bascule, bascule_raison, nouvel_etat).
+    Tant que la candidate n'a pas tenu CONFIRMER_N runs, on garde l'ancienne
+    (stable) et bascule=False — la sirène ne hurle que sur du confirmé."""
+    n_min = max(1, CONFIRMER_N)
+    if not etat or not etat.get("saison"):
+        return calculee, False, "", {"saison": calculee, "candidat": None, "n": 0}
+    stable = etat.get("saison")
+    if calculee == stable:
+        return stable, False, "", {"saison": stable, "candidat": None, "n": 0}
+    cand = etat.get("candidat")
+    n = int(etat.get("n", 0) or 0) + 1 if cand == calculee else 1
+    if n >= n_min:
+        return calculee, True, "%s → %s" % (stable, calculee), \
+            {"saison": calculee, "candidat": None, "n": 0}
+    return stable, False, "", {"saison": stable, "candidat": calculee, "n": n}
 
 
 def story(saison: str, align_dict: Dict[str, Any],
@@ -250,7 +330,7 @@ def ecrire_sorties(saison: str, align_dict: Dict[str, Any],
         json.dump(out, f, ensure_ascii=False, indent=2)
     os.replace(tmp, LIVE_OUT)
 
-    # état
+    # état (écriture simple ; scan() écrit l'état d'hystérésis juste après)
     with open(ETAT_PATH, "w", encoding="utf-8") as f:
         json.dump({"saison": saison, "ts": ts}, f, ensure_ascii=False, indent=2)
 
@@ -301,11 +381,23 @@ def scan() -> None:
     al = alignement(sig)
     saison, raison = decider(sig, al, live)
 
-    # Bascule : pas de fausse bascule au premier run (état absent)
+    # Bascule avec HYSTÉRÉSIS 29/10 : la candidate doit tenir CONFIRMER_N runs.
+    # Tant que non confirmée, on publie la saison stable (pas la girouette).
     etat = safe_load_json(ETAT_PATH)
-    bascule, bascule_raison = detecter_bascule(etat, saison)
+    saison_pub, bascule, bascule_raison, nouvel_etat = confirmer_saison(etat, saison)
+    # Les signaux/alignement publiés restent ceux du moment ; seule l'étiquette
+    # de saison reste stable tant que la candidate n'est pas confirmée.
+    saison = saison_pub
 
     story_lines = ecrire_sorties(saison, al, sig, bascule, bascule_raison, sources, degraded)
+
+    # APRÈS ecrire_sorties (qui écrit l'état simple) : état d'hystérésis.
+    try:
+        nouvel_etat["ts"] = datetime.now(timezone.utc).isoformat()
+        with open(ETAT_PATH, "w", encoding="utf-8") as f:
+            json.dump(nouvel_etat, f, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
     for line in story_lines:
         print(line)
 
@@ -359,6 +451,28 @@ def run_tests() -> int:
     check("bascule CALME->CHAUFFE = True", b and r == "CALME → CHAUFFE")
     b, r = detecter_bascule({"saison": "CALME"}, "CALME")
     check("bascule meme saison = False", not b)
+
+    # Hystérésis 29/10 (soir du flap : 20 bascules en 6h)
+    _s, _b, _r, _e = confirmer_saison({}, "CHAUFFE")
+    check("hysteresis premier run publie sans bascule", _s == "CHAUFFE" and not _b)
+    _s, _b, _r, _e = confirmer_saison({"saison": "CALME", "candidat": None, "n": 0}, "CALME")
+    check("hysteresis stable = pas de bascule", _s == "CALME" and not _b)
+    e1 = {"saison": "CALME", "candidat": None, "n": 0}
+    s1, b1, _, e1 = confirmer_saison(e1, "CHAUFFE")
+    check("hysteresis run1 candidat non publie", s1 == "CALME" and not b1 and e1["n"] == 1)
+    s2, b2, _, e2 = confirmer_saison(e1, "CHAUFFE")
+    check("hysteresis run2 candidat non publie", s2 == "CALME" and not b2 and e2["n"] == 2)
+    s3, b3, r3, _ = confirmer_saison(e2, "CHAUFFE")
+    check("hysteresis run3 confirme + bascule", s3 == "CHAUFFE" and b3 and r3 == "CALME → CHAUFFE")
+    e_alt = {"saison": "CALME", "candidat": "CHAUFFE", "n": 2}
+    sa, ba, _, ea = confirmer_saison(e_alt, "MOUVEMENT")
+    check("hysteresis changement de candidat reset le compteur", sa == "CALME" and not ba and ea == {"saison": "CALME", "candidat": "MOUVEMENT", "n": 1})
+
+    # Deadband OI 29/10 (pure, sans fichiers)
+    check("tendance oi up franche", sens_tendance([100, 101, 102, 105], 0.003) == "up")
+    check("tendance oi bruit (±0,1 %) = neutre", sens_tendance([100, 100.1, 99.9, 100.05], 0.003) == "neutre")
+    check("tendance oi down franche", sens_tendance([100, 99, 98, 95], 0.003) == "down")
+    check("tendance oi pas assez de points = neutre", sens_tendance([100, 101], 0.003) == "neutre")
 
     # story contient la saison
     st = story("CHAUFFE", {"nb_long": 3, "nb_short": 1, "score": 0.5, "direction": "long"},
