@@ -1,10 +1,12 @@
 {
-  "ts": "2026-10-29T13:21+00:00",
-  "updated": "2026-10-29T13:21Z",
+  "ts": "2026-10-29T16:16+00:00",
+  "updated": "2026-10-29T16:16Z",
   "etat": "ALERTE",
-  "chaines_ok": "14/15",
+  "chaines_ok": "13/15",
   "anomalies": [
-    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)"
+    "VIGIE MARCHÉ : radar mort ou journal figé (le trou du 19/08)",
+    "VEILLE DÉGRADATION : rapport ALERTE_DEGRADATION_SILENCIEUSE ou figé — dégradation silencieuse détectée",
+    "VEILLE DÉGRADATION : Dead Man's Switch ALERTE ou figé — la surveillance elle-même est en panne"
   ],
   "degradees": [],
   "chaines": [
@@ -42,12 +44,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 78.5 · zone VERT"
+          "detail": "voilure 74.8 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 1 min"
         }
       ]
     },
@@ -65,7 +67,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         }
       ]
     },
@@ -83,7 +85,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 2.1s · 22 paire(s) · btc=OK · ts=croissant · passe 18.6s · marge 101.4s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.1 min · écart mtime/ts 2.1s · 22 paire(s) · btc=OK · ts=croissant · passe 35.5s · marge 84.5s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -98,7 +100,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 280 min"
+          "detail": "âge 454 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -116,12 +118,12 @@
         {
           "nom": "live.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -167,7 +169,7 @@
         {
           "nom": "sentinel_history.json",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 4 min"
         },
         {
           "nom": "signaux",
@@ -185,7 +187,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -226,7 +228,7 @@
         {
           "nom": "ada_saison_live.json",
           "ok": true,
-          "detail": "saison CHAUFFE"
+          "detail": "saison MOUVEMENT"
         },
         {
           "nom": "6 indices calculés",
@@ -249,7 +251,7 @@
         {
           "nom": "journal_radar.log",
           "ok": false,
-          "detail": "âge 5 min"
+          "detail": "âge 180 min"
         },
         {
           "nom": "relance (superviseur-process)",
@@ -272,7 +274,7 @@
       "id": "veille_deg",
       "nom": "VEILLE DÉGRADATION",
       "chemin": "veille_degradation.py (plists + heartbeats + indicateurs) → etat.json + DMS externe (dms-veille) → cockpit",
-      "ok": true,
+      "ok": false,
       "maillons": [
         {
           "nom": "process veille_degradation (launchd)",
@@ -281,8 +283,8 @@
         },
         {
           "nom": "rapport veille_degradation_etat.json",
-          "ok": true,
-          "detail": "SAIN · âge 1 min"
+          "ok": false,
+          "detail": "ALERTE_DEGRADATION_SILENCIEUSE · âge 1 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -291,8 +293,8 @@
         },
         {
           "nom": "rapport DMS_VEILLE.json",
-          "ok": true,
-          "detail": "OK"
+          "ok": false,
+          "detail": "ALERTE"
         }
       ]
     },
@@ -333,7 +335,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -356,12 +358,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.715"
+          "detail": "score 0.3"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

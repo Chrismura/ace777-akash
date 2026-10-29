@@ -63,18 +63,19 @@ Métriques : maison (mur moy/max + régime ; poussière = indicateur PANIER) + p
 | 56 | 2026-10-26T15:34:58Z | 15h | AUTRE | 0.05213 | IMPULSE_WAIT | 4.687 | 30766.68 | 61779.48 | 3.44e-06 | -0.49 | 0.09 | -0.15 | neutre (stab 0) | prix 0.05213 · poussière(panier) 4.7% · Amihud 3.44e-06 · delta -0.49 · mur moy 30,767$ · mur max (run) 61,779$ |
 | 57 | 2026-10-27T15:35:02Z | 15h | AUTRE | 0.05408 | IMPULSE_WAIT | 3.2425 | 30766.68 | 61779.48 | 3.17e-06 | 0.17 | 0.32 | 0.30 | POMPE_PIEGE (stab 2) | prix 0.05408 · poussière(panier) 3.2% · Amihud 3.17e-06 · delta +0.17 · mur moy 30,767$ · mur max (run) 61,779$ |
 | 58 | 2026-10-28T15:34:29Z | 15h | AUTRE | 0.05119 | IMPULSE | 0.0543 | 30766.68 | 61779.48 | 2.02e-06 | 0.07 | 0.31 | 0.62 | neutre (stab 0) | prix 0.05119 · poussière(panier) 0.1% · Amihud 2.02e-06 · delta +0.07 · mur moy 30,767$ · mur max (run) 61,779$ |
+| 59 | 2026-10-29T15:34:55Z | 15h | AUTRE | 0.05206 | IMPULSE_WAIT | None | 30766.68 | 61779.48 | 1.92e-06 | -0.12 | 0.72 | 0.69 | POMPE_PIEGE (stab 3) | prix 0.05206 · Amihud 1.92e-06 · delta -0.12 · mur moy 30,767$ · mur max (run) 61,779$ |
 
 ## 🔁 HISTORIQUE DES CYCLES DE L'ACTIF (zigzag ≥ 15 %, log continu du moteur)
 
-_Fenêtre mesurée : du 2026-10-24T07:36:31Z au 2026-10-28T15:34:29Z (14242 points) — archives de rotation incluses._
+_Fenêtre mesurée : du 2026-10-24T07:36:31Z au 2026-10-29T15:34:55Z (17014 points) — archives de rotation incluses._
 
 _Pas encore deux retournements ≥ 15 % dans l'historique mesuré._
 
-**Cycle en cours : pas encore de retournement ≥ 15 % dans la fenêtre** — du plus bas 2026-10-24T15:20:01Z à 0.041 → 0.05119 = **+24.9 %**
+**Cycle EN COURS : BAISSE depuis le pic du 2026-10-28T11:02:17Z à 0.05722 → 0.05206 = **-9.0 %**** (extrême courant 0.04707)
 
 ## 💰 CE QUE LE MOTEUR A CAPTÉ SUR CET ACTIF
 
-- **Réalisé : +7.76 $** sur 15 entrée(s) / 15 sortie(s) — dernier événement 2026-10-28T12:01:50Z
+- **Réalisé : +7.76 $** sur 15 entrée(s) / 15 sortie(s) — dernier événement 2026-10-29T15:33:20Z
 - **MFE donné en moyenne : +4.3 pts** par tour (pire tour : +16.0) — le meilleur prix atteint pendant la détention, jamais encaissé
 
 _Règle : on compare les lignes entre elles (même heure de mesure = comparable). On ne supprime rien._

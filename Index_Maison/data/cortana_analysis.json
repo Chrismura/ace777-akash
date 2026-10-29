@@ -1,98 +1,8 @@
 {
-  "timestamp": 1793280087,
-  "date": "2026-10-29T13:21:27.638688+00:00",
-  "n_analyses": 9,
+  "timestamp": 1793290577,
+  "date": "2026-10-29T16:16:17.298715+00:00",
+  "n_analyses": 14,
   "analyses": [
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.443741072698964,
-        "value": 1.502,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (taker_ratio = 1.502, z-score 2.44) suggère une activité de trading intense et potentiellement des mouvements de fonds par les baleines. Cependant, l'absence de titres médiatisés pertinents indique un narratif médiatique potentiellement déconnecté de la réalité. Les baleines pourraient être en train de bouger silencieusement, ce qui pourrait être un signal bullish.\"\n}\n```",
-        "ts": 1793264977.283586
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.008,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.31,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.264994174678421,
-        "value": 1.502,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.502 (z-score 2.26) indique une agression massive des acheteurs (Taker Buy) sur le marché des dérivés, montrant une accumulation agressive des baleines en silence, tandis que le vide médiatique (aucun narratif dominant) prouve que le grand public dort encore.\"\n}\n```",
-        "ts": 1793266784.183349
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.008,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.31,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.6512987310752925,
-        "value": 1.624,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio de preneurs (taker_ratio à 1.624, z-score 2.65) indique une agression massive à l'achat par les acheteurs sur le marché dérivé/au comptant, totalement ignorée par l'absence de couverture médiatique (silence radio). Les baleines accumulent agressivement sous le radar public.\"\n}\n```",
-        "ts": 1793268593.679837
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 1.008,
-          "seuil": 1,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.31,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
-      },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
-    },
     {
       "signal": {
         "metric": "cpfp",
@@ -109,17 +19,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 290,
+          "value": 59,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.31,
+          "value": -0.09,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.62,
+          "value": 0.604,
           "seuil": 0,
           "depasse": true
         },
@@ -154,17 +64,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 290,
+          "value": 59,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.31,
+          "value": -0.09,
           "seuil": 0,
           "depasse": true
         },
         "sdi": {
-          "value": 0.62,
+          "value": 0.604,
           "seuil": 0,
           "depasse": true
         },
@@ -194,12 +104,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.008,
+          "value": 1.077,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.31,
+          "value": -0.09,
           "seuil": 1,
           "depasse": false
         }
@@ -229,12 +139,12 @@
           "depasse": false
         },
         "achats": {
-          "value": 585963.0,
+          "value": 731275.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.31,
+          "value": -0.09,
           "seuil": 1,
           "depasse": false
         }
@@ -259,7 +169,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.31,
+          "value": -0.09,
           "seuil": 1,
           "depasse": false
         },
@@ -269,7 +179,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 9.9e-05,
+          "value": 0.0001,
           "seuil": 0.001,
           "depasse": false
         },
@@ -301,6 +211,291 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 3.5692097270406387,
+        "value": 0.624,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique : l'indicateur 'SDI' détecté ici correspond au Syndicat des Indépendants et TPE (politique/sociale française) et non à une métrique on-chain de baleines crypto. Fausse alerte, aucune donnée de marché à analyser.\"\n}\n```",
+        "ts": 1793282868.494581
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 2.574216707688336,
+        "value": 0.64,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.57) combiné à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant l'effet de surprise public.\"\n}\n```",
+        "ts": 1793288419.900499
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.09,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2459908.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 3.220661385512753,
+        "value": 13151595056.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.22) déclenchée par des bruits de fond médiatiques sans rapport avec la crypto (actualité sur l'eau, les cheveux et les stablecoins grand public). Aucune baleine détectée.\"\n}\n```",
+        "ts": 1793288451.608891
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.09,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.054360872193702,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Pic anormal de l'indicateur CPFP (Child-Pays-For-Parent) combiné à un z-score élevé (2.05), indiquant une congestion du réseau et des utilisateurs (probablement des baleines ou des mineurs) forcés de payer des frais prioritaires pour débloquer des transactions bloquées. Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent (éducation, politique locale), masquant une potentielle panique ou un rééquilibrage massif onchain.\"\n}\n```",
+        "ts": 1793289374.020637
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 59,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.09,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.054360872193702,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond). Le narratif médiatique fait référence à de la poussière littérale (sneakers Nike, jeux vidéo, émissions industrielles), confirmant l'absence totale de corrélation crypto.\"\n}\n```",
+        "ts": 1793289397.099775
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 59,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.09,
+          "seuil": 0,
+          "depasse": true
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.7068299256988557,
+        "value": 1.168,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie statistique (z-score 2.71) sur un ticker boursier traditionnel (International Petroleum Corp - TSX/SWB:IPT) pollué par des homonymes non-crypto dans les actualités (physique, militantisme, actualité protestante). Aucun mouvement on-chain pertinent détecté.\"\n}\n```",
+        "ts": 1793290025.579183
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.09,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.218834830648015,
+        "value": 1.717,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.22) sur le ratio long/short indiquant un positionnement court massif des suiveurs, totalement ignoré par les médias généralistes qui ne traitent que de produits traditionnels. Classic setup de capitulation des shorts propice à un short squeeze initié par les baleines.\"\n}\n```",
+        "ts": 1793290062.903439
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 1.717,
+          "seuil": 2,
+          "depasse": false
+        },
+        "oi": {
+          "value": 96718.57,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 3.2847590588718854,
+        "value": 13695332066.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume isolée sans corrélation pertinente avec le narratif médiatique actuel, dominé par l'actualité macroéconomique et corporate traditionnelle.\"\n}\n```",
+        "ts": 1793290378.776505
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.09,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"

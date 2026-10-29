@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="2436519428">
+<meta name="version" content="390091367">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1793280344"></script>
+<script src="mission.js?v=1793290733"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1793280344"></script>
-<script src="../thermo/live.js?v=1793280344"></script>
-<script src="../thermo/cortana_feed.js?v=1793280344"></script>
-<script src="sante_live.js?v=1793280344"></script>
-<script src="veille_institutionnelle.js?v=1793280344"></script>
+<script src="hub.js?v=1793290733"></script>
+<script src="../thermo/live.js?v=1793290733"></script>
+<script src="../thermo/cortana_feed.js?v=1793290733"></script>
+<script src="sante_live.js?v=1793290733"></script>
+<script src="veille_institutionnelle.js?v=1793290733"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1188,7 +1188,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1793280344"></script>
+<script src="plancher_live.js?v=1793290733"></script>
 </head>
 <body>
 <div class="app">
@@ -2125,9 +2125,9 @@ window.addEventListener('unhandledrejection', function(e) {
           const clsF=vsH.ecartFull30_usd!=null?(vsH.ecartFull30_usd>0.05?'wpos':(vsH.ecartFull30_usd<-0.05?'wneg':'wneu')):'wneu';
           const arrowF=vsH.ecartFull30_usd!=null?(vsH.ecartFull30_usd>0?'▲':(vsH.ecartFull30_usd<0?'▼':'')):'';
           vsNote.innerHTML = `<span class="hsub" title="LE vrai match (GO Christophe) : même budget tout-investi au prix du seed et tenu">SCORE HULK vs FULL-30 :</span> <span class="${clsF}"><b>${arrowF} ${vsH.ecartFull30_usd!=null?((vsH.ecartFull30_usd>0?'+':'')+usd(vsH.ecartFull30_usd)):'—'}</b></span>`
-            + ((vsH.ecartFull30_pct!=null)?` <span class="hsub">(${(vsH.ecartFull30_pct>0?'+':'')+fmt(vsH.ecartFull30_pct,1)}% vs tout-investi)</span>`:'')
+            + ((vsH.ecartFull30_pct!=null)?` <span class="hsub">(${fmt(vsH.ecartFull30_pct,1)}% vs tout-investi)</span>`:'')
             + ` <span class="hsub" title="2e juge : seed tenu + marge qui dort en cash">· vs hold-10 :</span> <span class="${clsV}"><b>${arrowV} ${ec!=null?((ec>0?'+':'')+usd(ec)):'—'}</b></span>`
-            + (pct!=null?` <span class="hsub">(${pct>0?'+':''}${fmt(pct,1)}%)</span>`:'')
+            + (pct!=null?` <span class="hsub">(${fmt(pct,1)}%)</span>`:'')
             + ` <span class="hsub">· budget ${vsH.nbPaires!=null?vsH.nbPaires:'—'} cryptos (seed + ${usd(vsH.margeParCrypto||20)} de marge) = ${usd(vsH.budgetTotal)}</span>`
             + ` <span class="hsub" title="CASH = compte rejoué : budget + ventes − achats − frais (la poche moteur, ventes seules, vaut ${vsH.cashPaper!=null?usd(vsH.cashPaper):'—'} — autre notion, écart structurel ${vsH.reconciliation&&vsH.reconciliation.ecartTotal!=null?usd(vsH.reconciliation.ecartTotal):'—'}, pas une anomalie)">· cash ${vsH.cash!=null?usd(vsH.cash):'—'}</span>`
             // Le compounding est un LEVIER VOULU (avec l'amplitude) : entre l'enveloppe
@@ -2170,10 +2170,10 @@ window.addEventListener('unhandledrejection', function(e) {
               <td class="hq" title="Budget = bag début + marge pour opérer">${budget!=null?usd(budget):'—'}</td>
               <td class="hs" title="Même budget tenu depuis le seed (rien faire)">${p.hold!=null?usd(p.hold):'—'}</td>
               <td class="hr ${clsE}" title="Hulk − si rien fait"><b>${arrowE} ${ec!=null?((ec>0?'+':'')+usd(ec)):'—'}</b></td>
-              <td class="hr ${clsE}">${ecPct!=null?((ecPct>0?'+':'')+fmt(ecPct,1)+'%'):'—'}</td>
+              <td class="hr ${clsE}">${ecPct!=null?(fmt(ecPct,1)+'%'):'—'}</td>
               <td class="hs" title="Tout le budget investi au prix du seed et tenu (benchmark honnête 20/10)">${p.full30!=null?usd(p.full30):'—'}</td>
               <td class="hr ${(p.ecartFull30!=null?(p.ecartFull30>0.05?'wpos':(p.ecartFull30<-0.05?'wneg':'wneu')):'wneu')}" title="Hulk − hold full-30"><b>${p.ecartFull30!=null?((p.ecartFull30>0?'+':'')+usd(p.ecartFull30)):'—'}</b></td>
-              <td class="hq" title="Spread médian mesuré (journal) + coûts cumulés + stops glissés n/moyenne (state persisté) — 🔒 = gate anti-glissement : ré-entrées ×0.5">${p.spreadMed!=null?fmt(p.spreadMed,1)+'bps':'—'} <span class="hsub">${p.coutCumule!=null?usd(p.coutCumule):''}</span>${p.slipN?` <span class="hsub">· ${p.slipN} stops ${p.slipMoy}pp</span>`:''}${p.bride?' <span style="color:var(--warn,orange)" title="Gate anti-glissement : cette paire glisse, ses ré-entrées sont bridées ×0.5">🔒</span>':''}</td>
+              <td class="hq" title="Spread médian mesuré (journal) + coûts cumulés + stops glissés n/moyenne (state persisté) — 🔒 = gate anti-glissement : ré-entrées ×0.5">${p.spreadMed!=null?Number(p.spreadMed).toFixed(1)+'bps':'—'} <span class="hsub">${p.coutCumule!=null?usd(p.coutCumule):''}</span>${p.slipN?` <span class="hsub">· ${p.slipN} stops ${p.slipMoy}pp</span>`:''}${p.bride?' <span style="color:var(--warn,orange)" title="Gate anti-glissement : cette paire glisse, ses ré-entrées sont bridées ×0.5">🔒</span>':''}</td>
             </tr>`;
           }).join('');
           scrTb.innerHTML=rowsScore;
@@ -2194,7 +2194,7 @@ window.addEventListener('unhandledrejection', function(e) {
             <td class="hq" title="Budget total = seeds + ${vsH.margeParCrypto}$ × ${vsH.nbPaires} cryptos"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b></td>
             <td class="hs" title="Total si rien fait"><b>${vsH.hold!=null?usd(vsH.hold):'—'}</b></td>
             <td class="hr ${sumCls}"><b>${sumEc!=null?((sumEc>0?'+':'')+usd(sumEc)):'—'}</b></td>
-            <td class="hr ${sumCls}">${vsH.ecart_pct!=null?((vsH.ecart_pct>0?'+':'')+fmt(vsH.ecart_pct,1)+'%'):'—'}</td>
+            <td class="hr ${sumCls}">${vsH.ecart_pct!=null?(fmt(vsH.ecart_pct,1)+'%'):'—'}</td>
             <td class="hs" title="Total hold full-30 (tout-investi)"><b>${vsH.holdFull30!=null?usd(vsH.holdFull30):'—'}</b></td>
             <td class="hr ${(vsH.ecartFull30_usd!=null?(vsH.ecartFull30_usd>0.05?'wpos':(vsH.ecartFull30_usd<-0.05?'wneg':'wneu')):'wneu')}" title="Hulk − hold full-30"><b>${vsH.ecartFull30_usd!=null?((vsH.ecartFull30_usd>0?'+':'')+usd(vsH.ecartFull30_usd)):'—'}</b></td>
             <td class="hq" title="Coûts cumulés mesurés sur toutes les paires (journal)"><b>${vsH.slippage&&vsH.slippage.coutTotal!=null?usd(vsH.slippage.coutTotal):'—'}</b></td>
@@ -2218,7 +2218,7 @@ window.addEventListener('unhandledrejection', function(e) {
             // FULL-30 (20/10, GO Christophe) : LE juge — tout-investi au seed.
             // Le hold-10 (seed + cash qui dort) n'est que le 2e juge.
             if(vsH.ecartFull30_usd!=null&&vsH.ecartFull30_usd>0.5){
-              verdict=`<span class="wpos">Hulk bat le tout-investi (full-30) : <b>${ecTxt(vsH.ecartFull30_usd)} (${(vsH.ecartFull30_pct>0?'+':'')+fmt(vsH.ecartFull30_pct,1)}%)</b> sur ${vsH.nbPaires} cryptos, même budget.</span>`;
+              verdict=`<span class="wpos">Hulk bat le tout-investi (full-30) : <b>${ecTxt(vsH.ecartFull30_usd)} (${fmt(vsH.ecartFull30_pct,1)}%)</b> sur ${vsH.nbPaires} cryptos, même budget.</span>`;
             }else if(vsH.ecartFull30_usd!=null&&vsH.ecartFull30_usd<-0.5){
               verdict=`<span class="wneg">Contre un bag tout-investi (full-30), Hulk perd <b>${ecTxt(vsH.ecartFull30_usd)}</b> — le cash qui dort coûte cher quand ça monte.</span>`;
             }else{
@@ -2227,7 +2227,7 @@ window.addEventListener('unhandledrejection', function(e) {
             let fullLine='';
             if(vsH.ecart_usd!=null&&Math.abs(vsH.ecart_usd)>0.5){
               fullLine=vsH.ecart_usd>0
-                ? `<span class="wpos">✔ Et contre seed-tenu + cash qui dort (hold-10) : <b>${ecTxt(vsH.ecart_usd)} (${(vsH.ecart_pct>0?'+':'')+fmt(vsH.ecart_pct,1)}%)</b>.</span>`
+                ? `<span class="wpos">✔ Et contre seed-tenu + cash qui dort (hold-10) : <b>${ecTxt(vsH.ecart_usd)} (${fmt(vsH.ecart_pct,1)}%)</b>.</span>`
                 : `<span class="wneg">✘ Et même contre seed-tenu + cash (hold-10), Hulk perd <b>${ecTxt(vsH.ecart_usd)}</b>.</span>`;
             }
             let bestLine='', worstLine='';
@@ -2280,10 +2280,10 @@ window.addEventListener('unhandledrejection', function(e) {
             <div class="hfc-row"><span class="${dirCls}">${dirTxt||'dir'}${seedTxt}</span><span>${regime}</span></div>
             <div class="hfc-row"><span>entrée</span><span>${fmtP(p.entry,6)}</span></div>
             <div class="hfc-row"><span>cours</span><span class="${cls(mv24)}">${fmtP(mk,6)}</span></div>
-            <div class="hfc-row" title="variation 24h du marché — vert hausse / rouge baisse"><span>24h</span><span class="${cls(mv24)}"><b>${mv24!=null?((mv24>0?'▲+':'▼')+fmt(Math.abs(mv24),1)+'%'):'—'}</b></span></div>
-            <div class="hfc-row" title="AMPLITUDE : range haut-bas sur 24h — notre signal de volatilité, plus elle est forte plus on doit oeuvrer (DCA)"><span>amplitude</span><span class="${ampCls}"><b>${amp!=null?fmt(Math.abs(amp),1)+'%':'—'}</b></span></div>
+            <div class="hfc-row" title="variation 24h du marché — vert hausse / rouge baisse"><span>24h</span><span class="${cls(mv24)}"><b>${mv24!=null?((mv24>0?'▲':'▼')+Number(Math.abs(mv24)).toFixed(1)+'%'):'—'}</b></span></div>
+            <div class="hfc-row" title="AMPLITUDE : range haut-bas sur 24h — notre signal de volatilité, plus elle est forte plus on doit oeuvrer (DCA)"><span>amplitude</span><span class="${ampCls}"><b>${amp!=null?Number(Math.abs(amp)).toFixed(1)+'%':'—'}</b></span></div>
             <div class="hfc-row" title="si tu n'avais rien fait (depuis l'entrée)"><span>hold</span><span class="${cls(pct)}">${pct!=null?fmt(pct,2)+'%':'—'}</span></div>
-            <div class="hfc-row" title="valeur réelle (vs départ) — rouge si en baisse vs la mise même si +%"><span>valeur réelle</span><span class="${depCls}">${bVal!=null?('$'+Number(bVal).toFixed(2)):((u!=null?(u>0?'+':'')+fmt(u,2):'—'))}${vsDep!=null?(' ('+(vsDep>0?'+':'')+fmt(vsDep,1)+'%)'):''}</span></div>
+            <div class="hfc-row" title="valeur réelle (vs départ) — rouge si en baisse vs la mise même si +%"><span>valeur réelle</span><span class="${depCls}">${bVal!=null?('$'+Number(bVal).toFixed(2)):(u!=null?fmt(u,2):'—')}${vsDep!=null?(' ('+fmt(vsDep,1)+'%)'):''}</span></div>
           </div>`;
         }
         const tag=st==='CASH'?'CASH':'SUIVI';
@@ -2294,8 +2294,8 @@ window.addEventListener('unhandledrejection', function(e) {
         return `<div class="hfc flat">
           <div class="hfc-top"><span class="hfc-name">${crypto}</span><span class="hfc-tag flat">${tag}</span></div>
           <div class="hfc-row"><span>cours</span><span class="${cls(fmv)}">${fmtP(fmark,6)}</span></div>
-          <div class="hfc-row" title="variation 24h du marché — vert hausse / rouge baisse"><span>24h</span><span class="${cls(fmv)}"><b>${fmv!=null?((fmv>0?'▲+':'▼')+fmt(Math.abs(fmv),1)+'%'):'—'}</b></span></div>
-          <div class="hfc-row" title="AMPLITUDE : range haut-bas sur 24h — notre signal de volatilité, plus elle est forte plus on doit oeuvrer (DCA)"><span>amplitude</span><span class="${fampCls}"><b>${famp!=null?fmt(Math.abs(famp),1)+'%':'—'}</b></span></div>
+          <div class="hfc-row" title="variation 24h du marché — vert hausse / rouge baisse"><span>24h</span><span class="${cls(fmv)}"><b>${fmv!=null?((fmv>0?'▲':'▼')+Number(Math.abs(fmv)).toFixed(1)+'%'):'—'}</b></span></div>
+          <div class="hfc-row" title="AMPLITUDE : range haut-bas sur 24h — notre signal de volatilité, plus elle est forte plus on doit oeuvrer (DCA)"><span>amplitude</span><span class="${fampCls}"><b>${famp!=null?Number(Math.abs(famp)).toFixed(1)+'%':'—'}</b></span></div>
           <div class="hfc-reg" style="color:#a9b8c8">${regime}</div>
         </div>`;
       }).join('') || '<span style="color:var(--muted)">aucun univers paper</span>';

@@ -8873,3 +8873,12 @@ Pas d’ordre — confrontation plus tard.
 ### 2026-10-29T13:20:17Z — ALERT auto
 - CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
 (compléter: confirmé ? risque ?)
+
+### 2026-10-29T14:59:17Z — ALERT auto
+- CCUSDT: IMPULSE_WAIT — spike en cours, pas chase
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
+
+### 2026-10-29T16:10:01Z — ALERT auto
+- CHIPUSDT: IMPULSE_WAIT — spike en cours, pas chase
+(compléter: confirmé ? risque ?)
