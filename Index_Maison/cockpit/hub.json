@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T20:51:07.811767+00:00",
+  "generated_at": "2026-10-29T20:53:43.881153+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -410,64 +410,64 @@
   ],
   "events": [
     {
-      "ts": "2026-10-29T20:50:55.542726+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-29T20:50:54.469225+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-10-29T20:50:37.196929+00:00",
-      "kind": "message",
-      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
-      "detail": "bascule"
-    },
-    {
-      "ts": "2026-10-29T20:50:36.558303+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
-    },
-    {
-      "ts": "2026-10-29T20:50:14.558629+00:00",
+      "ts": "2026-10-29T20:52:43.296073+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-29T20:50:14.557958+00:00",
+      "ts": "2026-10-29T20:52:43.295765+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): <urlopen error The write operation timed out> | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): <urlopen error The write operation timed out>"
     },
     {
-      "ts": "2026-10-29T20:50:14.554846+00:00",
+      "ts": "2026-10-29T20:52:43.295216+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "HTTP Error 429: Too Many Requests"
+      "detail": "<urlopen error The write operation timed out>"
     },
     {
-      "ts": "2026-10-29T20:50:13.226737+00:00",
+      "ts": "2026-10-29T20:52:31.929090+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T20:50:09.660285+00:00",
-      "kind": "message",
-      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
-      "detail": "bascule"
+      "ts": "2026-10-29T20:52:26.441678+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-29T20:50:09.659672+00:00",
-      "kind": "filet-universel",
-      "title": "[FILET UNIVERSEL] « Groq (Qwen 3.8 27B, gratuit) » a repondu hors chaine",
-      "detail": "analyse.profonde"
+      "ts": "2026-10-29T20:52:20.884964+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-10-29T20:52:18.136161+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-10-29T20:52:12.908866+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (HTTP 400)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-10-29T20:52:11.769027+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis Google Gemini",
+      "detail": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "ts": "2026-10-29T20:52:11.766129+00:00",
+      "kind": "ratelimit",
+      "title": "429 Google Gemini -> pause 60s + bascule",
+      "detail": ""
     }
   ],
   "tasks_quotas": {

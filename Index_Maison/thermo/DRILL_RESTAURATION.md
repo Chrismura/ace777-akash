@@ -1,15 +1,14 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-10-29T20:50Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-10-29T20:52Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `ba0442376b` du 2026-10-29T21:36:15+01:00
-- Fichiers suivis modifiés sur disque : **91**
+- Branche `main` · HEAD `c5614fc3e5` du 2026-10-29T21:51:35+01:00
+- Fichiers suivis modifiés sur disque : **36**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 32064 au total, dont **17 sensibles** (scripts/plists/règles)
-  - `Index_Maison/plists/com.ace777.cortana-fade-ombre.plist`
-  - `Index_Maison/plists/com.ace777.sandbox-cortana-scorer.plist`
+- Nouveaux fichiers non versionnés : 32061 au total, dont **16 sensibles** (scripts/plists/règles)
+  - `Index_Maison/plists/com.ace777.fiches-offres.plist`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_oss20.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
@@ -23,23 +22,23 @@
   - `Index_Maison/scripts/SPEC_revue_5points_cortana.md.mission.txt`
   - `Index_Maison/scripts/_archives_tronques_20260911/LISEZ_MOI.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/PROD_SUPERVISEUR_GEMINI.py`
+  - `Index_Maison/scripts/champion_cortana.json`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
-- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **160**
-- 🔴 **1 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
-  - `hulk-mexc/scripts/sandbox_cortana_scorer_p1b.py`
+- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **161**
+- ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
-- Installés : **110** · versionnés : **110**
+- Installés : **111** · versionnés : **111**
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_ep0r8230/LaunchAgents`
-- Plists rebâtis + validés (`plutil -lint`) : **110/110**
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_188kbggr/LaunchAgents`
+- Plists rebâtis + validés (`plutil -lint`) : **111/111**
 
 ## 4. Organes invoqués par les agents
-- Chemins **dans le repo** (reviennent avec git) : **105**
+- Chemins **dans le repo** (reviennent avec git) : **106**
 - Chemins **hors repo** (à sauvegarder autrement, git ne les ramène PAS) : **9**
 
   **Organes du projet hors git** (git ne les ramène PAS → il faut une autre source) :
@@ -52,7 +51,7 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-29T19:49Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-10-29T20:50Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
@@ -101,8 +100,7 @@
   - **E30** — classe au registre SANS garde declaree (gardes_erreurs.json)
 
 ## 7. Verdict
-- 🔴 **4 trou(s) à combler :**
-  - 1 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (hulk-mexc/scripts/sandbox_cortana_scorer_p1b.py)
+- 🔴 **3 trou(s) à combler :**
   - 5 scellé(s) dont le md5 ne correspond plus
   - 21 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : chiffrage_pnl_net.py, observe_nado.py, PLATEFORMES.md…
   - 4 classe(s) d'erreur CONNUE(S) dont la garde déclarée est absente ou NON BRANCHÉE (R15 : hors de la boucle = n'existe pas) : E27, E28, E29, E30
