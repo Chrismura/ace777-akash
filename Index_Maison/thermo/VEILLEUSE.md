@@ -1,8 +1,7 @@
-# Rapport Veilleuse — 2026-10-29T20:49:23.487207+00:00
+# Rapport Veilleuse — 2026-10-29T21:49:24.999241+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md (md5 diffère du registre)
-- **INTRUSION** : Modification non déclarée : hulk-mexc/scripts/short_btc.py (md5 diffère du registre)
 - **INTRUSION** : Modification non déclarée : Index_Maison/strategie/JOURNAL_ECRIVAINS.jsonl (md5 diffère du registre)
 
 ## Modifications DÉCLARÉES (R20.1) — annoncées AVANT l'acte, pas des intrusions

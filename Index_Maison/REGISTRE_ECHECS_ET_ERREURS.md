@@ -1872,3 +1872,26 @@ scellés majeurs (traçabilité) ; (3) un workflow CI smoke-test du boot (répon
 structurelle au crash §32). À trancher, pas ce soir.
 Rescelé avec le point de reprise.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §40 — LE BAN NUIT 08-17H ÉTAIT UNE RÈGLE FIXE DÉGUISÉE (29/10, colère légitime de Christophe)
+
+**Faute reconnue, sans fard** : la loi maison dit « jamais de règle fixe », j'ai
+scanné les fixes, et pourtant le ban nuit des shorts (entrées UNIQUEMENT 08-17h
+UTC, la nuit = bruit) tournait toujours — hérité de Cortana tour 5 (29/08, seuil
+sur CHIP), jamais falsifié sur NOS paires. Pire : ce soir de crash −3,4 %, ETH/XRP
+avaient le signal d'entrée (−0,55/−0,52) et la porte est restée close. Le timing
+c'est la vie ou la mort, et j'ai laissé une horloge décider à la place du marché.
+**Mesure à la source** (`mesure_gate_nuit_shorts.py`, 4 238 signaux BTC) : nuit
+53,5 %/−0,407 % (n=2920) vs jour 64,9 %/−0,782 % (n=1318) — la nuit paie MOINS
+mais elle paie. Le ban est donc FALSIFIÉ, pas « assoupli ».
+**Correction (R20.1 : backup → modifié → testé → rescellé)** : `short_btc.py`
+(un seul script, 3 paires via SHORT_SYMBOL — BTC/ETH/XRP corrigés d'un coup) :
+entrées 24/7, `session_ok` ne fait plus que LOGGUER (mesure, scorer), la nuit
+module la taille ×0,5 (ratio des médianes mesuré, `SHORT_NUIT_MULT=1` réversible).
+Testé : compile OK + `--once` live OK (score 5, frais True, session False, aucune
+entrée — pas de crash, porte ouverte). Rescellé (hash e1a1→7ce6).
+**Nouvelle règle maison (Christophe, 29/10)** : devant chaque chose touchée ou vue,
+la question obligatoire « est-ce au TOP ou y a-t-il place à amélioration ? » puis
+boucle à la source → teste → valide → branche. Prochain candidat déclaré : TTL 24 h
+(fixe, jamais mesuré — dormeurs TIME_OUT +0,18 en indice).
+IA=Buffy (Muse Spark 1.3, Freebuff).

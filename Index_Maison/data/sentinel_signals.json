@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.1582910323157543,
-      "value": 4285150.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (liquidations judiciaires d'entreprises locales en France). Aucune corrélation avec des mouvements de baleines crypto ou des liquidations on-chain significatives.\"\n}\n```",
-      "ts": "2026-10-28T21:07:59.103556+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.220022804850887,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit médiatique parasité par des homonymes (Samsung SDI, Stampede Drilling, Syndicat des Indépendants). Aucune corrélation on-chain pertinente détectée.\"\n}\n```",
-      "ts": "2026-10-28T21:28:03.563142+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.0548369581821913,
-      "value": 1.072,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.05) sur le ticker 'ipt' totalement polluée par du bruit médiatique hétérogène (pétrole, physique, théologie). Aucune donnée on-chain pertinente ou mouvement de baleine crypto détecté.\"\n}\n```",
-      "ts": "2026-10-28T21:28:05.294307+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.03246455330269,
-      "value": 3568708.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.03, volume ~$3.56M) couplée à un silence total dans les médias mainstream (Google Actualités). Les baleines accumulent ou positionnent discrètement du capital sans éveiller de FOMO public.\"\n}\n```",
-      "ts": "2026-10-28T21:53:10.702720+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": -2.0174004203719265,
       "value": 0,
@@ -349,6 +321,34 @@
       "value": 15698475761.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain anormal (z-score 2.51) n'est pas soutenu par le narratif crypto (un seul article mineur sur Visa). La majorité des titres concernent des secteurs traditionnels (Renault, Unilever, eau minérale), indiquant que l'anomalie onchain est probablement du bruit statistique ou une rotation interne non médiatisée, sans signal directionnel clair.\"\n}",
       "ts": "2026-10-29T20:50:09.661795+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.3695492949809154,
+      "value": 5242711.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique : le système confond les liquidations judiciaires de commerces locaux traditionnels avec les liquidations de positions crypto sur les marchés dérivés.\"\n}\n```",
+      "ts": "2026-10-29T21:05:13.630453+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.8581378351861453,
+      "value": 16890123178.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (Z-score 2.86) corrélée à l'explosion par 10 des volumes de stablecoins (Visa), totalement éclipsée dans les médias grand public par des bruits macroéconomiques traditionnels (eau, automobile, agroalimentaire). Accumulation institutionnelle silencieuse en cours.\"\n}\n```",
+      "ts": "2026-10-29T21:20:23.684393+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.600568880693157,
+      "value": 5637548.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.60, ~5.6M USD) sans couverture médiatique correspondante (Google Actualités muet). Silence radio typique d'accumulation furtive par des baleines avant un mouvement de marché.\"\n}\n```",
+      "ts": "2026-10-29T21:20:25.366360+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.875917905902473,
+      "value": 17547579380.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Divergence totale : l'anomalie onchain (volume 17.5B, z-score 2.88) est massivement déconnectée du flux médiatique dominé par des news traditionnelles (Renault, Unilever, Wattwiller). Le seul lien crypto est le volume de stablecoins Visa, mais cela ne justifie pas un pic de trading spot/derivés de cette ampleur sans couverture dédiée. Le silence médiatique sur un tel pic de volume suggère soit un wash trading, soit une rotation institutionnelle non couverte, mais l'absence de catalyseur narratif clair empêche de qualifier le signal de directionnel fiable.\"\n}",
+      "ts": "2026-10-29T21:50:32.606674+00:00"
     }
   ]
 }

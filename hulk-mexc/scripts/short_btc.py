@@ -36,8 +36,10 @@ SORTIE (première condition atteinte)
 
 GARDES-FOUS
 -----------
-  - Gating temporel (Cortana tour 5, validé par nos données) : entrée UNIQUEMENT
-    en session 08-17h UTC. La nuit = bruit.
+  - 29/10 (GO Christophe, R17 : jamais de fixe) : entrées 24/7. L'ancien ban nuit
+    est FALSIFIÉ par nos données (mesure_gate_nuit_shorts.py : nuit 53,5 %/-0,407 %,
+    n=2920 vs jour 64,9 %/-0,782 %, n=1318). La nuit paie moins → taille réduite
+    (NUIT_NOTIONNEL_MULT = 0,5, ratio mesuré), jamais d'interdiction.
   - Données fraîches obligatoires : si le dernier point de BTC a plus de
     FRAIS_MAX_AGE_MIN minutes → PAS d'entrée (et pas de décision de sortie
     non plus : on garde la position et on le signale).
@@ -126,7 +128,13 @@ SL_PCT = 1.5               # stop loss : BTC +1.5% contre nous
 SL_ADAPT_ON = os.environ.get("SHORT_BTC_SL_ADAPT", "1").strip() not in ("0", "false", "False")
 SL_ADAPT_FRAC = float(os.environ.get("SHORT_BTC_SL_ADAPT_FRAC", "0.5"))
 TTL_H = 24.0               # time-out d'une position (heures)
-SESSION_START_UTC, SESSION_END_UTC = 8, 17   # gating temporel (08-17h UTC)
+SESSION_START_UTC, SESSION_END_UTC = 8, 17   # repère JOUR/NUIT (08-17h UTC) — 29/10 :
+# ce n'est PLUS un ban (le ban nuit est MORT, falsifié : nuit 53,5 %/-0,407 % n=2920).
+# Jour/nuit ne fait que MODULER la taille (NUIT_NOTIONNEL_MULT, ratio mesuré).
+NUIT_NOTIONNEL_MULT = float(os.environ.get("SHORT_NUIT_MULT", "0.5"))
+# 0,5 = ratio des médianes +24h mesuré (nuit -0,407 / jour -0,782 ≈ 0,52, arrondi
+# déclaré) sur 4 238 signaux d'entrée BTC (mesure_gate_nuit_shorts.py, 29/10).
+# La taille suit l'edge mesuré, jamais une horloge. Réversible : SHORT_NUIT_MULT=1.
 FRAIS_MAX_AGE_MIN = 15.0   # données plus vieilles → pas de décision
 LOOP_SEC = 300             # boucle (5 min ; le moteur écrit ~1 point/min)
 PIC_SEUIL = 3.0            # seuil « pompe » pour la surchauffe instantanée (%)
@@ -497,7 +505,9 @@ def gerer(sig: dict, st: dict) -> None:
     else:
         entree_ok = (score is not None and score >= SCORE_ENTREE)
         motif = f"score {score} ≥ {SCORE_ENTREE}"
-    if prix is not None and sig.get("ok") and entree_ok and frais and sig.get("session_ok"):
+    # 29/10 (GO Christophe) : entrées 24/7 — le ban nuit est tué (R17 : jamais de
+    # fixe). session_ok reste LOGGÉ (mesure, scorer) mais ne bloque PLUS rien.
+    if prix is not None and sig.get("ok") and entree_ok and frais:
         _r24e = sig.get("range24_btc")
         if SL_ADAPT_ON and isinstance(_r24e, (int, float)):
             _sl_entry = round(SL_ADAPT_FRAC * _r24e, 3)
@@ -506,7 +516,11 @@ def gerer(sig: dict, st: dict) -> None:
             _sl_entry = SL_PCT
             _sl_src = "fixe 1,5 % (range24 indisponible ou OFF)"
         _notionnel = notionnel_dynamique()
+        _session_jour = bool(sig.get("session_ok"))
+        if not _session_jour:
+            _notionnel = round(_notionnel * NUIT_NOTIONNEL_MULT, 2)
         st["position"] = {
+            "session_jour": _session_jour,
             "ts_entree": utc(), "ts_entree_epoch": time.time(),
             "prix_entree": prix, "notional": _notionnel,
             "score_entree": score, "corr_entree": corr,
