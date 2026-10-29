@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T12:22:20.028875+00:00",
+  "generated_at": "2026-10-29T12:24:22.288112+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -283,10 +283,18 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 56,
-    "remaining": 568
+    "consumed": 57,
+    "remaining": 567
   },
   "queue": [
+    {
+      "ts": "2026-10-29T12:23:22.450518+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 5.92
+    },
     {
       "ts": "2026-10-29T12:21:43.790328+00:00",
       "task": "supervise.decision",
@@ -398,17 +406,15 @@
       "model": "codestral-latest",
       "kind": "cloud",
       "duration_s": 1.11
-    },
-    {
-      "ts": "2026-10-29T08:44:13.874522+00:00",
-      "task": "cortana.analyse",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 4.04
     }
   ],
   "events": [
+    {
+      "ts": "2026-10-29T12:23:22.449952+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
     {
       "ts": "2026-10-29T12:21:43.789559+00:00",
       "kind": "message",
@@ -462,12 +468,6 @@
       "kind": "failover",
       "title": "Saute (blacklist) depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "0 attente"
-    },
-    {
-      "ts": "2026-10-29T12:13:07.281383+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
