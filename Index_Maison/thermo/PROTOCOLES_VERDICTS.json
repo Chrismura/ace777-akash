@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-30T06:55:35+00:00",
+  "ts": "2026-10-30T07:55:57+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -282,7 +282,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "922 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "923 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -307,11 +307,11 @@
           "delta_votes": 3
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "XChainBridge",
           "delta_votes": -1
         },
         {
@@ -323,7 +323,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 0/7 = 0.0 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 0/9 = 0.0 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -335,12 +335,18 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 5,
+          "directionnels": 6,
           "corect": null,
-          "n": 6
+          "n": 7
         },
         {
           "indice": "fearGreed",
+          "directionnels": 1,
+          "corect": null,
+          "n": 4
+        },
+        {
+          "indice": "radar",
           "directionnels": 1,
           "corect": null,
           "n": 3
@@ -350,17 +356,17 @@
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.4375 « attention » (ML 0.2669) · 3 avis enregistrés dont 0 directionnels (0 correct(s)) · 61 NEUTRE",
+      "faits": "score actuel 0.4375 « attention » (ML 0.2669) · 4 avis enregistrés dont 0 directionnels (0 correct(s)) · 62 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "",
       "detail": [
         {
           "indice": "geopol",
-          "n": 3,
+          "n": 4,
           "directionnels": 0,
           "corrects": 0,
-          "neutres": 61,
-          "t_stat": -1.73
+          "neutres": 62,
+          "t_stat": -2.0
         }
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T06:56:10.571772+00:00",
+  "generated_at": "2026-10-30T07:56:23.333227+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 149
+      "calls_24h": 176
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "qwen/qwen3.8-27b",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 41
+      "calls_24h": 42
     },
     {
       "id": "nvidia",
@@ -283,190 +283,190 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 53,
-    "remaining": 571
+    "consumed": 81,
+    "remaining": 543
   },
   "queue": [
     {
-      "ts": "2026-10-30T06:55:51.383012+00:00",
+      "ts": "2026-10-30T07:55:52.750867+00:00",
       "task": "supervise.decision",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.13
+      "duration_s": 0.94
     },
     {
-      "ts": "2026-10-30T06:55:29.980720+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.89
-    },
-    {
-      "ts": "2026-10-30T06:45:08.563016+00:00",
+      "ts": "2026-10-30T07:31:50.593479+00:00",
       "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 2.73
+      "duration_s": 4.5
     },
     {
-      "ts": "2026-10-30T05:55:28.606457+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-10-30T07:31:46.035935+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.88
+      "duration_s": 2.3
     },
     {
-      "ts": "2026-10-30T05:54:55.758925+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-10-30T07:31:39.880173+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.23
+      "duration_s": 3.14
     },
     {
-      "ts": "2026-10-30T05:42:39.714591+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.47
-    },
-    {
-      "ts": "2026-10-30T05:00:08.526234+00:00",
-      "task": "deepseek-ai/DeepSeek-V3-0324",
+      "ts": "2026-10-30T07:31:36.693479+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.6
+      "duration_s": 3.83
     },
     {
-      "ts": "2026-10-30T05:00:06.903185+00:00",
-      "task": "deepseek-ai/DeepSeek-V3-0324",
+      "ts": "2026-10-30T07:31:32.323116+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.6
+      "duration_s": 3.51
     },
     {
-      "ts": "2026-10-30T04:54:54.066189+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-10-30T07:31:28.763925+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.99
+      "duration_s": 2.02
     },
     {
-      "ts": "2026-10-30T04:54:32.193782+00:00",
-      "task": "supervise.decision",
+      "ts": "2026-10-30T07:31:23.037171+00:00",
+      "task": "cortana.analyse",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 1.13
+      "duration_s": 3.66
     },
     {
-      "ts": "2026-10-30T04:42:30.929172+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.53
-    },
-    {
-      "ts": "2026-10-30T04:42:29.946746+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.39
-    },
-    {
-      "ts": "2026-10-30T04:37:28.466509+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.55
-    },
-    {
-      "ts": "2026-10-30T04:22:25.544063+00:00",
-      "task": "analyse.profonde",
+      "ts": "2026-10-30T07:31:19.335523+00:00",
+      "task": "coffre.ask",
       "provider": "gemini",
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.98
+      "duration_s": 2.18
     },
     {
-      "ts": "2026-10-30T04:12:22.617148+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
+      "ts": "2026-10-30T07:31:16.583336+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
       "kind": "cloud",
-      "duration_s": 0.47
+      "duration_s": 3.38
+    },
+    {
+      "ts": "2026-10-30T07:31:13.159186+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.33
+    },
+    {
+      "ts": "2026-10-30T07:31:10.305917+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.61
+    },
+    {
+      "ts": "2026-10-30T07:31:06.652623+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.48
+    },
+    {
+      "ts": "2026-10-30T07:31:01.427453+00:00",
+      "task": "cortana.analyse",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 3.93
+    },
+    {
+      "ts": "2026-10-30T07:30:57.459563+00:00",
+      "task": "coffre.ask",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.23
     }
   ],
   "events": [
     {
-      "ts": "2026-10-30T06:55:51.380862+00:00",
+      "ts": "2026-10-30T07:55:52.750370+00:00",
       "kind": "message",
       "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-10-30T06:55:29.980098+00:00",
-      "kind": "message",
-      "title": "« Google Gemini » a repondu",
-      "detail": ""
-    },
-    {
-      "ts": "2026-10-30T06:55:29.085501+00:00",
+      "ts": "2026-10-30T07:55:51.813053+00:00",
       "kind": "blacklist",
       "title": "Fin de pause Google Gemini",
       "detail": "re-essai automatique"
     },
     {
-      "ts": "2026-10-30T06:51:12.217843+00:00",
+      "ts": "2026-10-30T07:51:20.652404+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-30T06:51:12.217468+00:00",
+      "ts": "2026-10-30T07:51:20.651600+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
       "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-30T06:51:12.214494+00:00",
+      "ts": "2026-10-30T07:51:20.649197+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-30T06:51:07.340277+00:00",
+      "ts": "2026-10-30T07:51:15.851058+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-30T06:51:02.569828+00:00",
+      "ts": "2026-10-30T07:51:10.678746+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-30T06:50:57.558953+00:00",
+      "ts": "2026-10-30T07:51:05.646194+00:00",
       "kind": "failover",
       "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-10-30T06:50:56.109859+00:00",
+      "ts": "2026-10-30T07:51:04.231024+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
+      "detail": "HTTP Error 400: Bad Request"
+    },
+    {
+      "ts": "2026-10-30T07:51:00.166403+00:00",
+      "kind": "timeout",
+      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (HTTP 400)",
       "detail": "HTTP Error 400: Bad Request"
     }
   ],
