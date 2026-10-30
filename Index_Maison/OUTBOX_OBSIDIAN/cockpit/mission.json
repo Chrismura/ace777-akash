@@ -1,9 +1,9 @@
 {
-  "ts": "2026-10-30T19:45Z",
+  "ts": "2026-10-30T20:44Z",
   "alert": "nominal",
   "engine": {
     "state": "OFF",
-    "ageSec": 4415149,
+    "ageSec": 4418708,
     "last": "2026-09-09T17:19Z"
   },
   "run": "MASTER_BASE_V8_6_FORTRESS_8H20",
@@ -11637,18 +11637,18 @@
       "budgetTotal": 620.0,
       "overBudget": [],
       "compoundActif": [
-        "FLUIDUSDT",
-        "QNTUSDT",
-        "BTCUSDT",
+        "ETHUSDT",
         "RIZEUSDT",
+        "CCUSDT",
+        "FLUIDUSDT",
+        "RWAINCUSDT",
+        "BTCUSDT",
+        "REDUSDT",
+        "QNTUSDT",
         "CHIPUSDT",
-        "KITEUSDT",
         "EDELUSDT",
         "HBARUSDT",
-        "ETHUSDT",
-        "REDUSDT",
-        "RWAINCUSDT",
-        "CCUSDT"
+        "KITEUSDT"
       ],
       "compoundOn": true,
       "compoundFrac": 0.5,
@@ -12012,7 +12012,7 @@
           "compound": false
         },
         {
-          "pair": "IOTAUSDT",
+          "pair": "LAUSDT",
           "seed": 0.0,
           "seedQty": 0.0,
           "budget": 20.0,
@@ -12066,7 +12066,7 @@
           "compound": false
         },
         {
-          "pair": "LAUSDT",
+          "pair": "IOTAUSDT",
           "seed": 0.0,
           "seedQty": 0.0,
           "budget": 20.0,
@@ -12255,14 +12255,14 @@
           "compound": false
         }
       ],
-      "ts": "2026-10-30T19:45:04Z",
+      "ts": "2026-10-30T20:44:24Z",
       "reconciliation": {
         "totalRejeu": 161.52,
         "totalMoteur": 92.03,
         "ecartTotal": 69.49,
         "pires": [
           {
-            "pair": "IOTAUSDT",
+            "pair": "LAUSDT",
             "ecart": 20.0
           },
           {
@@ -12270,7 +12270,7 @@
             "ecart": 20.0
           },
           {
-            "pair": "LAUSDT",
+            "pair": "IOTAUSDT",
             "ecart": 20.0
           },
           {
@@ -12478,7 +12478,7 @@
       "whaleBlocsBtc": 327162.28,
       "whaleFragN": 0,
       "whaleFragBtc": 0,
-      "whaleCumul24hBtc": 45949527.97,
+      "whaleCumul24hBtc": 42807617.47,
       "whaleMoy7jBtc": 60060246.98,
       "whaleDir": "neutral",
       "whaleDirLabel": "neutral",
@@ -12492,8 +12492,8 @@
       "whaleEcartSeuil": 32616.2,
       "whaleAlerte": true,
       "whaleAlerteTexte": "Activité baleines : 32 gros bloc(s) (327162.28 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2.",
-      "dernierEvtMin": 291,
-      "synthèse": "Direction onchain neutral | 32 gros bloc(s) 327162.28 BTC sur le scan récent, cumul 24h 45949528 BTC, source Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. Activité baleines : 32 gros bloc(s) (327162.28 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. | CPFP actif (conf 0/2) · poussière score 0.0/50 · blocs privatisés 1.7371% fantômes | indice onchain 5.7/100 (FAIBLE — onchain nominal)",
+      "dernierEvtMin": 351,
+      "synthèse": "Direction onchain neutral | 32 gros bloc(s) 327162.28 BTC sur le scan récent, cumul 24h 42807617 BTC, source Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. Activité baleines : 32 gros bloc(s) (327162.28 BTC) + 0 fragmentation(s) (0 BTC). Source : Binance Cold Storage #2, Binance Cold Storage #6, Binance Hot Wallet #2 (bech32), Bitbank Cold Wallet, Bitfinex Hack Recovery #2. | CPFP actif (conf 0/2) · poussière score 0.0/50 · blocs privatisés 1.7371% fantômes | indice onchain 5.7/100 (FAIBLE — onchain nominal)",
       "cpfpSignal": null,
       "cpfpScore": 0.0,
       "cpfpMode": "actif",
@@ -12504,7 +12504,7 @@
       "cpfpCarte2": false,
       "cpfpDustScore": 0.0,
       "cpfpDustDeclenche": true,
-      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 1111 cumulées 48h (seuil 1000) — max 0.0000 BTC",
+      "cpfpDustDetail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 1093 cumulées 48h (seuil 1000) — max 0.0000 BTC",
       "blocPrivatiseMode": "actif",
       "blocPrivatiseTauxFantome": 1.7371,
       "blocPrivatiseNbCachees": 51,
@@ -12576,7 +12576,7 @@
     }
   },
   "intention": {
-    "ts": "2026-10-30T19:45:03.454132+00:00",
+    "ts": "2026-10-30T20:43:52.238744+00:00",
     "since": "2026-09-09T00:00:00Z",
     "bots": {
       "alpha": {
@@ -12945,7 +12945,7 @@
     ]
   },
   "saison": {
-    "ts": "2026-10-30T19:45:02.647553+00:00",
+    "ts": "2026-10-30T20:44:22.465206+00:00",
     "saison": "CALME",
     "emoji": "🧊",
     "direction": "short",
@@ -13000,7 +13000,7 @@
     "degraded": false
   },
   "gardienne": {
-    "ts": "2026-10-30T19:45:02Z",
+    "ts": "2026-10-30T20:44:22Z",
     "voilure_pct": 99,
     "zone": "VERT",
     "zone_emoji": "🟢",
@@ -13032,7 +13032,7 @@
     ]
   },
   "coup_doeil": {
-    "ts": "2026-10-30T19:45:02Z",
+    "ts": "2026-10-30T20:44:22Z",
     "saison": "CALME",
     "saison_emoji": "🌿",
     "voilure": "99 %",
@@ -13043,18 +13043,18 @@
     "ligne": "CALME 🌿 · voilure 99 % · VERT 🟢 — 🚨 FEUX DE L'ORAGE : le vortex tourne fort — ADA hurle maintenant, pas après."
   },
   "partition": {
-    "ts": "2026-10-30T19:45:04Z",
+    "ts": "2026-10-30T20:44:24Z",
     "instruments": {
       "cortana": {
         "frais": true,
-        "date": "2026-10-30T19:42:41.303983+00:00",
-        "n": 2,
+        "date": "2026-10-30T20:42:42.346758+00:00",
+        "n": 1,
         "resume": "🔵 CALME — pas de signal alarmant"
       },
       "shorts": {
         "btc": {
-          "frais_ts": "2026-10-30T19:43:05+00:00",
-          "corr": -0.374,
+          "frais_ts": "2026-10-30T20:43:36+00:00",
+          "corr": -0.372,
           "session": false,
           "position": false,
           "pnl": 1.0759,
@@ -13065,8 +13065,8 @@
           }
         },
         "eth": {
-          "frais_ts": "2026-10-30T19:42:49+00:00",
-          "corr": -0.386,
+          "frais_ts": "2026-10-30T20:43:17+00:00",
+          "corr": -0.384,
           "session": false,
           "position": false,
           "pnl": 0.0,
@@ -13077,8 +13077,8 @@
           }
         },
         "xrp": {
-          "frais_ts": "2026-10-30T19:43:05+00:00",
-          "corr": -0.429,
+          "frais_ts": "2026-10-30T20:43:36+00:00",
+          "corr": -0.427,
           "session": false,
           "position": false,
           "pnl": 0.0,
@@ -13155,17 +13155,17 @@
     "coherences": [
       "Cortana : 0 bullish / 0 bearish — 🔵 CALME — pas de signal alarmant",
       "Ada : sirène allumée + zone VERT — le rapide crie, le lent lisse (R19)",
-      "Short BTC : corr=-0.374 pos=aucune murs=76527.02-81941.15/OBSERVATION",
-      "Short ETH : corr=-0.386 pos=aucune murs=2174.97-2379.09/OBSERVATION",
-      "Short XRP : corr=-0.429 pos=aucune murs=1.2001-1.3182/OBSERVATION",
+      "Short BTC : corr=-0.372 pos=aucune murs=76527.02-81941.15/OBSERVATION",
+      "Short ETH : corr=-0.384 pos=aucune murs=2174.97-2379.09/OBSERVATION",
+      "Short XRP : corr=-0.427 pos=aucune murs=1.2001-1.3182/OBSERVATION",
       "Plancher BTCUSDT : OBSERVATION (76527.02-81941.15)",
       "Plancher ETHUSDT : OBSERVATION (2174.97-2379.09)",
       "Plancher XRPUSDT : OBSERVATION (1.2001-1.3182)",
       "Sommet proche : dernier chuchotement 2026-10-29T16:49:32Z @ 81229.48 (drop -0.237%) — 9 au total"
     ],
-    "orchestre": "Cortana : 0 bullish / 0 bearish — 🔵 CALME — pas de signal alarmant ; Ada : sirène allumée + zone VERT — le rapide crie, le lent lisse (R19) ; Short BTC : corr=-0.374 pos=aucune murs=76527.02-81941.15/OBSERVATION ; Short ETH : corr=-0.386 pos=aucune murs=2174.97-2379.09/OBSERVATION ; Short XRP : corr=-0.429 pos=aucune murs=1.2001-1.3182/OBSERVATION ; Plancher BTCUSDT : OBSERVATION (76527.02-81941.15) ; Plancher ETHUSDT : OBSERVATION (2174.97-2379.09) ; Plancher XRPUSDT : OBSERVATION (1.2001-1.3182) ; Sommet proche : dernier chuchotement 2026-10-29T16:49:32Z @ 81229.48 (drop -0.237%) — 9 au total",
+    "orchestre": "Cortana : 0 bullish / 0 bearish — 🔵 CALME — pas de signal alarmant ; Ada : sirène allumée + zone VERT — le rapide crie, le lent lisse (R19) ; Short BTC : corr=-0.372 pos=aucune murs=76527.02-81941.15/OBSERVATION ; Short ETH : corr=-0.384 pos=aucune murs=2174.97-2379.09/OBSERVATION ; Short XRP : corr=-0.427 pos=aucune murs=1.2001-1.3182/OBSERVATION ; Plancher BTCUSDT : OBSERVATION (76527.02-81941.15) ; Plancher ETHUSDT : OBSERVATION (2174.97-2379.09) ; Plancher XRPUSDT : OBSERVATION (1.2001-1.3182) ; Sommet proche : dernier chuchotement 2026-10-29T16:49:32Z @ 81229.48 (drop -0.237%) — 9 au total",
     "desaccord": {
-      "ts": "2026-10-30T19:45:04Z",
+      "ts": "2026-10-30T20:44:24Z",
       "n": 1,
       "phrases": [
         "D1 Cortana neutre (0B/0b) vs saison CALME/short → accord",
