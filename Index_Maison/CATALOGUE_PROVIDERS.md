@@ -1,6 +1,6 @@
 # CATALOGUE DES PROVIDERS — ACE777
 
-*Genere le 2026-10-29 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
+*Genere le 2026-10-30 par catalog_providers.py (gagnant A/B codeurs 09/08). Rafraichi a chaque veille du matin.*
 
 **Actifs : 5 · En observation : 0 · En attente : 20 · De cote (payant) : 6**
 
@@ -8,7 +8,7 @@
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| chat interactif | `qwen/qwen3.8-27b` | groq | ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reas |
+| analyse profonde / chat interactif | `qwen/qwen3.8-27b` | groq | ACTIVE 17/08 - cle Groq OK + UA fix Cloudflare - groq/compound repond direct (gpt-oss=reas |
 | - | `codestral-latest` | mistral | ACTIVE 11/08 - cle Mistral OK (plan experiment 1 Md tokens/mois) - Codestral = modele code |
 | - | `deepseek-v4-flash-0731` | inferx | ACTIVE 09/08 - cle InferX OK (gratuite jusqu'au 12/08) - DeepSeek V4 Flash 284B/13B actifs |
 | - | `Qwen3-Coder-Next-FP8` | inferx-coder | REACTIVE 13/08 - Qwen3-Coder-Next, specialiste CODE (2e codeur). Offre gratuite a surveill |
@@ -22,7 +22,7 @@
 
 | Role | Modele | Statut | Note |
 |------|--------|--------|------|
-| demarrage / analyse profonde / analyste.strategie / audit protocole / RAG coffre / analyse / brief vocal / cortana.yeux / analyse / tri signets / synthese bookmarks / supervise.decision / trading.skills / analyse forte / veille.youtube | `gemini-flash-lite-latest` | gemini | - |
+| demarrage / analyste.strategie / audit protocole / RAG coffre / analyse / brief vocal / cortana.yeux / analyse / tri signets / synthese bookmarks / supervise.decision / trading.skills / analyse forte / veille.youtube | `gemini-flash-lite-latest` | gemini | - |
 | missions / JUGE | `qwen-3.8-max-free` | nara | ACTIVE 17/08 - cle NaraRouter OK (Telegram lie) - qwen-3.8-max-free teste reellement OK |  |
 | analyse BTC / elaboration | `nvidia/nemotron-3-ultra-550b-a55b` | nvidia | ACTIVE 17/08 - vivant mais LENT (47s a froid, demarrage modele) - reserve analyse profonde |
 | - | `@cf/meta/llama-3.1-8b-instruct` | cloudflare-workers-ai | 10k Neurons/jour gratuits - necessite account_id dans base_url + token |

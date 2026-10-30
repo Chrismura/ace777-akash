@@ -22,7 +22,8 @@
     "2026-10-16": 8,
     "2026-10-17": 8,
     "2026-10-20": 8,
-    "2026-10-24": 8
+    "2026-10-24": 8,
+    "2026-10-30": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -3433,6 +3434,158 @@
       "usage": "Génération de visuels pour les rapports ou l'interface cockpit",
       "avis_pour": "Idéal pour créer des illustrations personnalisées sans coût de licence.",
       "avis_attention": "Inutile pour nos tâches actuelles de scripting, d'analyse de marché ou de jugement de signets."
+    },
+    "fe4402586861": {
+      "section": "huggingface trending (montée)",
+      "item": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "generated": "2026-10-30T09:05:07.370673+00:00",
+      "type": "Modèle multimodal de transcription et traitement audio/texte en tendance sur HuggingFace",
+      "forts": [
+        "Architecture robuste 30B adaptée aux tâches complexes",
+        "Idéal pour l'extraction et le traitement de données audio et textuelles",
+        "Gratuit et accessible via l'écosystème HuggingFace"
+      ],
+      "faibles": [
+        "Modèle lourd (30B) potentiellement lent sur les petites configurations",
+        "Spécialisation axée sur la transcription/audio pouvant nécessiter du prompt engineering pour le code pur"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À essayer pour enrichir nos pipelines de traitement de données multimodales et textuelles avec un modèle grand format performant.",
+      "avis_attention": "Attention au poids du modèle (30B) qui peut impacter la latence et les quotas de l'API si non surveillés.",
+      "reco_rationale": "Généré automatiquement selon le contexte ACE777 et l'offre nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B."
+    },
+    "dcd9e54bfdc5": {
+      "section": "huggingface récents",
+      "item": "umixer/ThinkingCap-Qwen3.8-Flash-Next-oq4-mix6-mtp",
+      "generated": "2026-10-30T09:05:10.120941+00:00",
+      "type": "Modèle de raisonnement expérimental gratuit pour le traitement rapide et la logique",
+      "forts": [
+        "Architecture hybride orientée rapidité (Flash-Next)",
+        "Idéal pour le prototypage rapide de scripts Python",
+        "Capacités de synthèse textuelle efficaces",
+        "Gratuit et accessible via les fournisseurs compatibles"
+      ],
+      "faibles": [
+        "Modèle expérimental/communautaire au support imprévisible",
+        "Fiabilité inconstante sur des tâches de jugement complexe",
+        "Manque de documentation officielle approfondie"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À tester pour accélérer les analyses textuelles quotidiennes sans entamer le budget cloud.",
+      "avis_attention": "Restez prudent sur la robustesse du code généré ; validez toujours par un test unitaire avant déploiement."
+    },
+    "eec7bdbea4a2": {
+      "section": "huggingface récents",
+      "item": "Taimwe/qwen2.5-coder-7b-kiribati",
+      "generated": "2026-10-30T09:05:11.560590+00:00",
+      "type": "Modèle de codage spécialisé basé sur Qwen2.5-Coder",
+      "forts": [
+        "Excellente compréhension de la syntaxe Python",
+        "Génération de scripts et de structures de code",
+        "Gratuit et accessible via Hugging Face"
+      ],
+      "faibles": [
+        "Nom personnalisé (Kiribati) suggérant un fine-tuning spécifique non standard",
+        "Stabilité et limites de contexte à tester",
+        "Pas de support natif direct dans le hub ACE777 actuel"
+      ],
+      "usage": "codeur",
+      "avis_pour": "À essayer pour booster la génération de scripts Python et l'assistance au développement chez ACE777.",
+      "avis_attention": "Attention aux hallucinations potentielles sur un modèle fine-tuné par un tiers non vérifié."
+    },
+    "641a5845fa77": {
+      "section": "huggingface récents",
+      "item": "hubnemo/Qwen3-8B-ALoRA-MTP-100k-skip-prefix-dataset-conversational-loss_decay",
+      "generated": "2026-10-30T09:05:13.242012+00:00",
+      "type": "Modèle conversationnel expérimental et de recherche basé sur Qwen3",
+      "forts": [
+        "Architecture ouverte issue de la communauté Hugging Face",
+        "Potentiel pour des tâches textuelles et conversationnelles variées",
+        "Entraînement spécifique (ALoRA/MTP) orienté recherche"
+      ],
+      "faibles": [
+        "Nom d'offre obscur et instable pour la production",
+        "Manque de garanties sur la robustesse et la latence pour ACE777",
+        "Documentation et support limités"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester par curiosité pour voir les apports d'un entraînement ALoRA/MTP spécifique sur des tâches textuelles légères.",
+      "avis_attention": "Modèle de niche non validé pour nos flux critiques (code ou arbitrage) ; à réserver aux tests exploratoires."
+    },
+    "e6cd4dd068d3": {
+      "section": "huggingface récents",
+      "item": "zycalice/Qwen2.5-32B-Instruct_finance_all_resp_1e-06_ep5",
+      "generated": "2026-10-30T09:05:14.746838+00:00",
+      "type": "Modèle financier et généraliste spécialisé de taille moyenne",
+      "forts": [
+        "Fine-tuné spécifiquement pour la finance",
+        "Basé sur la solide architecture Qwen2.5-32B",
+        "Gratuit via Hugging Face pour l'expérimentation"
+      ],
+      "faibles": [
+        "Modèle communautaire potentiellement instable",
+        "Absence de support officiel direct",
+        "Format non standardisé pour certains routeurs d'API"
+      ],
+      "usage": "analyste",
+      "avis_pour": "À essayer pour enrichir l'analyse financière et textuelle des marchés grâce à sa spécialisation sectorielle.",
+      "avis_attention": "Attention au manque de robustesse en production et aux performances en logique pure comparées aux modèles généralistes natifs."
+    },
+    "1f08981ebcf4": {
+      "section": "huggingface trending (montée)",
+      "item": "Nanbeige/Nanbeige4.3-33B",
+      "generated": "2026-10-30T09:05:16.134684+00:00",
+      "type": "Grand modèle de langage open-source axé sur la polyvalence et les performances multilingues.",
+      "forts": [
+        "Architecture robuste de 33 milliards de paramètres",
+        "Excellente compréhension des instructions complexes",
+        "Idéal pour la génération de texte et le traitement de données"
+      ],
+      "faibles": [
+        "Consommation de ressources importante pour l'hébergement local",
+        "Moins spécialisé sur le code pur que des modèles dédiés",
+        "Disponibilité fluctuante sur les plateformes de test gratuites"
+      ],
+      "usage": "analyste",
+      "avis_pour": "Une belle opportunité gratuite pour tester un modèle lourd de 33B sur des tâches d'analyse stratégique.",
+      "avis_attention": "Attention à la latence et aux quotas de gratuité qui peuvent limiter son usage en production continue."
+    },
+    "822ddcd17896": {
+      "section": "huggingface trending (montée)",
+      "item": "LiquidAI/LFM3-1.7B",
+      "generated": "2026-10-30T09:05:17.746442+00:00",
+      "type": "Modèle linguistique compact et ultra-rapide pour l'analyse locale",
+      "forts": [
+        "Très léger (~1.7B) adapté aux tests rapides",
+        "Idéal pour le prototypage et l'analyse syntaxique",
+        "Faible empreinte en ressources"
+      ],
+      "faibles": [
+        "Capacité de raisonnement complexe limitée face aux plus grands modèles",
+        "Moins précis sur la génération de code avancé en une seule passe"
+      ],
+      "usage": "éclaireur",
+      "avis_pour": "À essayer pour sa vitesse d'exécution et son efficacité sur des tâches de tri ou de sondage léger.",
+      "avis_attention": "Attention à sa faible taille, il nécessite des vérifications sur les scripts critiques ou l'analyse de stratégie poussée."
+    },
+    "483ce5529349": {
+      "section": "huggingface trending (montée)",
+      "item": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+      "generated": "2026-10-30T09:05:19.252462+00:00",
+      "type": "Modèle open source tendance optimisé pour les tâches de raisonnement et de codage rapide",
+      "forts": [
+        "Format GGUF idéal pour l'exécution locale efficace",
+        "Architecture DeepSeek reconnue pour sa logique et ses scripts Python",
+        "Gratuit et disponible sur les tendances Hugging Face"
+      ],
+      "faibles": [
+        "Nom technique complexe masquant parfois les performances réelles de la version GSQ-RCO",
+        "Nécessite des tests de robustesse pour le rôle de juge",
+        "Support communautaire variable selon les implémentations"
+      ],
+      "usage": "codeur ou analyste en test",
+      "avis_pour": "À essayer pour booster la génération de scripts Python et diversifier les sources d'analyse sans surcoût.",
+      "avis_attention": "Attention à valider la stabilité des réponses avant de l'intégrer dans des boucles de décision critiques."
     }
   }
 }
