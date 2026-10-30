@@ -1,6 +1,6 @@
 {
-  "timestamp": 1793346995,
-  "date": "2026-10-30 08:56:35",
+  "timestamp": 1793350546,
+  "date": "2026-10-30 09:55:46",
   "source": "heartbeats (PAA-ACE777 ajout 1, 20/08)",
   "services": {
     "vigie": {
@@ -9,25 +9,27 @@
     },
     "veille": {
       "ok": true,
-      "detail": "OK (vie 19s)"
+      "detail": "OK (vie 22s)"
     },
     "dms": {
       "ok": true,
-      "detail": "OK (vie 43s)"
+      "detail": "OK (vie 48s)"
     },
     "sante": {
       "ok": true,
-      "detail": "OK (vie 88s)"
+      "detail": "OK (vie 35s)"
     },
     "superviseur_core": {
       "ok": true,
-      "detail": "OK (vie 149s)"
+      "detail": "OK (vie 16s)"
     },
     "whales": {
-      "ok": true,
-      "detail": "OK (vie 337s)"
+      "ok": false,
+      "detail": "ZOMBIE FONCTIONNEL : process vivant mais sortie figée (903s > 900s) — whales_scan_latest.json"
     }
   },
-  "zombies_fonctionnels": [],
-  "statut": "SAIN"
+  "zombies_fonctionnels": [
+    "whales: ZOMBIE FONCTIONNEL : process vivant mais sortie figée (903s > 900s) — whales_scan_latest.json"
+  ],
+  "statut": "ALERTE"
 }

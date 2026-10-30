@@ -1,204 +1,8 @@
 {
-  "timestamp": 1793346852,
-  "date": "2026-10-30T07:54:12.526345+00:00",
-  "n_analyses": 22,
+  "timestamp": 1793350453,
+  "date": "2026-10-30T08:54:13.556711+00:00",
+  "n_analyses": 16,
   "analyses": [
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.570024440828107,
-        "value": 2.605,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-        "ts": 1793326307.501652
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.38,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 95632.92,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -3.2434549480453714,
-        "value": 30,
-        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un Fear & Greed à 30 avec un z-score de -3.24 indique une peur extrême et statistiquement anormale, souvent associée à des capitulations de détail. L'absence de titres médiatiques significatifs (vide informationnel) suggère que le narratif public est en dormance ou en panique silencieuse, tandis que les acteurs institutionnels (baleines) accumulent typiquement dans ces zones de volatilité extrême et de faible attention médiatique. C'est un signal classique de bas de cycle.\"\n}",
-        "ts": 1793326308.574973
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 30,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 30,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.420445253796172,
-        "value": 23392025867.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique liée au bruit de fond (z-score modéré de 2.42) et absence totale de corrélation avec les actualités crypto (bruit médiatique centré sur l'économie réelle et la grande consommation). Aucun mouvement significatif de baleine détecté.\"\n}\n```",
-        "ts": 1793326911.487519
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.74,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 4.7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.359029946427342,
-        "value": 2.605,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les titres médiatiques concernent exclusivement des ETF actions (BNP Paribas, LU3307220965) et des stratégies de fonds classiques, sans aucun lien avec les actifs crypto. L'anomalie onchain n'est pas corroborée par le narratif crypto, qui est ici absent ou hors sujet.\"\n}",
-        "ts": 1793328114.831845
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.38,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 95632.92,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": -2.879292027677144,
-        "value": 30,
-        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un Fear & Greed à 30 (z-score -2.88) indique une peur extrême et une capitulation des petits acteurs, tandis que l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement sans attirer l'attention du retail. C'est un classique setup d'accumulation en zone de peur.\"\n}",
-        "ts": 1793328115.940316
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 30,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 30,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.256930509789741,
-        "value": 23476667559.0,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.4B) est une anomalie statistique, mais le flux médiatique est 100% centré sur des entreprises traditionnelles (FMCG, Automobile, Beauté) sans aucun lien avec les actifs numériques. Aucune divergence exploitable : le bruit médiatique est orthogonal au signal crypto.\"\n}",
-        "ts": 1793328718.734172
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.74,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 4.7e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "cpfp",
@@ -220,12 +24,12 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.74,
+          "value": -0.27,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -265,12 +69,12 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.74,
+          "value": -0.27,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -300,12 +104,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.38,
+          "value": 2.299,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95632.92,
+          "value": 95487.447,
           "seuil": 120000,
           "depasse": false
         }
@@ -359,7 +163,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.74,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         },
@@ -369,7 +173,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.7e-05,
+          "value": 4.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -398,12 +202,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.38,
+          "value": 2.299,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95632.92,
+          "value": 95487.447,
           "seuil": 120000,
           "depasse": false
         }
@@ -457,7 +261,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.74,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         },
@@ -467,7 +271,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.7e-05,
+          "value": 4.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -496,12 +300,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.819,
+          "value": 0.748,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": -0.74,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         }
@@ -526,12 +330,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.38,
+          "value": 2.299,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95632.92,
+          "value": 95487.447,
           "seuil": 120000,
           "depasse": false
         }
@@ -585,7 +389,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.74,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         },
@@ -595,7 +399,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 4.7e-05,
+          "value": 4.3e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -624,12 +428,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.819,
+          "value": 0.748,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": -0.74,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         }
@@ -654,12 +458,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.38,
+          "value": 2.299,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95632.92,
+          "value": 95487.447,
           "seuil": 120000,
           "depasse": false
         }
@@ -723,7 +527,7 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.74,
+          "value": -0.27,
           "seuil": 1,
           "depasse": false
         }
