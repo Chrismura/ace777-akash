@@ -1,62 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 3.060582575402888,
-      "value": 15028259634.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (Z-score 3.06) totalement déconnectée des bruits médiatiques traditionnels (eau, auto, Unilever), mais directement corrélée à l'accélération x10 des volumes de stablecoins (infrastructure Visa/crypto). Accumulation silencieuse des institutionnels dans l'angle mort des médias grand public.\"\n}\n```",
-      "ts": "2026-10-29T17:54:14.975364+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.4615891611905485,
-      "value": 14487832349.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique sur le volume global sans lien avec le bruit médiatique générique (eau, automobile, stablecoins Visa). Aucune accumulation ou distribution spécifique de baleine crypto détectée derrière ce faux signal.\"\n}\n```",
-      "ts": "2026-10-29T18:24:26.139735+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.628369368750016,
-      "value": 1.182,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Erreur de ciblage : l'anomalie 'IPT' détectée correspond à des actions traditionnelles (International Petroleum Corp.) ou des actualités institutionnelles sans lien avec la crypto-sphère ou le mouvement de baleines onchain.\"\n}\n```",
-      "ts": "2026-10-29T18:39:29.890181+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.053134874872502,
-      "value": 14081892011.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.05) totalement ignorée par les médias traditionnels focalisés sur l'actualité macro/corporate. Forte divergence indiquant une accumulation silencieuse de gros porteurs, notamment liée à l'adoption institutionnelle des stablecoins (signalé en creux par BeInCrypto).\"\n}\n```",
-      "ts": "2026-10-29T18:54:34.546133+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.4967949786083086,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique : le signal fait référence au syndicat patronal français SDI (Syndicat des Indépendants) et aux TPE, sans aucun rapport avec les cryptomonnaies ou les flux on-chain de baleines.\"\n}\n```",
-      "ts": "2026-10-29T18:54:35.968296+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.0082356859005315,
-      "value": 1.065,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif absolu. L'anomalie 'ipt' détectée par le modèle correspond à de l'homonymie lexicale (International Petroleum Corp, École Polytechnique, fondation IPT) dans les médias, sans aucun rapport avec l'activité onchain d'une crypto-baleine.\"\n}\n```",
-      "ts": "2026-10-29T19:09:41.081003+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.060330875666941,
-      "value": 1.116,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique erronée ou bruit de fond. Les 'données onchain' pour IPT (International Petroleum Corp / ticker boursier) n'ont aucune pertinence crypto, et le narratif médiatique mélange des actualités académiques et institutionnelles sans lien avec une activité de baleine ou un actif numérique.\"\n}\n```",
-      "ts": "2026-10-29T19:44:48.915561+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.3167932586617144,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.32) non pertinente pour la crypto : le sigle 'SDI' fait référence à des actualités macroéconomiques françaises (Syndicat des Indépendants) et industrielles (Samsung SDI, Stampede Drilling) sans lien avec un actif blockchain ou un mouvement de baleine.\"\n}\n```",
-      "ts": "2026-10-29T19:54:52.009470+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.0272339330612135,
       "value": 50.0,
@@ -349,6 +293,62 @@
       "value": 23476667559.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.4B) est une anomalie statistique, mais le flux médiatique est 100% centré sur des entreprises traditionnelles (FMCG, Automobile, Beauté) sans aucun lien avec les actifs numériques. Aucune divergence exploitable : le bruit médiatique est orthogonal au signal crypto.\"\n}",
       "ts": "2026-10-30T02:51:58.734172+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0008604825576026,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (Centre de Formation Professionnelle, politique locale, ou confusion avec le protocole Bitcoin Child Pays For Parent). Aucune corrélation entre l'anomalie onchain et le narratif médiatique détecté. Absence de signal de mouvement de baleines.\"\n}\n```",
+      "ts": "2026-10-30T03:07:01.556950+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0008604825576026,
+      "value": 50.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif sémantique. Le terme 'dust' dans les titres médiatiques fait référence à des phénomènes météorologiques (Dust Bowl, mini-tornades) ou à des émissions industrielles, sans aucun lien avec la terminologie onchain (dust attacks, dusting). Aucune divergence réelle entre le marché crypto et le narratif généraliste n'est détectée ici.\"\n}",
+      "ts": "2026-10-30T03:07:02.599756+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.565716634807999,
+      "value": 2.698,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les titres médiatiques concernent exclusivement des ETF actions (BNP Paribas, LU3307220965) et des stratégies de fonds classiques, sans aucun lien avec les actifs crypto. L'anomalie onchain n'est pas corroborée par le narratif crypto, qui est ici absent ou hors sujet.\"\n}",
+      "ts": "2026-10-30T03:12:04.216040+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6045697886184174,
+      "value": 30,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un Fear & Greed à 30 (z-score -2.60) indique une peur extrême et une capitulation des petits acteurs, mais l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement sans attirer l'attention. Ce désalignement entre la panique onchain et le silence narratif est un signal classique de bas de cycle avant une rotation haussière.\"\n}",
+      "ts": "2026-10-30T03:12:05.168099+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0984954005904983,
+      "value": 23460082888.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.4B) est une anomalie statistique (z-score 2.10) sans contexte crypto, tandis que le flux médiatique est 100% centré sur le retail traditionnel (eau, FMCG, auto, énergie). Aucune divergence exploitable : le narratif est déconnecté du sujet crypto, rendant l'analyse des 'baleines' impossible sans données de marché (prix, flux d'échanges) associées.\"\n}",
+      "ts": "2026-10-30T03:22:07.532053+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3561113700167007,
+      "value": 2.698,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-10-30T03:42:11.844483+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.386980188146657,
+      "value": 30,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : un Fear & Greed à 30 (z-score -2.39) indique une peur extrême et une capitulation des petits acteurs, tandis que l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement sans attirer l'attention du public. Ce désalignement entre la panique onchain et le silence narratif est un signal classique de bas de cycle avant une rotation haussière.\"\n}\n```",
+      "ts": "2026-10-30T03:42:12.810918+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.057883526034118,
+      "value": 23898467603.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.9B) est une anomalie statistique (z-score 2.06), mais le flux médiatique est 100% centré sur des entreprises traditionnelles (Unilever, Renault, Wattwiller) et des sujets lifestyle (cheveux). Aucune mention de crypto, de marché des actifs numériques ou de flux institutionnels. Le narratif est déconnecté de l'activité onchain, mais sans signal directionnel clair (bullish/bearish) car le contexte crypto est absent des sources. Probablement du bruit ou un volume spécifique à un actif non couvert par ces titres.\"\n}",
+      "ts": "2026-10-30T03:52:16.295667+00:00"
     }
   ]
 }
