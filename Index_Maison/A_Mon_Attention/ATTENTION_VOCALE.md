@@ -1,13 +1,13 @@
 # Attention vocale — Cortana
 
 ## Dernier résumé
-> Info Changement de tendance. Structure baisse, signe une heure +.. Provenance cortana_watch_trend.
+> Alerte Gros mouvement. Bitcoin une heure -0.62 pour cent, quatre heures -2.87 pour cent.. Provenance cortana_watch_move.
 
 ## Meta
 - statut: IDLE
-- ts: 20261030T0009Z
-- pertinence: SOFT
-- sentiment: INFO
+- ts: 20261030T0153Z
+- pertinence: PERTINENT
+- sentiment: URGENT
 - compte: thermo-free
 - lien Index: S22b C14 · résumé horaire
 

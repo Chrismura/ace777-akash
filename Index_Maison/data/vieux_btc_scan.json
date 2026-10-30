@@ -1,11 +1,97 @@
 {
-  "ts": "2026-10-29T23:49:58Z",
-  "hauteur_tip": 973750,
+  "ts": "2026-10-30T01:12:25Z",
+  "hauteur_tip": 973758,
   "nb_blocs": 8,
   "seuil_btc": 50.0,
   "min_age_ans": 2.0,
-  "nb_grosses_tx": 326,
-  "nb_vieux_mouvements": 0,
-  "vieux_mouvements": [],
+  "nb_grosses_tx": 347,
+  "nb_vieux_mouvements": 3,
+  "vieux_mouvements": [
+    {
+      "txid": "3a366feb20d08f910e76af253fcc57ecf68139ecbeb52c8fffa3e62349ee471e",
+      "hauteur_bloc": 973755,
+      "ts_bloc": 1793320242,
+      "btc": 279.54,
+      "inputs_ages": [
+        {
+          "age_jours": 579.7,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 3325.5,
+          "btc": 0.5424
+        },
+        {
+          "age_jours": 3325.5,
+          "btc": 279.0
+        },
+        {
+          "age_jours": 2782.1,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 2928.6,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 1176.4,
+          "btc": 0.0001
+        },
+        {
+          "age_jours": 2268.7,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 640.0,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 350.4,
+          "btc": 0.0
+        }
+      ],
+      "age_max_jours": 3325.5,
+      "age_max_ans": 9.1,
+      "inputs_non_resolus": 0
+    },
+    {
+      "txid": "82fd58525815113e664be931cb36f2021a6cca0553ada848c848a167ed8a9e7a",
+      "hauteur_bloc": 973755,
+      "ts_bloc": 1793320242,
+      "btc": 880.03,
+      "inputs_ages": [
+        {
+          "age_jours": 1135.6,
+          "btc": 0.0014
+        },
+        {
+          "age_jours": 1287.4,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 1287.3,
+          "btc": 880.0287
+        }
+      ],
+      "age_max_jours": 1287.4,
+      "age_max_ans": 3.5,
+      "inputs_non_resolus": 0
+    },
+    {
+      "txid": "f75a5b1ff27fbf777b97be23e0fb6aa0c3c602c3f6a7ed1beb18705d44046269",
+      "hauteur_bloc": 973751,
+      "ts_bloc": 1793318111,
+      "btc": 614.0,
+      "inputs_ages": [
+        {
+          "age_jours": 1234.9,
+          "btc": 614.0
+        }
+      ],
+      "age_max_jours": 1234.9,
+      "age_max_ans": 3.4,
+      "inputs_non_resolus": 0
+    }
+  ],
   "note": "age_max = âge du plus vieil input (TOUS inputs, retry+cache, correction 13/09). inputs_ages=null = inputs non résolus — jamais comptés comme 0.0"
 }

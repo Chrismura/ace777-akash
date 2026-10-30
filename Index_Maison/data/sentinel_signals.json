@@ -2,55 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 3.220661385512753,
-      "value": 13151595056.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 3.22) déclenchée par des bruits de fond médiatiques sans rapport avec la crypto (actualité sur l'eau, les cheveux et les stablecoins grand public). Aucune baleine détectée.\"\n}\n```",
-      "ts": "2026-10-29T15:40:51.608891+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.054360872193702,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 75,\n  \"reason\": \"Pic anormal de l'indicateur CPFP (Child-Pays-For-Parent) combiné à un z-score élevé (2.05), indiquant une congestion du réseau et des utilisateurs (probablement des baleines ou des mineurs) forcés de payer des frais prioritaires pour débloquer des transactions bloquées. Le narratif médiatique est totalement déconnecté, noyé dans du bruit non pertinent (éducation, politique locale), masquant une potentielle panique ou un rééquilibrage massif onchain.\"\n}\n```",
-      "ts": "2026-10-29T15:56:14.020637+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.054360872193702,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie onchain insignifiante (bruit de fond). Le narratif médiatique fait référence à de la poussière littérale (sneakers Nike, jeux vidéo, émissions industrielles), confirmant l'absence totale de corrélation crypto.\"\n}\n```",
-      "ts": "2026-10-29T15:56:37.099775+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.7068299256988557,
-      "value": 1.168,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie statistique (z-score 2.71) sur un ticker boursier traditionnel (International Petroleum Corp - TSX/SWB:IPT) pollué par des homonymes non-crypto dans les actualités (physique, militantisme, actualité protestante). Aucun mouvement on-chain pertinent détecté.\"\n}\n```",
-      "ts": "2026-10-29T16:07:05.579183+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.218834830648015,
-      "value": 1.717,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrêmement bas (-2.22) sur le ratio long/short indiquant un positionnement court massif des suiveurs, totalement ignoré par les médias généralistes qui ne traitent que de produits traditionnels. Classic setup de capitulation des shorts propice à un short squeeze initié par les baleines.\"\n}\n```",
-      "ts": "2026-10-29T16:07:42.903439+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.2847590588718854,
-      "value": 13695332066.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume isolée sans corrélation pertinente avec le narratif médiatique actuel, dominé par l'actualité macroéconomique et corporate traditionnelle.\"\n}\n```",
-      "ts": "2026-10-29T16:12:58.776505+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.122962916248371,
-      "value": 1.717,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short affiche un z-score extrêmement bas (-2.12), indiquant une capitulation des positions acheteuses et un pessimisme excessif des 'retail'. Pendant que les médias généralistes et financiers font la promotion passive des stratégies 'long/short' traditionnelles, les baleines crypto nettoient le carnet d'ordres en positionnant un contre-pied massif. Cette asymétrie signale un point d'inflexion propice à un 'short squeeze'.\"\n}\n```",
-      "ts": "2026-10-29T16:38:22.526334+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 3.4097390994437395,
       "value": 14394213916.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 3.41) totalement ignorée par les médias grand public, focalisés sur l'actualité macro/tradfi. Classique accumulation silencieuse de baleines avant un mouvement de marché.\"\n}\n```",
@@ -349,6 +300,55 @@
       "value": 22919278300.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (22.9B) est massif, mais le flux médiatique est 100% déconnecté (FMCG, auto, cosmétique). Aucune mention crypto, BTC ou ETH. Le signal onchain est probablement du bruit (wash trading, rotation de stablecoins ou erreur de parsing) ou un mouvement purement technique sans narratif public. Impossible de valider une intention de baleine sans contexte sectoriel.\"\n}",
       "ts": "2026-10-30T00:51:27.766147+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.395483821348257,
+      "value": 0.62,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif total. Le SDI (Syndicat des Indépendants) est une organisation patronale française, non un protocole crypto. Les titres médiatiques confirment un contexte purement socio-économique (pouvoir d'achat, TPE). Aucune corrélation onchain ou narrative crypto n'existe.\"\n}",
+      "ts": "2026-10-30T00:56:29.564457+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.460820294289731,
+      "value": 2.503,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-10-30T01:11:32.477772+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.599331055039001,
+      "value": 30,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : un z-score de -4.60 sur le Fear & Greed indique une peur extrême et anormale, souvent associée à des capitulations de détail. L'absence de titres médiatiques significatifs (vide informationnel) suggère que les acteurs institutionnels/baleines accumulent silencieusement dans le vide, exploitant la panique du retail sans attirer l'attention. C'est un classique setup de 'smart money' accumulation.\"\n}\n```",
+      "ts": "2026-10-30T01:11:33.452483+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.882487663892031,
+      "value": 23251770427.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.25M, z-score 2.88) est une anomalie crypto, tandis que le flux médiatique est exclusivement centré sur des entreprises traditionnelles (Unilever, Renault, Wattwiller) et des sujets lifestyle (cheveux). Aucune mention de crypto-actifs, de marchés dérivés ou de mouvements de trésorerie institutionnelle dans les titres. Le signal onchain est isolé sans contexte narratif pour confirmer une accumulation ou une distribution silencieuse.\"\n}",
+      "ts": "2026-10-30T01:21:35.967081+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2718886965470038,
+      "value": 2.503,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont corrélées à des ETF actions traditionnels (BNP Paribas, LU3307220965) et non à un actif crypto. Le narratif médiatique est cohérent avec la réalité (stratégies de fonds classiques), il n'y a pas de divergence crypto.\"\n}",
+      "ts": "2026-10-30T01:41:39.472691+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.762697800361079,
+      "value": 30,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence majeure : un z-score de -3.76 sur l'indice Fear & Greed (30) indique une peur extrême et une capitulation des petits acteurs, mais l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement dans le vide. Le marché est en phase de 'washout' sans attention publique, condition idéale pour une accumulation discrète avant un retournement.\"\n}",
+      "ts": "2026-10-30T01:41:40.462532+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.7169932449818175,
+      "value": 23686720607.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.6B) est massif, mais le flux médiatique est 100% déconnecté (FMCG, auto, cosmétique). Aucune mention crypto, BTC ou ETH. Impossible de valider une action de baleine sans contexte de marché (prix, liquidité) ou de titres pertinents. Le bruit médiatique masque l'absence de signal narratif.\"\n}",
+      "ts": "2026-10-30T01:51:42.989075+00:00"
     }
   ]
 }

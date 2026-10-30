@@ -1274,6 +1274,13 @@ def bloc_partition() -> dict:
               "bas": (v or {}).get("bas_roulant"), "haut": (v or {}).get("haut_roulant")}
         for k, v in paires.items() if k in ("BTCUSDT", "ETHUSDT", "XRPUSDT")
     }
+    # 6. Sommet proche (le chuchoteur, 30/10 soir GO Christophe) : lecture
+    # seule du guetteur micro — cassure ~11 min + deleverage/funding.
+    # Il chuchote AVANT le top, la corr confirme APRES. Jamais bloquant.
+    sp = _lire_json_silencieux("Index_Maison/data/sommet_proche_live.json")
+    part["instruments"]["sommet_proche"] = {
+        "meta": (sp.get("meta") or {}), "derniers": (sp.get("derniers") or [])[-3:],
+    }
     # 5. Cohérences (phrases factuelles, pas des jugements)
     coh = part["coherences"]
     try:
@@ -1298,6 +1305,15 @@ def bloc_partition() -> dict:
                         f"murs={murs.get('bas')}-{murs.get('haut')}/{murs.get('phase')}")
         for k, v in part["instruments"]["plancher"].items():
             coh.append(f"Plancher {k} : {v.get('phase')} ({v.get('bas')}-{v.get('haut')})")
+        sp_meta = (part["instruments"].get("sommet_proche") or {}).get("meta") or {}
+        sp_der = (part["instruments"].get("sommet_proche") or {}).get("derniers") or []
+        if sp_der:
+            d0 = sp_der[-1]
+            coh.append(f"Sommet proche : dernier chuchotement {d0.get('ts')} @ "
+                        f"{d0.get('prix')} (drop {d0.get('drop_micro_pct')}%) — "
+                        f"{sp_meta.get('n_chuchotements')} au total")
+        else:
+            coh.append("Sommet proche : silence (pas de cassure micro + contexte)")
         part["orchestre"] = " ; ".join(coh)
     except Exception:
         part["orchestre"] = "partition partielle"

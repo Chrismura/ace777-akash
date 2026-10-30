@@ -1,143 +1,8 @@
 {
-  "timestamp": 1793321344,
-  "date": "2026-10-30T00:49:04.962653+00:00",
-  "n_analyses": 33,
+  "timestamp": 1793324945,
+  "date": "2026-10-30T01:49:05.943765+00:00",
+  "n_analyses": 36,
   "analyses": [
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.053134874872502,
-        "value": 14081892011.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.05) totalement ignorée par les médias traditionnels focalisés sur l'actualité macro/corporate. Forte divergence indiquant une accumulation silencieuse de gros porteurs, notamment liée à l'adoption institutionnelle des stablecoins (signalé en creux par BeInCrypto).\"\n}\n```",
-        "ts": 1793300074.546133
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -1.12,
-          "seuil": 1,
-          "depasse": true
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3.9e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
-      },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 2.4967949786083086,
-        "value": 0.62,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique : le signal fait référence au syndicat patronal français SDI (Syndicat des Indépendants) et aux TPE, sans aucun rapport avec les cryptomonnaies ou les flux on-chain de baleines.\"\n}\n```",
-        "ts": 1793300075.968296
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.0082356859005315,
-        "value": 1.065,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Faux positif absolu. L'anomalie 'ipt' détectée par le modèle correspond à de l'homonymie lexicale (International Petroleum Corp, École Polytechnique, fondation IPT) dans les médias, sans aucun rapport avec l'activité onchain d'une crypto-baleine.\"\n}\n```",
-        "ts": 1793300981.081003
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -1.12,
-          "seuil": 1,
-          "depasse": true
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3.9e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
-      },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.060330875666941,
-        "value": 1.116,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie technique erronée ou bruit de fond. Les 'données onchain' pour IPT (International Petroleum Corp / ticker boursier) n'ont aucune pertinence crypto, et le narratif médiatique mélange des actualités académiques et institutionnelles sans lien avec une activité de baleine ou un actif numérique.\"\n}\n```",
-        "ts": 1793303088.915561
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -1.12,
-          "seuil": 1,
-          "depasse": true
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 3.9e-05,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
-      },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
-    },
     {
       "signal": {
         "metric": "sdi",
@@ -169,17 +34,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 193,
+          "value": 23,
           "seuil": 100,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.616,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -214,17 +79,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 193,
+          "value": 23,
           "seuil": 100,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.616,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -254,29 +119,28 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 3137306.0,
+          "value": 3588660.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0,
           "depasse": true
         }
       },
       "interpretation": {
-        "condition": "pct_1h < -1",
-        "lecture": "Chute sans liquidations majeures — vraie pression vendeuse spot, pas une cascade de leviers",
-        "niveau": "surveiller",
-        "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -289,9 +153,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -299,7 +163,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -310,13 +174,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -329,29 +192,28 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 3137306.0,
+          "value": 3588660.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0,
           "depasse": true
         }
       },
       "interpretation": {
-        "condition": "pct_1h < -1",
-        "lecture": "Chute sans liquidations majeures — vraie pression vendeuse spot, pas une cascade de leviers",
-        "niveau": "surveiller",
-        "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -364,9 +226,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -374,7 +236,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -385,13 +247,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -404,19 +265,19 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2684308.0,
+          "value": 2756194.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 452998.0,
+          "value": 832466.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         }
       },
       "interpretation": {
@@ -439,9 +300,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -449,7 +310,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -460,13 +321,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -489,9 +349,9 @@
           "depasse": false
         },
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         }
       },
       "interpretation": {
@@ -513,9 +373,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -523,7 +383,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -534,13 +394,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -553,9 +412,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -563,7 +422,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -574,13 +433,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -608,9 +466,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -618,7 +476,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -629,13 +487,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -648,9 +505,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -658,7 +515,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -669,13 +526,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -688,9 +544,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -698,7 +554,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -709,13 +565,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -728,9 +583,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -738,7 +593,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -749,13 +604,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -773,17 +627,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 193,
+          "value": 23,
           "seuil": 100,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.616,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -818,17 +672,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 193,
+          "value": 23,
           "seuil": 100,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.616,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -858,29 +712,28 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 3137306.0,
+          "value": 3588660.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0,
           "depasse": true
         }
       },
       "interpretation": {
-        "condition": "pct_1h < -1",
-        "lecture": "Chute sans liquidations majeures — vraie pression vendeuse spot, pas une cascade de leviers",
-        "niveau": "surveiller",
-        "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -893,9 +746,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -903,7 +756,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -914,13 +767,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -943,9 +795,9 @@
           "depasse": false
         },
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         }
       },
       "interpretation": {
@@ -1011,9 +863,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -1021,7 +873,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -1032,13 +884,12 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -1051,19 +902,19 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2684308.0,
+          "value": 2756194.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 452998.0,
+          "value": 832466.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         }
       },
       "interpretation": {
@@ -1086,29 +937,28 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 3137306.0,
+          "value": 3588660.0,
           "seuil": 5000000,
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0,
           "depasse": true
         }
       },
       "interpretation": {
-        "condition": "pct_1h < -1",
-        "lecture": "Chute sans liquidations majeures — vraie pression vendeuse spot, pas une cascade de leviers",
-        "niveau": "surveiller",
-        "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec les murs L2 et le sniffer vieux BTC avant tout achat",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -1150,9 +1000,9 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -1.12,
+          "value": -0.38,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "paires": {
           "value": 0,
@@ -1160,7 +1010,7 @@
           "depasse": false
         },
         "funding": {
-          "value": 3.9e-05,
+          "value": 1e-05,
           "seuil": 0.001,
           "depasse": false
         },
@@ -1171,14 +1021,224 @@
         }
       },
       "interpretation": {
-        "condition": "prix < -1%",
-        "lecture": "Panique possible — des acteurs accélèrent leurs transactions pour vendre",
-        "niveau": "dangereux",
-        "action": "Réduire taille de 25%, stops serrés"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Réduire taille de 25%, stops serrés",
-      "niveau": "dangereux"
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 3.1191525830411644,
+        "value": 22919278300.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (22.9B) est massif, mais le flux médiatique est 100% déconnecté (FMCG, auto, cosmétique). Aucune mention crypto, BTC ou ETH. Le signal onchain est probablement du bruit (wash trading, rotation de stablecoins ou erreur de parsing) ou un mouvement purement technique sans narratif public. Impossible de valider une intention de baleine sans contexte sectoriel.\"\n}",
+        "ts": 1793321487.766147
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.38,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.395483821348257,
+        "value": 0.62,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif total. Le SDI (Syndicat des Indépendants) est une organisation patronale française, non un protocole crypto. Les titres médiatiques confirment un contexte purement socio-économique (pouvoir d'achat, TPE). Aucune corrélation onchain ou narrative crypto n'existe.\"\n}",
+        "ts": 1793321789.564457
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.460820294289731,
+        "value": 2.503,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+        "ts": 1793322692.477772
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.503,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 94808.859,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -4.599331055039001,
+        "value": 30,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : un z-score de -4.60 sur le Fear & Greed indique une peur extrême et anormale, souvent associée à des capitulations de détail. L'absence de titres médiatiques significatifs (vide informationnel) suggère que les acteurs institutionnels/baleines accumulent silencieusement dans le vide, exploitant la panique du retail sans attirer l'attention. C'est un classique setup de 'smart money' accumulation.\"\n}\n```",
+        "ts": 1793322693.452483
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 30,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 30,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.882487663892031,
+        "value": 23251770427.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.25M, z-score 2.88) est une anomalie crypto, tandis que le flux médiatique est exclusivement centré sur des entreprises traditionnelles (Unilever, Renault, Wattwiller) et des sujets lifestyle (cheveux). Aucune mention de crypto-actifs, de marchés dérivés ou de mouvements de trésorerie institutionnelle dans les titres. Le signal onchain est isolé sans contexte narratif pour confirmer une accumulation ou une distribution silencieuse.\"\n}",
+        "ts": 1793323295.967081
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.38,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 1e-05,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.2718886965470038,
+        "value": 2.503,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont corrélées à des ETF actions traditionnels (BNP Paribas, LU3307220965) et non à un actif crypto. Le narratif médiatique est cohérent avec la réalité (stratégies de fonds classiques), il n'y a pas de divergence crypto.\"\n}",
+        "ts": 1793324499.472691
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.503,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 94808.859,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": -3.762697800361079,
+        "value": 30,
+        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence majeure : un z-score de -3.76 sur l'indice Fear & Greed (30) indique une peur extrême et une capitulation des petits acteurs, mais l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement dans le vide. Le marché est en phase de 'washout' sans attention publique, condition idéale pour une accumulation discrète avant un retournement.\"\n}",
+        "ts": 1793324500.462532
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 30,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 30,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🔴 DANGER détecté — réduire les expositions"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
