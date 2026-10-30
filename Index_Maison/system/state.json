@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-10-30T21:44:19Z",
+  "timestamp": "2026-10-30T22:44:34Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "dd01291c4c633cf84a9289b54433faecf61b96be6be80a7210476f5b75705973",
+  "feed_hash": "fa7efccd3e1cd48281ad2a7443b0a32b6fac5d53d89a8e45a138523a013133db",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 24,
+      "age_seconds": 0,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
@@ -16,23 +16,24 @@
     },
     "live": {
       "present": true,
-      "age_seconds": 80,
+      "age_seconds": 84,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 78922,
+      "age_seconds": 82537,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 111,
-    "running": 14,
-    "planned": 97,
+    "running": 13,
+    "planned": 98,
     "running_list": [
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
+      "com.ace777.cortana.urgent",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
@@ -41,9 +42,7 @@
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live",
-      "com.ace777.xrpl-arbitrage",
-      "com.ace777.xrpl-onchain"
+      "com.ace777.vigie-live"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
@@ -60,7 +59,6 @@
       "com.ace777.cortana-fade-ombre",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
-      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -142,7 +140,9 @@
       "com.ace777.watchdog",
       "com.ace777.whales",
       "com.ace777.x402-agentic",
-      "com.ace777.xrpl-gouvernance"
+      "com.ace777.xrpl-arbitrage",
+      "com.ace777.xrpl-gouvernance",
+      "com.ace777.xrpl-onchain"
     ]
   },
   "hub": {
@@ -184,7 +184,7 @@
       "Assistant_Vocal_HORS_VAULT": 697372,
       "Obsidian_BACKUPS_HORS_VAULT": 14936872
     },
-    "presence_at": "2026-10-30T21:34:22Z",
+    "presence_at": "2026-10-30T22:34:22Z",
     "sizes_at": "2026-10-30T18:04:17Z"
   }
 }
