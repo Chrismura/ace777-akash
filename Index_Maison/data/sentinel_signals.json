@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.0272339330612135,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte hausse des utilisations de CPFP (Child-Pays-For-Parent) on-chain (z-score 2.03), indiquant une congestion intentionnelle ou une anticipation de mouvements de fonds majeurs par des acteurs avisés, alors que le narratif médiatique grand public reste totalement déconnecté (bruit institutionnel, politique et tutoriels basique).\"\n}\n```",
-      "ts": "2026-10-29T19:54:53.540533+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0272339330612135,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique absolu. Les mentions de 'DUST' dans l'actualité concernent des levées de fonds en IA (entreprise Dust) et de la culture pop/sneakers, sans aucun lien on-chain avec une cryptomonnaie ou une accumulation de baleines.\"\n}\n```",
-      "ts": "2026-10-29T19:54:55.091326+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.6042311395285407,
-      "value": 0.6678807854874624,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.60) couplé à un silence médiatique total (zéro couverture Google Actualités) : signature classique d'accumulation furtive par les baleines loin du radar grand public.\"\n}\n```",
-      "ts": "2026-10-29T20:09:58.347421+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2236115418350364,
-      "value": 1.182,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie non pertinente. L'indicateur 'ipt' (IPC / International Petroleum Corp ou homonymes institutionnels) ne correspond pas à un actif crypto significatif dans ce contexte. Bruit médiatique sans lien avec des mouvements de baleines crypto.\"\n}\n```",
-      "ts": "2026-10-29T20:15:01.712516+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.990302810642712,
-      "value": 1.197908582418361,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix majeure (z-score 4.99) totalement ignorée par les médias traditionnels (Google Actualités). Silence médiatique typique d'une accumulation furtive par des baleines avant un mouvement de grande envergure.\"\n}\n```",
-      "ts": "2026-10-29T20:40:07.047813+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.5124535680770115,
-      "value": 15698475761.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain anormal (z-score 2.51) n'est pas soutenu par le narratif crypto (un seul article mineur sur Visa). La majorité des titres concernent des secteurs traditionnels (Renault, Unilever, eau minérale), indiquant que l'anomalie onchain est probablement du bruit statistique ou une rotation interne non médiatisée, sans signal directionnel clair.\"\n}",
-      "ts": "2026-10-29T20:50:09.661795+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.3695492949809154,
-      "value": 5242711.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit sémantique : le système confond les liquidations judiciaires de commerces locaux traditionnels avec les liquidations de positions crypto sur les marchés dérivés.\"\n}\n```",
-      "ts": "2026-10-29T21:05:13.630453+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.8581378351861453,
       "value": 16890123178.0,
@@ -349,6 +300,55 @@
       "value": 23898467603.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.9B) est une anomalie statistique (z-score 2.06), mais le flux médiatique est 100% centré sur des entreprises traditionnelles (Unilever, Renault, Wattwiller) et des sujets lifestyle (cheveux). Aucune mention de crypto, de marché des actifs numériques ou de flux institutionnels. Le narratif est déconnecté de l'activité onchain, mais sans signal directionnel clair (bullish/bearish) car le contexte crypto est absent des sources. Probablement du bruit ou un volume spécifique à un actif non couvert par ces titres.\"\n}",
       "ts": "2026-10-30T03:52:16.295667+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.145228308469227,
+      "value": 1.52,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 78,\n\"reason\": \"Le taker_ratio de 1.52 (z-score 2.15) indique une pression acheteuse agressive et déséquilibrée (les takers achètent massivement). L'absence totale de couverture médiatique (vide informationnel) suggère que ce mouvement est initié par des acteurs informés (baleines) avant la diffusion du narratif public. C'est un signal classique d'accumulation silencieuse.\"\n}",
+      "ts": "2026-10-30T04:07:18.990390+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2196698335580876,
+      "value": 2.708,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-10-30T04:12:21.697298+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.2085178333914723,
+      "value": 30,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence classique : le sentiment de peur extrême (z-score -2.21) crée un environnement de capitulation où les vendeurs sont épuisés. L'absence de narratif médiatique significatif (bruit faible) suggère que les mouvements onchain actuels sont discrets et non suivis par la foule, caractéristique d'une accumulation silencieuse par les baleines avant un retournement.\"\n}",
+      "ts": "2026-10-30T04:12:22.618282+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0090738525217757,
+      "value": 24280403202.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie de volume purement parasite. Les titres médiatiques proviennent du secteur de la grande consommation (eau, cosmétiques, automobile) et n'ont aucun rapport avec la crypto. Bruit de fond statistique sans mouvement de baleine.\"\n}\n```",
+      "ts": "2026-10-30T04:22:25.544765+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.077276403492412,
+      "value": 1.52,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un taker_ratio de 1.52 (z-score > 2) indique une pression acheteuse agressive et des achats au marché (market buys) par des acteurs institutionnels ou des baleines. L'absence totale de couverture médiatique (vide informationnel) suggère que ce mouvement est silencieux et non encore détecté par le retail, créant un potentiel de décollage rapide une fois la liquidité absorbée.\"\n}",
+      "ts": "2026-10-30T04:37:28.467279+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0688815946432566,
+      "value": 2.708,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-10-30T04:42:29.948173+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.0582428516488616,
+      "value": 30,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 65,\n\"reason\": \"Divergence classique : le sentiment de peur extrême (z-score -2.06) crée un environnement de capitulation où les vendeurs sont épuisés. L'absence de narratif médiatique significatif (bruit faible) suggère que les mouvements onchain actuels ne sont pas encore détectés par la masse, indiquant une accumulation silencieuse par les baleines avant un potentiel retournement.\"\n}",
+      "ts": "2026-10-30T04:42:30.930707+00:00"
     }
   ]
 }
