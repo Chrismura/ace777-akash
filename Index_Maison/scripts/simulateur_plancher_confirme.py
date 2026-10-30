@@ -48,9 +48,10 @@ HIST = os.path.join(DATA, "plancher_confirme_hist.jsonl")
 ETAT = os.path.join(DATA, "plancher_confirme_etat.json")
 FEED = os.path.join(COCKPIT, "plancher_live.js")
 
-PAIRES = ["BTCUSDT", "ETHUSDT", "QNTUSDT", "FLUIDUSDT", "RWAUSDT",
+PAIRES = ["BTCUSDT", "ETHUSDT", "XRPUSDT", "QNTUSDT", "FLUIDUSDT", "RWAUSDT",
           "MNSRYUSDT", "CCUSDT", "RIZEUSDT", "EDELUSDT", "REDUSDT",
-          "RWAINCUSDT", "ZBCNUSDT"]
+          "RWAINCUSDT", "ZBCNUSDT"]  # 30/10 GO : +XRPUSDT (sonde L2 OK, profil
+# spread OK méd 1,53 bps, digest OK — le short XRP a besoin de ses murs)
 SPREAD_ABS_GARDE_BPS = 100.0  # C2 sans profil : spread live <= 100 bps
 SEUIL_CHUTE_PCT = 25.0      # documenté : la chute doit avoir fait -25% depuis le pic
 REBOND_CONFIRM_PCT = 3.0    # C3 : rebond de >= 3% au-dessus du bas roulant

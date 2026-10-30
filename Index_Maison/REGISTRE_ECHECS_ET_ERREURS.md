@@ -2005,3 +2005,125 @@ tuée en cours de route). Live OK (CHAUFFE, hystérésis en confirmation).
 données) ; essaim-long-en-chute et bucket CALME-par-défaut (refonte d'échelle,
 GO famille).
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §46 — HULK ET ACE AU SERVICE DES SHORTS : CE QUI SERT, CE QUI NE SERT PAS (29/10, question Christophe)
+
+**ACE : non utilisable en l'état.** Moteur OFF depuis le 09/09 (7 semaines) —
+croiser des fills d'août avec des signaux d'octobre serait un anachronisme.
+À rouvrir quand ACE rejouera (le jour où BETA resondera, l'accord BETA-short
+sera le premier test).
+**HULK : 2,9 M de lignes PAPER_V1 (24/08→29/10) mais ZÉRO recouvrement de
+paires** (alts : KITE/BIO/RED/CC… ; shorts : BTC/ETH/XRP). Pas de confrontation
+directe possible.
+**Test honnête quand même (9 764 SELLs HULK vs 4 273 signaux short BTC)** :
+ventes dans les 4h après signal : médiane −0,05 $ (base +0,05 $), moyenne
++0,26 $ (base +0,14 $), 52 % négatives (base 48 %). Verdict : WASH — le signal
+short BTC ne prédit pas le malheur des alts. Pas de pont factice : on ne
+branche rien là-dessus.
+**Ce que HULK apporte VRAIMENT aux shorts** : (1) les COÛTS réels — médiane
+0,026 $/trade (p90 0,11 $), spread médian 18 bp : le risque short au stop
+(~0,14 $) tient avec ~5× de marge (réserve : notionnels/paires différents) ;
+(2) les labels de régime par trade (COOLING…) pour une analyse conditionnelle
+future ; (3) 6 BAG_CRASH = 6 crashs documentés pour rejouer le comportement
+short en crise. Prochain pas : scorer RISK_CIBLE contre coûts réels.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §47 — LE PLANCHER : L'ŒIL QUI VOIT LE FOND PENDANT QUE LES SHORTS VOIENT LE SOMMET (29/10, question Christophe)
+
+**État** : vivant (cycles 5 min, log frais 01:09Z). 12 paires : BTC/ETH en
+OBSERVATION avec une fenêtre mesurée (BTC bas 77 795 $ / haut 81 941 $ ;
+ETH bas 2 234 / haut 2 379 $) ; 3 ACHETÉ (RIZE/EDEL/QNT) ; XRP absent du
+dispositif (à ajouter si les shorts XRP deviennent sérieux).
+**Apport direct aux shorts, mesuré ce soir** : le signal short BTC s'est
+allumé à ~81-82k et le prix a fini à 78 843 $ — pile DANS la fenêtre du
+plancher (bas 77 795). La sortie TP 2 % du short coïncide avec le haut du
+domaine du plancher : le short vend le haut du range, le plancher achète le
+bas. Ce sont les deux moitiés du même range — validées par DEUX instruments
+indépendants (corr de flux vs murs/spread/rebond).
+**Proposition (pas câblée sans ton GO)** : (1) publier bas/haut BTC/ETH dans
+le live des shorts (contexte, pas décision) ; (2) quand le plancher passe
+ACHETÉ sur BTC/ETH → le short resserre son stop (le fond se forme sous ses
+pieds) ; (3) ajouter XRP au plancher. Le plancher ne dira jamais au short
+d'entrer ou sortir — il lui dit où sont les murs de la pièce.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §48 — PLANCHER BRANCHÉ AUX SHORTS : LES MURS DANS LA PIÈCE (30/10, GO Christophe)
+
+**Câblé, testé, rescellé** (`short_btc.py` d6d8→038d, plancher 4917→783b,
+backups /tmp) : (1) le short lit bas/haut/phase du plancher — CONTEXTE seul,
+loggé dans la position et le live, jamais une décision ; (2) si le plancher
+est ACHETÉ sur la même paire → stop resserré ×0,7 à l'ENTRÉE (1,5 % → ~1,0 %) —
+le fond se forme sous nos pieds, on ne reste pas large ; JAMAIS en vol (une
+position ouverte garde son stop d'origine) ; (3) XRP ajouté au plancher (L2,
+profil spread 1,53 bps, digest : tout OK ; premier cycle : OBSERVATION
+1,2232-1,3264).
+**Tests** : paire inconnue → (None,None,None) sans crash ; fond simulé ACHETÉ
+→ SL 1,05 % ; fond réel OBSERVATION → SL 1,5 % ; `--once` live OK (murs
+BTC 77795-81941 loggés, aucune entrée — signal retombé).
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §49 — LA PARTITION : UNE SEULE HISTOIRE (30/10, GO Christophe)
+
+**Construit, testé, rescellé** (feed + short 038d→nouveau hash, backups /tmp) :
+`mission.json` porte désormais un bloc `partition` — Cortana (9 bullish /
+0 bearish + résumé), Ada (saison/zone/sirène en clair), les 3 shorts
+(corr + position + murs), le plancher (phase + bornes BTC/ETH/XRP), et des
+cohérences factuelles : « sirène ON + zone VERT = le rapide crie, le lent
+lisse », « short BTC sans position entre 77 347 et 81 941 ». Chaque instrument
+garde SON fichier (propriétaire unique) ; la partition LIT et RACONTE, ne
+décide jamais ; un bloc muet ne crashe pas le feed.
+**Lecture honnête de la première partition** : elle montre le désaccord au
+lieu de le cacher (Cortana bullish + Ada CHAUFFE/sirène alors que le prix
+chute et que la saison vient de retomber CALME — le pont à construire reste
+entier, mais il est maintenant ÉCRIT chaque cycle au lieu d'être deviné).
+**Corrigé en cours de route** : murs None sans position → lus à chaque cycle.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §50 — LE DÉSACCORD, INSTRUMENT À PART ENTIÈRE (30/10, idée Christophe)
+
+**Idée renversée en instrument** : D1 Cortana-vs-saison, D2 sirène-vs-zone
+(R19 écrit en continu), D3 short-armé-vs-fond-plancher. `desaccord.py`
+(lecture seule, boucle 300 s, hist pour jugement +24h) + bloc dans la
+partition. Rescellés : desaccord (création), feed (1041→b864). PLIST posée,
+RunAtLoad false (le feed le porte déjà ; daemon standalone au prochain GO).
+**Premier jugement (journal gardienne réel, 40 lignes jugeables +1h)** :
+D2 sirène-ON + VERT → médiane −2,12 %, 100 % sous −0,5 % (min −2,37, max
+−1,46). Ce soir le désaccord n'était pas un événement mais l'état PERMANENT
+— et il a eu raison : le rapide criait pendant que le prix chutait, le lent
+lissait. Limites déclarées : 80 min de journal, proxy zone sur l'historique
+plus large — le vrai verdict viendra avec 24 h+ d'historique (fenêtre 3000
+posée au §45). Prochain pas : juger D1/D3 sur longues séries, puis tester le
+désaccord comme FILTRE d'entrée (bloquer le short quand D3 = fond confirmé ?).
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §51 — TEMPS DE RÉACTION : LA MAISON A VU LA CHUTE, PAS LE SOMMET (29-30/10, GO Christophe)
+
+**Contexte (confirmé, excuses à Christophe)** : hack Binance EN COURS ce soir
+(29/10 ~21h49 FR : 2+ Md$ sortis des hot wallets, 5,5 Md$ suspects, Tether +
+Circle + WLF ~2,4 Md$ gelés, retraits suspendus, CZ confirme — plus gros hack
+d'exchange de l'histoire ; autres plateformes : rien de confirmé ce soir).
+Le top 3 paires : 16h09 (BTC 81 900, ETH 2 376, XRP 1,316) → 00h47 : −5,8 /
+−6,8 / −7,5 %. La chute 17h→21h coïncide avec le drainage ; la nuit prolonge.
+**Temps de réaction mesurés (retard vs top 16h09)** :
+- HULK : CC achetée 16h03, 6 min AVANT le top — le moteur achetait le sommet.
+- THERMO chg24 : rouge depuis 12h (faux positif d'hier), VERT à 15h35 (+1,36)
+  au moment du top — l'indicateur 24h a dit « tout va bien » au sommet.
+- CORTANA : seul bearish à 15h56 (cpfp, AVANT le top — bruit ou flair, non
+  rejouable) ; ensuite 14 bullish 75-95 % PENDANT la chute (15h40→22h50).
+  Le tambour n'a pas vu la chute : il l'a niée en direct.
+- SHORTS : signal 17h57 (BTC/ETH), 18h00 (XRP) — +1h48 après le top, −1 % déjà
+  partis. Correct pour un suiveur de corrélation, mais le ban nuit de l'époque
+  a bloqué 73 signaux : la porte a vu juste et est restée fermée.
+- ADA SIRENE : vortex ON dès |chg24|≥1 % (~16h09 au top même) — le cri rapide
+  était à l'heure. ZONE : verte tout le soir (lissage) — le lent n'a jamais
+  basculé. D2 permanent, raison à +1h (médiane −2,12 %).
+- ADA SAISON : girouette (direction short fugace 17h58/19h18/21h08...), jamais
+  de régime short TENU — l'œil lent a papillonné au lieu de trancher.
+- PLANCHER BTC : drop 5,5 % détecté à 00h24 (+8h15 !) — le contrebassiste joue
+  après le concert. Normal pour un guetteur de fond, pas une alerte.
+**Verdict** : la maison a vu la CHUTE (sirène, shorts +1h48, D2), jamais le
+SOMMET (personne n'a dit « top » avant 16h09 ; HULK a acheté dedans). Prochain
+chantier (Christophe : « inadmissible et absurde ») : le SIGNAL DE SOMMET —
+surchauffe longs + L/S extrême + funding + euphorie Cortana : quand les 4
+crient ensemble AVANT le top, la maison doit au moins chuchoter « sommet ».
+IA=Buffy (Muse Spark 1.3, Freebuff).

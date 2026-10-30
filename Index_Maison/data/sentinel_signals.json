@@ -1,55 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.0249699061298863,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond absolu. L'anomalie onchain 'dust' détectée correspond à une terminologie homonyme totalement polluée par la culture pop, la mode (Nike) et la musique (Peter Padou), sans aucun rapport avec des mouvements de baleines crypto. Divergence nulle, simple interférence sémantique.\"\n}\n```",
-      "ts": "2026-10-29T10:35:07.626886+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.44290303959822,
-      "value": 1.624,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.44) indique une domination agressive des acheteurs sur le marché dérivé, révélant une accumulation agressive des baleines. Le vide médiatique (Google Actualités silencieux) prouve l'absence de FOMO de détail, confirmant une phase d'accumulation discrète avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-29T10:40:11.951784+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.996703578669239,
-      "value": 3298274.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain significative (z-score 3.00, ~3.3M USD) en absence totale de couverture médiatique (Google Actualités vide). C'accumulation furtive typique des baleines loin du radar public.\"\n}\n```",
-      "ts": "2026-10-29T11:05:17.081632+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.1808812737658587,
-      "value": 0.992,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (IPT) confondue par l'algorithme avec des homonymes non-crypto (International Petroleum Corp., École Polytechnique). Aucun mouvement de baleine crypto détecté, le 'narratif médiatique' ne concerne pas un actif numérique.\"\n}\n```",
-      "ts": "2026-10-29T13:15:40.407075+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.78864019724551,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique (SDI = Syndicat des Indépendants et TPE) capturée par erreur par l'algorithme crypto. Aucun lien avec des mouvements de baleines on-chain ou de la crypto-économie. Bruit médiatique pur.\"\n}\n```",
-      "ts": "2026-10-29T13:21:13.951867+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.5692097270406387,
-      "value": 0.624,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie sémantique : l'indicateur 'SDI' détecté ici correspond au Syndicat des Indépendants et TPE (politique/sociale française) et non à une métrique on-chain de baleines crypto. Fausse alerte, aucune donnée de marché à analyser.\"\n}\n```",
-      "ts": "2026-10-29T14:07:48.494581+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.574216707688336,
-      "value": 0.64,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.57) combiné à un silence médiatique total (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant l'effet de surprise public.\"\n}\n```",
-      "ts": "2026-10-29T15:40:19.900499+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 3.220661385512753,
       "value": 13151595056.0,
@@ -349,6 +300,55 @@
       "value": 0.62,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. Le ticker 'SDI' dans les données onchain correspond à un actif crypto spécifique, mais le narratif médiatique fourni est entièrement pollué par des homonymes non-crypto (Samsung SDI, Stampede Drilling, et surtout le Syndicat des TPE en France). Il n'y a aucune corrélation entre les mouvements de baleines crypto et ces titres. L'anomalie onchain est isolée sans contexte narratif crypto valide.\"\n}\n```",
       "ts": "2026-10-29T23:51:10.604107+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -16.941074346097416,
+      "value": 30,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence majeure : un z-score de -16.94 sur le Fear & Greed indique une peur extrême et anormale (contraction du marché), tandis que l'absence de titres médiatiques significatifs suggère un vide narratif. Cette combinaison est typique d'un 'accumulation phase' où les baleines achètent silencieusement pendant que le retail panique ou s'ennuie. Le marché est sous-évalué par le sentiment.\"\n}",
+      "ts": "2026-10-30T00:11:14.069342+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.0302425516158045,
+      "value": 21516229987.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de volume purement anecdotique : les flux onchain massifs détectés (z-score 3.03) coïncident uniquement avec du bruit médiatique sur la grande consommation (eau, auto, cosmétiques). Aucune baleine crypto active, simple interférence sémantique.\"\n}\n```",
+      "ts": "2026-10-30T00:21:16.813522+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 14.208655699312343,
+      "value": 17722105.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu : confusion sémantique entre les liquidations financières crypto (onchain) et les liquidations judiciaires de commerces locaux traditionnels dans les médias français. Aucune baleine crypto détectée.\"\n}\n```",
+      "ts": "2026-10-30T00:21:18.556279+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.556999521327637,
+      "value": 1.4157336591353875,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.56) sur le prix horaire combiné à un silence médiatique total (0 couverture Google Actualités) : signal classique d'accumulation furtive par les baleines loin du radar public.\"\n}\n```",
+      "ts": "2026-10-30T00:31:21.058029+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.335839103296196,
+      "value": 30,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence majeure : un z-score de -6.34 sur le Fear & Greed indique une peur extrême et une capitulation des petits acteurs, mais l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement dans le vide. Le marché est en phase de 'washout' sans attention publique, condition idéale pour une accumulation discrète avant un retournement.\"\n}",
+      "ts": "2026-10-30T00:41:24.176092+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.104688503884413,
+      "value": 1.216,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. L'acronyme 'IPT' dans les données onchain/crypto est ici confondu avec des entités non-crypto (International Petroleum Corp, Institut de Prévention des Traitements, etc.). Aucune corrélation entre le z-score et le narratif médiatique, qui est totalement déconnecté du secteur crypto. Pas de mouvement de baleines détectable.\"\n}\n```",
+      "ts": "2026-10-30T00:46:25.864425+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.1191525830411644,
+      "value": 22919278300.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (22.9B) est massif, mais le flux médiatique est 100% déconnecté (FMCG, auto, cosmétique). Aucune mention crypto, BTC ou ETH. Le signal onchain est probablement du bruit (wash trading, rotation de stablecoins ou erreur de parsing) ou un mouvement purement technique sans narratif public. Impossible de valider une intention de baleine sans contexte sectoriel.\"\n}",
+      "ts": "2026-10-30T00:51:27.766147+00:00"
     }
   ]
 }

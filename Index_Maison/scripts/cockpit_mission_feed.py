@@ -1207,6 +1207,11 @@ def find_ace_pair():
     return None, None, None
 
 
+# Noms du cycle pour la partition (remplis dans main avant bloc_partition).
+# Valeurs par défaut sûres si bloc_partition est appelé hors main (tests).
+payload_saison_nom, payload_zone_nom, payload_sirene = "?", "?", False
+
+
 def load_ada_block(name: str) -> dict:
     """Lit un bloc ADA (intention, saison...) s'il existe — jamais bloquant."""
     p = ROOT / "Index_Maison" / "strategie" / name
@@ -1216,6 +1221,87 @@ def load_ada_block(name: str) -> dict:
         except Exception:
             return {}
     return {}
+
+
+def _lire_json_silencieux(path) -> dict:
+    """Lit un JSON, {} si absent/illisible — jamais bloquant (partition 30/10)."""
+    try:
+        p = ROOT / path if not str(path).startswith("/") else path
+        d = json.loads(open(p, encoding="utf-8").read())
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+
+def bloc_partition() -> dict:
+    """LA PARTITION (30/10, GO Christophe) : une seule histoire lue d'une traite.
+    Chaque instrument garde SON fichier (propriétaire unique) ; ce bloc les LIT
+    et les assemble en lecture seule — il ne DÉCIDE rien, il RACONTE. Fail-open :
+    un bloc absent = marqué 'muet', jamais un crash du feed."""
+    part: dict = {"ts": None, "instruments": {}, "coherences": [], "orchestre": ""}
+    try:
+        import datetime as _dt
+        part["ts"] = _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    except Exception:
+        pass
+    # 1. Cortana (le tambour) : dernier verdict de l'analyseur
+    cort = _lire_json_silencieux("Index_Maison/data/cortana_analysis.json")
+    anals = cort.get("analyses") or []
+    resume = str(cort.get("resume") or "")
+    part["instruments"]["cortana"] = {
+        "frais": bool(anals), "date": cort.get("date"), "n": cort.get("n_analyses"),
+        "resume": resume[:160],
+    }
+    # 2. Ada saison + gardienne (la vigie) — déjà dans le payload, on les relit ici
+    # pour l'histoire commune (même source, pas de double calcul).
+    # 3. Shorts (les violons) : les 3 lives
+    shorts = {}
+    for tag in ("btc", "eth", "xrp"):
+        lv = _lire_json_silencieux(f"hulk-mexc/runs/short_{tag}_live.json")
+        sig = (lv.get("signal") or {})
+        pos = lv.get("position")
+        shorts[tag] = {
+            "frais_ts": lv.get("ts"), "corr": sig.get("corr_dir_btc"),
+            "session": sig.get("session_ok"), "position": bool(pos),
+            "pnl": lv.get("pnl_total"), "murs": lv.get("plancher"),
+        }
+    part["instruments"]["shorts"] = shorts
+    # 4. Plancher (le contrebassiste) : phases par paire
+    pl = _lire_json_silencieux("Index_Maison/data/plancher_confirme_etat.json")
+    paires = pl.get("paires") or {}
+    part["instruments"]["plancher"] = {
+        k: {"phase": (v or {}).get("phase"),
+              "bas": (v or {}).get("bas_roulant"), "haut": (v or {}).get("haut_roulant")}
+        for k, v in paires.items() if k in ("BTCUSDT", "ETHUSDT", "XRPUSDT")
+    }
+    # 5. Cohérences (phrases factuelles, pas des jugements)
+    coh = part["coherences"]
+    try:
+        saison_nom = (payload_saison_nom or "?")
+        zone_nom = (payload_zone_nom or "?")
+        sir = bool(payload_sirene)
+        n_bull = sum(1 for a in anals
+                     if "bullish" in str((a.get("signal") or {}).get("analysis", "")).lower())
+        n_bear = sum(1 for a in anals
+                     if "bearish" in str((a.get("signal") or {}).get("analysis", "")).lower())
+        coh.append(f"Cortana : {n_bull} bullish / {n_bear} bearish — {resume[:80]}")
+        if sir and zone_nom == "VERT":
+            coh.append("Ada : sirène allumée + zone VERT — le rapide crie, le lent lisse (R19)")
+        elif not sir and zone_nom == "VERT":
+            coh.append(f"Ada : calme confirmé (saison {saison_nom}, pas de sirène)")
+        else:
+            coh.append(f"Ada : saison {saison_nom}, zone {zone_nom}, sirène={'ON' if sir else 'off'}")
+        for tag, s in shorts.items():
+            murs = s.get("murs") or {}
+            coh.append(f"Short {tag.upper()} : corr={s.get('corr')} "
+                        f"pos={'OUVERTE' if s.get('position') else 'aucune'} "
+                        f"murs={murs.get('bas')}-{murs.get('haut')}/{murs.get('phase')}")
+        for k, v in part["instruments"]["plancher"].items():
+            coh.append(f"Plancher {k} : {v.get('phase')} ({v.get('bas')}-{v.get('haut')})")
+        part["orchestre"] = " ; ".join(coh)
+    except Exception:
+        part["orchestre"] = "partition partielle"
+    return part
 
 
 def main() -> int:
@@ -1359,6 +1445,31 @@ def main() -> int:
     _g = load_ada_block("ada_gardienne_live.json") or {}
     payload["gardienne"] = _g.get("gardienne") or {}
     payload["coup_doeil"] = _g.get("coup_doeil") or {}
+    # === PARTITION (30/10) : une seule histoire — les noms du cycle pour la
+    # cohérence, puis le bloc assemblé en lecture seule (jamais bloquant).
+    global payload_saison_nom, payload_zone_nom, payload_sirene
+    try:
+        payload_saison_nom = str((payload.get("saison") or {}).get("saison", "?"))
+        payload_zone_nom = str((payload.get("gardienne") or {}).get("zone", "?"))
+        payload_sirene = bool((payload.get("gardienne") or {}).get("sirene", False))
+    except Exception:
+        payload_saison_nom, payload_zone_nom, payload_sirene = "?", "?", False
+    try:
+        payload["partition"] = bloc_partition()
+    except Exception:
+        payload["partition"] = {"orchestre": "partition muette", "coherences": []}
+    # === DESACCORD (30/10) : le desaccord comme mesure et signal — lecture
+    # seule du compteur, jamais bloquant. Le rapide et le lent divergent ?
+    # C'est le marche qui hesite, et l'hesitation est un signal.
+    try:
+        import desaccord as _DES
+        _d = _DES.scan()
+        payload["partition"]["desaccord"] = {
+            "ts": _d.get("ts"), "n": _d.get("n_desaccords"),
+            "phrases": _d.get("phrases") or []}
+        _DES.ecrire(_d)
+    except Exception:
+        pass
     # === DISJONCTEUR UNIQUE (16/08) — lecture seule, jamais bloquante ===
     payload["disjoncteur"] = load_ada_block("disjoncteur_state.json") or {
         "declenche": False, "raison": "Normal", "ts": ""}

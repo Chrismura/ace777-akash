@@ -445,6 +445,28 @@ def notionnel_dynamique() -> float:
         return NOTIONAL_USDT
 
 
+PLANCHER_ETAT = ROOT.parent / "Index_Maison" / "data" / "plancher_confirme_etat.json"
+# 30/10 (GO Christophe) : le short lit les MURS du plancher (contexte seul,
+# jamais une décision). Fail-open total : fichier absent/illisible → (None,None,None).
+PLANCHER_STOP_RESSERRE_FRAC = float(os.environ.get("SHORT_PLANCHER_SL_FRAC", "0.7"))
+# Quand le plancher passe ACHETÉ sur la MÊME paire (fond confirmé sous nos
+# pieds), le stop se resserre ×0,7 (ex 1,5 % → ~1,0 %) : on ne laisse pas un
+# short large ouvert sur un fond qui se forme. Réversible : SHORT_PLANCHER_SL_FRAC=1.
+
+
+def lire_plancher(sym: str):
+    """Lit bas/haut/phase du plancher pour SYM. (contexte, jamais une décision)."""
+    try:
+        d = json.loads(PLANCHER_ETAT.read_text(encoding="utf-8")) or {}
+        v = (d.get("paires") or {}).get(sym) or {}
+        bas, haut = v.get("bas_roulant"), v.get("haut_roulant")
+        if not isinstance(bas, (int, float)) or not isinstance(haut, (int, float)):
+            return None, None, v.get("phase")
+        return float(bas), float(haut), v.get("phase")
+    except Exception:
+        return None, None, None
+
+
 def multiplicateur_risque(sl_pct) -> tuple:
     """Taille à RISQUE CONSTANT (29/10 soir, doctrine desk) : notionnel ∝ 1/volatilité.
 
@@ -482,7 +504,9 @@ def gerer(sig: dict, st: dict) -> None:
         ts0 = pos["ts_entree_epoch"]
         # SL porté par la position (nouvelles) ; les anciennes (sans clé) gardent le
         # fixe 1,5 % — jamais de changement de règle en vol (organisme : on n'opère
-        # pas un trade ouvert).
+        # pas un trade ouvert). 30/10 : les murs ne resserrent qu'à l'ENTRÉE — une
+        # position ouverte garde son stop d'origine, même si le plancher
+        # confirme un fond après coup (sinon l'arrêt bougerait sous nos pieds).
         _sl_use = float(pos.get("sl_pct", SL_PCT))
         raison = None
         # FIX 11/09 (crash-loop None<=float, défense en profondeur) : prix None
@@ -547,6 +571,12 @@ def gerer(sig: dict, st: dict) -> None:
             _sl_entry = SL_PCT
             _sl_src = "fixe 1,5 % (range24 indisponible ou OFF)"
         _base = notionnel_dynamique()
+        # Murs du plancher (contexte seul) : si la phase est ACHETÉE sur la
+        # MÊME paire, le fond se forme sous nos pieds → stop resserré.
+        _p_bas, _p_haut, _p_phase = lire_plancher(SYM)
+        if _p_phase == "ACHETE" and PLANCHER_STOP_RESSERRE_FRAC != 1.0:
+            _sl_entry = round(_sl_entry * PLANCHER_STOP_RESSERRE_FRAC, 3)
+            _sl_src = f"{_sl_src} resserré ×{PLANCHER_STOP_RESSERRE_FRAC} (fond plancher)"
         _mult_risque, _risk_src = multiplicateur_risque(_sl_entry)
         _notionnel = round(_base * _mult_risque, 2)
         _session_jour = bool(sig.get("session_ok"))  # LOGGÉ seul, ne module plus rien
@@ -556,9 +586,11 @@ def gerer(sig: dict, st: dict) -> None:
             "prix_entree": prix, "notional": _notionnel,
             "score_entree": score, "corr_entree": corr,
             "sl_pct": _sl_entry,
+            "plancher_bas": _p_bas, "plancher_haut": _p_haut,
+            "plancher_phase": _p_phase,
             "detail_signal": sig.get("detail"),
         }
-        print(f"{_PREFIX} ENTRÉE short @ {prix} ({motif}, SL {_sl_src} = {_sl_entry} %, notionnel {_notionnel} $ [{_risk_src}]) — {sig.get('detail')}")
+        print(f"{_PREFIX} ENTRÉE short @ {prix} ({motif}, SL {_sl_src} = {_sl_entry} %, notionnel {_notionnel} $ [{_risk_src}], murs {_p_bas}-{_p_haut} phase={_p_phase}) — {sig.get('detail')}")
 
 
 def ecrire_live(sig: dict, st: dict) -> None:
@@ -571,6 +603,11 @@ def ecrire_live(sig: dict, st: dict) -> None:
             "score", "corr_dir_btc", "corr_dir", "pct_pompe", "m6_btc", "m6",
             "move24_btc", "move24", "session_ok", "session_utc", "prix_btc",
             "prix", "range24_btc", "range24", "detail")},
+        # 30/10 : les murs du plancher dans le live (contexte, jamais une
+        # décision) — lus à CHAQUE cycle, pas seulement à l'entrée (même sans
+        # position, la partition montre où sont les murs).
+        "plancher": {"bas": sig.get("_plancher_bas"), "haut": sig.get("_plancher_haut"),
+                      "phase": sig.get("_plancher_phase")},
         "sym": SYM,
         "position": pos,
         "pnl_total": st.get("pnl_total", 0.0),
@@ -605,6 +642,8 @@ def run_once() -> int:
     st = charger_state()
     gerer(sig, st)
     sauver_state(st)
+    _pb, _ph, _pp = lire_plancher(SYM)
+    sig["_plancher_bas"], sig["_plancher_haut"], sig["_plancher_phase"] = _pb, _ph, _pp
     ecrire_live(sig, st)
     pos = st.get("position")
     print(f"{_PREFIX} score={sig.get('score')} frais={sig.get('frais')} "
