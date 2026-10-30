@@ -1,15 +1,14 @@
-# DISCIPLINE QUOTIDIENNE — 2026-10-29T23:42:55Z
+# DISCIPLINE QUOTIDIENNE — 2026-10-30T06:15:06Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (4.8%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (13.0%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
 - 🔴 SEUIL NON RANGÉ : 8 clé(s) décident sans être classées (ETANCHE_MISE_MAX, STOP_POST_PARTIEL_TRAIL, TIERS_P1_PCT, TIERS_P2_PCT, GBAG_EXIT_FIRST_FRAC, REDEPLOY_CONFIRM_BUF_PCT) — R17 : toute garde se mesure ou se déclare
-- 🔴 Tendance à la baisse : 11% → 4.8%
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 4.8% (11% → 4.8% : baisse ≥ 5 pts)
-- Analyses notées : 1/21
-- Par indice : altSeason 0/1; bassine 0/1; chat 0/1; croisements 0/5; etfEthM 0/1; etfXrpM 0/1; fearGreed 0/3; geopol 0/3; gexPutCall 0/1; indice_onchain 0/1; radar 1/2; verre 0/1
+- Score global : 13.0%
+- Analyses notées : 3/23
+- Par indice : altSeason 0/1; bassine 0/1; chat 0/1; croisements 2/7; etfEthM 0/1; etfXrpM 0/1; fearGreed 0/3; geopol 0/3; gexPutCall 0/1; indice_onchain 0/1; radar 1/2; verre 0/1
 
 ## ADA (zone/voilure vs BTC 24h, v1)
 - Zone-accuracy : None% (0/0)
@@ -20,7 +19,7 @@
 - Détail : DERIVE_MEMOIRE.md — instables/critiques à revoir (contexte, données, prompt).
 
 ## AGORA (leçons apprises, chantier E4)
-- Leçons actives : 20 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
+- Leçons actives : 16 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
 - lecons_auto.py : scan → staging → validation (discipline 07h15, APRÈS la note).
 
 ## ERREURS (6ᵉ partie du cycle — post-mortem branché, R15/R17.5)

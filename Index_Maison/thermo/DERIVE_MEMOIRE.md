@@ -1,6 +1,6 @@
 # Rapport — Dérive Mémoire (Santé ACE777)
 
-- **Date** : `2026-10-29T23:42:54.901703+00:00`
+- **Date** : `2026-10-30T06:15:05.634069+00:00`
 - **Indices Instables** : `3`
 - **Indices Critiques** : `0`
 - **Indices RETIRÉS (source tarie)** : `0` — à réactiver ou archiver, **hors alarme** (R14)
@@ -15,7 +15,7 @@
 | `btc` | 20 | STABLE | 0.0% (STABLE) | 1j (STABLE) | +0.0 (STABLE) | **STABLE** |
 | `chat` | 13 | STABLE | 8.3% (STABLE) | 1j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `chg24` | 7 | FROID | 0.0% (STABLE) | 8j (PÉRIMÉ) | +0.0 (STABLE) | **PÉRIMÉ** |
-| `croisements` | 123 | STABLE | 1.6% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `croisements` | 125 | STABLE | 1.6% (STABLE) | 0j (STABLE) | -66.7 (EN OBSERVATION) | **EN OBSERVATION** |
 | `etfBtcM` | 11 | STABLE | 0.0% (STABLE) | 2j (STABLE) | +0.0 (STABLE) | **STABLE** |
 | `etfEthM` | 14 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `etfXrpM` | 14 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
