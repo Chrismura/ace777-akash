@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793368761,
-  "date": "2026-10-30T13:59:21.125644+00:00",
-  "n_analyses": 1,
+  "timestamp": 1793372062,
+  "date": "2026-10-30T14:54:22.106024+00:00",
+  "n_analyses": 3,
   "analyses": [
     {
       "signal": {
@@ -10,6 +10,36 @@
         "value": 0.62,
         "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Les données fournies concernent le syndicat patronal SDI (Syndicat des Indépendants) et des actualités sur les TPE françaises, sans aucun rapport avec des mouvements de baleines crypto ou des données on-chain.\"\n}\n```",
         "ts": 1793364840.440194
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.065905121484857,
+        "value": 0.62,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif d'entité : 'SDI' correspond ici à Samsung SDI (batteries/ESS), non à un actif crypto. Aucune corrélation onchain ou divergence de marché crypto détectée.\"\n}",
+        "ts": 1793369954.067276
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.5506780044818593,
+        "value": 0.624,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. Le 'SDI' dans les titres fait référence au Syndicat des Indépendants (France), non à un indicateur onchain ou un actif crypto. Aucune divergence réelle entre données brutes et narratif crypto, car le contexte est purement macro-économique français.\"\n}",
+        "ts": 1793371759.707296
       },
       "fiche": null,
       "interpretation": {

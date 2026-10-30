@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.875917905902473,
-      "value": 17547579380.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Divergence totale : l'anomalie onchain (volume 17.5B, z-score 2.88) est massivement déconnectée du flux médiatique dominé par des news traditionnelles (Renault, Unilever, Wattwiller). Le seul lien crypto est le volume de stablecoins Visa, mais cela ne justifie pas un pic de trading spot/derivés de cette ampleur sans couverture dédiée. Le silence médiatique sur un tel pic de volume suggère soit un wash trading, soit une rotation institutionnelle non couverte, mais l'absence de catalyseur narratif clair empêche de qualifier le signal de directionnel fiable.\"\n}",
-      "ts": "2026-10-29T21:50:32.606674+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.4410180342880774,
-      "value": 1.264,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.44) sur le ticker IPT détectée par erreur de classification. Les actualités font référence à l'action boursière SWB:IPT (International Petroleum Corp) et à des institutions (École polytechnique, Fondation IPT), totalement étrangères à l'écosystème crypto. Aucune baleine crypto identifiée.\"\n}\n```",
-      "ts": "2026-10-29T22:05:36.102808+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.217103423154004,
       "value": 0.62,
@@ -349,6 +335,20 @@
       "value": 0.62,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Les données fournies concernent le syndicat patronal SDI (Syndicat des Indépendants) et des actualités sur les TPE françaises, sans aucun rapport avec des mouvements de baleines crypto ou des données on-chain.\"\n}\n```",
       "ts": "2026-10-30T12:54:00.440194+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.065905121484857,
+      "value": 0.62,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif d'entité : 'SDI' correspond ici à Samsung SDI (batteries/ESS), non à un actif crypto. Aucune corrélation onchain ou divergence de marché crypto détectée.\"\n}",
+      "ts": "2026-10-30T14:19:14.067276+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.5506780044818593,
+      "value": 0.624,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. Le 'SDI' dans les titres fait référence au Syndicat des Indépendants (France), non à un indicateur onchain ou un actif crypto. Aucune divergence réelle entre données brutes et narratif crypto, car le contexte est purement macro-économique français.\"\n}",
+      "ts": "2026-10-30T14:49:19.707296+00:00"
     }
   ]
 }
