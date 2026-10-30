@@ -5,7 +5,7 @@
 
 ## Meta
 - statut: READY
-- ts: 20261030T2021Z
+- ts: 20261030T2121Z
 - pertinence: PERTINENT
 - sentiment: CAUTIOUS
 - compte: thermo-free

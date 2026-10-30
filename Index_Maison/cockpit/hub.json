@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T20:45:46.062157+00:00",
+  "generated_at": "2026-10-30T21:42:03.680265+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 100
+      "calls_24h": 96
     },
     {
       "id": "openrouter-free",
@@ -35,7 +35,7 @@
       "model": "qwen/qwen3.8-27b",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 50
+      "calls_24h": 48
     },
     {
       "id": "nvidia",
@@ -410,61 +410,61 @@
   ],
   "events": [
     {
-      "ts": "2026-10-30T20:45:30.459483+00:00",
+      "ts": "2026-10-30T21:22:48.569192+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-30T20:45:30.459378+00:00",
+      "ts": "2026-10-30T21:22:48.569047+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+      "detail": "Groq (Qwen 3.8 27B, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-30T20:45:30.459279+00:00",
+      "ts": "2026-10-30T21:22:48.568930+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "title": "Reseau KO (bascule immediate) depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-30T20:45:30.459097+00:00",
+      "ts": "2026-10-30T21:22:48.568687+00:00",
       "kind": "network",
-      "title": "Reseau indisponible: Google Gemini",
+      "title": "Reseau indisponible: Groq (Qwen 3.8 27B, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-30T20:45:30.424648+00:00",
+      "ts": "2026-10-30T21:22:48.548039+00:00",
       "kind": "network",
       "title": "Reseau pas pret — mode degrade (timeout court)",
       "detail": ""
     },
     {
-      "ts": "2026-10-30T20:44:39.814685+00:00",
+      "ts": "2026-10-30T21:17:48.444103+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-30T20:44:39.814620+00:00",
+      "ts": "2026-10-30T21:17:48.443945+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+      "detail": "Groq (Qwen 3.8 27B, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-30T20:44:39.814562+00:00",
+      "ts": "2026-10-30T21:17:48.443802+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "title": "Reseau KO (bascule immediate) depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-30T20:44:39.814426+00:00",
+      "ts": "2026-10-30T21:17:48.443559+00:00",
       "kind": "network",
-      "title": "Reseau indisponible: Google Gemini",
+      "title": "Reseau indisponible: Groq (Qwen 3.8 27B, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-10-30T20:44:39.790142+00:00",
+      "ts": "2026-10-30T21:17:48.413661+00:00",
       "kind": "network",
       "title": "Reseau pas pret — mode degrade (timeout court)",
       "detail": ""
