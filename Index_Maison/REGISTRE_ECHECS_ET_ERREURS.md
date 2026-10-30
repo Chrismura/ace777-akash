@@ -2290,3 +2290,29 @@ capital, chaque chuchotement entrait). Corrigé : une seule position à la fois
 TP @ 79 324 (+2,74 %)**. Le chiffre à retenir est +2,74 % sur UN trade, pas un
 cumul. La leçon reste : le proche payait, le réel donnait 0.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §59 — SORTIE TROP TÔT, PORTEFEUILLE-INDICE, REA : LE POINT (30/10 soir, GO Christophe)
+
+**1. Pourquoi sortir si tôt ? On ne devrait pas.** TP −2 % fixe : encore un
+fixe (R17 le condamne). Chiffres : entrée fantôme 15:40 @ 81 560 → TP +2,74 %
+pris, creux 76 691 (+5,97 %) → **3,23 pts laissés sur table**, et à 76 749
+actuel +5,9 % latent. Le score n'est JAMAIS retombé <2 ce soir-là (toujours
+7-8) : un runner sorti sur « signal éteint » serait ENCORE ouvert. Proposition
+(desks pros) : moitié à −2 % (sécurise), moitié runner sortie signal-éteint ou
+plancher-fond. Sur ce soir-là : ~+4,3 % au lieu de +2,74 %. À valider fantôme
+d'abord. + exit-analyseur : pour chaque trade fermé, « pris X, laissé Y »
+(MFE/MAE auto — l'outil pro à reconstruire, cf REA).
+**2. Portefeuille comme indice (idée Christophe, elle est bonne)** : trois
+patterns à mesurer — (a) maison-contraire : nos propres achats longs au sommet
+(HULK achetait quand le chuchoteur criait) = sonde d'euphorie ; (b) munitions :
+18 bags / cash 1 au sommet ≈ 95 % investi = la maison ne pouvait plus acheter
+le creux (ratio cash/bags = jauge de prudence) ; (c) panier : si tous les bags
+chutent ensemble c'est le marché (contagion confirmée), pas la paire.
+**3. REA dans tout ça** : sa place n'est pas un outil de plus, c'est la
+MÉTHODE — démonter ce que font les pros (sorties partielles + runner ; freeze
+= preuve ; sweep = acte) et le reconstruire à notre sauce avec nos chiffres.
+Le guetteur, le fantôme, l'exit-analyseur : trois reconstructions déjà.
+**4. Chat trop longue ? Oui.** Tout est écrit (registre §§53-59, journal
+calendrier, partition) : on peut reprendre à frais n'importe quand sans rien
+perdre. Point une page ci-dessus.
+IA=Buffy (Muse Spark 1.3, Freebuff).
