@@ -1,34 +1,40 @@
 {
-  "ts": "2026-10-30T09:56:49+00:00",
+  "ts": "2026-10-30T10:57:30+00:00",
   "total": 101,
   "seaux": {
     "JUGÉ SUR SORTIE (aucun produit déclaré)": 48,
-    "OK": 52,
-    "HORS DÉLAI": 1
+    "OK": 53
   },
   "a_trancher": [],
   "candidats_contenu_fige": [
     {
       "organe": "thermo-quotidien",
       "champ": "ts",
-      "age_contenu_sec": 889,
-      "age_fichier_sec": 250,
+      "age_contenu_sec": 691,
+      "age_fichier_sec": 281,
       "fige": true
     },
     {
       "organe": "whales",
       "champ": "ts",
-      "age_contenu_sec": 2402,
-      "age_fichier_sec": 1022,
+      "age_contenu_sec": 1476,
+      "age_fichier_sec": 382,
+      "fige": true
+    },
+    {
+      "organe": "sniffer-vieux-btc",
+      "champ": "ts",
+      "age_contenu_sec": 12693,
+      "age_fichier_sec": 3382,
       "fige": true
     }
   ],
   "resume": {
     "a_trancher": 0,
-    "ok": 52,
+    "ok": 53,
     "juge_sur_sortie": 48,
     "assumes": 0,
-    "hors_delai": 1,
+    "hors_delai": 0,
     "cris_actifs": 0
   },
   "note": "Chaque ligne « à trancher » se ferme en la DÉCLARANT (raison + date) dans strategie/revue_declares.json. Aucun organe n'est réparé automatiquement : un écart n'est pas une panne, c'est une déclaration à faire.",
@@ -41,7 +47,7 @@
       "organe": "cockpit-pont",
       "classe": "OK",
       "produit": "Index_Maison/cockpit/mission.json",
-      "age_sec": 7,
+      "age_sec": 39,
       "seuil_sec": 600,
       "declencheur": "KeepAlive (événementiel)"
     },
@@ -49,7 +55,7 @@
       "organe": "ofi-calc",
       "classe": "OK",
       "produit": "Index_Maison/data/ofi_latest.json",
-      "age_sec": 19,
+      "age_sec": 53,
       "seuil_sec": 120,
       "declencheur": "StartInterval 60s"
     },
@@ -57,7 +63,7 @@
       "organe": "x402-agentic",
       "classe": "OK",
       "produit": "Index_Maison/thermo/x402_agentic_etat.json",
-      "age_sec": 3071,
+      "age_sec": 3052,
       "seuil_sec": 7200,
       "declencheur": "StartInterval 3600s"
     },
@@ -73,7 +79,7 @@
       "organe": "watchdog",
       "classe": "OK",
       "produit": "/tmp/watchdog-superviseur.out.log",
-      "age_sec": 75,
+      "age_sec": 114,
       "seuil_sec": 240,
       "declencheur": "StartInterval 120s"
     },
@@ -89,7 +95,7 @@
       "organe": "pont-onchain",
       "classe": "OK",
       "produit": "/tmp/pont_onchain_launchd.out.log",
-      "age_sec": 250,
+      "age_sec": 281,
       "seuil_sec": 3600,
       "declencheur": "StartInterval 300s",
       "cadence": "DÉCLARÉE (produit 1800s vs déclencheur 300s)"
@@ -106,7 +112,7 @@
       "organe": "carte-paires",
       "classe": "OK",
       "produit": "hulk-mexc/strategie/carte_fenetres_entree.json",
-      "age_sec": 23805,
+      "age_sec": 27446,
       "seuil_sec": 172800,
       "declencheur": "Calendrier quotidien 04:20"
     },
@@ -114,7 +120,7 @@
       "organe": "xrpl-onchain",
       "classe": "OK",
       "produit": "Index_Maison/thermo/xrpl_onchain_etat.json",
-      "age_sec": 409,
+      "age_sec": 449,
       "seuil_sec": 7200,
       "declencheur": "StartInterval 3600s"
     },
@@ -130,7 +136,7 @@
       "organe": "cortana-propose-params",
       "classe": "OK",
       "produit": "hulk-mexc/strategie/cortana_pilot.json",
-      "age_sec": 11500,
+      "age_sec": 15142,
       "seuil_sec": 172800,
       "declencheur": "Calendrier quotidien 07:45"
     },
@@ -142,7 +148,7 @@
       "organe": "paternes-btc",
       "classe": "OK",
       "produit": "Index_Maison/data/paternes_btc_etat.json",
-      "age_sec": 58045,
+      "age_sec": 61687,
       "seuil_sec": 172800,
       "declencheur": "StartInterval 86400s"
     },
@@ -150,7 +156,7 @@
       "organe": "superviseur-process",
       "classe": "OK",
       "produit": "Index_Maison/scripts/superviseur.log",
-      "age_sec": 40,
+      "age_sec": 16,
       "seuil_sec": 1200,
       "declencheur": "KeepAlive (événementiel)"
     },
@@ -166,7 +172,7 @@
       "organe": "short-btc",
       "classe": "OK",
       "produit": "hulk-mexc/runs/short_btc_state.json",
-      "age_sec": 124,
+      "age_sec": 131,
       "seuil_sec": 600,
       "declencheur": "StartInterval 300s"
     },
@@ -174,7 +180,7 @@
       "organe": "sentinelle-independante",
       "classe": "OK",
       "produit": "Index_Maison/thermo/sentinelle_independante_etat.json",
-      "age_sec": 436,
+      "age_sec": 477,
       "seuil_sec": 5400,
       "declencheur": "StartInterval 3600s"
     },
@@ -186,7 +192,7 @@
       "organe": "rwa-yields",
       "classe": "OK",
       "produit": "Index_Maison/data/rwa_yields_etat.json",
-      "age_sec": 14797,
+      "age_sec": 18439,
       "seuil_sec": 43200,
       "declencheur": "StartInterval 21600s"
     },
@@ -194,7 +200,7 @@
       "organe": "backup-check",
       "classe": "OK",
       "produit": "Index_Maison/system/backup_presence.json",
-      "age_sec": 351,
+      "age_sec": 393,
       "seuil_sec": 3600,
       "declencheur": "StartInterval 1800s"
     },
@@ -214,7 +220,7 @@
       "organe": "disjoncteur",
       "classe": "OK",
       "produit": "/tmp/disjoncteur_launchd.out.log",
-      "age_sec": 51,
+      "age_sec": 27,
       "seuil_sec": 120,
       "declencheur": "StartInterval 60s"
     },
@@ -226,7 +232,7 @@
       "organe": "vigie-live",
       "classe": "OK",
       "produit": "Index_Maison/strategie/vigie_cooldown.json",
-      "age_sec": 718,
+      "age_sec": 1980,
       "seuil_sec": 7200,
       "declencheur": "KeepAlive (événementiel)"
     },
@@ -242,7 +248,7 @@
       "organe": "veille-signal",
       "classe": "OK",
       "produit": "/tmp/veille_signal_launchd.out.log",
-      "age_sec": 154,
+      "age_sec": 195,
       "seuil_sec": 600,
       "declencheur": "StartInterval 300s"
     },
@@ -258,7 +264,7 @@
       "organe": "hub-cockpit-feed",
       "classe": "OK",
       "produit": "Index_Maison/cockpit/hub.json",
-      "age_sec": 28,
+      "age_sec": 26,
       "seuil_sec": 60,
       "declencheur": "StartInterval 30s"
     },
@@ -270,7 +276,7 @@
       "organe": "gitpush",
       "classe": "OK",
       "produit": ".git/refs/remotes/origin/main",
-      "age_sec": 3565,
+      "age_sec": 3591,
       "seuil_sec": 32400,
       "declencheur": "StartInterval 10800s"
     },
@@ -286,7 +292,7 @@
       "organe": "veille-hub",
       "classe": "OK",
       "produit": "Index_Maison/VEILLE_HUB_2026-10-30.md",
-      "age_sec": 14196,
+      "age_sec": 17838,
       "seuil_sec": 86400,
       "declencheur": "Calendrier quotidien 07:00",
       "cadence": "DÉCLARÉE (produit 43200s vs déclencheur 86400s)"
@@ -295,7 +301,7 @@
       "organe": "llm-gate-hub",
       "classe": "OK",
       "produit": "/Users/christophe/prise-ia/heartbeat.json",
-      "age_sec": 1114,
+      "age_sec": 1143,
       "seuil_sec": 7200,
       "declencheur": "KeepAlive (événementiel)"
     },
@@ -307,7 +313,7 @@
       "organe": "troupeau-inv",
       "classe": "OK",
       "produit": "Index_Maison/troupeau_inv_hist.jsonl",
-      "age_sec": 17800,
+      "age_sec": 21442,
       "seuil_sec": 518400,
       "declencheur": "Calendrier hebdo (3 j/sem 06:00,06:00,06:00)",
       "cadence": "DÉCLARÉE (produit 259200s vs déclencheur 201600s)"
@@ -324,7 +330,7 @@
       "organe": "suivi-setup-red",
       "classe": "OK",
       "produit": "hulk-mexc/runs/SUIVI_SETUP_ZBCNUSDT.jsonl",
-      "age_sec": 66065,
+      "age_sec": 69706,
       "seuil_sec": 172800,
       "declencheur": "Calendrier quotidien 16:35"
     },
@@ -340,7 +346,7 @@
       "organe": "juste-prix",
       "classe": "OK",
       "produit": "Index_Maison/data/juste_prix_hist.jsonl",
-      "age_sec": 117,
+      "age_sec": 82,
       "seuil_sec": 600,
       "declencheur": "StartInterval 300s"
     },
@@ -348,7 +354,7 @@
       "organe": "thermo-quotidien",
       "classe": "OK",
       "produit": "Index_Maison/thermo/live.json",
-      "age_sec": 250,
+      "age_sec": 281,
       "seuil_sec": 600,
       "declencheur": "StartInterval 300s"
     },
@@ -360,7 +366,7 @@
       "organe": "observer-murs",
       "classe": "OK",
       "produit": "hulk-mexc/runs/murs_observations.json",
-      "age_sec": 1358,
+      "age_sec": 1355,
       "seuil_sec": 3600,
       "declencheur": "StartInterval 1800s"
     },
@@ -368,7 +374,7 @@
       "organe": "cortana.urgent",
       "classe": "OK",
       "produit": "Index_Maison/data/cortana_analysis.json",
-      "age_sec": 154,
+      "age_sec": 195,
       "seuil_sec": 7200,
       "declencheur": "StartInterval 10s",
       "cadence": "DÉCLARÉE (produit 3600s vs déclencheur 10s)"
@@ -401,7 +407,7 @@
       "organe": "cycle-edel",
       "classe": "OK",
       "produit": "hulk-mexc/runs/CYCLE_EDEL_SUIVI.jsonl",
-      "age_sec": 14838,
+      "age_sec": 18480,
       "seuil_sec": 43200,
       "declencheur": "StartInterval 21600s"
     },
@@ -421,7 +427,7 @@
       "organe": "whales",
       "classe": "OK",
       "produit": "Index_Maison/data/whales_mouvements.jsonl",
-      "age_sec": 1022,
+      "age_sec": 382,
       "seuil_sec": 1200,
       "declencheur": "StartInterval 300s",
       "cadence": "DÉCLARÉE (produit 600s vs déclencheur 300s)"
@@ -442,7 +448,7 @@
       "organe": "xrpl-gouvernance",
       "classe": "OK",
       "produit": "Index_Maison/thermo/xrpl_gouv_etat.json",
-      "age_sec": 436,
+      "age_sec": 478,
       "seuil_sec": 7200,
       "declencheur": "StartInterval 3600s"
     },
@@ -450,7 +456,7 @@
       "organe": "xrpl-arbitrage",
       "classe": "OK",
       "produit": "Index_Maison/thermo/xrpl_arbitrage_etat.json",
-      "age_sec": 4,
+      "age_sec": 12,
       "seuil_sec": 1200,
       "declencheur": "StartInterval 10s",
       "cadence": "DÉCLARÉE (produit 600s vs déclencheur 10s)"
@@ -459,7 +465,7 @@
       "organe": "archi-vivante",
       "classe": "OK",
       "produit": "Index_Maison/strategie/ARCHITECTURE_VIVANTE.md",
-      "age_sec": 336,
+      "age_sec": 370,
       "seuil_sec": 172800,
       "declencheur": "Calendrier quotidien 07:00"
     },
@@ -476,15 +482,15 @@
       "organe": "plancher-shadow",
       "classe": "OK",
       "produit": "Index_Maison/data/plancher_confirme_etat.json",
-      "age_sec": 123,
+      "age_sec": 164,
       "seuil_sec": 600,
       "declencheur": "StartInterval 300s"
     },
     {
       "organe": "sniffer-vieux-btc",
-      "classe": "HORS DÉLAI",
+      "classe": "OK",
       "produit": "Index_Maison/data/vieux_btc_scan.json",
-      "age_sec": 12651,
+      "age_sec": 3382,
       "seuil_sec": 7200,
       "declencheur": "StartInterval 3600s"
     },
@@ -492,7 +498,7 @@
       "organe": "signal3-livre-ecorche",
       "classe": "OK",
       "produit": "Index_Maison/data/heartbeat_signal3.json",
-      "age_sec": 383,
+      "age_sec": 422,
       "seuil_sec": 3600,
       "declencheur": "StartInterval 1800s"
     },
@@ -500,7 +506,7 @@
       "organe": "veilleuse-confrontation",
       "classe": "OK",
       "produit": "Index_Maison/VEILLE_CONFRONTATION_ACE_HULK.md",
-      "age_sec": 14768,
+      "age_sec": 18410,
       "seuil_sec": 43200,
       "declencheur": "StartInterval 21600s"
     },
@@ -516,7 +522,7 @@
       "organe": "gen-cockpit-vol",
       "classe": "OK",
       "produit": "Index_Maison/cockpit/vol_live.js",
-      "age_sec": 114,
+      "age_sec": 154,
       "seuil_sec": 600,
       "declencheur": "StartInterval 300s"
     },
@@ -528,7 +534,7 @@
       "organe": "state-generator",
       "classe": "OK",
       "produit": "Index_Maison/system/state.json",
-      "age_sec": 25,
+      "age_sec": 54,
       "seuil_sec": 240,
       "declencheur": "StartInterval 120s"
     },
@@ -536,7 +542,7 @@
       "organe": "cockpit-http",
       "classe": "OK",
       "produit": "/tmp/cockpit_http_17800.log",
-      "age_sec": 18,
+      "age_sec": 1,
       "seuil_sec": 7200,
       "declencheur": "KeepAlive (événementiel)"
     },
@@ -560,7 +566,7 @@
       "organe": "nourrisseur-disjoncteur",
       "classe": "OK",
       "produit": "/tmp/nourrisseur_disjoncteur.out.log",
-      "age_sec": 33,
+      "age_sec": 27,
       "seuil_sec": 120,
       "declencheur": "StartInterval 60s"
     },
@@ -568,7 +574,7 @@
       "organe": "prise-ia",
       "classe": "OK",
       "produit": "/Users/christophe/prise-ia/heartbeat.json",
-      "age_sec": 1114,
+      "age_sec": 1143,
       "seuil_sec": 7200,
       "declencheur": "KeepAlive (événementiel)"
     },
@@ -576,7 +582,7 @@
       "organe": "controle-config",
       "classe": "OK",
       "produit": "hulk-mexc/runs/CONTROLE_CONFIG.json",
-      "age_sec": 387,
+      "age_sec": 426,
       "seuil_sec": 7200,
       "declencheur": "StartInterval 3600s"
     },
@@ -584,7 +590,7 @@
       "organe": "kronos-ombre",
       "classe": "OK",
       "produit": "Index_Maison/thermo/kronos_ombre_etat.json",
-      "age_sec": 336,
+      "age_sec": 371,
       "seuil_sec": 7200,
       "declencheur": "StartInterval 3600s"
     },
@@ -592,7 +598,7 @@
       "organe": "sentinel",
       "classe": "OK",
       "produit": "Index_Maison/data/sentinel_history.json",
-      "age_sec": 207,
+      "age_sec": 237,
       "seuil_sec": 600,
       "declencheur": "StartInterval 300s"
     },
@@ -604,7 +610,7 @@
       "organe": "geopol",
       "classe": "OK",
       "produit": "Index_Maison/indice_app/data/scores_geopol.json",
-      "age_sec": 57999,
+      "age_sec": 61641,
       "seuil_sec": 172800,
       "declencheur": "StartInterval 86400s"
     },
@@ -624,7 +630,7 @@
       "organe": "veilleuse",
       "classe": "OK",
       "produit": "Index_Maison/thermo/VEILLEUSE.md",
-      "age_sec": 428,
+      "age_sec": 469,
       "seuil_sec": 1200,
       "declencheur": "StartInterval 600s"
     },
@@ -632,7 +638,7 @@
       "organe": "croisements-indices",
       "classe": "OK",
       "produit": "Index_Maison/data/croisements_indices_etat.json",
-      "age_sec": 14853,
+      "age_sec": 18495,
       "seuil_sec": 43200,
       "declencheur": "StartInterval 21600s"
     },
@@ -640,7 +646,7 @@
       "organe": "cortana-feed",
       "classe": "OK",
       "produit": "Index_Maison/thermo/cortana_horaire_run.log",
-      "age_sec": 2499,
+      "age_sec": 2131,
       "seuil_sec": 7200,
       "declencheur": "StartInterval 3600s"
     },
@@ -652,7 +658,7 @@
       "organe": "divergence",
       "classe": "OK",
       "produit": "hulk-mexc/runs/DIVERGENCE_SUIVI.jsonl",
-      "age_sec": 14833,
+      "age_sec": 18475,
       "seuil_sec": 43200,
       "declencheur": "StartInterval 21600s"
     }
