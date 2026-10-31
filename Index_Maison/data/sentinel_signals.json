@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.359029946427342,
-      "value": 2.605,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les titres médiatiques concernent exclusivement des ETF actions (BNP Paribas, LU3307220965) et des stratégies de fonds classiques, sans aucun lien avec les actifs crypto. L'anomalie onchain n'est pas corroborée par le narratif crypto, qui est ici absent ou hors sujet.\"\n}",
-      "ts": "2026-10-30T02:41:54.831845+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.879292027677144,
-      "value": 30,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un Fear & Greed à 30 (z-score -2.88) indique une peur extrême et une capitulation des petits acteurs, tandis que l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement sans attirer l'attention du retail. C'est un classique setup d'accumulation en zone de peur.\"\n}",
-      "ts": "2026-10-30T02:41:55.940316+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.256930509789741,
-      "value": 23476667559.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.4B) est une anomalie statistique, mais le flux médiatique est 100% centré sur des entreprises traditionnelles (FMCG, Automobile, Beauté) sans aucun lien avec les actifs numériques. Aucune divergence exploitable : le bruit médiatique est orthogonal au signal crypto.\"\n}",
-      "ts": "2026-10-30T02:51:58.734172+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.0008604825576026,
       "value": 50.0,
@@ -349,6 +328,27 @@
       "value": 0.865,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (ou entités académiques/associatives françaises), non un actif crypto. Aucune corrélation onchain possible.\"\n}\n```",
       "ts": "2026-10-31T15:59:30.706766+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.259197516613614,
+      "value": 40.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.26) est isolée et non corroborée par un narratif de marché ou d'activité de baleines. Aucune divergence exploitable détectée.\"\n}\n```",
+      "ts": "2026-10-31T16:04:32.438682+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.259197516613614,
+      "value": 40.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des concepts non-crypto (poussière physique, noms de films/concerts, ou plateforme SaaS IA). Aucune corrélation avec une anomalie onchain ou un mouvement de baleines crypto. Le z-score est probablement lié à un bruit de données ou à une confusion sémantique, sans impact sur le marché crypto.\"\n}",
+      "ts": "2026-10-31T16:04:33.756186+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.2617202559052565,
+      "value": 0.906,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain valide.\"\n}",
+      "ts": "2026-10-31T16:44:40.881329+00:00"
     }
   ]
 }
