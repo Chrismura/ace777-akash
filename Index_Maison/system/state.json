@@ -1,39 +1,41 @@
 {
-  "timestamp": "2026-10-31T05:46:22Z",
+  "timestamp": "2026-10-31T05:48:23Z",
   "generation_source": "system_state_generator.py v2.1",
   "status": "STALE",
-  "feed_hash": "771f90b15bcdbb7a4a37f71efd4ef590fd3750a4069709c3576ac50b17dcee50",
+  "feed_hash": "3f86a068a5c2d0dc1d0e665bd8d70f30d616e0c1b795ea026f52adeb31dc473e",
   "feeds": {
     "mission": {
       "present": true,
-      "age_seconds": 1,
+      "age_seconds": 10,
       "fresh_limit_s": 120
     },
     "cortana_feed": {
       "present": true,
-      "age_seconds": 92,
+      "age_seconds": 213,
       "fresh_limit_s": 120
     },
     "live": {
       "present": true,
-      "age_seconds": 92,
+      "age_seconds": 213,
       "fresh_limit_s": 15
     },
     "routing": {
       "present": true,
-      "age_seconds": 107845,
+      "age_seconds": 107966,
       "fresh_limit_s": 120
     }
   },
   "services": {
     "total": 111,
-    "running": 14,
-    "planned": 97,
+    "running": 15,
+    "planned": 96,
     "running_list": [
+      "com.ace777.bloc-privatise",
       "com.ace777.cockpit-http",
       "com.ace777.cockpit-pont",
       "com.ace777.collecte-anti-veille",
-      "com.ace777.cortana.urgent",
+      "com.ace777.fusibles-mesure",
+      "com.ace777.juste-prix",
       "com.ace777.llm-gate-hub",
       "com.ace777.mirofish",
       "com.ace777.mirofish-front",
@@ -42,15 +44,13 @@
       "com.ace777.superviseur-core",
       "com.ace777.superviseur-l2",
       "com.ace777.superviseur-process",
-      "com.ace777.vigie-live",
-      "com.ace777.xrpl-arbitrage"
+      "com.ace777.vigie-live"
     ],
     "planned_list": [
       "com.ace777.analyste-cadence",
       "com.ace777.archi-vivante",
       "com.ace777.autopilote",
       "com.ace777.backup-check",
-      "com.ace777.bloc-privatise",
       "com.ace777.carte-paires",
       "com.ace777.catalogue",
       "com.ace777.chien-de-garde",
@@ -60,6 +60,7 @@
       "com.ace777.cortana-fade-ombre",
       "com.ace777.cortana-feed",
       "com.ace777.cortana-propose-params",
+      "com.ace777.cortana.urgent",
       "com.ace777.couleur-regime",
       "com.ace777.couleur-regime-score",
       "com.ace777.cpfp",
@@ -77,7 +78,6 @@
       "com.ace777.fiches-observation",
       "com.ace777.fiches-offres",
       "com.ace777.flux-nets",
-      "com.ace777.fusibles-mesure",
       "com.ace777.gen-cockpit-vol",
       "com.ace777.geopol",
       "com.ace777.gitpush",
@@ -88,7 +88,6 @@
       "com.ace777.hulk-watchdog",
       "com.ace777.jackson-hole-alarmes",
       "com.ace777.journal-soir",
-      "com.ace777.juste-prix",
       "com.ace777.kronos-ombre",
       "com.ace777.macro-tempete",
       "com.ace777.memoire-cortana",
@@ -141,6 +140,7 @@
       "com.ace777.watchdog",
       "com.ace777.whales",
       "com.ace777.x402-agentic",
+      "com.ace777.xrpl-arbitrage",
       "com.ace777.xrpl-gouvernance",
       "com.ace777.xrpl-onchain"
     ]
