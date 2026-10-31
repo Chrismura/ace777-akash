@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.395483821348257,
-      "value": 0.62,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif total. Le SDI (Syndicat des Indépendants) est une organisation patronale française, non un protocole crypto. Les titres médiatiques confirment un contexte purement socio-économique (pouvoir d'achat, TPE). Aucune corrélation onchain ou narrative crypto n'existe.\"\n}",
-      "ts": "2026-10-30T00:56:29.564457+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.460820294289731,
-      "value": 2.503,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-      "ts": "2026-10-30T01:11:32.477772+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -4.599331055039001,
-      "value": 30,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : un z-score de -4.60 sur le Fear & Greed indique une peur extrême et anormale, souvent associée à des capitulations de détail. L'absence de titres médiatiques significatifs (vide informationnel) suggère que les acteurs institutionnels/baleines accumulent silencieusement dans le vide, exploitant la panique du retail sans attirer l'attention. C'est un classique setup de 'smart money' accumulation.\"\n}\n```",
-      "ts": "2026-10-30T01:11:33.452483+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.882487663892031,
-      "value": 23251770427.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.25M, z-score 2.88) est une anomalie crypto, tandis que le flux médiatique est exclusivement centré sur des entreprises traditionnelles (Unilever, Renault, Wattwiller) et des sujets lifestyle (cheveux). Aucune mention de crypto-actifs, de marchés dérivés ou de mouvements de trésorerie institutionnelle dans les titres. Le signal onchain est isolé sans contexte narratif pour confirmer une accumulation ou une distribution silencieuse.\"\n}",
-      "ts": "2026-10-30T01:21:35.967081+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.2718886965470038,
       "value": 2.503,
@@ -349,6 +321,34 @@
       "value": 1.607,
       "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 78,\n\"reason\": \"Un taker_ratio de 1.607 (z-score 3.25) indique une pression acheteuse agressive et anormale (les takers achètent massivement). L'absence totale de couverture médiatique (vide informationnel) suggère que ce mouvement est initié par des acteurs informés (baleines) avant la diffusion du narratif public. C'est un signal classique d'accumulation silencieuse.\"\n}",
       "ts": "2026-10-31T12:33:47.024033+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.9161307341582545,
+      "value": 1.607,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.607 (z-score 2.92) indique une forte dominance agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation massive en coulisses. Le vide médiatique (aucun narratif dominant) confirme que les baleines accumulent dans le silence, loin du radar de la foule.\"\n}\n```",
+      "ts": "2026-10-31T13:03:53.528117+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.4434457933745697,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.44) est isolée et non corroborée par un narratif de marché ou d'activité de baleines réelle. Aucune divergence exploitable détectée.\"\n}\n```",
+      "ts": "2026-10-31T13:13:55.823540+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.4434457933745697,
+      "value": 45.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
+      "ts": "2026-10-31T13:13:56.969822+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3537804334513854,
+      "value": 0.901,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain valide.\"\n}",
+      "ts": "2026-10-31T13:24:00.804942+00:00"
     }
   ]
 }
