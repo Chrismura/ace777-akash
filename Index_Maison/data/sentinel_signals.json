@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.7169932449818175,
-      "value": 23686720607.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.6B) est massif, mais le flux médiatique est 100% déconnecté (FMCG, auto, cosmétique). Aucune mention crypto, BTC ou ETH. Impossible de valider une action de baleine sans contexte de marché (prix, liquidité) ou de titres pertinents. Le bruit médiatique masque l'absence de signal narratif.\"\n}",
-      "ts": "2026-10-30T01:51:42.989075+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.570024440828107,
-      "value": 2.605,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-      "ts": "2026-10-30T02:11:47.501652+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -3.2434549480453714,
-      "value": 30,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un Fear & Greed à 30 avec un z-score de -3.24 indique une peur extrême et statistiquement anormale, souvent associée à des capitulations de détail. L'absence de titres médiatiques significatifs (vide informationnel) suggère que le narratif public est en dormance ou en panique silencieuse, tandis que les acteurs institutionnels (baleines) accumulent typiquement dans ces zones de volatilité extrême et de faible attention médiatique. C'est un signal classique de bas de cycle.\"\n}",
-      "ts": "2026-10-30T02:11:48.574973+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.420445253796172,
       "value": 23392025867.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique liée au bruit de fond (z-score modéré de 2.42) et absence totale de corrélation avec les actualités crypto (bruit médiatique centré sur l'économie réelle et la grande consommation). Aucun mouvement significatif de baleine détecté.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 40.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. Le terme 'Dust' dans les titres médiatiques fait référence à des produits industriels (voitures électriques, émissions), des films ou des plateformes IA, et non à l'actif crypto 'Dust' (ou au concept de dusting onchain). Aucune corrélation entre l'anomalie z-score et le narratif médiatique actuel.\"\n}",
       "ts": "2026-10-31T14:44:14.368746+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.485237703644934,
+      "value": 45.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.49) est isolée sans corrélation avec un narratif de marché ou d'activité de baleines réelle. Aucune divergence exploitable détectée.\"\n}\n```",
+      "ts": "2026-10-31T15:14:20.432702+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.485237703644934,
+      "value": 45.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des concepts non-crypto (poussière physique, noms de films/bandes, noms de produits IA). Aucune corrélation avec l'anomalie onchain détectée (z-score 2.49). Le narratif est déconnecté car il ne traite pas du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
+      "ts": "2026-10-31T15:14:21.904310+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.8968225235645155,
+      "value": 0.190468806533306,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 3.90 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données comparables.\"\n}\n```",
+      "ts": "2026-10-31T15:39:26.967126+00:00"
     }
   ]
 }

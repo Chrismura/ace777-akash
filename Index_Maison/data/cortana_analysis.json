@@ -1,197 +1,8 @@
 {
-  "timestamp": 1793458649,
-  "date": "2026-10-31T14:57:29.572321+00:00",
-  "n_analyses": 24,
+  "timestamp": 1793461950,
+  "date": "2026-10-31T15:52:30.528071+00:00",
+  "n_analyses": 22,
   "analyses": [
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.131025564953312,
-        "value": 0.822,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (homonymie IPT : Institut Pasteur de Tunis, Tournoi International des Physiciens). Aucune baleine détectée.\"\n}\n```",
-        "ts": 1793437090.865824
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.03,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 3.76512406023944,
-        "value": 1.322,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.322 (z-score 3.77) indique une agression massive à l'achat par les takers, totalement ignorée par un silence médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant un re-pricing.\"\n}\n```",
-        "ts": 1793437092.381723
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 0.817,
-          "seuil": 1,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.03,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
-      },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.7227017116083654,
-        "value": 1.172,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le taker_ratio de 1.172 (z-score 2.72) indique une pression acheteuse agressive et anormale sur le marché spot, typique d'une accumulation par des acteurs institutionnels ou des baleines. L'absence totale de couverture médiatique (vide informationnel) crée une divergence majeure : le marché se déplace sans le bruit habituel du FOMO retail. Cette discrétion suggère une accumulation silencieuse avant un potentiel mouvement haussier, le narratif étant actuellement déconnecté de la réalité onchain.\"\n}\n```",
-        "ts": 1793439167.774001
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 0.817,
-          "seuil": 1,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.03,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
-      },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 3.0539623532027176,
-        "value": 50.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques) ou à des tutoriels techniques génériques (RBF/CPFP), sans lien avec une accumulation massive ou un mouvement de baleines. L'anomalie onchain (z-score 3.05) n'est pas corroborée par un narratif de marché, indiquant probablement du bruit de fond ou une transaction isolée sans impact systémique.\"\n}\n```",
-        "ts": 1793439771.93291
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 25,
-          "seuil": 100,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.03,
-          "seuil": 2,
-          "depasse": false
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0.3,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0.6,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 3.0539623532027176,
-        "value": 50.0,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
-        "ts": 1793439773.065826
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 25,
-          "seuil": 100,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.03,
-          "seuil": 2,
-          "depasse": false
-        },
-        "sdi": {
-          "value": 0.604,
-          "seuil": 0.3,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0.6,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "taker_ratio",
@@ -203,12 +14,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.817,
+          "value": 0.685,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         }
@@ -238,17 +49,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -283,17 +94,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -323,12 +134,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.817,
+          "value": 0.685,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         }
@@ -358,17 +169,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -403,17 +214,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -443,12 +254,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.817,
+          "value": 0.685,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         }
@@ -473,7 +284,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         },
@@ -488,7 +299,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -517,24 +328,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 611847.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -547,12 +357,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.817,
+          "value": 0.685,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         }
@@ -582,17 +392,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -627,17 +437,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -667,12 +477,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.817,
+          "value": 0.685,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         }
@@ -697,12 +507,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.817,
+          "value": 0.685,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         }
@@ -732,17 +542,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -777,17 +587,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -817,7 +627,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 1,
           "depasse": false
         },
@@ -832,7 +642,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -861,17 +671,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -906,17 +716,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 25,
+          "value": 512,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.03,
+          "value": 0.19,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.612,
           "seuil": 0.3,
           "depasse": true
         },
@@ -933,6 +743,130 @@
         "action": "Garder les positions"
       },
       "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.485237703644934,
+        "value": 45.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.49) est isolée sans corrélation avec un narratif de marché ou d'activité de baleines réelle. Aucune divergence exploitable détectée.\"\n}\n```",
+        "ts": 1793459660.432702
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 512,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.19,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.612,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.485237703644934,
+        "value": 45.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des concepts non-crypto (poussière physique, noms de films/bandes, noms de produits IA). Aucune corrélation avec l'anomalie onchain détectée (z-score 2.49). Le narratif est déconnecté car il ne traite pas du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
+        "ts": 1793459661.90431
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 512,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.19,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.612,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.8968225235645155,
+        "value": 0.190468806533306,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 3.90 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données comparables.\"\n}\n```",
+        "ts": 1793461166.967126
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.19,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 906731.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
       "niveau": "neutre"
     }
   ],
