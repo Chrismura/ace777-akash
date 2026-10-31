@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": -16.941074346097416,
-      "value": 30,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence majeure : un z-score de -16.94 sur le Fear & Greed indique une peur extrême et anormale (contraction du marché), tandis que l'absence de titres médiatiques significatifs suggère un vide narratif. Cette combinaison est typique d'un 'accumulation phase' où les baleines achètent silencieusement pendant que le retail panique ou s'ennuie. Le marché est sous-évalué par le sentiment.\"\n}",
-      "ts": "2026-10-30T00:11:14.069342+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.0302425516158045,
-      "value": 21516229987.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie de volume purement anecdotique : les flux onchain massifs détectés (z-score 3.03) coïncident uniquement avec du bruit médiatique sur la grande consommation (eau, auto, cosmétiques). Aucune baleine crypto active, simple interférence sémantique.\"\n}\n```",
-      "ts": "2026-10-30T00:21:16.813522+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 14.208655699312343,
-      "value": 17722105.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif absolu : confusion sémantique entre les liquidations financières crypto (onchain) et les liquidations judiciaires de commerces locaux traditionnels dans les médias français. Aucune baleine crypto détectée.\"\n}\n```",
-      "ts": "2026-10-30T00:21:18.556279+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.556999521327637,
       "value": 1.4157336591353875,
@@ -349,6 +328,27 @@
       "value": 50.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
       "ts": "2026-10-31T10:43:23.672904+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.574496474303414,
+      "value": 1.3,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un taker_ratio de 1.3 (z-score 2.57) indique une pression acheteuse agressive et des achats au marché (market buys) par des acteurs institutionnels ou des baleines, tandis que l'absence de couverture médiatique significative suggère que le mouvement est encore en phase d'accumulation silencieuse avant la propagation du narratif.\"\n}",
+      "ts": "2026-10-31T11:03:28.111351+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.3129028578291524,
+      "value": 1.113,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (ou entités académiques/locales), non un actif crypto. Aucune corrélation onchain valide.\"\n}\n```",
+      "ts": "2026-10-31T11:38:33.939872+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.091182699038967,
+      "value": 2781168.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : Anomalie onchain massive (z-score 6.09, ~2.78M USD) sans couverture médiatique correspondante. Ce silence des médias face à un flux de capitaux significatif suggère une accumulation silencieuse ou un positionnement stratégique par des acteurs institutionnels avant une rotation de prix, typique des phases pré-tendance haussière.\"\n}\n```",
+      "ts": "2026-10-31T11:53:37.507070+00:00"
     }
   ]
 }
