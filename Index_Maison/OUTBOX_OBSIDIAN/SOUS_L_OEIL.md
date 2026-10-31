@@ -1,6 +1,6 @@
 # 👁️ SOUS L'ŒIL — Pulse machine
 
-**Date** : 2026-10-31T04:34:24+0100
+**Date** : 2026-10-31T05:35:58+0100
 **Mode** : VOL
 **Verdict** : OK
 
@@ -10,11 +10,11 @@
 - OLLAMA (serve) : ✅ actif
 
 ## Ressources
-- RAM libre : 2971 Mo (OK)
+- RAM libre : 3532 Mo (OK)
 - Champion (genesis_manifest) : OK
 
 ## Fraîcheur
-- Heartbeat : 2526s
+- Heartbeat : 2592s
 - LIVE : —
 
 ---
