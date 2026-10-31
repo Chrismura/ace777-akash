@@ -1,137 +1,8 @@
 {
-  "timestamp": 1793484157,
-  "date": "2026-10-31T22:02:37.026338+00:00",
-  "n_analyses": 20,
+  "timestamp": 1793487758,
+  "date": "2026-10-31T23:02:38.076302+00:00",
+  "n_analyses": 22,
   "analyses": [
-    {
-      "signal": {
-        "metric": "cpfp",
-        "zscore": 2.259197516613614,
-        "value": 40.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.26) est isolée et non corroborée par un narratif de marché ou d'activité de baleines. Aucune divergence exploitable détectée.\"\n}\n```",
-        "ts": 1793462672.438682
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 1,
-          "seuil": 100,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.08,
-          "seuil": 2,
-          "depasse": false
-        },
-        "sdi": {
-          "value": 0.608,
-          "seuil": 0.3,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0.6,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "dust",
-        "zscore": 2.259197516613614,
-        "value": 40.0,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des concepts non-crypto (poussière physique, noms de films/concerts, ou plateforme SaaS IA). Aucune corrélation avec une anomalie onchain ou un mouvement de baleines crypto. Le z-score est probablement lié à un bruit de données ou à une confusion sémantique, sans impact sur le marché crypto.\"\n}",
-        "ts": 1793462673.756186
-      },
-      "fiche": "blocs_privilises",
-      "questions": {
-        "duree": {
-          "value": 0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "volume": {
-          "value": 1,
-          "seuil": 100,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.08,
-          "seuil": 2,
-          "depasse": false
-        },
-        "sdi": {
-          "value": 0.608,
-          "seuil": 0.3,
-          "depasse": true
-        },
-        "rbf": {
-          "value": 0.0,
-          "seuil": 0.6,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "duree < 5min ET volume > 100",
-        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
-        "niveau": "neutre",
-        "action": "Garder les positions"
-      },
-      "action": "Garder les positions",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.2617202559052565,
-        "value": 0.906,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain valide.\"\n}",
-        "ts": 1793465080.881329
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.08,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "price_1h",
@@ -143,12 +14,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2292647.0,
+          "value": 2609416.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -177,17 +48,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 291172.0,
+          "value": 212715.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 2001475.0,
+          "value": 2396702.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
@@ -212,7 +83,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -227,7 +98,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -251,12 +122,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.267,
+          "value": 1.031,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
@@ -281,17 +152,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 291172.0,
+          "value": 212715.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 2001475.0,
+          "value": 2396702.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
@@ -321,17 +192,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 278,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -366,17 +237,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 278,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -406,17 +277,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 291172.0,
+          "value": 212715.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 2001475.0,
+          "value": 2396702.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
@@ -441,7 +312,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -456,7 +327,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -485,17 +356,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 278,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -530,17 +401,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 278,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -570,17 +441,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 291172.0,
+          "value": 212715.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 2001475.0,
+          "value": 2396702.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
@@ -605,17 +476,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 291172.0,
+          "value": 212715.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 2001475.0,
+          "value": 2396702.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
@@ -645,17 +516,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 278,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -690,17 +561,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 278,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -730,17 +601,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 291172.0,
+          "value": 212715.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 2001475.0,
+          "value": 2396702.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
@@ -765,7 +636,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
@@ -780,9 +651,203 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.1574445509956286,
+        "value": 2642947.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 75,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sur Binance et des liquidations de commerces locaux. Le z-score (2.16) et le volume onchain (~2.6M$) sont trop faibles pour confirmer une manœuvre de baleine ; il s'agit d'un affolement retail amplifié par des actualités non-crypto.\"\n}\n```",
+        "ts": 1793484366.573983
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 212715.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 2396702.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.17,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.1857978428447584,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.19) est isolée et non corroborée par un narratif de marché ou d'activité de baleines réelle. Aucune divergence exploitable détectée.\"\n}\n```",
+        "ts": 1793485571.918288
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 278,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.17,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.1857978428447584,
+        "value": 50.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des entités non-crypto (film, groupe de metal, plateforme IA, punaise de bureau). Aucune corrélation avec l'anomalie onchain détectée (z-score 2.19). Le narratif est totalement déconnecté de la donnée brute, indiquant l'absence de manipulation ou de mouvement de baleines lié à ce signal spécifique.\"\n}",
+        "ts": 1793485573.24303
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 278,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.17,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.0648472702952967,
+        "value": 2687138.0,
+        "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Absence de divergence : le z-score de 2.06 sur les liquidations est parfaitement aligné avec le narratif médiatique dominant (peur d'un hack Binance, chute du BTC). Les titres 'Roanne' et 'Quimper' sont du bruit (faux positifs juridiques). L'anomalie onchain confirme le flux de capitaux sortant et la panique, sans signe de accumulation silencieuse.\"\n}",
+        "ts": 1793486175.755512
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 212715.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 2396702.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.17,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 2.7493453202799687,
+        "value": 0.16342294156141968,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.75 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+        "ts": 1793487379.173393
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.17,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2609416.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
         }
       },
       "interpretation": {
