@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 25.08674102344887,
-      "value": 35732702.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence critique : Anomalie onchain massive (z-score 25.09, ~35.7M USD) vs silence médiatique total. L'absence de couverture pour un tel flux suggère une accumulation silencieuse ou un transfert vers des cold wallets, typique d'un positionnement haussier avant une volatilité publique.\"\n}\n```",
-      "ts": "2026-10-30T05:42:39.716565+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.161076000685825,
       "value": 0.62,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (cinéma, concerts, IA Web2). L'anomalie 'dust' onchain est statistiquement faible et non corrélée aux flux des baleines.\"\n}\n```",
       "ts": "2026-10-31T20:00:40.944243+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.034208326590334,
+      "value": 2221881.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les liquidations crypto dépassent 628 millions de dollars en une heure, indiquant une forte activité de trading et une possible accumulation de positions longues par les baleines. Le narratif médiatique se concentre sur des liquidations judiciaires et des hacks, qui sont des événements discrets et ponctuels, tandis que les liquidations crypto sont des événements continus et significatifs, suggérant une divergence entre le signal onchain et le narratif médiatique.\"\n}\n```",
+      "ts": "2026-10-31T20:25:47.665039+00:00"
     }
   ]
 }
