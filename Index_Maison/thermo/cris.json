@@ -1,71 +1,89 @@
 {
-  "ts": "2026-10-30T23:43:48+00:00",
-  "nb": 7,
-  "nb_critique": 7,
+  "ts": "2026-10-31T00:43:50+00:00",
+  "nb": 9,
+  "nb_critique": 9,
   "note": "CRIS ACTIFS à l'instant du cycle : ce fichier s'auto-efface quand la cause disparaît. Un cri sans voix tracée serait un faux cri.",
   "cris": [
     {
       "organe": "superviseur-l2",
       "gravite": "CRITIQUE",
-      "message": "Age réel 31254s dépasse le seuil 120.0s",
+      "message": "Age réel 2627s dépasse le seuil 120.0s",
       "depuis": "2026-10-30T15:48:28+00:00",
-      "nb_cris": 8,
+      "nb_cris": 9,
       "voix": "anti-tempête (voix il y a < 1 h)",
-      "voix_le": "2026-10-30T22:48:46+00:00"
+      "voix_le": "2026-10-30T23:48:48+00:00"
     },
     {
       "organe": "deriv-corr",
       "gravite": "CRITIQUE",
       "message": "Sortie launchd non nulle et NON déclarée : exit 1 (organe arrêté, aucun produit câblé pour juger plus loin — déclarer le code dans contrat_sortie.json s'il est voulu)",
       "depuis": "2026-10-30T15:48:28+00:00",
-      "nb_cris": 8,
+      "nb_cris": 9,
       "voix": "anti-tempête (voix il y a < 1 h)",
-      "voix_le": "2026-10-30T22:48:46+00:00"
+      "voix_le": "2026-10-30T23:48:48+00:00"
     },
     {
       "organe": "verdicteur-micro",
       "gravite": "CRITIQUE",
-      "message": "Age réel 31268s dépasse le seuil 600.0s",
+      "message": "Age réel 34870s dépasse le seuil 600.0s",
       "depuis": "2026-10-30T15:48:28+00:00",
-      "nb_cris": 8,
+      "nb_cris": 9,
       "voix": "anti-tempête (voix il y a < 1 h)",
-      "voix_le": "2026-10-30T22:48:46+00:00"
+      "voix_le": "2026-10-30T23:48:48+00:00"
     },
     {
       "organe": "fees",
       "gravite": "CRITIQUE",
       "message": "Sortie launchd non nulle et NON déclarée : exit 1 (organe arrêté, aucun produit câblé pour juger plus loin — déclarer le code dans contrat_sortie.json s'il est voulu)",
       "depuis": "2026-10-30T15:48:28+00:00",
-      "nb_cris": 8,
+      "nb_cris": 9,
       "voix": "anti-tempête (voix il y a < 1 h)",
-      "voix_le": "2026-10-30T22:48:46+00:00"
+      "voix_le": "2026-10-30T23:48:48+00:00"
     },
     {
       "organe": "vigie-live",
       "gravite": "CRITIQUE",
-      "message": "Age réel 31307s dépasse le seuil 7200.0s",
+      "message": "Age réel 34909s dépasse le seuil 7200.0s",
       "depuis": "2026-10-30T17:03:31+00:00",
-      "nb_cris": 7,
+      "nb_cris": 8,
       "voix": "anti-tempête (voix il y a < 1 h)",
-      "voix_le": "2026-10-30T23:03:46+00:00"
+      "voix_le": "2026-10-31T00:03:48+00:00"
     },
     {
       "organe": "kronos-ombre-aveugle",
       "gravite": "CRITIQUE",
-      "message": "VIVANT MAIS AVEUGLE — la décision (derniere.ts_emission) ne sort plus depuis 532 min (fenêtre tolérée 150 min). Le process tourne et le produit est frais, mais il ne peut plus décider : capteur ombre : s'il n'émet plus de prédiction, le produit reste frais (réécrit) mais le verdict du 27/09 ne se jugera jamais sur des données absentes.",
+      "message": "VIVANT MAIS AVEUGLE — la décision (derniere.ts_emission) ne sort plus depuis 592 min (fenêtre tolérée 150 min). Le process tourne et le produit est frais, mais il ne peut plus décider : capteur ombre : s'il n'émet plus de prédiction, le produit reste frais (réécrit) mais le verdict du 27/09 ne se jugera jamais sur des données absentes.",
       "depuis": "2026-10-30T17:23:32+00:00",
-      "nb_cris": 7,
+      "nb_cris": 8,
       "voix": "anti-tempête (voix il y a < 1 h)",
-      "voix_le": "2026-10-30T23:23:47+00:00"
+      "voix_le": "2026-10-31T00:23:49+00:00"
     },
     {
-      "organe": "fusibles-mesure",
+      "organe": "rwa-yields",
       "gravite": "CRITIQUE",
-      "message": "Sortie launchd non nulle et NON déclarée : exit 1 (organe arrêté, aucun produit câblé pour juger plus loin — déclarer le code dans contrat_sortie.json s'il est voulu)",
-      "depuis": "2026-10-30T23:23:47+00:00",
+      "message": "Age réel 46417s dépasse le seuil 43200.0s",
+      "depuis": "2026-10-30T23:53:48+00:00",
       "nb_cris": 1,
       "voix": "anti-tempête (voix il y a < 1 h)",
-      "voix_le": null
+      "voix_le": "2026-10-30T23:53:48+00:00"
+    },
+    {
+      "organe": "gitpush-vault",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 35664s dépasse le seuil 32400.0s",
+      "depuis": "2026-10-30T23:53:48+00:00",
+      "nb_cris": 1,
+      "voix": "anti-tempête (voix il y a < 1 h)",
+      "voix_le": "2026-10-30T23:53:48+00:00"
+    },
+    {
+      "organe": "gitpush",
+      "gravite": "CRITIQUE",
+      "message": "Age réel 34985s dépasse le seuil 32400.0s",
+      "depuis": "2026-10-31T00:03:48+00:00",
+      "nb_cris": 1,
+      "voix": "anti-tempête (voix il y a < 1 h)",
+      "voix_le": "2026-10-31T00:03:48+00:00"
     }
   ]
 }

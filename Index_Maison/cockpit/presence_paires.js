@@ -1,1 +1,1 @@
-window.__PRESENCE_PAIRES__ = {"ts": "2026-10-30T18:32Z", "verdict": "INCONNU", "erreur": "<urlopen error [Errno 8] nodename nor servname provided, or not known>", "nb_paires": 19, "paires_manquantes": [], "paires": []};
+window.__PRESENCE_PAIRES__ = {"ts": "2026-10-31T00:32Z", "verdict": "INCONNU", "erreur": "<urlopen error [Errno 8] nodename nor servname provided, or not known>", "nb_paires": 19, "paires_manquantes": [], "paires": []};
