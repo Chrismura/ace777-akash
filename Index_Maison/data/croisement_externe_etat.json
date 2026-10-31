@@ -1,50 +1,41 @@
 {
-  "ts": "2026-10-31T17:52:15Z",
+  "ts": "2026-10-31T18:52:32Z",
   "n_verifications": 25,
   "n_fails": 0,
   "n_fails_pendants": 0,
-  "n_warns": 4,
+  "n_warns": 3,
   "fails": [],
   "fails_pendants": [],
   "warns": [
     {
       "type": "murs",
-      "pair": "BTCUSDT",
-      "notre_bid_avg": 419926.18,
-      "ext_bid_5niv": 328181.7,
-      "notre_ask_avg": 488181.06,
-      "ext_ask_5niv": 21387.73,
-      "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
-    },
-    {
-      "type": "murs",
-      "pair": "CHIPUSDT",
-      "notre_bid_avg": 30766.68,
-      "ext_bid_5niv": 137.91,
-      "notre_ask_avg": 27298.12,
-      "ext_ask_5niv": 5484.53,
+      "pair": "XRPUSDT",
+      "notre_bid_avg": 91589.68,
+      "ext_bid_5niv": 30667.69,
+      "notre_ask_avg": 94098.68,
+      "ext_ask_5niv": 1798.57,
       "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
     },
     {
       "type": "murs",
       "pair": "HBARUSDT",
       "notre_bid_avg": 30739.91,
-      "ext_bid_5niv": 11456.37,
+      "ext_bid_5niv": 427.09,
       "notre_ask_avg": 26144.54,
-      "ext_ask_5niv": 295.52,
+      "ext_ask_5niv": 4918.63,
       "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
     },
     {
       "type": "murs",
       "pair": "REDUSDT",
       "notre_bid_avg": 5504.5,
-      "ext_bid_5niv": 177.87,
+      "ext_bid_5niv": 143.47,
       "notre_ask_avg": 3927.47,
-      "ext_ask_5niv": 211.6,
+      "ext_ask_5niv": 721.02,
       "note": "ratio hors [0.05x-20.0x] — carnet déséquilibré ou donnée à surveiller"
     }
   ],
   "persistance_ticks": 3,
   "regle": "écart > 5.0% entre notre prix et une source externe = data_quality_fail (bloquant après 3 ticks consécutifs) · murs = warning informatif",
-  "lecture": "⚠️ 4 warning(s) murs (carnet déséquilibré) — prix OK"
+  "lecture": "⚠️ 3 warning(s) murs (carnet déséquilibré) — prix OK"
 }

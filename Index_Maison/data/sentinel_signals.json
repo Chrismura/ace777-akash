@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.565716634807999,
-      "value": 2.698,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les titres médiatiques concernent exclusivement des ETF actions (BNP Paribas, LU3307220965) et des stratégies de fonds classiques, sans aucun lien avec les actifs crypto. L'anomalie onchain n'est pas corroborée par le narratif crypto, qui est ici absent ou hors sujet.\"\n}",
-      "ts": "2026-10-30T03:12:04.216040+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.6045697886184174,
-      "value": 30,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un Fear & Greed à 30 (z-score -2.60) indique une peur extrême et une capitulation des petits acteurs, mais l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement sans attirer l'attention. Ce désalignement entre la panique onchain et le silence narratif est un signal classique de bas de cycle avant une rotation haussière.\"\n}",
-      "ts": "2026-10-30T03:12:05.168099+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.0984954005904983,
-      "value": 23460082888.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.4B) est une anomalie statistique (z-score 2.10) sans contexte crypto, tandis que le flux médiatique est 100% centré sur le retail traditionnel (eau, FMCG, auto, énergie). Aucune divergence exploitable : le narratif est déconnecté du sujet crypto, rendant l'analyse des 'baleines' impossible sans données de marché (prix, flux d'échanges) associées.\"\n}",
-      "ts": "2026-10-30T03:22:07.532053+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.3561113700167007,
-      "value": 2.698,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des fonds actions traditionnels (NASDAQ, UCITS, OPCVM) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-      "ts": "2026-10-30T03:42:11.844483+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": -2.386980188146657,
-      "value": 30,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : un Fear & Greed à 30 (z-score -2.39) indique une peur extrême et une capitulation des petits acteurs, tandis que l'absence totale de couverture médiatique (vide informationnel) suggère que les baleines accumulent silencieusement sans attirer l'attention du public. Ce désalignement entre la panique onchain et le silence narratif est un signal classique de bas de cycle avant une rotation haussière.\"\n}\n```",
-      "ts": "2026-10-30T03:42:12.810918+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.057883526034118,
-      "value": 23898467603.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (23.9B) est une anomalie statistique (z-score 2.06), mais le flux médiatique est 100% centré sur des entreprises traditionnelles (Unilever, Renault, Wattwiller) et des sujets lifestyle (cheveux). Aucune mention de crypto, de marché des actifs numériques ou de flux institutionnels. Le narratif est déconnecté de l'activité onchain, mais sans signal directionnel clair (bullish/bearish) car le contexte crypto est absent des sources. Probablement du bruit ou un volume spécifique à un actif non couvert par ces titres.\"\n}",
-      "ts": "2026-10-30T03:52:16.295667+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.145228308469227,
       "value": 1.52,
@@ -349,6 +307,48 @@
       "value": 2184560.0,
       "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 3.06 confirme une anomalie statistique majeure des liquidations. Contrairement à un signal de 'baleine silencieuse' (qui impliquerait un achat discret sans bruit), le narratif médiatique (peur d'un hack Binance) est parfaitement aligné avec la réalité onchain : c'est un événement de panique et de délestage forcé. La divergence est nulle ; le marché est en phase de capitulation active, non de manipulation silencieuse.\"\n}",
       "ts": "2026-10-31T17:54:53.868252+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.326475333494901,
+      "value": 0.948,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. L'acronyme 'IPT' dans les titres médiatiques désigne l'Institut de Physique du Globe (ou entités similaires en France), et non un actif crypto. Aucune corrélation onchain valide.\"\n}",
+      "ts": "2026-10-31T18:04:57.276382+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.0044172600416337,
+      "value": 1.293,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Le taker_ratio de 1.293 (z-score 2.00) indique une pression acheteuse agressive et anormale sur le marché spot. L'absence totale de couverture médiatique (vide informationnel) suggère que cette accumulation est effectuée en silence par des acteurs institutionnels ou des baleines, avant une possible rotation vers le narratif public. Divergence classique : action onchain haussière vs silence médiatique.\"\n}\n```",
+      "ts": "2026-10-31T18:04:58.176588+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.770229015305366,
+      "value": 2202571.0,
+      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.77 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en dépit de la chute), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence entre la douleur onchain et la peur médiatique indique une sortie de capitaux réelle, pas un piège haussier.\"\n}",
+      "ts": "2026-10-31T18:25:02.206274+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.015656541980927,
+      "value": 40.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (Centre de Formation Professionnelle, politique locale, ou confusion avec le mécanisme onchain). Aucune corrélation entre l'anomalie onchain (z-score 2.02) et le narratif médiatique détecté. Le signal est probablement du bruit ou une coïncidence terminologique sans impact de marché.\"\n}\n```",
+      "ts": "2026-10-31T18:25:03.267593+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.015656541980927,
+      "value": 40.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des concepts non-crypto (poussière physique, noms de films/bandes, noms de produits IA). Aucune corrélation avec l'activité onchain ou les mouvements de baleines. Le zscore est probablement lié à un bruit de données ou une coïncidence sémantique sans impact de marché.\"\n}",
+      "ts": "2026-10-31T18:25:04.578818+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.5465300159492497,
+      "value": 2219288.0,
+      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.55 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en contre-tendance), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence entre la douleur onchain et la peur médiatique indique une sortie de capitaux réelle, pas un piège haussier.\"\n}",
+      "ts": "2026-10-31T18:55:10.458049+00:00"
     }
   ]
 }
