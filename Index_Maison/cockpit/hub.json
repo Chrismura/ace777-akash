@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T18:57:11.163045+00:00",
+  "generated_at": "2026-10-31T19:03:17.193894+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 23
+      "calls_24h": 25
     },
     {
       "id": "openrouter-free",
@@ -283,10 +283,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 58,
-    "remaining": 566
+    "consumed": 60,
+    "remaining": 564
   },
   "queue": [
+    {
+      "ts": "2026-10-31T19:03:03.833967+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.04
+    },
+    {
+      "ts": "2026-10-31T19:02:47.595436+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.06
+    },
     {
       "ts": "2026-10-31T18:55:10.456749+00:00",
       "task": "analyse.profonde",
@@ -390,84 +406,68 @@
       "model": "qwen/qwen3.8-27b",
       "kind": "cloud",
       "duration_s": 0.41
-    },
-    {
-      "ts": "2026-10-31T16:04:33.754552+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.53
-    },
-    {
-      "ts": "2026-10-31T16:04:32.437081+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.63
     }
   ],
   "events": [
     {
-      "ts": "2026-10-31T18:55:10.456126+00:00",
+      "ts": "2026-10-31T19:03:03.832214+00:00",
       "kind": "message",
-      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
+      "title": "« Google Gemini » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-10-31T18:27:31.906963+00:00",
+      "ts": "2026-10-31T19:02:47.594632+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-10-31T19:02:46.530586+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-10-31T18:57:28.582112+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-10-31T18:27:31.905989+00:00",
+      "ts": "2026-10-31T18:57:28.581562+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: blacklist du jour (saute) | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-31T18:27:31.902065+00:00",
+      "ts": "2026-10-31T18:57:28.578158+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Devstral-2-123B (code)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-31T18:27:26.614447+00:00",
+      "ts": "2026-10-31T18:57:27.284952+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-31T18:27:21.604005+00:00",
+      "ts": "2026-10-31T18:57:22.363620+00:00",
       "kind": "failover",
       "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
       "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-10-31T18:27:16.398275+00:00",
+      "ts": "2026-10-31T18:57:21.042537+00:00",
       "kind": "failover",
       "title": "Bascule depuis Mistral La Plateforme (essai gratuit)",
       "detail": "HTTP Error 400: Bad Request"
     },
     {
-      "ts": "2026-10-31T18:27:14.329075+00:00",
+      "ts": "2026-10-31T18:57:19.774711+00:00",
       "kind": "failover",
       "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-10-31T18:27:10.267023+00:00",
-      "kind": "timeout",
-      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (HTTP 400)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-10-31T18:27:09.454794+00:00",
-      "kind": "failover",
-      "title": "Saute (blacklist) depuis Google Gemini",
-      "detail": "0 attente"
     }
   ],
   "tasks_quotas": {
