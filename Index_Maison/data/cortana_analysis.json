@@ -1,7 +1,7 @@
 {
-  "timestamp": 1793440644,
-  "date": "2026-10-31T09:57:24.134426+00:00",
-  "n_analyses": 5,
+  "timestamp": 1793444245,
+  "date": "2026-10-31T10:57:25.377008+00:00",
+  "n_analyses": 11,
   "analyses": [
     {
       "signal": {
@@ -14,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.12,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -29,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -53,12 +53,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.172,
+          "value": 1.3,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -83,12 +83,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.172,
+          "value": 1.3,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -118,17 +118,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 243,
+          "value": 1550,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": -0.05,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -163,17 +163,257 @@
           "depasse": false
         },
         "volume": {
-          "value": 243,
+          "value": 1550,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": -0.05,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.608,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.5054567311827247,
+        "value": 1.172,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.51) indique une agression acheteuse anormale des acheteurs (Takers) sur le marché des dérivés, suggérant une accumulation agressive par les baleines. L'absence totale de couverture médiatique (silence radio de Google Actualités) prouve que ce mouvement se fait sous le radar de la foule, validant une phase d'accumulation discrète avant une cassure haussière.\"\n}\n```",
+        "ts": 1793440978.031716
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.3,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.8606031418327276,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie onchain sur le CPFP (z-score 2.86) révélant une congestion intentionnelle ou une optimisation agressive des frais par des acteurs majeurs, totalement ignorée par les médias généralistes et crypto qui se concentrent sur des tutoriels génériques.\"\n}\n```",
+        "ts": 1793441581.178944
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 1550,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.8606031418327276,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (art, concerts, IA Web2). L'anomalie 'dust' (z-score 2.86) est un bruit statistique insignifiant ou du nettoyage de portefeuille, pas une accumulation de baleines.\"\n}\n```",
+        "ts": 1793441584.788943
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 1550,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.8080413398205533,
+        "value": 1.3,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (taker_ratio = 1.3, z-score 2.81) suggère une forte activité de trading, potentiellement des mouvements de fonds par des baleines. Cependant, les titres médiatiques ne mentionnent pas cette activité, indiquant une divergence entre les données brutes et le narratif médiatique. Cela pourrait suggérer des mouvements de fonds silencieux par des baleines, avec un narratif médiatique déconnecté de la réalité.\"\n}\n```",
+        "ts": 1793442800.152397
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.3,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 2.7899609294670156,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques) ou à des tutoriels techniques génériques (RBF/CPFP), sans lien avec une accumulation massive ou un mouvement de baleines. L'anomalie onchain (z-score 2.79) est isolée et non corroborée par un narratif de marché, indiquant probablement du bruit de fond ou une transaction technique mineure plutôt qu'un signal directionnel fort.\"\n}\n```",
+        "ts": 1793443402.570562
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 1550,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.608,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 2.7899609294670156,
+        "value": 50.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
+        "ts": 1793443403.672904
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 1550,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.05,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },

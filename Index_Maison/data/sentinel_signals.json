@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.070565274994471,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Fausse alerte liée au bruit sémantique. L'anomalie CPFP (Child-Pays-for-Parent) détectée on-chain est noyée dans des actualités sans rapport (politique locale, formation en Guinée, faits divers). Aucune accumulation ou mouvement significatif de baleines crypto ne correspond à ce pic.\"\n}\n```",
-      "ts": "2026-10-29T23:25:59.414287+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.070565274994471,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.07) sur le 'dust' totalement decorrelee du narratif mediatique, lequel renvoie uniquement a des resultats de culture generale, de mode et de musique sans aucun rapport avec l'activite crypto.\"\n}\n```",
-      "ts": "2026-10-29T23:26:00.906867+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.8578158530159485,
-      "value": 1.121500507966544,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain concrètes (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 2.86 sur le prix 1h est statistiquement notable mais isolé ; sans confirmation par les flux de trésorerie ou un narratif contradictoire, il est impossible de distinguer un mouvement de baleine d'un simple bruit de marché ou d'une liquidité faible.\"\n}\n```",
-      "ts": "2026-10-29T23:46:05.381268+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.59635325230477,
-      "value": 19456735279.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (19.4B) est massif, mais le flux médiatique est 100% déconnecté (FMCG, auto, cosmétique). Aucune mention crypto, BTC ou ETH. Le signal onchain est probablement du bruit de marché (rotation de fonds, liquidations) ou un artefact de données, sans catalyseur narratif visible. Pas de divergence exploitable.\"\n}",
-      "ts": "2026-10-29T23:51:07.224351+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.6985927078211467,
-      "value": 4499823.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 2.70, ~4.5M USD) indiquant un accumulation ou un transfert actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Cette discrétion suggère une accumulation silencieuse avant un mouvement de prix, typique des phases pré-bullish.\"\n}\n```",
-      "ts": "2026-10-29T23:51:08.191103+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.3575554779151036,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. Le ticker 'SDI' dans les données onchain correspond à un actif crypto spécifique, mais le narratif médiatique fourni est entièrement pollué par des homonymes non-crypto (Samsung SDI, Stampede Drilling, et surtout le Syndicat des TPE en France). Il n'y a aucune corrélation entre les mouvements de baleines crypto et ces titres. L'anomalie onchain est isolée sans contexte narratif crypto valide.\"\n}\n```",
-      "ts": "2026-10-29T23:51:10.604107+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": -16.941074346097416,
       "value": 30,
@@ -349,6 +307,48 @@
       "value": 50.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
       "ts": "2026-10-31T09:42:53.065826+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.5054567311827247,
+      "value": 1.172,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.51) indique une agression acheteuse anormale des acheteurs (Takers) sur le marché des dérivés, suggérant une accumulation agressive par les baleines. L'absence totale de couverture médiatique (silence radio de Google Actualités) prouve que ce mouvement se fait sous le radar de la foule, validant une phase d'accumulation discrète avant une cassure haussière.\"\n}\n```",
+      "ts": "2026-10-31T10:02:58.031716+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.8606031418327276,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie onchain sur le CPFP (z-score 2.86) révélant une congestion intentionnelle ou une optimisation agressive des frais par des acteurs majeurs, totalement ignorée par les médias généralistes et crypto qui se concentrent sur des tutoriels génériques.\"\n}\n```",
+      "ts": "2026-10-31T10:13:01.178944+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.8606031418327276,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (art, concerts, IA Web2). L'anomalie 'dust' (z-score 2.86) est un bruit statistique insignifiant ou du nettoyage de portefeuille, pas une accumulation de baleines.\"\n}\n```",
+      "ts": "2026-10-31T10:13:04.788943+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.8080413398205533,
+      "value": 1.3,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (taker_ratio = 1.3, z-score 2.81) suggère une forte activité de trading, potentiellement des mouvements de fonds par des baleines. Cependant, les titres médiatiques ne mentionnent pas cette activité, indiquant une divergence entre les données brutes et le narratif médiatique. Cela pourrait suggérer des mouvements de fonds silencieux par des baleines, avec un narratif médiatique déconnecté de la réalité.\"\n}\n```",
+      "ts": "2026-10-31T10:33:20.152397+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.7899609294670156,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques) ou à des tutoriels techniques génériques (RBF/CPFP), sans lien avec une accumulation massive ou un mouvement de baleines. L'anomalie onchain (z-score 2.79) est isolée et non corroborée par un narratif de marché, indiquant probablement du bruit de fond ou une transaction technique mineure plutôt qu'un signal directionnel fort.\"\n}\n```",
+      "ts": "2026-10-31T10:43:22.570562+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.7899609294670156,
+      "value": 50.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
+      "ts": "2026-10-31T10:43:23.672904+00:00"
     }
   ]
 }

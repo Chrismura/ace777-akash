@@ -1,4 +1,4 @@
-# INTEGRATIONS HEBDOMADAIRES — 2026-10-30
+# INTEGRATIONS HEBDOMADAIRES — 2026-10-31
 
 > Genere par observatoire.py (correction famille 09/08).
 > Regle : un provider integre auto n'est JAMAIS actif directement.
@@ -15,7 +15,7 @@
 | obs-1786774667 | nvidia/nemotron-3.5-lightning:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1786795252 | nvidia/nemotron-3.5-content-safety:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1787033767 | google/diffusiongemma-26b-a4b-it | 100% | ROLLBACK auto (désactivé) |
-| obs-1787206650 | google/gemma-4-26b-a4b-it:free | 80% | ROLLBACK auto (désactivé) |
+| obs-1787206650 | google/gemma-4-26b-a4b-it:free | 90% | ROLLBACK auto (désactivé) |
 | obs-1787248844 | nvidia/nemotron-nano-9b-v2:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1787724924 | minimax/minimax-m3:free | 100% | ROLLBACK auto (désactivé) |
 | obs-1788416175 | deepseek-ai/deepseek-v4-pro-0813 | 100% | ROLLBACK auto (désactivé) |
