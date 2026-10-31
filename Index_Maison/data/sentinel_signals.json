@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.420445253796172,
-      "value": 23392025867.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Anomalie technique liée au bruit de fond (z-score modéré de 2.42) et absence totale de corrélation avec les actualités crypto (bruit médiatique centré sur l'économie réelle et la grande consommation). Aucun mouvement significatif de baleine détecté.\"\n}\n```",
-      "ts": "2026-10-30T02:21:51.487519+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.359029946427342,
       "value": 2.605,
@@ -349,6 +342,13 @@
       "value": 0.190468806533306,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 3.90 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données comparables.\"\n}\n```",
       "ts": "2026-10-31T15:39:26.967126+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.135801014466378,
+      "value": 0.865,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (ou entités académiques/associatives françaises), non un actif crypto. Aucune corrélation onchain possible.\"\n}\n```",
+      "ts": "2026-10-31T15:59:30.706766+00:00"
     }
   ]
 }
