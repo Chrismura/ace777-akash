@@ -1,7 +1,197 @@
 {
-  "timestamp": 1793436474,
-  "date": "2026-10-31T08:47:54.851939+00:00",
-  "n_analyses": 0,
-  "analyses": [],
-  "resume": "Aucune analyse en cours"
+  "timestamp": 1793440344,
+  "date": "2026-10-31T09:52:24.021220+00:00",
+  "n_analyses": 5,
+  "analyses": [
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.131025564953312,
+        "value": 0.822,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (homonymie IPT : Institut Pasteur de Tunis, Tournoi International des Physiciens). Aucune baleine détectée.\"\n}\n```",
+        "ts": 1793437090.865824
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.12,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 1,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 3.76512406023944,
+        "value": 1.322,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.322 (z-score 3.77) indique une agression massive à l'achat par les takers, totalement ignorée par un silence médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant un re-pricing.\"\n}\n```",
+        "ts": 1793437092.381723
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.172,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.12,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.7227017116083654,
+        "value": 1.172,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le taker_ratio de 1.172 (z-score 2.72) indique une pression acheteuse agressive et anormale sur le marché spot, typique d'une accumulation par des acteurs institutionnels ou des baleines. L'absence totale de couverture médiatique (vide informationnel) crée une divergence majeure : le marché se déplace sans le bruit habituel du FOMO retail. Cette discrétion suggère une accumulation silencieuse avant un potentiel mouvement haussier, le narratif étant actuellement déconnecté de la réalité onchain.\"\n}\n```",
+        "ts": 1793439167.774001
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.172,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.12,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": 3.0539623532027176,
+        "value": 50.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques) ou à des tutoriels techniques génériques (RBF/CPFP), sans lien avec une accumulation massive ou un mouvement de baleines. L'anomalie onchain (z-score 3.05) n'est pas corroborée par un narratif de marché, indiquant probablement du bruit de fond ou une transaction isolée sans impact systémique.\"\n}\n```",
+        "ts": 1793439771.93291
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 249,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.12,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": 3.0539623532027176,
+        "value": 50.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
+        "ts": 1793439773.065826
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 249,
+          "seuil": 100,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.12,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.604,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    }
+  ],
+  "resume": "🔵 CALME — pas de signal alarmant"
 }

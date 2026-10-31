@@ -1,23 +1,23 @@
 {
-  "ts": "2026-10-31T08:39:44.552408+00:00",
+  "ts": "2026-10-31T09:49:19.253934+00:00",
   "mode": "actif",
   "tip": "mempool.space + scan local",
-  "zscores": 0.0,
+  "zscores": 21.79,
   "cartes": {
     "carte1_zscore": {
       "declenche": false,
-      "score": 0.0,
-      "detail": "pas assez de données"
+      "score": 21.79,
+      "detail": "z=1.09 (seuil 3.0) | max aujourd'hui 18407 BTC (plancher 500) | normale 7j 12001.2 ± 5880.5"
     },
     "carte2_cpfp": {
       "declenche": false,
       "score": 0.0,
-      "detail": "API mempool injoignable (repli propre)"
+      "detail": "pré-filtre : frais 1 sat/vB ≤ 1.5× médiane 7j (1) — pas de creusage"
     },
     "carte3_poussiere": {
       "declenche": false,
-      "score": 0.0,
-      "detail": "poussière <2.0 sat/vB (normalisé minFee 0×1.5) : 0/0 vues ce run, 865 cumulées 48h (seuil 1000) — max 0.0000 BTC"
+      "score": 20.0,
+      "detail": "poussière <2.0 sat/vB (normalisé minFee 1×1.5) : 4/10 vues ce run, 854 cumulées 48h (seuil 1000) — max 0.0093 BTC"
     }
   },
   "declenche_global": false,
@@ -27,9 +27,9 @@
   },
   "confirmation": 0,
   "calibration": {
-    "mediane_frais": null,
-    "moyenne_7j": 0.0,
-    "sigma": 0.0,
+    "mediane_frais": 1.0,
+    "moyenne_7j": 12001.22,
+    "sigma": 5880.55,
     "max_dust": 0.0
   }
 }

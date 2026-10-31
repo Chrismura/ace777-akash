@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.217103423154004,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte sémantique : l'acronyme 'SDI' dans les actualités fait référence au 'Syndicat des Indépendants' (TPE françaises) et non à un indicateur on-chain de baleines crypto. Aucune donnée de marché pertinente à analyser.\"\n}\n```",
-      "ts": "2026-10-29T22:15:38.979204+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.851008242147715,
-      "value": 18238746241.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume onchain (18.2B) est massif, mais le flux médiatique est dominé par des actualités macro-économiques classiques (Renault, Unilever, Wattwiller) et une seule mention crypto (Visa/Stablecoins) qui ne justifie pas un z-score de 2.85. Le narratif est déconnecté de l'anomalie onchain, mais sans signal directionnel clair (achat/vente) ni contexte de panique ou d'euphorie, il s'agit probablement d'un flux institutionnel routinier ou d'un artefact de données non couvert par la presse.\"\n}",
-      "ts": "2026-10-29T22:20:43.126417+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2736732153639325,
-      "value": 1.235,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Anomalie statistique (z-score 2.27) détectée sur le ticker 'ipt', mais le bruit médiatique et on-chain fait référence à de l'actionnariat traditionnel (International Petroleum Corp), à des actualités académiques (École polytechnique) ou à des fondations sans lien avec la crypto. Aucune baleine crypto détectée, simple collision de symboles boursiers/mots-clés.\"\n}\n```",
-      "ts": "2026-10-29T22:45:49.345317+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.7935191980292835,
-      "value": 18756198538.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de volume on-chain massive (z-score 2.79) contrastant avec des actualités macro/traditionnelles sans lien direct, masquant une accumulation agressive de baleines sur les infrastructures de paiement (stablecoins).\"\n}\n```",
-      "ts": "2026-10-29T22:50:52.465375+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.6555395886899498,
-      "value": 19026671759.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Bruit de fond macroéconomique et médiatique sans rapport avec la crypto (actualité sur l'eau, Renault, Unilever et la coiffure). Z-score de volume trompeur ou sans correspondance onchain pertinente.\"\n}\n```",
-      "ts": "2026-10-29T23:20:57.111755+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.070565274994471,
       "value": 50.0,
@@ -349,6 +314,41 @@
       "value": 0.624,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. Le 'SDI' dans les titres fait référence au Syndicat des Indépendants (France), non à un indicateur onchain ou un actif crypto. Aucune divergence réelle entre données brutes et narratif crypto, car le contexte est purement macro-économique français.\"\n}",
       "ts": "2026-10-30T14:49:19.707296+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.131025564953312,
+      "value": 0.822,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Bruit médiatique sans rapport avec la crypto (homonymie IPT : Institut Pasteur de Tunis, Tournoi International des Physiciens). Aucune baleine détectée.\"\n}\n```",
+      "ts": "2026-10-31T08:58:10.865824+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.76512406023944,
+      "value": 1.322,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.322 (z-score 3.77) indique une agression massive à l'achat par les takers, totalement ignorée par un silence médiatique (Google Actualités vide). C'est la signature classique d'accumulation furtive par les baleines avant un re-pricing.\"\n}\n```",
+      "ts": "2026-10-31T08:58:12.381723+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 2.7227017116083654,
+      "value": 1.172,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 78,\n  \"reason\": \"Le taker_ratio de 1.172 (z-score 2.72) indique une pression acheteuse agressive et anormale sur le marché spot, typique d'une accumulation par des acteurs institutionnels ou des baleines. L'absence totale de couverture médiatique (vide informationnel) crée une divergence majeure : le marché se déplace sans le bruit habituel du FOMO retail. Cette discrétion suggère une accumulation silencieuse avant un potentiel mouvement haussier, le narratif étant actuellement déconnecté de la réalité onchain.\"\n}\n```",
+      "ts": "2026-10-31T09:32:47.774001+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 3.0539623532027176,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques) ou à des tutoriels techniques génériques (RBF/CPFP), sans lien avec une accumulation massive ou un mouvement de baleines. L'anomalie onchain (z-score 3.05) n'est pas corroborée par un narratif de marché, indiquant probablement du bruit de fond ou une transaction isolée sans impact systémique.\"\n}\n```",
+      "ts": "2026-10-31T09:42:51.932910+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 3.0539623532027176,
+      "value": 50.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
+      "ts": "2026-10-31T09:42:53.065826+00:00"
     }
   ]
 }
