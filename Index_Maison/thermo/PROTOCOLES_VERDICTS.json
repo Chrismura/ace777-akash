@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-31T19:02:52+00:00",
+  "ts": "2026-10-31T20:03:09+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -282,7 +282,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "940 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "941 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -307,15 +307,15 @@
           "delta_votes": 3
         },
         {
-          "amendement": "XChainBridge",
-          "delta_votes": -1
-        },
-        {
           "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
-          "amendement": "Batch",
+          "amendement": "XChainBridge",
+          "delta_votes": -1
+        },
+        {
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
@@ -343,30 +343,30 @@
           "indice": "fearGreed",
           "directionnels": 1,
           "corect": null,
-          "n": 4
+          "n": 5
         },
         {
           "indice": "radar",
           "directionnels": 1,
           "corect": null,
-          "n": 3
+          "n": 4
         }
       ]
     },
     {
       "protocole": "Geopol (réanimé)",
       "critere": "GEOPOL-C2/C3 : avis geopol noté vs BTC 2×/jour, fenêtre 4 semaines (→ ~10/10), critère P3 ≥ 56 %",
-      "faits": "score actuel 0.4293 « attention » (ML 0.2569) · 4 avis enregistrés dont 0 directionnels (0 correct(s)) · 62 NEUTRE",
+      "faits": "score actuel 0.4293 « attention » (ML 0.2569) · 5 avis enregistrés dont 0 directionnels (0 correct(s)) · 63 NEUTRE",
       "verdict": "EN ATTENTE (fenêtre jusqu'au ~10/10)",
       "alerte": "",
       "detail": [
         {
           "indice": "geopol",
-          "n": 4,
+          "n": 5,
           "directionnels": 0,
           "corrects": 0,
-          "neutres": 62,
-          "t_stat": -2.0
+          "neutres": 63,
+          "t_stat": -1.34
         }
       ]
     },
