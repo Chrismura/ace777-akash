@@ -1,11 +1,47 @@
 {
-  "ts": "2026-10-31T20:10:17Z",
-  "hauteur_tip": 974020,
+  "ts": "2026-10-31T21:22:15Z",
+  "hauteur_tip": 974026,
   "nb_blocs": 8,
   "seuil_btc": 50.0,
   "min_age_ans": 2.0,
-  "nb_grosses_tx": 49,
-  "nb_vieux_mouvements": 0,
-  "vieux_mouvements": [],
+  "nb_grosses_tx": 83,
+  "nb_vieux_mouvements": 1,
+  "vieux_mouvements": [
+    {
+      "txid": "17b9864256f9595feb18eab9ba4e5ad6fafee3b82fe7dd0d8d00f7982cbd2d66",
+      "hauteur_bloc": 974024,
+      "ts_bloc": 1793479769,
+      "btc": 59.99,
+      "inputs_ages": [
+        {
+          "age_jours": 672.0,
+          "btc": 1.9953
+        },
+        {
+          "age_jours": 3123.0,
+          "btc": 2.9999
+        },
+        {
+          "age_jours": 2110.4,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 672.0,
+          "btc": 27.9973
+        },
+        {
+          "age_jours": 2272.2,
+          "btc": 0.0
+        },
+        {
+          "age_jours": 672.0,
+          "btc": 26.997
+        }
+      ],
+      "age_max_jours": 3123.0,
+      "age_max_ans": 8.6,
+      "inputs_non_resolus": 0
+    }
+  ],
   "note": "age_max = âge du plus vieil input (TOUS inputs, retry+cache, correction 13/09). inputs_ages=null = inputs non résolus — jamais comptés comme 0.0"
 }

@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "sdi",
-      "zscore": 2.161076000685825,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"Les données fournies concernent le syndicat patronal SDI (Syndicat des Indépendants) et des actualités sur les TPE françaises, sans aucun rapport avec des mouvements de baleines crypto ou des données on-chain.\"\n}\n```",
-      "ts": "2026-10-30T12:54:00.440194+00:00"
-    },
-    {
-      "metric": "sdi",
       "zscore": 2.065905121484857,
       "value": 0.62,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif d'entité : 'SDI' correspond ici à Samsung SDI (batteries/ESS), non à un actif crypto. Aucune corrélation onchain ou divergence de marché crypto détectée.\"\n}",
@@ -349,6 +342,13 @@
       "value": 2221881.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les liquidations crypto dépassent 628 millions de dollars en une heure, indiquant une forte activité de trading et une possible accumulation de positions longues par les baleines. Le narratif médiatique se concentre sur des liquidations judiciaires et des hacks, qui sont des événements discrets et ponctuels, tandis que les liquidations crypto sont des événements continus et significatifs, suggérant une divergence entre le signal onchain et le narratif médiatique.\"\n}\n```",
       "ts": "2026-10-31T20:25:47.665039+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1594250812633224,
+      "value": 0.98,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 10,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain.\"\n}",
+      "ts": "2026-10-31T21:15:56.820030+00:00"
     }
   ]
 }
