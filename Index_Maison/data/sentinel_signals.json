@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.0008604825576026,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (Centre de Formation Professionnelle, politique locale, ou confusion avec le protocole Bitcoin Child Pays For Parent). Aucune corrélation entre l'anomalie onchain et le narratif médiatique détecté. Absence de signal de mouvement de baleines.\"\n}\n```",
-      "ts": "2026-10-30T03:07:01.556950+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.0008604825576026,
-      "value": 50.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif sémantique. Le terme 'dust' dans les titres médiatiques fait référence à des phénomènes météorologiques (Dust Bowl, mini-tornades) ou à des émissions industrielles, sans aucun lien avec la terminologie onchain (dust attacks, dusting). Aucune divergence réelle entre le marché crypto et le narratif généraliste n'est détectée ici.\"\n}",
-      "ts": "2026-10-30T03:07:02.599756+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.565716634807999,
       "value": 2.698,
@@ -349,6 +335,20 @@
       "value": 0.906,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain valide.\"\n}",
       "ts": "2026-10-31T16:44:40.881329+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.84491987062907,
+      "value": 0.15459708457126187,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.84 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+      "ts": "2026-10-31T17:54:52.300445+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 3.058085189896336,
+      "value": 2184560.0,
+      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 3.06 confirme une anomalie statistique majeure des liquidations. Contrairement à un signal de 'baleine silencieuse' (qui impliquerait un achat discret sans bruit), le narratif médiatique (peur d'un hack Binance) est parfaitement aligné avec la réalité onchain : c'est un événement de panique et de délestage forcé. La divergence est nulle ; le marché est en phase de capitulation active, non de manipulation silencieuse.\"\n}",
+      "ts": "2026-10-31T17:54:53.868252+00:00"
     }
   ]
 }
