@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.7899609294670156,
-      "value": 50.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
-      "ts": "2026-10-31T10:43:23.672904+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.574496474303414,
-      "value": 1.3,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : un taker_ratio de 1.3 (z-score 2.57) indique une pression acheteuse agressive et des achats au marché (market buys) par des acteurs institutionnels ou des baleines, tandis que l'absence de couverture médiatique significative suggère que le mouvement est encore en phase d'accumulation silencieuse avant la propagation du narratif.\"\n}",
-      "ts": "2026-10-31T11:03:28.111351+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 3.3129028578291524,
       "value": 1.113,
@@ -349,6 +335,20 @@
       "value": 34,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Fear & Greed à 34 (Peur) combiné à un z-score élevé (2.88) indique une anomalie de capitulation ou de sous-évaluation extrême, alors que les médias traditionnels affichent un vide informationnel (aucun narratif dominant de panique ou d'euphorie). C'est le profil typique d'accumulation silencieuse par les baleines loin des radars du retail.\"\n}\n```",
       "ts": "2026-11-01T02:42:06.799810+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.604569788618416,
+      "value": 34,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 72,\n\"reason\": \"Divergence majeure : un Fear & Greed à 34 (peur) avec un z-score de 2.60 indique une anomalie statistique forte, suggérant que le sentiment de peur est extrême par rapport à la moyenne historique. L'absence de titres médiatiques significatifs (vide informationnel) combinée à cette anomalie onchain/signale typique d'un 'accumulation phase' où les baleines achètent silencieusement pendant que le marché panique. Le narratif médiatique est déconnecté de la réalité onchain.\"\n}",
+      "ts": "2026-11-01T03:12:13.412952+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.3869801881466577,
+      "value": 34,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 34 (peur prononcée avec un z-score élevé de 2.39) couplé à un vide médiatique total (Google Actualités sans bruit de fond). C'est la configuration classique d'accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
+      "ts": "2026-11-01T03:42:19.375250+00:00"
     }
   ]
 }

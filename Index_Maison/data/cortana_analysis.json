@@ -1,47 +1,8 @@
 {
-  "timestamp": 1793502163,
-  "date": "2026-11-01T03:02:43.671578+00:00",
-  "n_analyses": 13,
+  "timestamp": 1793505464,
+  "date": "2026-11-01T03:57:44.729776+00:00",
+  "n_analyses": 14,
   "analyses": [
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.1594250812633224,
-        "value": 0.98,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 10,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain.\"\n}",
-        "ts": 1793481356.82003
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.01,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "liquidations",
@@ -53,17 +14,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 279666.0,
+          "value": 278369.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 1038456.0,
+          "value": 1053401.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": 0.12,
           "seuil": 1,
           "depasse": false
         }
@@ -93,12 +54,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 2188,
+          "value": 60,
           "seuil": 100,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.01,
+          "value": 0.12,
           "seuil": 2,
           "depasse": false
         },
@@ -138,12 +99,12 @@
           "depasse": false
         },
         "volume": {
-          "value": 2188,
+          "value": 60,
           "seuil": 100,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.01,
+          "value": 0.12,
           "seuil": 2,
           "depasse": false
         },
@@ -178,17 +139,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 279666.0,
+          "value": 278369.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 1038456.0,
+          "value": 1053401.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": 0.12,
           "seuil": 1,
           "depasse": false
         }
@@ -213,12 +174,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.01,
+          "value": 0.12,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1318123.0,
+          "value": 1331770.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -276,28 +237,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 0.0,
+          "value": 1267899.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "achats": {
-          "value": 0.0,
+          "value": 1100602.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": 0.12,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -443,7 +405,65 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 2.604569788618416,
+        "value": 34,
+        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 72,\n\"reason\": \"Divergence majeure : un Fear & Greed à 34 (peur) avec un z-score de 2.60 indique une anomalie statistique forte, suggérant que le sentiment de peur est extrême par rapport à la moyenne historique. L'absence de titres médiatiques significatifs (vide informationnel) combinée à cette anomalie onchain/signale typique d'un 'accumulation phase' où les baleines achètent silencieusement pendant que le marché panique. Le narratif médiatique est déconnecté de la réalité onchain.\"\n}",
+        "ts": 1793502733.412952
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 34,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 34,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 2.3869801881466577,
+        "value": 34,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 34 (peur prononcée avec un z-score élevé de 2.39) couplé à un vide médiatique total (Google Actualités sans bruit de fond). C'est la configuration classique d'accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
+        "ts": 1793504539.37525
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 34,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 34,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }
