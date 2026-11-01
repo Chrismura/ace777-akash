@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.015656541980927,
-      "value": 40.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des concepts non-crypto (poussière physique, noms de films/bandes, noms de produits IA). Aucune corrélation avec l'activité onchain ou les mouvements de baleines. Le zscore est probablement lié à un bruit de données ou une coïncidence sémantique sans impact de marché.\"\n}",
-      "ts": "2026-10-31T18:25:04.578818+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.5465300159492497,
-      "value": 2219288.0,
-      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.55 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en contre-tendance), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence entre la douleur onchain et la peur médiatique indique une sortie de capitaux réelle, pas un piège haussier.\"\n}",
-      "ts": "2026-10-31T18:55:10.458049+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.000260663741568,
-      "value": 0.907,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain valide.\"\n}",
-      "ts": "2026-10-31T19:05:13.922060+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.253548544546128,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF technique). Aucune corrélation avec l'anomalie onchain (z-score 2.25) n'est détectable dans le flux médiatique. Le signal onchain est isolé sans confirmation narrative.\"\n}\n```",
-      "ts": "2026-10-31T19:15:16.293519+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.253548544546128,
-      "value": 45.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des entités non-crypto (film, groupe de metal, plateforme IA, punaise de bureau). Aucune corrélation avec l'anomalie onchain détectée (z-score 2.25). Le narratif est déconnecté car il ne traite pas du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
-      "ts": "2026-10-31T19:15:17.680388+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.3464916989218425,
       "value": 2221881.0,
@@ -349,6 +314,41 @@
       "value": 2.353,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
       "ts": "2026-11-01T12:44:43.836139+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.0865980899352734,
+      "value": 2.321,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
+      "ts": "2026-11-01T13:14:48.424562+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.7862826305962516,
+      "value": 2.321,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (long_short = 2.321, z-score -2.79) indique une forte concentration de positions long-short, suggérant une anticipation de mouvements de marché. Les titres médiatiques mentionnent les fonds long-short comme une stratégie idéale face à des marchés agités, ce qui est en accord avec l'anomalie onchain. Cependant, la date de septembre 2026 est future, ce qui pourrait indiquer un retard dans la propagation des informations ou une anticipation précoce des baleines.\"\n}\n```",
+      "ts": "2026-11-01T13:44:55.883788+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.534266226712128,
+      "value": 0.616,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Le sigle 'SDI' dans les titres médiatiques correspond à des entités non-crypto (Syndicat des Délégués d'Initiative, Samsung SDI, etc.). Aucune corrélation avec l'anomalie onchain détectée. Le narratif est déconnecté du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
+      "ts": "2026-11-01T14:10:01.371670+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.6746412464301397,
+      "value": 1.186,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
+      "ts": "2026-11-01T14:10:02.435441+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.440344074675312,
+      "value": 1.985,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Un taker_ratio de 1.985 (z-score 3.44) indique une pression acheteuse agressive et anormale (les takers achètent massivement). L'absence totale de couverture médiatique (vide informationnel) suggère que ce mouvement est initié par des acteurs informés (baleines) avant la diffusion du narratif public. C'est un signal classique d'accumulation silencieuse.\"\n}",
+      "ts": "2026-11-01T14:10:03.487907+00:00"
     }
   ]
 }
