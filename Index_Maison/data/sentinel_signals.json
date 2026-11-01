@@ -2,20 +2,6 @@
   "signals": [
     {
       "metric": "fear_greed",
-      "zscore": 4.599331055038998,
-      "value": 34,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 4.60 couplé à un indice de Peur & Avarice à 34 (peur) en l'absence notable de couverture médiatique (silence radio). C'est le profil typique d'accumulation furtive par les baleines avant un retournement de tendance.\"\n}\n```",
-      "ts": "2026-11-01T01:11:48.814717+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.762697800361079,
-      "value": 34,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Fear & Greed à 34 (Peur) combiné à un z-score élevé (3.76) indique un événement de stress statistique anormal. L'absence de narratif médiatique dominant (silence radio) suggère une accumulation discrète des baleines loin du bruit de fond de la foule.\"\n}\n```",
-      "ts": "2026-11-01T01:41:54.862473+00:00"
-    },
-    {
-      "metric": "fear_greed",
       "zscore": 3.2434549480453714,
       "value": 34,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.24) combiné à un Fear & Greed bas (34) et un vide médiatique total (Google Actualités silencieux) : classic setup d'accumulation furtive par les baleines loin du bruit de retail.\"\n}\n```",
@@ -349,6 +335,20 @@
       "value": 0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. Les données onchain indiquent une chute du 'dust' (z-score -2.36), mais le narratif médiatique est 100% hors sujet (voitures électriques, cinéma, météo). Aucune corrélation crypto détectée ; le signal onchain est probablement un artefact statistique ou lié à un token obscur non couvert par la presse.\"\n}",
       "ts": "2026-11-01T19:01:04.850869+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.185390190705416,
+      "value": 0.2885149332253145,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 3.19 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+      "ts": "2026-11-01T22:21:35.456933+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.539378674740463,
+      "value": 0.32394664653090377,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.54) en l'absence totale de couverture médiatique. Les baleines accumulent dans le silence absolu avant que le narratif ne rattrape la réalité.\"\n}\n```",
+      "ts": "2026-11-01T23:11:45.040676+00:00"
     }
   ]
 }

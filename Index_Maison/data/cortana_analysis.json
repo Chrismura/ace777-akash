@@ -1,102 +1,8 @@
 {
-  "timestamp": 1793571183,
-  "date": "2026-11-01T22:13:03.914352+00:00",
-  "n_analyses": 7,
+  "timestamp": 1793575085,
+  "date": "2026-11-01T23:18:05.104341+00:00",
+  "n_analyses": 6,
   "analyses": [
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 7.188969826029297,
-        "value": 7696993.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : Anomalie onchain extrême (z-score 7.19, ~7.7M USD) vs silence médiatique total. L'absence de couverture pour un tel flux suggère une accumulation silencieuse ou un transfert vers des cold wallets, typique d'un positionnement haussier avant une volatilité publique.\"\n}\n```",
-        "ts": 1793549733.476792
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.05,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.147846837591262,
-        "value": 2.298,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-        "ts": 1793549734.456751
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.273,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 95846.532,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.010934953630044,
-        "value": 2.298,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short affiche une survente extrême (z-score -2.01), indiquant un positionnement massif des investisseurs particuliers sur la baisse ou une capitulation des longs. En contraste total, les médias grand public banalisent la stratégie 'long/short' sans urgence directionnelle. Cette divergence classique signale une accumulation silencieuse des baleines en contrarien, préfigurant un short squeeze imminent.\"\n}\n```",
-        "ts": 1793551540.839022
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.273,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 95846.532,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "sdi",
@@ -123,7 +29,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.05,
+          "value": 0.45,
           "seuil": 1,
           "depasse": false
         },
@@ -138,7 +44,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
@@ -180,7 +86,75 @@
         "niveau": "inconnu"
       },
       "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.185390190705416,
+        "value": 0.2885149332253145,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 3.19 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+        "ts": 1793571695.456933
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.45,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2425591.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 3.539378674740463,
+        "value": 0.32394664653090377,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.54) en l'absence totale de couverture médiatique. Les baleines accumulent dans le silence absolu avant que le narratif ne rattrape la réalité.\"\n}\n```",
+        "ts": 1793574705.040676
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": 0.45,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2425591.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
