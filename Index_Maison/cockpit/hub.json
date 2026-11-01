@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T00:58:57.301668+00:00",
+  "generated_at": "2026-11-01T01:06:03.615862+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -8,7 +8,7 @@
       "model": "gemini-flash-lite-latest",
       "enabled": true,
       "timeout": 180,
-      "calls_24h": 70
+      "calls_24h": 72
     },
     {
       "id": "openrouter-free",
@@ -283,10 +283,26 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 5,
-    "remaining": 619
+    "consumed": 7,
+    "remaining": 617
   },
   "queue": [
+    {
+      "ts": "2026-11-01T01:05:42.268368+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.86
+    },
+    {
+      "ts": "2026-11-01T01:05:39.459447+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 0.91
+    },
     {
       "ts": "2026-11-01T00:41:41.807749+00:00",
       "task": "analyse.profonde",
@@ -390,25 +406,27 @@
       "model": "gemini-flash-lite-latest",
       "kind": "cloud",
       "duration_s": 1.23
-    },
-    {
-      "ts": "2026-10-31T22:03:59.171351+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.24
-    },
-    {
-      "ts": "2026-10-31T21:15:56.818933+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.5
     }
   ],
   "events": [
+    {
+      "ts": "2026-11-01T01:05:42.267832+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-11-01T01:05:39.458627+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-11-01T01:05:38.544962+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
     {
       "ts": "2026-11-01T00:58:24.086206+00:00",
       "kind": "http",
@@ -450,24 +468,6 @@
       "kind": "failover",
       "title": "Bascule depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-11-01T00:58:07.247719+00:00",
-      "kind": "blacklist",
-      "title": "Pause Groq (Qwen 3.8 27B, gratuit) (3 echecs) 15min",
-      "detail": "backoff x1 -> re-essai auto"
-    },
-    {
-      "ts": "2026-11-01T00:58:03.253689+00:00",
-      "kind": "timeout",
-      "title": "Patience Groq (Qwen 3.8 27B, gratuit) (HTTP 400)",
-      "detail": "HTTP Error 400: Bad Request"
-    },
-    {
-      "ts": "2026-11-01T00:58:02.317511+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis Google Gemini",
-      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
