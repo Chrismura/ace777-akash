@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.8606031418327276,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie onchain sur le CPFP (z-score 2.86) révélant une congestion intentionnelle ou une optimisation agressive des frais par des acteurs majeurs, totalement ignorée par les médias généralistes et crypto qui se concentrent sur des tutoriels génériques.\"\n}\n```",
-      "ts": "2026-10-31T10:13:01.178944+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.8606031418327276,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (art, concerts, IA Web2). L'anomalie 'dust' (z-score 2.86) est un bruit statistique insignifiant ou du nettoyage de portefeuille, pas une accumulation de baleines.\"\n}\n```",
-      "ts": "2026-10-31T10:13:04.788943+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.8080413398205533,
       "value": 1.3,
@@ -349,6 +335,20 @@
       "value": 34,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score 6.34) avec un Fear & Greed à 34 (peur) alors que les médias traditionnels affichent un silence radio (absence de narratif panique).经典的 'accumulation dans le silence' par les baleines avant un retournement de tendance.\"\n}\n```",
       "ts": "2026-11-01T00:41:41.809456+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.599331055038998,
+      "value": 34,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score extrême de 4.60 couplé à un indice de Peur & Avarice à 34 (peur) en l'absence notable de couverture médiatique (silence radio). C'est le profil typique d'accumulation furtive par les baleines avant un retournement de tendance.\"\n}\n```",
+      "ts": "2026-11-01T01:11:48.814717+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 3.762697800361079,
+      "value": 34,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Fear & Greed à 34 (Peur) combiné à un z-score élevé (3.76) indique un événement de stress statistique anormal. L'absence de narratif médiatique dominant (silence radio) suggère une accumulation discrète des baleines loin du bruit de fond de la foule.\"\n}\n```",
+      "ts": "2026-11-01T01:41:54.862473+00:00"
     }
   ]
 }
