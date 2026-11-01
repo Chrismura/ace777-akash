@@ -1,137 +1,8 @@
 {
-  "timestamp": 1793545976,
-  "date": "2026-11-01T15:12:56.591311+00:00",
-  "n_analyses": 28,
+  "timestamp": 1793548977,
+  "date": "2026-11-01T16:02:57.554768+00:00",
+  "n_analyses": 26,
   "analyses": [
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 6.771340234865918,
-        "value": 10717466.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.77, ~10.7M$ de flux baleines) couplée à un silence médiatique total (Google Actualités vide). Classique accumulation furtive hors radar public.\"\n}\n```",
-        "ts": 1793524409.360125
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 1491750.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": 0.04,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.192773966569654,
-        "value": 2.489,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short est extrêmement bas (z-score -2.19, retail ultra-pessimiste ou short), tandis que le narratif médiatique est totalement déconnecté, focalisé sur des produits traditionnels (fonds UCITS/AIF). C'est le signal classique d'une accumulation silencieuse par les baleines contre le consensus de la foule, présageant un short squeeze imminent.\"\n}\n```",
-        "ts": 1793524411.014886
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.318,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 97664.225,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 4.548339118978703,
-        "value": 0.33617302267425764,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 4.55 sur le prix seul est statistiquement significatif mais sans contexte de volume ou de flux, il ne permet pas de distinguer un mouvement de baleine d'un simple bruit de marché ou d'un glitch. Le narratif 'Google Actualités' est vide, rendant l'analyse de divergence impossible.\"\n}\n```",
-        "ts": 1793525314.991117
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.04,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 2227660.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.086851454258447,
-        "value": 2.489,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-        "ts": 1793526217.893487
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.318,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 97664.225,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "sdi",
@@ -158,7 +29,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -202,7 +73,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -232,7 +103,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -262,7 +133,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -302,7 +173,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -346,7 +217,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -386,7 +257,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -430,17 +301,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 152,
+          "value": 793,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -475,17 +346,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 152,
+          "value": 793,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -520,7 +391,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -550,7 +421,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -580,7 +451,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -610,7 +481,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -650,7 +521,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -694,7 +565,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         }
@@ -724,7 +595,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -754,7 +625,7 @@
           "depasse": true
         },
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         }
@@ -784,7 +655,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97664.225,
+          "value": 97578.825,
           "seuil": 120000,
           "depasse": false
         }
@@ -824,7 +695,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.04,
+          "value": -0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -851,6 +722,66 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.2167604773067437,
+        "value": 2.318,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+        "ts": 1793546120.617884
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.318,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 97578.825,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.072850379392791,
+        "value": 2.318,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
+        "ts": 1793547926.25845
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.318,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 97578.825,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"

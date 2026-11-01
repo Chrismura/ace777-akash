@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.1594250812633224,
-      "value": 0.98,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 10,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain.\"\n}",
-      "ts": "2026-10-31T21:15:56.820030+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.1574445509956286,
-      "value": 2642947.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 75,\n  \"reason\": \"Bruit médiatique parasité par des fausses alertes sur Binance et des liquidations de commerces locaux. Le z-score (2.16) et le volume onchain (~2.6M$) sont trop faibles pour confirmer une manœuvre de baleine ; il s'agit d'un affolement retail amplifié par des actualités non-crypto.\"\n}\n```",
-      "ts": "2026-10-31T22:06:06.573983+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.1857978428447584,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 1.188,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
       "ts": "2026-11-01T15:10:18.728503+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2167604773067437,
+      "value": 2.318,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-01T15:15:20.617884+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.072850379392791,
+      "value": 2.318,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
+      "ts": "2026-11-01T15:45:26.258450+00:00"
     }
   ]
 }
