@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.5552163440078455,
-      "value": 45.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
-      "ts": "2026-10-31T12:13:42.646793+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.253266652599058,
-      "value": 1.607,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 78,\n\"reason\": \"Un taker_ratio de 1.607 (z-score 3.25) indique une pression acheteuse agressive et anormale (les takers achètent massivement). L'absence totale de couverture médiatique (vide informationnel) suggère que ce mouvement est initié par des acteurs informés (baleines) avant la diffusion du narratif public. C'est un signal classique d'accumulation silencieuse.\"\n}",
-      "ts": "2026-10-31T12:33:47.024033+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 2.9161307341582545,
       "value": 1.607,
@@ -349,6 +335,20 @@
       "value": 1.703,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.703 (z-score 2.17) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée par le silence médiatique actuel. Divergence classique d'accumulation furtive par les baleines avant un mouvement de rupture.\"\n}\n```",
       "ts": "2026-11-01T06:43:00.894382+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 3.0723614042814464,
+      "value": 0.1984046312968668,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 3.07 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+      "ts": "2026-11-01T07:18:07.227430+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.5402461992210643,
+      "value": 0.1846039083493345,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain concrètes (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.54 sur le prix 1h est statistiquement notable mais isolé ; sans confirmation par les flux de trésorerie ou un narratif contradictoire, il est impossible de détecter une divergence ou un mouvement silencieux. Signal insuffisant pour une conviction.\"\n}\n```",
+      "ts": "2026-11-01T07:48:13.933131+00:00"
     }
   ]
 }
