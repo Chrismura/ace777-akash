@@ -1,100 +1,8 @@
 {
-  "timestamp": 1793513267,
-  "date": "2026-11-01T06:07:47.054715+00:00",
-  "n_analyses": 11,
+  "timestamp": 1793516267,
+  "date": "2026-11-01T06:57:47.862001+00:00",
+  "n_analyses": 10,
   "analyses": [
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 16.941074346097412,
-        "value": 34,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 16.94) avec un indice de Peur & Avarice à 34 (Peur). Le silence médiatique (Google Actualités vide/neutre) combiné à une peur extrême des investisseurs particuliers indique une accumulation silencieuse des baleines sous le radar.\"\n}\n```",
-        "ts": 1793491893.547269
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 34,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 34,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.0921946019042728,
-        "value": 4584692.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.09, ~4.58M USD) indiquant un accumulation ou un transfert actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Cette discrétion suggère une accumulation silencieuse avant un mouvement de prix, typique des phases pré-bullish.\"\n}\n```",
-        "ts": 1793492797.449913
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 6.335839103296198,
-        "value": 34,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score 6.34) avec un Fear & Greed à 34 (peur) alors que les médias traditionnels affichent un silence radio (absence de narratif panique).经典的 'accumulation dans le silence' par les baleines avant un retournement de tendance.\"\n}\n```",
-        "ts": 1793493701.809456
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 34,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 34,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "fear_greed",
@@ -326,6 +234,66 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.310033770373617,
+        "value": 1.703,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker ratio à 1.703 (z-score 2.31) indique une forte agression acheteuse cachée sur les carnets d'ordres, totalement ignorée par les médias (silence radio). Divergence classique d'accumulation silencieuse par les baleines avant un mouvement haussier.\"\n}\n```",
+        "ts": 1793513573.308322
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.703,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.14,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "taker_ratio",
+        "zscore": 2.1691333217619935,
+        "value": 1.703,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.703 (z-score 2.17) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée par le silence médiatique actuel. Divergence classique d'accumulation furtive par les baleines avant un mouvement de rupture.\"\n}\n```",
+        "ts": 1793515380.894382
+      },
+      "fiche": "taker_ratio",
+      "questions": {
+        "taker": {
+          "value": 1.703,
+          "seuil": 1,
+          "depasse": true
+        },
+        "prix": {
+          "value": 0.14,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "taker > 1",
+        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
+        "niveau": "info",
+        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+      },
+      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
+      "niveau": "info"
     }
   ],
   "resume": "🔵 CALME — pas de signal alarmant"
