@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.3464916989218425,
-      "value": 2221881.0,
-      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Absence de divergence : le pic de liquidations (z-score 2.35) est parfaitement aligné avec le narratif médiatique dominant (peur d'un hack Binance, chute du BTC). Les titres non-crypto (Roanne, Finistère) sont du bruit. Pas de signal de accumulation silencieuse ; le marché réagit à un choc de liquidité négatif.\"\n}",
-      "ts": "2026-10-31T19:25:20.565962+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.1774422570125327,
-      "value": 2221881.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les liquidations crypto dépassent 628 millions de dollars en une heure, indiquant une forte activité de trading et une possible peur d'un hack sur Binance. Le narratif médiatique se concentre sur les liquidations judiciaires et les liquidations de petits commerces, ce qui est déconnecté de la réalité onchain. Les baleines pourraient être en train de bouger silencieusement en raison de la peur et de l'incertitude sur le marché.\"\n}\n```",
-      "ts": "2026-10-31T19:55:36.753714+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.397727278737192,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie technique (hausse des transactions CPFP/frais) due à la congestion du réseau Bitcoin ou à des tutoriels grand public, totalement déconnectée des bruits médiatiques hors-sujet (politique locale, éducation). Pas de mouvement silencieux de baleine détecté.\"\n}\n```",
-      "ts": "2026-10-31T20:00:39.269592+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.397727278737192,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (cinéma, concerts, IA Web2). L'anomalie 'dust' onchain est statistiquement faible et non corrélée aux flux des baleines.\"\n}\n```",
-      "ts": "2026-10-31T20:00:40.944243+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.034208326590334,
-      "value": 2221881.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les liquidations crypto dépassent 628 millions de dollars en une heure, indiquant une forte activité de trading et une possible accumulation de positions longues par les baleines. Le narratif médiatique se concentre sur des liquidations judiciaires et des hacks, qui sont des événements discrets et ponctuels, tandis que les liquidations crypto sont des événements continus et significatifs, suggérant une divergence entre le signal onchain et le narratif médiatique.\"\n}\n```",
-      "ts": "2026-10-31T20:25:47.665039+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.1594250812633224,
       "value": 0.98,
@@ -349,6 +314,41 @@
       "value": 1.985,
       "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Un taker_ratio de 1.985 (z-score 3.44) indique une pression acheteuse agressive et anormale (les takers achètent massivement). L'absence totale de couverture médiatique (vide informationnel) suggère que ce mouvement est initié par des acteurs informés (baleines) avant la diffusion du narratif public. C'est un signal classique d'accumulation silencieuse.\"\n}",
       "ts": "2026-11-01T14:10:03.487907+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.5853781428542315,
+      "value": 2.318,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-01T14:15:05.088387+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": 3.025217547301782,
+      "value": 1.985,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 3.03 sur le taker_ratio (1.985) indiquant une pression d'achat agressive massive. Silence total des médias (Google Actualités vide), ce qui démontre une accumulation furtive des baleines loin du radar retail.\"\n}\n```",
+      "ts": "2026-11-01T14:40:11.345169+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.383600010736295,
+      "value": 2.318,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short affiche un z-score extrêmement bas (-2.38), indiquant une sous-exposition massive des investisseurs. Pendant que les médias généralistes (Les Echos, Paris Match) se focalisent abstraitement sur les fonds long/short traditionnels, le marché crypto subit un 'short squeeze' potentiel imminent orchestré par l'accumulation silencieuse des baleines sur les niveaux de survente.\"\n}\n```",
+      "ts": "2026-11-01T14:45:13.698554+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.513014143116971,
+      "value": 0.616,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. Le 'SDI' détecté dans les titres correspond au Syndicat des Industries de la Distribution (France), et non à un indicateur onchain ou un actif crypto. Aucune divergence réelle entre données brutes et narratif crypto, car le contexte est purement macro-économique/retail.\"\n}",
+      "ts": "2026-11-01T15:10:17.812887+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.6365004952778666,
+      "value": 1.188,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
+      "ts": "2026-11-01T15:10:18.728503+00:00"
     }
   ]
 }
