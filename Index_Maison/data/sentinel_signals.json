@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.7493453202799687,
-      "value": 0.16342294156141968,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.75 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
-      "ts": "2026-10-31T22:56:19.173393+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 16.941074346097412,
-      "value": 34,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 16.94) avec un indice de Peur & Avarice à 34 (Peur). Le silence médiatique (Google Actualités vide/neutre) combiné à une peur extrême des investisseurs particuliers indique une accumulation silencieuse des baleines sous le radar.\"\n}\n```",
-      "ts": "2026-11-01T00:11:33.547269+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 3.0921946019042728,
       "value": 4584692.0,
@@ -349,6 +335,20 @@
       "value": 2.298,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short affiche une survente extrême (z-score -2.01), indiquant un positionnement massif des investisseurs particuliers sur la baisse ou une capitulation des longs. En contraste total, les médias grand public banalisent la stratégie 'long/short' sans urgence directionnelle. Cette divergence classique signale une accumulation silencieuse des baleines en contrarien, préfigurant un short squeeze imminent.\"\n}\n```",
       "ts": "2026-11-01T16:45:40.839022+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.5482080717988462,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI) déclenchée par un bruit médiatique macro/corporate (Samsung SDI, syndicat patronal SDI) sans aucun rapport avec l'activité on-chain des baleines crypto.\"\n}\n```",
+      "ts": "2026-11-01T18:10:53.914381+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3593841733950156,
+      "value": 1.115,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"False positive technique. Les données textuelles concernent l'Institut Pasteur de Tunis (IPT) et des tournois de physique académiques, sans aucun rapport avec la crypto-sphère ou une activité de baleine.\"\n}\n```",
+      "ts": "2026-11-01T18:10:55.500255+00:00"
     }
   ]
 }
