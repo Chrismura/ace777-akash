@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.0921946019042728,
-      "value": 4584692.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.09, ~4.58M USD) indiquant un accumulation ou un transfert actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Cette discrétion suggère une accumulation silencieuse avant un mouvement de prix, typique des phases pré-bullish.\"\n}\n```",
-      "ts": "2026-11-01T00:26:37.449913+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 6.335839103296198,
-      "value": 34,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score 6.34) avec un Fear & Greed à 34 (peur) alors que les médias traditionnels affichent un silence radio (absence de narratif panique).经典的 'accumulation dans le silence' par les baleines avant un retournement de tendance.\"\n}\n```",
-      "ts": "2026-11-01T00:41:41.809456+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 4.599331055038998,
       "value": 34,
@@ -349,6 +335,20 @@
       "value": 1.115,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"False positive technique. Les données textuelles concernent l'Institut Pasteur de Tunis (IPT) et des tournois de physique académiques, sans aucun rapport avec la crypto-sphère ou une activité de baleine.\"\n}\n```",
       "ts": "2026-11-01T18:10:55.500255+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": -2.3550495711370854,
+      "value": 0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités humaines (partis politiques, formations professionnelles) et non à la technique de Child Pays For Parent en Bitcoin. L'anomalie onchain est probablement liée à une confusion sémantique ou un bruit de données, sans corrélation avec un mouvement de capitaux réel.\"\n}\n```",
+      "ts": "2026-11-01T19:01:03.661309+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": -2.3550495711370854,
+      "value": 0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. Les données onchain indiquent une chute du 'dust' (z-score -2.36), mais le narratif médiatique est 100% hors sujet (voitures électriques, cinéma, météo). Aucune corrélation crypto détectée ; le signal onchain est probablement un artefact statistique ou lié à un token obscur non couvert par la presse.\"\n}",
+      "ts": "2026-11-01T19:01:04.850869+00:00"
     }
   ]
 }

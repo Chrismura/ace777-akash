@@ -1,68 +1,8 @@
 {
-  "timestamp": 1793556779,
-  "date": "2026-11-01T18:12:59.799474+00:00",
+  "timestamp": 1793559780,
+  "date": "2026-11-01T19:03:00.586951+00:00",
   "n_analyses": 19,
   "analyses": [
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -3.1946662692330645,
-        "value": 2.353,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.19) malgré un ratio Long/Short élevé à 2.35, couplé à un narratif médiatique grand public totalement déconnecté (fonds traditionnels et actualités généralistes). Divergence classique de capitulation des suiveurs alors que les baleines accumulent en silence.\"\n}\n```",
-        "ts": 1793535279.164969
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.284,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 97326.074,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.892686366562875,
-        "value": 2.353,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
-        "ts": 1793537083.836139
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.284,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 97326.074,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "long_short",
@@ -79,7 +19,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97326.074,
+          "value": 97256.155,
           "seuil": 120000,
           "depasse": false
         }
@@ -109,7 +49,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97326.074,
+          "value": 97256.155,
           "seuil": 120000,
           "depasse": false
         }
@@ -149,7 +89,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         },
@@ -164,7 +104,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -193,7 +133,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         }
@@ -223,7 +163,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97326.074,
+          "value": 97256.155,
           "seuil": 120000,
           "depasse": false
         }
@@ -253,7 +193,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         }
@@ -283,7 +223,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97326.074,
+          "value": 97256.155,
           "seuil": 120000,
           "depasse": false
         }
@@ -323,7 +263,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         },
@@ -338,7 +278,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -367,7 +307,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97326.074,
+          "value": 97256.155,
           "seuil": 120000,
           "depasse": false
         }
@@ -397,7 +337,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97326.074,
+          "value": 97256.155,
           "seuil": 120000,
           "depasse": false
         }
@@ -427,24 +367,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 1054685.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -462,7 +401,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97326.074,
+          "value": 97256.155,
           "seuil": 120000,
           "depasse": false
         }
@@ -492,7 +431,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 97326.074,
+          "value": 97256.155,
           "seuil": 120000,
           "depasse": false
         }
@@ -532,7 +471,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.12,
           "seuil": 1,
           "depasse": false
         },
@@ -547,7 +486,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -559,6 +498,36 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": -2.3550495711370854,
+        "value": 0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités humaines (partis politiques, formations professionnelles) et non à la technique de Child Pays For Parent en Bitcoin. L'anomalie onchain est probablement liée à une confusion sémantique ou un bruit de données, sans corrélation avec un mouvement de capitaux réel.\"\n}\n```",
+        "ts": 1793559663.661309
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": -2.3550495711370854,
+        "value": 0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. Les données onchain indiquent une chute du 'dust' (z-score -2.36), mais le narratif médiatique est 100% hors sujet (voitures électriques, cinéma, météo). Aucune corrélation crypto détectée ; le signal onchain est probablement un artefact statistique ou lié à un token obscur non couvert par la presse.\"\n}",
+        "ts": 1793559664.850869
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
