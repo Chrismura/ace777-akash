@@ -1,152 +1,8 @@
 {
-  "timestamp": 1793560380,
-  "date": "2026-11-01T19:13:00.701006+00:00",
-  "n_analyses": 19,
+  "timestamp": 1793563981,
+  "date": "2026-11-01T20:13:01.872766+00:00",
+  "n_analyses": 14,
   "analyses": [
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -3.0865980899352734,
-        "value": 2.321,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
-        "ts": 1793538888.424562
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.263,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 96419.125,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.7862826305962516,
-        "value": 2.321,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (long_short = 2.321, z-score -2.79) indique une forte concentration de positions long-short, suggérant une anticipation de mouvements de marché. Les titres médiatiques mentionnent les fonds long-short comme une stratégie idéale face à des marchés agités, ce qui est en accord avec l'anomalie onchain. Cependant, la date de septembre 2026 est future, ce qui pourrait indiquer un retard dans la propagation des informations ou une anticipation précoce des baleines.\"\n}\n```",
-        "ts": 1793540695.883788
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.263,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 96419.125,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 2.534266226712128,
-        "value": 0.616,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Le sigle 'SDI' dans les titres médiatiques correspond à des entités non-crypto (Syndicat des Délégués d'Initiative, Samsung SDI, etc.). Aucune corrélation avec l'anomalie onchain détectée. Le narratif est déconnecté du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
-        "ts": 1793542201.37167
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.6746412464301397,
-        "value": 1.186,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
-        "ts": 1793542202.435441
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.16,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 3.440344074675312,
-        "value": 1.985,
-        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Un taker_ratio de 1.985 (z-score 3.44) indique une pression acheteuse agressive et anormale (les takers achètent massivement). L'absence totale de couverture médiatique (vide informationnel) suggère que ce mouvement est initié par des acteurs informés (baleines) avant la diffusion du narratif public. C'est un signal classique d'accumulation silencieuse.\"\n}",
-        "ts": 1793542203.487907
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 0.765,
-          "seuil": 1,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.16,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
-      },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "long_short",
@@ -158,12 +14,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.263,
+          "value": 2.252,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 96419.125,
+          "value": 96015.214,
           "seuil": 120000,
           "depasse": false
         }
@@ -188,12 +44,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.765,
+          "value": 0.67,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": -0.16,
+          "value": 0.03,
           "seuil": 1,
           "depasse": false
         }
@@ -218,12 +74,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.263,
+          "value": 2.252,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 96419.125,
+          "value": 96015.214,
           "seuil": 120000,
           "depasse": false
         }
@@ -263,7 +119,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.16,
+          "value": 0.03,
           "seuil": 1,
           "depasse": false
         },
@@ -302,12 +158,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.263,
+          "value": 2.252,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 96419.125,
+          "value": 96015.214,
           "seuil": 120000,
           "depasse": false
         }
@@ -332,12 +188,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.263,
+          "value": 2.252,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 96419.125,
+          "value": 96015.214,
           "seuil": 120000,
           "depasse": false
         }
@@ -372,7 +228,7 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.16,
+          "value": 0.03,
           "seuil": 1,
           "depasse": false
         }
@@ -396,12 +252,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.263,
+          "value": 2.252,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 96419.125,
+          "value": 96015.214,
           "seuil": 120000,
           "depasse": false
         }
@@ -426,12 +282,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.263,
+          "value": 2.252,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 96419.125,
+          "value": 96015.214,
           "seuil": 120000,
           "depasse": false
         }
@@ -471,7 +327,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.16,
+          "value": 0.03,
           "seuil": 1,
           "depasse": false
         },
