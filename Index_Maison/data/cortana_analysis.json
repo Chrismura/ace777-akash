@@ -1,66 +1,8 @@
 {
-  "timestamp": 1793524070,
-  "date": "2026-11-01T09:07:50.076078+00:00",
-  "n_analyses": 9,
+  "timestamp": 1793527071,
+  "date": "2026-11-01T09:57:51.110298+00:00",
+  "n_analyses": 11,
   "analyses": [
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.604569788618416,
-        "value": 34,
-        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 72,\n\"reason\": \"Divergence majeure : un Fear & Greed à 34 (peur) avec un z-score de 2.60 indique une anomalie statistique forte, suggérant que le sentiment de peur est extrême par rapport à la moyenne historique. L'absence de titres médiatiques significatifs (vide informationnel) combinée à cette anomalie onchain/signale typique d'un 'accumulation phase' où les baleines achètent silencieusement pendant que le marché panique. Le narratif médiatique est déconnecté de la réalité onchain.\"\n}",
-        "ts": 1793502733.412952
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 34,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 34,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.3869801881466577,
-        "value": 34,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 34 (peur prononcée avec un z-score élevé de 2.39) couplé à un vide médiatique total (Google Actualités sans bruit de fond). C'est la configuration classique d'accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
-        "ts": 1793504539.37525
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 34,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 34,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "fear_greed",
@@ -135,7 +77,7 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": -0.18,
           "seuil": 1,
           "depasse": false
         }
@@ -165,7 +107,7 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.05,
+          "value": -0.18,
           "seuil": 1,
           "depasse": false
         }
@@ -190,12 +132,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.05,
+          "value": -0.18,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1564615.0,
+          "value": 1566773.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -224,12 +166,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.05,
+          "value": -0.18,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1564615.0,
+          "value": 1566773.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -258,12 +200,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.05,
+          "value": -0.18,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1564615.0,
+          "value": 1566773.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -280,7 +222,136 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 6.771340234865918,
+        "value": 10717466.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.77, ~10.7M$ de flux baleines) couplée à un silence médiatique total (Google Actualités vide). Classique accumulation furtive hors radar public.\"\n}\n```",
+        "ts": 1793524409.360125
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 754217.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.18,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.192773966569654,
+        "value": 2.489,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short est extrêmement bas (z-score -2.19, retail ultra-pessimiste ou short), tandis que le narratif médiatique est totalement déconnecté, focalisé sur des produits traditionnels (fonds UCITS/AIF). C'est le signal classique d'une accumulation silencieuse par les baleines contre le consensus de la foule, présageant un short squeeze imminent.\"\n}\n```",
+        "ts": 1793524411.014886
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.489,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 97668.874,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 4.548339118978703,
+        "value": 0.33617302267425764,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 4.55 sur le prix seul est statistiquement significatif mais sans contexte de volume ou de flux, il ne permet pas de distinguer un mouvement de baleine d'un simple bruit de marché ou d'un glitch. Le narratif 'Google Actualités' est vide, rendant l'analyse de divergence impossible.\"\n}\n```",
+        "ts": 1793525314.991117
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.18,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 1566773.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.086851454258447,
+        "value": 2.489,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+        "ts": 1793526217.893487
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.489,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 97668.874,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

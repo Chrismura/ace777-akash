@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "cpfp",
-      "zscore": 2.4434457933745697,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.44) est isolée et non corroborée par un narratif de marché ou d'activité de baleines réelle. Aucune divergence exploitable détectée.\"\n}\n```",
-      "ts": "2026-10-31T13:13:55.823540+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.4434457933745697,
-      "value": 45.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
-      "ts": "2026-10-31T13:13:56.969822+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3537804334513854,
-      "value": 0.901,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain valide.\"\n}",
-      "ts": "2026-10-31T13:24:00.804942+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.209531778775981,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.21) est isolée et non corroborée par un narratif de marché ou d'activité de baleines réelle. Aucune divergence exploitable détectée.\"\n}\n```",
-      "ts": "2026-10-31T14:44:12.960453+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.209531778775981,
       "value": 40.0,
@@ -349,6 +321,34 @@
       "value": 0.26296064318056533,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 4.00 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données comparables.\"\n}\n```",
       "ts": "2026-11-01T08:38:20.751776+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.771340234865918,
+      "value": 10717466.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie onchain massive (z-score 6.77, ~10.7M$ de flux baleines) couplée à un silence médiatique total (Google Actualités vide). Classique accumulation furtive hors radar public.\"\n}\n```",
+      "ts": "2026-11-01T09:13:29.360125+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.192773966569654,
+      "value": 2.489,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short est extrêmement bas (z-score -2.19, retail ultra-pessimiste ou short), tandis que le narratif médiatique est totalement déconnecté, focalisé sur des produits traditionnels (fonds UCITS/AIF). C'est le signal classique d'une accumulation silencieuse par les baleines contre le consensus de la foule, présageant un short squeeze imminent.\"\n}\n```",
+      "ts": "2026-11-01T09:13:31.014886+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.548339118978703,
+      "value": 0.33617302267425764,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 4.55 sur le prix seul est statistiquement significatif mais sans contexte de volume ou de flux, il ne permet pas de distinguer un mouvement de baleine d'un simple bruit de marché ou d'un glitch. Le narratif 'Google Actualités' est vide, rendant l'analyse de divergence impossible.\"\n}\n```",
+      "ts": "2026-11-01T09:28:34.991117+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.086851454258447,
+      "value": 2.489,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-01T09:43:37.893487+00:00"
     }
   ]
 }
