@@ -1,6 +1,6 @@
 {
-  "timestamp": 1793538174,
-  "date": "2026-11-01T13:02:54.370410+00:00",
+  "timestamp": 1793538774,
+  "date": "2026-11-01T13:12:54.515722+00:00",
   "n_analyses": 21,
   "analyses": [
     {
@@ -14,7 +14,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": -1,
           "depasse": true
         },
@@ -48,7 +48,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": -1,
           "depasse": true
         },
@@ -82,7 +82,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": -1,
           "depasse": true
         },
@@ -116,9 +116,9 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 0.0,
+          "value": 893869.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "achats": {
           "value": 0.0,
@@ -126,18 +126,19 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -150,12 +151,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.353,
+          "value": 2.321,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97057.617,
+          "value": 97128.444,
           "seuil": 120000,
           "depasse": false
         }
@@ -180,7 +181,7 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": -1,
           "depasse": true
         },
@@ -214,12 +215,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.353,
+          "value": 2.321,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97057.617,
+          "value": 97128.444,
           "seuil": 120000,
           "depasse": false
         }
@@ -259,7 +260,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -274,7 +275,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -298,12 +299,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.353,
+          "value": 2.321,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97057.617,
+          "value": 97128.444,
           "seuil": 120000,
           "depasse": false
         }
@@ -328,12 +329,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.353,
+          "value": 2.321,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97057.617,
+          "value": 97128.444,
           "seuil": 120000,
           "depasse": false
         }
@@ -358,12 +359,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.353,
+          "value": 2.321,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97057.617,
+          "value": 97128.444,
           "seuil": 120000,
           "depasse": false
         }
@@ -403,7 +404,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -418,7 +419,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -442,12 +443,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.353,
+          "value": 2.321,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97057.617,
+          "value": 97128.444,
           "seuil": 120000,
           "depasse": false
         }
@@ -487,7 +488,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -502,7 +503,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -536,12 +537,12 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -581,12 +582,12 @@
           "depasse": true
         },
         "prix": {
-          "value": -0.09,
+          "value": 0.15,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -616,12 +617,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.353,
+          "value": 2.321,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97057.617,
+          "value": 97128.444,
           "seuil": 120000,
           "depasse": false
         }
@@ -646,12 +647,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.353,
+          "value": 2.321,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97057.617,
+          "value": 97128.444,
           "seuil": 120000,
           "depasse": false
         }
