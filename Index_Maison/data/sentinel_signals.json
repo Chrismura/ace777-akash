@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "cpfp",
-      "zscore": 3.0539623532027176,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques) ou à des tutoriels techniques génériques (RBF/CPFP), sans lien avec une accumulation massive ou un mouvement de baleines. L'anomalie onchain (z-score 3.05) n'est pas corroborée par un narratif de marché, indiquant probablement du bruit de fond ou une transaction isolée sans impact systémique.\"\n}\n```",
-      "ts": "2026-10-31T09:42:51.932910+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 3.0539623532027176,
-      "value": 50.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire) et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines.\"\n}",
-      "ts": "2026-10-31T09:42:53.065826+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.5054567311827247,
-      "value": 1.172,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio élevé (z-score 2.51) indique une agression acheteuse anormale des acheteurs (Takers) sur le marché des dérivés, suggérant une accumulation agressive par les baleines. L'absence totale de couverture médiatique (silence radio de Google Actualités) prouve que ce mouvement se fait sous le radar de la foule, validant une phase d'accumulation discrète avant une cassure haussière.\"\n}\n```",
-      "ts": "2026-10-31T10:02:58.031716+00:00"
-    },
-    {
-      "metric": "cpfp",
       "zscore": 2.8606031418327276,
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Forte anomalie onchain sur le CPFP (z-score 2.86) révélant une congestion intentionnelle ou une optimisation agressive des frais par des acteurs majeurs, totalement ignorée par les médias généralistes et crypto qui se concentrent sur des tutoriels génériques.\"\n}\n```",
@@ -349,6 +328,27 @@
       "value": 0.16342294156141968,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.75 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
       "ts": "2026-10-31T22:56:19.173393+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 16.941074346097412,
+      "value": 34,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 16.94) avec un indice de Peur & Avarice à 34 (Peur). Le silence médiatique (Google Actualités vide/neutre) combiné à une peur extrême des investisseurs particuliers indique une accumulation silencieuse des baleines sous le radar.\"\n}\n```",
+      "ts": "2026-11-01T00:11:33.547269+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.0921946019042728,
+      "value": 4584692.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.09, ~4.58M USD) indiquant un accumulation ou un transfert actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Cette discrétion suggère une accumulation silencieuse avant un mouvement de prix, typique des phases pré-bullish.\"\n}\n```",
+      "ts": "2026-11-01T00:26:37.449913+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.335839103296198,
+      "value": 34,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (z-score 6.34) avec un Fear & Greed à 34 (peur) alors que les médias traditionnels affichent un silence radio (absence de narratif panique).经典的 'accumulation dans le silence' par les baleines avant un retournement de tendance.\"\n}\n```",
+      "ts": "2026-11-01T00:41:41.809456+00:00"
     }
   ]
 }
