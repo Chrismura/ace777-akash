@@ -1,6 +1,6 @@
 {
-  "timestamp": 1793505464,
-  "date": "2026-11-01T03:57:44.729776+00:00",
+  "timestamp": 1793505764,
+  "date": "2026-11-01T04:02:44.803187+00:00",
   "n_analyses": 14,
   "analyses": [
     {
@@ -237,14 +237,14 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 1267899.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "achats": {
-          "value": 1100602.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
           "value": 0.12,
@@ -253,13 +253,12 @@
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -465,5 +464,5 @@
       "niveau": "neutre"
     }
   ],
-  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
+  "resume": "🔵 CALME — pas de signal alarmant"
 }
