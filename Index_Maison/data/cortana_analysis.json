@@ -1,68 +1,8 @@
 {
-  "timestamp": 1793567582,
-  "date": "2026-11-01T21:13:02.891219+00:00",
-  "n_analyses": 9,
+  "timestamp": 1793570583,
+  "date": "2026-11-01T22:03:03.725483+00:00",
+  "n_analyses": 7,
   "analyses": [
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.2167604773067437,
-        "value": 2.318,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-        "ts": 1793546120.617884
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.266,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 95944.994,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": -2.072850379392791,
-        "value": 2.318,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
-        "ts": 1793547926.25845
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": 2.266,
-          "seuil": 2,
-          "depasse": true
-        },
-        "oi": {
-          "value": 95944.994,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ratio_long_short > 2",
-        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
-      },
-      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "whale_usd",
@@ -84,7 +24,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.02,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         }
@@ -113,7 +53,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 95944.994,
+          "value": 95935.602,
           "seuil": 120000,
           "depasse": false
         }
@@ -143,7 +83,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 95944.994,
+          "value": 95935.602,
           "seuil": 120000,
           "depasse": false
         }
@@ -183,7 +123,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.02,
+          "value": -0.02,
           "seuil": 1,
           "depasse": false
         },
@@ -198,7 +138,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
