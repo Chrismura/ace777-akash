@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 2.770229015305366,
-      "value": 2202571.0,
-      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.77 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en dépit de la chute), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence entre la douleur onchain et la peur médiatique indique une sortie de capitaux réelle, pas un piège haussier.\"\n}",
-      "ts": "2026-10-31T18:25:02.206274+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.015656541980927,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (Centre de Formation Professionnelle, politique locale, ou confusion avec le mécanisme onchain). Aucune corrélation entre l'anomalie onchain (z-score 2.02) et le narratif médiatique détecté. Le signal est probablement du bruit ou une coïncidence terminologique sans impact de marché.\"\n}\n```",
-      "ts": "2026-10-31T18:25:03.267593+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": 2.015656541980927,
       "value": 40.0,
@@ -349,6 +335,20 @@
       "value": 5.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (art, concerts, IA SaaS). Le z-score négatif indique une absence totale d'activité 'dust' significative sur la blockchain. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
       "ts": "2026-11-01T12:09:28.944074+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.1946662692330645,
+      "value": 2.353,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.19) malgré un ratio Long/Short élevé à 2.35, couplé à un narratif médiatique grand public totalement déconnecté (fonds traditionnels et actualités généralistes). Divergence classique de capitulation des suiveurs alors que les baleines accumulent en silence.\"\n}\n```",
+      "ts": "2026-11-01T12:14:39.164969+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.892686366562875,
+      "value": 2.353,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
+      "ts": "2026-11-01T12:44:43.836139+00:00"
     }
   ]
 }
