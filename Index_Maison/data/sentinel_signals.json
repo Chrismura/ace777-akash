@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.209531778775981,
-      "value": 40.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. Le terme 'Dust' dans les titres médiatiques fait référence à des produits industriels (voitures électriques, émissions), des films ou des plateformes IA, et non à l'actif crypto 'Dust' (ou au concept de dusting onchain). Aucune corrélation entre l'anomalie z-score et le narratif médiatique actuel.\"\n}",
-      "ts": "2026-10-31T14:44:14.368746+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.485237703644934,
-      "value": 45.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.49) est isolée sans corrélation avec un narratif de marché ou d'activité de baleines réelle. Aucune divergence exploitable détectée.\"\n}\n```",
-      "ts": "2026-10-31T15:14:20.432702+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.485237703644934,
-      "value": 45.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des concepts non-crypto (poussière physique, noms de films/bandes, noms de produits IA). Aucune corrélation avec l'anomalie onchain détectée (z-score 2.49). Le narratif est déconnecté car il ne traite pas du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
-      "ts": "2026-10-31T15:14:21.904310+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.8968225235645155,
-      "value": 0.190468806533306,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 3.90 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données comparables.\"\n}\n```",
-      "ts": "2026-10-31T15:39:26.967126+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.135801014466378,
       "value": 0.865,
@@ -349,6 +321,34 @@
       "value": 2.489,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
       "ts": "2026-11-01T09:43:37.893487+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.5285643971863845,
+      "value": 0.616,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Le sigle 'SDI' dans les titres médiatiques correspond à des entités non-crypto (Syndicat des Délégués d'Initiative, Samsung SDI, etc.). Aucune corrélation avec l'anomalie onchain détectée. Le narratif est déconnecté du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
+      "ts": "2026-11-01T10:13:43.634057+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.1894129693996804,
+      "value": 1.028,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
+      "ts": "2026-11-01T10:13:44.686376+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.441374814647667,
+      "value": 2.417,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-01T10:13:45.603589+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.0638906421837566,
+      "value": 2.417,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
+      "ts": "2026-11-01T10:43:50.282338+00:00"
     }
   ]
 }

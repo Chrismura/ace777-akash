@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-11-01 09:59 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-11-01 11:07 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -9,7 +9,7 @@
 - ✅ radar
 - ⛔ lecteur signets
 - ⛔ générateur fiches
-- ⛔ feed mission
+- ✅ feed mission
 - ✅ serveur cockpit
 
 ## Routage des tâches de décision
@@ -22,11 +22,11 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-11-01 09:58Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-11-01 11:07Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+43.72 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+43.74 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
@@ -48,10 +48,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-11-01T09:59:15.312771Z BTCUSDT 78125.26 0.0000 3.0 declenche=non
-  · 2026-11-01T09:59:15.430200Z BTCUSDT 78125.26 0.0000 3.0 declenche=non
-  · 2026-11-01T09:59:15.677048Z ETHUSDT 2270.75 0.0000 6.9 declenche=non
-  · 2026-11-01T09:59:15.684019Z BTCUSDT 78125.26 0.0000 3.1 declenche=non
+  · 2026-11-01T11:07:35.427283Z ETHUSDT 2269.51 0.0001 185.8 declenche=oui
+  · 2026-11-01T11:07:35.505900Z BTCUSDT 78000.01 0.0001 2.5 declenche=non
+  · 2026-11-01T11:07:35.596546Z ETHUSDT 2269.51 0.0001 198.3 declenche=oui
+  · 2026-11-01T11:07:35.620766Z BTCUSDT 78000.01 0.0001 2.5 declenche=non
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1146 signets X résumés (quota aujourd'hui : 0/50)
 - 199 fiches IA d'offres en cache (quota 8/jour)

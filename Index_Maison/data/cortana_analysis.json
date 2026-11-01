@@ -1,66 +1,8 @@
 {
-  "timestamp": 1793527671,
-  "date": "2026-11-01T10:07:51.306362+00:00",
-  "n_analyses": 11,
+  "timestamp": 1793531272,
+  "date": "2026-11-01T11:07:52.298737+00:00",
+  "n_analyses": 13,
   "analyses": [
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.208517833391471,
-        "value": 34,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur élevé (Fear & Greed à 34, z-score 2.21) couplé à un silence médiatique total (Google Actualités vide). C'est le signal classique d'accumulation furtive par les baleines loin du bruit de fond de retail.\"\n}\n```",
-        "ts": 1793506346.817769
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 34,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 34,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.0582428516488602,
-        "value": 34,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Peur extrême injustifiée (Fear & Greed à 34 avec un z-score élevé de 2.06) couplée à un vide médiatique total (Google Actualités muet). C'est le profil typique d'accumulation silencieuse par les baleines loin du bruit de fond retail.\"\n}\n```",
-        "ts": 1793508152.965989
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 34,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 34,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "taker_ratio",
@@ -72,24 +14,24 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.364,
+          "value": 0.753,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -0.06,
+          "value": -0.01,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
       },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -102,24 +44,24 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.364,
+          "value": 0.753,
           "seuil": 1,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -0.06,
+          "value": -0.01,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "taker > 1",
-        "lecture": "Takers acheteurs agressifs — la demande mange le carnet, à confirmer avec le volume",
-        "niveau": "info",
-        "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)"
+        "condition": "taker < 1",
+        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
       },
-      "action": "Observer si le prix suit (vraie demande) ou diverge (absorption)",
-      "niveau": "info"
+      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -132,12 +74,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.06,
+          "value": -0.01,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1566773.0,
+          "value": 1549442.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -166,12 +108,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.06,
+          "value": -0.01,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1566773.0,
+          "value": 1549442.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -200,12 +142,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.06,
+          "value": -0.01,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1566773.0,
+          "value": 1549442.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -239,23 +181,24 @@
           "depasse": false
         },
         "achats": {
-          "value": 0.0,
+          "value": 832805.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": -0.06,
+          "value": -0.01,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info"
     },
     {
       "signal": {
@@ -268,12 +211,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.417,
+          "value": 2.385,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97642.353,
+          "value": 97679.339,
           "seuil": 120000,
           "depasse": false
         }
@@ -298,12 +241,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.06,
+          "value": -0.01,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1566773.0,
+          "value": 1549442.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -332,12 +275,126 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.417,
+          "value": 2.385,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97642.353,
+          "value": 97679.339,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.5285643971863845,
+        "value": 0.616,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Le sigle 'SDI' dans les titres médiatiques correspond à des entités non-crypto (Syndicat des Délégués d'Initiative, Samsung SDI, etc.). Aucune corrélation avec l'anomalie onchain détectée. Le narratif est déconnecté du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
+        "ts": 1793528023.634057
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.1894129693996804,
+        "value": 1.028,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
+        "ts": 1793528024.686376
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.01,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -3.441374814647667,
+        "value": 2.417,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+        "ts": 1793528025.603589
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.385,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 97679.339,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -3.0638906421837566,
+        "value": 2.417,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
+        "ts": 1793529830.282338
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.385,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 97679.339,
           "seuil": 120000,
           "depasse": false
         }
