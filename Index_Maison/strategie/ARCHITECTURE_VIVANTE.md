@@ -1,4 +1,4 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-11-01 05:00 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-11-01 06:06 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
@@ -22,24 +22,36 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-11-01 05:00Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-11-01 06:06Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
-- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+43.78 $** · 0 fills
+- HULK (gestionnaire de portefeuille (bag, escalier, courreur)) : **+43.80 $** · 0 fills
 - Saison : CALME 🧊 · 
 
 ## Veille du jour
 
-- VEILLE du jour : pas encore passée
+- [Santé]
+  · hub : OK (6 providers)
+  · réseau (DNS) : OK
+  · sources en erreur : 0
+- [Énergie du jour]
+  · appels : 23 (cloud 23)
+  · budget cloud : 624 max
+  · par provider : gemini=18, groq=4, mistral=1
+- [Nouvelles offres détectées (non intégrées)]
+  · recursive/flint-v1.0:free
+  · dots-studio/dots-3-note-preview:free
+  · liquid/lfm-2.5-2.6b:free
+  … 119 offres/pépites détectées ce matin
 
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-11-01T05:00:47.608777Z BTCUSDT 77820.72 0.0000 0.6 declenche=non
-  · 2026-11-01T05:00:47.639866Z ETHUSDT 2267.26 0.0002 93.4 declenche=oui
-  · 2026-11-01T05:00:47.640165Z ETHUSDT 2267.25 0.0002 93.7 declenche=oui
-  · 2026-11-01T05:00:47.640362Z ETHUSDT 2267.24 0.0002 93.7 declenche=oui
+  · 2026-11-01T06:06:40.670233Z ETHUSDT 2272.75 0.0003 65.5 declenche=non
+  · 2026-11-01T06:06:40.670498Z ETHUSDT 2272.72 0.0003 65.6 declenche=non
+  · 2026-11-01T06:06:40.713829Z BTCUSDT 77976.01 0.0005 12.9 declenche=oui
+  · 2026-11-01T06:06:40.738642Z BTCUSDT 77976.0 0.0005 12.9 declenche=oui
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1146 signets X résumés (quota aujourd'hui : 0/50)
 - 191 fiches IA d'offres en cache (quota 8/jour)
