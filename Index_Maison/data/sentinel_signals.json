@@ -1,62 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.135801014466378,
-      "value": 0.865,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (ou entités académiques/associatives françaises), non un actif crypto. Aucune corrélation onchain possible.\"\n}\n```",
-      "ts": "2026-10-31T15:59:30.706766+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.259197516613614,
-      "value": 40.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.26) est isolée et non corroborée par un narratif de marché ou d'activité de baleines. Aucune divergence exploitable détectée.\"\n}\n```",
-      "ts": "2026-10-31T16:04:32.438682+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.259197516613614,
-      "value": 40.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le terme 'dust' dans les résultats médiatiques fait référence à des concepts non-crypto (poussière physique, noms de films/concerts, ou plateforme SaaS IA). Aucune corrélation avec une anomalie onchain ou un mouvement de baleines crypto. Le z-score est probablement lié à un bruit de données ou à une confusion sémantique, sans impact sur le marché crypto.\"\n}",
-      "ts": "2026-10-31T16:04:33.756186+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.2617202559052565,
-      "value": 0.906,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques/medicales, non un actif crypto. Aucune corrélation onchain valide.\"\n}",
-      "ts": "2026-10-31T16:44:40.881329+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.84491987062907,
-      "value": 0.15459708457126187,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.84 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
-      "ts": "2026-10-31T17:54:52.300445+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 3.058085189896336,
-      "value": 2184560.0,
-      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 3.06 confirme une anomalie statistique majeure des liquidations. Contrairement à un signal de 'baleine silencieuse' (qui impliquerait un achat discret sans bruit), le narratif médiatique (peur d'un hack Binance) est parfaitement aligné avec la réalité onchain : c'est un événement de panique et de délestage forcé. La divergence est nulle ; le marché est en phase de capitulation active, non de manipulation silencieuse.\"\n}",
-      "ts": "2026-10-31T17:54:53.868252+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.326475333494901,
-      "value": 0.948,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. L'acronyme 'IPT' dans les titres médiatiques désigne l'Institut de Physique du Globe (ou entités similaires en France), et non un actif crypto. Aucune corrélation onchain valide.\"\n}",
-      "ts": "2026-10-31T18:04:57.276382+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 2.0044172600416337,
-      "value": 1.293,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Le taker_ratio de 1.293 (z-score 2.00) indique une pression acheteuse agressive et anormale sur le marché spot. L'absence totale de couverture médiatique (vide informationnel) suggère que cette accumulation est effectuée en silence par des acteurs institutionnels ou des baleines, avant une possible rotation vers le narratif public. Divergence classique : action onchain haussière vs silence médiatique.\"\n}\n```",
-      "ts": "2026-10-31T18:04:58.176588+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.770229015305366,
       "value": 2202571.0,
@@ -349,6 +293,62 @@
       "value": 2.417,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
       "ts": "2026-11-01T10:43:50.282338+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -3.3418706969172685,
+      "value": 2.385,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-3.34) indique une sous-pondération massive des positions long par la foule/les fonds traditionnels, créant une condition de 'short squeeze' imminent. Le narratif médiatique grand public reste focalisé sur la gestion de risque prudente des fonds hedge, ignorant totalement le positionnement contrarien extrême des baleines sur le marché crypto.\"\n}\n```",
+      "ts": "2026-11-01T11:13:56.800356+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 3.5467539079635007,
+      "value": 0.62,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI) causée par une confusion homonyme entre le syndicat patronal SDI (Syndicat des Indépendants) et le géant industriel Samsung SDI dans les flux d'actualités. Aucune baleine crypto détectée, le bruit médiatique concerne l'économie réelle et les résultats d'entreprises.\"\n}\n```",
+      "ts": "2026-11-01T11:39:03.926858+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.4125541255958267,
+      "value": 1.364,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une homonymie. Le signal 'ipt' détecté correspond à l'Institut Pasteur de Tunis (IPT) ou au Tournoi International des Physiciens dans les médias, sans aucun lien avec un actif crypto ou un mouvement de baleines.\"\n}\n```",
+      "ts": "2026-11-01T11:39:09.790437+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.9911617145989817,
+      "value": 2.385,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.99) indiquant une capitulation massive des positions short ou un positionnement contrarien extrême des baleines. Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels (ETF/OPCVM) et de l'actualité généraliste, ignorant le positionnement agressif des smart money sur les dérivés crypto.\"\n}\n```",
+      "ts": "2026-11-01T11:44:12.300977+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": 2.4219262305457585,
+      "value": 0.616,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie du ticker 'SDI' (Syndicat des Indépendants et Samsung SDI). Aucune corrélation avec des mouvements on-chain de baleines crypto.\"\n}\n```",
+      "ts": "2026-11-01T12:09:20.006232+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.7516631374108598,
+      "value": 1.2,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.75) liée au sémantique 'IPT' (Tournoi de Physique, Institut Pasteur de Tunis, etc.) et non à un actif crypto. Aucune baleine on-chain détectée, bruit médiatique sans rapport avec la blockchain.\"\n}\n```",
+      "ts": "2026-11-01T12:09:25.337797+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": -2.0039350296916045,
+      "value": 5.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec l'activité on-chain (mélange d'actualités locales et de tutoriels génériques sur Bitcoin). Le z-score faible indique une anomalie technique mineure ou un bruit statistique, pas une accumulation/distribution de baleines.\"\n}\n```",
+      "ts": "2026-11-01T12:09:27.128439+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": -2.0039350296916045,
+      "value": 5.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (art, concerts, IA SaaS). Le z-score négatif indique une absence totale d'activité 'dust' significative sur la blockchain. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
+      "ts": "2026-11-01T12:09:28.944074+00:00"
     }
   ]
 }

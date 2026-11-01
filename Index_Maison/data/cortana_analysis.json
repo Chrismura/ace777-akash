@@ -1,38 +1,8 @@
 {
-  "timestamp": 1793531272,
-  "date": "2026-11-01T11:07:52.298737+00:00",
-  "n_analyses": 13,
+  "timestamp": 1793535173,
+  "date": "2026-11-01T12:12:53.537254+00:00",
+  "n_analyses": 20,
   "analyses": [
-    {
-      "signal": {
-        "metric": "taker_ratio",
-        "zscore": 2.310033770373617,
-        "value": 1.703,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker ratio à 1.703 (z-score 2.31) indique une forte agression acheteuse cachée sur les carnets d'ordres, totalement ignorée par les médias (silence radio). Divergence classique d'accumulation silencieuse par les baleines avant un mouvement haussier.\"\n}\n```",
-        "ts": 1793513573.308322
-      },
-      "fiche": "taker_ratio",
-      "questions": {
-        "taker": {
-          "value": 0.753,
-          "seuil": 1,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.01,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "taker < 1",
-        "lecture": "Takers vendeurs agressifs — la vente se fait AU MARCHE (pression réelle), pas passive",
-        "niveau": "surveiller",
-        "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer"
-      },
-      "action": "Resserrer les stops des positions tier A corrélées, attendre l'apaisement pour entrer",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "taker_ratio",
@@ -44,12 +14,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 0.753,
+          "value": 0.846,
           "seuil": 1,
           "depasse": false
         },
         "prix": {
-          "value": -0.01,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         }
@@ -74,12 +44,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.01,
+          "value": 0.07,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1549442.0,
+          "value": 1550271.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -108,12 +78,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.01,
+          "value": 0.07,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1549442.0,
+          "value": 1550271.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -142,12 +112,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.01,
+          "value": 0.07,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1549442.0,
+          "value": 1550271.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -181,24 +151,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 832805.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -0.01,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -211,12 +180,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.385,
+          "value": 2.353,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97679.339,
+          "value": 97575.446,
           "seuil": 120000,
           "depasse": false
         }
@@ -241,12 +210,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.01,
+          "value": 0.07,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1549442.0,
+          "value": 1550271.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -275,12 +244,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.385,
+          "value": 2.353,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97679.339,
+          "value": 97575.446,
           "seuil": 120000,
           "depasse": false
         }
@@ -320,7 +289,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.01,
+          "value": 0.07,
           "seuil": 1,
           "depasse": false
         },
@@ -359,12 +328,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.385,
+          "value": 2.353,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97679.339,
+          "value": 97575.446,
           "seuil": 120000,
           "depasse": false
         }
@@ -389,12 +358,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.385,
+          "value": 2.353,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 97679.339,
+          "value": 97575.446,
           "seuil": 120000,
           "depasse": false
         }
@@ -407,6 +376,264 @@
       },
       "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
       "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -3.3418706969172685,
+        "value": 2.385,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-3.34) indique une sous-pondération massive des positions long par la foule/les fonds traditionnels, créant une condition de 'short squeeze' imminent. Le narratif médiatique grand public reste focalisé sur la gestion de risque prudente des fonds hedge, ignorant totalement le positionnement contrarien extrême des baleines sur le marché crypto.\"\n}\n```",
+        "ts": 1793531636.800356
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.353,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 97575.446,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 3.5467539079635007,
+        "value": 0.62,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI) causée par une confusion homonyme entre le syndicat patronal SDI (Syndicat des Indépendants) et le géant industriel Samsung SDI dans les flux d'actualités. Aucune baleine crypto détectée, le bruit médiatique concerne l'économie réelle et les résultats d'entreprises.\"\n}\n```",
+        "ts": 1793533143.926858
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 3.4125541255958267,
+        "value": 1.364,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une homonymie. Le signal 'ipt' détecté correspond à l'Institut Pasteur de Tunis (IPT) ou au Tournoi International des Physiciens dans les médias, sans aucun lien avec un actif crypto ou un mouvement de baleines.\"\n}\n```",
+        "ts": 1793533149.790437
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.07,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.9911617145989817,
+        "value": 2.385,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.99) indiquant une capitulation massive des positions short ou un positionnement contrarien extrême des baleines. Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels (ETF/OPCVM) et de l'actualité généraliste, ignorant le positionnement agressif des smart money sur les dérivés crypto.\"\n}\n```",
+        "ts": 1793533452.300977
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.353,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 97575.446,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.4219262305457585,
+        "value": 0.616,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie du ticker 'SDI' (Syndicat des Indépendants et Samsung SDI). Aucune corrélation avec des mouvements on-chain de baleines crypto.\"\n}\n```",
+        "ts": 1793534960.006232
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 2.7516631374108598,
+        "value": 1.2,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.75) liée au sémantique 'IPT' (Tournoi de Physique, Institut Pasteur de Tunis, etc.) et non à un actif crypto. Aucune baleine on-chain détectée, bruit médiatique sans rapport avec la blockchain.\"\n}\n```",
+        "ts": 1793534965.337797
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.07,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "cpfp",
+        "zscore": -2.0039350296916045,
+        "value": 5.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec l'activité on-chain (mélange d'actualités locales et de tutoriels génériques sur Bitcoin). Le z-score faible indique une anomalie technique mineure ou un bruit statistique, pas une accumulation/distribution de baleines.\"\n}\n```",
+        "ts": 1793534967.128439
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 89,
+          "seuil": 100,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.07,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.616,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "dust",
+        "zscore": -2.0039350296916045,
+        "value": 5.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (art, concerts, IA SaaS). Le z-score négatif indique une absence totale d'activité 'dust' significative sur la blockchain. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
+        "ts": 1793534968.944074
+      },
+      "fiche": "blocs_privilises",
+      "questions": {
+        "duree": {
+          "value": 0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "volume": {
+          "value": 89,
+          "seuil": 100,
+          "depasse": false
+        },
+        "prix": {
+          "value": 0.07,
+          "seuil": 2,
+          "depasse": false
+        },
+        "sdi": {
+          "value": 0.616,
+          "seuil": 0.3,
+          "depasse": true
+        },
+        "rbf": {
+          "value": 0.0,
+          "seuil": 0.6,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "duree < 5min ET volume > 100",
+        "lecture": "Consolidation exchange — probablement un transfert hot→cold",
+        "niveau": "neutre",
+        "action": "Garder les positions"
+      },
+      "action": "Garder les positions",
+      "niveau": "neutre"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
