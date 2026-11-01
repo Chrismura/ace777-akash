@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.3129028578291524,
-      "value": 1.113,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (ou entités académiques/locales), non un actif crypto. Aucune corrélation onchain valide.\"\n}\n```",
-      "ts": "2026-10-31T11:38:33.939872+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 6.091182699038967,
-      "value": 2781168.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : Anomalie onchain massive (z-score 6.09, ~2.78M USD) sans couverture médiatique correspondante. Ce silence des médias face à un flux de capitaux significatif suggère une accumulation silencieuse ou un positionnement stratégique par des acteurs institutionnels avant une rotation de prix, typique des phases pré-tendance haussière.\"\n}\n```",
-      "ts": "2026-10-31T11:53:37.507070+00:00"
-    },
-    {
       "metric": "taker_ratio",
       "zscore": 3.7251248863611965,
       "value": 1.607,
@@ -349,6 +335,20 @@
       "value": 34,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de Peur & Avarice à 34 (peur prononcée avec un z-score élevé de 2.39) couplé à un vide médiatique total (Google Actualités sans bruit de fond). C'est la configuration classique d'accumulation silencieuse par les baleines loin du radar grand public.\"\n}\n```",
       "ts": "2026-11-01T03:42:19.375250+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.208517833391471,
+      "value": 34,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Indice de peur élevé (Fear & Greed à 34, z-score 2.21) couplé à un silence médiatique total (Google Actualités vide). C'est le signal classique d'accumulation furtive par les baleines loin du bruit de fond de retail.\"\n}\n```",
+      "ts": "2026-11-01T04:12:26.817769+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.0582428516488602,
+      "value": 34,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Peur extrême injustifiée (Fear & Greed à 34 avec un z-score élevé de 2.06) couplée à un vide médiatique total (Google Actualités muet). C'est le profil typique d'accumulation silencieuse par les baleines loin du bruit de fond retail.\"\n}\n```",
+      "ts": "2026-11-01T04:42:32.965989+00:00"
     }
   ]
 }
