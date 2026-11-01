@@ -1,66 +1,8 @@
 {
-  "timestamp": 1793520469,
-  "date": "2026-11-01T08:07:49.040069+00:00",
-  "n_analyses": 10,
+  "timestamp": 1793524070,
+  "date": "2026-11-01T09:07:50.076078+00:00",
+  "n_analyses": 9,
   "analyses": [
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 3.2434549480453714,
-        "value": 34,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (3.24) combiné à un Fear & Greed bas (34) et un vide médiatique total (Google Actualités silencieux) : classic setup d'accumulation furtive par les baleines loin du bruit de retail.\"\n}\n```",
-        "ts": 1793499121.723939
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 34,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 34,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.879292027677144,
-        "value": 34,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le Fear & Greed à 34 (Peur) combiné à un z-score élevé (2.88) indique une anomalie de capitulation ou de sous-évaluation extrême, alors que les médias traditionnels affichent un vide informationnel (aucun narratif dominant de panique ou d'euphorie). C'est le profil typique d'accumulation silencieuse par les baleines loin des radars du retail.\"\n}\n```",
-        "ts": 1793500926.79981
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 34,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 34,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "fear_greed",
@@ -188,12 +130,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.153,
+          "value": 1.364,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -218,12 +160,12 @@
       "fiche": "taker_ratio",
       "questions": {
         "taker": {
-          "value": 1.153,
+          "value": 1.364,
           "seuil": 1,
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -248,12 +190,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.01,
+          "value": -0.05,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1531640.0,
+          "value": 1564615.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -282,12 +224,46 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.01,
+          "value": -0.05,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1531640.0,
+          "value": 1564615.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 4.003597818461511,
+        "value": 0.26296064318056533,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 4.00 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données comparables.\"\n}\n```",
+        "ts": 1793522300.751776
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.05,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 1564615.0,
           "seuil": 5000000,
           "depasse": false
         },

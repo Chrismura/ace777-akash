@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.9161307341582545,
-      "value": 1.607,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le taker_ratio à 1.607 (z-score 2.92) indique une forte dominance agressive des acheteurs (Taker Buys) sur les carnets d'ordres, signalant une accumulation massive en coulisses. Le vide médiatique (aucun narratif dominant) confirme que les baleines accumulent dans le silence, loin du radar de la foule.\"\n}\n```",
-      "ts": "2026-10-31T13:03:53.528117+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.4434457933745697,
       "value": 45.0,
@@ -349,6 +342,13 @@
       "value": 0.1846039083493345,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain concrètes (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.54 sur le prix 1h est statistiquement notable mais isolé ; sans confirmation par les flux de trésorerie ou un narratif contradictoire, il est impossible de détecter une divergence ou un mouvement silencieux. Signal insuffisant pour une conviction.\"\n}\n```",
       "ts": "2026-11-01T07:48:13.933131+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 4.003597818461511,
+      "value": 0.26296064318056533,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 4.00 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données comparables.\"\n}\n```",
+      "ts": "2026-11-01T08:38:20.751776+00:00"
     }
   ]
 }
