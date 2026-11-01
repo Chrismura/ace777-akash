@@ -1,4 +1,4 @@
-# Rapport Veilleuse — 2026-10-31T23:03:09.264281+00:00
+# Rapport Veilleuse — 2026-11-01T00:03:10.507480+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md (md5 diffère du registre)
