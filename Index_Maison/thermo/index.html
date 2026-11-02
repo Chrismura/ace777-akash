@@ -491,7 +491,7 @@
       <div class="grid" id="gridB"></div>
     </section>
     <section class="sec" id="secC" data-sec="C">
-      <div class="sec-h"><h2>C — EXTENSIONS</h2><span>levier · vide · proxies</span></div>
+      <div class="sec-h"><h2>C — EXTENSIONS</h2><span>levier · vide · proxies · mesures maison C26–C28</span></div>
       <div class="grid" id="gridC"></div>
     </section>
 
@@ -546,6 +546,9 @@
     { id:"C23", name:"Dark / OTC proxy (OI+taker)", st:"g", group:"C" },
     { id:"C24", name:"Stress levier (funding+OI)", st:"g", group:"C" },
     { id:"C25", name:"Walls (idée options)", st:"w", group:"C" },
+    { id:"C26", name:"OFI réel (carnet L2)", st:"g", group:"C" },
+    { id:"C27", name:"Mur mesuré (k×σ)", st:"g", group:"C" },
+    { id:"C28", name:"Kelly S2 (juste taille)", st:"g", group:"C" },
   ];
 
   const $ = (s) => document.querySelector(s);
@@ -887,7 +890,7 @@
       let list = INDICATORS.filter(i => i.group === g);
       if (state.mode === "simple") {
         // simple: only live / soft priority cards
-        list = list.filter(i => i.key || ["C18","C19","C20","C22"].includes(i.id));
+        list = list.filter(i => i.key || ["C18","C19","C20","C22","C26","C27","C28"].includes(i.id));
       }
       $(`#grid${g}`).innerHTML = list.map(i => cardHtml(i, data)).join("");
       $(`#sec${g}`).classList.toggle("hidden", !state.show[g]);
@@ -1255,6 +1258,21 @@
     "t": "WALLS (IDÉE OPTIONS)",
     "d": "Les niveaux de prix où sont concentrées les options : des aimants ou des murs pour le prix.",
     "s": "C · options"
+  },
+  "C26": {
+    "t": "OFI RÉEL (CARNET L2)",
+    "d": "Le vrai déséquilibre du carnet BTC (pas un proxy) : qui pousse, qui tire, en direct. NEUTRE = équilibré, absorption = un gros avale tout.",
+    "s": "C · mesure maison 02/11"
+  },
+  "C27": {
+    "t": "MUR MESURÉ (k×σ)",
+    "d": "Le seuil qui décide du coupe-circuit, calculé sur 20 jours de vraies baisses (jamais un chiffre inventé). Si la chute du jour dépasse ce mur, on coupe.",
+    "s": "C · mesure maison 02/11"
+  },
+  "C28": {
+    "t": "KELLY S2 (JUSTE TAILLE)",
+    "d": "La juste taille de mise par paire : assez pour gagner, pas trop pour survivre. Aveugle = paire sans historique, on tient sans forcer.",
+    "s": "C · mesure maison 02/11"
   },
   "bassine": {
     "t": "BASSINE / ZONE TREMPE (SOFT)",

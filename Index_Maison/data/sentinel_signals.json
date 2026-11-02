@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.2278553252547155,
-      "value": 2.06,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif de corrélation. Les données onchain (long_short) concernent le marché crypto, tandis que les titres médiatiques cités traitent exclusivement de fonds actions traditionnels (ETF, OPCVM, BNP Paribas). Il n'y a aucun chevauchement d'actifs ; le narratif est déconnecté car il ne concerne pas le même marché.\"\n}",
-      "ts": "2026-11-02T07:09:01.968598+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.1378093905588793,
-      "value": 5303276822.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Absence de corrélation directe entre l'anomalie de volume (z-score 2.14) et les titres médiatiques fournis. Les articles traitent de sujets hétérogènes (fonds suisses, charbon indonésien, loisir créatif) ou de données crypto génériques (comparaison BTC/ETH) sans mentionner de mouvement spécifique de baleines ou de manipulation de marché. Le narratif médiatique est déconnecté de l'activité onchain détectée, mais sans signal directionnel clair (bullish/bearish) exploitable.\"\n}",
-      "ts": "2026-11-02T07:19:05.427074+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.5739981272817416,
-      "value": 3033680.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 2.57, ~3M USD) indiquant un positionnement actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Ce silence médiatique face à un flux de capitaux inhabituel suggère une accumulation discrète ou un repositionnement stratégique avant une catalyse, typique des mouvements 'whale silent'.\"\n}\n```",
-      "ts": "2026-11-02T07:24:07.150473+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.13385653566411,
-      "value": 2.06,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif de corrélation. Les données onchain (long_short) concernent le marché crypto, tandis que les titres médiatiques cités traitent exclusivement de fonds actions traditionnels (ETF, OPCVM, BNP Paribas). Il n'y a aucun chevauchement d'actifs ; le narratif est déconnecté car il ne porte pas sur le même sous-jacent.\"\n}",
-      "ts": "2026-11-02T07:39:10.112043+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.0703178213478814,
       "value": 5339308353.0,
@@ -349,6 +321,34 @@
       "value": 9026894512.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (Windows 11, déchets, musique, actions Alstom/Ubisoft). Le volume anormal (z-score 2.18) n'est pas soutenu par un narratif de marché, suggérant soit du bruit de données, soit une activité non liée à la spéculation publique (ex: rotation de fonds, liquidité). Pas de signal exploitable.\"\n}",
       "ts": "2026-11-02T21:17:48.342089+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.4811194021754304,
+      "value": 2.451,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.48, signalant un positionnement excessivement haussier et sur-levé de la foule. Pendant ce temps, le narratif médiatique se focalise abstraitement sur les fonds institutionnels traditionnels, ignorant totalement l'euphorie spéculative en cours. Divergence classique de 'crowded trade' : risque élevé de liquidation en cascade.\"\n}\n```",
+      "ts": "2026-11-02T21:37:53.384744+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1179191270278674,
+      "value": 9139056223.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, Windows 11, actions Alstom/Ubisoft, musique). Le volume anormal (z-score 2.12) est isolé sans contexte onchain spécifique (ex: flux vers exchanges, OTC) et le bruit médiatique est purement hors-sujet, rendant l'analyse de divergence impossible.\"\n}",
+      "ts": "2026-11-02T21:47:56.778459+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.234004457942496,
+      "value": 7019808.0,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence critique : Anomalie onchain majeure (z-score 6.23, ~7M USD) indiquant un accumulation ou un transfert massif de fonds, totalement absente du narratif médiatique (bruit de fond Google Actualités). Cette asymétrie d'information suggère une accumulation silencieuse par des acteurs institutionnels ou des baleines avant un mouvement de prix, typique d'un setup haussier précoce.\"\n}",
+      "ts": "2026-11-02T21:47:57.795228+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.7188774625636523,
+      "value": 2.494,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des ETF actions traditionnels (SmallCap, Global Equity) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-02T22:08:03.165407+00:00"
     }
   ]
 }

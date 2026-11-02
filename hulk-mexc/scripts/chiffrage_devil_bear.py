@@ -135,7 +135,7 @@ for r in rows:
 # marks live (DIGEST le plus récent) pour l'ouvert restant
 live = {}
 import glob as _glob
-for f in sorted(_glob.glob(RUNS + "/DIGEST_202610*.json")):
+for f in sorted(_glob.glob(RUNS + "/DIGEST_2026*.json")):
     try:
         d = json.load(open(f, encoding="utf-8"))
     except Exception:

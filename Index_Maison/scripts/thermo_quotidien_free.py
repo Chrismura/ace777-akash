@@ -670,6 +670,68 @@ def main() -> int:
     elif ace["live"]:
         red_val = "0 RED (tail log)"
 
+    # C26–C28 — mesures maison lues sur disque (02/11, GO Christophe).
+    # Jamais de défaut silencieux : absent/stale → None → SANS_MESURE en aval.
+    def _load_json_frais(path, max_age_h):
+        try:
+            d = json.loads(Path(path).read_text(encoding="utf-8"))
+            ts_raw = d.get("ts")
+            if not ts_raw:
+                return None
+            age_h = (now - datetime.fromisoformat(str(ts_raw).replace("Z", "+00:00"))).total_seconds() / 3600
+            if 0 <= age_h <= max_age_h:
+                return d
+            return None
+        except Exception:
+            return None
+
+    ofi_d = _load_json_frais(WS / "data" / "ofi_latest.json", 2.0)
+    murd_d = _load_json_frais(THERMO / "mur_mesure.json", 30.0)
+    keld_d = _load_json_frais(THERMO / "m_kelly_live.json", 30.0)
+
+    if ofi_d:
+        _of = (ofi_d.get("fenetre_globale") or {})
+        ofi_norm = _of.get("ofi_norm")
+        ofi_dbps = _of.get("delta_bps")
+        ofi_verd = _of.get("verdict") or "?"
+        ofi_cand = bool(ofi_d.get("absorption_candidate"))
+        ofi_n = _of.get("n")
+        ofi_val = f"{ofi_verd} {ofi_norm:+.4f} · Δ {ofi_dbps:+.2f}bps (n={ofi_n})"
+        ofi_lv = "hot" if ofi_cand else ("ok" if ofi_verd == "NEUTRE" else "warn")
+        ofi_note = f"L2 {ofi_d.get('ts')} — brut interdit (test 08/09)"
+    else:
+        ofi_norm, ofi_val, ofi_lv = None, None, "na"
+        ofi_note = "ofi_latest absent/stale (>2h) — SANS_MESURE"
+
+    if murd_d:
+        mur_seuil_pct = murd_d.get("seuil_jour_pct")
+        mur_seuil_usd = murd_d.get("seuil_jour_usd")
+        mur_k = murd_d.get("k")
+        mur_sig = murd_d.get("sigma_20j_pct")
+        mur_pire = murd_d.get("pire_dd_pivot_20j_pct")
+        mur_val = f"seuil {mur_seuil_pct}% ({mur_seuil_usd}$) · k={mur_k} σ20j={mur_sig}%"
+        try:
+            _r = abs(float(mur_pire)) / float(mur_seuil_pct) if mur_seuil_pct else 9.0
+        except Exception:
+            _r = 9.0
+        mur_lv = "ok" if _r < 0.5 else ("warn" if _r < 1.0 else "hot")
+        mur_note = f"mesure {murd_d.get('ts')} · pireDD20j={mur_pire}% · grille §72"
+    else:
+        mur_seuil_pct, mur_val, mur_lv = None, None, "na"
+        mur_note = "mur_mesure absent/stale (>30h) — SANS_MESURE"
+
+    if keld_d:
+        kel_m = keld_d.get("m_global")
+        kel_expo = keld_d.get("expo_totale")
+        kel_maxs2 = keld_d.get("maxS2")
+        kel_aveug = keld_d.get("aveugles_pos") or []
+        kel_val = f"m={kel_m} · expo {kel_expo}$ · maxS2 {kel_maxs2}$ · aveugles {len(kel_aveug)}"
+        kel_lv = "warn" if kel_aveug else "ok"
+        kel_note = f"mesure {keld_d.get('ts')} · aveugles={','.join(kel_aveug) or 'aucun'}"
+    else:
+        kel_m, kel_val, kel_lv = None, None, "na"
+        kel_note = "m_kelly absent/stale (>30h) — SANS_MESURE"
+
     # indicators board
     indicators = {
         "A1": ind(
@@ -746,6 +808,9 @@ def main() -> int:
         ),
         "C24": ind(last_f, level_funding(last_f), "Stress levier funding"),
         "C25": ind(walls, walls_lv, "Walls (proxy options)", note="proxy funding/crowding — pas SpotGamma/ZeroGEX payant"),
+        "C26": ind(ofi_val, ofi_lv, "OFI réel (carnet L2)", note=ofi_note),
+        "C27": ind(mur_val, mur_lv, "Mur mesuré (k×σ)", note=mur_note),
+        "C28": ind(kel_val, kel_lv, "Kelly S2 (juste taille)", note=kel_note),
         "D26": ind(
             f"{fng.get('value')} · {fng.get('label')}" if fng.get("ok") else None,
             "hot" if (fng.get("value") or 50) >= 75 else ("warn" if (fng.get("value") or 50) <= 25 else "ok"),
@@ -856,6 +921,19 @@ def main() -> int:
         lecture.append(
             f"ACE soft: LIVE={ace['live']} · SKIP={ace['skip']} · heat={ace['heat']} · PnL sess={ace['sessionPnl']} · RED={ace['redHits']}."
         )
+    if ofi_d:
+        _abs_txt = "absorption candidate" if ofi_d.get("absorption_candidate") else "pas d\u2019absorption"
+        lecture.append(f"OFI réel (C26) : {ofi_val} — {_abs_txt}.")
+    else:
+        lecture.append("OFI réel (C26) : SANS_MESURE (fichier absent/stale).")
+    if murd_d:
+        lecture.append(f"Mur mesuré (C27) : {mur_val} · pireDD20j {murd_d.get('pire_dd_pivot_20j_pct')}%.")
+    else:
+        lecture.append("Mur mesuré (C27) : SANS_MESURE.")
+    if keld_d:
+        lecture.append(f"Kelly S2 (C28) : {kel_val}.")
+    else:
+        lecture.append("Kelly S2 (C28) : SANS_MESURE.")
     lecture.append("C15/C23 = proxies free. D26–D34 = F&G / MC / alt / liq / ETF / GEX / volumes cachés. Soft ops lecture seule.")
 
     # history: previous row for deltas (before append)
@@ -906,6 +984,9 @@ def main() -> int:
         "altSeasonScore": delta(alt_s.get("score"), "altSeasonScore") if prev and prev.get("altSeasonScore") is not None else {"dir": "flat", "delta": None, "label": "—"},
         "gexPutCall": delta(gex.get("putCallRatio"), "gexPutCall") if prev and prev.get("gexPutCall") is not None else {"dir": "flat", "delta": None, "label": "—"},
         "volumeCachedTaker": delta(vcz.get("takerBuyRatio"), "volumeCachedTaker") if prev and prev.get("volumeCachedTaker") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "ofiNorm": delta(ofi_norm, "ofiNorm") if prev and prev.get("ofiNorm") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "murSeuilJourPct": delta(mur_seuil_pct, "murSeuilJourPct") if prev and prev.get("murSeuilJourPct") is not None else {"dir": "flat", "delta": None, "label": "—"},
+        "kellyM": delta(kel_m, "kellyM") if prev and prev.get("kellyM") is not None else {"dir": "flat", "delta": None, "label": "—"},
     }
 
     # history append
@@ -935,6 +1016,9 @@ def main() -> int:
         "gexPutCall": gex.get("putCallRatio"),
         "volumeCachedTaker": vcz.get("takerBuyRatio"),
         "volumeCachedPerpSpot": vcz.get("perpSpotRatio"),
+        "ofiNorm": ofi_norm,
+        "murSeuilJourPct": mur_seuil_pct,
+        "kellyM": kel_m,
     }
     with hist_path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(hist_row, ensure_ascii=False) + "\n")
@@ -984,6 +1068,9 @@ def main() -> int:
         "gexPutWall": gex.get("putWall"),
         "volumeCachedTaker": vcz.get("takerBuyRatio"),
         "volumeCachedPerpSpot": vcz.get("perpSpotRatio"),
+        "ofi_reel": {"ok": bool(ofi_d), "norm": ofi_norm, "verdict": (_of.get("verdict") if ofi_d else None), "absorption": (bool(ofi_d.get("absorption_candidate")) if ofi_d else False), "ts": (ofi_d.get("ts") if ofi_d else None)},
+        "mur_mesure": {"ok": bool(murd_d), "seuil_jour_pct": mur_seuil_pct, "seuil_jour_usd": (murd_d.get("seuil_jour_usd") if murd_d else None), "k": (murd_d.get("k") if murd_d else None), "ts": (murd_d.get("ts") if murd_d else None)},
+        "kelly_s2": {"ok": bool(keld_d), "m_global": kel_m, "maxS2": (keld_d.get("maxS2") if keld_d else None), "aveugles": ((keld_d.get("aveugles_pos") or []) if keld_d else []), "ts": (keld_d.get("ts") if keld_d else None)},
         "ace": ace,
         "score": score,
         "climate": climate,
@@ -998,6 +1085,7 @@ def main() -> int:
             "C17": "chg24", "C18": "longShort", "C19": "score", "C20": "score",
             "C21": "score", "C22": "score", "C23": "takerRatio",
             "C24": "funding", "C25": "funding",
+            "C26": "ofiNorm", "C27": "murSeuilJourPct", "C28": "kellyM",
             "D26": "score", "D27": "mark", "D28": "btcDominance", "D29": "score",
             "D30": "score", "D31": "score", "D32": "score",
         },
@@ -1042,6 +1130,7 @@ def main() -> int:
 
 ## Branché / soft
 - **Live free :** A1–A10, B7–B10, C13–C19, C22–C24 (+ C15/C23 proxies)
+- **Mesures maison (02/11) :** C26 OFI réel L2 · C27 Mur k×σ · C28 Kelly S2
 - **ACE lecture seule :** B11 heat · B12 RED · C21 SKIP (LIVE/CSV)
 - **Soft ops :** C20 bassine · C25 walls proxy
 - **Toujours REFUS :** Whale Alert payant · dark pool US abo · ZeroGEX dashboard

@@ -39,7 +39,7 @@ def parse_ts(s):
 
 def digest_marks():
     idx = {}
-    for f in sorted(glob.glob(RUNS + "/DIGEST_202610*.json")):
+    for f in sorted(glob.glob(RUNS + "/DIGEST_2026*.json")):
         try:
             d = json.load(open(f, encoding="utf-8"))
         except Exception:
@@ -79,7 +79,10 @@ def snapshot(t_lim):
     mission = json.load(open(MISSION, encoding="utf-8"))
     hv = mission["hulk"]["hulkVsHold"]
     consts = {p["pair"]: p for p in hv["pairs"]}
-    rows = list(csv.DictReader(open(RUNS + "/PAPER_V1_20261018_100103.csv",
+    # Journal LIVE lu depuis mission.json (jamais de CSV figé en dur —
+    # le 02/11 le script rejouait encore le journal du 18/10, 11 jours périmé).
+    journal_nom = mission.get("hulk", {}).get("file") or "PAPER_V1_20261018_100103.csv"
+    rows = list(csv.DictReader(open(RUNS + "/" + journal_nom,
                                     newline="", encoding="utf-8-sig")))
     cash, hold_qty = {}, {}
     for p, c in consts.items():
@@ -136,12 +139,19 @@ def snapshot(t_lim):
 
 
 now = datetime.now(timezone.utc)
+# Référence LIVE (jamais de constante figée — le -3.53 du 20:34Z a pourri ici).
+try:
+    _mission_live = json.load(open(MISSION, encoding="utf-8"))
+    _ref_ecart = float(_mission_live["hulk"]["hulkVsHold"]["ecartFull30_usd"])
+except Exception:
+    _ref_ecart = None
+print(f"REF hulkVsHold live (mission.json) : ecartFull30={_ref_ecart} $" if _ref_ecart is not None else "REF hulkVsHold live : ILLISIBLE")
 etapes = [
     ("19/10 00:00Z (avant GO full30)", datetime(2026, 10, 19, tzinfo=timezone.utc)),
     ("20/10 12:00Z (GO full30 ~midi)", datetime(2026, 10, 20, 12, tzinfo=timezone.utc)),
     ("21/10 00:00Z (GO seuils+short)", datetime(2026, 10, 21, tzinfo=timezone.utc)),
     ("22/10 00:00Z", datetime(2026, 10, 22, tzinfo=timezone.utc)),
-    ("23/10 now", now),
+    ("now", now),
 ]
 print(f"{'etape':28s} {'reel':>10s} {'full30':>10s} {'ecart':>10s}")
 res = []
@@ -151,8 +161,8 @@ for nom, t in etapes:
     res.append((nom, sum(r.values()), sum(f.values()), e))
     print(f"{nom:28s} {sum(r.values()):10.2f} {sum(f.values()):10.2f} {e:10.2f}")
 print()
-print(f"VALIDATION now vs fichier : recalcule={res[-1][3]} fichier=-3.53 (20:34Z)")
-if abs(res[-1][3] - (-3.53)) > 2.0:
+print(f"VALIDATION now vs ref live : recalcule={res[-1][3]} ref={_ref_ecart}")
+if _ref_ecart is None or abs(res[-1][3] - _ref_ecart) > 2.0:
     print("ECART TROP GRAND — methode non valide, chiffres historiques NON publies.")
 else:
     print(f"RECUP depuis le 19/10 : {round(res[-1][3] - res[0][3], 2):+.2f} $ "
