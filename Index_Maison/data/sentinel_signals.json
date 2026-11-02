@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.010934953630044,
-      "value": 2.298,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le ratio long/short affiche une survente extrême (z-score -2.01), indiquant un positionnement massif des investisseurs particuliers sur la baisse ou une capitulation des longs. En contraste total, les médias grand public banalisent la stratégie 'long/short' sans urgence directionnelle. Cette divergence classique signale une accumulation silencieuse des baleines en contrarien, préfigurant un short squeeze imminent.\"\n}\n```",
-      "ts": "2026-11-01T16:45:40.839022+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.5482080717988462,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI) déclenchée par un bruit médiatique macro/corporate (Samsung SDI, syndicat patronal SDI) sans aucun rapport avec l'activité on-chain des baleines crypto.\"\n}\n```",
-      "ts": "2026-11-01T18:10:53.914381+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.3593841733950156,
-      "value": 1.115,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"False positive technique. Les données textuelles concernent l'Institut Pasteur de Tunis (IPT) et des tournois de physique académiques, sans aucun rapport avec la crypto-sphère ou une activité de baleine.\"\n}\n```",
-      "ts": "2026-11-01T18:10:55.500255+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": -2.3550495711370854,
-      "value": 0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités humaines (partis politiques, formations professionnelles) et non à la technique de Child Pays For Parent en Bitcoin. L'anomalie onchain est probablement liée à une confusion sémantique ou un bruit de données, sans corrélation avec un mouvement de capitaux réel.\"\n}\n```",
-      "ts": "2026-11-01T19:01:03.661309+00:00"
-    },
-    {
       "metric": "dust",
       "zscore": -2.3550495711370854,
       "value": 0,
@@ -349,6 +321,34 @@
       "value": 5303276822.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Absence de corrélation directe entre l'anomalie de volume (z-score 2.14) et les titres médiatiques fournis. Les articles traitent de sujets hétérogènes (fonds suisses, charbon indonésien, loisir créatif) ou de données crypto génériques (comparaison BTC/ETH) sans mentionner de mouvement spécifique de baleines ou de manipulation de marché. Le narratif médiatique est déconnecté de l'activité onchain détectée, mais sans signal directionnel clair (bullish/bearish) exploitable.\"\n}",
       "ts": "2026-11-02T07:19:05.427074+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.5739981272817416,
+      "value": 3033680.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 2.57, ~3M USD) indiquant un positionnement actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Ce silence médiatique face à un flux de capitaux inhabituel suggère une accumulation discrète ou un repositionnement stratégique avant une catalyse, typique des mouvements 'whale silent'.\"\n}\n```",
+      "ts": "2026-11-02T07:24:07.150473+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.13385653566411,
+      "value": 2.06,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif de corrélation. Les données onchain (long_short) concernent le marché crypto, tandis que les titres médiatiques cités traitent exclusivement de fonds actions traditionnels (ETF, OPCVM, BNP Paribas). Il n'y a aucun chevauchement d'actifs ; le narratif est déconnecté car il ne porte pas sur le même sous-jacent.\"\n}",
+      "ts": "2026-11-02T07:39:10.112043+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.0703178213478814,
+      "value": 5339308353.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 2.07 indique une anomalie statistique modérée, mais le volume brut (~5.3 Md$) est cohérent avec les flux normaux du marché (cf. titre CryptoTicker mentionnant 4.6 Md$ pour ETH). L'absence de titres médiatiques spécifiques à une accumulation massive ou à un dump soudain, combinée à la présence de bruits de fond non pertinents (charbon, auto, fonds suisses), suggère que cette variation de volume est probablement liée à une rotation de marché ou à une liquidité institutionnelle standard plutôt qu'à un mouvement directionnel silencieux de baleines. Le narratif médiatique n'est pas déconnecté, il est simplement focalisé sur d'autres actifs ou secteurs.\"\n}\n```",
+      "ts": "2026-11-02T07:49:12.622620+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1932298213394055,
+      "value": 5491251831.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 2.19 indique une anomalie statistique modérée, mais le volume brut (~5.5 Md$) est cohérent avec les flux normaux du marché (cf. titre CryptoTicker mentionnant 4.6 Md$ pour ETH). L'absence de titres médiatiques spécifiques à une accumulation massive ou à un dump soudain, combinée à la présence de bruits de fond (charbon, auto, fonds suisses), suggère que cette activité est probablement liée à du trading institutionnel standard ou à des rotations de portefeuille plutôt qu'à un mouvement directionnel silencieux de baleines. La divergence est faible : le narratif général (activité de marché) correspond aux données onchain.\"\n}\n```",
+      "ts": "2026-11-02T08:19:18.856385+00:00"
     }
   ]
 }
