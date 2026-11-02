@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.41587749777976,
-      "value": 2.084,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.08 (z-score -2.42) indique une capitulation massive des positions longues et un positionnement extrêmement baissier de la foule. Historiquement, un tel désespoir contrarien signale un plancher de marché imminent, totalement ignoré par les médias généralistes qui parlent de produits financiers traditionnels.\"\n}\n```",
-      "ts": "2026-11-02T05:08:23.597989+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.8661144471544135,
-      "value": 5256764641.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.87) n'est pas attribué à un actif crypto spécifique dans les données brutes, tandis que les titres médiatiques sont majoritairement hors-sujet (charbon, autos, loisirs) ou indiquent une dominance BTC classique sans signe d'accumulation silencieuse d'ETH ou d'altcoins. Le signal est probablement du bruit ou lié à un actif non couvert par le narratif fourni.\"\n}",
-      "ts": "2026-11-02T05:18:28.370314+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.2864136004681814,
-      "value": 2.084,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.29) indique une position vendeuse excessive de la foule (contrarian), tandis que le ratio long/short à 2.08 couplé à un narratif médiatique axé sur la prudence institutionnelle (fonds Hedge/UCITS) masque une accumulation agressive et silencieuse des baleines en position dominante acheteuse.\"\n}\n```",
-      "ts": "2026-11-02T05:38:35.798013+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.7236947423776283,
       "value": 5318831631.0,
@@ -349,6 +328,27 @@
       "value": 1.06,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
       "ts": "2026-11-02T19:22:19.190070+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3046764769112693,
+      "value": 8551234171.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets macro-économiques, culturels et industriels (Unilever, Alstom, déchets) sans aucun lien avec les marchés crypto. L'anomalie de volume (z-score 2.30) est statistiquement significative mais isolée ; sans contexte onchain spécifique (ex: flux vers exchanges, accumulation de BTC/ETH), elle reste un bruit de fond non confirmé par le narratif.\"\n}",
+      "ts": "2026-11-02T19:47:23.339844+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.1589597106980647,
+      "value": 2.381,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont probablement contaminées par des flux de trading traditionnel (ASX, UCITS, OPCVM) mentionnés dans les titres, et non par des mouvements de baleines crypto. Aucune divergence réelle détectée.\"\n}",
+      "ts": "2026-11-02T20:07:27.635761+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2833400118543365,
+      "value": 8742082800.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.28) est isolée sans contexte narratif crypto, rendant l'attribution à une action de baleine spéculative ou directionnelle impossible à confirmer.\"\n}",
+      "ts": "2026-11-02T20:17:30.100858+00:00"
     }
   ]
 }

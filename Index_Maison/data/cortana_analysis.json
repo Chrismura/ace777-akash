@@ -1,233 +1,8 @@
 {
-  "timestamp": 1793647707,
-  "date": "2026-11-02T19:28:27.935144+00:00",
-  "n_analyses": 29,
+  "timestamp": 1793651309,
+  "date": "2026-11-02T20:28:29.037255+00:00",
+  "n_analyses": 26,
   "analyses": [
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 2.86772099055864,
-        "value": 0.5187646394928969,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.87) en l'absence totale de couverture médiatique (silence radio sur Google Actualités), typique d'une accumulation furtive par des baleines avant un mouvement d'envergure.\"\n}\n```",
-        "ts": 1793627109.380537
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": -0.02,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 2767428.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.3082160803394522,
-        "value": 6186583642.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.31) due à du bruit sémantique (le mot 'volume' est pollué par l'automobile, l'agroalimentaire et la musique). Aucune divergence réelle avec la crypto, simple faux positif des flux médiatiques.\"\n}\n```",
-        "ts": 1793627111.162554
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.585467230530191,
-        "value": 1.111,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) piégée par un faux positif sémantique : le ticker crypto est submergé par des actualités institutionnelles sur l'Institut Pasteur de Tunis (IPT) et l'École Polytechnique. Aucune activité valide de baleine détectée.\"\n}\n```",
-        "ts": 1793627112.648834
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 6.839668118654309,
-        "value": 6217168.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : Anomalie onchain massive (z-score 6.84, ~6.2M USD) sans couverture médiatique correspondante. Ce silence des médias face à un flux de capitaux significatif suggère une accumulation silencieuse ou un positionnement stratégique avant une annonce publique, typique d'un signal haussier précoce.\"\n}\n```",
-        "ts": 1793628316.858559
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 5229863.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.413403866170331,
-        "value": 6384916583.0,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.41) est attribué à Ethereum, tandis que le flux médiatique est dominé par du bruit non-crypto (Polnareff, Unilever, coiffure) et une simple comparaison de volumes BTC/ETH sans signal directionnel. Aucune divergence exploitable détectée.\"\n}",
-        "ts": 1793628918.975899
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.004032007437505,
-        "value": 0.965,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités physiques (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
-        "ts": 1793629220.698656
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -239,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -254,7 +29,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -278,7 +53,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -293,7 +68,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -317,7 +92,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -332,7 +107,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -356,7 +131,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -371,7 +146,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -395,7 +170,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -410,7 +185,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -434,7 +209,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -449,7 +224,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -473,9 +248,9 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 5229863.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "achats": {
           "value": 0.0,
@@ -483,19 +258,18 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -508,7 +282,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -523,7 +297,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -547,7 +321,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -562,7 +336,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -586,12 +360,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2767428.0,
+          "value": 2272363.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -620,17 +394,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2654666.0,
+          "value": 2157325.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 112762.0,
+          "value": 115039.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -660,17 +434,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1513,
+          "value": 274,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -705,17 +479,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1513,
+          "value": 274,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -745,7 +519,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -760,7 +534,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -784,17 +558,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2654666.0,
+          "value": 2157325.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 112762.0,
+          "value": 115039.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -819,7 +593,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -834,7 +608,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -858,9 +632,9 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 5229863.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "achats": {
           "value": 0.0,
@@ -868,19 +642,18 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -893,17 +666,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2654666.0,
+          "value": 2157325.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 112762.0,
+          "value": 115039.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -928,7 +701,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -943,7 +716,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -967,17 +740,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2654666.0,
+          "value": 2157325.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 112762.0,
+          "value": 115039.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
@@ -1002,7 +775,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -1017,7 +790,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -1041,9 +814,9 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 5229863.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "achats": {
           "value": 0.0,
@@ -1051,19 +824,18 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -1076,7 +848,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": 0.05,
           "seuil": 1,
           "depasse": false
         },
@@ -1091,7 +863,115 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.3046764769112693,
+        "value": 8551234171.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets macro-économiques, culturels et industriels (Unilever, Alstom, déchets) sans aucun lien avec les marchés crypto. L'anomalie de volume (z-score 2.30) est statistiquement significative mais isolée ; sans contexte onchain spécifique (ex: flux vers exchanges, accumulation de BTC/ETH), elle reste un bruit de fond non confirmé par le narratif.\"\n}",
+        "ts": 1793648843.339844
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.05,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": 2.1589597106980647,
+        "value": 2.381,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont probablement contaminées par des flux de trading traditionnel (ASX, UCITS, OPCVM) mentionnés dans les titres, et non par des mouvements de baleines crypto. Aucune divergence réelle détectée.\"\n}",
+        "ts": 1793650047.635761
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.381,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 98622.062,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.2833400118543365,
+        "value": 8742082800.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.28) est isolée sans contexte narratif crypto, rendant l'attribution à une action de baleine spéculative ou directionnelle impossible à confirmer.\"\n}",
+        "ts": 1793650650.100858
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.05,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
