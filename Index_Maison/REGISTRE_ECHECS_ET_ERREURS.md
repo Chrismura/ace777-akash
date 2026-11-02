@@ -2433,3 +2433,10 @@ d'abord 09/11, mini Mac 13/11, verdicts 16/11, REA en attente du choix),
 règles du vol (GO, mesure-d'abord, preuve-de-vie, anti-silence). Ancien plan
 archivé en bas du fichier, pas effacé. Miroir d'ordre du calendrier.json.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §67 — 02/11 ~14h00 — Vague « réactiver + incassable » (GO Christophe : boucles à la source)
+- **Cause racine veilleuse rouge** : 5 fichiers dérivés sans re-scellement (3 du matin §63-66 + 2 pré-déclarés du 29/10 jamais re-scellés). Faute de méthode : on rescellait les scellés d'intégrité mais pas REGISTRE_SYNAPSES. Leçon : **toute vague finit par JOURNAL_ECRIVAINS.jsonl en dernier** (resceler.py s'auto-trace R22 → chaque vague recrée un écart si on ne ferme pas par lui).
+- **verif-setup.plist** : clés mortes `KeepAlive`/`RunAtLoad` DANS `StartCalendarInterval` (ignorées par launchd) retirées. Le gatekeeper qui bloque (exit 1) est VOULU : il attend la relecture inventaire de Christophe → item calendrier `gatekeeper-verif-setup`.
+- **geopol réactivé pour de bon** : retry unique 30 s sur erreur réseau transitoire (SSL timeout 12h10 — pas un 429, donc sans penalty box) + `RunAtLoad=true`. Preuve : run 12h58 `ok=True` (GDELT 8 articles, Polymarket 11 events).
+- **Améliorations incassables** : `observe_geopol_gratuit.py` + `verif-setup.plist` ENTRÉS au registre (249 entrées — la veilleuse surveille désormais leurs futures modifs) ; le rituel rejoue `resceler --liste` chaque matin (écart = 🔴 SCELLÉ DÉRIVÉ). Preuve live : la garde a attrapé `rituel_calendrier.py` lui-même pendant la vague.
+- **Discipline exit 3** = normal (`0 si pas d'alerte sinon 3`). **desaccord non chargée** = normal (invoquée par le feed).

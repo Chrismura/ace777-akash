@@ -10,8 +10,11 @@ Compare avec notre geopol maison (thermo/live.json, 5 modules + ML).
 aucun effet trading, aucun ordre, aucune clé, aucun lock.
 INCASSABLE : chaque source est best-effort (timeout, try/except) ; le fichier
 est TOUJOURS écrit (avec erreurs notées) ; exit 0 sauf crash imprévu.
-Run manuel pour l'instant (pas de plist) : observation quelques semaines AVANT
-tout câblage (règle : mesurer d'abord).
+Planifié 1h via com.ace777.geopol-gratuit (RunAtLoad : réactivé 02/11) :
+observation AVANT tout câblage (règle : mesurer d'abord).
+FIX 02/11 (boucle source) : le handshake SSL de GDELT timeout parfois (pas un
+429) — retry unique sur erreur réseau transitoire, SANS penalty box (la
+penalty reste réservée au 429).
 """
 import json
 import time
@@ -60,15 +63,24 @@ def gdelt(query, n=3, attente=15.0):
     Poli : n petit + pause entre appels (GDELT rate-limite vite : 429).
     Un 429 -> penalty box 30 min + une seule reprise longue, sinon HS (fail-open).
     FIX 24/10 (sante) : les 429 en rafale du 23/10 venaient de re-runs manuels
-    trop rapprochés ; la penalty box évite de marteler pendant 30 min."""
+    trop rapprochés ; la penalty box évite de marteler pendant 30 min.
+    FIX 02/11 (boucle source) : le handshake SSL timeout parfois (réseau, pas un
+    429) — UN retry court (30 s) sur erreur réseau transitoire, sans penalty box."""
+    import socket as _sock
+    import ssl as _ssl
     import urllib.error as _ue
     if gdelt_bloque():
         raise RuntimeError("penalty box (429 recent, reprise dans <30 min)")
     q = urllib.parse.quote(query)
     url = (f"https://api.gdeltproject.org/api/v2/doc/doc?query={q}"
            f"&mode=artlist&maxrecords={n}&format=json&sort=dateasc")
+    _transitoire = (_ue.URLError, TimeoutError, _sock.timeout, _ssl.SSLError)
     try:
-        d = get_json(url)
+        try:
+            d = get_json(url)
+        except _transitoire as e1:
+            time.sleep(30.0)  # réseau capricieux, une seule reprise courte
+            d = get_json(url)
     except _ue.HTTPError as e:
         if getattr(e, "code", 0) == 429:
             gdelt_marque_429()

@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-11-02T11:28:48Z",
+  "updated": "2026-11-02T13:00:53Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -856,10 +856,10 @@
       "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "f256597d89c453371ae0856b1cb83b07",
+      "md5": "2d9ecfa6c03b01e496a51e863d4f9fde",
       "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi). | GO 16/09 6 fiches : trigger z (absolu) lit le ZSCORE (avant : valeur brute → jamais ouvert), source générique live.json → chemin.doté, ",
       "maj": "16/09 après-midi (GO C. « go » C1+C2+C3) : C1 triggers réellement vérifiés contre la valeur du signal (_evaluer_trigger, alias rbf_score/sdi/global_score/taux_fantome) — le champ trigger n'était DÉCORATIF depuis le 27/08 ; C2 défaut neutre explicite (avant : 1re interprétation = sdi_eleve dangereux / binance_timeout critique) ; C3 health_degrade câblé (questions sources/mode + conditions source == évaluées contre pipeline_health.sources — KILL SWITCH critique UNIQUEMENT si binance <0,5). 8 tests dont négatifs verts. Par Buffy.",
-      "date": "2026-10-28T16:51:58Z",
+      "date": "2026-11-02T12:57:40Z",
       "_rescel": [
         {
           "ts": "2026-10-28T16:51:58Z",
@@ -870,13 +870,23 @@
             "user": "christophe",
             "chaine": "pid 26110 <- bash(pid 26108) <- /Users/christoph(pid 26107) <- /Users/christoph(pid 59857)"
           }
+        },
+        {
+          "ts": "2026-11-02T12:57:40Z",
+          "motif": "29/10 GO-Christophe-go-durcissements : ecriture atomique analysis.json (predeclare 29/10, re-scellement 02/11 avec la vague)",
+          "ecrivain": {
+            "ts": "2026-11-02T12:57:40Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 17934 <- bash(pid 17933) <- /Users/christoph(pid 17932) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-28T16:51:58Z",
+        "ts": "2026-11-02T12:57:40Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 26110 <- bash(pid 26108) <- /Users/christoph(pid 26107) <- /Users/christoph(pid 59857)"
+        "chaine": "pid 17934 <- bash(pid 17933) <- /Users/christoph(pid 17932) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -1303,10 +1313,28 @@
       "origine": "chantier contrat-cortana",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "0a9df982bda184a920fabadcd53b822f",
+      "md5": "076703885d9b15e8ef04eff904cb4919",
       "note": "13/09: retry backoff x3 (GO C.) ajouté — les 502 passagers du hub ne tuent plus le contrat du jour.",
-      "date": "2026-09-29T08:34Z",
-      "_rescel_20260929": "RÉPARÉ 29/09/2026 (même classe que les 4 organes du 28/09) : `appeler_hub` fait 3 essais puis `raise last`, personne ne l'attrapait → un 502 PASSAGER du hub faisait sortir l'organe sur un TRACEBACK (code 1 NON déclaré, mesuré 07:45Z) et le contrat `cortana_pilot.json` n'était pas réécrit (chaîne santé « contrat Cortana figé » en ALERTE). Ajout d'un try/except autour de `sys.exit(main())` → code 3 DÉCLARÉ (hub injoignable). PORTÉE : 1 constante + 1 bloc de sortie ; aucun seuil, aucune borne du contrat, aucune proposition modifiée."
+      "date": "2026-11-02T12:57:40Z",
+      "_rescel_20260929": "RÉPARÉ 29/09/2026 (même classe que les 4 organes du 28/09) : `appeler_hub` fait 3 essais puis `raise last`, personne ne l'attrapait → un 502 PASSAGER du hub faisait sortir l'organe sur un TRACEBACK (code 1 NON déclaré, mesuré 07:45Z) et le contrat `cortana_pilot.json` n'était pas réécrit (chaîne santé « contrat Cortana figé » en ALERTE). Ajout d'un try/except autour de `sys.exit(main())` → code 3 DÉCLARÉ (hub injoignable). PORTÉE : 1 constante + 1 bloc de sortie ; aucun seuil, aucune borne du contrat, aucune proposition modifiée.",
+      "_rescel": [
+        {
+          "ts": "2026-11-02T12:57:40Z",
+          "motif": "29/10 GO-Christophe-go-durcissements : timeout 120s urlopen hub (predeclare 29/10, re-scellement 02/11 avec la vague)",
+          "ecrivain": {
+            "ts": "2026-11-02T12:57:40Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 17939 <- bash(pid 17933) <- /Users/christoph(pid 17932) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T12:57:40Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 17939 <- bash(pid 17933) <- /Users/christoph(pid 17932) <- /Users/christoph(pid 4107)"
+      }
     },
     {
       "nom": "Index_Maison/TROUPEAU_INV_SPEC_20260913.md",
@@ -2476,8 +2504,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "3a6ca37db6fb61727e387547bbff1fd2",
-      "date": "2026-10-28T22:37:10Z",
+      "md5": "d6d4a85094a8ddd5ca64e67774303d93",
+      "date": "2026-11-02T13:00:53Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -2884,13 +2912,33 @@
             "user": "christophe",
             "chaine": "pid 293 <- bash(pid 291) <- /Users/christoph(pid 290) <- /Users/christoph(pid 59857)"
           }
+        },
+        {
+          "ts": "2026-11-02T12:57:35Z",
+          "motif": "02/11 §63-65 : calendrier-rituel + plan de vol + classe mort-silencieuse (travail legitime du 02/11, re-scellement post-alarme veilleuse)",
+          "ecrivain": {
+            "ts": "2026-11-02T12:57:35Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 17914 <- bash(pid 17911) <- /Users/christoph(pid 17910) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T13:00:53Z",
+          "motif": "02/11 §67 : vague reactiver+incassable (5+3+2 rescellements, garde rituel, gatekeeper note)",
+          "ecrivain": {
+            "ts": "2026-11-02T13:00:53Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 18635 <- bash(pid 18632) <- /Users/christoph(pid 18631) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-28T22:37:10Z",
+        "ts": "2026-11-02T13:00:53Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 293 <- bash(pid 291) <- /Users/christoph(pid 290) <- /Users/christoph(pid 59857)"
+        "chaine": "pid 18635 <- bash(pid 18632) <- /Users/christoph(pid 18631) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -4040,13 +4088,13 @@
       "origine": "R22 24/10",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d917d9f35af81f30af61deb350a4689e",
-      "date": "2026-10-28T20:24:35Z",
+      "md5": "86c9484c924f13f293397de9f514ef2d",
+      "date": "2026-11-02T13:00:53Z",
       "dernier_ecrivain": {
-        "ts": "2026-10-28T20:24:35Z",
+        "ts": "2026-11-02T13:00:53Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 71333 <- bash(pid 71321) <- /Users/christoph(pid 71320) <- /Users/christoph(pid 59857)"
+        "chaine": "pid 18645 <- bash(pid 18632) <- /Users/christoph(pid 18631) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -4313,6 +4361,56 @@
             "ia": "Buffy (Muse Spark 1.3, Freebuff)",
             "user": "christophe",
             "chaine": "pid 71333 <- bash(pid 71321) <- /Users/christoph(pid 71320) <- /Users/christoph(pid 59857)"
+          }
+        },
+        {
+          "ts": "2026-11-02T12:57:35Z",
+          "motif": "02/11 : traces ecrivains des re-scellements du jour (R22)",
+          "ecrivain": {
+            "ts": "2026-11-02T12:57:35Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 17919 <- bash(pid 17911) <- /Users/christoph(pid 17910) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T12:57:48Z",
+          "motif": "02/11 : DERNIER de la vague (auto-trace R22, ne plus toucher apres celui-ci)",
+          "ecrivain": {
+            "ts": "2026-11-02T12:57:48Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 17973 <- bash(pid 17972) <- /Users/christoph(pid 17971) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T13:00:00Z",
+          "motif": "02/11 : DERNIER de la vague geopol/verif (auto-trace R22)",
+          "ecrivain": {
+            "ts": "2026-11-02T13:00:00Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 18519 <- bash(pid 18508) <- /Users/christoph(pid 18505) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T13:00:28Z",
+          "motif": "02/11 : DERNIER vague rituel (auto-trace R22)",
+          "ecrivain": {
+            "ts": "2026-11-02T13:00:28Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 18585 <- bash(pid 18575) <- /Users/christoph(pid 18574) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T13:00:53Z",
+          "motif": "02/11 §67 : DERNIER de la vague (auto-trace R22)",
+          "ecrivain": {
+            "ts": "2026-11-02T13:00:53Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 18645 <- bash(pid 18632) <- /Users/christoph(pid 18631) <- /Users/christoph(pid 4107)"
           }
         }
       ]
@@ -5182,18 +5280,40 @@
       "origine": "02/11 GO Christophe : l'oubli est un problème",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "8650eec802d9d6001d81fd39d0a43764",
-      "date": "2026-11-02T10:54:02Z",
+      "md5": "10132bdd0eb9c5e7481538880b0c0e16",
+      "date": "2026-11-02T13:00:53Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T10:54:02Z",
+        "ts": "2026-11-02T13:00:53Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 90799 <- bash(pid 90798) <- /Users/christoph(pid 90797) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 18640 <- bash(pid 18632) <- /Users/christoph(pid 18631) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
           "ts": "2026-11-02T10:54:02Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-11-02T12:57:35Z",
+          "motif": "02/11 : calendrier-rituel 13 items + plan de vol (GO Christophe)",
+          "ecrivain": {
+            "ts": "2026-11-02T12:57:35Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 17924 <- bash(pid 17911) <- /Users/christoph(pid 17910) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T13:00:53Z",
+          "motif": "02/11 §67 : +1 item gatekeeper-verif-setup (14 items)",
+          "ecrivain": {
+            "ts": "2026-11-02T13:00:53Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 18640 <- bash(pid 18632) <- /Users/christoph(pid 18631) <- /Users/christoph(pid 4107)"
+          }
         }
       ]
     },
@@ -5203,13 +5323,13 @@
       "origine": "02/11 GO Christophe : l'œil qui ne dort jamais",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "e68741bf601845fcbc390fd2bf842f20",
-      "date": "2026-11-02T11:23:31Z",
+      "md5": "a37ae0926b482031387ebe15db0c1a10",
+      "date": "2026-11-02T13:00:28Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T11:23:31Z",
+        "ts": "2026-11-02T13:00:28Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 97497 <- bash(pid 97491) <- /Users/christoph(pid 97490) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 18580 <- bash(pid 18575) <- /Users/christoph(pid 18574) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -5236,6 +5356,16 @@
             "ia": "Buffy (Muse Spark 1.3, Freebuff)",
             "user": "christophe",
             "chaine": "pid 97497 <- bash(pid 97491) <- /Users/christoph(pid 97490) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T13:00:28Z",
+          "motif": "02/11 incassable : garde resceler --liste dans le rituel (ecart scelle = alerte matinale)",
+          "ecrivain": {
+            "ts": "2026-11-02T13:00:28Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 18580 <- bash(pid 18575) <- /Users/christoph(pid 18574) <- /Users/christoph(pid 4107)"
           }
         }
       ]
@@ -5267,18 +5397,30 @@
       "origine": "tour en-vol 02/11 : geopol morte depuis le 23/10",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "38fc348900d845b0f83ea70e5f078ff6",
-      "date": "2026-11-02T11:12:18Z",
+      "md5": "ce69746de18e9b48921789975e502a26",
+      "date": "2026-11-02T12:59:53Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T11:12:18Z",
+        "ts": "2026-11-02T12:59:53Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 95533 <- bash(pid 95525) <- /Users/christoph(pid 95523) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 18454 <- bash(pid 18451) <- /Users/christoph(pid 18450) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
           "ts": "2026-11-02T11:12:18Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-11-02T12:59:53Z",
+          "motif": "02/11 reactiver-pour-de-bon : RunAtLoad true (demarrage immediat, redemarrage 12h58 ok=True)",
+          "ecrivain": {
+            "ts": "2026-11-02T12:59:53Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 18454 <- bash(pid 18451) <- /Users/christoph(pid 18450) <- /Users/christoph(pid 4107)"
+          }
         }
       ]
     },
@@ -5320,6 +5462,48 @@
       "_ajout": [
         {
           "ts": "2026-11-02T11:28:48Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/observe_geopol_gratuit.py",
+      "role": "observateur geopol gratuit (GDELT+Polymarket, lecture seule)",
+      "origine": "02/11 boucle-source : entre au registre pour que la veilleuse surveille ses futures modifs",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "9e09bc0184e9fc19b46afb9b3cdcd8bb",
+      "date": "2026-11-02T12:59:59Z",
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T12:59:59Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 18509 <- bash(pid 18508) <- /Users/christoph(pid 18505) <- /Users/christoph(pid 4107)"
+      },
+      "_ajout": [
+        {
+          "ts": "2026-11-02T12:59:59Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.verif-setup.plist",
+      "role": "planification verif-setup quotidienne 12h00",
+      "origine": "02/11 boucle-source : entre au registre (cles mortes nettoyees)",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "36f9e3b32ef067e255f305830b4d1028",
+      "date": "2026-11-02T13:00:00Z",
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T13:00:00Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 18514 <- bash(pid 18508) <- /Users/christoph(pid 18505) <- /Users/christoph(pid 4107)"
+      },
+      "_ajout": [
+        {
+          "ts": "2026-11-02T13:00:00Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
         }
       ]

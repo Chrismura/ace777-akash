@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "sdi",
-      "zscore": 2.904791170768148,
-      "value": 0.616,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. Le 'SDI' détecté dans les titres correspond au Syndicat des Industries de la Distribution (France), et non à un indicateur onchain ou un actif crypto. Aucune divergence réelle entre données brutes et narratif crypto, car le contexte est purement macro-économique/retail.\"\n}",
-      "ts": "2026-11-01T23:56:56.612262+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 3.033440943713891,
       "value": 1.218,
@@ -349,6 +342,13 @@
       "value": 1.24,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
       "ts": "2026-11-02T10:59:45.757632+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.2483354308000694,
+      "value": 1131804.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence entre la panique médiatique (liée à des fausses rumeurs de hack et des bruits de couloir sur des liquidations macro) et la réalité onchain (z-score extrêmement bas à -2.25 indiquant une absence totale de stress systémique réel). Les baleines profitent du FUD médiatique pour accumuler en silence pendant que les retail vendent la panique.\"\n}\n```",
+      "ts": "2026-11-02T12:44:59.776207+00:00"
     }
   ]
 }

@@ -67,7 +67,22 @@ def main() -> int:
                 dus.append({**it, "raison": f"J-{delta}"})
             else:
                 a_venir.append({**it, "raison": f"J-{delta}"})
+    import subprocess as _sp
     import time as _time
+    # 02/11 boucle-source : le matin même, 5 fichiers avaient dérivé du registre
+    # sans que personne ne le voie (la veilleuse criait, personne ne rescellait).
+    # Le rituel rejoue --liste (lecture seule) : un écart = 🔴 au réveil.
+    scelles_ecarts = []
+    try:
+        _r = _sp.run(["/usr/bin/python3",
+                      os.path.join(HOME, "ace777-test-day1/Index_Maison/scripts/resceler.py"),
+                      "--liste"], capture_output=True, text=True, timeout=120)
+        for _l in (_r.stdout or "").splitlines():
+            _l = _l.strip()
+            if _l.startswith("écarts") and "0" not in _l.split("→")[0]:
+                scelles_ecarts.append(_l)
+    except Exception as _e:
+        scelles_ecarts.append(f"resceler --liste inexécutable : {_e}")
     aveugles = []
     maintenant = _time.time()
     for nom, chemin, max_min in FRAICHEUR:
@@ -83,6 +98,7 @@ def main() -> int:
     res = {"ts": datetime.now().astimezone().isoformat(timespec="seconds"),
            "en_retard": en_retard, "dus": dus, "a_venir": a_venir,
            "moteurs_aveugles": aveugles,
+           "scelles_ecarts": scelles_ecarts,
            "memoire": [{"id": m.get("id"), "titre": m.get("titre"),
                         "origine": m.get("origine")} for m in memoire]}
     try:
@@ -95,6 +111,8 @@ def main() -> int:
           f"À VENIR={len(a_venir)} AVEUGLES={len(aveugles)} MÉMOIRE={len(memoire)}")
     for a in aveugles:
         print(f"  🔇 MOTEUR AVEUGLE : {a['moteur']} — {a['raison']}")
+    for _e in scelles_ecarts:
+        print(f"  🔴 SCELLÉ DÉRIVÉ : {_e} — resceler avant midi")
     for it in en_retard:
         print(f"  🔴 EN RETARD {it['jours_retard']}j : {it['titre']} "
               f"(échéance {it['echeance']}, {it.get('origine', '')})")
