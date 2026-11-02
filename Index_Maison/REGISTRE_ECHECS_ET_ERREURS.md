@@ -2425,3 +2425,11 @@ jamais de garde générique — jusqu'à aujourd'hui.
 run, même sans neuf). short_shadow_live.json appliqué + rituel basculé
 dessus. 0 aveugle ce matin. La classe est nommée, la garde est branchée.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §66 — PLAN DE VOL RÉÉCRIT (02/11, GO Christophe)
+Périmé depuis le 13/08 (Alpha FATAL_RC1...), aucun lecteur, remplacé de fait
+par calendrier + discipline. Réécrit depuis le réel : 5 vols ordonnés (live
+d'abord 09/11, mini Mac 13/11, verdicts 16/11, REA en attente du choix),
+règles du vol (GO, mesure-d'abord, preuve-de-vie, anti-silence). Ancien plan
+archivé en bas du fichier, pas effacé. Miroir d'ordre du calendrier.json.
+IA=Buffy (Muse Spark 1.3, Freebuff).
