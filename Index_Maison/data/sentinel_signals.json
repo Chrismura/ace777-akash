@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.7236947423776283,
-      "value": 5318831631.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.72) n'est pas attribué à un actif crypto spécifique dans les données brutes, tandis que les titres médiatiques sont majoritairement hors-sujet (charbon, auto, loisirs) ou indiquent une dominance BTC classique sans signe d'accumulation silencieuse d'ETH ou d'altcoins.\"\n}",
-      "ts": "2026-11-02T05:48:38.246043+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.1783545769694928,
-      "value": 2.084,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative (z-score -2.18) avec un long_short de 2.084, suggérant une accumulation nette de positions longues. Les titres médiatiques mentionnent des performances positives de fonds long-short, mais ne mentionnent pas cette divergence spécifique. Les baleines pourraient être en train de bouger silencieusement, avec un narratif médiatique qui ne reflète pas pleinement cette activité.\"\n}\n```",
-      "ts": "2026-11-02T06:08:44.130742+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.3914130850379895,
-      "value": 5267310051.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.39) n'est pas attribué à un actif crypto spécifique dans les données brutes, tandis que les titres médiatiques sont majoritairement hors-sujet (charbon, automobile, loisirs) ou indiquent une dominance BTC classique sans signal de rotation vers l'ETH. Aucune divergence exploitable détectée.\"\n}",
-      "ts": "2026-11-02T06:18:47.905133+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.08623207352358,
-      "value": 2.084,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.08 combiné à un z-score négatif profond (-2.09) indique un positionnement contrarien massif des institutionnels, tandis que les médias grand public banalisent le concept sans voir l'accumulation agressive en cours.\"\n}\n```",
-      "ts": "2026-11-02T06:38:53.419344+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.2400488661482223,
-      "value": 5278430793.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.24) noyée dans un bruit médiatique macroéconomique et automobile sans rapport direct avec une accumulation ou distribution majeure de baleines crypto.\"\n}\n```",
-      "ts": "2026-11-02T06:48:56.662034+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": -177.51651776043317,
-      "value": 0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif critique : Le 'SDI' mentionné dans les titres est le Syndicat des Industries (secteur BTP/Commerce en France), et non un actif crypto ou un protocole onchain. L'anomalie z-score -177.52 est statistiquement impossible pour un flux de données crypto réel (probablement une erreur de mapping de données ou un artefact de test). Aucune divergence onchain/média n'existe car le sujet médiatique est totalement hors du domaine crypto.\"\n}",
-      "ts": "2026-11-02T07:04:00.348621+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.2278553252547155,
       "value": 2.06,
@@ -349,6 +307,48 @@
       "value": 8742082800.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.28) est isolée sans contexte narratif crypto, rendant l'attribution à une action de baleine spéculative ou directionnelle impossible à confirmer.\"\n}",
       "ts": "2026-11-02T20:17:30.100858+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.0415620100275214,
+      "value": 2.381,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. Les données fournies concernent des ETF actions (BNP Paribas, AIF) et des articles génériques sur la stratégie long/short en bourse, non des mouvements onchain spécifiques à la crypto. Aucune divergence réelle entre flux crypto et narratif n'est détectable ici.\"\n}",
+      "ts": "2026-11-02T20:37:34.421891+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.229252724388018,
+      "value": 8885750099.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.23) est statistiquement faible et non confirmée par un narratif de marché. Aucune preuve de mouvement de baleines ou de divergence narrative.\"\n}",
+      "ts": "2026-11-02T20:47:37.093782+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.6905778300782486,
+      "value": 2.451,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des ETF actions traditionnels (SmallCap, Global Equity) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-02T21:07:41.472718+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.0004059347704635,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (Centre de Formation Professionnelle, politique locale, ou confusion avec le protocole Bitcoin Child Pays For Parent). Aucune corrélation entre l'anomalie onchain et le narratif médiatique détecté. Absence de signal de mouvement de baleines.\"\n}\n```",
+      "ts": "2026-11-02T21:12:43.273400+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.0004059347704635,
+      "value": 50.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif massif. Le terme 'Dust' dans les titres médiatiques fait référence à des produits de sport (chaussures, vélos) ou à des émissions industrielles, et non à la crypto-monnaie Dust (DUST) ou à des micro-transactions onchain. Aucune corrélation entre l'anomalie z-score et le narratif crypto. Le signal est un artefact de sémantique.\"\n}",
+      "ts": "2026-11-02T21:12:44.678775+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1786049441224837,
+      "value": 9026894512.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (Windows 11, déchets, musique, actions Alstom/Ubisoft). Le volume anormal (z-score 2.18) n'est pas soutenu par un narratif de marché, suggérant soit du bruit de données, soit une activité non liée à la spéculation publique (ex: rotation de fonds, liquidité). Pas de signal exploitable.\"\n}",
+      "ts": "2026-11-02T21:17:48.342089+00:00"
     }
   ]
 }
