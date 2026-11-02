@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "volume",
-      "zscore": 2.0703178213478814,
-      "value": 5339308353.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 2.07 indique une anomalie statistique modérée, mais le volume brut (~5.3 Md$) est cohérent avec les flux normaux du marché (cf. titre CryptoTicker mentionnant 4.6 Md$ pour ETH). L'absence de titres médiatiques spécifiques à une accumulation massive ou à un dump soudain, combinée à la présence de bruits de fond non pertinents (charbon, auto, fonds suisses), suggère que cette variation de volume est probablement liée à une rotation de marché ou à une liquidité institutionnelle standard plutôt qu'à un mouvement directionnel silencieux de baleines. Le narratif médiatique n'est pas déconnecté, il est simplement focalisé sur d'autres actifs ou secteurs.\"\n}\n```",
-      "ts": "2026-11-02T07:49:12.622620+00:00"
-    },
-    {
-      "metric": "volume",
       "zscore": 2.1932298213394055,
       "value": 5491251831.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 2.19 indique une anomalie statistique modérée, mais le volume brut (~5.5 Md$) est cohérent avec les flux normaux du marché (cf. titre CryptoTicker mentionnant 4.6 Md$ pour ETH). L'absence de titres médiatiques spécifiques à une accumulation massive ou à un dump soudain, combinée à la présence de bruits de fond (charbon, auto, fonds suisses), suggère que cette activité est probablement liée à du trading institutionnel standard ou à des rotations de portefeuille plutôt qu'à un mouvement directionnel silencieux de baleines. La divergence est faible : le narratif général (activité de marché) correspond aux données onchain.\"\n}\n```",
@@ -349,6 +342,13 @@
       "value": 2.494,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des ETF actions traditionnels (SmallCap, Global Equity) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
       "ts": "2026-11-02T22:08:03.165407+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.02310308618065,
+      "value": 9186078151.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets hétérogènes (déchets municipaux, UI Windows, earnings Q3, options SPX) sans aucun lien avec l'actif crypto sous surveillance. Le z-score de 2.02 est modéré et non confirmé par un narratif de marché. Impossible de détecter une divergence baleine sans contexte d'actif spécifique.\"\n}",
+      "ts": "2026-11-02T22:18:05.843159+00:00"
     }
   ]
 }

@@ -1,86 +1,8 @@
 {
-  "timestamp": 1793657610,
-  "date": "2026-11-02T22:13:30.981563+00:00",
-  "n_analyses": 32,
+  "timestamp": 1793658511,
+  "date": "2026-11-02T22:28:31.260887+00:00",
+  "n_analyses": 31,
   "analyses": [
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.9890180786876543,
-        "value": 7516633953.0,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.99) sans rapport avec la crypto. Bruit médiatique saturé de faux positifs sans lien onchain pertinent.\"\n}\n```",
-        "ts": 1793636145.866588
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.05,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.475590171099254,
-        "value": 1.145,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.48) sur le token IPT totalement déconnectée des actualités médias, lesquelles font référence à des institutions (École polytechnique, Institut Pasteur de Tunis/Taiwan) et non à un actif crypto. Bruit on-chain sans fondement narratif réel.\"\n}\n```",
-        "ts": 1793636147.395606
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.05,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "whale_usd",
@@ -97,24 +19,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 687172.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -127,7 +48,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -142,7 +63,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -166,7 +87,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -181,7 +102,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -205,12 +126,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2522398.0,
+          "value": 2520774.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -239,17 +160,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2123534.0,
+          "value": 2121109.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 398864.0,
+          "value": 399665.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
@@ -279,17 +200,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 237,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -324,17 +245,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 237,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -364,7 +285,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -379,7 +300,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -403,17 +324,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2123534.0,
+          "value": 2121109.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 398864.0,
+          "value": 399665.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
@@ -438,7 +359,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -453,7 +374,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -482,24 +403,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 687172.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -512,17 +432,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2123534.0,
+          "value": 2121109.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 398864.0,
+          "value": 399665.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
@@ -547,7 +467,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -562,7 +482,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -586,17 +506,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 2123534.0,
+          "value": 2121109.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 398864.0,
+          "value": 399665.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
@@ -621,7 +541,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -636,7 +556,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -665,24 +585,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 687172.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -695,7 +614,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -710,7 +629,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -734,7 +653,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -749,7 +668,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -778,7 +697,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 98866.313,
+          "value": 98940.662,
           "seuil": 120000,
           "depasse": false
         }
@@ -803,7 +722,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -818,7 +737,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -847,7 +766,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 98866.313,
+          "value": 98940.662,
           "seuil": 120000,
           "depasse": false
         }
@@ -872,7 +791,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -887,7 +806,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -916,7 +835,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 98866.313,
+          "value": 98940.662,
           "seuil": 120000,
           "depasse": false
         }
@@ -946,17 +865,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 237,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -991,17 +910,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 1,
+          "value": 237,
           "seuil": 100,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.604,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -1031,7 +950,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -1046,7 +965,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -1075,7 +994,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 98866.313,
+          "value": 98940.662,
           "seuil": 120000,
           "depasse": false
         }
@@ -1100,7 +1019,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         },
@@ -1115,7 +1034,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 0,
           "seuil": 5,
           "depasse": false
         }
@@ -1144,24 +1063,23 @@
           "depasse": false
         },
         "achats": {
-          "value": 687172.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.05,
+          "value": 0.15,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -1179,7 +1097,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 98866.313,
+          "value": 98940.662,
           "seuil": 120000,
           "depasse": false
         }
@@ -1192,6 +1110,45 @@
       },
       "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
       "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.02310308618065,
+        "value": 9186078151.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets hétérogènes (déchets municipaux, UI Windows, earnings Q3, options SPX) sans aucun lien avec l'actif crypto sous surveillance. Le z-score de 2.02 est modéré et non confirmé par un narratif de marché. Impossible de détecter une divergence baleine sans contexte d'actif spécifique.\"\n}",
+        "ts": 1793657885.843159
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": 0.15,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"

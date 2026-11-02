@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-02T22:13:49+00:00",
+  "ts": "2026-11-02T22:31:41+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -307,15 +307,15 @@
           "delta_votes": 3
         },
         {
-          "amendement": "fixXChainRewardRounding",
-          "delta_votes": -1
-        },
-        {
           "amendement": "XChainBridge",
           "delta_votes": -1
         },
         {
-          "amendement": "Batch",
+          "amendement": "fixXChainRewardRounding",
+          "delta_votes": -1
+        },
+        {
+          "amendement": "PermissionDelegation",
           "delta_votes": 0
         }
       ]
@@ -430,33 +430,33 @@
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "555 fenêtres · 0 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261102_SNAPS.csv (ofi_norm=0.0021 Δ=-3.38 NEUTRE)",
+      "faits": "573 fenêtres · 0 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261102_SNAPS.csv (ofi_norm=0.003 Δ=1.99 NEUTRE)",
       "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
         {
-          "ts": "2026-11-02T22:09:03Z",
-          "ofi": -0.0022,
+          "ts": "2026-11-02T22:27:05Z",
+          "ofi": 0.0145,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-02T22:10:03Z",
-          "ofi": -0.0023,
+          "ts": "2026-11-02T22:28:05Z",
+          "ofi": 0.0262,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-02T22:11:03Z",
-          "ofi": 0.0044,
+          "ts": "2026-11-02T22:29:05Z",
+          "ofi": 0.0082,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-02T22:12:03Z",
-          "ofi": 0.0041,
+          "ts": "2026-11-02T22:30:05Z",
+          "ofi": 0.0016,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-02T22:13:03Z",
-          "ofi": 0.0021,
+          "ts": "2026-11-02T22:31:05Z",
+          "ofi": 0.003,
           "verdict": "NEUTRE"
         }
       ]
