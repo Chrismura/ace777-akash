@@ -1,43 +1,8 @@
 {
-  "timestamp": 1793644106,
-  "date": "2026-11-02T18:28:26.852991+00:00",
-  "n_analyses": 24,
+  "timestamp": 1793646807,
+  "date": "2026-11-02T19:13:27.637727+00:00",
+  "n_analyses": 26,
   "analyses": [
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": -2.2483354308000694,
-        "value": 1131804.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence entre la panique médiatique (liée à des fausses rumeurs de hack et des bruits de couloir sur des liquidations macro) et la réalité onchain (z-score extrêmement bas à -2.25 indiquant une absence totale de stress systémique réel). Les baleines profitent du FUD médiatique pour accumuler en silence pendant que les retail vendent la panique.\"\n}\n```",
-        "ts": 1793623499.776207
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 3298102.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 112527.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.01,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
-    },
     {
       "signal": {
         "metric": "price_1h",
@@ -49,12 +14,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 3410630.0,
+          "value": 3203315.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -83,7 +48,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -122,7 +87,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -171,7 +136,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         }
@@ -195,7 +160,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -234,7 +199,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -273,7 +238,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -312,7 +277,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -351,7 +316,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -390,7 +355,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -429,7 +394,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -468,7 +433,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -517,7 +482,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         }
@@ -541,7 +506,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -580,7 +545,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -619,12 +584,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 3410630.0,
+          "value": 3203315.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -653,17 +618,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 3298102.0,
+          "value": 3090553.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 112527.0,
+          "value": 112762.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         }
@@ -693,17 +658,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 315,
+          "value": 370,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.612,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -738,17 +703,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 315,
+          "value": 370,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.612,
+          "value": 0.608,
           "seuil": 0.3,
           "depasse": true
         },
@@ -778,7 +743,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -817,17 +782,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 3298102.0,
+          "value": 3090553.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 112527.0,
+          "value": 112762.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         }
@@ -852,7 +817,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -901,7 +866,7 @@
           "depasse": false
         },
         "prix": {
-          "value": 0.01,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         }
@@ -913,6 +878,115 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.44357210084046,
+        "value": 3303138.0,
+        "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score de 2.44 sur les liquidations confirme une purge de levier significative. Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en dépit de la chute), le narratif médiatique (peur d'un hack Binance) est ici aligné avec la réalité onchain : la chute des prix a déclenché des liquidations massives, non des achats. L'absence de divergence positive (achats vs peur) indique une capitulation réelle plutôt qu'un piège de liquidité haussier.\"\n}",
+        "ts": 1793644926.821105
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 3090553.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 112762.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.1,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+      },
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.664800778659066,
+        "value": 8534463077.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets macro-économiques, culturels et industriels (Unilever, Alstom, déchets) sans aucun lien avec les marchés crypto. L'anomalie de volume (z-score 2.66) est isolée et non confirmée par un narratif de marché, rendant l'attribution à une action de baleine spéculative ou directionnelle invérifiable.\"\n}",
+        "ts": 1793645228.583371
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.1,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.0987108061895605,
+        "value": 3203315.0,
+        "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score de 2.10 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en dépit de la chute), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est un événement de capitulation et de délestage forcé. L'absence de divergence positive (achats massifs non visibles) indique que le flux est sortant, non entrant.\"\n}",
+        "ts": 1793646733.964467
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 3090553.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 112762.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.1,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "longs > shorts",
+        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
+        "niveau": "surveiller",
+        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
+      },
+      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
+      "niveau": "surveiller"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"

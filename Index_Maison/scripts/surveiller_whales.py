@@ -264,17 +264,46 @@ def scanner(once=True):
         "nb_surveilles": len(portefeuilles),
     }
     os.makedirs(DATA, exist_ok=True)
-    with open(SCAN, "w", encoding="utf-8") as f:
-        json.dump(resultat, f, ensure_ascii=False, indent=2)
-    with open(VUE, "w", encoding="utf-8") as f:
-        json.dump(vue, f, ensure_ascii=False, indent=2)
-    # historique append-only des alertes
-    for g in gros:
-        with open(HISTO, "a", encoding="utf-8") as f:
-            f.write(json.dumps({"ts": ts, **g}, ensure_ascii=False) + "\n")
-    for a in alerts_frag:
-        with open(HISTO, "a", encoding="utf-8") as f:
-            f.write(json.dumps({"ts": ts, **a}, ensure_ascii=False) + "\n")
+    for _p, _d in ((SCAN, resultat), (VUE, vue)):
+        _tmp = _p + ".tmp"
+        with open(_tmp, "w", encoding="utf-8") as f:
+            json.dump(_d, f, ensure_ascii=False, indent=2)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(_tmp, _p)
+    # ANTI-BOUCLE (02/11 §77) : le scanner re-détecte les mêmes tx 48h à chaque passage
+    # (20k lignes -> 26 uniques = 99.9% doublons, 49 Mo pour rien). On n'append que du neuf (txid).
+    try:
+        _connus = set()
+        try:
+            with open(HISTO, encoding="utf-8") as _hf:
+                for _l in _hf:
+                    try:
+                        _j = json.loads(_l)
+                        if _j.get("txid"):
+                            _connus.add(_j["txid"])
+                    except Exception:
+                        continue
+        except FileNotFoundError:
+            pass
+        _n9 = 0
+        for g in gros:
+            if g.get("txid") and g["txid"] not in _connus:
+                with open(HISTO, "a", encoding="utf-8") as f:
+                    f.write(json.dumps({"ts": ts, **g}, ensure_ascii=False) + "\n")
+                _connus.add(g["txid"])
+                _n9 += 1
+        for a in alerts_frag:
+            _k = "frag:" + str(a.get("source")) + ":" + str(a.get("btc"))
+            if _k not in _connus:
+                with open(HISTO, "a", encoding="utf-8") as f:
+                    f.write(json.dumps({"ts": ts, **a}, ensure_ascii=False) + "\n")
+                _connus.add(_k)
+                _n9 += 1
+        if _n9 == 0:
+            print(f"[{ts}] historique : rien de neuf (anti-boucle, pas d'append)")
+    except OSError as _e:
+        print(f"[{ts}] ERREUR historique : {_e}")
     t = vue["total"]
     print(f"[{ts}] Scan OK — tip={tip}, gros blocs={len(gros)}, fragmentations={len(alerts_frag)}")
     print(f"  VUE 24h: in {t['in_btc']:,.0f} / out {t['out_btc']:,.0f} / net {t['net_btc']:+,.0f} BTC — {t['lecture']}")

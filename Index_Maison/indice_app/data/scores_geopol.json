@@ -1,20 +1,20 @@
 {
   "geopol": {
-    "score": 0.4317,
-    "ml_score": 0.2569,
-    "niveau": "attention",
-    "emoji": "🟡",
+    "score": 0.3573,
+    "ml_score": 0.1863,
+    "niveau": "calme",
+    "emoji": "🟢",
     "ml": {
-      "label": 1,
-      "label_nom": "attention",
-      "label_emoji": "🟡",
-      "probability": 0.5746,
-      "confidence": 0.5746,
-      "risk_score": 0.2569,
+      "label": 0,
+      "label_nom": "calme",
+      "label_emoji": "🟢",
+      "probability": 0.4893,
+      "confidence": 0.4893,
+      "risk_score": 0.1863,
       "probas": {
-        "calme": 0.3274,
-        "attention": 0.5746,
-        "alerte": 0.098,
+        "calme": 0.4893,
+        "attention": 0.4623,
+        "alerte": 0.0483,
         "critique": 0.0
       },
       "feature_importances": {
@@ -54,7 +54,7 @@
         }
       },
       "jets_adsb": {
-        "score": 0.0043,
+        "score": 0.0084,
         "categorie": "geopol",
         "source": "OpenSky Network",
         "interpretation": "🟢 CALME — Trafic normal autour de DC. Rien d'inhabituel.",
@@ -62,7 +62,7 @@
           "military_surge": 0.0,
           "military_ratio": 0.0,
           "altitude_avg": 0.0,
-          "velocity_avg": 0.0429
+          "velocity_avg": 0.0841
         }
       },
       "oil_price": {
@@ -78,15 +78,15 @@
         }
       },
       "defense_stocks": {
-        "score": 0.7312,
+        "score": 0.3551,
         "categorie": "geopol",
         "source": "Yahoo Finance",
-        "interpretation": "🔴 ALERTE — Actions défense en hausse significative. Stress géopolitique en cours. Surveiller de près.",
+        "interpretation": "🟡 ATTENTION — Légère hausse du secteur défense. À surveiller.",
         "features": {
-          "sector_avg_change": 0.5021,
-          "sector_breadth": 1.0,
-          "max_stock_move": 0.652,
-          "sector_correlation": 1.0
+          "sector_avg_change": 0.3783,
+          "sector_breadth": 0.5,
+          "max_stock_move": 0.169,
+          "sector_correlation": 0.3
         }
       },
       "news_sentiment": {
@@ -104,12 +104,12 @@
         }
       }
     },
-    "alerte": "🟡 news_sentiment: 🚨 KILL SWITCH — Sentiment extrêmement négatif. 9 mots-clés de crise détectés. Réduire les positions. Ne pas trader.",
+    "alerte": "🟢 news_sentiment: 🚨 KILL SWITCH — Sentiment extrêmement négatif. 9 mots-clés de crise détectés. Réduire les positions. Ne pas trader.",
     "nb_modules": 5,
     "nb_ok": 5,
     "scores_par_categorie": {
-      "geopol": 0.4317
+      "geopol": 0.3573
     },
-    "ts": "2026-11-01T18:43:37.762783+00:00"
+    "ts": "2026-11-02T18:43:47.176015+00:00"
   }
 }

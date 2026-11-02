@@ -210,10 +210,16 @@ def main():
         "seuil_ratio": args.seuil,
     }
 
-    with open(OUT_LATEST, "w", encoding="utf-8") as f:
+    _tmp = OUT_LATEST + ".tmp"
+    with open(_tmp, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(_tmp, OUT_LATEST)
     with open(OUT_HIST, "a", encoding="utf-8") as f:
         f.write(json.dumps(out, ensure_ascii=False) + "\n")
+        f.flush()
+        os.fsync(f.fileno())
 
     if not args.silencieux:
         print(f"[flux_nets] verdict 48h : {v} — {detail}")

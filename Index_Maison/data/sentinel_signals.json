@@ -2,27 +2,6 @@
   "signals": [
     {
       "metric": "liquidations",
-      "zscore": 2.583940558634099,
-      "value": 2942890.0,
-      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.58 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en contre-tendance), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence entre le flux de données et le titre indique une capitulation réelle, pas un piège haussier.\"\n}",
-      "ts": "2026-11-02T03:58:05.967553+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 2.23606797749979,
-      "value": 37,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence classique : le Fear & Greed Index à 37 (peur) avec un z-score élevé (2.24) indique une volatilité anormale ou un sentiment de panique irrationnel, tandis que l'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain. Cette 'silence médiatique' couplé à une anomalie statistique forte est souvent le signe d'accumulation silencieuse par des acteurs institutionnels ou des baleines avant un retournement haussier.\"\n}\n```",
-      "ts": "2026-11-02T04:03:07.603130+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.128135978948538,
-      "value": 5103675398.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le volume anormal (5.1 Md$) correspond au volume d'échange d'Ethereum (4.6 Md$) mentionné dans le titre CryptoTicker. Les autres titres (LSA, Le Parisien, Unilever) sont du bruit médiatique non pertinent (cheveux, produits ménagers). Aucune divergence réelle entre onchain et narratif crypto ; le volume est simplement élevé par rapport à la moyenne, sans signal de manipulation de baleine détectable ici.\"\n}",
-      "ts": "2026-11-02T04:18:11.556213+00:00"
-    },
-    {
-      "metric": "liquidations",
       "zscore": 2.364439608225324,
       "value": 2931378.0,
       "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score de 2.36 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en dépit de la chute), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence positive indique une capitulation réelle plutôt qu'un piège haussier.\"\n}",
@@ -349,6 +328,27 @@
       "value": 2981858.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.59, ~3M USD) indiquant un accumulation ou un repositionnement actif de baleines, tandis que le narratif médiatique est vide ou neutre (aucun titre spécifique fourni). Cette asymétrie d'information suggère un mouvement silencieux avant une potentialité de volatilité haussière.\"\n}\n```",
       "ts": "2026-11-02T18:22:03.122860+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.44357210084046,
+      "value": 3303138.0,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score de 2.44 sur les liquidations confirme une purge de levier significative. Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en dépit de la chute), le narratif médiatique (peur d'un hack Binance) est ici aligné avec la réalité onchain : la chute des prix a déclenché des liquidations massives, non des achats. L'absence de divergence positive (achats vs peur) indique une capitulation réelle plutôt qu'un piège de liquidité haussier.\"\n}",
+      "ts": "2026-11-02T18:42:06.821105+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.664800778659066,
+      "value": 8534463077.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets macro-économiques, culturels et industriels (Unilever, Alstom, déchets) sans aucun lien avec les marchés crypto. L'anomalie de volume (z-score 2.66) est isolée et non confirmée par un narratif de marché, rendant l'attribution à une action de baleine spéculative ou directionnelle invérifiable.\"\n}",
+      "ts": "2026-11-02T18:47:08.583371+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.0987108061895605,
+      "value": 3203315.0,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score de 2.10 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en dépit de la chute), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est un événement de capitulation et de délestage forcé. L'absence de divergence positive (achats massifs non visibles) indique que le flux est sortant, non entrant.\"\n}",
+      "ts": "2026-11-02T19:12:13.964467+00:00"
     }
   ]
 }

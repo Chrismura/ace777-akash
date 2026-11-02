@@ -173,8 +173,12 @@ def main():
         "absorption_candidate": any(c["verdict"].startswith("ABSORPTION") for c in chunks),
         "note": "absorption à confirmer par re-remplissage MURS — Cortana décide, jamais ce script",
     }
-    with open(OUT_LATEST, "w", encoding="utf-8") as f:
+    _tmp = OUT_LATEST + ".tmp"
+    with open(_tmp, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(_tmp, OUT_LATEST)
     # ANTI-BOUCLE (02/11 §75) : jamais 2 lignes identiques de suite — 71k doublons
     # (0.0204/-0.56) = 47 Mo pour rien, calculs invalidés. On compare au dernier.
     try:
@@ -200,6 +204,37 @@ def main():
     except OSError:
         pass
 
+    # PONT OFI->MICRO (02/11 §77) : instrument capital débranché = faute grave.
+    # Absorption = candidat système (origine ofi-systeme, pas Cortana) -> le verdicteur juge (5s/60s).
+    # Anti-boucle : on n'alerte qu'une fois par fenêtre (même source+ofi+delta = pas de ré-alerte).
+    try:
+        if out.get("absorption_candidate"):
+            _micro = os.path.join(DATA, "micro_alerts.jsonl")
+            _cands = [c for c in chunks if c.get("verdict", "").startswith("ABSORPTION")]
+            _c0 = _cands[0] if _cands else {}
+            _side = "LONG" if "ACHAT" in str(_c0.get("verdict")) else "SHORT"
+            try:
+                _px = rows[-1]["mid"] if rows else 0.0
+            except Exception:
+                _px = 0.0
+            _alert = {"ts": out["ts"], "type": "absorption_ofi", "side": _side,
+                      "ref_price": round(float(_px), 2) if _px else 0.0,
+                      "origine": "ofi-systeme", "justification": _c0.get("verdict", "") + f" ofi={_c0.get('ofi_norm')} d={_c0.get('delta_bps')}bps"}
+            _doublon = False
+            try:
+                with open(_micro, encoding="utf-8") as _mf:
+                    _lines = _mf.read().strip().splitlines()
+                    if _lines:
+                        _last = json.loads(_lines[-1])
+                        if _last.get("origine") == "ofi-systeme" and _last.get("side") == _side and abs(float(_last.get("ref_price") or 0) - float(_alert["ref_price"] or 0)) < 50:
+                            _doublon = True
+            except (FileNotFoundError, ValueError):
+                pass
+            if not _doublon and _alert["ref_price"]:
+                with open(_micro, "a", encoding="utf-8") as _mf:
+                    _mf.write(json.dumps(_alert, ensure_ascii=False) + "\n")
+    except Exception as _e:
+        print(f"[ofi] pont micro impossible : {_e}")
     if not args.silencieux:
         g = out["fenetre_globale"]
         print(f"[ofi] fenêtre {g.get('n','?')} snaps | ofi_norm={g.get('ofi_norm')} "

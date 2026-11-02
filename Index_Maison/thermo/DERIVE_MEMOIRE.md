@@ -1,6 +1,6 @@
 # Rapport — Dérive Mémoire (Santé ACE777)
 
-- **Date** : `2026-11-02T10:53:35.101095+00:00`
+- **Date** : `2026-11-02T18:45:53.823892+00:00`
 - **Indices Instables** : `1`
 - **Indices Critiques** : `0`
 - **Indices RETIRÉS (source tarie)** : `0` — à réactiver ou archiver, **hors alarme** (R14)
@@ -13,13 +13,13 @@
 | `altSeason` | 11 | STABLE | 0.0% (STABLE) | 1j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `bassine` | 13 | STABLE | 0.0% (STABLE) | 1j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `btc` | 20 | STABLE | 0.0% (STABLE) | 5j (STABLE) | +0.0 (STABLE) | **STABLE** |
-| `chat` | 18 | STABLE | 5.9% (STABLE) | 2j (STABLE) | +50.0 (EN OBSERVATION) | **EN OBSERVATION** |
-| `chg24` | 9 | STABLE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (STABLE) | **STABLE** |
-| `croisements` | 137 | STABLE | 1.5% (STABLE) | 0j (STABLE) | -9.1 (EN OBSERVATION) | **EN OBSERVATION** |
+| `chat` | 18 | STABLE | 5.9% (STABLE) | 3j (STABLE) | +50.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `chg24` | 9 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `croisements` | 139 | STABLE | 1.4% (STABLE) | 0j (STABLE) | -33.3 (EN OBSERVATION) | **EN OBSERVATION** |
 | `etfBtcM` | 11 | STABLE | 0.0% (STABLE) | 5j (STABLE) | +0.0 (STABLE) | **STABLE** |
 | `etfEthM` | 15 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `etfXrpM` | 15 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
-| `fearGreed` | 138 | STABLE | 5.1% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `fearGreed` | 138 | STABLE | 5.1% (STABLE) | 0j (STABLE) | -75.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `funding` | 148 | STABLE | 9.5% (STABLE) | 0j (STABLE) | +100.0 (STABLE) | **STABLE** |
 | `geopol` | 75 | STABLE | 1.4% (STABLE) | 0j (STABLE) | +100.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `gexPutCall` | 16 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
@@ -29,9 +29,9 @@
 | `oi` | 14 | STABLE | 0.0% (STABLE) | 5j (STABLE) | +0.0 (STABLE) | **STABLE** |
 | `onchain` | 13 | STABLE | 0.0% (STABLE) | 5j (STABLE) | +100.0 (STABLE) | **STABLE** |
 | `panierDownPct` | 1 | FROID | 0.0% (STABLE) | 9j (PÉRIMÉ) | +0.0 (STABLE) | **PÉRIMÉ** |
-| `pipeline_health` | 8 | STABLE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `pipeline_health` | 8 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `radar` | 139 | STABLE | 12.3% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
-| `rbf` | 8 | STABLE | 0.0% (STABLE) | 0j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
+| `rbf` | 8 | STABLE | 0.0% (STABLE) | 0j (STABLE) | -100.0 (EN OBSERVATION) | **EN OBSERVATION** |
 | `score` | 12 | STABLE | 0.0% (STABLE) | 5j (STABLE) | +100.0 (STABLE) | **STABLE** |
 | `sdi` | 14 | STABLE | 7.7% (STABLE) | 1j (STABLE) | +0.0 (STABLE) | **STABLE** |
 | `verre` | 19 | STABLE | 5.6% (STABLE) | 1j (STABLE) | +0.0 (EN OBSERVATION) | **EN OBSERVATION** |
