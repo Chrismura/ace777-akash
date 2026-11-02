@@ -2,41 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -3.0865980899352734,
-      "value": 2.321,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
-      "ts": "2026-11-01T13:14:48.424562+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.7862826305962516,
-      "value": 2.321,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (long_short = 2.321, z-score -2.79) indique une forte concentration de positions long-short, suggérant une anticipation de mouvements de marché. Les titres médiatiques mentionnent les fonds long-short comme une stratégie idéale face à des marchés agités, ce qui est en accord avec l'anomalie onchain. Cependant, la date de septembre 2026 est future, ce qui pourrait indiquer un retard dans la propagation des informations ou une anticipation précoce des baleines.\"\n}\n```",
-      "ts": "2026-11-01T13:44:55.883788+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.534266226712128,
-      "value": 0.616,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Le sigle 'SDI' dans les titres médiatiques correspond à des entités non-crypto (Syndicat des Délégués d'Initiative, Samsung SDI, etc.). Aucune corrélation avec l'anomalie onchain détectée. Le narratif est déconnecté du sujet crypto, rendant l'analyse de divergence inapplicable.\"\n}",
-      "ts": "2026-11-01T14:10:01.371670+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.6746412464301397,
-      "value": 1.186,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
-      "ts": "2026-11-01T14:10:02.435441+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.440344074675312,
-      "value": 1.985,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Un taker_ratio de 1.985 (z-score 3.44) indique une pression acheteuse agressive et anormale (les takers achètent massivement). L'absence totale de couverture médiatique (vide informationnel) suggère que ce mouvement est initié par des acteurs informés (baleines) avant la diffusion du narratif public. C'est un signal classique d'accumulation silencieuse.\"\n}",
-      "ts": "2026-11-01T14:10:03.487907+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -2.5853781428542315,
       "value": 2.318,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
@@ -349,6 +314,41 @@
       "value": 5103675398.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le volume anormal (5.1 Md$) correspond au volume d'échange d'Ethereum (4.6 Md$) mentionné dans le titre CryptoTicker. Les autres titres (LSA, Le Parisien, Unilever) sont du bruit médiatique non pertinent (cheveux, produits ménagers). Aucune divergence réelle entre onchain et narratif crypto ; le volume est simplement élevé par rapport à la moyenne, sans signal de manipulation de baleine détectable ici.\"\n}",
       "ts": "2026-11-02T04:18:11.556213+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.364439608225324,
+      "value": 2931378.0,
+      "analysis": "{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score de 2.36 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en dépit de la chute), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence positive indique une capitulation réelle plutôt qu'un piège haussier.\"\n}",
+      "ts": "2026-11-02T04:28:13.997438+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.081665999466133,
+      "value": 37,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence classique : le Fear & Greed Index à 37 (peur) avec un z-score élevé (2.08) indique une volatilité anormale ou un sentiment de panique irrationnel, tandis que l'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain. Cette 'silence médiatique' couplé à une anomalie statistique forte est souvent le signe d'accumulation silencieuse par des acteurs institutionnels ou des baleines avant un retournement haussier.\"\n}\n```",
+      "ts": "2026-11-02T04:33:15.707478+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.9434924636752853,
+      "value": 5163312090.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.94) n'est pas accompagné d'un narratif crypto significatif (les titres concernent le charbon, la mode et un comparatif BTC/ETH sans contexte d'accumulation). Le faible volume relatif d'ETH (4.6 Md$ vs 66 Md$ BTC) suggère une rotation ou de la faiblesse, mais sans signal clair de manipulation ou d'accumulation silencieuse confirmée par les médias.\"\n}",
+      "ts": "2026-11-02T04:48:18.576447+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.41587749777976,
+      "value": 2.084,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.08 (z-score -2.42) indique une capitulation massive des positions longues et un positionnement extrêmement baissier de la foule. Historiquement, un tel désespoir contrarien signale un plancher de marché imminent, totalement ignoré par les médias généralistes qui parlent de produits financiers traditionnels.\"\n}\n```",
+      "ts": "2026-11-02T05:08:23.597989+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.8661144471544135,
+      "value": 5256764641.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.87) n'est pas attribué à un actif crypto spécifique dans les données brutes, tandis que les titres médiatiques sont majoritairement hors-sujet (charbon, autos, loisirs) ou indiquent une dominance BTC classique sans signe d'accumulation silencieuse d'ETH ou d'altcoins. Le signal est probablement du bruit ou lié à un actif non couvert par le narratif fourni.\"\n}",
+      "ts": "2026-11-02T05:18:28.370314+00:00"
     }
   ]
 }
