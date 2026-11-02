@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "taker_ratio",
-      "zscore": 2.1691333217619935,
-      "value": 1.703,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Taker ratio à 1.703 (z-score 2.17) indique une forte agression acheteuse sur les carnets d'ordres, totalement ignorée par le silence médiatique actuel. Divergence classique d'accumulation furtive par les baleines avant un mouvement de rupture.\"\n}\n```",
-      "ts": "2026-11-01T06:43:00.894382+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.0723614042814464,
-      "value": 0.1984046312968668,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 3.07 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
-      "ts": "2026-11-01T07:18:07.227430+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.5402461992210643,
-      "value": 0.1846039083493345,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain concrètes (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.54 sur le prix 1h est statistiquement notable mais isolé ; sans confirmation par les flux de trésorerie ou un narratif contradictoire, il est impossible de détecter une divergence ou un mouvement silencieux. Signal insuffisant pour une conviction.\"\n}\n```",
-      "ts": "2026-11-01T07:48:13.933131+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 4.003597818461511,
-      "value": 0.26296064318056533,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, activité d'échange) et de contenu médiatique exploitable. Le z-score de 4.00 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de sentiment. Impossible de détecter une divergence sans données comparables.\"\n}\n```",
-      "ts": "2026-11-01T08:38:20.751776+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 6.771340234865918,
       "value": 10717466.0,
@@ -349,6 +321,34 @@
       "value": 4391791616.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Divergence totale : l'anomalie onchain (volume crypto) est totalement déconnectée du narratif médiatique (marché du loisir créatif, cosmétiques, musique). Aucune corrélation sémantique ou sectorielle. Le bruit médiatique est hors sujet, rendant l'analyse du sentiment crypto impossible via ces sources. Signal neutre par défaut faute de contexte crypto pertinent.\"\n}",
       "ts": "2026-11-02T00:17:03.569593+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 6.855654600401044,
+      "value": 37,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice fear_greed à 37 avec un z-score de 6.86 indique une forte peur et une volatilité anormale. Les titres médiatiques ne mentionnent pas cette alerte, suggérant une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, ce qui pourrait indiquer une opportunité de trading à la baisse.\"\n}\n```",
+      "ts": "2026-11-02T00:32:09.329389+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.672833761505985,
+      "value": 0.387865514429131,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 2.67) suggère une activité de baleines crypto significative, mais les titres médiatiques ne mentionnent pas cette divergence. Le narratif médiatique semble déconnecté de la réalité des mouvements de fonds.\"\n}\n```",
+      "ts": "2026-11-02T00:37:11.028788+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.309485733739671,
+      "value": 4454894999.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 3.31) n'est pas soutenu par le narratif crypto (un seul article mineur sur le volume ETH/BTC). Les autres titres (auto, coiffure, loisirs) sont du bruit contextuel sans lien avec l'actif. Impossible de confirmer une accumulation silencieuse sans contexte d'actif spécifique.\"\n}",
+      "ts": "2026-11-02T00:47:13.723798+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 4.79583152331272,
+      "value": 37,
+      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice de peur/avidité est à 37, indiquant une peur extrême, tandis que les titres médiatiques ne mentionnent pas cette alerte, suggérant une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, indiquant une possible vente massive ou une panique du marché.\"\n}\n```",
+      "ts": "2026-11-02T01:02:17.778289+00:00"
     }
   ]
 }
