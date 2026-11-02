@@ -2,13 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -2.892686366562875,
-      "value": 2.353,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
-      "ts": "2026-11-01T12:44:43.836139+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -3.0865980899352734,
       "value": 2.321,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
@@ -349,6 +342,13 @@
       "value": 37,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence classique : le Fear & Greed Index à 37 (peur) avec un z-score élevé (2.24) indique une volatilité anormale ou un sentiment de panique irrationnel, tandis que l'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain. Cette 'silence médiatique' couplé à une anomalie statistique forte est souvent le signe d'accumulation silencieuse par des acteurs institutionnels ou des baleines avant un retournement haussier.\"\n}\n```",
       "ts": "2026-11-02T04:03:07.603130+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 3.128135978948538,
+      "value": 5103675398.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le volume anormal (5.1 Md$) correspond au volume d'échange d'Ethereum (4.6 Md$) mentionné dans le titre CryptoTicker. Les autres titres (LSA, Le Parisien, Unilever) sont du bruit médiatique non pertinent (cheveux, produits ménagers). Aucune divergence réelle entre onchain et narratif crypto ; le volume est simplement élevé par rapport à la moyenne, sans signal de manipulation de baleine détectable ici.\"\n}",
+      "ts": "2026-11-02T04:18:11.556213+00:00"
     }
   ]
 }
