@@ -45,28 +45,35 @@ def charger_marks():
 
 
 def deja_joue():
+    """Retourne (ts_entree connues, fin de la dernière occupation virtuelle).
+    La 2e valeur empêche les doublons qui chevauchent un trade déjà joué
+    (dette §59 : le fantôme entrait 2x pendant sa propre position)."""
     joues = set()
+    occupe = 0.0
     try:
+        from datetime import datetime
         with open(JOUR, encoding="utf-8") as f:
             for line in f:
                 try:
-                    joues.add(json.loads(line).get("ts_entree"))
+                    r = json.loads(line)
+                    joues.add(r.get("ts_entree"))
+                    fin = datetime.fromisoformat(str(r.get("ts_sortie", "")).replace("Z", "+00:00")).timestamp()
+                    occupe = max(occupe, fin)
                 except Exception:
                     pass
     except FileNotFoundError:
         pass
-    return joues
+    return joues, occupe
 
 
 def main():
     marks = charger_marks()
     whis = [json.loads(l) for l in open(WHIS, encoding="utf-8") if l.strip()]
     whis.sort(key=lambda w: float(w["tsUnix"]))
-    joues = deja_joue()
+    joues, occupe_jusqua = deja_joue()
     n_nouveaux = 0
     # une seule position virtuelle à la fois (comme les vrais shorts) :
     # les chuchotements suivants pendant un trade ouvert sont ignorés.
-    occupe_jusqua = 0.0
     with open(JOUR, "a", encoding="utf-8") as fj:
         for w in whis:
             t0 = float(w["tsUnix"])

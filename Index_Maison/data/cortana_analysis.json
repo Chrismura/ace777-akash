@@ -1,209 +1,8 @@
 {
-  "timestamp": 1793611396,
-  "date": "2026-11-02T09:23:16.369225+00:00",
-  "n_analyses": 26,
+  "timestamp": 1793614097,
+  "date": "2026-11-02T10:08:17.045417+00:00",
+  "n_analyses": 21,
   "analyses": [
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 2.989873991912701,
-        "value": 2998263.0,
-        "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Absence de divergence : le z-score élevé (2.99) des liquidations est parfaitement corrélé au narratif médiatique dominant (peur d'un hack Binance, chute du BTC). Les titres 'Roanne' et 'Quimper' sont du bruit (faux positifs juridiques). L'alignement total entre la douleur onchain et la panique médiatique indique une purge de levier classique, non une accumulation silencieuse.\"\n}",
-        "ts": 1793590075.838369
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 1271807.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 366460.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.4201534780139164,
-        "value": 37,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence classique : le Fear & Greed Index à 37 (peur) avec un z-score élevé (2.42) indique une volatilité anormale ou un sentiment de panique irrationnel, tandis que l'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain. Cette 'silence médiatique' couplé à une anomalie statistique forte est souvent le signe d'accumulation silencieuse par des acteurs institutionnels ou des baleines avant un retournement haussier.\"\n}\n```",
-        "ts": 1793590377.797938
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 37,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 37,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 2.639938109597118,
-        "value": 0.47664298958314255,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.64 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
-        "ts": 1793591281.356969
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": -0.02,
-          "seuil": -1,
-          "depasse": true
-        },
-        "liq": {
-          "value": 1638266.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.7595859873529096,
-        "value": 4844473134.0,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.76) n'est pas soutenu par le narratif crypto (un seul article mineur sur ETH/BTC). Les autres titres (auto, coiffure, loisirs) sont du bruit contextuel sans lien avec les flux onchain. Impossible de confirmer une accumulation silencieuse sans contexte d'actif spécifique.\"\n}",
-        "ts": 1793591282.63228
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "liquidations",
-        "zscore": 2.583940558634099,
-        "value": 2942890.0,
-        "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.58 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en contre-tendance), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence entre le flux de données et le titre indique une capitulation réelle, pas un piège haussier.\"\n}",
-        "ts": 1793591885.967553
-      },
-      "fiche": "liquidations",
-      "questions": {
-        "longs": {
-          "value": 1271807.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "shorts": {
-          "value": 366460.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": -0.02,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "longs > shorts",
-        "lecture": "Liquidations massives de LONGS — cascade baissière mécanique. Historiquement suit un creux proche quand le volume liq retombe (HYPOTHÈSE, pas une loi : une cascade peut en cacher une autre)",
-        "niveau": "surveiller",
-        "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist"
-      },
-      "action": "Ne pas vendre dans la cascade ; préparer les paliers plancher si la paire est sur watchlist",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "fear_greed",
-        "zscore": 2.23606797749979,
-        "value": 37,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence classique : le Fear & Greed Index à 37 (peur) avec un z-score élevé (2.24) indique une volatilité anormale ou un sentiment de panique irrationnel, tandis que l'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain. Cette 'silence médiatique' couplé à une anomalie statistique forte est souvent le signe d'accumulation silencieuse par des acteurs institutionnels ou des baleines avant un retournement haussier.\"\n}\n```",
-        "ts": 1793592187.60313
-      },
-      "fiche": "fear_greed",
-      "questions": {
-        "peur": {
-          "value": 37,
-          "seuil": 25,
-          "depasse": true
-        },
-        "cupidite": {
-          "value": 37,
-          "seuil": 75,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -215,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -225,12 +24,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -254,17 +53,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 1271807.0,
+          "value": 1328391.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 366460.0,
+          "value": 241985.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         }
@@ -318,7 +117,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -328,12 +127,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -357,12 +156,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.128,
+          "value": 2.115,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95437.151,
+          "value": 95601.523,
           "seuil": 120000,
           "depasse": false
         }
@@ -387,7 +186,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -397,12 +196,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -426,12 +225,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.128,
+          "value": 2.115,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95437.151,
+          "value": 95601.523,
           "seuil": 120000,
           "depasse": false
         }
@@ -456,7 +255,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -466,12 +265,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -495,12 +294,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.128,
+          "value": 2.115,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95437.151,
+          "value": 95601.523,
           "seuil": 120000,
           "depasse": false
         }
@@ -525,7 +324,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -535,12 +334,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -564,12 +363,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.128,
+          "value": 2.115,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95437.151,
+          "value": 95601.523,
           "seuil": 120000,
           "depasse": false
         }
@@ -594,7 +393,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -604,12 +403,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -648,12 +447,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.128,
+          "value": 2.115,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95437.151,
+          "value": 95601.523,
           "seuil": 120000,
           "depasse": false
         }
@@ -678,7 +477,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -688,12 +487,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -717,29 +516,29 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
+          "value": 3133989.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
           "value": 0.0,
           "seuil": 0,
           "depasse": false
         },
-        "achats": {
-          "value": 632309.0,
-          "seuil": 0,
-          "depasse": true
-        },
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -752,12 +551,12 @@
       "fiche": "long_short",
       "questions": {
         "ratio_long_short": {
-          "value": 2.128,
+          "value": 2.115,
           "seuil": 2,
           "depasse": true
         },
         "oi": {
-          "value": 95437.151,
+          "value": 95601.523,
           "seuil": 120000,
           "depasse": false
         }
@@ -782,7 +581,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -792,12 +591,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -821,7 +620,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -831,12 +630,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -860,7 +659,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.02,
+          "value": -0.1,
           "seuil": 1,
           "depasse": false
         },
@@ -870,12 +669,12 @@
           "depasse": false
         },
         "funding": {
-          "value": 0.0001,
+          "value": 8.7e-05,
           "seuil": 0.001,
           "depasse": false
         },
         "whales": {
-          "value": 1,
+          "value": 2,
           "seuil": 5,
           "depasse": false
         }
@@ -887,6 +686,41 @@
       },
       "action": "Observer",
       "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "whale_usd",
+        "zscore": 3.4673269336461683,
+        "value": 3133989.0,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.47, ~3.1M USD) indiquant un accumulation ou un transfert actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Cette discrétion suggère une accumulation silencieuse avant un mouvement de prix, typique des phases pré-bullish.\"\n}\n```",
+        "ts": 1793613875.733929
+      },
+      "fiche": "whale_usd",
+      "questions": {
+        "ventes": {
+          "value": 3133989.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "achats": {
+          "value": 0.0,
+          "seuil": 0,
+          "depasse": false
+        },
+        "prix": {
+          "value": -0.1,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+      },
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     }
   ],
   "resume": "🟡 SURVEILLANCE — des signaux sont à observer"

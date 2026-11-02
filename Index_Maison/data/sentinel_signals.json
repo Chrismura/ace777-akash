@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 3.185390190705416,
-      "value": 0.2885149332253145,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 3.19 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
-      "ts": "2026-11-01T22:21:35.456933+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.539378674740463,
-      "value": 0.32394664653090377,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 3.54) en l'absence totale de couverture médiatique. Les baleines accumulent dans le silence absolu avant que le narratif ne rattrape la réalité.\"\n}\n```",
-      "ts": "2026-11-01T23:11:45.040676+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 6.302962086899428,
-      "value": 0.6042789125498382,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 6.30) sur 1h sans couverture médiatique correspondante. Silence radio des médias traditionnels couplé à une accumulation agressive onchain : typique d'un mouvement furtif de baleines avant un breakout.\"\n}\n```",
-      "ts": "2026-11-01T23:41:51.024023+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.743838571346971,
       "value": 4222225397.0,
@@ -349,6 +328,27 @@
       "value": 1.155,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur un ticker homonyme (IPT) sans aucun rapport avec la crypto. Les titres médiatiques renvoient à de la recherche médicale, de l'éducation et de la théologie. Bruit de fond absolu, aucune activité de baleine détectée.\"\n}\n```",
       "ts": "2026-11-02T09:04:25.977393+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 3.4673269336461683,
+      "value": 3133989.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.47, ~3.1M USD) indiquant un accumulation ou un transfert actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Cette discrétion suggère une accumulation silencieuse avant un mouvement de prix, typique des phases pré-bullish.\"\n}\n```",
+      "ts": "2026-11-02T10:04:35.733929+00:00"
+    },
+    {
+      "metric": "cpfp",
+      "zscore": 2.01751498128333,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif sémantique. Le terme 'CPFP' dans les titres médiatiques fait référence à des entités non-crypto (formation politique, finances publiques, ou confusion avec RBF/CPFP technique sans contexte de volume). L'anomalie onchain (z-score 2.02) est isolée et non corroborée par un narratif de marché ou d'activité de baleines réelle. Aucune divergence exploitable détectée.\"\n}\n```",
+      "ts": "2026-11-02T10:09:37.396852+00:00"
+    },
+    {
+      "metric": "dust",
+      "zscore": 2.01751498128333,
+      "value": 50.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire), une usine Renault et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines. Le bruit de fond domine.\"\n}\n```",
+      "ts": "2026-11-02T10:09:38.557166+00:00"
     }
   ]
 }

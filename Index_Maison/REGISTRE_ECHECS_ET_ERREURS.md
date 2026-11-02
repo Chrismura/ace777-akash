@@ -2316,3 +2316,31 @@ Le guetteur, le fantôme, l'exit-analyseur : trois reconstructions déjà.
 calendrier, partition) : on peut reprendre à frais n'importe quand sans rien
 perdre. Point une page ci-dessus.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §60 — CHECKUP 2 JOURS APRÈS LE CRASH (02/11, GO Christophe)
+
+**Marché 29/10→02/11** : 29/10 81 868→77 908 (−4,8 %) ; 30/10 creux 76 636
+(−6,4 % du top), clôture 77 415 ; 31/10 plat 77 320-77 700 ; 01/11 rebond
+77 500→78 281 ; 02/11 ~78 136. Enlit : crash, purge, stabilisation, rebond.
+**HULK longs (paper)** : pnl +43,45, 385 trades, cash 103,82, equity 63,45.
+Pendant la chute : UN achat 29/10 16:03 CC @ 0,10381 — 6 min avant le top,
+exactement le pattern « maison-contraire » (§59) : nos ordres comme sonde
+d'euphorie, confirmé en live. Pas d'achat-panique ensuite (3 achats/2 ventes
+le 29 au soir, 1 achat le 30/10 : discipline tenue).
+**Shorts vrais** : BTC +1,03 (46 trades, aucun pendant le crash — porte
+corr fermée, puis 31/10→01/11 TIME_OUT −0,63 %) ; ETH −0,04 (SL −1,02 % puis
++0,33 %) ; XRP +0,00. Les shorts n'ont rien pris du crash, et leurs premiers
+trades post-crash sont plats/négatifs : le signal est suiveur, il arrive après.
+**Fantôme** : 2 trades — 29/10 TP +2,74 %, 31/10 TTL −0,81 % (faux positif
+honnête : le chuchoteur du 31/10 dans le plat a coûté). Cumul +1,93 %.
+**Organes** : Cortana 9B/3b surveillance (s'est calmé) ; Ada VERT, sirène off,
+saison CALME/long ; désaccord 0 (orchestre accordé) ; plancher OBSERVATION
+partout (jamais de fond confirmé — cohérent : le rebond 01/11 n'a pas fait de
+fond plancher, à surveiller). Thermo warn 65.
+**DETTE TROUVÉE ET RÉPARÉE** : le guetteur n'avait JAMAIS été planifié (pas de
+plist) → live périmé du 30/10, 3 jours aveugles. Plist créée, chargée
+launchd (5 min), rescellée. + fantôme : occupe_jusqua amorcé depuis le journal
+(fini les doublons chevauchants). Seuils adaptatifs : LS70 2,145→2,503 avec le
+régime — la dérive est normale (quantiles vivants) mais 2 chuchotements du
+29/10 sortent au recompute : le seuil est vivant, pas gravé.
+IA=Buffy (Muse Spark 1.3, Freebuff).

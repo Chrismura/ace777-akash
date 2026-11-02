@@ -1,4 +1,4 @@
-# INTEGRATIONS HEBDOMADAIRES — 2026-11-01
+# INTEGRATIONS HEBDOMADAIRES — 2026-11-02
 
 > Genere par observatoire.py (correction famille 09/08).
 > Regle : un provider integre auto n'est JAMAIS actif directement.

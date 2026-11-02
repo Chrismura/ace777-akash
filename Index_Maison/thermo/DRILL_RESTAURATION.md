@@ -1,13 +1,14 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-11-02T09:23Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-11-02T10:08Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `8a2ce1bd6f` du 2026-11-02T09:23:08+01:00
-- Fichiers suivis modifiés sur disque : **87**
+- Branche `main` · HEAD `48a56ca62f` du 2026-11-02T10:24:20+01:00
+- Fichiers suivis modifiés sur disque : **86**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 33081 au total, dont **15 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 33098 au total, dont **16 sensibles** (scripts/plists/règles)
+  - `Index_Maison/plists/com.ace777.sommet-proche.plist`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_oss20.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
@@ -22,23 +23,22 @@
   - `Index_Maison/scripts/_archives_tronques_20260911/LISEZ_MOI.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/PROD_SUPERVISEUR_GEMINI.py`
   - `Index_Maison/scripts/champion_cortana.json`
-  - `Index_Maison/scripts/cortana_cockpit_bridge.pyte`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
-- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **162**
+- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **163**
 - ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
-- Installés : **112** · versionnés : **112**
+- Installés : **113** · versionnés : **113**
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_7ai614ny/LaunchAgents`
-- Plists rebâtis + validés (`plutil -lint`) : **112/112**
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_x615z6ym/LaunchAgents`
+- Plists rebâtis + validés (`plutil -lint`) : **113/113**
 
 ## 4. Organes invoqués par les agents
-- Chemins **dans le repo** (reviennent avec git) : **107**
+- Chemins **dans le repo** (reviennent avec git) : **108**
 - Chemins **hors repo** (à sauvegarder autrement, git ne les ramène PAS) : **9**
 
   **Organes du projet hors git** (git ne les ramène PAS → il faut une autre source) :
@@ -51,13 +51,13 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-11-02T08:22Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-11-02T09:23Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **210** · écarts : **4** · absents : **0**
+- Entrées md5 vérifiées : **211** · écarts : **4** · absents : **0**
   - ⚠️ md5 différent : `Index_Maison/scripts/cortana_analyzer.py`
   - ⚠️ md5 différent : `hulk-mexc/scripts/cortana_propose_params.py`
   - ⚠️ md5 différent : `Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md`
@@ -66,7 +66,7 @@
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
 - Déclarations au registre : **266** · règle active depuis `2026-09-23T15:30:00Z`
 - Dette constatée **31** (27-29/09, datée et nommée, radiée de l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)
-- 🔴 **29 modification(s) scellée(s) SANS pré-déclaration antérieure** :
+- 🔴 **30 modification(s) scellée(s) SANS pré-déclaration antérieure** :
   - `Index_Maison/scripts/ada_gardienne.py` — re-scellé le 2026-10-29T23:45:37Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/sentinel.py` — re-scellé le 2026-10-29T22:06:39Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/simulateur_plancher_confirme.py` — re-scellé le 2026-10-30T00:18:43Z SANS pré-déclaration antérieure
@@ -95,7 +95,8 @@
   - `Index_Maison/scripts/ada_saison.py` — re-scellé le 2026-10-29T23:45:37Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/desaccord.py` — re-scellé le 2026-10-30T00:36:12Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/sommet_proche.py` — re-scellé le 2026-10-30T01:30:10Z SANS pré-déclaration antérieure
-  - `hulk-mexc/scripts/short_shadow.py` — re-scellé le 2026-10-30T01:46:19Z SANS pré-déclaration antérieure
+  - `hulk-mexc/scripts/short_shadow.py` — re-scellé le 2026-11-02T09:33:15Z SANS pré-déclaration antérieure
+  - `Index_Maison/plists/com.ace777.sommet-proche.plist` — re-scellé le 2026-11-02T09:33:15Z SANS pré-déclaration antérieure
 
 ## 6. Couverture des classes d'erreur — anticiper l'erreur SUIVANTE
 - Dénominateur **lu au registre** : **30 classes** (E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12, E13, E14, E15, E16, E17, E18, E19, E20, E21, E22, E23, E24, E25, E26, E27, E28, E29, E30)
@@ -109,7 +110,7 @@
 ## 7. Verdict
 - 🔴 **3 trou(s) à combler :**
   - 4 scellé(s) dont le md5 ne correspond plus
-  - 29 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : ada_gardienne.py, sentinel.py, simulateur_plancher_confirme.py…
+  - 30 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : ada_gardienne.py, sentinel.py, simulateur_plancher_confirme.py…
   - 4 classe(s) d'erreur CONNUE(S) dont la garde déclarée est absente ou NON BRANCHÉE (R15 : hors de la boucle = n'existe pas) : E27, E28, E29, E30
 
 ---
