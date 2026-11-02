@@ -2440,3 +2440,11 @@ IA=Buffy (Muse Spark 1.3, Freebuff).
 - **geopol réactivé pour de bon** : retry unique 30 s sur erreur réseau transitoire (SSL timeout 12h10 — pas un 429, donc sans penalty box) + `RunAtLoad=true`. Preuve : run 12h58 `ok=True` (GDELT 8 articles, Polymarket 11 events).
 - **Améliorations incassables** : `observe_geopol_gratuit.py` + `verif-setup.plist` ENTRÉS au registre (249 entrées — la veilleuse surveille désormais leurs futures modifs) ; le rituel rejoue `resceler --liste` chaque matin (écart = 🔴 SCELLÉ DÉRIVÉ). Preuve live : la garde a attrapé `rituel_calendrier.py` lui-même pendant la vague.
 - **Discipline exit 3** = normal (`0 si pas d'alerte sinon 3`). **desaccord non chargée** = normal (invoquée par le feed).
+
+## §68 — 02/11 ~14h30 — Mètre de m Kelly (signet @0bl4ze, GO Christophe « chiffre avant tout »)
+- **Outil** : `hulk-mexc/scripts/m_kelly_metre.py` (250e entrée registre). Edge depuis pnl_usdt du journal (le journal fait foi, pas l'avg-cost), coûts = brut - net portefeuille par paire, marks DIGEST tous mois, n>=10 exigé.
+- **Verdict portefeuille : m_global = 7,96, score = -47,5.** L'exposition (319,80 $) vaut 8x la taille Kelly juste (40,16 $). On a raison (net +28 $) mais trop gros — exactement le péché du post.
+- **Bag-trappés en downtrend (cash ≈ 0, pas de coussin $)** : CHIP m=18,5 lat -19,5 % · EDEL m=20,5 lat -18,4 % · RED m=10,5 lat -5 % · QNT m=7 lat +5,3 % · RIZE lat -24 % (edge NET ≤ 0 : les coûts mangent sa stratégie) · RWAINC lat -29,5 % edge ≤ 0. Coussin $ seulement sur : PYTH (25,10 $, couv 4,9), W (21,07 $, couv 1,9), paires vides (IOTA/LA/WAXL 20 $ intacts).
+- **RIZE leçon** : brut f*>0 mais net f*<0 — les coûts (spread+fees) tuent l'edge. Kelly se mesure NET, jamais brut.
+- **Shorts** : BTC m=0,22 (notionnel médian 5 $ vs juste 22,5 $, p=0,50 b=1,82 n=46) — sain et conservateur, flat actuellement. ETH/XRP n=2 : edge non mesurable → item calendrier `m-shorts-n10`.
+- **Double validation passée** : brut 43,36 ✓ coûts 15,45 ≈ 15,44 ✓ net 27,91 ≈ 28,01 ✓ latent -71,42 ≈ -71,23 ✓.

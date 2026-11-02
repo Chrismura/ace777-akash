@@ -1,13 +1,13 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-11-02T13:09Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-11-02T13:25Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `a21c131068` du 2026-11-02T13:25:32+01:00
-- Fichiers suivis modifiés sur disque : **92**
+- Branche `main` · HEAD `04158753c0` du 2026-11-02T14:11:02+01:00
+- Fichiers suivis modifiés sur disque : **80**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 33144 au total, dont **15 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 33147 au total, dont **15 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_oss20.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
@@ -35,7 +35,7 @@
 - 🟠 Versionnés mais plus installés (2) : `com.ace777.geopol-gratuit.plist`, `com.ace777.short-shadow.plist`
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_7o2xsc_e/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_naubsuxw/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **115/115**
 
 ## 4. Organes invoqués par les agents
@@ -52,18 +52,18 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-11-02T12:24Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-11-02T13:09Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **221** · écarts : **0** · absents : **0**
+- Entrées md5 vérifiées : **222** · écarts : **0** · absents : **0**
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
 - Déclarations au registre : **266** · règle active depuis `2026-09-23T15:30:00Z`
 - Dette constatée **31** (27-29/09, datée et nommée, radiée de l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)
-- 🔴 **41 modification(s) scellée(s) SANS pré-déclaration antérieure** :
+- 🔴 **42 modification(s) scellée(s) SANS pré-déclaration antérieure** :
   - `Index_Maison/scripts/discipline_quotidienne.py` — re-scellé le 2026-11-02T11:12:18Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/ada_gardienne.py` — re-scellé le 2026-10-29T23:45:37Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/sentinel.py` — re-scellé le 2026-10-29T22:06:39Z SANS pré-déclaration antérieure
@@ -98,13 +98,14 @@
   - `Index_Maison/plists/com.ace777.sommet-proche.plist` — re-scellé le 2026-11-02T09:33:15Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/replay_flux_fenetre_courte.py` — re-scellé le 2026-11-02T10:35:31Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/flux_nets_exchanges.py` — re-scellé le 2026-11-02T10:41:24Z SANS pré-déclaration antérieure
-  - `Index_Maison/calendrier.json` — re-scellé le 2026-11-02T13:00:53Z SANS pré-déclaration antérieure
+  - `Index_Maison/calendrier.json` — re-scellé le 2026-11-02T13:22:48Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/rituel_calendrier.py` — re-scellé le 2026-11-02T13:00:28Z SANS pré-déclaration antérieure
   - `Index_Maison/plists/com.ace777.short-shadow.plist` — re-scellé le 2026-11-02T11:12:18Z SANS pré-déclaration antérieure
   - `Index_Maison/plists/com.ace777.geopol-gratuit.plist` — re-scellé le 2026-11-02T12:59:53Z SANS pré-déclaration antérieure
   - `Index_Maison/scripts/replay_c3_sens.py` — re-scellé le 2026-11-02T11:12:18Z SANS pré-déclaration antérieure
   - `Index_Maison/PLAN_DE_VOL.md` — re-scellé le 2026-11-02T11:28:48Z SANS pré-déclaration antérieure
   - `Index_Maison/plists/com.ace777.verif-setup.plist` — re-scellé le 2026-11-02T13:00:00Z SANS pré-déclaration antérieure
+  - `hulk-mexc/scripts/m_kelly_metre.py` — re-scellé le 2026-11-02T13:22:38Z SANS pré-déclaration antérieure
 
 ## 6. Couverture des classes d'erreur — anticiper l'erreur SUIVANTE
 - Dénominateur **lu au registre** : **30 classes** (E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12, E13, E14, E15, E16, E17, E18, E19, E20, E21, E22, E23, E24, E25, E26, E27, E28, E29, E30)
@@ -117,7 +118,7 @@
 
 ## 7. Verdict
 - 🔴 **2 trou(s) à combler :**
-  - 41 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : discipline_quotidienne.py, ada_gardienne.py, sentinel.py…
+  - 42 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : discipline_quotidienne.py, ada_gardienne.py, sentinel.py…
   - 4 classe(s) d'erreur CONNUE(S) dont la garde déclarée est absente ou NON BRANCHÉE (R15 : hors de la boucle = n'existe pas) : E27, E28, E29, E30
 
 ---
