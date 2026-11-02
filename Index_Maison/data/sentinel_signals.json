@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.6365004952778666,
-      "value": 1.188,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
-      "ts": "2026-11-01T15:10:18.728503+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.2167604773067437,
-      "value": 2.318,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-      "ts": "2026-11-01T15:15:20.617884+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.072850379392791,
-      "value": 2.318,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
-      "ts": "2026-11-01T15:45:26.258450+00:00"
-    },
-    {
       "metric": "whale_usd",
       "zscore": 7.188969826029297,
       "value": 7696993.0,
@@ -349,6 +328,27 @@
       "value": 5267310051.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.39) n'est pas attribué à un actif crypto spécifique dans les données brutes, tandis que les titres médiatiques sont majoritairement hors-sujet (charbon, automobile, loisirs) ou indiquent une dominance BTC classique sans signal de rotation vers l'ETH. Aucune divergence exploitable détectée.\"\n}",
       "ts": "2026-11-02T06:18:47.905133+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.08623207352358,
+      "value": 2.084,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short à 2.08 combiné à un z-score négatif profond (-2.09) indique un positionnement contrarien massif des institutionnels, tandis que les médias grand public banalisent le concept sans voir l'accumulation agressive en cours.\"\n}\n```",
+      "ts": "2026-11-02T06:38:53.419344+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.2400488661482223,
+      "value": 5278430793.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique de volume (z-score 2.24) noyée dans un bruit médiatique macroéconomique et automobile sans rapport direct avec une accumulation ou distribution majeure de baleines crypto.\"\n}\n```",
+      "ts": "2026-11-02T06:48:56.662034+00:00"
+    },
+    {
+      "metric": "sdi",
+      "zscore": -177.51651776043317,
+      "value": 0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif critique : Le 'SDI' mentionné dans les titres est le Syndicat des Industries (secteur BTP/Commerce en France), et non un actif crypto ou un protocole onchain. L'anomalie z-score -177.52 est statistiquement impossible pour un flux de données crypto réel (probablement une erreur de mapping de données ou un artefact de test). Aucune divergence onchain/média n'existe car le sujet médiatique est totalement hors du domaine crypto.\"\n}",
+      "ts": "2026-11-02T07:04:00.348621+00:00"
     }
   ]
 }
