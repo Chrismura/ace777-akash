@@ -1489,6 +1489,19 @@ def main() -> int:
     # === DISJONCTEUR UNIQUE (16/08) — lecture seule, jamais bloquante ===
     payload["disjoncteur"] = load_ada_block("disjoncteur_state.json") or {
         "declenche": False, "raison": "Normal", "ts": ""}
+    # === OFI (02/11) — branché après évaluation : lit ofi_latest.json, frais ≤300s sinon SANS_MESURE ===
+    try:
+        _ofi = _lire_json_silencieux(ROOT / "Index_Maison" / "data" / "ofi_latest.json") or {}
+        try:
+            import time as _t3
+            _age = int(_t3.time() - (ROOT / "Index_Maison" / "data" / "ofi_latest.json").stat().st_mtime)
+        except Exception:
+            _age = 10 ** 9
+        if not _ofi.get("ok") or _age > 300:
+            _ofi = {"ok": False, "detail": f"ofi stale ({_age}s>300s) — SANS_MESURE"}
+        payload["ofi"] = _ofi
+    except Exception:
+        payload["ofi"] = {"ok": False, "detail": "ofi illisible — SANS_MESURE"}
 
     # ÉCRITURE ATOMIQUE (14/10, « incassable ») : tmp + remplace — une coupure en
     # cours d'écriture ne peut plus laisser mission.json/js tronqués (avant : une

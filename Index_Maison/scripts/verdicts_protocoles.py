@@ -376,6 +376,34 @@ def paternes_btc():
     }
 
 
+# ── 7b. OFI (02/11 §75) — le capteur juge sur sa base : absorption = candidat, pas ordre ──
+def ofi_protocole():
+    cur = charger(DATA / "ofi_latest.json") or {}
+    rows = lignes(DATA / "ofi_historique.jsonl")
+    # anti-boucle : historique dédupliqué — 2 lignes identiques de suite = panne, pas mesure.
+    _dups = 0
+    for a, b in zip(rows, rows[1:]):
+        try:
+            sa = (a.get("source"), (a.get("fenetre_globale") or {}).get("ofi_norm"), (a.get("fenetre_globale") or {}).get("delta_bps"))
+            sb = (b.get("source"), (b.get("fenetre_globale") or {}).get("ofi_norm"), (b.get("fenetre_globale") or {}).get("delta_bps"))
+            if sa == sb:
+                _dups += 1
+        except Exception:
+            pass
+    n_pre = sum(1 for r in rows if str(((r.get("fenetre_globale") or {}).get("verdict") or "")).startswith("PRESSION"))
+    n_abs = sum(1 for r in rows if str(((r.get("fenetre_globale") or {}).get("verdict") or "")).startswith("ABSORPTION"))
+    g = (cur.get("fenetre_globale") or {}) if cur.get("ok") else {}
+    verdict = "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)" if (n_pre + n_abs) < 20 else ("SUCCES (signal vivant)" if n_abs >= 1 else "ECHEC (jamais d'absorption)")
+    return {
+        "protocole": "OFI normalisé (microstructure)",
+        "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
+        "faits": "%d fenêtres · %d PRESSION · %d ABSORPTION · %d doublons consécutifs · live %s (ofi_norm=%s Δ=%s %s)" % (len(rows), n_pre, n_abs, _dups, cur.get("source"), g.get("ofi_norm"), g.get("delta_bps"), g.get("verdict")),
+        "verdict": ("PANNE (boucle : doublons consécutifs)" if _dups > 0 else verdict) if cur.get("ok") else "IMPOSSIBLE (SANS_MESURE — snaps stales)",
+        "alerte": ("historique en boucle : %d doublons — purge + anti-boucle à vérifier" % _dups) if _dups > 0 else "",
+        "detail": [{"ts": r.get("ts"), "ofi": (r.get("fenetre_globale") or {}).get("ofi_norm"), "verdict": (r.get("fenetre_globale") or {}).get("verdict")} for r in rows[-5:]],
+    }
+
+
 # ── 7. MiroFish ───────────────────────────────────────────────────────────────
 def mirofish():
     d = IM / "MIROFISH_DONNEES_2026-08-10"
@@ -395,7 +423,7 @@ def mirofish():
 def main():
     maintenant = datetime.now(timezone.utc)
     protos = [troupeau_inv(), radar_rwa(), xrpl_gouvernance(), arbitrage_llm(),
-              geopol(), paternes_btc(), mirofish()]
+              geopol(), paternes_btc(), ofi_protocole(), mirofish()]
     sortie = {
         "ts": maintenant.isoformat(timespec="seconds"),
         "note": ("Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son "

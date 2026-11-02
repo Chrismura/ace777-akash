@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-11-02T14:55:30Z",
+  "updated": "2026-11-02T18:18:26Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -1099,9 +1099,28 @@
       "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "ed985a67f93a9fd0e9e3841705f1e572",
+      "md5": "1736b68c711eedf642f2f561a06e3611",
       "note": "Évolution déclarée 19/09 : +journal_radar.log (vigie 3,7 Go), +PAPER/DIGEST_WATCHDOG_STDOUT.log (95 Mo / 26 Mo, écrits en direct par watchdog_hulk_ghost.sh — même cancer, 3e occurrence), ET mode AUDIT DE DÉCOUVERTE (tout fichier > 200 Mo hors rotation est signalé tout seul dans thermo/GROS_FICHIERS.json : une liste ne protège que ce dont on se souvient). Préc. 14/09 18:35 : +x402_agentic_hist [C5].",
-      "maj": "re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE)."
+      "maj": "re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE).",
+      "date": "2026-11-02T18:18:26Z",
+      "_rescel": [
+        {
+          "ts": "2026-11-02T18:18:26Z",
+          "motif": "§76 anti-boucle (purge 71k, dedup, juge OFI, audit 50Mo)",
+          "ecrivain": {
+            "ts": "2026-11-02T18:18:26Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 88769 <- bash(pid 88751) <- /Users/christoph(pid 88750) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T18:18:26Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 88769 <- bash(pid 88751) <- /Users/christoph(pid 88750) <- /Users/christoph(pid 4107)"
+      }
     },
     {
       "nom": "Index_Maison/plists/com.ace777.rwa-yields.plist",
@@ -1766,10 +1785,28 @@
       "origine": "GO Christophe 20/09/2026 « me donner les résultats en profondeur des protocoles en test — verdicts »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "287708bc20312fe30b3df0a986573fd2",
-      "date": "2026-09-29T09:06Z",
+      "md5": "7f11887cfb6668e53e90665768a09988",
+      "date": "2026-11-02T18:18:26Z",
       "note": "Un protocole dont le verdict ne peut pas être rendu est signalé (IMPOSSIBLE/⚠), jamais présenté comme « ça suit son cours ». Lancé par git_push_auto.sh toutes les 3 h.",
-      "_rescel_20260929": "RÉ-TRANCHE RWA (29/09, GO Christophe « ré-ouverture RWA ») : le critère d'ORIGINE (≥3 pools du top 20 TVL bougent ≥50 bps) est CONSERVÉ et son ÉCHEC est affiché — mais il mesurait la mauvaise liste (trustée par du lending Solana à 0 %). Ajout d'un second calcul sur l'univers crédit privé, par RÈGLE MÉCANIQUE (project ∈ crédit ET symbole = devise ; couverture totale ; exclusion des pools apparus à 0 ; dédup par (projet,symbole)) : R1 ≥3 couples bougent ≥50 bps → 4 (SUCCES) ; R2 ≥5 couples ≥3 % APY stable → 10 (SUCCES). Deux avertissements AUTOMATIQUES : R1 porté par 2 projets seulement, et 7 valeurs IDENTIQUES sur toute la fenêtre (à vérifier : taux fixe ou source figée). PORTÉE : la fonction RWA ; les autres protocoles inchangés. La page vol affiche désormais la ré-tranche. · 2ᵉ PASSE 29/09 : correction du test « plat » (le test portait sur la liste des MÉDIANES, donc flaggait tout couple à 1 instance — maple/midas à tort ; il porte désormais sur les VALEURS RÉELLES, seul travessia reste constant) ET extraction de charger_par_pool() / est_pool_credit() / univers_credit_prive() en SOURCE UNIQUE de l'univers RWA, partagée avec scripts/carnet_rwa.py (règle d'or #6). PROUVÉ SANS CHANGEMENT DE SORTIE : verdict RWA identique à l'octet avant/après (seule la gouvernance XRPL a bougé, un snapshot étant arrivé entre les deux runs)."
+      "_rescel_20260929": "RÉ-TRANCHE RWA (29/09, GO Christophe « ré-ouverture RWA ») : le critère d'ORIGINE (≥3 pools du top 20 TVL bougent ≥50 bps) est CONSERVÉ et son ÉCHEC est affiché — mais il mesurait la mauvaise liste (trustée par du lending Solana à 0 %). Ajout d'un second calcul sur l'univers crédit privé, par RÈGLE MÉCANIQUE (project ∈ crédit ET symbole = devise ; couverture totale ; exclusion des pools apparus à 0 ; dédup par (projet,symbole)) : R1 ≥3 couples bougent ≥50 bps → 4 (SUCCES) ; R2 ≥5 couples ≥3 % APY stable → 10 (SUCCES). Deux avertissements AUTOMATIQUES : R1 porté par 2 projets seulement, et 7 valeurs IDENTIQUES sur toute la fenêtre (à vérifier : taux fixe ou source figée). PORTÉE : la fonction RWA ; les autres protocoles inchangés. La page vol affiche désormais la ré-tranche. · 2ᵉ PASSE 29/09 : correction du test « plat » (le test portait sur la liste des MÉDIANES, donc flaggait tout couple à 1 instance — maple/midas à tort ; il porte désormais sur les VALEURS RÉELLES, seul travessia reste constant) ET extraction de charger_par_pool() / est_pool_credit() / univers_credit_prive() en SOURCE UNIQUE de l'univers RWA, partagée avec scripts/carnet_rwa.py (règle d'or #6). PROUVÉ SANS CHANGEMENT DE SORTIE : verdict RWA identique à l'octet avant/après (seule la gouvernance XRPL a bougé, un snapshot étant arrivé entre les deux runs).",
+      "_rescel": [
+        {
+          "ts": "2026-11-02T18:18:26Z",
+          "motif": "§76 anti-boucle (purge 71k, dedup, juge OFI, audit 50Mo)",
+          "ecrivain": {
+            "ts": "2026-11-02T18:18:26Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 88764 <- bash(pid 88751) <- /Users/christoph(pid 88750) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T18:18:26Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 88764 <- bash(pid 88751) <- /Users/christoph(pid 88750) <- /Users/christoph(pid 4107)"
+      }
     },
     {
       "nom": "hulk-mexc/scripts/chiffrage_sortie_calibree.py",
@@ -2561,8 +2598,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "b8ab2f3002e52aa5ed2cbf5828712396",
-      "date": "2026-11-02T14:55:29Z",
+      "md5": "ec186ce8397559eaf430aa4d972a5fb5",
+      "date": "2026-11-02T18:18:26Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -3059,13 +3096,33 @@
             "user": "christophe",
             "chaine": "pid 43998 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-02T18:08:55Z",
+          "motif": "§75 OFI branche apres evaluation (source live + seuil p95 0.07 + cockpit)",
+          "ecrivain": {
+            "ts": "2026-11-02T18:08:55Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 86325 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T18:18:26Z",
+          "motif": "§76 anti-boucle (purge 71k, dedup, juge OFI, audit 50Mo)",
+          "ecrivain": {
+            "ts": "2026-11-02T18:18:26Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 88774 <- bash(pid 88751) <- /Users/christoph(pid 88750) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-02T14:55:29Z",
+        "ts": "2026-11-02T18:18:26Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 43998 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 88774 <- bash(pid 88751) <- /Users/christoph(pid 88750) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -3981,8 +4038,8 @@
       "origine": "",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d5729c13e4458736e5418a289b9c93c5",
-      "date": "2026-10-30T01:22:48Z",
+      "md5": "16e6212b173f016cc6ea41057abe71cf",
+      "date": "2026-11-02T18:08:55Z",
       "_ajout": [
         {
           "ts": "2026-10-16T22:03:54Z",
@@ -4037,13 +4094,23 @@
             "user": "christophe",
             "chaine": "pid 47258 <- bash(pid 47252) <- /Users/christoph(pid 47251) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-02T18:08:55Z",
+          "motif": "§75 OFI branche apres evaluation (source live + seuil p95 0.07 + cockpit)",
+          "ecrivain": {
+            "ts": "2026-11-02T18:08:55Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 86310 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-30T01:22:48Z",
+        "ts": "2026-11-02T18:08:55Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 47258 <- bash(pid 47252) <- /Users/christoph(pid 47251) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 86310 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -5497,13 +5564,13 @@
       "origine": "02/11 GO Christophe : l'oubli est un problème",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "fdd2be976f6cb342b63734ed4a8df349",
-      "date": "2026-11-02T14:37:18Z",
+      "md5": "912419024b31854a0a5eb523a3084d55",
+      "date": "2026-11-02T18:08:55Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T14:37:18Z",
+        "ts": "2026-11-02T18:08:55Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 40969 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 86320 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -5551,6 +5618,16 @@
             "user": "christophe",
             "chaine": "pid 40969 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-02T18:08:55Z",
+          "motif": "§75 OFI branche apres evaluation (source live + seuil p95 0.07 + cockpit)",
+          "ecrivain": {
+            "ts": "2026-11-02T18:08:55Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 86320 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
+          }
         }
       ]
     },
@@ -5560,13 +5637,13 @@
       "origine": "02/11 GO Christophe : l'œil qui ne dort jamais",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "86aaac97ff44477aad7af22d1f2a2bd9",
-      "date": "2026-11-02T14:55:29Z",
+      "md5": "4bf110bfb76119a03b87de3b243db1a1",
+      "date": "2026-11-02T18:08:55Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T14:55:29Z",
+        "ts": "2026-11-02T18:08:55Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 43983 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 86315 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -5623,6 +5700,16 @@
             "ia": "Buffy (Muse Spark 1.3, Freebuff)",
             "user": "christophe",
             "chaine": "pid 43983 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T18:08:55Z",
+          "motif": "§75 OFI branche apres evaluation (source live + seuil p95 0.07 + cockpit)",
+          "ecrivain": {
+            "ts": "2026-11-02T18:08:55Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 86315 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
           }
         }
       ]
@@ -5954,6 +6041,39 @@
         {
           "ts": "2026-11-02T14:37:18Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/ofi_calc.py",
+      "role": "capteur OFI normalise live",
+      "origine": "§75 branche apres evaluation",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "77922883aadb98f6611672310ed0398a",
+      "date": "2026-11-02T18:18:26Z",
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T18:18:26Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 88759 <- bash(pid 88751) <- /Users/christoph(pid 88750) <- /Users/christoph(pid 4107)"
+      },
+      "_ajout": [
+        {
+          "ts": "2026-11-02T18:09:00Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-11-02T18:18:26Z",
+          "motif": "§76 anti-boucle (purge 71k, dedup, juge OFI, audit 50Mo)",
+          "ecrivain": {
+            "ts": "2026-11-02T18:18:26Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 88759 <- bash(pid 88751) <- /Users/christoph(pid 88750) <- /Users/christoph(pid 4107)"
+          }
         }
       ]
     }

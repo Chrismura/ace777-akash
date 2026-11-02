@@ -54,6 +54,13 @@ DEFAUTS = [
     # sans risque (redirection O_APPEND), seuil 50 Mo.
     ("/Users/christophe/ace777-test-day1/hulk-mexc/runs/PAPER_WATCHDOG_STDOUT.log", 50),
     ("/Users/christophe/ace777-test-day1/hulk-mexc/runs/DIGEST_WATCHDOG_STDOUT.log", 50),
+    # §75 anti-boucle (02/11) : OFI 47 Mo dont 71k doublons — jamais plus.
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/ofi_historique.jsonl", 20),
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/xrpl_arbitrage_hist.jsonl", 50),
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/whales_mouvements.jsonl", 50),
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/juste_prix_hist.jsonl", 20),
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/desaccord_hist.jsonl", 20),
+    ("/Users/christophe/ace777-test-day1/Index_Maison/data/bloc_privatise_hist.jsonl", 20),
 ]
 
 BACKUP_COUNT = 2
@@ -88,7 +95,7 @@ _RE_TS = re.compile(rb'"ts"\s*:\s*(\d+(?:\.\d+)?)')
 # Une liste ne protège que ce dont on s'est souvenu. Donc on cherche AUSSI tout
 # seul les fichiers qui gonflent : > 200 Mo et NON listés ci-dessus = cancer en
 # formation, signalé dans thermo/GROS_FICHIERS.json (même si personne n'y pense).
-AUDIT_SEUIL_MO = 200
+AUDIT_SEUIL_MO = 50
 AUDIT_JSON = "/Users/christophe/ace777-test-day1/Index_Maison/thermo/GROS_FICHIERS.json"
 AUDIT_RACINE = "/Users/christophe/ace777-test-day1"
 AUDIT_EXCLUS = (

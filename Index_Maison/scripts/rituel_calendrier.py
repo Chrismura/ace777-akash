@@ -39,6 +39,8 @@ FRAICHEUR = [
     # §74 : le verdicteur-micro décide (verdicts 5s/60s -> protocoles) et écrit
     # son score à chaque passage avec prix — mtime = preuve de vie (15 s cad.).
     ("verdicteur-micro", "ace777-test-day1/Index_Maison/data/cortana_micro_score.json", 30),
+    # §75 : OFI branché au cockpit (02/11) — preuve de vie 60 s, sinon SANS_MESURE.
+    ("ofi", "ace777-test-day1/Index_Maison/data/ofi_latest.json", 10),
 ]
 
 

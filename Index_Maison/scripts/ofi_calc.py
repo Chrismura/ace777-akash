@@ -32,19 +32,35 @@ from datetime import datetime, timezone
 HOME = os.path.expanduser("~")
 INDEX = os.path.join(HOME, "ace777-test-day1", "Index_Maison")
 DATA = os.path.join(INDEX, "data")
-SNAPS = os.path.join(HOME, "ace777-test-day1", "runs", "L2_20260903_SNAPS.csv")
+RUNS = os.path.join(HOME, "ace777-test-day1", "runs")
 OUT_LATEST = os.path.join(DATA, "ofi_latest.json")
 OUT_HIST = os.path.join(DATA, "ofi_historique.jsonl")
 
 TAIL_BYTES = 1_200_000      # queue du CSV lue à chaque passage (~économique)
 WINDOW_SNAPS = 120          # fenêtre d'analyse (~2 min à 1 snap/s)
 CHUNK = 30                  # agrégats de 30 s
-ABS_ORB = 0.15              # seuil |ofi_norm| pour candidate absorption
-ABS_BPS = 1.0               # |Δprix| max (bps) pour prix « stagnant »
+# Seuils ABSORPTION — MESURÉS 02/11 sur 1914 fenêtres 30s live (L2_20261102) :
+# médiane |ofi_norm|=0.021, p90=0.0558, p95=0.0694, p99=0.1023, max=0.1906.
+# Ancien 0.15 = p99.9 (1/1914, jamais ne parle) -> ÉLIMINÉ comme fixe qui tue le signal.
+# Nouveau : 0.07 ≈ p95 -> PRESSION quand flow sort du bruit ; ABSORPTION si prix stagne (<=1bps).
+# Origine : mesure 02/11 §-ofi ; re-mesure hebdo au calendrier (régime change).
+ABS_ORB = 0.07
+ABS_BPS = 1.0
+FRAICHEUR_MAX_S = 300       # snaps plus vieux que 5 min -> SANS_MESURE (pas de boucle sur mort)
+
+
+def snaps_courant():
+    """Dernier L2_*_SNAPS.csv par mtime — jamais de nom figé (R26)."""
+    import glob
+    cands = sorted(glob.glob(os.path.join(RUNS, "L2_*_SNAPS.csv")),
+                   key=lambda p: os.path.getmtime(p) if os.path.exists(p) else 0)
+    return cands[-1] if cands else os.path.join(RUNS, "L2_20260903_SNAPS.csv")
 
 
 def lire_queue_snaps(n_max=WINDOW_SNAPS * 2):
-    """Lit les dernières lignes du CSV SNAPS (lecture partielle, robuste)."""
+    """Lit les dernières lignes du CSV SNAPS courant (lecture partielle, robuste).
+    Retourne (rows, chemin). Jamais de nom figé : le courant = dernier mtime."""
+    SNAPS = snaps_courant()
     try:
         size = os.path.getsize(SNAPS)
         with open(SNAPS, "rb") as f:
@@ -70,9 +86,9 @@ def lire_queue_snaps(n_max=WINDOW_SNAPS * 2):
                 })
             except (KeyError, ValueError):
                 continue
-        return rows[-n_max:]
+        return rows[-n_max:], SNAPS
     except FileNotFoundError:
-        return []
+        return [], SNAPS
 
 
 def _e(prev, cur):
@@ -115,10 +131,24 @@ def main():
     ap.add_argument("--silencieux", action="store_true")
     args = ap.parse_args()
 
-    rows = lire_queue_snaps()
+    rows, snaps_path = lire_queue_snaps()
+    # Garde fraîcheur : snaps morts -> SANS_MESURE, jamais de boucle sur du vieux.
+    try:
+        age_s = datetime.now(timezone.utc).timestamp() - os.path.getmtime(snaps_path)
+    except OSError:
+        age_s = 1e9
+    if age_s > FRAICHEUR_MAX_S:
+        out = {"ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+               "ok": False, "detail": f"snaps stales ({int(age_s)}s>300s) : {os.path.basename(snaps_path)} — SANS_MESURE",
+               "source": os.path.basename(snaps_path)}
+        with open(OUT_LATEST, "w", encoding="utf-8") as f:
+            json.dump(out, f, ensure_ascii=False, indent=1)
+        print(out["detail"])
+        return 0
     if len(rows) < CHUNK * 2:
         out = {"ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-               "ok": False, "detail": f"snaps insuffisants ({len(rows)})"}
+               "ok": False, "detail": f"snaps insuffisants ({len(rows)})",
+               "source": os.path.basename(snaps_path)}
         with open(OUT_LATEST, "w", encoding="utf-8") as f:
             json.dump(out, f, ensure_ascii=False, indent=1)
         return 0
@@ -135,7 +165,7 @@ def main():
 
     out = {
         "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "source": os.path.basename(SNAPS),
+        "source": os.path.basename(snaps_path),
         "ok": True,
         "methode": "OFI top-of-book CKS normalisé par profondeur — brut interdit (test 08/09)",
         "fenetre_globale": {**(agg_global or {}), "verdict": verdict_fenetre(agg_global)},
@@ -145,8 +175,30 @@ def main():
     }
     with open(OUT_LATEST, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
-    with open(OUT_HIST, "a", encoding="utf-8") as f:
-        f.write(json.dumps(out, ensure_ascii=False) + "\n")
+    # ANTI-BOUCLE (02/11 §75) : jamais 2 lignes identiques de suite — 71k doublons
+    # (0.0204/-0.56) = 47 Mo pour rien, calculs invalidés. On compare au dernier.
+    try:
+        _sig = (out.get("source"), out.get("fenetre_globale", {}).get("ofi_norm"),
+                out.get("fenetre_globale", {}).get("delta_bps"))
+        _last_sig = None
+        try:
+            with open(OUT_HIST, "rb") as _rf:
+                _rf.seek(max(0, os.path.getsize(OUT_HIST) - 4096))
+                _tail = _rf.read().decode("utf-8", errors="replace").strip().splitlines()
+                if _tail:
+                    _lj = json.loads(_tail[-1])
+                    _last_sig = (_lj.get("source"), _lj.get("fenetre_globale", {}).get("ofi_norm"),
+                                 _lj.get("fenetre_globale", {}).get("delta_bps"))
+        except (OSError, ValueError):
+            pass
+        if _last_sig != _sig:
+            with open(OUT_HIST, "a", encoding="utf-8") as f:
+                f.write(json.dumps(out, ensure_ascii=False) + "\n")
+        else:
+            if not args.silencieux:
+                print("[ofi] doublon boucle ignoré (pas d'append) — anti-remplissage")
+    except OSError:
+        pass
 
     if not args.silencieux:
         g = out["fenetre_globale"]
