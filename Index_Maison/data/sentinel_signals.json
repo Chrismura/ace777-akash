@@ -2,34 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -3.0638906421837566,
-      "value": 2.417,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
-      "ts": "2026-11-01T10:43:50.282338+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -3.3418706969172685,
-      "value": 2.385,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Le z-score extrêmement bas (-3.34) indique une sous-pondération massive des positions long par la foule/les fonds traditionnels, créant une condition de 'short squeeze' imminent. Le narratif médiatique grand public reste focalisé sur la gestion de risque prudente des fonds hedge, ignorant totalement le positionnement contrarien extrême des baleines sur le marché crypto.\"\n}\n```",
-      "ts": "2026-11-01T11:13:56.800356+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 3.5467539079635007,
-      "value": 0.62,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI) causée par une confusion homonyme entre le syndicat patronal SDI (Syndicat des Indépendants) et le géant industriel Samsung SDI dans les flux d'actualités. Aucune baleine crypto détectée, le bruit médiatique concerne l'économie réelle et les résultats d'entreprises.\"\n}\n```",
-      "ts": "2026-11-01T11:39:03.926858+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 3.4125541255958267,
-      "value": 1.364,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 10,\n  \"reason\": \"Fausse alerte liée à une homonymie. Le signal 'ipt' détecté correspond à l'Institut Pasteur de Tunis (IPT) ou au Tournoi International des Physiciens dans les médias, sans aucun lien avec un actif crypto ou un mouvement de baleines.\"\n}\n```",
-      "ts": "2026-11-01T11:39:09.790437+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -2.9911617145989817,
       "value": 2.385,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.99) indiquant une capitulation massive des positions short ou un positionnement contrarien extrême des baleines. Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels (ETF/OPCVM) et de l'actualité généraliste, ignorant le positionnement agressif des smart money sur les dérivés crypto.\"\n}\n```",
@@ -349,6 +321,34 @@
       "value": 4620326521.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le volume onchain élevé sur Ethereum (4,6 Md$) reflète une activité standard du réseau et des échanges, mais le bruit médiatique est totalement pollué par des homonymes lexicaux ('volume de ventes' grand public, 'loisir créatif', 'brosses soufflantes'). Aucune divergence cachée de baleine détectée, simple bruit sémantique.\"\n}\n```",
       "ts": "2026-11-02T02:17:40.001885+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.932575659723036,
+      "value": 37,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 72,\n  \"reason\": \"Divergence majeure : un z-score de 2.93 sur le Fear & Greed (37) indique une peur extrême et anormale, souvent un signal de capitulation ou de bottom-fishing. L'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est en dormance ou en déni, tandis que l'anomalie onchain (probablement accumulation silencieuse ou flux de trésorerie) indique que les acteurs institutionnels/baleines agissent à contre-courant de la panique. Le silence médiatique face à une anomalie statistique forte est typique des phases de bas de cycle avant un retournement.\"\n}\n```",
+      "ts": "2026-11-02T02:32:42.685091+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.5695728928270025,
+      "value": 4629789671.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.57) n'est pas soutenu par le narratif crypto (un seul article mineur sur ETH/BTC). Le reste des titres (voitures, cheveux, loisirs) est du bruit non pertinent. Impossible de confirmer une accumulation silencieuse sans contexte d'actif spécifique.\"\n}",
+      "ts": "2026-11-02T02:47:45.770673+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.6457513110645903,
+      "value": 37,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Z-score élevé (2.65) pour un Fear & Greed à 37 (Peur) : asymétrie classique d'accumulation silencieuse par les baleines pendant l'indifférence médiatique totale.\"\n}\n```",
+      "ts": "2026-11-02T03:02:49.292193+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.396290692159837,
+      "value": 4642716753.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.40) n'est pas soutenu par le narratif crypto (un seul article mineur sur ETH/BTC). Le reste des titres (automobile, coiffure, loisirs) est du bruit non pertinent. Impossible de confirmer une accumulation silencieuse sans contexte d'actif spécifique.\"\n}",
+      "ts": "2026-11-02T03:17:53.341871+00:00"
     }
   ]
 }
