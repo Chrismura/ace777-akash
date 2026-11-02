@@ -1,48 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 3.033440943713891,
-      "value": 1.218,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique Théorique (France), non un actif crypto. Les titres médiatiques confirment un contexte académique/scientifique (physique, théologie, santé) sans lien avec les marchés financiers. Aucune divergence onchain réelle.\"\n}",
-      "ts": "2026-11-01T23:56:57.649158+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.755398477105117,
-      "value": 2979720.0,
-      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.76 confirme une anomalie statistique majeure des liquidations, validée par le narratif médiatique (peur d'un hack Binance). Contrairement à un mouvement silencieux de baleines (qui impliquerait un flux d'achat caché sous un bruit de marché), ici le bruit médiatique et la donnée onchain sont alignés sur un événement de choc négatif. La divergence est nulle : le marché réagit à une panique réelle, non à une manipulation narrative.\"\n}",
-      "ts": "2026-11-02T00:01:59.402702+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 9.115037909077268,
-      "value": 37,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence majeure : un z-score de 9.12 sur le Fear & Greed (37) indique une volatilité extrême et une peur irrationnelle, souvent associée à des accumulations silencieuses par les baleines. L'absence de titres médiatiques spécifiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain réelle, créant un setup classique de 'quiet accumulation' avant un retournement haussier.\"\n}",
-      "ts": "2026-11-02T00:02:00.339872+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.4335422762253875,
-      "value": 4391791616.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Divergence totale : l'anomalie onchain (volume crypto) est totalement déconnectée du narratif médiatique (marché du loisir créatif, cosmétiques, musique). Aucune corrélation sémantique ou sectorielle. Le bruit médiatique est hors sujet, rendant l'analyse du sentiment crypto impossible via ces sources. Signal neutre par défaut faute de contexte crypto pertinent.\"\n}",
-      "ts": "2026-11-02T00:17:03.569593+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 6.855654600401044,
-      "value": 37,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice fear_greed à 37 avec un z-score de 6.86 indique une forte peur et une volatilité anormale. Les titres médiatiques ne mentionnent pas cette alerte, suggérant une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, ce qui pourrait indiquer une opportunité de trading à la baisse.\"\n}\n```",
-      "ts": "2026-11-02T00:32:09.329389+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 2.672833761505985,
-      "value": 0.387865514429131,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 2.67) suggère une activité de baleines crypto significative, mais les titres médiatiques ne mentionnent pas cette divergence. Le narratif médiatique semble déconnecté de la réalité des mouvements de fonds.\"\n}\n```",
-      "ts": "2026-11-02T00:37:11.028788+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 3.309485733739671,
       "value": 4454894999.0,
@@ -349,6 +307,48 @@
       "value": 1131804.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence entre la panique médiatique (liée à des fausses rumeurs de hack et des bruits de couloir sur des liquidations macro) et la réalité onchain (z-score extrêmement bas à -2.25 indiquant une absence totale de stress systémique réel). Les baleines profitent du FUD médiatique pour accumuler en silence pendant que les retail vendent la panique.\"\n}\n```",
       "ts": "2026-11-02T12:44:59.776207+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.86772099055864,
+      "value": 0.5187646394928969,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.87) en l'absence totale de couverture médiatique (silence radio sur Google Actualités), typique d'une accumulation furtive par des baleines avant un mouvement d'envergure.\"\n}\n```",
+      "ts": "2026-11-02T13:45:09.380537+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3082160803394522,
+      "value": 6186583642.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.31) due à du bruit sémantique (le mot 'volume' est pollué par l'automobile, l'agroalimentaire et la musique). Aucune divergence réelle avec la crypto, simple faux positif des flux médiatiques.\"\n}\n```",
+      "ts": "2026-11-02T13:45:11.162554+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.585467230530191,
+      "value": 1.111,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) piégée par un faux positif sémantique : le ticker crypto est submergé par des actualités institutionnelles sur l'Institut Pasteur de Tunis (IPT) et l'École Polytechnique. Aucune activité valide de baleine détectée.\"\n}\n```",
+      "ts": "2026-11-02T13:45:12.648834+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 6.839668118654309,
+      "value": 6217168.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : Anomalie onchain massive (z-score 6.84, ~6.2M USD) sans couverture médiatique correspondante. Ce silence des médias face à un flux de capitaux significatif suggère une accumulation silencieuse ou un positionnement stratégique avant une annonce publique, typique d'un signal haussier précoce.\"\n}\n```",
+      "ts": "2026-11-02T14:05:16.858559+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.413403866170331,
+      "value": 6384916583.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.41) est attribué à Ethereum, tandis que le flux médiatique est dominé par du bruit non-crypto (Polnareff, Unilever, coiffure) et une simple comparaison de volumes BTC/ETH sans signal directionnel. Aucune divergence exploitable détectée.\"\n}",
+      "ts": "2026-11-02T14:15:18.975899+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.004032007437505,
+      "value": 0.965,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités physiques (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
+      "ts": "2026-11-02T14:20:20.698656+00:00"
     }
   ]
 }

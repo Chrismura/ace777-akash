@@ -530,6 +530,33 @@ séparation providers.*
 
 ---
 
+### R26 — L'AGENT S'APPLIQUE LES RÈGLES À LUI-MÊME (ORDRE Christophe, 02/11/2026)
+> Mot pour mot : « démerde-toi pour que ce mindset soit gravé dans toutes tes pensées et
+actions […] je suis pas là pour vérifier tout ça !!! »
+
+**En une phrase** : le mindset mesuré (R17 : pas de fixe, boucles à la source,
+estimation prudente) vaut pour les actes **de l'agent lui-même**, pas seulement pour le
+moteur — et son respect est **vérifié par la machine**, jamais par Christophe.
+
+**Pourquoi (les fautes qui ont produit cette règle)** : le 02/11 j'ai rescellé les scellés
+d'intégrité mais pas le registre de la veilleuse (faute de méthode vue par Christophe, pas
+par moi, §65) ; mon m_global flattait (384,71 $ sans edge invisibles, trouvés seulement à
+l'audit que Christophe a exigé, §69). Sans garde sur moi-même, c'est toujours Christophe
+qui voit — inacceptable, c'est son exigence.
+
+**Application, sans exception** :
+1. Avant tout acte (code, config, sizing, garde) : `strategie/CHECKLIST_PRE_ACTE.md`
+   (6 questions). Un NON = STOP ou déclaration écrite + garde.
+2. Tout fixe que je pose et que je ne mesure pas entre en NON-CLASSÉE — et la discipline
+   du lendemain crie le delta (QUOI DE NEUF depuis hier ?). Jamais de fixe silencieux.
+3. Tout chiffre que je publie porte sa source + sa validation + sa tolérance, ou STOP
+   (pattern `m_kelly_metre.py` : double validation, EXIT 2, références vivantes).
+4. Toute vague se referme par : resceler chaque fichier touché,
+   `JOURNAL_ECRIVAINS.jsonl` EN DERNIER, `resceler --liste` à 0, veilleuse verte.
+**Mesure (R26)** : delta quotidien des non-classées affiché en discipline ; 0 fixe posé
+par l'agent restant silencieux plus de 24 h (organes : `inventaire_seuils_fixes.py` +
+delta R26, `resceler --liste`, `veilleuse_synapses.py` — sans Christophe).
+
 ## ❓ À TRANCHER AVEC CHRISTOPHE (la « 4 » qu'on fait ensemble)
 
 1. **Hiérarchie** : que fait-on quand deux règles s'opposent ? Ex. #3 (GO humain) vs auto-réparation

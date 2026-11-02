@@ -9,8 +9,12 @@ Méthode ($ partout, lecture seule, 0 ordre) — FIX 02/11 boucle source :
 - L'EDGE VIENT DU JOURNAL LUI-MÊME (colonne pnl_usdt, brut) : Σ = 43.36 $
   = brut PORTEFEUILLE (+43.45 $). L'avg-cost maison divergeait (+14 $) — le
   journal fait foi pour les closes, pas notre re-calcul.
-- Coûts : coutCumule par paire (mission) réparti par trade -> pnl net/trade.
-  f* = p - (1-p)/b (Kelly) sur les nets. n >= 10 exigé, sinon non mesuré.
+- Coûts : brut journal - net PORTEFEUILLE par paire (coutCumule mission
+  surestime : Σ 21.56 vs 15.44 validés). f* = p - (1-p)/b (Kelly) sur les
+  nets. n >= 10 exigé, sinon non mesuré.
+- RÉFÉRENCES DYNAMIQUES (audit 02/11 14h30) : le journal ET le MD vivent
+  (journal appendu 13h04, MD régénéré 14h25) — les seuils 43.36/28.01 en dur
+  sont interdits, on lit brut/coûts/net dans le header du MD.
 - Quantités/cash : rejeu exact (notion±fee, pas d'avg). TEL/QAIT (hors
   mission, journal seul) inclus avec budget 30 historique, flaguées.
 - Marks = dernier DIGEST TOUS MOIS (le glob 202610* ratait novembre !).
@@ -20,6 +24,7 @@ Méthode ($ partout, lecture seule, 0 ordre) — FIX 02/11 boucle source :
 - Shorts : trades des *_state.json, bankroll 100 $, notionnel médian.
 DOUBLE VALIDATION : Σ brut == 43.36 ± 0.5 ET Σ net == +28.01 ± 2, sinon STOP.
 """
+import argparse
 import csv
 import glob
 import json
@@ -32,6 +37,20 @@ JOURNAL = RUNS + "/PAPER_V1_20261029_174940.csv"
 PF_MD = RUNS + "/PORTEFEUILLE_LATEST.md"
 FEE = 0.0005
 N_MIN = 10  # en dessous : edge non mesuré, pas de f*
+
+
+def lire_refs_pf():
+    """Références vivantes du header : brut, coûts, net (le MD est régénéré
+    en continu — aucune constante en dur)."""
+    import re
+    try:
+        txt = open(PF_MD, encoding="utf-8").read()
+    except Exception:
+        return {}
+    m = re.search(r"brut\s*([+-]?[0-9.]+).*coûts est\.\s*([+-]?[0-9.]+).*NET\s*([+-]?[0-9.]+)", txt)
+    if not m:
+        return {}
+    return {"brut": float(m.group(1)), "couts": float(m.group(2)), "net": float(m.group(3))}
 
 
 def lire_couts_pf():
@@ -184,16 +203,67 @@ def flag(m, mesure, f):
     return "🟢"
 
 
-def main():
+def scenarios(lignes):
+    """Scénarios de dégraissage SUR MESURE (GO Christophe 02/11, lecture seule).
+    Règle : on n'allège JAMAIS en dessous de la cible, on n'ajoute JAMAIS
+    (R11 fail-safe, R18 épargne). α_régime = 1 neutre (thermo score 66 le
+    02/11 14h00, ni euphorie ni crash — branchable plus tard sur le score).
+    - S1 JUSTE (m->1) : cible = juste (l'optimum du post @0bl4ze).
+    - S2 PRO (demi-Kelly) : cible = 0,5 × juste (standard des desks).
+    - S3 BAG (sur mesure) : cible = juste × (1+lat%) — la profondeur du bag
+      de CHAQUE paire règle sa propre dureté (1+lat% >= 0 garanti car
+      latent >= -pos). Sans edge (f*<=0) : cible 0 = sortie au fil de l'eau.
+      Edge non mesuré : on TIENT (pas d'action sans mesure, R17)."""
+    print()
+    print("--- SCÉNARIOS (α_régime=1 neutre, thermo 66 — lecture seule, 0 ordre) ---")
+    print(f"{'paire':12s} {'pos$':>8s} {'juste$':>7s} {'lat%':>6s} "
+          f"{'S1 allég':>9s} {'S2 allég':>9s} {'S3 allég':>9s}  note")
+    tot = {"pos": 0.0, "s1": 0.0, "s2": 0.0, "s3": 0.0, "cash": 0.0}
+    for L in lignes:
+        pos, cash, juste = L["pos"], L["cash"], L["juste"]
+        if pos <= 0.01:
+            continue
+        tot["pos"] += pos
+        tot["cash"] += cash
+        latf = max(0.0, 1.0 + L["latpc"] / 100.0)
+        if L["cas"] == "sain":
+            c1, c2, c3 = juste, 0.5 * juste, juste * latf
+            note = ""
+        elif L["cas"] == "sans_edge":
+            c1 = c2 = c3 = 0.0
+            note = "sortie fil de l'eau"
+        else:
+            c1 = c2 = c3 = pos
+            note = "AVEUGLE: tenir, mesurer"
+        a1, a2, a3 = max(0.0, pos - c1), max(0.0, pos - c2), max(0.0, pos - c3)
+        tot["s1"] += a1
+        tot["s2"] += a2
+        tot["s3"] += a3
+        j = "NA" if juste != juste else f"{juste:.2f}"
+        print(f"{L['p']:12s} {pos:8.2f} {j:>7s} {L['latpc']:5.1f}% "
+              f"{a1:9.2f} {a2:9.2f} {a3:9.2f}  {note}")
+    print()
+    for sid, nom in (("s1", "JUSTE (m->1)"), ("s2", "PRO (demi-Kelly)"),
+                      ("s3", "BAG (sur mesure)")):
+        expo_ap = tot["pos"] - tot[sid]
+        couv_ap = (tot["cash"] + tot[sid]) / expo_ap if expo_ap > 0.01 else float("inf")
+        print(f"{nom}: allégé={tot[sid]:.2f} $ · expo {tot['pos']:.2f} -> {expo_ap:.2f} $ · "
+              f"coussin récupéré={tot[sid]:.2f} $ · couv globale {couv_ap:.2f}")
+    print("La règle n'ajoute JAMAIS, ne vend jamais en panique : les cibles sont des "
+          "plafonds atteints au fil de l'eau (rebonds, DCA inverse) — mécanique à décider.")
+
+
+def main(opts=None):
     global PF_NET
     PF_NET = lire_couts_pf()
     marks, tmarks = digest_marks()
     st = replay()
+    lignes = []
     print(f"marks: {tmarks.isoformat() if tmarks else '?'} ({len(marks)} paires)")
     print(f"{'paire':12s} {'bdg':>5s} {'pos$':>8s} {'cash$':>8s} {'couv':>6s} "
           f"{'lat$':>8s} {'lat%':>6s} {'n':>4s} {'p':>5s} {'b':>6s} {'f*':>7s} "
           f"{'juste$':>7s} {'m':>6s} {'score':>6s}  drapeau")
-    tot_pos = tot_juste = tot_brut = tot_cout = tot_lat = 0.0
+    tot_pos = tot_juste = tot_brut = tot_cout = tot_lat = tot_expo = expo_sans_edge = 0.0
     for p in sorted(st):
         s = st[p]
         mk = marks.get(p, 0.0)
@@ -202,6 +272,8 @@ def main():
         latent = s["qty"] * (mk - avg) if s["qty"] > 1e-12 else 0.0
         latpc = (100 * latent / pos) if pos > 1e-9 else 0.0
         tot_lat += latent
+        if pos > 0.01:
+            tot_expo += pos
         couv = (s["cash"] / pos) if pos > 0.01 else float("inf")
         bruts = s.get("bruts") or []
         tot_brut += sum(bruts)
@@ -219,10 +291,20 @@ def main():
             tot_pos += pos
             tot_juste += juste
         elif k.get("mesure"):
+            if pos > 0.01:
+                expo_sans_edge += pos  # exposé SANS edge : le cas le plus grave
             juste, m = 0.0, (float("inf") if pos > 1e-9 else 0.0)
         else:
             juste, m = float("nan"), float("nan")
         score = 2 * m - m * m if m == m and m != float("inf") else float("-inf")
+        if k.get("mesure") and k.get("f") is not None and k["f"] > 0:
+            _cas = "sain"
+        elif k.get("mesure"):
+            _cas = "sans_edge"
+        else:
+            _cas = "aveugle"
+        lignes.append({"p": p, "pos": pos, "cash": s["cash"],
+                       "juste": juste, "latpc": latpc, "cas": _cas})
         couv_s = "INF" if couv == float("inf") else f"{couv:.2f}"
         m_s = "INF" if m == float("inf") else ("NA" if m != m else f"{m:.2f}")
         sc_s = "-INF" if score == float("-inf") else f"{score:.2f}"
@@ -238,13 +320,23 @@ def main():
     print()
     print(f"PORTEFEUILLE (edge mesuré) : pos={tot_pos:.2f} $ juste={tot_juste:.2f} $ "
           f"-> m_global={m_glob:.3f} score={s_glob:.3f}")
+    print(f"EXPOSITION TOTALE : {tot_expo:.2f} $ dont SANS edge (f*<=0 ou non mesuré) : "
+          f"{expo_sans_edge + (tot_expo - tot_pos - expo_sans_edge):.2f} $ "
+          f"— la part sans edge est à m=INF par construction")
     net = tot_brut - tot_cout
-    print(f"VALIDATION : Σ brut journal = {tot_brut:.2f} $ (réf 43.36) · "
-          f"Σ coûts = {tot_cout:.2f} $ (réf 15.44) · net = {net:.2f} $ (réf +28.01) · "
-          f"Σ latent = {tot_lat:.2f} $ (réf -71.23 au 10h09, marks 11h15 — dérive admise)"  )
-    if abs(tot_brut - 43.36) > 0.5 or abs(net - 28.01) > 2.0:
+    refs = lire_refs_pf()
+    rb, rc, rn = refs.get("brut"), refs.get("couts"), refs.get("net")
+    if rb is None:
+        print("⚠️ header PORTEFEUILLE illisible — validation impossible, STOP.")
+        return 2
+    print(f"VALIDATION (réfs vivantes du MD) : Σ brut = {tot_brut:.2f} $ (réf {rb:.2f}) · "
+          f"Σ coûts = {tot_cout:.2f} $ (réf {rc:.2f}) · net = {net:.2f} $ (réf {rn:.2f}) · "
+          f"Σ latent = {tot_lat:.2f} $ (marks {tmarks.isoformat() if tmarks else '?'})")
+    if abs(tot_brut - rb) > 0.5 or abs(net - rn) > 2.0 or abs(tot_cout - rc) > 2.0:
         print("⚠️ ÉCART — méthode à revoir, chiffres NON publiés.")
         return 2
+    if opts and opts.scenarios:
+        scenarios(lignes)
     # --- SHORTS ---
     print()
     print("--- SHORTS (bankroll 100 $) ---")
@@ -256,7 +348,11 @@ def main():
             print(f"{sym}: illisible ({e})")
             continue
         trs = s.get("trades") or []
-        pnls = [float(t.get("pnl_usd") or 0.0) for t in trs]
+        # AUDIT 02/11 : pnl_usd short = BRUT (short_btc.py:535, aucune fee).
+        # Kelly NET : on déduit 2×0.05%×notionnel par trade (estimation
+        # documentée — le capital affiché par le moteur est lui aussi brut).
+        pnls = [float(t.get("pnl_usd") or 0.0) - 2 * 0.0005 * float(t.get("notional") or 0.0)
+                for t in trs]
         nots = [float(t.get("notional") or 0.0) for t in trs if float(t.get("notional") or 0.0) > 0]
         k = kelly(pnls)
         nmed = sorted(nots)[len(nots) // 2] if nots else 0.0
@@ -273,4 +369,7 @@ def main():
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    _ap = argparse.ArgumentParser()
+    _ap.add_argument("--scenarios", action="store_true",
+                     help="scénarios de dégraissage S1/S2/S3 (lecture seule)")
+    raise SystemExit(main(_ap.parse_args()))

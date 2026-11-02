@@ -2448,3 +2448,32 @@ IA=Buffy (Muse Spark 1.3, Freebuff).
 - **RIZE leçon** : brut f*>0 mais net f*<0 — les coûts (spread+fees) tuent l'edge. Kelly se mesure NET, jamais brut.
 - **Shorts** : BTC m=0,22 (notionnel médian 5 $ vs juste 22,5 $, p=0,50 b=1,82 n=46) — sain et conservateur, flat actuellement. ETH/XRP n=2 : edge non mesurable → item calendrier `m-shorts-n10`.
 - **Double validation passée** : brut 43,36 ✓ coûts 15,45 ≈ 15,44 ✓ net 27,91 ≈ 28,01 ✓ latent -71,42 ≈ -71,23 ✓.
+
+## §69 — 02/11 ~15h00 — Audit du mètre de m (GO Christophe « vérifier la logique »)
+- **Trouvé n°1 (bloquant)** : journal + MD VIVENT (journal appendu 13h04, MD régénéré 14h25 : net 28,01 -> 27,91). Références en dur interdites -> le mètre lit désormais brut/coûts/net dans le header du MD (`lire_refs_pf`), STOP si header illisible.
+- **Trouvé n°2 (sous-estimation)** : pnl_usd des shorts = BRUT (short_btc.py:535, aucune fee, capital affiché brut aussi). Kelly shorts désormais NET de 2×0,05 %×notionnel. BTC : f* 0,225 -> 0,159, m 0,22 -> 0,32 — verdict sain maintenu. À noter : le capital short affiché surestime le net d'environ 0,5 $.
+- **Trouvé n°3 (m_global flatteur)** : il n'agrégeait que les paires à edge>0 (m=7,96). Ajout EXPOSITION TOTALE = 704,51 $ dont 384,71 $ SANS edge (m=INF par construction) — c'est la part la plus dangereuse, elle était invisible.
+- **Trouvé n°4 (doc)** : docstring coûts corrigé (brut-net PF, pas coutCumule mission qui surestime Σ 21,56 vs 15,44).
+- Limites assumées et écrites : Kelly suppose mises proportionnelles (nos DCA/pyramides varient), coûts répartis uniformément par trade, QAIT/TEL budget 30 supposé, N_MIN=10 arbitraire.
+- Validation : brut 43,36=43,36 · coûts 15,45=15,45 · net 27,91=27,91 · EXIT 0.
+
+## §70 — 02/11 ~15h30 — R26 : le mindset est gravé et branché (ORDRE Christophe)
+- **R26 dans la constitution** : l'agent s'applique R17 à lui-même, vérifié par la machine, jamais par Christophe. Pourquoi : §65 (veilleuse vue par lui) + §69 (m_global flatteur trouvé à son audit).
+- **CHECKLIST_PRE_ACTE.md** (6 questions, organes cités) : mesuré-ou-deviné, boucle source, fixe introduit, registre consulté, estimation prudente, vague refermée.
+- **Garde auto** : la discipline crie désormais le DELTA des non-classées (« +N depuis hier, qui les a posées ? »). Baseline scellée ce soir (8 clés pré-existantes) pour ne pas crier à tort demain.
+- Christophe n'a plus à diriger mes analyses : s'il y a un fixe silencieux, c'est la discipline de 07h15 qui le dira.
+
+## §71 — 02/11 ~16h00 — Scénarios de dégraissage chiffrés (GO Christophe, sur mesure, 0 câblage)
+- Outil : `m_kelly_metre.py --scenarios` (S1 JUSTE m->1, S2 PRO demi-Kelly, S3 BAG juste×(1+lat%) — la dureté vient du bag de chaque paire, α_régime=1 neutre thermo 66).
+- Règle : on allège vers la cible, on n'ajoute JAMAIS (R11/R18). Sans edge = cible 0 (sortie au fil de l'eau). Aveugle (BTC 64,89 $, FLUID 38,10 $) = TENIR, mesurer d'abord (BTC : 2 closes pour n>=10).
+- S1 : allégé 557,40 $ · expo 710,53 -> 153,13 $ · couv 3,88. S2 : 577,25 $ · -> 133,27 $ · couv 4,61. S3 : 563,51 $ · -> 147,02 $ · couv 4,08.
+- Les 3 scénarios ne diffèrent que de ~20 $ : le vrai choix = 271 $ sans edge (ETH 70,49 le plus gros) + 113 $ aveugles (BTC+FLUID). CHIP ~75 $, EDEL ~60 $, RED ~77-81 $ dans tous les cas.
+- Mécanique d'exécution NON décidée (plafonds atteints au fil de l'eau, pas de vente panique) — à trancher avec Christophe avant tout câblage.
+
+## §72 — 02/11 ~16h30 — Sandbox dégraissage : le fixe est mort, le mesuré tire (GO Christophe)
+- **Fixes 11,67 %/25 % : 0 déclenchement en 88 jours.** Jamais tirés — décoratifs. À éliminer (remplacés par k×σ_48snap intraday).
+- **Crash 29/10 invisible en daily, flagrant en intraday** (20h44 : |r|/σ = 8,22 ; 21h04 : 3,40). Le déclencheur DOIT être intraday — le nourrisseur 60 s a la bonne granularité.
+- **Deux lignes de défense, prouvées par l'heure** : shorts (corr ≤ -0,50) armés ~17h en premier (jambe CTA), Mur mesuré en second à 20h44. Pas l'inverse.
+- **k lu sur grille** : T1 graduel k≈2 (respiration quotidienne, sans verrou) ; T2 verrou k≈5 + persistance 2 snapshots (rare, réarmement manuel). 08-24/25 = bruit de démarrage (σ mince), à exclure du calibrage.
+- **Contrefactuel 28/10** : S1 446,79 $ · S2 463,01 $ · S3 448,89 $ exposés en moins. Angles morts honnêtes : BTC 67,63 $ + FLUID 46,68 $ + QNT 9,19 $ aveugles (n<10 au 28/10 — pas d'action sans mesure, R17).
+- **Bug trouvé et corrigé** : tot_pos/tot_saved même objet (S1 surestimé 665 $). Règle R26 : la sandbox se vérifie elle-même (SOMME lignes == totaux).

@@ -204,6 +204,26 @@ def main() -> int:
     except Exception as e:
         print(f"[ERR] inventaire_seuils_fixes : {e}", file=sys.stderr)
 
+    # 1g-bis) R26 — L'AGENT S'APPLIQUE R17 À LUI-MÊME (ORDRE Christophe 02/11) :
+    # QUOI DE NEUF depuis hier ? Si une clé non rangée APPARAÎT, quelqu'un
+    # (souvent moi) a posé un fixe sans le mesurer. Christophe ne vérifie pas :
+    # la discipline crie toute seule. Fail-open, état persistant en thermo.
+    r26_nouvelles = []
+    try:
+        R26_ETAT = IM / "thermo" / "r26_seuils_hier.json"
+        nc = seuils.get("non_classees") or []
+        try:
+            hier = json.load(open(R26_ETAT, encoding="utf-8")) or []
+        except Exception:
+            hier = []
+        hier_set = set(hier) if isinstance(hier, list) else set()
+        r26_nouvelles = [c for c in nc if c not in hier_set]
+        if isinstance(nc, list):
+            with open(R26_ETAT, "w", encoding="utf-8") as f:
+                json.dump(nc, f, ensure_ascii=False, indent=1)
+    except Exception as e:
+        print(f"[ERR] R26 delta seuils : {e}", file=sys.stderr)
+
     # 1h) SUIVI DE LA SORTIE MESURÉE (GO 3) — la règle est-elle ARMÉE, et les paliers
     #     réellement vendus portent-ils bien la mesure ? Sans cette ligne, « aucune sortie »
     #     serait indiscernable d'une règle éteinte (règle #6). Fail-open.
@@ -265,6 +285,10 @@ def main() -> int:
         alerts.append(f"SEUIL NON RANGÉ : {len(seuils['non_classees'])} clé(s) décident sans "
                       "être classées (" + ", ".join(seuils["non_classees"][:6])
                       + ") — R17 : toute garde se mesure ou se déclare")
+    if r26_nouvelles:
+        alerts.append(f"R26 AGENT NON RANGÉ : +{len(r26_nouvelles)} clé(s) nouvelle(s) depuis "
+                      "hier (" + ", ".join(r26_nouvelles[:6]) + ") — qui les a posées ? "
+                      "mesurer ou ranger (CHECKLIST_PRE_ACTE.md §3)")
     if suivi_sortie and not suivi_sortie.get("regle_armee"):
         alerts.append("SORTIE MESURÉE ÉTEINTE (RIP_CADENCE_MESURE_ON=0) — les paliers sont "
                       "revenus à un % universel : régression silencieuse (R17)")
