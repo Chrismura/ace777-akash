@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 3.309485733739671,
-      "value": 4454894999.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 3.31) n'est pas soutenu par le narratif crypto (un seul article mineur sur le volume ETH/BTC). Les autres titres (auto, coiffure, loisirs) sont du bruit contextuel sans lien avec l'actif. Impossible de confirmer une accumulation silencieuse sans contexte d'actif spécifique.\"\n}",
-      "ts": "2026-11-02T00:47:13.723798+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 4.79583152331272,
-      "value": 37,
-      "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 85,\n  \"reason\": \"L'indice de peur/avidité est à 37, indiquant une peur extrême, tandis que les titres médiatiques ne mentionnent pas cette alerte, suggérant une divergence entre les données brutes et le narratif médiatique. Les baleines pourraient être en train de bouger silencieusement, indiquant une possible vente massive ou une panique du marché.\"\n}\n```",
-      "ts": "2026-11-02T01:02:17.778289+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.1876304543068263,
-      "value": 4513409873.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 3.19) n'est pas soutenu par le narratif crypto (un seul article mineur sur ETH/BTC). Le reste des titres (voitures, cheveux, loisirs) est du bruit non pertinent. Impossible de confirmer une accumulation silencieuse sans contexte d'actif spécifique.\"\n}",
-      "ts": "2026-11-02T01:17:20.892869+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.6639115684776216,
       "value": 0.5180954584675268,
@@ -349,6 +328,27 @@
       "value": 0.965,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités physiques (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
       "ts": "2026-11-02T14:20:20.698656+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.468108313210214,
+      "value": 6549465808.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.47) n'est pas accompagné d'un narratif crypto significatif (les titres sont des bruits de fond : auto, eau, musique). Le seul titre crypto mentionne un volume BTC/Eth standard sans signal de panique ou d'euphorie. Impossible de détecter une divergence baleine sans contexte d'actif spécifique ou de sentiment marché.\"\n}",
+      "ts": "2026-11-02T14:45:25.920015+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.7744252190187773,
+      "value": 1.193,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
+      "ts": "2026-11-02T15:05:29.416793+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.611440148342113,
+      "value": 6821089924.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.61) n'est pas soutenu par le narratif crypto (un seul article mineur sur ETH/BTC). Les autres titres (auto, eau, musique) sont du bruit non pertinent. Impossible d'identifier une accumulation ou distribution silencieuse sans contexte d'actif spécifique.\"\n}",
+      "ts": "2026-11-02T15:15:32.019937+00:00"
     }
   ]
 }

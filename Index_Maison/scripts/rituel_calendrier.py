@@ -30,6 +30,15 @@ FRAICHEUR = [
     ("shorts", "ace777-test-day1/hulk-mexc/runs/short_btc_live.json", 30),
     ("flux48", "ace777-test-day1/Index_Maison/data/flux_nets_latest.json", 120),
     ("geopol-gratuit", "ace777-test-day1/Index_Maison/thermo/geopol_gratuit_live.json", 180),
+    # §73 anti-aveugle par conception : preuve de vie du Mur mesuré, du
+    # m-mètre (plafonds S2) et du désaccord (invoqué par le feed, jamais
+    # planifié — sans ce garde il serait invisible). Pas de preuve = 🔇.
+    ("mur-mesure", "ace777-test-day1/Index_Maison/thermo/mur_mesure.json", 1560),
+    ("m-kelly", "ace777-test-day1/Index_Maison/thermo/m_kelly_live.json", 1800),
+    ("desaccord", "ace777-test-day1/Index_Maison/data/desaccord_live.json", 120),
+    # §74 : le verdicteur-micro décide (verdicts 5s/60s -> protocoles) et écrit
+    # son score à chaque passage avec prix — mtime = preuve de vie (15 s cad.).
+    ("verdicteur-micro", "ace777-test-day1/Index_Maison/data/cortana_micro_score.json", 30),
 ]
 
 
@@ -95,9 +104,21 @@ def main() -> int:
         if age_min > max_min:
             aveugles.append({"moteur": nom, "age_min": round(age_min),
                              "raison": f"vieux de {age_min:.0f} min (max {max_min})"})
+    # §73 : paires AVEUGLES avec position (edge non mesurable, n<10) — par
+    # conception on TIENT (pas d'action sans mesure), mais jamais en silence :
+    # le rituel les cite chaque matin jusqu'à n>=10 (BTC : il manque 2 closes).
+    aveugles_pos = []
+    try:
+        _mk = json.load(open(os.path.join(HOME, "ace777-test-day1/Index_Maison/thermo/m_kelly_live.json"), encoding="utf-8"))
+        for _p in (_mk.get("aveugles_pos") or []):
+            _pos = ((_mk.get("paires") or {}).get(_p) or {}).get("pos")
+            aveugles_pos.append({"paire": _p, "pos": _pos})
+    except Exception:
+        pass
     res = {"ts": datetime.now().astimezone().isoformat(timespec="seconds"),
            "en_retard": en_retard, "dus": dus, "a_venir": a_venir,
            "moteurs_aveugles": aveugles,
+           "paires_aveugles": aveugles_pos,
            "scelles_ecarts": scelles_ecarts,
            "memoire": [{"id": m.get("id"), "titre": m.get("titre"),
                         "origine": m.get("origine")} for m in memoire]}
@@ -111,6 +132,8 @@ def main() -> int:
           f"À VENIR={len(a_venir)} AVEUGLES={len(aveugles)} MÉMOIRE={len(memoire)}")
     for a in aveugles:
         print(f"  🔇 MOTEUR AVEUGLE : {a['moteur']} — {a['raison']}")
+    for _av in aveugles_pos:
+        print(f"  🙈 PAIRE AVEUGLE : {_av['paire']} ({_av['pos']}$ exposés, edge non mesuré) — TENIR, mesurer d'abord")
     for _e in scelles_ecarts:
         print(f"  🔴 SCELLÉ DÉRIVÉ : {_e} — resceler avant midi")
     for it in en_retard:

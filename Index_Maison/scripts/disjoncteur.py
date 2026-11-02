@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 Nom du module : disjoncteur.py
-Projet       : ACE777 (URGENCE 1 - Le Disjoncteur Unique)
-Rôle         : Juge & Risk Guardian (Python pur, stdlib, déterministe, sans LLM).
+Projet       : ACE777 (URGENCE 1 - Le Disjoncteur Unique)Rôle       : Juge & Risk Guardian (Python pur, stdlib, déterministe, sans LLM).
                - Bridage dynamique des tailles d'ordres (hard cap à la volée).
-               - Coupure d'urgence (Mur de Fer) sur seuil de perte journalière (-1.5%)
-                 ou plafond global (-8%).
+               - Coupure d'urgence (Mur de Fer) sur seuil MESURÉ (k × σ_20j,
+                 §73 : les fixes 11,67 %/25 % n'ont jamais tiré en 88 j).
+               - AUCUN seuil en dur : mur_mesure.json (quotidien) + preuve de vie.
+                 Cache stale > 26 h → SANS_MESURE (pas de coupe, R11).
                - Écriture atomique, verrouillage global (STOP_ALL), persistance JSON/JSONL.
 Vérifié      : 16/08 par Buffy (superviseur) — 2 bugs de la réponse codeur corrigés :
                (1) import pathlib cassé, (2) chemin en dur faux (/Users/macbookpro -> détection auto).
@@ -40,11 +41,18 @@ STOP_PATH = STRATEGIE_DIR / "STOP"
 REARMER_FILE = STRATEGIE_DIR / "REARMER_DISJONCTEUR"
 
 DEFAULT_CONFIG = {
-    "pct_journalier": 1.5,
-    "max_global_dd_pct": 8.0,
-    "plafond_trade_pct": 10.0,  # Max 10% du capital total par trade par défaut
+    # §73 — ZÉRO SEUIL EN DUR (R26 : aucun défaut silencieux). k vit UNIQUEMENT
+    # dans disjoncteur_config.json avec son k_origine ; absent -> le Mur ne se
+    # calcule pas (SANS_MESURE). Les fixes pct_journalier/max_global_dd_pct /
+    # plafond_trade_pct sont archivés (.bak-avant-mesure-20261102) et IGNORÉS.
+    "mode": "obeir",
+    "seed_usdt": 150,
     "cloturer_sur_mur_de_fer": 0
 }
+MUR_MESURE_PATH = BASE_DIR / "thermo" / "mur_mesure.json"
+M_KELLY_LIVE_PATH = BASE_DIR / "thermo" / "m_kelly_live.json"
+MUR_FRAIS_MAX_H = 26.0
+M_KELLY_FRAIS_MAX_H = 30.0
 
 
 def atomic_write(file_path, data):
@@ -92,6 +100,49 @@ def is_stopped():
         return True
     etat = load_json(STATE_PATH, {})
     return bool(etat.get("declenche", False))
+
+
+def _frais_depuis_heures(chemin, max_h):
+    """Vrai si le fichier existe et est plus frais que max_h (preuve de vie)."""
+    try:
+        age_h = (time.time() - os.path.getmtime(str(chemin))) / 3600.0
+        return age_h <= max_h
+    except Exception:
+        return False
+
+
+def _mur_mesure():
+    """Seuil mesuré du jour, ou None si pas de preuve de vie (anti-aveugle)."""
+    try:
+        if not _frais_depuis_heures(MUR_MESURE_PATH, MUR_FRAIS_MAX_H):
+            return None
+        mur = json.loads(MUR_MESURE_PATH.read_text(encoding="utf-8"))
+        if float(mur.get("seuil_jour_pct", 0)) <= 0:
+            return None
+        return mur
+    except Exception:
+        return None
+
+
+def _m_kelly_live():
+    """Plafonds S2 du jour, ou None si pas de preuve de vie."""
+    try:
+        if not _frais_depuis_heures(M_KELLY_LIVE_PATH, M_KELLY_FRAIS_MAX_H):
+            return None
+        return json.loads(M_KELLY_LIVE_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _historiser_sans_mesure():
+    """Trace le refus de couper sans mesure (pas de silence)."""
+    try:
+        with open(HISTORY_PATH, "a", encoding="utf-8") as f:
+            f.write(json.dumps({"event": "SANS_MESURE",
+                                "ts": datetime.now(timezone.utc).isoformat(),
+                                "raison": "mur_mesure.json stale/absent : pas de coupe"}) + "\n")
+    except Exception:
+        pass
 
 
 def declencher_mur_de_fer(raison, perte_pct):
@@ -142,24 +193,46 @@ def verifier_et_brigader(taille_proposee, capital_total, perte_journaliere_pct):
             "declenche": True,
         }
 
-    seuil_journalier = float(config["pct_journalier"])
-    plafond_global = float(config["max_global_dd_pct"])
-    if perte_journaliere_pct >= seuil_journalier or perte_journaliere_pct >= plafond_global:
-        raison = "Seuil de perte atteint: %.2f%% (journalier max: %.1f%%, global max: %.1f%%)" % (
-            perte_journaliere_pct, seuil_journalier, plafond_global)
+    mur = _mur_mesure()
+    if mur is None:
+        # R11 + anti-aveugle (§73) : sans mesure fraîche, on ne coupe PAS.
+        # Le rituel crie sur la fraîcheur — pas de silence, pas de coupe aveugle.
+        _historiser_sans_mesure()
+        return {
+            "autorise": True,
+            "taille_corrigee": float(taille_proposee),
+            "bride": False,
+            "raison": "SANS_MESURE (mur_mesure.json stale/absent) : pas de coupe "
+                      "sans mesure (R11) — rituel alerté",
+            "declenche": False,
+        }
+    seuil_journalier = float(mur["seuil_jour_pct"])
+    if perte_journaliere_pct >= seuil_journalier:
+        raison = ("Mur MESURÉ atteint: perte %.2f%% ≥ k×σ=%.2f%% "
+                  "(k=%.1f, σ20j=%.2f%%, equity=%s$)" %
+                  (perte_journaliere_pct, seuil_journalier, mur["k"],
+                   mur["sigma_20j_pct"], mur["equity"]))
         declencher_mur_de_fer(raison, perte_journaliere_pct)
         return {"autorise": False, "taille_corrigee": 0.0, "raison": raison, "declenche": True}
 
-    pct_max_trade = float(config["plafond_trade_pct"])
-    plafond_capital = float(capital_total) * (pct_max_trade / 100.0)
+    # Cap per-trade MESURÉ : plus grosse cible S2 du jour (m_kelly_live.json).
+    # Stale/absent -> pas de cap (fail-open) + note (le rituel surveille).
+    mk = _m_kelly_live()
     taille_proposee = float(taille_proposee)
-    taille_autorisee = min(taille_proposee, plafond_capital)
-    bride = taille_autorisee < taille_proposee
+    if mk is not None and mk.get("maxS2"):
+        plafond_capital = float(mk["maxS2"])
+        taille_autorisee = min(taille_proposee, plafond_capital)
+        bride = taille_autorisee < taille_proposee
+        raison = ("OK" if not bride else
+                  "Bridé par le plafond mesuré (maxS2=%.2f$ du m-mètre)" % plafond_capital)
+    else:
+        taille_autorisee, bride = taille_proposee, False
+        raison = "OK (pas de cap : m_kelly_live.json stale/absent — rituel alerté)"
     return {
         "autorise": True,
         "taille_corrigee": round(taille_autorisee, 4),
         "bride": bride,
-        "raison": "OK" if not bride else "Bridé par le plafond trade (%.1f%% du capital)" % pct_max_trade,
+        "raison": raison,
         "declenche": False,
     }
 

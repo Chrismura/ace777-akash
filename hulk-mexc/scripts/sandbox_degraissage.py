@@ -149,12 +149,12 @@ def fstar(bruts, cout):
     return f if f > 0 else 0.0
 
 
-def main():
-    snaps = snapshots()
-    print(f"snapshots DIGEST : {len(snaps)} ({snaps[0][0].isoformat()} -> {snaps[-1][0].isoformat()})")
-    st, _ = replay_journal()
-    # equity à chaque snapshot (état final rejoué à chaque point : on rejoue
-    # par tranches — 1 passage, pointeurs par snapshot)
+def equity_snapshots(snaps=None):
+    """Equity à chaque snapshot DIGEST : un seul passage journal.
+    Importable (mur_mesure_daily.py s'en sert — pas de doublon).
+    Retour : [(ts, equity)] triés."""
+    if snaps is None:
+        snaps = snapshots()
     mission = json.load(open(MISSION, encoding="utf-8"))
     consts = {p["pair"]: p for p in mission["hulk"]["hulkVsHold"]["pairs"]}
     for jp in ("TELUSDT", "QAITUSDT"):
@@ -200,6 +200,14 @@ def main():
         e = sum(s["cash"] for s in cur.values())
         e += sum(s["qty"] * last_px.get(p, 0.0) for p, s in cur.items())
         eq.append((t, round(e, 2)))
+    return eq
+
+
+def main():
+    snaps = snapshots()
+    print(f"snapshots DIGEST : {len(snaps)} ({snaps[0][0].isoformat()} -> {snaps[-1][0].isoformat()})")
+    st, _ = replay_journal()
+    eq = equity_snapshots(snaps)
     rets = []
     for i in range(1, len(eq)):
         prev, cur_e = eq[i - 1][1], eq[i][1]

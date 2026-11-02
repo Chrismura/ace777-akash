@@ -105,6 +105,32 @@ def digest_marks():
     return idx[tmax], tmax
 
 
+def lire_cash_moteur():
+    """Cash par paire depuis le state live (vérité moteur).
+    Retour : (dict, nom_du_state). Dict vide si state illisible (repli rejeu)."""
+    import os as _os
+    try:
+        ptr = _os.path.join(RUNS, ".hulk_resume_pointer")
+        nom = open(ptr, encoding="utf-8").read().strip() if _os.path.exists(ptr) else ""
+        chemin = _os.path.join(RUNS, nom) if nom else ""
+        if not chemin or not _os.path.exists(chemin):
+            cands = sorted(glob.glob(RUNS + "/PAPER_V1_*_state.json"),
+                           key=lambda f: _os.path.getmtime(f), reverse=True)
+            if not cands:
+                return {}, "?"
+            chemin = cands[0]
+        d = json.load(open(chemin, encoding="utf-8"))
+        out = {}
+        for p, v in (d.get("pair_cash") or {}).items():
+            try:
+                out[p] = float(v or 0.0)
+            except Exception:
+                continue
+        return out, _os.path.basename(chemin)
+    except Exception:
+        return {}, "?"
+
+
 def replay():
     mission = json.load(open(MISSION, encoding="utf-8"))
     consts = {p["pair"]: p for p in mission["hulk"]["hulkVsHold"]["pairs"]}
@@ -258,6 +284,16 @@ def main(opts=None):
     PF_NET = lire_couts_pf()
     marks, tmarks = digest_marks()
     st = replay()
+    # §74 anti-aveugle : le cash REJOUÉ diverge du moteur (négatifs fictifs :
+    # QNT -6,10 $ au rejeu vs +11,95 $ moteur — écart total 82 $ localisé).
+    # La couverture se lit sur le cash MOTEUR (state, vérité live), pas rejoué.
+    moteur_cash, moteur_src = lire_cash_moteur()
+    for _p, _s in st.items():
+        if _p in moteur_cash:
+            _s["cash"] = moteur_cash[_p]
+            _s["cash_src"] = "moteur"
+        else:
+            _s["cash_src"] = "rejeu"
     lignes = []
     print(f"marks: {tmarks.isoformat() if tmarks else '?'} ({len(marks)} paires)")
     print(f"{'paire':12s} {'bdg':>5s} {'pos$':>8s} {'cash$':>8s} {'couv':>6s} "
@@ -334,6 +370,38 @@ def main(opts=None):
           f"Σ latent = {tot_lat:.2f} $ (marks {tmarks.isoformat() if tmarks else '?'})")
     if abs(tot_brut - rb) > 0.5 or abs(net - rn) > 2.0 or abs(tot_cout - rc) > 2.0:
         print("⚠️ ÉCART — méthode à revoir, chiffres NON publiés.")
+        return 2
+    # Preuve de vie par conception (R26 anti-aveugle) : le rituel, le
+    # disjoncteur (cap per-trade) et la garde aveugles lisent CE fichier.
+    try:
+        paires = {}
+        for L in lignes:
+            if L["cas"] == "sain":
+                c2 = 0.5 * L["juste"]
+            elif L["cas"] == "sans_edge":
+                c2 = 0.0
+            else:
+                c2 = None  # aveugle : pas de cible, TENIR
+            paires[L["p"]] = {"pos": round(L["pos"], 2),
+                               "juste": (round(L["juste"], 2)
+                                          if L["juste"] == L["juste"] else None),
+                               "cible_S2": (round(c2, 2) if c2 is not None else None),
+                               "cas": L["cas"]}
+        sains = [v["cible_S2"] for v in paires.values()
+                 if v["cas"] == "sain" and v["cible_S2"]]
+        aveugles = sorted(p for p, v in paires.items()
+                          if v["cas"] == "aveugle" and paires[p]["pos"] > 0.01)
+        live = {"ts": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "m_global": round(m_glob, 3) if m_glob == m_glob else None,
+                "expo_totale": round(tot_expo, 2),
+                "maxS2": round(max(sains), 2) if sains else None,
+                "aveugles_pos": aveugles,
+                "paires": paires}
+        with open(ROOT + "/Index_Maison/thermo/m_kelly_live.json", "w",
+                  encoding="utf-8") as f:
+            json.dump(live, f, ensure_ascii=False, indent=1)
+    except Exception as e:
+        print(f"⚠️ preuve de vie non écrite : {e}")
         return 2
     if opts and opts.scenarios:
         scenarios(lignes)

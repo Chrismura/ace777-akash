@@ -120,11 +120,63 @@ def lire_state_live():
     # Dans le doute on ne décide pas (R11) : SANS_MESURE, jamais de coupe.
     if not etat_exploitable(st):
         return None
+    # §73 anti-aveugle : le Mur regardait le RÉALISÉ pur (pnl_total) et restait
+    # aveugle aux crashes de bags (latent -71 $ le 29/10). On mesure l'EQUITY :
+    # cash des paires + quantités (positions + bags) valorisées au DIGEST.
+    qty = {}
+    for cont in (st.get("positions") or {}, st.get("bags") or {}):
+        for p, v in (cont or {}).items():
+            try:
+                q = float((v or {}).get("qty") or 0.0)
+            except Exception:
+                q = 0.0
+            if q > 0:
+                qty[p] = qty.get(p, 0.0) + q
+    cash = 0.0
+    for v in (st.get("pair_cash") or {}).values():
+        try:
+            cash += float(v or 0.0)
+        except Exception:
+            continue
     return {
         "path": chemin.name,
         "pnl_total": float(st.get("pnl_total") or 0.0),
         "age_s": time.time() - chemin.stat().st_mtime,
+        "qty": qty,
+        "cash": cash,
     }
+
+
+def lire_marks_fraiches(max_age_h=3.0):
+    """Marks + preuve de vie. ANTI-AVEUGLE §73 (boucle source 02/11) : le
+    scanner digest NE RÉÉCRIT PAS quand le signal est inchangé — un vieux
+    DIGEST_*.json n'est donc PAS une donnée périmée. La preuve de vie, c'est
+    le heartbeat (log watchdog + DIGEST_LATEST.md) ; les marks, le dernier
+    JSON. Les deux, ou SANS_MESURE."""
+    try:
+        cands = sorted(RUNS.glob("DIGEST_*.json"),
+                       key=lambda p: p.stat().st_mtime, reverse=True)
+        if not cands:
+            return None, None
+        heartbeats = []
+        for hb in (RUNS / "DIGEST_WATCHDOG_STDOUT.log", RUNS / "DIGEST_LATEST.md"):
+            try:
+                heartbeats.append((time.time() - hb.stat().st_mtime) / 3600.0)
+            except Exception:
+                continue
+        if not heartbeats or min(heartbeats) > max_age_h:
+            return None, (min(heartbeats) if heartbeats else None)
+        d = json.loads(cands[0].read_text(encoding="utf-8"))
+        px = {}
+        for e in (d.get("pairs") or []):
+            try:
+                if e.get("pair") and float(e.get("last") or 0) > 0:
+                    px[e["pair"]] = float(e["last"])
+            except Exception:
+                continue
+        return px, min(heartbeats)
+    except Exception:
+        return None, None
 
 
 def ecrire_histoire(event, rate_limit=RATE_LIMIT_S):
@@ -168,14 +220,43 @@ def main():
                           "age_s": round((st or {}).get("age_s") or -1, 1)}))
         return 0
 
-    # Pivot du jour : le 1er state vu après 00:00 UTC devient la référence
+    # Equity live : cash + quantités × marks fraîches (§73 : le réalisé seul
+    # est aveugle aux crashes de bags). Marks > 3 h -> SANS_MESURE (R11).
+    marks, marks_age_h = lire_marks_fraiches()
+    if marks is None:
+        ecrire_histoire({"event": "MESURE_IMPOSSIBLE", "ts": now.isoformat(),
+                         "raison": "DIGEST absent ou vieux (> 3 h)"})
+        print(json.dumps({"perte_journaliere_pct": None, "mode": mode,
+                          "statut": "SANS_MESURE", "state": st["path"]}))
+        return 0
+    equity = st["cash"] + sum(q * marks.get(p, 0.0) for p, q in st["qty"].items())
+
+    # Pivot du jour : le 1er state vu après 00:00 UTC devient la référence.
+    # Migration §73 : l'ancien pivot (réalisé pur) est remplacé par l'equity.
     pivot = load_json(PIVOT_PATH, {})
-    if pivot.get("date_utc") != jour or pivot.get("pnl_pivot") is None:
-        pivot = {"date_utc": jour, "pnl_pivot": st["pnl_total"], "state": st["path"]}
+    if pivot.get("date_utc") != jour or pivot.get("eq_pivot") is None:
+        pivot = {"date_utc": jour, "pnl_pivot": st["pnl_total"],
+                 "eq_pivot": equity, "state": st["path"]}
         atomic_write_json(PIVOT_PATH, pivot)
 
-    perte = max(0.0, (float(pivot["pnl_pivot"]) - st["pnl_total"]) / seed * 100.0)
-    seuil = float(cfg.get("pct_journalier", 11.67))
+    base = float(pivot["eq_pivot"]) if pivot.get("eq_pivot") else seed
+    perte = max(0.0, (base - equity) / base * 100.0) if base > 1e-9 else 0.0
+    # Seuil MESURÉ (§73) : mur_mesure.json frais (< 26 h), sinon SANS_MESURE.
+    seuil = None
+    try:
+        mur = json.loads((IM / "thermo" / "mur_mesure.json").read_text(encoding="utf-8"))
+        age_mur_h = (time.time() - (IM / "thermo" / "mur_mesure.json").stat().st_mtime) / 3600.0
+        if age_mur_h <= 26.0 and float(mur.get("seuil_jour_pct", 0)) > 0:
+            seuil = float(mur["seuil_jour_pct"])
+    except Exception:
+        seuil = None
+    if seuil is None:
+        ecrire_histoire({"event": "SANS_MESURE", "ts": now.isoformat(),
+                         "raison": "mur_mesure.json stale/absent : pas de coupe"})
+        print(json.dumps({"perte_journaliere_pct": round(perte, 3), "seuil": None,
+                          "mode": mode, "statut": "SANS_MESURE",
+                          "equity": round(equity, 2)}))
+        return 0
 
     statut, declenche = "OK", False
     if mode == "OBS":
@@ -185,8 +266,8 @@ def main():
                 from cortana_thermo import write_urgent_alert
                 write_urgent_alert(
                     "Disjoncteur C7 (OBS) : perte journalière %.2f%% ≥ seuil %.2f%% "
-                    "(pnl %.2f$, pivot %.2f$, seed %.0f$)"
-                    % (perte, seuil, st["pnl_total"], float(pivot["pnl_pivot"]), seed),
+                    "(equity %.2f$, pivot %.2f$)"
+                    % (perte, seuil, equity, float(pivot["eq_pivot"])),
                     source="nourrir_disjoncteur", level="URGENT",
                     title="DISJONCTEUR C7 (OBS)")
             except Exception:
@@ -201,10 +282,12 @@ def main():
 
     ecrire_histoire({"event": "MESURE", "ts": now.isoformat(),
                      "perte_pct": round(perte, 4), "pnl": st["pnl_total"],
-                     "pivot": pivot["pnl_pivot"], "seed": seed,
+                     "equity": round(equity, 2),
+                     "pivot": pivot.get("eq_pivot"), "seed": seed,
                      "mode": mode, "statut": statut})
     print(json.dumps({"perte_journaliere_pct": round(perte, 3), "seuil": seuil,
                       "mode": mode, "statut": statut, "state": st["path"],
+                      "equity": round(equity, 2),
                       "age_s": round(st["age_s"], 1)}))
     return 1 if declenche else 0
 

@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-11-02T14:22:06Z",
+  "updated": "2026-11-02T14:55:30Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -971,9 +971,38 @@
       "origine": "chantier disjoncteur 16/08 · rebranché 09/09 (GO Christophe)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "f86146817c5c2c03b44282620ac0bcaa",
+      "md5": "8489972a451f449054eca2baa327a71e",
       "note": "REBRANCHEMENT 09/09 : plist retrouvé dans Index_Maison/plists/ après disparition silencieuse de LaunchAgents. FIX dual STOP_ALL (strategie/ + racine) : les deux conventions de kill-switch jamais raccordées — le Mur de Fer ne couvrait pas HULK. Recalibration 1,5%→11,67%/j, global 8→25% (config.bak-avant-recalibration-20260909). LANCÉ launchd check/60s.",
-      "maj": "Rebranchement + recalibration 2026-09-09 (GO Christophe, 5 tests hors vol OK)"
+      "maj": "Rebranchement + recalibration 2026-09-09 (GO Christophe, 5 tests hors vol OK)",
+      "date": "2026-11-02T14:55:29Z",
+      "_rescel": [
+        {
+          "ts": "2026-11-02T14:37:17Z",
+          "motif": "02/11 §73 : mise en place Mur mesure + anti-aveugle",
+          "ecrivain": {
+            "ts": "2026-11-02T14:37:17Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40939 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T14:55:29Z",
+          "motif": "02/11 §74 : sweep R26, cash moteur, k strict, verdicteur garde",
+          "ecrivain": {
+            "ts": "2026-11-02T14:55:29Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 43976 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T14:55:29Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 43976 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
+      }
     },
     {
       "nom": "Index_Maison/scripts/nourrir_disjoncteur.py",
@@ -981,12 +1010,30 @@
       "origine": "créé 09/09 (rebranchement disjoncteur)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d3197eedc7204efcf79a059e120b3b85",
+      "md5": "ec72d05e2d055fb7bd5fd67b84b1a2bb",
       "note": "Fail-safe : HULK muet >180s = MESURE_IMPOSSIBLE, jamais d'invention (C3). Ne crée jamais d'ordre. Pivot du jour persisté atomiquement (disjoncteur_pivot.json). LANCÉ launchd 60s (seconde 30, décalé du disjoncteur).",
       "maj": "Création 2026-09-09, en vol",
-      "date": "2026-09-22T08:10Z",
+      "date": "2026-11-02T14:37:17Z",
       "_rescel_20260921": "GARDE BOOT : un state neuf (pnl_total=0, positions vides) écrit au démarrage AVANT reprise du --resume n'est plus lu comme une perte (il a produit un faux Mur de Fer 13,93 % le 21/09 pendant un redémarrage). Fail-safe : SANS_MESURE, jamais de coupe.",
-      "_rescel_20260922": "GARDE ÉTAT 22/09 (renforce celle du 21/09) : la garde du 21/09 ne couvrait que l'état VIDE (pnl 0 + 0 position) ; restait la forme VIERGE de re-seed (positions présentes, 0 trade, pnl 0) qui aurait donné « perte (pivot 30,04 − 0)/150 = 20 % » → Mur de Fer. etat_exploitable() refuse désormais les DEUX, re-vérifiées de façon indépendante (R9) et alignées sur paper_diprip._est_vierge. Fail-safe R11 : SANS_MESURE, jamais de coupe. Testé : VIDE → SANS_MESURE · VIERGE → SANS_MESURE · état réel → mesure OK (33,5719 $)."
+      "_rescel_20260922": "GARDE ÉTAT 22/09 (renforce celle du 21/09) : la garde du 21/09 ne couvrait que l'état VIDE (pnl 0 + 0 position) ; restait la forme VIERGE de re-seed (positions présentes, 0 trade, pnl 0) qui aurait donné « perte (pivot 30,04 − 0)/150 = 20 % » → Mur de Fer. etat_exploitable() refuse désormais les DEUX, re-vérifiées de façon indépendante (R9) et alignées sur paper_diprip._est_vierge. Fail-safe R11 : SANS_MESURE, jamais de coupe. Testé : VIDE → SANS_MESURE · VIERGE → SANS_MESURE · état réel → mesure OK (33,5719 $).",
+      "_rescel": [
+        {
+          "ts": "2026-11-02T14:37:17Z",
+          "motif": "02/11 §73 : mise en place Mur mesure + anti-aveugle",
+          "ecrivain": {
+            "ts": "2026-11-02T14:37:17Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40944 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T14:37:17Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 40944 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+      }
     },
     {
       "nom": "hulk-mexc/scripts/watchdog_hulk_ghost.sh",
@@ -2514,8 +2561,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "e47c4ee8459e4b216021a2351f6f0cad",
-      "date": "2026-11-02T14:21:59Z",
+      "md5": "b8ab2f3002e52aa5ed2cbf5828712396",
+      "date": "2026-11-02T14:55:29Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -2992,13 +3039,33 @@
             "user": "christophe",
             "chaine": "pid 36530 <- bash(pid 36526) <- /Users/christoph(pid 36525) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-02T14:37:18Z",
+          "motif": "02/11 §73 : mise en place Mur mesure + anti-aveugle",
+          "ecrivain": {
+            "ts": "2026-11-02T14:37:18Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40964 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T14:55:29Z",
+          "motif": "02/11 §74 : sweep R26, cash moteur, k strict, verdicteur garde",
+          "ecrivain": {
+            "ts": "2026-11-02T14:55:29Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 43998 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-02T14:21:59Z",
+        "ts": "2026-11-02T14:55:29Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 36530 <- bash(pid 36526) <- /Users/christoph(pid 36525) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 43998 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -4148,13 +4215,13 @@
       "origine": "R22 24/10",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "4fa6ea746124483b81c3b3c7b93713a6",
-      "date": "2026-11-02T14:22:06Z",
+      "md5": "99553f0474e78ce6aa5008d2e95272f9",
+      "date": "2026-11-02T14:55:30Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T14:22:06Z",
+        "ts": "2026-11-02T14:55:30Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 36565 <- bash(pid 36559) <- /Users/christoph(pid 36558) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 44005 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -4531,6 +4598,26 @@
             "ia": "Buffy (Muse Spark 1.3, Freebuff)",
             "user": "christophe",
             "chaine": "pid 36565 <- bash(pid 36559) <- /Users/christoph(pid 36558) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T14:37:18Z",
+          "motif": "02/11 §73 : DERNIER de la vague (auto-trace R22)",
+          "ecrivain": {
+            "ts": "2026-11-02T14:37:18Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40989 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T14:55:30Z",
+          "motif": "02/11 §74 : DERNIER de la vague (auto-trace R22)",
+          "ecrivain": {
+            "ts": "2026-11-02T14:55:30Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 44005 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
           }
         }
       ]
@@ -5410,13 +5497,13 @@
       "origine": "02/11 GO Christophe : l'oubli est un problème",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a55f5faa2150a795f3f605ddbaf49f25",
-      "date": "2026-11-02T13:22:48Z",
+      "md5": "fdd2be976f6cb342b63734ed4a8df349",
+      "date": "2026-11-02T14:37:18Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T13:22:48Z",
+        "ts": "2026-11-02T14:37:18Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 24131 <- bash(pid 24123) <- /Users/christoph(pid 24122) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 40969 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -5454,6 +5541,16 @@
             "user": "christophe",
             "chaine": "pid 24131 <- bash(pid 24123) <- /Users/christoph(pid 24122) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-02T14:37:18Z",
+          "motif": "02/11 §73 : mise en place Mur mesure + anti-aveugle",
+          "ecrivain": {
+            "ts": "2026-11-02T14:37:18Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40969 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+          }
         }
       ]
     },
@@ -5463,13 +5560,13 @@
       "origine": "02/11 GO Christophe : l'œil qui ne dort jamais",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a37ae0926b482031387ebe15db0c1a10",
-      "date": "2026-11-02T13:00:28Z",
+      "md5": "86aaac97ff44477aad7af22d1f2a2bd9",
+      "date": "2026-11-02T14:55:29Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T13:00:28Z",
+        "ts": "2026-11-02T14:55:29Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 18580 <- bash(pid 18575) <- /Users/christoph(pid 18574) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 43983 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -5506,6 +5603,26 @@
             "ia": "Buffy (Muse Spark 1.3, Freebuff)",
             "user": "christophe",
             "chaine": "pid 18580 <- bash(pid 18575) <- /Users/christoph(pid 18574) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T14:37:18Z",
+          "motif": "02/11 §73 : mise en place Mur mesure + anti-aveugle",
+          "ecrivain": {
+            "ts": "2026-11-02T14:37:18Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40949 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T14:55:29Z",
+          "motif": "02/11 §74 : sweep R26, cash moteur, k strict, verdicteur garde",
+          "ecrivain": {
+            "ts": "2026-11-02T14:55:29Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 43983 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
           }
         }
       ]
@@ -5654,13 +5771,13 @@
       "origine": "02/11 §68 : entre au registre pour que la veilleuse surveille ses futures modifs",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "2d9d53ddc273551d8b3586e5c6a7b7e5",
-      "date": "2026-11-02T14:06:02Z",
+      "md5": "7dcf97ae246d980c2fabcbeeb5e1b755",
+      "date": "2026-11-02T14:55:29Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T14:06:02Z",
+        "ts": "2026-11-02T14:55:29Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 33762 <- bash(pid 33760) <- /Users/christoph(pid 33759) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 43988 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -5687,6 +5804,26 @@
             "ia": "Buffy (Muse Spark 1.3, Freebuff)",
             "user": "christophe",
             "chaine": "pid 33762 <- bash(pid 33760) <- /Users/christoph(pid 33759) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T14:37:18Z",
+          "motif": "02/11 §73 : mise en place Mur mesure + anti-aveugle",
+          "ecrivain": {
+            "ts": "2026-11-02T14:37:18Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40954 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-02T14:55:29Z",
+          "motif": "02/11 §74 : sweep R26, cash moteur, k strict, verdicteur garde",
+          "ecrivain": {
+            "ts": "2026-11-02T14:55:29Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 43988 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
           }
         }
       ]
@@ -5718,17 +5855,104 @@
       "origine": "02/11 §72 : entre au registre pour surveiller ses futures modifs",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "238cd00802f22e300cf757c940a30e01",
-      "date": "2026-11-02T14:22:06Z",
+      "md5": "85a0be8733c4860ee7f39675a1704efe",
+      "date": "2026-11-02T14:37:18Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-02T14:22:06Z",
+        "ts": "2026-11-02T14:37:18Z",
         "ia": "Buffy (Muse Spark 1.3, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 36560 <- bash(pid 36559) <- /Users/christoph(pid 36558) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 40959 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
           "ts": "2026-11-02T14:22:06Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-11-02T14:37:18Z",
+          "motif": "02/11 §73 : mise en place Mur mesure + anti-aveugle",
+          "ecrivain": {
+            "ts": "2026-11-02T14:37:18Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 40959 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/scripts/mur_mesure_daily.py",
+      "role": "seuil Mur mesure quotidien (k x sigma_20j)",
+      "origine": "02/11 §73 : zero angle mort",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "9ffc1095e1835cc4f3e8b01b6dca3d35",
+      "date": "2026-11-02T14:55:29Z",
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T14:55:29Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 43993 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
+      },
+      "_ajout": [
+        {
+          "ts": "2026-11-02T14:37:18Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-11-02T14:55:29Z",
+          "motif": "02/11 §74 : sweep R26, cash moteur, k strict, verdicteur garde",
+          "ecrivain": {
+            "ts": "2026-11-02T14:55:29Z",
+            "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 43993 <- bash(pid 43974) <- /Users/christoph(pid 43972) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.m-kelly-quotidien.plist",
+      "role": "planification m-metre quotidien 07h",
+      "origine": "02/11 §73",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "3333dced101c16b7194a598b92ee2124",
+      "date": "2026-11-02T14:37:18Z",
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T14:37:18Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 40979 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+      },
+      "_ajout": [
+        {
+          "ts": "2026-11-02T14:37:18Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/plists/com.ace777.mur-mesure.plist",
+      "role": "planification mur-mesure 00h10",
+      "origine": "02/11 §73",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "350fac237381cdf9116c2fdf5bd753fb",
+      "date": "2026-11-02T14:37:18Z",
+      "dernier_ecrivain": {
+        "ts": "2026-11-02T14:37:18Z",
+        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 40984 <- bash(pid 40938) <- /Users/christoph(pid 40937) <- /Users/christoph(pid 4107)"
+      },
+      "_ajout": [
+        {
+          "ts": "2026-11-02T14:37:18Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
         }
       ]

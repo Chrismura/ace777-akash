@@ -1,9 +1,8 @@
 {
-  "pct_journalier": 11.67,
-  "max_global_dd_pct": 25.0,
-  "plafond_trade_pct": 25.0,
-  "cloturer_sur_mur_de_fer": 0,
-  "seed_usdt": 150,
+  "k_mur": 5.0,
+  "k_origine": "grille sandbox 02/11 §72 (intraday, attrape le 29/10 20h44 |r|/σ=8.2)",
   "mode": "obeir",
-  "note": "RECALIBRATION 09/09 (GO Christophe) : 1,5%/jour non soutenable en crypto (sweeps de liquidité, stops empilés) → 11,67%/jour (≈ 17,50 $ sur seed 150). Global 8% → 25% (cohérence : ~2 jours de perte max journalière). Plafond trade 25% conservé (mise normale HULK 20$). mode=obeir : le nourrisseur (nourrir_disjoncteur.py, crontab 60s) mesure la perte journalière depuis le pivot 00:00 UTC et déclenche le Mur de Fer au seuil. Fail-safe : HULK muet >180s = pas de mesure = pas de déclenchement. Réarmement manuel uniquement (--rearmer). Ancienne calibration : disjoncteur_config.json.bak-avant-recalibration-20260909"
+  "seed_usdt": 150,
+  "cloturer_sur_mur_de_fer": 0,
+  "note": "§73 02/11 : fixes pct_journalier/max_global_dd_pct/plafond_trade_pct ELIMINES (0 tir en 88 j, aveugles aux bags) -> seuils mesures (mur_mesure.json k x sigma + m_kelly maxS2). Anciennes valeurs dans .bak-avant-mesure-20261102"
 }
