@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "fear_greed",
-      "zscore": 3.872983346207417,
-      "value": 37,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 72,\n\"reason\": \"Divergence majeure : un z-score de 3.87 sur le Fear & Greed (37) indique une peur extrême et statistiquement anormale, souvent associée aux fonds de cycle. L'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est en dormance ou en déni, tandis que l'anomalie onchain signale une accumulation silencieuse par les baleines avant un retournement.\"\n}",
-      "ts": "2026-11-02T01:32:24.775387+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 3.439066992261667,
-      "value": 4691356036.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif. Le volume de 4,69 Md$ correspond exactement au volume d'échange d'Ethereum mentionné dans le titre CryptoTicker. Les autres titres (LSA, Le Parisien, Boursorama) sont des bruits de fond non pertinents (marché du loisir, cosmétiques, FMCG). Aucune divergence onchain/média détectée.\"\n}",
-      "ts": "2026-11-02T01:47:30.843103+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.8270732140467274,
       "value": 0.4835532016026489,
@@ -349,6 +335,20 @@
       "value": 6920432108.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.52) n'est pas soutenu par un narratif crypto pertinent (les titres concernent la musique, la cosmétique et des comparaisons de volume BTC/ETH sans signal directionnel clair). Le bruit médiatique est dominé par des sujets non-financiers, rendant l'analyse de divergence impossible.\"\n}",
       "ts": "2026-11-02T15:45:37.173654+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.9890180786876543,
+      "value": 7516633953.0,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.99) sans rapport avec la crypto. Bruit médiatique saturé de faux positifs sans lien onchain pertinent.\"\n}\n```",
+      "ts": "2026-11-02T16:15:45.866588+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.475590171099254,
+      "value": 1.145,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.48) sur le token IPT totalement déconnectée des actualités médias, lesquelles font référence à des institutions (École polytechnique, Institut Pasteur de Tunis/Taiwan) et non à un actif crypto. Bruit on-chain sans fondement narratif réel.\"\n}\n```",
+      "ts": "2026-11-02T16:15:47.395606+00:00"
     }
   ]
 }

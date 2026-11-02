@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-02T16:11:11+00:00",
+  "ts": "2026-11-02T16:26:44+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -295,11 +295,11 @@
           "delta_votes": 7
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "SingleAssetVault",
           "delta_votes": 6
         },
         {
-          "amendement": "SingleAssetVault",
+          "amendement": "DynamicMPT",
           "delta_votes": 6
         },
         {
@@ -307,11 +307,11 @@
           "delta_votes": 3
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "XChainBridge",
           "delta_votes": -1
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
@@ -323,7 +323,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 7/19 = 36.8 %",
+      "faits": "0 alerte(s) microstructure au journal · 0 notée(s) par le juge indépendant · justesse n/d · avis directionnels de Cortana (toutes matières) : 7/23 = 30.4 %",
       "verdict": "IMPOSSIBLE (0 cas à juger)",
       "alerte": "le verdict du 27/09 ne pourra PAS être rendu : 0 alerte(s) en 7 jours → 0 cas. Le producteur d'alertes (module microstructure) n'a rien écrit depuis le 09/09 (data/micro_alerts.jsonl = 0 octet) — il faut trancher : module mort, ou rien à alerter ?",
       "detail": [
@@ -341,15 +341,15 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 12,
+          "directionnels": 15,
           "corect": 5,
-          "n": 13
+          "n": 16
         },
         {
           "indice": "fearGreed",
-          "directionnels": 1,
+          "directionnels": 2,
           "corect": null,
-          "n": 7
+          "n": 8
         },
         {
           "indice": "geopol",
@@ -384,7 +384,7 @@
           "directionnels": 1,
           "corrects": 1,
           "neutres": 64,
-          "t_stat": -0.38
+          "t_stat": -1.13
         }
       ]
     },
