@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 7.188969826029297,
-      "value": 7696993.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : Anomalie onchain extrême (z-score 7.19, ~7.7M USD) vs silence médiatique total. L'absence de couverture pour un tel flux suggère une accumulation silencieuse ou un transfert vers des cold wallets, typique d'un positionnement haussier avant une volatilité publique.\"\n}\n```",
-      "ts": "2026-11-01T16:15:33.476792+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.147846837591262,
-      "value": 2.298,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-      "ts": "2026-11-01T16:15:34.456751+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": -2.010934953630044,
       "value": 2.298,
@@ -349,6 +335,20 @@
       "value": 0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif critique : Le 'SDI' mentionné dans les titres est le Syndicat des Industries (secteur BTP/Commerce en France), et non un actif crypto ou un protocole onchain. L'anomalie z-score -177.52 est statistiquement impossible pour un flux de données crypto réel (probablement une erreur de mapping de données ou un artefact de test). Aucune divergence onchain/média n'existe car le sujet médiatique est totalement hors du domaine crypto.\"\n}",
       "ts": "2026-11-02T07:04:00.348621+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2278553252547155,
+      "value": 2.06,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif de corrélation. Les données onchain (long_short) concernent le marché crypto, tandis que les titres médiatiques cités traitent exclusivement de fonds actions traditionnels (ETF, OPCVM, BNP Paribas). Il n'y a aucun chevauchement d'actifs ; le narratif est déconnecté car il ne concerne pas le même marché.\"\n}",
+      "ts": "2026-11-02T07:09:01.968598+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.1378093905588793,
+      "value": 5303276822.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Absence de corrélation directe entre l'anomalie de volume (z-score 2.14) et les titres médiatiques fournis. Les articles traitent de sujets hétérogènes (fonds suisses, charbon indonésien, loisir créatif) ou de données crypto génériques (comparaison BTC/ETH) sans mentionner de mouvement spécifique de baleines ou de manipulation de marché. Le narratif médiatique est déconnecté de l'activité onchain détectée, mais sans signal directionnel clair (bullish/bearish) exploitable.\"\n}",
+      "ts": "2026-11-02T07:19:05.427074+00:00"
     }
   ]
 }
