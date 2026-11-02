@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.8270732140467274,
-      "value": 0.4835532016026489,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.83 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
-      "ts": "2026-11-02T01:52:32.363349+00:00"
-    },
-    {
-      "metric": "fear_greed",
-      "zscore": 3.3166247903554,
-      "value": 37,
-      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 65,\n\"reason\": \"Divergence majeure : un z-score de 3.32 sur le Fear & Greed (37) indique une peur extrême et statistiquement anormale, souvent associée aux fonds de cycle. L'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est en dormance ou en déni, tandis que l'anomalie onchain signale une accumulation silencieuse par les baleines avant un potentiel retournement.\"\n}",
-      "ts": "2026-11-02T02:02:35.453479+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.795660150234065,
-      "value": 4620326521.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le volume onchain élevé sur Ethereum (4,6 Md$) reflète une activité standard du réseau et des échanges, mais le bruit médiatique est totalement pollué par des homonymes lexicaux ('volume de ventes' grand public, 'loisir créatif', 'brosses soufflantes'). Aucune divergence cachée de baleine détectée, simple bruit sémantique.\"\n}\n```",
-      "ts": "2026-11-02T02:17:40.001885+00:00"
-    },
-    {
       "metric": "fear_greed",
       "zscore": 2.932575659723036,
       "value": 37,
@@ -349,6 +328,27 @@
       "value": 1.145,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.48) sur le token IPT totalement déconnectée des actualités médias, lesquelles font référence à des institutions (École polytechnique, Institut Pasteur de Tunis/Taiwan) et non à un actif crypto. Bruit on-chain sans fondement narratif réel.\"\n}\n```",
       "ts": "2026-11-02T16:15:47.395606+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.9760421309955043,
+      "value": 2734975.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 2.98, ~2.7M USD) indiquant un accumulation ou un transfert actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Ce silence médiatique face à une activité onchain anormale suggère une accumulation silencieuse avant un mouvement de prix, typique des phases pré-bullish.\"\n}\n```",
+      "ts": "2026-11-02T16:35:50.613415+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.865194201645264,
+      "value": 7672631952.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.87) n'est pas soutenu par un narratif crypto pertinent (les titres concernent la musique, la cosmétique et une comparaison BTC/ETH standard). Le signal est probablement du bruit statistique ou lié à un actif spécifique non couvert par les médias généraux.\"\n}",
+      "ts": "2026-11-02T16:45:52.929919+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.689931475578173,
+      "value": 7756962681.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.69) est isolée sans contexte narratif crypto, rendant l'attribution à une action de baleine spéculative ou directionnelle impossible à confirmer.\"\n}",
+      "ts": "2026-11-02T17:15:57.959668+00:00"
     }
   ]
 }
