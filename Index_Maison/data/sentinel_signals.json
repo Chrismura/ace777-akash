@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": -2.3550495711370854,
-      "value": 0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif majeur. Les données onchain indiquent une chute du 'dust' (z-score -2.36), mais le narratif médiatique est 100% hors sujet (voitures électriques, cinéma, météo). Aucune corrélation crypto détectée ; le signal onchain est probablement un artefact statistique ou lié à un token obscur non couvert par la presse.\"\n}",
-      "ts": "2026-11-01T19:01:04.850869+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 3.185390190705416,
       "value": 0.2885149332253145,
@@ -349,6 +342,13 @@
       "value": 5491251831.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 45,\n  \"reason\": \"Le z-score de 2.19 indique une anomalie statistique modérée, mais le volume brut (~5.5 Md$) est cohérent avec les flux normaux du marché (cf. titre CryptoTicker mentionnant 4.6 Md$ pour ETH). L'absence de titres médiatiques spécifiques à une accumulation massive ou à un dump soudain, combinée à la présence de bruits de fond (charbon, auto, fonds suisses), suggère que cette activité est probablement liée à du trading institutionnel standard ou à des rotations de portefeuille plutôt qu'à un mouvement directionnel silencieux de baleines. La divergence est faible : le narratif général (activité de marché) correspond aux données onchain.\"\n}\n```",
       "ts": "2026-11-02T08:19:18.856385+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.6254387875166922,
+      "value": 1.155,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.63) sur un ticker homonyme (IPT) sans aucun rapport avec la crypto. Les titres médiatiques renvoient à de la recherche médicale, de l'éducation et de la théologie. Bruit de fond absolu, aucune activité de baleine détectée.\"\n}\n```",
+      "ts": "2026-11-02T09:04:25.977393+00:00"
     }
   ]
 }
