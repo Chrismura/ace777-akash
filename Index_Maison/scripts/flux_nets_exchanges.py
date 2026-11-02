@@ -165,9 +165,12 @@ def verdict(net_btc, total_btc, seuil_ratio):
         return "DONNEES_INSUFFISANTES", "aucun volume observable sur la fenêtre"
     if abs(net_btc) < seuil_ratio * total_btc:
         return "EQUILIBRE", f"|net| {abs(net_btc):.0f} < {seuil_ratio:.0%} du total {total_btc:.0f} BTC"
+    # 02/11 FIX signe (GO Christophe, §61) : net = sortant − entrant, donc
+    # net > 0 = retraits dominent = ACCUMULATION ; net < 0 = dépôts = DISTRIBUTION.
+    # (branches inversées avant : le verdict disait l'inverse depuis le 08/09).
     if net_btc < 0:
-        return "ACCUMULATION", f"retraits dominent : net {net_btc:.0f} BTC (≤ -{seuil_ratio:.0%} du total)"
-    return "DISTRIBUTION", f"dépôts dominent : net +{net_btc:.0f} BTC (≥ +{seuil_ratio:.0%} du total)"
+        return "DISTRIBUTION", f"dépôts dominent : net {net_btc:.0f} BTC (≤ -{seuil_ratio:.0%} du total)"
+    return "ACCUMULATION", f"retraits dominent : net +{net_btc:.0f} BTC (≥ +{seuil_ratio:.0%} du total)"
 
 
 def main():

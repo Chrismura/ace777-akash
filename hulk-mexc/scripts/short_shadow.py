@@ -25,6 +25,7 @@ TTL_H = 24.0
 HIST = os.path.join(RACINE, "Index_Maison", "thermo", "history.jsonl")
 WHIS = os.path.join(RACINE, "Index_Maison", "data", "sommet_proche_hist.jsonl")
 JOUR = os.path.join(RACINE, "hulk-mexc", "runs", "short_shadow_journal.jsonl")
+LIVE = os.path.join(RACINE, "hulk-mexc", "runs", "short_shadow_live.json")
 
 
 def charger_marks():
@@ -119,6 +120,19 @@ def main():
               f"médiane={sorted(pnls)[len(pnls)//2]:+.2f}% cumul={sum(pnls):+.2f}%")
     else:
         print("aucun trade fermé pour l'instant")
+    # PREUVE DE VIE (02/11, règle : tout moteur écrit à chaque run, même
+    # sans rien de neuf — un journal qui ne bouge pas est indiscernable
+    # d'un moteur mort ; le rituel lit ce fichier, pas le journal).
+    try:
+        from datetime import datetime, timezone
+        live = {"ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "n_fantomes": len(pnls), "n_nouveaux": n_nouveaux,
+                "cumul_pct": round(sum(pnls), 2) if pnls else 0.0,
+                "n_chuchotements_lus": len(whis)}
+        with open(LIVE, "w", encoding="utf-8") as fl:
+            json.dump(live, fl, ensure_ascii=False, indent=1)
+    except Exception:
+        pass
     return 0
 
 

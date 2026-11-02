@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.743838571346971,
-      "value": 4222225397.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique purement technique ou bruit de fond (z-score 2.74). Les titres médiatiques sur le 'volume' concernent des brosses, des voitures et des jouets, révélant une absence totale de narratif crypto ou de mouvement institutionnel significatif.\"\n}\n```",
-      "ts": "2026-11-01T23:46:54.305700+00:00"
-    },
-    {
       "metric": "sdi",
       "zscore": 2.904791170768148,
       "value": 0.616,
@@ -349,6 +342,13 @@
       "value": 50.0,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire), une usine Renault et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines. Le bruit de fond domine.\"\n}\n```",
       "ts": "2026-11-02T10:09:38.557166+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.949348436765728,
+      "value": 1.24,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
+      "ts": "2026-11-02T10:59:45.757632+00:00"
     }
   ]
 }

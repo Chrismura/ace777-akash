@@ -1,8 +1,9 @@
-# Rapport Veilleuse — 2026-11-02T10:23:55.259929+00:00
+# Rapport Veilleuse — 2026-11-02T11:23:56.618029+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : Index_Maison/REGISTRE_ECHECS_ET_ERREURS.md (md5 diffère du registre)
 - **INTRUSION** : Modification non déclarée : Index_Maison/strategie/JOURNAL_ECRIVAINS.jsonl (md5 diffère du registre)
+- **INTRUSION** : Modification non déclarée : Index_Maison/calendrier.json (md5 diffère du registre)
 
 ## Modifications DÉCLARÉES (R20.1) — annoncées AVANT l'acte, pas des intrusions
 - Modification DÉCLARÉE (R20.1) en attente de re-scellement : `Index_Maison/scripts/cortana_analyzer.py`

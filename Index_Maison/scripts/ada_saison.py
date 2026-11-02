@@ -71,7 +71,7 @@ def safe_get(d: Dict[str, Any], key: str, default: Any = None) -> Any:
 
 
 def signaux(live: Dict[str, Any], oi_vals=None) -> Dict[str, Dict[str, Any]]:
-    """Calcule les 6 signaux déterministes. oi_vals = série OI injectée (tests
+    """Calcule les 7 signaux déterministes. oi_vals = série OI injectée (tests
     hermétiques) ; None = lecture réelle de l'historique (production)."""
     result: Dict[str, Dict[str, Any]] = {}
 
@@ -146,6 +146,25 @@ def signaux(live: Dict[str, Any], oi_vals=None) -> Dict[str, Dict[str, Any]]:
     if fear_greed <= SEUIL_FEAR_EXTREME or fear_greed >= SEUIL_GREED_EXTREME:
         force = min(2, force + 1)
     result["essaim"] = {"direction": direction, "force": min(2, force), "brut": long_short}
+
+    # Fleuve (ETF spot BTC, 02/11 GO voie 3) — l'œil LENT : flux quotidiens
+    # bitbo publics déjà dans live.json (M$, flow_1d après clôture US sinon
+    # moy 7j). Granularité jour → saison, JAMAIS le guetteur (minute).
+    # Direction au signe, force 1 : à re-mesurer après 2 sem de live
+    # (biais long persistant possible en bull — discipline_quotidienne tranche).
+    etf = safe_get(live, "etf", {}) if isinstance(safe_get(live, "etf", {}), dict) else {}
+    try:
+        etf_btc = float(etf.get("btc")) if etf.get("btc") is not None else None
+    except (TypeError, ValueError):
+        etf_btc = None
+    if etf_btc is None:
+        result["fleuve"] = {"direction": "neutre", "force": 0, "brut": None}
+    elif etf_btc > 0:
+        result["fleuve"] = {"direction": "long", "force": 1, "brut": etf_btc}
+    elif etf_btc < 0:
+        result["fleuve"] = {"direction": "short", "force": 1, "brut": etf_btc}
+    else:
+        result["fleuve"] = {"direction": "neutre", "force": 0, "brut": 0.0}
 
     # Baleines
     whale_n = safe_get(live, "whaleN", 0) or 0

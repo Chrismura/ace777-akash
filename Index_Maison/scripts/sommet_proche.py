@@ -5,7 +5,9 @@ Lit Index_Maison/thermo/history.jsonl (points ~6 min avec mark, funding,
 longShort, topTraderLS, takerRatio) et chuchote quand :
   - cassure micro : mark sous le max des ~11 min précédentes (2 points)
   - + au moins 2 contextes chauds parmi : L/S élevé, funding élevé,
-    pression vendeuse au taker.
+    pression vendeuse au taker, liquidité L2 retirée (murs), dépôts
+    whales→exchanges ≤1h (mempool live, lignes récentes seulement).
+    Le deleverage (L/S en chute) suffit seul.
 
 Seuils ADAPTATIFS : calculés comme quantiles de l'historique chargé
 (jamais de fixe déguisé — R17). Ce script ne trade pas, il LOGUE.
@@ -16,6 +18,9 @@ import os
 import sys
 from datetime import datetime, timezone
 
+from flux_nets_exchanges import charger_registre as _charger_registre
+from flux_nets_exchanges import direction as _direction_flux
+
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HIST = os.path.join(BASE, "thermo", "history.jsonl")
 RACINE = os.path.dirname(BASE)  # ~/ace777-test-day1 : les runs/ L2 vivent ici
@@ -23,6 +28,49 @@ OUT_H = os.path.join(BASE, "data", "sommet_proche_hist.jsonl")
 OUT_L = os.path.join(BASE, "data", "sommet_proche_live.json")
 
 FEN_MICRO_SEC = 11 * 60  # ~11 min : 2 points à 6 min d'intervalle
+
+SCAN_WHALES = os.path.join(BASE, "data", "whales_scan_latest.json")
+SEUIL_DEPOT_WHALE_BTC = 10000.0  # 02/11 : premier seuil, à re-mesurer après 1 sem de live
+BLOCS_FRAICHEUR_WHALE = 6  # ~1h : seules les tx des 6 derniers blocs comptent
+
+
+def baleines_live():
+    """Dépôts whales→exchanges récents (mempool live, scan 5 min).
+    Retourne (entrant_btc, n) sur les tx des ~6 derniers blocs uniquement
+    (le scan liste 48h : sans filtre de fraîcheur le contexte resterait
+    collé 2 jours). Fail-open : (0.0, 0). Lecture seule."""
+    try:
+        d = json.load(open(SCAN_WHALES, encoding="utf-8"))
+        tip = int(d.get("hauteur_tip") or 0)
+        try:
+            age = (datetime.now(timezone.utc) - datetime.fromisoformat(
+                str(d.get("ts", "")).replace("Z", "+00:00"))).total_seconds()
+        except Exception:
+            return 0.0, 0
+        if age > 900 or tip <= 0:
+            return 0.0, 0  # scan périmé : on s'abstient, pas de contexte
+        ex = _charger_registre()
+        tot, n = 0.0, 0
+        for m in (d.get("gros_blocs") or []) + (d.get("fragmentations") or []):
+            try:
+                h = int(m.get("hauteur") or 0)
+            except Exception:
+                continue
+            if h < tip - BLOCS_FRAICHEUR_WHALE:
+                continue
+            try:
+                dd = _direction_flux(m, ex)
+            except Exception:
+                continue
+            if dd == "ENTRANT":
+                try:
+                    tot += float(m.get("btc") or 0)
+                except Exception:
+                    pass
+                n += 1
+        return tot, n
+    except Exception:
+        return 0.0, 0
 
 
 def charger():
@@ -131,6 +179,11 @@ def analyser(rows):
     ls_chaud = quantile(ls_vals, 0.7) or 1.8
     f_chaud = quantile(f_vals, 0.7) or 0.00008
 
+    # baleines live (02/11, GO voie 1) : calculé UNE fois (c'est du live, pas
+    # de l'historique) et porté SEULEMENT par les lignes récentes (≤1h) —
+    # le rejeu du passé reste intact, sans contexte anachronique.
+    dep_whale, n_dep_whale = baleines_live()
+    now_unix = datetime.now(timezone.utc).timestamp()
     chuchotements = []
     for i, r in enumerate(rows):
         t = float(r["tsUnix"])
@@ -172,6 +225,12 @@ def analyser(rows):
         liq_out, liq_pct = liquidite_retiree(t)
         if liq_out:
             ctx.append(f"liquidité retirée {liq_pct}% vs veille (murs L2)")
+        # dépôts whales→exchanges vus au mempool dans la dernière heure =
+        # distribution possible (biais vendeur, cohérent avec un short).
+        # Seuls les retraits comptent ici : un retrait massif (sérénité)
+        # ne doit PAS aider à déclencher un chuchotement baissier.
+        if dep_whale >= SEUIL_DEPOT_WHALE_BTC and (now_unix - t) <= 3600:
+            ctx.append(f"dépôts whales {dep_whale:.0f} BTC→exchanges ≤1h (mempool)")
         # gradué sans crier au loup : le deleverage (rare) suffit seul,
         # sinon il faut 2 contextes (le funding chaud seul = fond sonore).
         a_delev = any(c.startswith("delev") for c in ctx)

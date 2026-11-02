@@ -215,6 +215,17 @@ def main() -> int:
     except Exception as e:
         print(f"[ERR] suivi_sortie_mesuree : {e}", file=sys.stderr)
 
+    # 1i) RITUEL CALENDRIER (02/11, GO Christophe — l'oubli est un problème) :
+    #     l'œil qui ne dort jamais. Échéances ouvertes + mémoire des tests clos.
+    #     Fail-open, non bloquant.
+    rituel = {}
+    try:
+        subprocess.run([sys.executable, str(SCRIPTS / "rituel_calendrier.py")],
+                       check=False, capture_output=True, timeout=60)
+        rituel = json.load(open(IM / "thermo" / "calendrier_rituel.json", encoding="utf-8"))
+    except Exception as e:
+        print(f"[ERR] rituel_calendrier : {e}", file=sys.stderr)
+
     # 2) Note Ada
     ada = score_ada(load_history())
     with open(ADA_OUT, "w", encoding="utf-8") as f:
@@ -257,6 +268,12 @@ def main() -> int:
     if suivi_sortie and not suivi_sortie.get("regle_armee"):
         alerts.append("SORTIE MESURÉE ÉTEINTE (RIP_CADENCE_MESURE_ON=0) — les paliers sont "
                       "revenus à un % universel : régression silencieuse (R17)")
+    for a in (rituel.get("moteurs_aveugles") or []):
+        alerts.append(f"MOTEUR AVEUGLE : {a.get('moteur')} — {a.get('raison')} "
+                      "— un moteur non regardé n'existe pas")
+    for it in (rituel.get("en_retard") or []):
+        alerts.append(f"CALENDRIER EN RETARD {it.get('jours_retard', '?')}j : "
+                      f"{it.get('titre')} (échéance {it.get('echeance')}) — l'oubli est un problème")
     if suivi_sortie.get("n_anomalies"):
         alerts.append(f"SORTIE MESURÉE : {suivi_sortie['n_anomalies']} palier(s) vendu(s) "
                       "NON conformes à la règle mesurée — voir thermo/sortie_mesuree.md")
@@ -314,6 +331,17 @@ def main() -> int:
         f"(anomalies {suivi_sortie.get('n_anomalies', 'n/d')}) · "
         f"avant câblage : {suivi_sortie.get('n_anciennes', 'n/d')}",
         f"- {suivi_sortie.get('verdict', 'n/d')}",
+        "",
+        "## CALENDRIER / RITUEL (l'œil qui ne dort jamais — 02/11)",
+        "\n".join(f"- 🔴 EN RETARD : {it.get('titre')} ({it.get('echeance')})"
+                    for it in (rituel.get("en_retard") or [])) or "- En retard : rien ✅",
+        "\n".join(f"- 🔇 AVEUGLE : {a.get('moteur')} ({a.get('raison')})"
+                    for a in (rituel.get("moteurs_aveugles") or [])) or "- Aveugles : aucun ✅",
+        "\n".join(f"- 🟡 DÛ : {it.get('titre')} [{it.get('raison', it.get('echeance'))}]"
+                    for it in (rituel.get("dus") or [])) or "- Dûs : rien",
+        ("- Mémoire (clos, ne pas refaire) : " + "; ".join(
+            f"{m.get('titre')} [{m.get('origine')}]" for m in (rituel.get("memoire") or []))
+         if rituel.get("memoire") else "- Mémoire : —"),
         "",
         "## Boucle",
         "- score_justesse.py relancé chaque jour (07:15, launchd) → la note fraîche nourrit la cadence 8h30/20h30.",

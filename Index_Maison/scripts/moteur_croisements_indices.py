@@ -130,7 +130,9 @@ def croisements(live, p1, flux, seuil_zone_morte):
         f48 = flux.get("fenetre_48h") or {}
         net = val_num(f48.get("net_btc"))
         if net is not None and chg24 is not None and abs(net) >= SEUIL_FLUX_BTC and abs(chg24) >= 1.0:
-            sortie = net < 0  # BTC quitte les exchanges surveillés
+            # 02/11 FIX signe (GO Christophe, §61) : net = sortant − entrant
+            # (flux_nets_exchanges.py) donc sortie = net > 0. Inversé avant.
+            sortie = net > 0  # BTC quitte les exchanges surveillés
             prix_baisse = chg24 < 0
             if sortie and prix_baisse:
                 c3["sources"] = ["flux48h:%+.1f BTC" % net, "prix:%+.1f%%" % chg24]

@@ -2344,3 +2344,84 @@ launchd (5 min), rescellée. + fantôme : occupe_jusqua amorcé depuis le journa
 régime — la dérive est normale (quantiles vivants) mais 2 chuchotements du
 29/10 sortent au recompute : le seuil est vivant, pas gravé.
 IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §61 — FLUX ONCHAIN FENETRE COURTE : MESURE 02/11 (GO Christophe)
+**Verdict : ENTERRER sur cette source.** Rejeu 29/10 15h40/16h09/17h00, 30/10,
+31/10 : fenetres 1h ET 2h = SILENCE partout (0 mouvement). Cause : le ledger
+whales_mouvements ne contient que 51 txid uniques en 3 semaines — beaucoup trop
+pauvre pour une fenetre 1-2h. La 48h parlait (retraits dominants pre-crash :
++12 505 BTC 100 % sortants le 29/10), mais lisse, comme prevu.
+**INCONGRUENCE TROUVEE (a corriger, GO demande) :** verdict() de
+flux_nets_exchanges.py est INVERSE vs sa doc : ce matin net +23 287 (retraits
+5:1) => verdict "DISTRIBUTION depots dominent". La doc dit retraits = ACCUMU-
+LATION. Le sniffer et les croisements lisent ce verdict : ils recoivent
+l'inverse depuis le 08/09. Fix propose : inverser les deux branches de
+verdict() (2 lignes), re-mesurer, resceller.
+**Voies restantes :** mempool live (alertes whale temps reel, pas le ledger),
+proxies derives (deja branches : funding/OI/deleverage), flux ETF. Geopol
+(GDELT/Polymarket) : utile saison, inutile chuchoteur.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §62 — FIX SIGNE + VOIES 1 & 3 (02/11, GO Christophe)
+**FIX verdict (appliqué, vérifié) :** verdict() disait DISTRIBUTION sur retraits
+5:1 depuis le 08/09 → corrigé (net>0=retraits=ACCUMULATION), re-mesuré
+(verdict 48h = ACCUMULATION +23 287, correct), C3 croisements aligné
+(sortie = net>0). Rescellés. Leçon : un signe inversé à la source empoisonne
+tous les lecteurs — d'où la boucle à la source.
+**Voie 1 (mempool live, branchée) :** le ledger est trop pauvre pour la 1h
+(§61 : silence), mais le SCAN live (5 min, mempool.space, 35 gros blocs
+aujourd'hui) est frais. 4e contexte du guetteur : dépôts whales→exchanges
+≥10 000 BTC dans les ~6 derniers blocs. Live-only (lignes ≤1h : le rejeu du
+passé reste intact), un seul sens (les retraits ne doivent PAS aider un
+chuchotement baissier). Seuil premier jet : à re-mesurer après 1 sem de live.
+Test : 6 chuchotements historiques inchangés, aucun contexte anachronique.
+**Voie 3 (ETF, branchée où elle doit) :** bitbo public déjà dans live.json
+(+63,37 M$, frais 10:40, refresh 5 min, BTC-only honnête). Granularité jour
+→ PAS le guetteur : 7e signal de saison « fleuve » (direction au signe,
+force 1). Aujourd'hui : long, saison reste CALME (alignement 2v1, score 0,33).
+Risque noté : biais long persistant en bull — discipline_quotidienne tranche
+dans 2 semaines.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §63 — CALENDRIER-RITUEL (02/11, GO Christophe)
+**L'oubli est un problème (historique) :** le calendrier devient un rituel +
+une mémoire. `calendrier.json` (9 items : 5 ouverts dont 1 quotidien, 1 sans
+date, 3 clos-mémoire) lu CHAQUE matin par `rituel_calendrier.py` (étape 1i
+de la discipline) : EN RETARD → alerte discipline, DÛS → rappel, MÉMOIRE →
+ce qu'on a payé/testé (fenêtre courte enterrée, verdict corrigé, HOLD-30).
+Test : 0 retard, 1 dû (guetteur quotidien), mémoire 3 — discipline exit 0,
+section rapport OK. Miroir humain dans le Journal (section Rituel).
+Échéances : 09/11 seuil whales, 13/11 mini Mac (NOM), 16/11 ETF + fantôme.
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §64 — TOUR EN-VOL + ANTI-AVEUGLE (02/11, GO Christophe)
+**Fantôme :** aucun moteur (ni plist ni appel feed) → plist com.ace777.short-
+shadow 5 min créée + chargée + run forcé (log OK, 2 fantômes jugés). La
+validation live promise existe maintenant pour de vrai.
+**Géopol gratuite :** morte depuis le 23/10 (run manuel) → plist
+com.ace777.geopol-gratuit 1h créée + chargée, run OK (ok=True, 11 events).
+**C3 re-mesuré (sens neuf) :** LONG n=1 (hit), SHORT n=0, NEUTRE n=9 (8/9
+calmes) en un mois rejouable. Branches directionnelles quasi-muettes =
+inoffensives ; le vrai sujet est le seuil 5 BTC, pas le texte. Item 16/11.
+**Anti-aveugle (leçon « c'était à toi de voir ») :** le rituel contrôle
+désormais la fraîcheur de 7 moteurs (guetteur/fantôme/whales/thermo/shorts/
+flux48/geopol) → 🔇 alerte discipline si aveugle. État : 0 aveugle.
+Calendrier 12 items (5 mémoire). Rescellé (5 fichiers).
+IA=Buffy (Muse Spark 1.3, Freebuff).
+
+## §65 — LE TROU ÉTAIT RÉEL + RÈGLE PREUVE-DE-VIE (02/11)
+**Oui, rien ne les couvrait — et c'est architectural, pas de la malchance :**
+les scellés vérifient l'INTÉGRITÉ (hash), jamais la VIVACITÉ ; launchd ne
+prévient pas ; tout est fail-open (vertu pour trader, vice pour surveiller :
+la mort silencieuse est le défaut, pas l'exception) ; la discipline notait
+les SORTIES (Cortana, Ada), jamais les battements des moteurs. Seule
+exception : l'alerte « aucune analyse Cortana > 48h » — la preuve que le
+pattern marche quand il est instrumenté.
+**Oui, récurrent (classe « mort silencieuse ») :** E3 (aveugle depuis 21/09),
+E6 (CCUSDT invisible 27h), E28 (capteur mort pris pour vivant, 28/10),
+18/10 (21/21 annoncé avec 2 paires mortes). 5 occurrences, même classe,
+jamais de garde générique — jusqu'à aujourd'hui.
+**Garde générique posée :** RÈGLE preuve-de-vie (tout moteur écrit à chaque
+run, même sans neuf). short_shadow_live.json appliqué + rituel basculé
+dessus. 0 aveugle ce matin. La classe est nommée, la garde est branchée.
+IA=Buffy (Muse Spark 1.3, Freebuff).
