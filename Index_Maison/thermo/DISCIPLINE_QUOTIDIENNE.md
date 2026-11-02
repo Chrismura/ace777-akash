@@ -1,17 +1,17 @@
-# DISCIPLINE QUOTIDIENNE — 2026-11-01T06:15:02Z
+# DISCIPLINE QUOTIDIENNE — 2026-11-02T06:15:02Z
 
 ## ALERTES
-- 🔴 CORTANA sous 50% (24.4%) — discipline NEUTRE active, à surveiller
+- 🔴 CORTANA sous 50% (37.0%) — discipline NEUTRE active, à surveiller
 - 🔴 DÉRIVE MÉMOIRE : au moins 1 indice INSTABLE — voir DERIVE_MEMOIRE.md
 - 🔴 SEUIL NON RANGÉ : 8 clé(s) décident sans être classées (ETANCHE_MISE_MAX, STOP_POST_PARTIEL_TRAIL, TIERS_P1_PCT, TIERS_P2_PCT, GBAG_EXIT_FIRST_FRAC, REDEPLOY_CONFIRM_BUF_PCT) — R17 : toute garde se mesure ou se déclare
 
 ## CORTANA (justesse, 44% = pile-ou-face)
-- Score global : 24.4%
-- Analyses notées : 10/41
-- Par indice : altSeason 0/1; bassine 0/1; chat 3/4; croisements 5/12; etfEthM 0/1; etfXrpM 0/1; fearGreed 0/5; geopol 0/5; gexPutCall 0/1; indice_onchain 0/2; pipeline_health 0/1; radar 2/4; rbf 0/1; verre 0/2
+- Score global : 37.0%
+- Analyses notées : 20/54
+- Par indice : altSeason 0/2; bassine 0/2; chat 3/4; croisements 8/15; etfEthM 0/2; etfXrpM 0/1; fearGreed 2/7; geopol 2/7; gexPutCall 0/2; indice_onchain 1/2; liq24Usd 0/1; pipeline_health 0/1; radar 3/5; rbf 0/1; verre 1/2
 
 ## ADA (zone/voilure vs BTC 24h, v1)
-- Zone-accuracy : 100.0% (208/208)
+- Zone-accuracy : 68.5% (196/286)
 - v1 zone/voilure vs BTC 24h
 
 ## MÉMOIRE (dérive, chantier 2)
@@ -19,7 +19,7 @@
 - Détail : DERIVE_MEMOIRE.md — instables/critiques à revoir (contexte, données, prompt).
 
 ## AGORA (leçons apprises, chantier E4)
-- Leçons actives : 14 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
+- Leçons actives : 11 (TTL 7j, namespace cortana) — chaque HIT/MISS nourrit la base.
 - lecons_auto.py : scan → staging → validation (discipline 07h15, APRÈS la note).
 
 ## ERREURS (6ᵉ partie du cycle — post-mortem branché, R15/R17.5)

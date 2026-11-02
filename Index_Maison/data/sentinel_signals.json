@@ -1,34 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": -2.5853781428542315,
-      "value": 2.318,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-      "ts": "2026-11-01T14:15:05.088387+00:00"
-    },
-    {
-      "metric": "taker_ratio",
-      "zscore": 3.025217547301782,
-      "value": 1.985,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrême de 3.03 sur le taker_ratio (1.985) indiquant une pression d'achat agressive massive. Silence total des médias (Google Actualités vide), ce qui démontre une accumulation furtive des baleines loin du radar retail.\"\n}\n```",
-      "ts": "2026-11-01T14:40:11.345169+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -2.383600010736295,
-      "value": 2.318,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio Long/Short affiche un z-score extrêmement bas (-2.38), indiquant une sous-exposition massive des investisseurs. Pendant que les médias généralistes (Les Echos, Paris Match) se focalisent abstraitement sur les fonds long/short traditionnels, le marché crypto subit un 'short squeeze' potentiel imminent orchestré par l'accumulation silencieuse des baleines sur les niveaux de survente.\"\n}\n```",
-      "ts": "2026-11-01T14:45:13.698554+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.513014143116971,
-      "value": 0.616,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. Le 'SDI' détecté dans les titres correspond au Syndicat des Industries de la Distribution (France), et non à un indicateur onchain ou un actif crypto. Aucune divergence réelle entre données brutes et narratif crypto, car le contexte est purement macro-économique/retail.\"\n}",
-      "ts": "2026-11-01T15:10:17.812887+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.6365004952778666,
       "value": 1.188,
@@ -349,6 +321,34 @@
       "value": 5256764641.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.87) n'est pas attribué à un actif crypto spécifique dans les données brutes, tandis que les titres médiatiques sont majoritairement hors-sujet (charbon, autos, loisirs) ou indiquent une dominance BTC classique sans signe d'accumulation silencieuse d'ETH ou d'altcoins. Le signal est probablement du bruit ou lié à un actif non couvert par le narratif fourni.\"\n}",
       "ts": "2026-11-02T05:18:28.370314+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.2864136004681814,
+      "value": 2.084,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Le z-score extrêmement bas (-2.29) indique une position vendeuse excessive de la foule (contrarian), tandis que le ratio long/short à 2.08 couplé à un narratif médiatique axé sur la prudence institutionnelle (fonds Hedge/UCITS) masque une accumulation agressive et silencieuse des baleines en position dominante acheteuse.\"\n}\n```",
+      "ts": "2026-11-02T05:38:35.798013+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.7236947423776283,
+      "value": 5318831631.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.72) n'est pas attribué à un actif crypto spécifique dans les données brutes, tandis que les titres médiatiques sont majoritairement hors-sujet (charbon, auto, loisirs) ou indiquent une dominance BTC classique sans signe d'accumulation silencieuse d'ETH ou d'altcoins.\"\n}",
+      "ts": "2026-11-02T05:48:38.246043+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.1783545769694928,
+      "value": 2.084,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative (z-score -2.18) avec un long_short de 2.084, suggérant une accumulation nette de positions longues. Les titres médiatiques mentionnent des performances positives de fonds long-short, mais ne mentionnent pas cette divergence spécifique. Les baleines pourraient être en train de bouger silencieusement, avec un narratif médiatique qui ne reflète pas pleinement cette activité.\"\n}\n```",
+      "ts": "2026-11-02T06:08:44.130742+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.3914130850379895,
+      "value": 5267310051.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.39) n'est pas attribué à un actif crypto spécifique dans les données brutes, tandis que les titres médiatiques sont majoritairement hors-sujet (charbon, automobile, loisirs) ou indiquent une dominance BTC classique sans signal de rotation vers l'ETH. Aucune divergence exploitable détectée.\"\n}",
+      "ts": "2026-11-02T06:18:47.905133+00:00"
     }
   ]
 }
