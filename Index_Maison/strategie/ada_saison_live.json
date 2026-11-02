@@ -1,14 +1,14 @@
 {
-  "ts": "2026-11-02T15:27:05.681819+00:00",
-  "saison": "CALME",
-  "emoji": "🧊",
+  "ts": "2026-11-02T16:12:22.159561+00:00",
+  "saison": "CHAUFFE",
+  "emoji": "🌡️",
   "direction": "long",
   "bascule": false,
   "bascule_raison": "",
   "alignement": {
-    "nb_long": 2,
+    "nb_long": 3,
     "nb_short": 1,
-    "score": 0.33,
+    "score": 0.5,
     "direction": "long"
   },
   "indices": {
@@ -20,27 +20,27 @@
     "pouls": {
       "direction": "neutre",
       "force": 0,
-      "brut": 0.0001
+      "brut": 9.3e-05
     },
     "bassin": {
-      "direction": "neutre",
-      "force": 0,
-      "brut": "neutre"
+      "direction": "long",
+      "force": 1,
+      "brut": "up"
     },
     "vortex": {
       "direction": "short",
-      "force": 0,
-      "brut": -0.03
+      "force": 1,
+      "brut": -0.89
     },
     "essaim": {
       "direction": "long",
       "force": 2,
-      "brut": 2.2
+      "brut": 2.226
     },
     "fleuve": {
       "direction": "long",
       "force": 1,
-      "brut": 63.34
+      "brut": 62.81
     },
     "baleines": {
       "direction": "neutre",
@@ -49,8 +49,9 @@
     }
   },
   "story": [
-    "SAISON : CALME 🧊 — hiver, ADA dort.",
-    "Alignement : 2 haussiers / 1 baissiers."
+    "SAISON : CHAUFFE 🌡️ — température warn, bassin long.",
+    "Alignement : 3 haussiers / 1 baissiers.",
+    "Le vent se lève (-0.89 % sur 24h) — pas encore un vortex."
   ],
   "sources": [
     "live.json"
