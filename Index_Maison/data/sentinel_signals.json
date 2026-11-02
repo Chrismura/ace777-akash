@@ -2,48 +2,6 @@
   "signals": [
     {
       "metric": "long_short",
-      "zscore": -2.9911617145989817,
-      "value": 2.385,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-2.99) indiquant une capitulation massive des positions short ou un positionnement contrarien extrême des baleines. Le narratif médiatique est totalement déconnecté, focalisé sur des produits financiers traditionnels (ETF/OPCVM) et de l'actualité généraliste, ignorant le positionnement agressif des smart money sur les dérivés crypto.\"\n}\n```",
-      "ts": "2026-11-01T11:44:12.300977+00:00"
-    },
-    {
-      "metric": "sdi",
-      "zscore": 2.4219262305457585,
-      "value": 0.616,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique parasité par l'homonymie du ticker 'SDI' (Syndicat des Indépendants et Samsung SDI). Aucune corrélation avec des mouvements on-chain de baleines crypto.\"\n}\n```",
-      "ts": "2026-11-01T12:09:20.006232+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.7516631374108598,
-      "value": 1.2,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Anomalie statistique (z-score 2.75) liée au sémantique 'IPT' (Tournoi de Physique, Institut Pasteur de Tunis, etc.) et non à un actif crypto. Aucune baleine on-chain détectée, bruit médiatique sans rapport avec la blockchain.\"\n}\n```",
-      "ts": "2026-11-01T12:09:25.337797+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": -2.0039350296916045,
-      "value": 5.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit médiatique sans rapport avec l'activité on-chain (mélange d'actualités locales et de tutoriels génériques sur Bitcoin). Le z-score faible indique une anomalie technique mineure ou un bruit statistique, pas une accumulation/distribution de baleines.\"\n}\n```",
-      "ts": "2026-11-01T12:09:27.128439+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": -2.0039350296916045,
-      "value": 5.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Bruit de fond médiatique sans rapport avec la crypto (art, concerts, IA SaaS). Le z-score négatif indique une absence totale d'activité 'dust' significative sur la blockchain. Aucune accumulation ni mouvement de baleine détecté.\"\n}\n```",
-      "ts": "2026-11-01T12:09:28.944074+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": -3.1946662692330645,
-      "value": 2.353,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 92,\n  \"reason\": \"Z-score extrêmement bas (-3.19) malgré un ratio Long/Short élevé à 2.35, couplé à un narratif médiatique grand public totalement déconnecté (fonds traditionnels et actualités généralistes). Divergence classique de capitulation des suiveurs alors que les baleines accumulent en silence.\"\n}\n```",
-      "ts": "2026-11-01T12:14:39.164969+00:00"
-    },
-    {
-      "metric": "long_short",
       "zscore": -2.892686366562875,
       "value": 2.353,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) et les titres médiatiques concernent des ETF actions (BNP Paribas, AIF) et des stratégies de fonds classiques, non des actifs crypto. Aucune corrélation avec le marché des cryptomonnaies.\"\n}",
@@ -349,6 +307,48 @@
       "value": 4642716753.0,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.40) n'est pas soutenu par le narratif crypto (un seul article mineur sur ETH/BTC). Le reste des titres (automobile, coiffure, loisirs) est du bruit non pertinent. Impossible de confirmer une accumulation silencieuse sans contexte d'actif spécifique.\"\n}",
       "ts": "2026-11-02T03:17:53.341871+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.989873991912701,
+      "value": 2998263.0,
+      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Absence de divergence : le z-score élevé (2.99) des liquidations est parfaitement corrélé au narratif médiatique dominant (peur d'un hack Binance, chute du BTC). Les titres 'Roanne' et 'Quimper' sont du bruit (faux positifs juridiques). L'alignement total entre la douleur onchain et la panique médiatique indique une purge de levier classique, non une accumulation silencieuse.\"\n}",
+      "ts": "2026-11-02T03:27:55.838369+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.4201534780139164,
+      "value": 37,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence classique : le Fear & Greed Index à 37 (peur) avec un z-score élevé (2.42) indique une volatilité anormale ou un sentiment de panique irrationnel, tandis que l'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain. Cette 'silence médiatique' couplé à une anomalie statistique forte est souvent le signe d'accumulation silencieuse par des acteurs institutionnels ou des baleines avant un retournement haussier.\"\n}\n```",
+      "ts": "2026-11-02T03:32:57.797938+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.639938109597118,
+      "value": 0.47664298958314255,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.64 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+      "ts": "2026-11-02T03:48:01.356969+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": 2.7595859873529096,
+      "value": 4844473134.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.76) n'est pas soutenu par le narratif crypto (un seul article mineur sur ETH/BTC). Les autres titres (auto, coiffure, loisirs) sont du bruit contextuel sans lien avec les flux onchain. Impossible de confirmer une accumulation silencieuse sans contexte d'actif spécifique.\"\n}",
+      "ts": "2026-11-02T03:48:02.632280+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.583940558634099,
+      "value": 2942890.0,
+      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.58 sur les liquidations confirme une purge de levier significative (628M$). Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux en contre-tendance), le narratif médiatique (peur du hack Binance) est ici aligné avec la réalité onchain : c'est une cascade de liquidations forcées, non une manipulation. L'absence de divergence entre le flux de données et le titre indique une capitulation réelle, pas un piège haussier.\"\n}",
+      "ts": "2026-11-02T03:58:05.967553+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": 2.23606797749979,
+      "value": 37,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence classique : le Fear & Greed Index à 37 (peur) avec un z-score élevé (2.24) indique une volatilité anormale ou un sentiment de panique irrationnel, tandis que l'absence totale de titres médiatiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain. Cette 'silence médiatique' couplé à une anomalie statistique forte est souvent le signe d'accumulation silencieuse par des acteurs institutionnels ou des baleines avant un retournement haussier.\"\n}\n```",
+      "ts": "2026-11-02T04:03:07.603130+00:00"
     }
   ]
 }
