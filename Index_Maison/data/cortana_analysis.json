@@ -1,62 +1,8 @@
 {
-  "timestamp": 1793575085,
-  "date": "2026-11-01T23:18:05.104341+00:00",
-  "n_analyses": 6,
+  "timestamp": 1793578686,
+  "date": "2026-11-02T00:18:06.211832+00:00",
+  "n_analyses": 11,
   "analyses": [
-    {
-      "signal": {
-        "metric": "sdi",
-        "zscore": 2.5482080717988462,
-        "value": 0.616,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (SDI) déclenchée par un bruit médiatique macro/corporate (Samsung SDI, syndicat patronal SDI) sans aucun rapport avec l'activité on-chain des baleines crypto.\"\n}\n```",
-        "ts": 1793556653.914381
-      },
-      "fiche": null,
-      "interpretation": {
-        "lecture": "Pas de fiche disponible",
-        "niveau": "inconnu"
-      },
-      "action": "Observer"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.3593841733950156,
-        "value": 1.115,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 0,\n  \"reason\": \"False positive technique. Les données textuelles concernent l'Institut Pasteur de Tunis (IPT) et des tournois de physique académiques, sans aucun rapport avec la crypto-sphère ou une activité de baleine.\"\n}\n```",
-        "ts": 1793556655.500255
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.45,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 1,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "cpfp",
@@ -98,12 +44,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.45,
+          "value": -0.18,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2425591.0,
+          "value": 2508985.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -132,12 +78,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.45,
+          "value": -0.18,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 2425591.0,
+          "value": 2508985.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -145,6 +91,236 @@
           "value": 0.0001,
           "seuil": 0,
           "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "price_1h",
+        "zscore": 6.302962086899428,
+        "value": 0.6042789125498382,
+        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie statistique majeure (Z-score 6.30) sur 1h sans couverture médiatique correspondante. Silence radio des médias traditionnels couplé à une accumulation agressive onchain : typique d'un mouvement furtif de baleines avant un breakout.\"\n}\n```",
+        "ts": 1793576511.024023
+      },
+      "fiche": "price_1h",
+      "questions": {
+        "pct_1h": {
+          "value": -0.18,
+          "seuil": -1,
+          "depasse": true
+        },
+        "liq": {
+          "value": 2508985.0,
+          "seuil": 5000000,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0,
+          "depasse": true
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 2.743838571346971,
+        "value": 4222225397.0,
+        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique purement technique ou bruit de fond (z-score 2.74). Les titres médiatiques sur le 'volume' concernent des brosses, des voitures et des jouets, révélant une absence totale de narratif crypto ou de mouvement institutionnel significatif.\"\n}\n```",
+        "ts": 1793576814.3057
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.18,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "sdi",
+        "zscore": 2.904791170768148,
+        "value": 0.616,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. Le 'SDI' détecté dans les titres correspond au Syndicat des Industries de la Distribution (France), et non à un indicateur onchain ou un actif crypto. Aucune divergence réelle entre données brutes et narratif crypto, car le contexte est purement macro-économique/retail.\"\n}",
+        "ts": 1793577416.612262
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer"
+    },
+    {
+      "signal": {
+        "metric": "ipt",
+        "zscore": 3.033440943713891,
+        "value": 1.218,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique Théorique (France), non un actif crypto. Les titres médiatiques confirment un contexte académique/scientifique (physique, théologie, santé) sans lien avec les marchés financiers. Aucune divergence onchain réelle.\"\n}",
+        "ts": 1793577417.649158
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.18,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "liquidations",
+        "zscore": 2.755398477105117,
+        "value": 2979720.0,
+        "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.76 confirme une anomalie statistique majeure des liquidations, validée par le narratif médiatique (peur d'un hack Binance). Contrairement à un mouvement silencieux de baleines (qui impliquerait un flux d'achat caché sous un bruit de marché), ici le bruit médiatique et la donnée onchain sont alignés sur un événement de choc négatif. La divergence est nulle : le marché réagit à une panique réelle, non à une manipulation narrative.\"\n}",
+        "ts": 1793577719.402702
+      },
+      "fiche": "liquidations",
+      "questions": {
+        "longs": {
+          "value": 522651.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "shorts": {
+          "value": 1986334.0,
+          "seuil": 0,
+          "depasse": true
+        },
+        "prix": {
+          "value": -0.18,
+          "seuil": 1,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "shorts > longs",
+        "lecture": "Liquidations massives de SHORTS — squeeze haussier mécanique. Les paliers RIP profitent de ces mouvements",
+        "niveau": "info",
+        "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade"
+      },
+      "action": "Laisser courir les paliers RIP, ne pas rentrer après la cascade",
+      "niveau": "info"
+    },
+    {
+      "signal": {
+        "metric": "fear_greed",
+        "zscore": 9.115037909077268,
+        "value": 37,
+        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence majeure : un z-score de 9.12 sur le Fear & Greed (37) indique une volatilité extrême et une peur irrationnelle, souvent associée à des accumulations silencieuses par les baleines. L'absence de titres médiatiques spécifiques (vide informationnel) suggère que le narratif public est déconnecté de l'activité onchain réelle, créant un setup classique de 'quiet accumulation' avant un retournement haussier.\"\n}",
+        "ts": 1793577720.339872
+      },
+      "fiche": "fear_greed",
+      "questions": {
+        "peur": {
+          "value": 37,
+          "seuil": 25,
+          "depasse": true
+        },
+        "cupidite": {
+          "value": 37,
+          "seuil": 75,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
+      },
+      "action": "Observer",
+      "niveau": "neutre"
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": 3.4335422762253875,
+        "value": 4391791616.0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Divergence totale : l'anomalie onchain (volume crypto) est totalement déconnectée du narratif médiatique (marché du loisir créatif, cosmétiques, musique). Aucune corrélation sémantique ou sectorielle. Le bruit médiatique est hors sujet, rendant l'analyse du sentiment crypto impossible via ces sources. Signal neutre par défaut faute de contexte crypto pertinent.\"\n}",
+        "ts": 1793578623.569593
+      },
+      "fiche": "rbf_eleve",
+      "questions": {
+        "prix": {
+          "value": -0.18,
+          "seuil": 1,
+          "depasse": false
+        },
+        "paires": {
+          "value": 0,
+          "seuil": 3,
+          "depasse": false
+        },
+        "funding": {
+          "value": 0.0001,
+          "seuil": 0.001,
+          "depasse": false
+        },
+        "whales": {
+          "value": 0,
+          "seuil": 5,
+          "depasse": false
         }
       },
       "interpretation": {
