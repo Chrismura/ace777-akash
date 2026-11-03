@@ -1,11 +1,11 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-11-03T17:42Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-11-03T18:42Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `8deab0cdb3` du 2026-11-03T18:42:35+01:00
-- Fichiers suivis modifiés sur disque : **5**
+- Branche `main` · HEAD `d9861bde8a` du 2026-11-03T18:43:14+01:00
+- Fichiers suivis modifiés sur disque : **87**
 - Fichiers suivis **supprimés** (perdus) : **0**
 - Nouveaux fichiers non versionnés : 21923 au total, dont **17 sensibles** (scripts/plists/règles)
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
@@ -34,7 +34,7 @@
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_bw58gc4q/LaunchAgents`
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_7s3h5w1g/LaunchAgents`
 - Plists rebâtis + validés (`plutil -lint`) : **122/122**
 
 ## 4. Organes invoqués par les agents

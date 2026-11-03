@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T17:43:07.859777+00:00",
+  "generated_at": "2026-11-03T18:43:20.552440+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -35,7 +35,7 @@
       "model": "qwen/qwen3.8-27b",
       "enabled": true,
       "timeout": 120,
-      "calls_24h": 64
+      "calls_24h": 61
     },
     {
       "id": "nvidia",
@@ -283,10 +283,42 @@
   ],
   "budget": {
     "daily": 624,
-    "consumed": 113,
-    "remaining": 511
+    "consumed": 117,
+    "remaining": 507
   },
   "queue": [
+    {
+      "ts": "2026-11-03T18:43:16.933993+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 2.21
+    },
+    {
+      "ts": "2026-11-03T18:42:37.584694+00:00",
+      "task": "supervise.decision",
+      "provider": "gemini",
+      "model": "gemini-flash-lite-latest",
+      "kind": "cloud",
+      "duration_s": 1.17
+    },
+    {
+      "ts": "2026-11-03T18:32:31.591625+00:00",
+      "task": "analyse.profonde",
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "kind": "cloud",
+      "duration_s": 0.54
+    },
+    {
+      "ts": "2026-11-03T18:32:30.525393+00:00",
+      "task": "analyse.profonde",
+      "provider": "groq",
+      "model": "qwen/qwen3.8-27b",
+      "kind": "cloud",
+      "duration_s": 0.45
+    },
     {
       "ts": "2026-11-03T16:42:13.652975+00:00",
       "task": "supervise.decision",
@@ -374,100 +406,68 @@
       "model": "qwen/qwen3.8-27b",
       "kind": "cloud",
       "duration_s": 0.48
-    },
-    {
-      "ts": "2026-11-03T12:38:16.906748+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.95
-    },
-    {
-      "ts": "2026-11-03T12:36:31.164368+00:00",
-      "task": "analyse.profonde",
-      "provider": "groq",
-      "model": "qwen/qwen3.8-27b",
-      "kind": "cloud",
-      "duration_s": 0.53
-    },
-    {
-      "ts": "2026-11-03T11:38:25.149978+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 1.13
-    },
-    {
-      "ts": "2026-11-03T11:37:33.134301+00:00",
-      "task": "supervise.decision",
-      "provider": "gemini",
-      "model": "gemini-flash-lite-latest",
-      "kind": "cloud",
-      "duration_s": 0.9
     }
   ],
   "events": [
     {
-      "ts": "2026-11-03T17:42:53.487073+00:00",
+      "ts": "2026-11-03T18:43:16.932679+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-11-03T18:42:37.584254+00:00",
+      "kind": "message",
+      "title": "« Google Gemini » a repondu",
+      "detail": ""
+    },
+    {
+      "ts": "2026-11-03T18:42:36.410945+00:00",
+      "kind": "blacklist",
+      "title": "Fin de pause Google Gemini",
+      "detail": "re-essai automatique"
+    },
+    {
+      "ts": "2026-11-03T18:32:31.761594+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-11-03T17:42:53.487018+00:00",
+      "ts": "2026-11-03T18:32:31.761188+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Devstral-2-123B (code): HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-11-03T17:42:53.486962+00:00",
+      "ts": "2026-11-03T18:32:31.759134+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "title": "Bascule depuis InferX Devstral-2-123B (code)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-11-03T17:42:53.486819+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Google Gemini",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-11-03T17:42:53.461301+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "ts": "2026-11-03T18:32:31.590919+00:00",
+      "kind": "message",
+      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-11-03T17:42:27.047049+00:00",
-      "kind": "http",
-      "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
+      "ts": "2026-11-03T18:32:30.524940+00:00",
+      "kind": "message",
+      "title": "« Groq (Qwen 3.8 27B, gratuit) » a repondu",
       "detail": ""
     },
     {
-      "ts": "2026-11-03T17:42:27.046994+00:00",
-      "kind": "error",
-      "title": "Toutes les IA ont echoue",
-      "detail": "Groq (Qwen 3.8 27B, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-11-03T17:42:27.046945+00:00",
+      "ts": "2026-11-03T18:32:26.257557+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Groq (Qwen 3.8 27B, gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
+      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
     },
     {
-      "ts": "2026-11-03T17:42:27.046799+00:00",
-      "kind": "network",
-      "title": "Reseau indisponible: Groq (Qwen 3.8 27B, gratuit)",
-      "detail": "[Errno 8] nodename nor servname provided, or not known"
-    },
-    {
-      "ts": "2026-11-03T17:42:27.037288+00:00",
-      "kind": "network",
-      "title": "Reseau pas pret — mode degrade (timeout court)",
-      "detail": ""
+      "ts": "2026-11-03T18:32:21.631687+00:00",
+      "kind": "failover",
+      "title": "Bascule depuis InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08)",
+      "detail": "HTTP Error 429: Too Many Requests"
     }
   ],
   "tasks_quotas": {
@@ -601,7 +601,7 @@
   "health": {
     "status": "ok",
     "providers": 6,
-    "reseau": false,
-    "degrade": true
+    "reseau": true,
+    "degrade": false
   }
 }

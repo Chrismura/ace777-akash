@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-03T17:42:58+00:00",
+  "ts": "2026-11-03T18:42:42+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -307,11 +307,11 @@
           "delta_votes": 3
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "XChainBridge",
           "delta_votes": -1
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
@@ -397,16 +397,10 @@
     {
       "protocole": "paternes-btc (Kronos)",
       "critere": "mesure en continu des paternes validés (50w×200w + RSI hebdo, MACD daily = filtre, cycle) — verdict à n ≥ 30 cycles",
-      "faits": "46 cycles · régime HAUSSIER (écart 50w/200w 12.4 %, RSI hebdo 71) · MACD histogramme -225 · BTC 76540 → 81275 (+6.2 %)",
+      "faits": "47 cycles · régime HAUSSIER (écart 50w/200w 12.4 %, RSI hebdo 71) · MACD histogramme -225 · BTC 76540 → 81275 (+6.2 %)",
       "verdict": "EN ATTENTE (il manque 0 cycle(s) — cadence quotidienne → ~0 jour(s))",
       "alerte": "",
       "detail": [
-        {
-          "ts": "2026-10-29T00:32:22Z",
-          "prix": 80808.65,
-          "regime": "HAUSSIER",
-          "rsi_w": 66.6
-        },
         {
           "ts": "2026-10-29T17:49:24Z",
           "prix": 81275.48,
@@ -430,39 +424,45 @@
           "prix": 81275.48,
           "regime": "HAUSSIER",
           "rsi_w": 71.3
+        },
+        {
+          "ts": "2026-11-03T18:41:50Z",
+          "prix": 81275.48,
+          "regime": "HAUSSIER",
+          "rsi_w": 71.3
         }
       ]
     },
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "1527 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=None Δ=None None)",
-      "verdict": "IMPOSSIBLE (SANS_MESURE — snaps stales)",
+      "faits": "1539 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=-0.0025 Δ=-5.6 NEUTRE)",
+      "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
         {
-          "ts": "2026-11-03T16:50:24Z",
-          "ofi": -0.0053,
+          "ts": "2026-11-03T18:38:39Z",
+          "ofi": 0.0032,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T16:51:25Z",
-          "ofi": 0.0112,
+          "ts": "2026-11-03T18:39:39Z",
+          "ofi": 0.0066,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T16:52:25Z",
-          "ofi": 0.0016,
+          "ts": "2026-11-03T18:40:39Z",
+          "ofi": 0.0102,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T16:53:25Z",
-          "ofi": 0.009,
+          "ts": "2026-11-03T18:41:39Z",
+          "ofi": 0.0006,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T16:54:25Z",
-          "ofi": 0.0091,
+          "ts": "2026-11-03T18:42:39Z",
+          "ofi": -0.0025,
           "verdict": "NEUTRE"
         }
       ]
@@ -479,8 +479,8 @@
   "compte": {
     "total": 8,
     "verdicts_rendus": 3,
-    "en_attente": 4,
-    "impossibles": 1,
+    "en_attente": 5,
+    "impossibles": 0,
     "avec_alerte": 3
   }
 }

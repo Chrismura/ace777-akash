@@ -1,55 +1,8 @@
 {
-  "timestamp": 1793727531,
-  "date": "2026-11-03T17:38:51.461189+00:00",
-  "n_analyses": 2,
+  "timestamp": 1793731132,
+  "date": "2026-11-03T18:38:52.425903+00:00",
+  "n_analyses": 3,
   "analyses": [
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 2.552856971036289,
-        "value": 0.4995782806014537,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.55 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
-        "ts": 1793709391.166192
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": null,
-          "seuil": -1,
-          "depasse": false
-        },
-        "liq": {
-          "value": null,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre",
-      "verdict_llm": {
-        "verdict": "neutral",
-        "confidence": 15,
-        "mesures": 1,
-        "mesures_non_nulles": 1,
-        "mesures_depassees": [
-          "funding"
-        ],
-        "utilisable": false,
-        "motifs": [
-          "verdict non directionnel"
-        ]
-      }
-    },
     {
       "signal": {
         "metric": "ipt",
@@ -61,17 +14,17 @@
       "fiche": "ipt",
       "questions": {
         "ipt": {
-          "value": 0.505,
+          "value": 0.556,
           "seuil": 0.79,
           "depasse": false
         },
         "prix": {
-          "value": null,
+          "value": 0.22,
           "seuil": 1,
           "depasse": false
         },
         "micro": {
-          "value": 0.2,
+          "value": 0.3,
           "seuil": 0.5,
           "depasse": false
         },
@@ -92,16 +45,84 @@
       "verdict_llm": {
         "verdict": "neutral",
         "confidence": 60,
-        "mesures": 3,
-        "mesures_non_nulles": 3,
+        "mesures": 4,
+        "mesures_non_nulles": 4,
         "mesures_depassees": [],
         "utilisable": false,
         "motifs": [
           "verdict non directionnel",
-          "aucune des 3 mesure(s) ne dépasse son seuil — direction non prouvée"
+          "aucune des 4 mesure(s) ne dépasse son seuil — direction non prouvée"
         ]
+      }
+    },
+    {
+      "signal": {
+        "metric": "volume",
+        "zscore": -2.1973120159238957,
+        "value": 0,
+        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Divergence faible : le narratif médiatique (ralentissement des échanges, fièvre retombée) est cohérent avec la chute du volume (z-score -2.20). Aucune anomalie silencieuse détectée ; le marché est en phase de consolidation passive.\"\n}",
+        "ts": 1793730750.527315
+      },
+      "fiche": null,
+      "interpretation": {
+        "lecture": "Pas de fiche disponible",
+        "niveau": "inconnu"
+      },
+      "action": "Observer",
+      "verdict_llm": {
+        "verdict": "neutral",
+        "confidence": 45,
+        "mesures": 0,
+        "mesures_non_nulles": 0,
+        "mesures_depassees": [],
+        "utilisable": false,
+        "motifs": [
+          "verdict non directionnel",
+          "aucune question mesurée"
+        ]
+      }
+    },
+    {
+      "signal": {
+        "metric": "long_short",
+        "zscore": -2.1725468781288635,
+        "value": 1,
+        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : le z-score de -2.17 sur le ratio long/short indique une positionnement nettement plus court que la moyenne (survente des shorts), signalant souvent un potentiel de short squeeze. Le narratif médiatique est dominé par la peur (chute à 81k, protection à la baisse, actions tech en baisse), créant un désalignement classique entre le sentiment de panique des médias et la positionnement des traders qui se préparent à un rebond. Les baleines accumulent probablement en silence pendant que le marché panique.\"\n}",
+        "ts": 1793730751.592475
+      },
+      "fiche": "long_short",
+      "questions": {
+        "ratio_long_short": {
+          "value": 2.421,
+          "seuil": 2,
+          "depasse": true
+        },
+        "oi": {
+          "value": 99474.463,
+          "seuil": 120000,
+          "depasse": false
+        }
+      },
+      "interpretation": {
+        "condition": "ratio_long_short > 2",
+        "lecture": "HYPOTHÈSE (heuristique, pas une loi) : excès marqué de longs au-dessus de la norme structurelle — carburant baissier si le prix casse (liquidations en chaîne)",
+        "niveau": "surveiller",
+        "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations"
+      },
+      "action": "Resserrer les stops sur les positions fragiles, croiser avec les liquidations",
+      "niveau": "surveiller",
+      "verdict_llm": {
+        "verdict": "bullish",
+        "confidence": 75,
+        "mesures": 2,
+        "mesures_non_nulles": 2,
+        "mesures_depassees": [
+          "ratio_long_short"
+        ],
+        "utilisable": true,
+        "motifs": []
       }
     }
   ],
-  "resume": "🔵 CALME — pas de signal alarmant"
+  "resume": "🟡 SURVEILLANCE — des signaux sont à observer"
 }

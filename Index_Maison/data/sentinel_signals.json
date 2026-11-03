@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.229252724388018,
-      "value": 8885750099.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.23) est statistiquement faible et non confirmée par un narratif de marché. Aucune preuve de mouvement de baleines ou de divergence narrative.\"\n}",
-      "ts": "2026-11-02T20:47:37.093782+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.6905778300782486,
-      "value": 2.451,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des ETF actions traditionnels (SmallCap, Global Equity) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-      "ts": "2026-11-02T21:07:41.472718+00:00"
-    },
-    {
       "metric": "cpfp",
       "zscore": 2.0004059347704635,
       "value": 50.0,
@@ -349,6 +335,20 @@
       "value": 1.02,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 60,\n  \"reason\": \"L'alerte Sentinelle indique une divergence potentielle, mais les titres médiatiques ne fournissent pas de contexte spécifique sur les mouvements de fonds. Le narratif médiatique semble indépendant de l'anomalie onchain, mais sans informations supplémentaires, il est difficile de déterminer si les baleines bougent silencieusement.\"\n}\n```",
       "ts": "2026-11-03T15:22:13.859212+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.1973120159238957,
+      "value": 0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Divergence faible : le narratif médiatique (ralentissement des échanges, fièvre retombée) est cohérent avec la chute du volume (z-score -2.20). Aucune anomalie silencieuse détectée ; le marché est en phase de consolidation passive.\"\n}",
+      "ts": "2026-11-03T18:32:30.527315+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.1725468781288635,
+      "value": 1,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 75,\n\"reason\": \"Divergence majeure : le z-score de -2.17 sur le ratio long/short indique une positionnement nettement plus court que la moyenne (survente des shorts), signalant souvent un potentiel de short squeeze. Le narratif médiatique est dominé par la peur (chute à 81k, protection à la baisse, actions tech en baisse), créant un désalignement classique entre le sentiment de panique des médias et la positionnement des traders qui se préparent à un rebond. Les baleines accumulent probablement en silence pendant que le marché panique.\"\n}",
+      "ts": "2026-11-03T18:32:31.592475+00:00"
     }
   ]
 }
