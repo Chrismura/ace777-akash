@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="943024699">
+<meta name="version" content="347927121">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1793702287"></script>
+<script src="mission.js?v=1793705888"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1793702287"></script>
-<script src="../thermo/live.js?v=1793702287"></script>
-<script src="../thermo/cortana_feed.js?v=1793702287"></script>
-<script src="sante_live.js?v=1793702287"></script>
-<script src="veille_institutionnelle.js?v=1793702287"></script>
+<script src="hub.js?v=1793705888"></script>
+<script src="../thermo/live.js?v=1793705888"></script>
+<script src="../thermo/cortana_feed.js?v=1793705888"></script>
+<script src="sante_live.js?v=1793705888"></script>
+<script src="veille_institutionnelle.js?v=1793705888"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1188,7 +1188,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1793702287"></script>
+<script src="plancher_live.js?v=1793705888"></script>
 </head>
 <body>
 <div class="app">
@@ -2198,9 +2198,9 @@ window.addEventListener('unhandledrejection', function(e) {
           scrTf.innerHTML=`<tr>
             <td class="hc"><span class="hcn">TOTAL</span></td>
             <td class="hq" title="Total des bags au début (valeur en $)"><b>${usd(totSeed)}</b></td>
-            <td class="hs" title="Total des bags actuels (valeur au prix actuel)"><b>${usd(totPos)}</b></td>
-            <td class="hs" title="Total cash réel"><b>${usd(totCash)}</b></td>
-            <td class="hs" title="Total Hulk = bags + cash"><b>${vsH.reel!=null?usd(vsH.reel):'—'}</b></td>
+            <td class="hs" title="Total des bags actuels (valeur au prix actuel)"><b>${vsH.posTotal!=null?usd(vsH.posTotal):usd(totPos)}</b></td>
+            <td class="hs" title="Cash rejoué (base du score à capital égal) — la poche moteur est la trésorerie réelle : les DEUX sont affichées, aucune n'est cachée"><b>${vsH.cashTotal!=null?usd(vsH.cashTotal):usd(totCash)}</b>${vsH.cashMoteurTotal!=null?` <span class="hsub" title="Poche moteur (pair_cash) = ce que Hulk a vraiment en poche">· moteur ${usd(vsH.cashMoteurTotal)}</span>`:''}</td>
+            <td class="hs" title="Total Hulk = bags + cash — identité vérifiée à la source (${vsH.identiteTotale===false?'⚠ INCOHÉRENTE':'OK'})"><b>${vsH.reel!=null?usd(vsH.reel):'—'}</b>${vsH.identiteTotale===false?' <span class="hsub" style="color:var(--warn,orange)">⚠ identité</span>':''}</td>
             <td class="hq" title="Budget total = seeds + ${vsH.margeParCrypto}$ × ${vsH.nbPaires} cryptos"><b>${vsH.budgetTotal!=null?usd(vsH.budgetTotal):'—'}</b></td>
             <td class="hs" title="Total si rien fait"><b>${vsH.hold!=null?usd(vsH.hold):'—'}</b></td>
             <td class="hr ${sumCls}"><b>${sumEc!=null?((sumEc>0?'+':'')+usd(sumEc)):'—'}</b></td>

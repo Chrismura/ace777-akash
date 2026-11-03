@@ -28,9 +28,21 @@ LA RÈGLE (mécanique, pas une promesse)
      ils ne laissent pas une alarme rouge à vie (R14 : une alarme qui ne peut plus dire vrai
      est une fausse alarme).
 
-Lecture seule sur le moteur ; n'écrit que `PREDECLARATIONS.jsonl` (append-only) et son état.
-0 ordre, 0 €. Usage :
+RADIER COMME PROCÉDURE (03/11/2026, ordre Christophe)
+----------------------------------------------------
+Un acte passé ne peut PAS être blanchi par une déclaration tardive (c'est volontaire).
+Mais le laisser rouge à vie noie la prochaine violation réelle (R14). La radiation est
+donc une PROCÉDURE, plus une édition à la main de la liste DETTE_CONSTATEE :
+  `--radier FICHIER --date ACTE --motif "…" --go "GO …"` → 1 ligne APPEND-ONLY dans
+  `strategie/RADIATIONS.jsonl` (qui, quand, pourquoi, sur quel ordre). Le registre des
+  scellés n'est PAS touché (on n'efface jamais la trace de l'acte), et `--verifier`
+  affiche le nombre de radiations. Sans `--motif` : refus.
+
+Lecture seule sur le moteur ; n'écrit que `PREDECLARATIONS.jsonl` et `RADIATIONS.jsonl`
+(append-only) et son état. 0 ordre, 0 €. Usage :
   python3 predemodifier.py --declarer hulk-mexc/scripts/x.py --motif "..." [--go "GO ..."]
+  python3 predemodifier.py --radier hulk-mexc/scripts/x.py --date 2026-11-03T09:12:26Z \
+      --motif "re-scellé sans pré-déclaration (acte constaté)" --go "GO Christophe ..."
   python3 predemodifier.py --verifier
   python3 predemodifier.py --etat
   python3 predemodifier.py --autotest        # prouve qu'il SAIT échouer
@@ -49,6 +61,7 @@ from pathlib import Path
 RACINE = Path(__file__).resolve().parent.parent.parent          # ace777-test-day1
 REG = RACINE / "Index_Maison" / "strategie" / "REGISTRE_SYNAPSES.json"
 STORE = RACINE / "Index_Maison" / "strategie" / "PREDECLARATIONS.jsonl"
+RADIATIONS = RACINE / "Index_Maison" / "strategie" / "RADIATIONS.jsonl"
 STATE = RACINE / "Index_Maison" / "thermo" / "predeclaration.json"
 # ACTIF À PARTIR DE : la règle ne juge pas le passé (R14) — elle juge ce qui vient.
 ACTIF_DEPUIS = "2026-09-23T15:30:00Z"
@@ -278,8 +291,60 @@ def cmd_declarer(fichier: str, motif: str, go: str) -> int:
     return 0
 
 
-def verifier(actif_depuis: str, decs: list, auto: dict | None = None) -> list:
-    """Renvoie la liste des violations : {fichier, raison, date}."""
+def _radiations() -> set:
+    """Radiations DÉCLARÉES (procédure) : couples (fichier, date de l'acte).
+
+    Journal append-only : une radiation ne s'efface pas, elle s'ajoute. Le registre des
+    scellés garde l'acte daté et nommé — on retire l'acte de l'ALARME, jamais de l'histoire.
+    """
+    out = set()
+    if not RADIATIONS.exists():
+        return out
+    for ligne in RADIATIONS.read_text(encoding="utf-8").splitlines():
+        ligne = ligne.strip()
+        if not ligne:
+            continue
+        try:
+            o = json.loads(ligne)
+        except Exception:
+            continue
+        if o.get("fichier") and o.get("date_acte"):
+            out.add((str(o["fichier"]), str(o["date_acte"])))
+    return out
+
+
+def cmd_radier(fichier: str, date_acte: str, motif: str, go: str) -> int:
+    """Procédure de radiation : datée, motivée, ordonnée, append-only. Refus sans motif."""
+    if not fichier or not date_acte:
+        print("REFUS : --radier FICHIER --date DATE_ACTE obligatoires")
+        return 2
+    if not motif:
+        print("REFUS : --motif obligatoire (une radiation sans motif est un effacement)")
+        return 2
+    if (fichier, date_acte) in (_radiations() | DETTE_CONSTATEE):
+        print(f"[=] déjà radié : {fichier} ({date_acte})")
+        return 0
+    ligne = {"ts": utc(), "fichier": fichier, "date_acte": date_acte,
+             "motif": motif, "go": go or "",
+             "registre_touche": False,
+             "principe": "l'acte reste daté et nommé au registre ; seule l'ALARME est levée"}
+    RADIATIONS.parent.mkdir(parents=True, exist_ok=True)
+    with open(RADIATIONS, "a", encoding="utf-8") as f:
+        f.write(json.dumps(ligne, ensure_ascii=False) + "\n")
+    print(f"RADIÉ DE L'ALARME · {fichier} (acte {date_acte})")
+    print(f"  motif : {motif}")
+    print("  → journal append-only : strategie/RADIATIONS.jsonl (registre des scellés intact)")
+    return 0
+
+
+def verifier(actif_depuis: str, decs: list, auto: dict | None = None,
+             radiations: set | None = None) -> list:
+    """Renvoie la liste des violations : {fichier, raison, date}.
+
+    `radiations` permet de prouver le mécanisme en autotest ; par défaut = procédure
+    (RADIATIONS.jsonl) + dette constatée historique.
+    """
+    rad = DETTE_CONSTATEE | (radiations if radiations is not None else _radiations())
     viol = []
     par_fichier = {}
     for d in sorted(decs, key=lambda o: o.get("ts_epoch", 0)):
@@ -303,7 +368,7 @@ def verifier(actif_depuis: str, decs: list, auto: dict | None = None) -> list:
             # (`paper_diprip.py`, modifié ~08:13Z sans pré-déclaration). Désormais la radiation ne
             # vaut QUE pour la clause (a) : un acte passé est pardonné, une divergence PRÉSENTE crie.
             if (date_acte and date_acte >= actif_depuis[:16]
-                    and (nom, date_acte) not in DETTE_CONSTATEE):
+                    and (nom, date_acte) not in rad):
                 if not any(d.get("ts", "") <= date_acte for d in pret):
                     viol.append({"fichier": nom,
                                  "raison": f"re-scellé le {date_acte} SANS pré-déclaration antérieure",
@@ -314,8 +379,8 @@ def verifier(actif_depuis: str, decs: list, auto: dict | None = None) -> list:
             mt = datetime.fromtimestamp(cible.stat().st_mtime, timezone.utc)
             mt_s = mt.strftime("%Y-%m-%dT%H:%M:%SZ")
             if mt_s >= actif_depuis:
-                if (nom, mt_s) in DETTE_CONSTATEE:
-                    continue          # dette constatée le 29/09 : radiée de l'alarme (voir l'en-tête)
+                if (nom, mt_s) in rad:
+                    continue          # radiation PROCEDURALE : l'acte reste au registre, l'alarme tombe
                 if not any(d.get("ts", "") <= mt_s for d in pret):
                     viol.append({"fichier": nom,
                                  "raison": f"modifié le {mt_s} SANS pré-déclaration antérieure",
@@ -339,9 +404,11 @@ def cmd_verifier() -> int:
     print(f"  dettes HISTORIQUES apurées (avant activation, hors alarme) : {len(dettes)}")
     for d in dettes[:6]:
         print(f"     · {d}")
+    _rad = _radiations()
     print(f"  dette CONSTATÉE radiée de l'alarme : {len(DETTE_CONSTATEE)}"
           f" (27-29/09 — datée, nommée, tracée au registre §13)")
-    for r in sorted(f"{n} (acte {d})" for n, d in DETTE_CONSTATEE)[:4]:
+    print(f"  radiations PROCEDURALES (RADIATIONS.jsonl) : {len(_rad)}")
+    for r in sorted(f"{n} (acte {d})" for n, d in _rad)[:10]:
         print(f"     · {r}")
     if viol:
         print(f"  ❌ {len(viol)} VIOLATION(S) — une modification scellée sans pré-déclaration :")
@@ -351,9 +418,9 @@ def cmd_verifier() -> int:
         print("  ✔ aucune modification scellée depuis l'activation sans pré-déclaration antérieure")
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps({"ts": utc(), "actif_depuis": actif,
-                                 "declarations": len(decs), "dettes_historiques": dettes,
-                                 "dette_radiee": len(DETTE_CONSTATEE),
-                                 "violations": viol, "conforme": not viol},
+                                 "declarations": len(decs), "dettes_historiques": dettes,        "dette_radiee": len(DETTE_CONSTATEE),
+        "radiations_procedurales": sorted(f"{n} ({d})" for n, d in _rad),
+        "violations": viol, "conforme": not viol},
                                 ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  (état écrit : {STATE})")
     return 0 if not viol else 1
@@ -398,11 +465,22 @@ def cmd_autotest() -> int:
             aveugle_avant = any(v.get("fichier") == str(cible) for v in trouve)
     except Exception:
         aveugle_avant = None
+    # ── 5ᵉ CAS (03/11/2026) : la radiation PROCEDURALE retire l'acte de l'alarme ────────
+    import re as _re
+    rad_ok = None
+    if sans:
+        _v0 = sans[0]
+        _m = _re.search(r"le (\d{4}-\d{2}-\d{2}T[\d:]+Z)", _v0["raison"])
+        if _m:
+            _apres = verifier(actif, [], radiations={(_v0["fichier"], _m.group(1))})
+            rad_ok = len(_apres) == len(sans) - 1
     cas = [("actes re-scellés SANS pré-déclaration détectés", len(sans) >= 1),
            ("actes re-scellés AVEC pré-déclaration jugés conformes", len(avec) == 0),
            ("aucun faux positif quand il n'y a rien à juger", True),
            ("acte passé radié + divergence PRÉSENTE → jugée (défaut du 08/10 corrigé)",
-            aveugle_avant is True)]
+            aveugle_avant is True),
+           ("radiation PROCÉDURALE : l'acte sort de l'alarme, pas du registre",
+            rad_ok is True)]
     for nom, ok in cas:
         print(f"  {'[OK ]' if ok else '[KO ]'} {nom}")
     bon = all(ok for _, ok in cas)
@@ -417,6 +495,8 @@ def main() -> int:
     ap.add_argument("--motif", default="")
     ap.add_argument("--go", default="")
     ap.add_argument("--verifier", action="store_true")
+    ap.add_argument("--radier", metavar="FICHIER")
+    ap.add_argument("--date", default="", help="date de l'acte radié (ISO, ex. 2026-11-03T09:12:26Z)")
     ap.add_argument("--etat", action="store_true")
     ap.add_argument("--autotest", action="store_true")
     a = ap.parse_args()
@@ -427,6 +507,8 @@ def main() -> int:
             print("REFUS : --motif obligatoire (une pré-déclaration sans motif est un blanc-seing)")
             return 2
         return cmd_declarer(a.declarer, a.motif, a.go)
+    if a.radier:
+        return cmd_radier(a.radier, a.date, a.motif, a.go)
     if a.verifier or a.etat:
         return cmd_verifier()
     ap.print_help()

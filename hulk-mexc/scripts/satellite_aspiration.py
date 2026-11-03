@@ -105,21 +105,35 @@ from ace_sense_mexc import aspiration_sense, book_sense  # noqa: E402
 
 
 def http_json(url, timeout=HTTP_TIMEOUT, retries=1):
+    """Requête JSON avec timeout.
+
+    FIX 03/11/2026 (indispensable au scan parallèle) : `signal.alarm` ne fonctionne
+    QUE dans le thread principal. Appelée depuis un worker (ThreadPoolExecutor),
+    `signal.signal` lève ValueError → TOUS les probes échouaient. L'alarme dure
+    reste donc réservée au thread principal ; en worker, c'est le timeout de
+    `urlopen` qui borne, ce qui suffit (il est déjà positionné).
+    """
     import signal
+    import threading
     import urllib.request
 
+    _main = threading.current_thread() is threading.main_thread()
     last_err = None
     for attempt in range(max(1, retries)):
         try:
-            prev = signal.signal(signal.SIGALRM, lambda *a: (_ for _ in ()).throw(TimeoutError("alarm")))
-            signal.alarm(int(timeout) + 2)
+            prev = None
+            if _main:
+                prev = signal.signal(signal.SIGALRM,
+                                     lambda *a: (_ for _ in ()).throw(TimeoutError("alarm")))
+                signal.alarm(int(timeout) + 2)
             try:
                 req = urllib.request.Request(url, headers={"User-Agent": "hulk-satellite/1.0"})
                 with urllib.request.urlopen(req, timeout=timeout) as r:
                     return json.loads(r.read().decode())
             finally:
-                signal.alarm(0)
-                signal.signal(signal.SIGALRM, prev)
+                if _main:
+                    signal.alarm(0)
+                    signal.signal(signal.SIGALRM, prev)
         except Exception as e:
             last_err = e
             time.sleep(0.3 * (attempt + 1))
@@ -263,37 +277,54 @@ def run_once() -> int:
     btc = prix.get("BTCUSDT", 0.0)
     radar = {}
 
-    for pair in actives:
-        radar[pair] = {"regime": paires.get(pair, "?"), "prix": prix.get(pair, 0.0)}
+    workers = max(1, int(os.environ.get("ASPIRATION_WORKERS", "5")))
+
+    def _sonder(pair):
+        ent = {"regime": paires.get(pair, "?"), "prix": prix.get(pair, 0.0)}
         if pair in prio:
             # MODE COMPLET (2 lectures) : le signal de chute du mur est mesuré.
             try:
                 a = aspiration_sense(pair, http_json, delay_s=0.5, min_notional_usdt=500)
             except Exception as e:
-                radar[pair]["ok"] = False
-                radar[pair]["reason"] = f"probe_err:{e}"
-                continue
-            radar[pair]["ok"] = bool(a.get("ok"))
-            radar[pair]["mode"] = "full"
+                ent["ok"] = False
+                ent["reason"] = f"probe_err:{e}"
+                return pair, ent
+            ent["ok"] = bool(a.get("ok"))
+            ent["mode"] = "full"
             for k in ("aspiration_side", "drop_bid_pct_per_s", "drop_ask_pct_per_s",
                       "max_drop_pct_per_s", "spread_bps", "spread_delta_bps",
                       "wall_bid_usdt", "wall_ask_usdt", "notional_drop_ok",
                       "price_delta_pct", "delay_s"):
-                radar[pair][k] = a.get(k)
+                ent[k] = a.get(k)
         else:
             # MODE LÉGER (1 lecture) : spread + mur LIVE, sans signal de chute.
-            # C'est exactement ce dont le CAP DE MISE et le gate de murs ont besoin ; le
-            # champ `mode` dit à quiconque lit le fichier ce qui manque ici.
             try:
                 b = book_sense(pair, http_json, limit=20)
             except Exception as e:
-                radar[pair]["ok"] = False
-                radar[pair]["reason"] = f"book_err:{e}"
-                continue
-            radar[pair]["ok"] = bool(b.get("ok"))
-            radar[pair]["mode"] = "light"
+                ent["ok"] = False
+                ent["reason"] = f"book_err:{e}"
+                return pair, ent
+            ent["ok"] = bool(b.get("ok"))
+            ent["mode"] = "light"
             for k in ("spread_bps", "wall_bid_usdt", "wall_ask_usdt"):
-                radar[pair][k] = b.get(k)
+                ent[k] = b.get(k)
+        return pair, ent
+
+    # 03/11/2026 — MESURÉ : passe de 80 s pour 22 paires en SÉQUENTIEL, contre un budget
+    # de fraîcheur de 45 s → la vue était périmée presque en permanence et le moteur
+    # REFUSAIT les entrées (ASPIRATION_STALE). Le temps n'est pas un réglage, c'est un
+    # fait : on sonde en PARALLÈLE BORNÉ (5 par défaut) et on publie le temps mesuré.
+    # Fail-open : si le pool casse, on repasse en séquentiel (jamais de passe vide).
+    try:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=min(workers, max(1, len(actives)))) as _ex:
+            for _p, _e in _ex.map(_sonder, actives):
+                radar[_p] = _e
+    except Exception as _e:                            # noqa: BLE001
+        print(f"[sat-asp] PARALLELE_ERR {_e} — repli séquentiel")
+        for pair in actives:
+            _p, _e = _sonder(pair)
+            radar[_p] = _e
 
     LIVE_DATA = {
         "ts": int(time.time()),
@@ -311,6 +342,10 @@ def run_once() -> int:
         # Temps de passe MESURÉ + ce que ça laisse comme marge sous le seuil de fraîcheur du moteur.
         "duree_s": round(time.time() - t_debut, 1),
         "cadence_s": CADENCE_PLIST_SEC,
+        # SOURCE UNIQUE DU SEUIL (03/11) : le producteur DÉCLARE son budget, la chaîne
+        # santé le LIT (`budget_s`) au lieu d'un 75 s recopié qui mentait entre 45 et 75.
+        "budget_s": FRAICHEUR_BUDGET_SEC,
+        "workers": workers,
         "fraicheur_budget_s": FRAICHEUR_BUDGET_SEC,
         "marge_s": round(FRAICHEUR_BUDGET_SEC - (time.time() - t_debut), 1),
         "risque_stale": bool((time.time() - t_debut) + CADENCE_PLIST_SEC > FRAICHEUR_BUDGET_SEC),

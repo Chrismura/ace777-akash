@@ -10,7 +10,7 @@ import os
 import sys
 import time
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 HULK = Path(__file__).resolve().parents[1]
@@ -69,6 +69,11 @@ def main() -> int:
     # glissement des stops par paire, familles de sorties) au lieu de l'état nu.
     # Fail-open : bloc vide → le prompt part quand même (comportement d'avant).
     stats_block = build_stats_block(HULK / "runs")
+    # CAUSE RACINE des « 0 proposition » (03/11) : l'EXEMPLE du prompt portait une
+    # expiry dans le PASSÉ (2026-08-17). Cortana la recopiait fidèlement et le
+    # contrat rejetait TOUT avec « expiry dépassée ». Un exemple ne doit jamais
+    # être périmé : il est calculé à chaque run.
+    _expiry = (datetime.now(timezone.utc) + timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
     user = (
         "Tu es le pilote de paramètres de Hulk (paper MEXC spot, dip&rip + bags). "
         f"État Hulk : {latest_state()}. Ton score de justesse : {score:.0%}. Ta discipline F1 : "
@@ -77,7 +82,7 @@ def main() -> int:
         f"{list(BOUNDS.keys())} (bornes : {BOUNDS}). Format EXACT JSON, rien d'autre :\n"
         '{"proposals": [{"param": "DIP_FLOOR_MULT", "param_class": "threshold_multiplier", '
         '"value": 0.9, "confidence": "faible|moyenne|haute", "reason": "...", '
-        '"expiry": "2026-08-17T00:00:00Z"}]}\n'
+        '"expiry": "' + _expiry + '"}]}\n'
         "Règle : ne propose que si TU as une raison fondée dans les stats ci-dessous "
         "(régime hémorragique, glissement de stops, famille dominante) ; sinon proposals vides. "
         "Tu n'exécutes rien.\n"
@@ -108,6 +113,12 @@ def main() -> int:
         "session_id": datetime.now(timezone.utc).strftime("%Y%m%d%H%M"),
         "cortana_accuracy_score": round(score, 3),
         "enforced_mode": "ADVISORY",
+        # STATUT HONNÊTE (03/11) : 0 proposition n'est pas un succès muet. Le
+        # fichier dit POURQUOI (rejets du contrat), sinon « inerte » se lit comme
+        # « rien à faire » — c'est exactement ce qui a duré des semaines.
+        "statut": "PROPOSITIONS" if valid else "AUCUNE_PROPOSITION",
+        "raison": None if valid else ("; ".join(str(r) for r in rejects[:3])
+                                     or "le modèle n'a proposé aucun ajustement"),
         "proposals": valid,
     }
     PILOT.parent.mkdir(parents=True, exist_ok=True)

@@ -861,6 +861,12 @@ class PaperBot:
         self.gbag_on = cfg.get("GBAG_ON", "0").strip() not in ("0", "false", "False")
         self.gbag_pairs = {p.strip().upper() for p in
                            cfg.get("GBAG_PAIRS", "").split(",") if p.strip()}
+        # GARDE RADIÉS (03/11/2026, « radier une fois pour toute »). MESURÉ :
+        # le moteur ne lisait PAS classification_paires.json — donc une paire
+        # radiée pouvait revenir au premier signal, et rien ne le signalait.
+        # Chargée UNE fois, appliquée dans buy() : choke point unique de toute
+        # allocation (entrée, re-entry, cash redeploy, GBAG).
+        self.radiees = self._charger_radiees()
         # PÉRIMÈTRE (14/10/2026, GO « règle d'or : faire tout pour améliorer hulk ») :
         # GBAG_PAIRS=ALL (ou * / TOUS) = spec G + souche sur TOUS les actifs. Mesuré
         # AVANT élargissement (A/B chiffrage_bag_amplitude, 44 paires, 45 j) : GBAG
@@ -1411,6 +1417,28 @@ class PaperBot:
         """
         self.pnl_total += pnl
         self.pair_pnl[pair] = float(self.pair_pnl.get(pair, 0.0)) + pnl
+
+    def _charger_radiees(self) -> set:
+        """Paires classées « radie » — lues À LA SOURCE, jamais devinées.
+
+        FAIL-OPEN CRIÉ : si la classification est illisible, on n'exclut rien (un
+        moteur qui refuse tout sur un fichier de config cassé est une panne, pas
+        une garde) — mais on le dit fort, et la chaîne LIVRE DE CAISSE / santé
+        le voit. Une garde muette serait pire que pas de garde.
+        """
+        try:
+            p = (Path.home() / "ace777-test-day1" / "Index_Maison" / "strategie"
+                 / "classification_paires.json")
+            d = json.loads(p.read_text(encoding="utf-8"))
+            rad = {str(k).upper() for k, v in (d.get("paires") or {}).items()
+                   if str((v or {}).get("statut") or "").lower() == "radie"}
+            if rad:
+                say("warn", f"GARDE RADIÉS : {len(rad)} paire(s) interdite(s) d'achat → "
+                            + ", ".join(sorted(rad)))
+            return rad
+        except Exception as e:                       # noqa: BLE001
+            say("err", f"[radiees] classification illisible ({e}) — aucune exclusion (fail-open)")
+            return set()
 
     def _is_gbag(self, pair: str) -> bool:
         """Mode GBAG pour cette paire : liste explicite OU périmètre TOTAL (GBAG_PAIRS=ALL)."""
@@ -2799,6 +2827,13 @@ class PaperBot:
         redeploy), ce qui évite qu'un chemin secondaire contourne le mode P0.
         Les sorties n'appellent jamais buy().
         """
+        # GARDE RADIÉS (03/11/2026) : aucune allocation sur une paire radiée, d'où
+        # qu'elle vienne. Refus CRIÉ + journalisé (jamais muet, R11).
+        if str(pair).upper() in (self.radiees or set()):
+            self.log(pair, "SKIP", sc.get("regime") or "QUIET", price, price, 0.0, 0.0,
+                     sc.get("cadence_pct"), "RADIEE")
+            say("warn", f"[{utc_now()}] BUY REFUSÉ {pair} — paire RADIÉE (classification_paires.json)")
+            return
         if self.aspiration_src == "fichier" and self.aspiration_degraded:
             regime = sc.get("regime") or "QUIET"
             self.log(

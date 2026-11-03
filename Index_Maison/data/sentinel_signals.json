@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.1906114821089058,
-      "value": 1.06,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
-      "ts": "2026-11-02T19:22:19.190070+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.3046764769112693,
-      "value": 8551234171.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets macro-économiques, culturels et industriels (Unilever, Alstom, déchets) sans aucun lien avec les marchés crypto. L'anomalie de volume (z-score 2.30) est statistiquement significative mais isolée ; sans contexte onchain spécifique (ex: flux vers exchanges, accumulation de BTC/ETH), elle reste un bruit de fond non confirmé par le narratif.\"\n}",
-      "ts": "2026-11-02T19:47:23.339844+00:00"
-    },
-    {
-      "metric": "long_short",
-      "zscore": 2.1589597106980647,
-      "value": 2.381,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont probablement contaminées par des flux de trading traditionnel (ASX, UCITS, OPCVM) mentionnés dans les titres, et non par des mouvements de baleines crypto. Aucune divergence réelle détectée.\"\n}",
-      "ts": "2026-11-02T20:07:27.635761+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.2833400118543365,
       "value": 8742082800.0,
@@ -349,6 +328,27 @@
       "value": 0.5092625693251085,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.82 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
       "ts": "2026-11-03T09:40:49.223018+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 3.224633192116542,
+      "value": 1.278,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique Théorique (France), non un actif crypto. Les titres médiatiques confirment un contexte académique/scientifique sans lien avec les marchés financiers.\"\n}",
+      "ts": "2026-11-03T10:50:59.534791+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 2.791924829894241,
+      "value": 10037897.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence majeure détectée : une accumulation silencieuse de ~10M USD (z-score 2.79) coexiste avec une absence totale de couverture médiatique. Ce silence narratif face à un flux onchain significatif suggère une accumulation discrète par des acteurs informés, typique d'un positionnement avant une hausse, plutôt qu'une distribution publique.\"\n}\n```",
+      "ts": "2026-11-03T11:21:12.322648+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.5885631058508722,
+      "value": 1.148,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
+      "ts": "2026-11-03T11:21:13.281968+00:00"
     }
   ]
 }

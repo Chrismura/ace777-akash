@@ -1,11 +1,9 @@
 {
-  "ts": "2026-11-03T10:37+00:00",
-  "updated": "2026-11-03T10:37Z",
-  "etat": "ALERTE",
-  "chaines_ok": "16/17",
-  "anomalies": [
-    "HULK : sonde runtime, contrat Cortana ou analyses figés"
-  ],
+  "ts": "2026-11-03T11:37+00:00",
+  "updated": "2026-11-03T11:38Z",
+  "etat": "OK",
+  "chaines_ok": "19/19",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -50,7 +48,7 @@
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 109 min"
+          "detail": "dernier événement il y a 169 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -65,7 +63,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -91,7 +89,7 @@
       "id": "hulk",
       "nom": "HULK",
       "chemin": "paper_diprip → aspiration selon ASPIRATION_SRC → cortana_analyzer → cortana_analysis.json → pilot (contrat)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "process paper_diprip",
@@ -100,8 +98,8 @@
         },
         {
           "nom": "aspiration runtime",
-          "ok": false,
-          "detail": "mode fichier · JSON · âge ts 2.6 min · écart mtime/ts 1.9s · 22 paire(s) · btc=OK · ts=croissant · passe 33.3s · marge 86.7s sous le budget 45s du moteur"
+          "ok": true,
+          "detail": "mode fichier · JSON · âge ts 0.6 min (budget 120s) · écart mtime/ts 2.5s · 22 paire(s) · btc=OK · ts=croissant · passe 14.6s · marge 105.4s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -116,7 +114,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 43 min"
+          "detail": "âge 46 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -203,7 +201,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -300,7 +298,7 @@
         {
           "nom": "rapport veille_degradation_etat.json",
           "ok": true,
-          "detail": "SAIN · âge 1 min"
+          "detail": "SAIN · âge 0 min"
         },
         {
           "nom": "Dead Man's Switch (dms-veille)",
@@ -361,7 +359,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "1 warn(s) carnet déséquilibré (info)"
+          "detail": "4 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -374,12 +372,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.362"
+          "detail": "score 0.3"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -420,12 +418,63 @@
         {
           "nom": "plists versionnés au dépôt",
           "ok": true,
-          "detail": "119 fichiers"
+          "detail": "120 fichiers"
         },
         {
           "nom": "installés dans launchd",
           "ok": true,
           "detail": "tous installés"
+        }
+      ]
+    },
+    {
+      "id": "livre-caisse",
+      "nom": "LIVRE DE CAISSE",
+      "chemin": "hulk-mexc/runs/LIVRE_ANCRE.json + CASH_LEDGER.csv → pair_cash de l'état",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "ancre de reprise",
+          "ok": true,
+          "detail": "58 min"
+        },
+        {
+          "nom": "livre de caisse",
+          "ok": true,
+          "detail": "0 mouvement(s) depuis l'ancre"
+        },
+        {
+          "nom": "ancre + deltas = pair_cash",
+          "ok": true,
+          "detail": "écart +0.00 $"
+        },
+        {
+          "nom": "preuve non vide",
+          "ok": false,
+          "detail": "AUCUN mouvement écrit · 0 événement(s) de cash depuis l'ancre"
+        }
+      ]
+    },
+    {
+      "id": "audit-actes",
+      "nom": "AUDIT DES ACTES",
+      "chemin": "Index_Maison/thermo/audit_actes.json (md5 disque vs pré-déclarations)",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "rapport d'audit",
+          "ok": true,
+          "detail": "âge 9 min"
+        },
+        {
+          "nom": "actes non déclarés",
+          "ok": true,
+          "detail": "aucun acte non déclaré"
+        },
+        {
+          "nom": "fraîcheur (≤ 3 h)",
+          "ok": true,
+          "detail": "9 min"
         }
       ]
     }

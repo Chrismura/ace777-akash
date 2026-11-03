@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.ace777.audit-actes</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/python3</string>
+		<string>/Users/christophe/ace777-test-day1/Index_Maison/scripts/audit_actes.py</string>
+		<string>--controle</string>
+	</array>
+	<key>Nice</key>
+	<integer>10</integer>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/ace777_audit_actes.err.log</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/ace777_audit_actes.log</string>
+	<key>StartInterval</key>
+	<integer>1800</integer>
+	<key>WorkingDirectory</key>
+	<string>/Users/christophe/ace777-test-day1/Index_Maison</string>
+</dict>
+</plist>

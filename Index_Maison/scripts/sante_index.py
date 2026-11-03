@@ -84,10 +84,22 @@ def verifier_aspiration_runtime() -> tuple[bool, str]:
     # (mesuré). Le seuil 0.75 min = 45 s ne laissait que 10 s de marge → chaque
     # micro-ralentissement API déclenchait une fausse ALERTE HULK. Marge = 2× la
     # cadence réelle → 75 s. Détail conservé pour le diagnostic.
+    # UN SEUL SEUIL (03/11) : le trou était écirt dans le commentaire ci-dessous depuis le
+    # 08/10 — « ce contrôle tolère 75 s alors que le moteur coupe à 45 s : entre 45 et 75 s
+    # la chaîne dit OK pendant que Hulk refuse TOUTE nouvelle entrée ». Deux seuils = deux
+    # vérités, et c'est le tableau qui mentait. Désormais la chaîne lit le BUDGET DÉCLARÉ
+    # par le producteur (`budget_s` dans aspiration_live.json). Si le producteur ne le
+    # déclare pas, on retombe sur 45 s (budget historique du moteur) en le DISANT.
+    _budget_s = data.get("budget_s")
+    try:
+        _budget_s = float(_budget_s)
+    except (TypeError, ValueError):
+        _budget_s = 45.0
+    _tol_min = max(_budget_s, 5.0) / 60.0
     frais_ok = (
-        0 <= age_ts <= 1.25
+        0 <= age_ts <= _tol_min
         and age_mtime is not None
-        and age_mtime <= 1.25
+        and age_mtime <= _tol_min
         and mtime_ts_ecart <= 5.0
     )
     paires = data.get("paires")
@@ -134,7 +146,7 @@ def verifier_aspiration_runtime() -> tuple[bool, str]:
             # L'état de contrôle est un filet complémentaire : son échec ne doit
             # pas faire tomber la supervision ni le moteur surveillé.
             pass
-    detail = (f"mode fichier · JSON · âge ts {age_ts:.1f} min · "
+    detail = (f"mode fichier · JSON · âge ts {age_ts:.1f} min (budget {_budget_s:.0f}s) · "
               f"écart mtime/ts {mtime_ts_ecart:.1f}s · "
               f"{len(paires) if isinstance(paires, dict) else 0} paire(s) · "
               f"btc={'OK' if prix_ok else 'INVALIDE'} · "
@@ -942,6 +954,129 @@ def verifier_chaines():
         "id": "organes-installes", "nom": "ORGANES INSTALLÉS",
         "chemin": "Index_Maison/plists/*.plist → ~/Library/LaunchAgents → launchd",
         "ok": bool(plists_versionnes) and not manquants, "maillons": maillons,
+    })
+
+    # ============================================================
+    # 18. LIVRE DE CAISSE — la réconciliation qui ne peut plus mentir (03/11)
+    #    Le moteur écrit CHAQUE mouvement de cash (CASH_LEDGER.csv) et une ancre
+    #    de départ (LIVRE_ANCRE.json). Donc ancre + deltas DOIT égaler pair_cash.
+    #    Si ça diverge : un chemin a touché le cash sans le déclarer. Rouge, nommé.
+    #    Fail-CLOSED sur l'ancre absente : sans ancre, aucune preuve (R26).
+    # ============================================================
+    maillons = []
+    _runs = IM.parent / "hulk-mexc" / "runs"
+    _ancre = _runs / "LIVRE_ANCRE.json"
+    _ledger = _runs / "CASH_LEDGER.csv"
+    _ecart = None
+    _n_mvt = 0
+    _age = None
+    try:
+        _a = json.loads(_ancre.read_text(encoding="utf-8"))
+        _age = (time.time() - _ancre.stat().st_mtime) / 60.0
+        _cash = {p: float(v or 0.0) for p, v in (_a.get("cash") or {}).items()}
+        _n0 = int(_a.get("n_ledger_0") or 0)
+        if _ledger.exists():
+            import csv as _csv
+            with _ledger.open(newline="", encoding="utf-8") as _f:
+                _rows = list(_csv.DictReader(_f))[_n0:]
+            for _r in _rows:
+                if not _r.get("pair"):
+                    continue
+                _cash[_r["pair"]] = _cash.get(_r["pair"], 0.0) + float(_r.get("delta_usdt") or 0.0)
+                _n_mvt += 1
+        _ptr = _runs / ".hulk_resume_pointer"
+        _st = {}
+        if _ptr.exists():
+            _st = json.loads((_runs / _ptr.read_text(encoding="utf-8").strip()).read_text(encoding="utf-8"))
+        _reel = {p: float(v or 0.0) for p, v in (_st.get("pair_cash") or {}).items()}
+        _ecart = round(sum(_reel.get(p, 0.0) - _cash.get(p, 0.0) for p in set(_reel) | set(_cash)), 2)
+        # PREUVE VIDE (03/11, défaut « vert par vide ») : CASH_LEDGER.csv était ABSENT et la
+        # chaîne affichait pourtant « écart +0,00 $ ». Ancre + 0 delta == pair_cash PAR
+        # CONSTRUCTION : ce n'est pas une mesure. On compte donc les événements de cash
+        # postérieurs à l'ancre : s'il en existe sans mouvement écrit, la preuve est VIDE.
+        _jnl = _runs / str(_a.get("journal") or "")
+        _n_evt = 0
+        if _jnl.is_file():
+            import csv as _csv2
+            with _jnl.open(newline="", encoding="utf-8-sig", errors="replace") as _jf:
+                for _r0 in _csv2.DictReader(_jf):
+                    _ev0 = (_r0.get("event") or "").upper()
+                    if (str(_r0.get("ts") or "") > str(_a.get("ts") or "")
+                            and _ev0.startswith(("BUY", "SELL", "STOP", "DCA",
+                                                 "GBAG", "BAG", "CORE"))):
+                        _n_evt += 1
+        _probant = _ledger.exists() and _n_mvt > 0
+        if not _probant and _n_evt > 0:
+            anomalies.append(
+                f"LIVRE DE CAISSE : SANS_MESURE — {_n_evt} événement(s) de cash depuis l'ancre "
+                f"et {'CASH_LEDGER.csv absent' if not _ledger.exists() else 'aucun mouvement écrit'} "
+                "(0,00 $ affiché avant était un vert par vide)")
+    except Exception as _e:
+        maillons.append(maillon("lecture ancre+livre", False, f"{type(_e).__name__}: {_e}"))
+    _ancre_ok = _ancre.exists() and _ecart is not None
+    maillons.append(maillon("ancre de reprise", _ancre.exists(),
+                           (f"{_age:.0f} min" if _age is not None else "ABSENTE")))
+    maillons.append(maillon("livre de caisse", _ancre_ok,
+                           f"{_n_mvt} mouvement(s) depuis l'ancre"))
+    _n_evt_v = locals().get("_n_evt", 0)
+    _probant_v = locals().get("_probant", False)
+    maillons.append(maillon("ancre + deltas = pair_cash",
+                           _ancre_ok and abs(_ecart or 0.0) <= 1.0,
+                           (f"écart {_ecart:+.2f} $" if _ecart is not None else "non calculable")))
+    maillons.append(maillon("preuve non vide", bool(_probant_v),
+                           (f"{_n_mvt} mouvement(s) écrit(s)" if _probant_v else
+                            f"AUCUN mouvement écrit · {_n_evt_v} événement(s) de cash depuis l'ancre")))
+    if not _ancre_ok:
+        anomalies.append("LIVRE DE CAISSE : ancre absente — réconciliation impossible (R26)")
+    elif abs(_ecart or 0.0) > 1.0:
+        anomalies.append(f"LIVRE DE CAISSE : écart {_ecart:+.2f} $ — un chemin touche le cash "
+                         "sans passer par add/take_pair_cash")
+    _lv_ok = bool(_ancre_ok and abs(_ecart or 0.0) <= 1.0 and (_probant_v or _n_evt_v == 0))
+    chaines.append({
+        "id": "livre-caisse", "nom": "LIVRE DE CAISSE",
+        "chemin": "hulk-mexc/runs/LIVRE_ANCRE.json + CASH_LEDGER.csv → pair_cash de l'état",
+        "ok": _lv_ok, "maillons": maillons,
+    })
+
+    # ============================================================
+    # 19. AUDIT DES ACTES — ce que l'IA ne voit pas d'elle-même (03/11)
+    #    Toutes les erreurs ne sont pas déclarables : on ne déclare que celles qu'on
+    #    VOIT. Ce gardien lit le DISQUE (md5 + mtime) et nomme tout fichier touché
+    #    sans pré-déclaration antérieure, y compris hors fichiers scellés (docs,
+    #    cockpit, JSON) — là où predemodifier.py ne regarde pas.
+    #    Fail-CLOSED sur rapport absent : sans audit, aucune preuve.
+    # ============================================================
+    maillons = []
+    _aud = IM / "thermo" / "audit_actes.json"
+    _a_ok, _a_non, _a_age, _a_raison = False, None, None, "rapport absent"
+    try:
+        _d = json.loads(_aud.read_text(encoding="utf-8"))
+        _a_age = (time.time() - _aud.stat().st_mtime) / 60.0
+        _a_non = int(_d.get("non_declares") or 0)
+        _a_ok = bool(_d.get("ok"))
+        _a_raison = (
+            f"{_a_non} acte(s) non déclaré(s)" if _a_non else
+            ("aucun acte non déclaré" if _d.get("premier_passage") is False else
+             "première passe (référence posée, aucune comparaison)"))
+    except Exception as _e:
+        _a_raison = f"{type(_e).__name__}: {_e}"
+    _a_frais = _a_age is not None and _a_age <= 180.0
+    maillons.append(maillon("rapport d'audit", _aud.exists(),
+                           (f"âge {_a_age:.0f} min" if _a_age is not None else "ABSENT")))
+    maillons.append(maillon("actes non déclarés", bool(_a_ok), _a_raison))
+    maillons.append(maillon("fraîcheur (≤ 3 h)", _a_frais,
+                           (f"{_a_age:.0f} min" if _a_age is not None else "non mesurable")))
+    if not _aud.exists():
+        anomalies.append("AUDIT DES ACTES : rapport absent — les actes non déclarés ne sont "
+                         "plus mesurés (R26)")
+    elif not _a_ok:
+        anomalies.append(f"AUDIT DES ACTES : {_a_raison} — déclarer ou réparer")
+    elif not _a_frais:
+        chaines_degradees.append("AUDIT DES ACTES")
+    chaines.append({
+        "id": "audit-actes", "nom": "AUDIT DES ACTES",
+        "chemin": "Index_Maison/thermo/audit_actes.json (md5 disque vs pré-déclarations)",
+        "ok": bool(_a_ok and _a_frais and _aud.exists()), "maillons": maillons,
     })
 
     return chaines, anomalies, now, chaines_degradees

@@ -76,6 +76,36 @@ def lire_marks():
     return marks, os.path.basename(fs[-1]), d.get("ts")
 
 
+def lire_journal_meta(journal, ts_ancre):
+    """Compte ce que le journal CONTIENT — au lieu de raconter pourquoi il manque des choses.
+
+    POURQUOI (03/11/2026, 3ᵉ passe). Le drift de 24,96 $ portait une cause écrite à la main
+    (« cash bougé sans ligne ») que RIEN ne mesurait : une cause inventée est une erreur de
+    plus, et c'est exactement la classe que Christophe dénonce. Ici on ne raconte pas, on
+    compte :
+      · `n_seed` = événements de financement initial (SEED/INIT/DEPOT/FUND). Mesuré = 0 sur
+        tout le journal → le rejeu ne PEUT PAS reconstruire le cash de départ, il doit
+        inventer un budget (mission.json). L'écart mélange donc deux POINTS DE DÉPART : ce
+        n'est ni une perte, ni du cash manquant.
+      · `n_cash_post_ancre` = événements qui bougent du cash APRÈS l'ancre. S'il en existe
+        et qu'aucun mouvement n'est écrit dans CASH_LEDGER.csv, la réconciliation est VIDE :
+        publier 0,00 $ serait un faux vert (le défaut du 03/11, trouvé par Christophe).
+    """
+    types, n_seed, n_cash_post, n_lignes = {}, 0, 0, 0
+    cash_ev = ("BUY", "SELL", "STOP", "DCA", "GBAG", "BAG", "CORE")
+    with open(journal, newline="", encoding="utf-8-sig", errors="replace") as f:
+        for r in csv.DictReader(f):
+            n_lignes += 1
+            ev = (r.get("event") or "").upper()
+            types[ev] = types.get(ev, 0) + 1
+            if ev.startswith(("SEED", "INIT", "DEPOT", "FUND")):
+                n_seed += 1
+            elif ts_ancre and ev.startswith(cash_ev) and str(r.get("ts") or "") > ts_ancre:
+                n_cash_post += 1
+    return {"n_lignes": n_lignes, "types": len(types), "n_seed": n_seed,
+            "n_cash_post_ancre": n_cash_post}
+
+
 def qty_de(ent):
     if not isinstance(ent, dict):
         return 0.0
@@ -92,6 +122,12 @@ def main():
     try:
         st, nom_state = lire_state()
         journal = lire_journal()
+        try:
+            _a0 = json.load(open(ANCRE, encoding="utf-8"))
+        except Exception:
+            _a0 = {}
+        meta_journal = lire_journal_meta(journal, _a0.get("ts"))
+        meta_journal["ledger_present"] = os.path.exists(LEDGER)
         marks, nom_digest, ts_digest = lire_marks()
         # FIX 03/11 (boucle source) : une paire absente du dernier DIGEST était
         # valorisée 0 -> QNT/FLUID/RWA ont fait disparaître 103 $ du livre au run
@@ -167,7 +203,7 @@ def main():
                 s["cost"] = max(0.0, s["cost"] - avg * q)
             n_ev += 1
 
-    def livre_caisse(cash_moteur):
+    def livre_caisse(cash_moteur, meta):
         """ÉCART POST-ANCRE — la seule mesure qui ne peut pas mentir.
 
         POURQUOI CE CHANGEMENT (03/11/2026). L'ancien calcul rejouait tout le
@@ -212,11 +248,36 @@ def main():
             if abs(e) >= 0.01:
                 ecarts[p] = e
         total = round(sum(ecarts.values()), 2)
-        return {"disponible": True, "ancre_ts": a.get("ts"),
+        # PREUVE VIDE — le défaut mesuré le 03/11 : CASH_LEDGER.csv était ABSENT, donc
+        # ancre + 0 delta == pair_cash par construction, et le rapport publiait
+        # « écart 0,00 $ · ok true ». Un vert qui ne mesure rien. Trois états, désormais :
+        #   probant   → au moins un mouvement écrit dans le livre ................ ok = |d| ≤ seuil
+        #   non probant + des événements de cash depuis l'ancre (sans ligne) ..... ok = False (SANS_MESURE)
+        #   non probant + aucun événement de cash ............................... ok = None (rien à réconcilier)
+        probant = bool(os.path.exists(LEDGER)) and n_mvt > 0
+        base = {"disponible": True, "ancre_ts": a.get("ts"),
                 "ancre_journal": a.get("journal"), "n_mouvements": n_mvt,
                 "ecart_post_ancre_usd": total, "ecart_par_paire": ecarts,
-                "ok": abs(total) <= SEUIL_CAISSE_USD,
-                "seuil_usd": SEUIL_CAISSE_USD}
+                "probant": probant, "seuil_usd": SEUIL_CAISSE_USD,
+                "n_evenements_cash_post_ancre": meta.get("n_cash_post_ancre", 0),
+                "ledger_present": bool(os.path.exists(LEDGER))}
+        if not probant and meta.get("n_cash_post_ancre", 0) > 0:
+            base.update({
+                "ok": False,
+                "raison": ("SANS_MESURE : %d événement(s) de cash depuis l'ancre et %s — "
+                           "la réconciliation n'est PAS prouvée" % (
+                               meta["n_cash_post_ancre"],
+                               "CASH_LEDGER.csv absent" if not os.path.exists(LEDGER)
+                               else "aucun mouvement écrit dans CASH_LEDGER.csv"))})
+            return base
+        if not probant:
+            base.update({
+                "ok": None,
+                "raison": ("aucun événement de cash depuis l'ancre — identité vraie par "
+                           "construction, NON PROBANTE (à ne pas lire comme une preuve)")})
+            return base
+        base["ok"] = abs(total) <= SEUIL_CAISSE_USD
+        return base
 
     def agg(perimetre):
         cash = sum(rp[p]["cash"] for p in perimetre if p in rp)
@@ -240,15 +301,26 @@ def main():
     book_journal = cash_t + val_t
     cash_o, val_o = agg(observation)
     cash_r, val_r = agg(radies)
+    # RADIÉS (03/11, 2ᵉ passe — mesuré AVANT de conclure) : le replay semait le
+    # budget DÉCLARÉ (30 $/paire) de paires que le moteur n'a jamais financées.
+    # Preuve : QAIT net journal −0,85 $ / moteur 0 ; TEL net journal +1,47 $ /
+    # moteur 0. Les 60,28 $ n'étaient donc PAS du cash : c'était un artefact de
+    # budget. Le bon critère n'est pas « le replay tombe à zéro » (impossible par
+    # construction) mais « LE MOTEUR NE DÉTIENT RIEN » — vérifiable à la source.
+    radies_detenu = {p: round(float(cash_m.get(p, 0.0)) + qty_m.get(p, 0.0) * marks.get(p, 0.0), 2)
+                     for p in radies}
+    radies_detenu_total = round(sum(radies_detenu.values()), 2)
 
     ecart = round(book_moteur - book_journal, 2)
     portefeuille = round(book_moteur + cash_o + val_o, 2)
-    caisse = livre_caisse(cash_m)
+    caisse = livre_caisse(cash_m, meta_journal)
     # ok = l'écart RÉEL du livre de caisse (post-ancre) + le résidu des radiés.
     # L'ancien écart de replay est CONSERVÉ et publié (drift historique), jamais
     # utilisé pour blanchir : il mesure une information absente du journal.
-    ok_caisse = bool(caisse.get("ok")) if caisse.get("disponible") else False
-    ok_radies = abs(cash_r + val_r) <= 2.0
+    # ok_caisse : False seulement si la mesure CONTREDIT (écart réel ou SANS_MESURE).
+    # None (rien à réconcilier) n'est pas une preuve mais n'est pas une contradiction.
+    ok_caisse = (caisse.get("ok") is not False) if caisse.get("disponible") else False
+    ok_radies = abs(radies_detenu_total) <= 0.01
     ok_global = bool(ok_caisse and ok_radies)
 
     # détail des écarts, paires trading seulement (le vrai chantier)
@@ -281,24 +353,37 @@ def main():
         "cash_trading_journal": round(cash_t, 2),
         "observation_cash": round(cash_o, 2),
         "observation_valeur": round(val_o, 2),
-        "radies_residuel": round(cash_r + val_r, 2),
+        "radies_residuel": radies_detenu_total,
+        "radies_detenu_moteur_usd": radies_detenu_total,
+        "radies_budget_artefact_usd": round(cash_r + val_r, 2),
+        "radies_budget_cause": ("budget déclaré semé dans le replay pour des paires "
+                                "jamais financées par le moteur (artefact, pas du cash) — "
+                                "critère retenu : détention moteur = 0"),
         "equity_portefeuille": portefeuille,
         "equity_trading_moteur": round(book_moteur, 2),
         "ok": ok_global,
         "ok_caisse": ok_caisse,
         "ok_radies": ok_radies,
         "livre_caisse": caisse,
-        "drift_historique_usd": (ecart if caisse.get("disponible") else None),
+        "drift_historique_usd": ecart,
+        "drift_historique_attribue": False,
         "drift_historique_cause": (
-            "cash bougé par le moteur SANS ligne de journal avant le livre de caisse "
-            "(WUSDT/QNTUSDT/MNSRYUSDT) — information absente, pas une perte ; "
-            "non rejouable par construction, gelé depuis l'ancre"
-            if caisse.get("disponible") else None),
+            "NON ATTRIBUÉ à un mouvement précis. Mesuré, pas raconté : le journal ne contient "
+            "AUCUN événement de financement initial (%d SEED/INIT sur %d lignes, %d types) — "
+            "un rejeu ne peut donc pas reconstruire le cash de départ et doit inventer un "
+            "budget (mission.json). L'écart mesure donc DEUX CHOSES MÊLÉES : deux points de "
+            "départ différents + les mouvements que le journal n'a pas écrits. Ce n'est ni "
+            "une perte ni du cash manquant : la poche moteur (pair_cash) fait foi. "
+            "L'attribution exacte exige de journaliser les seeds (à faire, calendrier)."
+            % (meta_journal["n_seed"], meta_journal["n_lignes"], meta_journal["types"])),
+        "drift_historique_preuve": dict(meta_journal),
         "seuil_alerte_usd": SEUIL_CAISSE_USD,
         "detail_trading": detail,
         "observation": {p: round(rp[p]["cash"], 2) for p in observation},
-        "radies": {p: round(rp[p]["cash"] + rp[p]["qty"] * marks.get(p, 0.0), 2)
-                   for p in radies},
+        "radies": radies_detenu,
+        "radies_detail": {p: {"budget_declare": round(budgets.get(p, 0.0), 2),
+                              "cash_journal_replay": round(rp[p]["cash"], 2),
+                              "detenu_moteur": radies_detenu.get(p, 0.0)} for p in radies},
         "note": ("portefeuille = trading (moteur) + observation. Les ratios de risque "
                  "ne lisent QUE le trading ; le résidu des radiés doit être purgé."),
         "marks_sans_prix_frais": marks_stale,
@@ -314,11 +399,12 @@ def main():
           % (book_moteur, book_journal, ecart, cash_o + val_o, cash_r + val_r,
              portefeuille, res["ok"]))
     if caisse.get("disponible"):
+        _etat = {True: "OK (probant)", False: "KO " + str(caisse.get("ecart_par_paire")),
+                 None: "NON PROBANT — " + str(caisse.get("raison"))}[caisse.get("ok")]
         print("[equity] LIVRE DE CAISSE (post-ancre) : ecart=%+.2f$ sur %d mouvements "
               "(ancre %s) -> %s"
               % (caisse["ecart_post_ancre_usd"], caisse["n_mouvements"],
-                 caisse.get("ancre_ts"), "OK" if caisse["ok"] else
-                 f"KO {caisse['ecart_par_paire']}"))
+                 caisse.get("ancre_ts"), _etat))
     else:
         print("[equity] LIVRE DE CAISSE : %s" % caisse.get("raison"))
     return 0

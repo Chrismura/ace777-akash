@@ -1134,12 +1134,66 @@ def load_hulk():
         key=lambda x: abs(x["ecart"]), reverse=True,
     )
     _rec_mot = round(sum(_r.get("cashMoteur") or 0.0 for _r in out["hulkVsHold"]["pairs"]), 2)
+    # TOTAUX À LA SOURCE (03/11). MESURÉ sur le tableau cockpit : 692,81 + 133,80 =
+    # 826,61 alors que la colonne TOTAL affichait 826,62 — parce que les totaux de
+    # lignes étaient additionnés en JS pendant que les colonnes TOTAL venaient du
+    # feed. Deux calculs = deux vérités. Désormais l'identité est calculée UNE fois
+    # ici, exposée, et le cockpit la LIT.
+    _pos_tot = round(sum(_r.get("pos") or 0.0 for _r in out["hulkVsHold"]["pairs"]), 2)
+    _cash_tot = round(sum(_r.get("cash") or 0.0 for _r in out["hulkVsHold"]["pairs"]), 2)
+    _mot_tot = round(sum(_r.get("cashMoteur") or 0.0 for _r in out["hulkVsHold"]["pairs"]), 2)
+    out["hulkVsHold"]["posTotal"] = _pos_tot
+    out["hulkVsHold"]["cashTotal"] = _cash_tot
+    out["hulkVsHold"]["cashMoteurTotal"] = _mot_tot
+    out["hulkVsHold"]["identiteTotale"] = abs(
+        (_pos_tot + _cash_tot) - float(out["hulkVsHold"].get("reel") or 0.0)) <= 0.02
+    # RÉCONCILIATION ANCRÉE (03/11, 2ᵉ passe) : l'ancienne note affirmait qu'un écart
+    # rejeu/moteur était « structurel » et donc normal — c'était vrai TANT QUE le
+    # journal ne portait pas les mouvements de cash. Depuis le livre de caisse, ça se
+    # MESURE : ancre + deltas doit égaler pair_cash. Le drift antérieur est publié
+    # (gelé), jamais blanchi.
+    _livre = {"ok": False, "raison": "livre de caisse indisponible"}
+    try:
+        from pathlib import Path as _Path
+        _runs = _Path.home() / "ace777-test-day1" / "hulk-mexc" / "runs"
+        _a = json.loads((_runs / "LIVRE_ANCRE.json").read_text(encoding="utf-8"))
+        _cash_anc = {_p: float(_v or 0.0) for _p, _v in (_a.get("cash") or {}).items()}
+        _n0 = int(_a.get("n_ledger_0") or 0)
+        _n_mvt = 0
+        _lp = _runs / "CASH_LEDGER.csv"
+        if _lp.exists():
+            import csv as _csv
+            with _lp.open(newline="", encoding="utf-8") as _lf:
+                for _i, _row in enumerate(_csv.DictReader(_lf)):
+                    if _i < _n0 or not _row.get("pair"):
+                        continue
+                    _cash_anc[_row["pair"]] = (_cash_anc.get(_row["pair"], 0.0)
+                                               + float(_row.get("delta_usdt") or 0.0))
+                    _n_mvt += 1
+        _moteur_p = {_r["pair"]: float(_r.get("cashMoteur") or 0.0)
+                     for _r in out["hulkVsHold"]["pairs"]}
+        _post = round(sum(_moteur_p.get(_p, 0.0) - _cash_anc.get(_p, 0.0)
+                          for _p in set(_moteur_p) | set(_cash_anc)), 2)
+        # PREUVE VIDE (03/11) : avec 0 mouvement écrit, ancre + deltas == pair_cash PAR
+        # CONSTRUCTION. On ne peut donc pas afficher « ok » : la mesure est non probante.
+        _probant = _lp.exists() and _n_mvt > 0
+        _livre = {"ancre_ts": _a.get("ts"), "n_mouvements": _n_mvt,
+                  "ecart_post_ancre": _post, "probant": _probant,
+                  "ok": (abs(_post) <= 1.0) if _probant else None}
+    except Exception as _e:                       # noqa: BLE001
+        _livre = {"ok": False, "raison": f"livre de caisse illisible ({type(_e).__name__})"}
     out["hulkVsHold"]["reconciliation"] = {
         "totalRejeu": out["hulkVsHold"]["cash"],
         "totalMoteur": _rec_mot,
         "ecartTotal": round(out["hulkVsHold"]["cash"] - _rec_mot, 2),
         "pires": _rec_pairs[:5],
-        "note": "Ecart structurel connu (13/10) : le rejeu debite les achats, la poche moteur non. Ecart != anomalie.",
+        "livre_caisse": _livre,
+        "note": ("Deux bases assumées : le rejeu (compte à capital égal) sert le score vs "
+                 "HOLD ; la poche moteur (pair_cash) sert la trésorerie réelle. L'écart "
+                 "entre les deux MÊLE deux points de départ (le journal n'écrit aucun seed) "
+                 "et les mouvements non journalisés : il n'est pas attribué. Seul l'écart "
+                 "POST-ANCRE est une mesure — et seulement si des mouvements ont été écrits "
+                 "(livre_caisse.probant) ; sinon il est NON PROBANT, pas vert."),
     }
     # SLIPPAGE TOP-LEVEL (16/10, GO) : totaux + pires spreads + alerte >50 bps.
     # Le slip des stops (slip_stats) vit en mémoire moteur seule → n/a ici ; sa

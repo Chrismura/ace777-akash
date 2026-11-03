@@ -134,7 +134,7 @@ def polymarket_crypto(limit=50):
 
 def main():
     res = {"ts": utc(), "sources": {}, "gdelt": {}, "polymarket": [],
-           "notre_geopol": {}, "lecture": "", "ok": True}
+           "notre_geopol": {}, "lecture": "", "ok": True, "degrade": []}
     # UN SEUL appel GDELT (requête combinée OR) : 3 appels = 429 assuré.
     # GDELT rate-limite par IP/fenêtre ; 1 appel poli + 1 reprise longue.
     try:
@@ -142,8 +142,18 @@ def main():
         res["sources"]["gdelt_monde"] = f"ok ({len(res['gdelt']['monde'])} articles)"
     except Exception as e:
         res["gdelt"]["monde"] = []
-        res["sources"]["gdelt_monde"] = f"HS: {e} (fenetre rate-limit, reessayer plus tard)"
-        res["ok"] = False
+        # 429 / penalty box = QUOTA, pas une panne (03/11). Un 429 permanent
+        # affiché « HS » peignait GEOPOL en rouge en continu : une alerte qui ne
+        # s'éteint jamais n'alerte plus (leçon du 03/11). On DÉCLARE le repos et
+        # on garde ok=True : dégradé explicite, pas panne.
+        _m = str(e)
+        _repos = ("429" in _m) or ("penalty" in _m.lower()) or ("rate" in _m.lower())
+        if _repos:
+            res["sources"]["gdelt_monde"] = f"repos rate-limit ({_m}) — reprise auto, pas une panne"
+            res.setdefault("degrade", []).append("gdelt_monde")
+        else:
+            res["sources"]["gdelt_monde"] = f"HS: {_m}"
+            res["ok"] = False
     try:
         res["polymarket"] = polymarket_crypto()
         res["sources"]["polymarket"] = f"ok ({len(res['polymarket'])} events crypto/macro)"
