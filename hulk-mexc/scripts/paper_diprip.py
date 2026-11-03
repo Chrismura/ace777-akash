@@ -4457,6 +4457,7 @@ class PaperBot:
         (delisted 29/08 mais capturé/jugé encore 2 mois après : reliquats jamais purgés).
         Si aucun prix n'est lisible, on NE RIEN invente : la position reste, signalée."""
         vivants = set(self.pos) | set(self.bags) | set(self.bag_dca) | set(self.conservation)
+        pair = ""  # FIX 03/11 : le résumé ci-dessous peut tourner sans itération
         for pair in sorted(p for p in vivants if p not in set(self.pairs)):
             try:
                 price = last_price_frais(pair)
@@ -4514,11 +4515,12 @@ class PaperBot:
             if pair in self.bag_dca:
                 self.add_pair_cash(pair, float(self.bag_dca[pair].get("notional") or 0.0))
                 del self.bag_dca[pair]
-            say(
-                "hdr",
-                f"RETRAIT_PAIRE {pair}: soldée au marché paper (hors PAPER_PAIRS) "
-                f"— plus aucune capture ni décision pour cette paire",
-            )
+            if pair:
+                say(
+                    "hdr",
+                    f"RETRAIT_PAIRE {pair}: soldée au marché paper (hors PAPER_PAIRS) "
+                    f"— plus aucune capture ni décision pour cette paire",
+                )
         # 28/10/2026 (GO Christophe « efface-moi ce TEL ») : une paire retirée ne
         # doit laisser AUCUN armement vivant — le reentry TEL armé le 05/10 pouvait
         # encore déclencher un rachat. Purge reentry + pendings redeploy hors pairs.

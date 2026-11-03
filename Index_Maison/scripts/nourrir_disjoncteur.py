@@ -174,6 +174,26 @@ def lire_marks_fraiches(max_age_h=3.0):
                     px[e["pair"]] = float(e["last"])
             except Exception:
                 continue
+        # FIX 03/11 (boucle source, faux Mur) : le DIGEST change de PÉRIMÈTRE d'un
+        # scan à l'autre. Le 03/11 07:10Z il ne portait pas QNT/FLUID/RWA -> ils
+        # étaient valorisés 0 -> equity 691,95 $ au lieu de 794,84 $ -> « perte
+        # 13,35 % » -> Mur de Fer + STOP_ALL + moteur coupé. Un prix manquant n'est
+        # pas un prix nul : on complète avec le dernier mark CONNU (40 DIGEST max).
+        for f in cands[1:41]:
+            if len(px) >= 30:
+                break
+            try:
+                d2 = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            for e in (d2.get("pairs") or []):
+                try:
+                    _p = e.get("pair")
+                    _v = float(e.get("last") or 0)
+                except Exception:
+                    continue
+                if _p and _p not in px and _v > 0:
+                    px[_p] = _v
         return px, min(heartbeats)
     except Exception:
         return None, None
@@ -230,6 +250,17 @@ def main():
                           "statut": "SANS_MESURE", "state": st["path"]}))
         return 0
     equity = st["cash"] + sum(q * marks.get(p, 0.0) for p, q in st["qty"].items())
+    # R11 (03/11) : si une seule paire détenue n'a AUCUN mark connu, l'equity est
+    # fausse -> SANS_MESURE. On ne coupe jamais le moteur sur un chiffre incomplet.
+    _manquants = sorted(p for p in st["qty"] if p not in marks)
+    if _manquants:
+        ecrire_histoire({"event": "SANS_MESURE", "ts": now.isoformat(),
+                         "raison": "paire(s) détenue(s) sans mark connu : %s"
+                                   % ",".join(_manquants[:6])})
+        print(json.dumps({"perte_journaliere_pct": None, "mode": mode,
+                          "statut": "SANS_MESURE", "state": st["path"],
+                          "manquants": _manquants}))
+        return 0
 
     # Pivot du jour : le 1er state vu après 00:00 UTC devient la référence.
     # Migration §73 : l'ancien pivot (réalisé pur) est remplacé par l'equity.

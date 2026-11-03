@@ -1,42 +1,8 @@
 {
-  "timestamp": 1793690020,
-  "date": "2026-11-03T07:13:40.507388+00:00",
-  "n_analyses": 16,
+  "timestamp": 1793691220,
+  "date": "2026-11-03T07:33:40.821764+00:00",
+  "n_analyses": 15,
   "analyses": [
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 36.169016051512095,
-        "value": 40760597.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence critique : Anomalie onchain massive (z-score 36.17, ~40.7M USD) vs silence médiatique total. L'absence de couverture pour un tel flux suggère une accumulation silencieuse ou un transfert vers des cold wallets, typique d'un positionnement haussier avant une volatilité publique.\"\n}\n```",
-        "ts": 1793669331.804801
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.03,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "fear_greed",
@@ -82,7 +48,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99959.691,
+          "value": 100018.81,
           "seuil": 120000,
           "depasse": false
         }
@@ -141,7 +107,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99959.691,
+          "value": 100018.81,
           "seuil": 120000,
           "depasse": false
         }
@@ -195,9 +161,9 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 0.0,
+          "value": 831586.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "achats": {
           "value": 0.0,
@@ -205,18 +171,19 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.03,
+          "value": 0.39,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "ventes > achats",
+        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
+        "niveau": "surveiller",
+        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -234,7 +201,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99959.691,
+          "value": 100018.81,
           "seuil": 120000,
           "depasse": false
         }
@@ -259,12 +226,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.03,
+          "value": 0.39,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 3326924.0,
+          "value": 3341906.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -327,7 +294,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99959.691,
+          "value": 100018.81,
           "seuil": 120000,
           "depasse": false
         }
@@ -367,17 +334,17 @@
       "fiche": "liquidations",
       "questions": {
         "longs": {
-          "value": 3117361.0,
+          "value": 3104589.0,
           "seuil": 0,
           "depasse": true
         },
         "shorts": {
-          "value": 209563.0,
+          "value": 237317.0,
           "seuil": 0,
           "depasse": true
         },
         "prix": {
-          "value": -0.03,
+          "value": 0.39,
           "seuil": 1,
           "depasse": false
         }
@@ -407,7 +374,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99959.691,
+          "value": 100018.81,
           "seuil": 120000,
           "depasse": false
         }
@@ -437,7 +404,7 @@
           "depasse": false
         },
         "prix": {
-          "value": -0.03,
+          "value": 0.39,
           "seuil": 1,
           "depasse": false
         }
@@ -462,7 +429,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": -0.03,
+          "value": 0.39,
           "seuil": 1,
           "depasse": false
         },
@@ -477,7 +444,7 @@
           "depasse": false
         },
         "whales": {
-          "value": 0,
+          "value": 1,
           "seuil": 5,
           "depasse": false
         }
