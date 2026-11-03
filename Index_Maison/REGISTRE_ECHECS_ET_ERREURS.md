@@ -2710,3 +2710,49 @@ sur toute la plage. `verifier_cap_hack.py` : 120 $ → **2,42 $**, P1/P2/P3 **OK
 `chiffrage_pump_manque.py` (acte 09:45:09Z, mon fait) + `rafraichir_klines.py`, `sante_mesures.py`,
 `mesure_core_filet.py`, `com.ace777.klines-horaire.plist` (re-scellés 09:12:26Z sans pré-déclaration).
 Registre remis à **0 écart / 0 absent** (261 entrées) ; la dette n'est **pas blanchie** : radiation = décision de Christophe.
+
+## §42 — LES CHIFFRES RÉELS SONT CEUX DU MOTEUR (n° corrigé : §41 était déjà pris 2×) · 5 FAUTES GRAVES (03/11, colère légitime)
+
+**RÈGLE POSÉE (Christophe, 03/11) : la référence, c'est le MOTEUR.** `PAPER_V1_*_state.json`
+(pair_cash, positions, bags, pnl_total) et `short_*_state.json` font foi. Un rejeu de journal
+n'est PAS un chiffre réel : il n'écrit pas ses financements (0 ligne SEED mesurée sur
+109 229 lignes), donc il ne peut pas reconstruire le cash de départ. Le replay se publie
+comme ÉCART NON ATTRIBUÉ, jamais comme résultat.
+
+**Faute 1 — chiffre inventé, non traçable.** J'ai annoncé un « écart de 95,21 $ ». Aucun
+instrument ne le produit : journal↔moteur = 0,0000 $ (391 bookings = 391 trades), replay
++24,71 $ NON ATTRIBUÉ. Puis j'ai répondu « je ne sais plus d'où je l'ai sorti » — inacceptable.
+Un chiffre qui ne sort d'aucun outil identifié est une invention, même de bonne foi.
+Consigné, daté, non reproduit.
+
+**Faute 2 — trois instruments morts qui parlaient quand même.** `m_kelly_metre.py` et
+`sandbox_degraissage.py` pointaient en dur sur `PAPER_V1_20261029_174940.csv`, disparu à la
+rotation → rc=1, `m_kelly_live.json` figé à 06:39Z, dégraissage chiffré sur la veille.
+`sandbox_degraissage.py` mourait en plus en `NameError` (`mission` non chargée dans `main()`)
+APRÈS avoir imprimé ses grilles : un outil qui plante à la dernière ligne ressemble à un
+outil qui a fini.
+
+**Faute 3 — un chiffre affiché sans mesure.** `degraissage_papier.py` lisait `cash_journal`
+et `equity_moteur`, clés disparues d'`equity_reconcilie.json` → « coussin ? · couverture ? »
+à chaque run. La RÉSERVE DE CASH — la variable qui décide du rachat de la chute — n'était
+jamais chiffrée. Corrigé : coussin 699,70 $ sur le cash MOTEUR, source déclarée.
+
+**Faute 4 — un organe jamais scellé.** `degraissage_papier.py` était ABSENT du registre des
+scellés : invisible au verrou, donc non protégé. Inscrit le 03/11 (266 entrées).
+
+**Faute 5 — le doublon dénoncé, refait dans la même journée.** La résolution « quel journal »
+a été écrite DEUX fois (m_kelly + sandbox) après avoir dit « pas de doublons ». Factorisée
+dans `couts_communs.py` : `journal_actif()` et `bookings()`, importées par les instruments.
+
+**Ce qui empêche la répétition** : (a) un seul résolveur de journal ; (b) une seule règle de
+booking (|pnl_usdt| > 0, tout événement — c'est la liste de noms qui avait perdu CORE_FILET,
+−4,55 $) ; (c) tout instrument qui ne peut pas mesurer écrit SANS_MESURE et sort non-zéro,
+il ne sert jamais une mesure figée ; (d) un chiffre publié cite son instrument, jamais ma
+mémoire ; (e) tout organe neuf entre au registre le jour où il naît.
+IA=Buffy (DeepSeek V4.1 Flash, Freebuff).
+
+**Faute 6 (même journée) — sceller avant de déclarer.** Les deux organes neufs
+(`executeur_degraissage_papier.py`, `com.ace777.degraissage-papier.plist`) ont été AJOUTÉS au
+registre à 13:07:28Z avant leur pré-déclaration → 2 violations. Règle ajoutée : **tout fichier
+neuf se DÉCLARE avant son ajout au registre**, comme un fichier existant avant sa modification.
+Actes conservés au registre ; radiation procédurale pour que l'alarme reste actionnable.

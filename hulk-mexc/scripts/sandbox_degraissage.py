@@ -28,12 +28,18 @@ RÉFÉRENCES : aucune constante métier en dur (k lu sur grille, f* du journal).
 import csv
 import glob
 import json
+import os
 import statistics
+import sys
 from datetime import datetime, timezone
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from couts_communs import journal_actif  # §41 : UNE définition du journal vivant
 
 ROOT = "/Users/christophe/ace777-test-day1"
 RUNS = ROOT + "/hulk-mexc/runs"
-JOURNAL = RUNS + "/PAPER_V1_20261029_174940.csv"
+# §41 : journal_actif est importé de couts_communs (le résolveur local était un doublon).
 MISSION = ROOT + "/Index_Maison/cockpit/mission.json"
 PF_MD = RUNS + "/PORTEFEUILLE_LATEST.md"
 FEE = 0.0005
@@ -92,7 +98,8 @@ def replay_journal(jusqua=None):
     for jp in ("TELUSDT", "QAITUSDT"):
         if jp not in consts:
             consts[jp] = {"budget": 30.0}
-    rows = list(csv.DictReader(open(JOURNAL, newline="", encoding="utf-8-sig")))
+    rows = list(csv.DictReader(open(str(journal_actif(Path(RUNS))),
+                                    newline="", encoding="utf-8-sig")))
     st = {p: {"budget": float(c.get("budget") or 0.0),
               "cash": float(c.get("budget") or 0.0),
               "qty": 0.0, "cost": 0.0} for p, c in consts.items()}
@@ -107,6 +114,16 @@ def replay_journal(jusqua=None):
         ev = (r.get("event") or "").upper()
         if ev == "BAG_ARM":
             continue
+        # §23/§24 : le brut d'un booking se lit AVANT la porte qty/prix — un booking
+        # peut exister sans quantité rejouable (CORE_FILET : qty/px nuls, −4,55 $
+        # perdus jusqu'au 03/11). Sinon le f* du contrefactuel est faux.
+        try:
+            _pnl_j = float(r.get("pnl_usdt") or 0.0)
+        except Exception:
+            _pnl_j = 0.0
+        if ev not in ("BUY", "DCA", "GBAG_SOUCHE", "GBAG_PYRAMIDE", "BAG_DCA") \
+                and abs(_pnl_j) > 1e-9:
+            bruts[p].append(_pnl_j)
         try:
             q = float(r.get("qty") or 0.0)
             px = float(r.get("price") or 0.0)
@@ -125,10 +142,7 @@ def replay_journal(jusqua=None):
             avg = (s["cost"] / s["qty"]) if s["qty"] > 1e-12 else 0.0
             s["qty"] = max(0.0, s["qty"] - q)
             s["cost"] = max(0.0, s["cost"] - avg * q)
-            try:
-                bruts[p].append(float(r.get("pnl_usdt") or 0.0))
-            except Exception:
-                pass
+            # (le booking a déjà été compté plus haut : pas de double comptage)
     return st, bruts
 
 
@@ -160,7 +174,8 @@ def equity_snapshots(snaps=None):
     for jp in ("TELUSDT", "QAITUSDT"):
         if jp not in consts:
             consts[jp] = {"budget": 30.0}
-    rows = list(csv.DictReader(open(JOURNAL, newline="", encoding="utf-8-sig")))
+    rows = list(csv.DictReader(open(str(journal_actif(Path(RUNS))),
+                                    newline="", encoding="utf-8-sig")))
     evs = []
     for r in rows:
         t = parse_ts(r.get("ts") or "")
@@ -204,6 +219,11 @@ def equity_snapshots(snaps=None):
 
 
 def main():
+    # 03/11/2026 — DÉFAUT FERMÉ (mesuré : rc=1). `mission` n'était chargée que dans
+    # replay_journal() / equity_snapshots() : le contrefactuel crash mourait en
+    # NameError APRÈS avoir imprimé ses grilles. Un bac à sable qui meurt à la
+    # dernière ligne ressemble à un bac à sable qui a fini — donc on le charge ici.
+    mission = json.load(open(MISSION, encoding="utf-8"))
     snaps = snapshots()
     print(f"snapshots DIGEST : {len(snaps)} ({snaps[0][0].isoformat()} -> {snaps[-1][0].isoformat()})")
     st, _ = replay_journal()

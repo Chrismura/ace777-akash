@@ -28,12 +28,26 @@ import argparse
 import csv
 import glob
 import json
+import os
+import sys
 from datetime import datetime, timezone
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from couts_communs import journal_actif  # §41 : UNE définition du journal vivant
 
 ROOT = "/Users/christophe/ace777-test-day1"
 RUNS = ROOT + "/hulk-mexc/runs"
 MISSION = ROOT + "/Index_Maison/cockpit/mission.json"
-JOURNAL = RUNS + "/PAPER_V1_20261029_174940.csv"
+JOURNAL = None   # résolu à l'exécution : le journal VIVANT, jamais un nom figé
+
+
+def _journal():
+    """Journal vivant — délégué à couts_communs (§41 : une seule définition)."""
+    global JOURNAL
+    if JOURNAL is None:
+        JOURNAL = str(journal_actif(Path(RUNS)))
+    return JOURNAL
 PF_MD = RUNS + "/PORTEFEUILLE_LATEST.md"
 FEE = 0.0005
 N_MIN = 10  # en dessous : edge non mesuré, pas de f*
@@ -134,7 +148,7 @@ def lire_cash_moteur():
 def replay():
     mission = json.load(open(MISSION, encoding="utf-8"))
     consts = {p["pair"]: p for p in mission["hulk"]["hulkVsHold"]["pairs"]}
-    rows = list(csv.DictReader(open(JOURNAL, newline="", encoding="utf-8-sig")))
+    rows = list(csv.DictReader(open(_journal(), newline="", encoding="utf-8-sig")))
     st = {}
     for p, c in consts.items():
         st[p] = {"budget": float(c.get("budget") or 0.0), "cash": float(c.get("budget") or 0.0),
@@ -156,7 +170,21 @@ def replay():
             continue
         is_buy = ev in ("BUY", "DCA", "GBAG_SOUCHE", "GBAG_PYRAMIDE", "BAG_DCA")
         is_sell = ev.startswith(("SELL", "STOP", "BAG")) and not is_buy
+        # §23/§24 — UN BOOKING = |pnl_usdt| > 0, TOUT événement confondu.
+        # DÉFAUT FERMÉ LE 03/11/2026 (mesuré) : le mètre re-filtrait par NOM
+        # d'événement et perdait CORE_FILET (−4,55 $, 1 booking) → Σ brut 43,13 $
+        # au lieu de 38,58 $, coûts 20,43 $ au lieu de 15,89 $, donc f*/juste/m
+        # faux pour la paire concernée, et publication bloquée. Le brut vient du
+        # JOURNAL, jamais d'une liste de noms à tenir à jour.
+        try:
+            pnl_j = float(r.get("pnl_usdt") or 0.0)
+        except Exception:
+            pnl_j = 0.0
         if not is_buy and not is_sell:
+            # hors familles rejouables : ça COMPTE dans le brut, ça ne déplace
+            # ni cash ni quantité (aucune quantité inventée dans le rejeu).
+            if abs(pnl_j) > 1e-9:
+                st[p]["bruts"].append(pnl_j)
             continue
         try:
             q = float(r.get("qty") or 0.0)
@@ -181,7 +209,7 @@ def replay():
             pnl = notion - fee - avg * q
             s["pnls"].append(pnl)
             try:
-                s["bruts"].append(float(r.get("pnl_usdt") or 0.0))
+                s["bruts"].append(pnl_j)
             except Exception:
                 s["bruts"].append(0.0)
             s["real"] += pnl
@@ -280,7 +308,10 @@ def scenarios(lignes):
 
 
 def main(opts=None):
-    global PF_NET
+    global PF_NET, JOURNAL
+    if getattr(opts, "csv", None):
+        JOURNAL = opts.csv
+    print(f"journal mesuré : {os.path.basename(_journal())}")
     PF_NET = lire_couts_pf()
     marks, tmarks = digest_marks()
     st = replay()

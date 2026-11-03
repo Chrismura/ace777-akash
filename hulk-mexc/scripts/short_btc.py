@@ -46,7 +46,8 @@ GARDES-FOUS
     non plus : on garde la position et on le signale).
   - Fail-open total : toute erreur de lecture → on ne fait RIEN (ni entrée ni
     sortie forcée), on l'écrit dans live.json.
-  - Taille réduite : NOTIONAL_USDT = 5 (1/4 de la base 20$ de Hulk). C'est une
+  - Taille réduite : NOTIONAL_USDT = 5 (1/4 de la base 20$ de Hulk) — m=1 rejeté par
+    contrefactuel le 03/11 (−0,44 $ sur 46 trades) : voir commentaire du paramètre. C'est une
     ceinture de sécurité, pas un moteur de PnL.
 
 ARCHIVAGE (audit complet)
@@ -101,7 +102,13 @@ def arret_global() -> bool:
     return Path(os.environ.get("ACE_STOP_ALL") or STOP_ALL).exists()
 
 # ---- paramètres (modifiables, cohérents avec l'esprit du moteur) ----
-NOTIONAL_USDT = 5.0        # marge isolée du short (le notionnel vient du DYN ci-dessous)
+# TAILLE : 5,00 $ — REVERT du 03/11/2026, DÉCLARÉ. Le mètre donnait m = 0,3155
+# (f* = 0,1585 × 100 $ = 15,85 $), mais le CONTRECACTUEL sur les 46 trades du MOTEUR
+# dit l'inverse : les 41 trades à 5 $ portent −0,1773 $ ; à 15,85 $ ils pèsent
+# −0,5617 $ et le total TOMBE de +1,0314 $ à +0,5917 $ (−0,44 $). L'edge mesuré
+# vient du levier DYN (trades à 27-41 $), pas de la marge plancher. Tant que le
+# chemin réel ne valide pas m=1, on ne branche pas : le chiffre passe avant l'idée.
+NOTIONAL_USDT = 5.0       # marge isolée du short (le notionnel vient du DYN ci-dessous)
 # === NOTIONNEL DYNAMIQUE 10 % INVENTAIRE (21/10/2026, GO Christophe « go ») ===
 # Mesuré (chiffrage_go_short_1030.py, 12 846 signaux) : entrées corr ≤ −0,50,
 # n=17, esp +0,243 %, même signe h1/h2, 0 liquidation à 8,6× (dist 11,23 % >> SL).

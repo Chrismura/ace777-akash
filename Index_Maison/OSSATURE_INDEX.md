@@ -4,6 +4,8 @@
 **But :** chaque info a **une place** ; les places **s’entre-nourrissent** ; plus de dumps Bureau / chats orphelins.  
 **Valeur :** A3 · B1
 
+**Porte d'entrée machine (IA) :** [[WIKI_IA]] — `WIKI_IA.md` + `data/wiki_ia.json`, générés par `scripts/wiki_ia.py`, régénérés par `com.ace777.wiki-ia`. Ordre imposé : wiki → ligne de la table → fichier → et seulement ensuite la recherche large.
+
 ---
 
 ## Règle d’or (ne plus répéter l’erreur)

@@ -394,10 +394,16 @@ def main():
         json.dump(res, f, ensure_ascii=False, indent=1)
     os.replace(tmp, OUT)
 
-    print("[equity] trading moteur=%.2f$ journal(replay)=%.2f$ drift=%+.2f$ | observation=%.2f$ "
-          "| radies=%.2f$ | portefeuille=%.2f$ | ok=%s"
-          % (book_moteur, book_journal, ecart, cash_o + val_o, cash_r + val_r,
-             portefeuille, res["ok"]))
+    # 03/11/2026 — ligne de console HONNÊTE : elle affichait « radies=60.28$ » alors
+    # que le moteur ne détient RIEN sur les radiés (0,00 $) : 60,28 $ est l'artefact
+    # du budget déclaré semé dans le replay. Un chiffre au pluriel ambigu est une
+    # erreur de lecture garantie — on sépare les deux, et on nomme le replay pour
+    # ce qu'il est (deux points de départ, cause non attribuée).
+    print("[equity] trading moteur=%.2f$ | replay=%+.2f$ (NON ATTRIBUÉ : journal sans ligne "
+          "SEED) | observation=%.2f$ | radies DÉTENUS=%.2f$ (artefact budget %.2f$ exclu) "
+          "| portefeuille=%.2f$ | ok=%s"
+          % (book_moteur, ecart, cash_o + val_o, radies_detenu_total,
+             round(cash_r + val_r, 2), portefeuille, res["ok"]))
     if caisse.get("disponible"):
         _etat = {True: "OK (probant)", False: "KO " + str(caisse.get("ecart_par_paire")),
                  None: "NON PROBANT — " + str(caisse.get("raison"))}[caisse.get("ok")]

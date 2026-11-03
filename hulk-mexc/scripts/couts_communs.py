@@ -20,12 +20,57 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 from collections import defaultdict
 from pathlib import Path
 
 FEE_BPS_COTE = 5.0
 SEUIL_BOOKING = 1e-9
 SPREAD_DEFAUT_BPS = 15.0
+
+
+def journal_actif(runs: Path) -> Path:
+    """LE journal vivant — UNE seule définition pour TOUS les instruments (§41).
+
+    DÉFAUT FERMÉ LE 03/11/2026 (mesuré). Trois outils pointaient sur un nom figé
+    (`PAPER_V1_20261029_174940.csv`, disparu à la rotation) : le m-mètre plantait
+    (rc=1), le bac à sable était HS, et `m_kelly_live.json` restait figé à 06:39Z —
+    donc le dégraissage chiffrait 566,03 $ sur une mesure de la veille.
+    La résolution avait été écrite DEUX fois : c'était le doublon dénoncé, refait.
+    Désormais : un seul endroit, importé.
+
+    ACE_JOURNAL force un chemin (harnais de test / rejeu daté) — déclaré, jamais deviné.
+    """
+    force = os.environ.get("ACE_JOURNAL")
+    if force:
+        return Path(force)
+    cands = sorted(Path(runs).glob("PAPER_V1_*.csv"), key=lambda p: p.stat().st_mtime)
+    if not cands:
+        raise FileNotFoundError(f"aucun journal PAPER_V1_*.csv dans {runs}")
+    return cands[-1]
+
+
+def bookings(csv_path: Path):
+    """Itère les BOOKINGS — règle §23/§24 : |pnl_usdt| > 0, TOUT événement.
+
+    Rend (row, pnl, notional). Aucun filtre par NOM d'événement : c'est cette
+    liste de noms qui avait perdu `CORE_FILET` (−4,55 $, mesuré le 03/11) et fait
+    diverger le m-mètre (brut 43,13 $ au lieu de 38,58 $, coûts 20,43 au lieu de
+    15,89, donc f*/juste/m faux). Le brut vient du journal, jamais d'une liste.
+    """
+    with open(csv_path, encoding="utf-8", errors="replace") as f:
+        for r in csv.DictReader(f):
+            try:
+                pnl = float(r.get("pnl_usdt") or 0.0)
+            except (TypeError, ValueError):
+                continue
+            if abs(pnl) <= SEUIL_BOOKING:
+                continue
+            try:
+                notional = float(r.get("qty") or 0.0) * float(r.get("price") or 0.0)
+            except (TypeError, ValueError):
+                notional = 0.0
+            yield r, pnl, notional
 
 
 def _profils(racine_hulk: Path) -> dict:

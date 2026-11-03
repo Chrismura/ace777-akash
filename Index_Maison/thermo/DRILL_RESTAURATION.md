@@ -1,13 +1,15 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-11-03T12:39Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-11-03T13:17Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `f055a0d4d1` du 2026-11-03T13:39:08+01:00
-- Fichiers suivis modifiés sur disque : **4**
+- Branche `main` · HEAD `16d0f974e9` du 2026-11-03T13:39:53+01:00
+- Fichiers suivis modifiés sur disque : **94**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 21899 au total, dont **17 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 21915 au total, dont **20 sensibles** (scripts/plists/règles)
+  - `Index_Maison/plists/com.ace777.degraissage-papier.plist`
+  - `Index_Maison/plists/com.ace777.wiki-ia.plist`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_oss20.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
@@ -21,24 +23,24 @@
   - `Index_Maison/scripts/SPEC_revue_5points_cortana.md.mission.txt`
   - `Index_Maison/scripts/_archives_tronques_20260911/LISEZ_MOI.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/PROD_SUPERVISEUR_GEMINI.py`
-  - `Index_Maison/scripts/champion_cortana.json`
-  - `Index_Maison/scripts/cortana_cockpit_bridge.pyte`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
-- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **171**
-- ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
+- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **176**
+- 🔴 **2 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
+  - `Index_Maison/scripts/wiki_ia.py`
+  - `hulk-mexc/scripts/executeur_degraissage_papier.py`
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
-- Installés : **120** · versionnés : **120**
+- Installés : **122** · versionnés : **122**
 - ✅ **0 agent hors repo** — tous reconstructibles.
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_xt0_c03r/LaunchAgents`
-- Plists rebâtis + validés (`plutil -lint`) : **120/120**
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_v9p99wm1/LaunchAgents`
+- Plists rebâtis + validés (`plutil -lint`) : **122/122**
 
 ## 4. Organes invoqués par les agents
-- Chemins **dans le repo** (reviennent avec git) : **116**
+- Chemins **dans le repo** (reviennent avec git) : **118**
 - Chemins **hors repo** (à sauvegarder autrement, git ne les ramène PAS) : **9**
 
   **Organes du projet hors git** (git ne les ramène PAS → il faut une autre source) :
@@ -51,16 +53,16 @@
   | `~/prise-ia` | `prise-ia` | surveille | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
   | `~/prise-ia/routeur_auto.py` | `routeur-auto` | argument | ✅ miroir de sauvegarde (organes_hors_repo/prise-ia) |
 
-  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-11-03T12:38Z).
+  Manifeste des organes hors repo : `thermo/organes_hors_repo.json` (mis à jour 2026-11-03T12:39Z).
 
   Outillage système hors repo (4) — réinstallable (Homebrew/Xcode CLT), non bloquant : `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python`, `/Library/Developer/CommandLineTools/usr/bin/python3`, `/opt/homebrew/bin/npm`, `/opt/homebrew/bin/uv`
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **235** · écarts : **0** · absents : **0**
+- Entrées md5 vérifiées : **241** · écarts : **0** · absents : **0**
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
-- Déclarations au registre : **341** · règle active depuis `2026-09-23T15:30:00Z`
+- Déclarations au registre : **364** · règle active depuis `2026-09-23T15:30:00Z`
 - Dette constatée **77** (27-29/09, datée et nommée, radiée de l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)
 - ✅ **0 violation** — aucune modification scellée sans pré-déclaration antérieure.
 
@@ -74,7 +76,8 @@
   - **E30** — classe au registre SANS garde declaree (gardes_erreurs.json)
 
 ## 7. Verdict
-- 🔴 **1 trou(s) à combler :**
+- 🔴 **2 trou(s) à combler :**
+  - 2 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (Index_Maison/scripts/wiki_ia.py, hulk-mexc/scripts/executeur_degraissage_papier.py)
   - 4 classe(s) d'erreur CONNUE(S) dont la garde déclarée est absente ou NON BRANCHÉE (R15 : hors de la boucle = n'existe pas) : E27, E28, E29, E30
 
 ---

@@ -102,8 +102,24 @@ def main():
             "cas": cas, "note": note, "juste": v.get("juste"),
         })
 
-    cash_reel = ec.get("cash_journal")
-    equity = ec.get("equity_moteur")
+    # 03/11/2026 — DÉFAUT FERMÉ (mesuré). Ce module lisait `cash_journal` et
+    # `equity_moteur` : deux clés qui N'EXISTENT PLUS dans equity_reconcilie.json
+    # (devenues `cash_trading_journal` / `cash_trading_moteur` /
+    # `equity_trading_moteur`). Résultat : « coussin ? · couverture ? » à chaque
+    # run — donc la RÉSERVE DE CASH, la variable qui décide si on peut racheter
+    # la chute, n'était jamais chiffrée. Le cash qui fait foi est celui du MOTEUR
+    # (le replay n'est pas une preuve : le journal n'écrit pas ses financements).
+    cash_reel = ec.get("cash_trading_moteur")
+    src_cash = "moteur"
+    if cash_reel is None:
+        cash_reel = ec.get("cash_trading_journal")
+        src_cash = "replay (NON PROBANT)"
+    if cash_reel is None:
+        cash_reel = ec.get("cash_journal")
+        src_cash = "replay ancienne clé (NON PROBANT)"
+    if cash_reel is None:
+        src_cash = "ABSENT de equity_reconcilie.json"
+    equity = ec.get("equity_trading_moteur", ec.get("equity_moteur"))
     expo_ap = tot_pos - tot_allege
     coussin = (float(cash_reel or 0.0) + tot_allege) if cash_reel is not None else None
     couv = (coussin / expo_ap) if (coussin is not None and expo_ap > 0.01) else None
@@ -119,6 +135,7 @@ def main():
         "a_alleger_total": round(tot_allege, 2),
         "expo_apres": round(expo_ap, 2),
         "cash_reel": cash_reel,
+        "cash_source": src_cash,
         "coussin_apres": (round(coussin, 2) if coussin is not None else None),
         "couverture_apres": (round(couv, 2) if couv is not None else None),
         "equity_moteur": equity,
@@ -141,11 +158,12 @@ def main():
         pass
 
     print("[degraissage] %s (%s) — expo %.2f$ → %.2f$ · à alléger %.2f$ "
-          "· coussin %s$ · couverture %s"
+          "· coussin %s$ (%s) · couverture %s"
           % ("ARMÉ" if arme else "DÉSARMÉ", raison_etat, tot_pos, expo_ap,
              tot_allege,
-             ("%.2f" % coussin) if coussin is not None else "?",
-             ("%.2f" % couv) if couv is not None else "?"))
+             ("%.2f" % coussin) if coussin is not None else "SANS_MESURE",
+             src_cash,
+             ("%.2f" % couv) if couv is not None else "SANS_MESURE"))
     for L in sorted(lignes, key=lambda x: -x["a_alleger"])[:8]:
         print("   %-11s pos %7.2f → cible %6.2f · alléger %6.2f (%s)"
               % (L["paire"], L["pos"], L["cible"], L["a_alleger"], L["note"]))
