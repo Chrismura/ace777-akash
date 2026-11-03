@@ -37,7 +37,10 @@ THERMO = os.path.join(ROOT, "Index_Maison", "thermo")
 MISSION = os.path.join(ROOT, "Index_Maison", "cockpit", "mission.json")
 CLASSIF = os.path.join(ROOT, "Index_Maison", "strategie", "classification_paires.json")
 OUT = os.path.join(THERMO, "equity_reconcilie.json")
+ANCRE = os.path.join(RUNS, "LIVRE_ANCRE.json")
+LEDGER = os.path.join(RUNS, "CASH_LEDGER.csv")
 SEUIL_ECART_USD = 5.0
+SEUIL_CAISSE_USD = 1.0
 FEE = 0.0005
 
 
@@ -164,6 +167,57 @@ def main():
                 s["cost"] = max(0.0, s["cost"] - avg * q)
             n_ev += 1
 
+    def livre_caisse(cash_moteur):
+        """ÉCART POST-ANCRE — la seule mesure qui ne peut pas mentir.
+
+        POURQUOI CE CHANGEMENT (03/11/2026). L'ancien calcul rejouait tout le
+        journal depuis les budgets déclarés. Mesuré : 25,15 $ d'écart dont
+        WUSDT 29,88 $ — or le moteur est la seule autorité sur son cash. La
+        cause n'était pas une erreur du moteur mais un TROU DU JOURNAL : du cash
+        crédité/débité sans ligne (WUSDT, QNTUSDT, MNSRYUSDT). Aucun replay ne
+        peut retrouver une information qui n'a jamais été écrite.
+
+        Depuis le livre de caisse, le moteur écrit CHAQUE mouvement
+        (add/take_pair_cash) et une ancre de départ. Donc :
+            cash_ancre + Σ deltas post-ancre  ==  cash moteur
+        par construction. Si ça diverge, un chemin a touché le cash sans le
+        déclarer : c'est un défaut RÉEL, nommé à la paire près.
+        Le drift antérieur (25,15 $) n'est ni caché ni requalifié : il est
+        publié tel quel dans `drift_historique_usd`, avec sa cause.
+        """
+        try:
+            a = json.load(open(ANCRE, encoding="utf-8"))
+        except Exception:
+            return {"disponible": False,
+                    "raison": "ancre absente (moteur pas encore relancé avec le livre de caisse)"}
+        cash = {p: float(v or 0.0) for p, v in (a.get("cash") or {}).items()}
+        n0 = int(a.get("n_ledger_0") or 0)
+        n_mvt = 0
+        if os.path.exists(LEDGER):
+            with open(LEDGER, newline="", encoding="utf-8") as f:
+                lignes = list(csv.DictReader(f))
+            for r in lignes[n0:]:
+                p = r.get("pair") or ""
+                if not p:
+                    continue
+                try:
+                    d = float(r.get("delta_usdt") or 0.0)
+                except ValueError:
+                    continue
+                cash[p] = cash.get(p, 0.0) + d
+                n_mvt += 1
+        ecarts = {}
+        for p in sorted(set(cash) | set(cash_moteur)):
+            e = round(float(cash_moteur.get(p, 0.0)) - cash.get(p, 0.0), 2)
+            if abs(e) >= 0.01:
+                ecarts[p] = e
+        total = round(sum(ecarts.values()), 2)
+        return {"disponible": True, "ancre_ts": a.get("ts"),
+                "ancre_journal": a.get("journal"), "n_mouvements": n_mvt,
+                "ecart_post_ancre_usd": total, "ecart_par_paire": ecarts,
+                "ok": abs(total) <= SEUIL_CAISSE_USD,
+                "seuil_usd": SEUIL_CAISSE_USD}
+
     def agg(perimetre):
         cash = sum(rp[p]["cash"] for p in perimetre if p in rp)
         val = sum(rp[p]["qty"] * marks.get(p, 0.0) for p in perimetre if p in rp)
@@ -189,6 +243,13 @@ def main():
 
     ecart = round(book_moteur - book_journal, 2)
     portefeuille = round(book_moteur + cash_o + val_o, 2)
+    caisse = livre_caisse(cash_m)
+    # ok = l'écart RÉEL du livre de caisse (post-ancre) + le résidu des radiés.
+    # L'ancien écart de replay est CONSERVÉ et publié (drift historique), jamais
+    # utilisé pour blanchir : il mesure une information absente du journal.
+    ok_caisse = bool(caisse.get("ok")) if caisse.get("disponible") else False
+    ok_radies = abs(cash_r + val_r) <= 2.0
+    ok_global = bool(ok_caisse and ok_radies)
 
     # détail des écarts, paires trading seulement (le vrai chantier)
     detail = {}
@@ -223,8 +284,17 @@ def main():
         "radies_residuel": round(cash_r + val_r, 2),
         "equity_portefeuille": portefeuille,
         "equity_trading_moteur": round(book_moteur, 2),
-        "ok": abs(ecart) <= SEUIL_ECART_USD and abs(cash_r + val_r) <= 2.0,
-        "seuil_alerte_usd": SEUIL_ECART_USD,
+        "ok": ok_global,
+        "ok_caisse": ok_caisse,
+        "ok_radies": ok_radies,
+        "livre_caisse": caisse,
+        "drift_historique_usd": (ecart if caisse.get("disponible") else None),
+        "drift_historique_cause": (
+            "cash bougé par le moteur SANS ligne de journal avant le livre de caisse "
+            "(WUSDT/QNTUSDT/MNSRYUSDT) — information absente, pas une perte ; "
+            "non rejouable par construction, gelé depuis l'ancre"
+            if caisse.get("disponible") else None),
+        "seuil_alerte_usd": SEUIL_CAISSE_USD,
         "detail_trading": detail,
         "observation": {p: round(rp[p]["cash"], 2) for p in observation},
         "radies": {p: round(rp[p]["cash"] + rp[p]["qty"] * marks.get(p, 0.0), 2)
@@ -239,10 +309,18 @@ def main():
         json.dump(res, f, ensure_ascii=False, indent=1)
     os.replace(tmp, OUT)
 
-    print("[equity] trading moteur=%.2f$ journal=%.2f$ ecart=%+.2f$ | observation=%.2f$ "
+    print("[equity] trading moteur=%.2f$ journal(replay)=%.2f$ drift=%+.2f$ | observation=%.2f$ "
           "| radies=%.2f$ | portefeuille=%.2f$ | ok=%s"
           % (book_moteur, book_journal, ecart, cash_o + val_o, cash_r + val_r,
              portefeuille, res["ok"]))
+    if caisse.get("disponible"):
+        print("[equity] LIVRE DE CAISSE (post-ancre) : ecart=%+.2f$ sur %d mouvements "
+              "(ancre %s) -> %s"
+              % (caisse["ecart_post_ancre_usd"], caisse["n_mouvements"],
+                 caisse.get("ancre_ts"), "OK" if caisse["ok"] else
+                 f"KO {caisse['ecart_par_paire']}"))
+    else:
+        print("[equity] LIVRE DE CAISSE : %s" % caisse.get("raison"))
     return 0
 
 

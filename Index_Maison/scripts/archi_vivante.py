@@ -13,8 +13,10 @@ Usage : python3 archi_vivante.py            # écrit ARCHITECTURE_VIVANTE.md
 
 import json
 import os
-import subprocess
+import plistlib
+import socket
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -27,14 +29,20 @@ SIGNETS_CACHE = BASE / "strategie" / "SIGNETS_RESUMES.json"
 FICHES_CACHE = BASE / "strategie" / "FICHES_OFFRES.json"
 JOURNAL_RADAR = BASE / "strategie" / "journal_radar.log"
 
-PROCESS_CLEFS = [
-    ("hub", "hub_prise_ia"),
-    ("pont cockpit", "cortana_cockpit_bridge"),
-    ("radar", "vigie_live"),
-    ("lecteur signets", "signets_lecture"),
-    ("générateur fiches", "fiches_offres"),
-    ("feed mission", "cockpit_mission_feed.py"),
-    ("serveur cockpit", "17800"),
+# FIX 03/11/2026 (audit V6) : cette carte testait des NOMS DE PROCESSUS (`pgrep`).
+# Elle affichait 4 ⛔ alors que mission.json était frais à 1 min : « signets_lecture »
+# et « fiches_offres » ne sont PAS des daemons (run-and-exit), et le feed mission
+# vit DANS le pont cockpit. Un ⛔ faux détruit la confiance dans toute la carte.
+# Désormais on juge LA DONNÉE PRODUITE : âge du produit vs cadence DÉCLARÉE par
+# le plist (aucune constante ici : si la cadence change, la tolérance suit).
+PRODUITS = [
+    ("hub LLM", "~/prise-ia/heartbeat.json", "llm-gate-hub"),
+    ("pont cockpit", "cockpit/mission.json", "cockpit-pont"),
+    ("radar", "strategie/journal_radar.log", "vigie-live"),
+    ("feed mission", "cockpit/hub.json", "hub-cockpit-feed"),
+    ("lecteur signets", "strategie/SIGNETS_RESUMES.json", None),
+    ("générateur fiches", "strategie/FICHES_OFFRES.json", "fiches-offres"),
+    ("serveur cockpit", "PORT:17800", "cockpit-http"),
 ]
 
 ROLES = {
@@ -44,12 +52,28 @@ ROLES = {
 }
 
 
-def _pgrep(pat: str) -> bool:
+def _cadence(label):
+    """Tolérance LUE dans le plist — (secondes, texte). None = pas de cadence."""
+    if not label:
+        return None, "pas de cadence déclarée (organe non planifié)"
+    p = BASE / "plists" / f"com.ace777.{label}.plist"
     try:
-        r = subprocess.run(["pgrep", "-f", pat], capture_output=True, text=True, timeout=10)
-        return r.returncode == 0
+        d = plistlib.loads(p.read_bytes())
     except Exception:
-        return False
+        return None, f"plist introuvable ({p.name})"
+    si = d.get("StartInterval")
+    if si:
+        tol = max(int(si) * 3, 300)
+        return tol, f"toutes les {int(si)} s (tolérance ×3 = {tol // 60} min)"
+    if d.get("StartCalendarInterval"):
+        return 26 * 3600, "calendaire (tolérance 26 h)"
+    if d.get("KeepAlive"):
+        return 3600, "daemon (tolérance 60 min)"
+    return None, "plist sans cadence"
+
+
+def _age_txt(sec: float) -> str:
+    return f"{sec / 60:.0f} min" if sec < 7200 else f"{sec / 3600:.1f} h"
 
 
 def _lire_json(p: Path) -> dict:
@@ -69,10 +93,44 @@ def _hms(iso: str) -> str:
 
 
 def processus() -> list:
+    """Ce qui PRODUIT (la donnée), pas ce qui porte un nom de processus."""
     lignes = []
-    for nom, pat in PROCESS_CLEFS:
-        etat = "✅" if _pgrep(pat) else "⛔"
-        lignes.append(f"- {etat} {nom}")
+    n_ok = n_lent = n_muet = 0
+    for nom, cible, label in PRODUITS:
+        tol, txt = _cadence(label)
+        if cible.startswith("PORT:"):
+            port = int(cible.split(":", 1)[1])
+            try:
+                with socket.create_connection(("127.0.0.1", port), timeout=2):
+                    joignable = True
+            except Exception:
+                joignable = False
+            if joignable:
+                n_ok += 1
+                lignes.append(f"- ✅ {nom} · port {port} répond · {txt}")
+            else:
+                n_muet += 1
+                lignes.append(f"- ⛔ {nom} · port {port} NE répond PAS · {txt}")
+            continue
+        p = Path(os.path.expanduser(cible)) if cible.startswith("~") else BASE / cible
+        if not p.exists():
+            n_muet += 1
+            lignes.append(f"- ⛔ {nom} · `{p.name}` ABSENT · {txt}")
+            continue
+        age = max(0.0, time.time() - p.stat().st_mtime)
+        if tol is None:
+            lignes.append(f"- ⚪ {nom} · `{p.name}` {_age_txt(age)} · {txt}")
+        elif age <= tol:
+            n_ok += 1
+            lignes.append(f"- ✅ {nom} · `{p.name}` {_age_txt(age)} · {txt}")
+        elif age <= 2 * tol:
+            n_lent += 1
+            lignes.append(f"- ⚠️ {nom} · `{p.name}` {_age_txt(age)} (lent) · {txt}")
+        else:
+            n_muet += 1
+            lignes.append(f"- ⛔ {nom} · `{p.name}` {_age_txt(age)} (PÉRIMÉ) · {txt}")
+    lignes.append(f"- **{n_ok} frais · {n_lent} lents · {n_muet} muets** — "
+                  "critère = la donnée produite, jamais le nom du processus")
     return lignes
 
 
@@ -207,7 +265,7 @@ def generer() -> str:
         "> Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide",
         "> en s'appuyant sur CE contexte, pas sur des documents figés.",
         "",
-        "## Qui tourne en ce moment",
+        "## Ce qui produit en ce moment (donnée datée)",
     ]
     blocs += processus()
     blocs += ["", "## Routage des tâches de décision", ""]

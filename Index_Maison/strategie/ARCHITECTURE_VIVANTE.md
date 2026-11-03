@@ -1,16 +1,17 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-11-03 10:15 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-11-03 10:30 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
-## Qui tourne en ce moment
-- ⛔ hub
-- ✅ pont cockpit
-- ✅ radar
-- ⛔ lecteur signets
-- ⛔ générateur fiches
-- ⛔ feed mission
-- ✅ serveur cockpit
+## Ce qui produit en ce moment (donnée datée)
+- ✅ hub LLM · `heartbeat.json` 6 min · daemon (tolérance 60 min)
+- ✅ pont cockpit · `mission.json` 0 min · daemon (tolérance 60 min)
+- ✅ radar · `journal_radar.log` 0 min · daemon (tolérance 60 min)
+- ✅ feed mission · `hub.json` 0 min · toutes les 30 s (tolérance ×3 = 5 min)
+- ⚪ lecteur signets · `SIGNETS_RESUMES.json` 4.6 h · pas de cadence déclarée (organe non planifié)
+- ✅ générateur fiches · `FICHES_OFFRES.json` 85 min · calendaire (tolérance 26 h)
+- ✅ serveur cockpit · port 17800 répond · daemon (tolérance 60 min)
+- **6 frais · 0 lents · 0 muets** — critère = la donnée produite, jamais le nom du processus
 
 ## Routage des tâches de décision
 
@@ -22,7 +23,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-11-03 10:15Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-11-03 10:30Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -48,10 +49,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-11-03T10:15:17.534355Z BTCUSDT 77036.7 0.0002 28.5 declenche=oui
-  · 2026-11-03T10:15:17.534476Z BTCUSDT 77039.35 0.0002 28.5 declenche=oui
-  · 2026-11-03T10:15:17.534532Z BTCUSDT 77039.52 0.0002 28.5 declenche=oui
-  · 2026-11-03T10:15:17.738823Z BTCUSDT 77039.52 0.0002 28.5 declenche=oui
+  · 2026-11-03T10:30:47.135689Z BTCUSDT 77027.44 0.0002 11.0 declenche=oui
+  · 2026-11-03T10:30:47.136148Z BTCUSDT 77027.02 0.0002 11.0 declenche=oui
+  · 2026-11-03T10:30:47.136299Z BTCUSDT 77027.01 0.0002 11.3 declenche=oui
+  · 2026-11-03T10:30:47.136448Z BTCUSDT 77026.45 0.0002 11.3 declenche=oui
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1208 signets X résumés (quota aujourd'hui : 12/50)
 - 215 fiches IA d'offres en cache (quota 8/jour)

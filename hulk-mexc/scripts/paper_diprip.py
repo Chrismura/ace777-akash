@@ -1416,21 +1416,105 @@ class PaperBot:
         """Mode GBAG pour cette paire : liste explicite OU périmètre TOTAL (GBAG_PAIRS=ALL)."""
         return bool(self.gbag_on) and (self.gbag_pairs_all or pair in self.gbag_pairs)
 
+    # =====================================================================
+    # LIVRE DE CAISSE (03/11/2026 — « fermer l'écart des livres une fois
+    # pour toute »). MESURÉ : journal − moteur = 25,15 $, dont WUSDT 29,88 $
+    # et QNTUSDT 18,06 $. Ce n'était PAS une perte : c'était du cash bougé par
+    # add_pair_cash / take_pair_cash SANS ligne de journal, donc une
+    # INFORMATION ABSENTE qu'aucun replay ne peut retrouver. On ferme la CAUSE :
+    # un seul point d'écriture pour tout mouvement de cash + une ancre de
+    # reprise. Désormais la réconciliation est exacte PAR CONSTRUCTION.
+    # FAIL-OPEN : un livre cassé ne doit jamais arrêter le moteur.
+    # =====================================================================
+    def _ancre_si_absente(self) -> None:
+        """L'ancre décrit le cash AVANT le premier mouvement : elle s'écrit donc
+        AVANT toute mutation. Bug prouvé par test isolé le 03/11 : ancre prise
+        APRÈS la mutation → le 1er delta était compté deux fois (15 + 5 au lieu
+        de 10 + 5). Un livre faux de 5 $ vaut un livre absent."""
+        try:
+            if not (RUNS / "LIVRE_ANCRE.json").exists():
+                self.ecrire_ancre_livre()
+        except Exception as e:                       # noqa: BLE001
+            say("err", f"[ancre_livre] {e}")
+
+    def _cash_ledger(self, pair: str, delta: float, sens: str) -> None:
+        try:
+            ledger = RUNS / "CASH_LEDGER.csv"
+            neuf = (not ledger.exists()) or ledger.stat().st_size == 0
+            if ledger.exists() and ledger.stat().st_size > 8_000_000:
+                os.replace(ledger, RUNS / "CASH_LEDGER.1.csv")
+                neuf = True
+            with ledger.open("a", newline="", encoding="utf-8") as f:
+                w = csv.writer(f)
+                if neuf:
+                    w.writerow(["ts_utc", "pair", "delta_usdt", "cash_apres",
+                                "sens", "appelant"])
+                try:
+                    _f = sys._getframe(2)
+                    appelant = f"{_f.f_code.co_name}:{_f.f_lineno}"
+                except Exception:
+                    appelant = "?"
+                w.writerow([utc_now(), pair, f"{delta:.6f}",
+                            f"{float(self.pair_cash.get(pair, 0.0)):.6f}", sens, appelant])
+        except Exception as e:                       # noqa: BLE001
+            say("err", f"[cash_ledger] {e}")
+
+    def ecrire_ancre_livre(self) -> None:
+        """ANCRE : photo du cash (+ quantités) au démarrage du moteur.
+
+        C'est l'origine de la réconciliation : cash_ancre + Σ mouvements du livre
+        = cash moteur. Un écart post-ancre signifie qu'un chemin a touché le cash
+        SANS passer par add/take_pair_cash — exactement le défaut qu'on veut voir.
+        """
+        try:
+            ledger = RUNS / "CASH_LEDGER.csv"
+            n0 = 0
+            if ledger.exists():
+                with ledger.open(encoding="utf-8") as f:
+                    n0 = max(0, sum(1 for _ in f) - 1)      # -1 : l'en-tête
+            qty = {}
+            for d in (self.pos or {}, self.bags or {}):
+                for p, e in d.items():
+                    try:
+                        qty[p] = qty.get(p, 0.0) + float(e.get("qty") or 0.0)
+                    except Exception:
+                        continue
+            ancre = {
+                "ts": utc_now(),
+                "journal": getattr(self.csv_path, "name", "?"),
+                "cash": {p: round(float(v), 6) for p, v in (self.pair_cash or {}).items()},
+                "qty": {p: round(float(v), 8) for p, v in qty.items()},
+                "n_ledger_0": n0,
+                "note": ("origine de la réconciliation : cash_ancre + deltas du "
+                         "livre = cash moteur (exact par construction)"),
+            }
+            tmp = RUNS / "LIVRE_ANCRE.json.tmp"
+            tmp.write_text(json.dumps(ancre, ensure_ascii=False, indent=1), encoding="utf-8")
+            os.replace(tmp, RUNS / "LIVRE_ANCRE.json")
+            say("hdr", f"LIVRE DE CAISSE : ancre écrite ({len(ancre['cash'])} paires, "
+                       f"{sum(ancre['cash'].values()):.2f} $) · ledger à {n0} mouvements")
+        except Exception as e:                       # noqa: BLE001
+            say("err", f"[ancre_livre] {e}")
+
     def add_pair_cash(self, pair: str, usdt: float):
         if usdt <= 0:
             return
+        self._ancre_si_absente()
         self.pair_cash[pair] = float(self.pair_cash.get(pair, 0.0)) + usdt
+        self._cash_ledger(pair, usdt, "add")
 
     def take_pair_cash(self, pair: str, usdt: Optional[float] = None) -> float:
         have = float(self.pair_cash.get(pair, 0.0))
         if have <= 0:
             return 0.0
+        self._ancre_si_absente()
         take = have if usdt is None else min(have, usdt)
         left = have - take
         if left <= 0.01:
             self.pair_cash.pop(pair, None)
         else:
             self.pair_cash[pair] = left
+        self._cash_ledger(pair, -take, "take")
         return take
 
     def _stop(self, *_):
@@ -2549,6 +2633,8 @@ class PaperBot:
         say("hdr", f"RESUME depuis {f.name} — {len(self.pos)} pos, "
                    f"{len(self.bags)} bags, cash {sum(self.pair_cash.values()):.2f}$, "
                    f"pnl {self.pnl_total:+.4f}$, trades {self.trades}")
+        # Livre de caisse : l'ancre fixe l'origine de la réconciliation de CE run.
+        self.ecrire_ancre_livre()
         return True
         return False
 
