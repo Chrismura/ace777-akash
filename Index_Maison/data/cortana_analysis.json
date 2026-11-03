@@ -1,121 +1,8 @@
 {
-  "timestamp": 1793668414,
-  "date": "2026-11-03T01:13:34.316453+00:00",
-  "n_analyses": 29,
+  "timestamp": 1793669314,
+  "date": "2026-11-03T01:28:34.617922+00:00",
+  "n_analyses": 26,
   "analyses": [
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.325537721326781,
-        "value": 8370884950.0,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets macro-économiques, culturels et industriels (Unilever, Alstom, déchets) sans aucun lien avec les marchés crypto. L'anomalie de volume (z-score 2.33) est statistiquement significative mais isolée ; sans contexte onchain spécifique (ex: flux vers exchanges, accumulation de BTC/ETH), elle reste un bruit de fond non confirmé par le narratif.\"\n}",
-        "ts": 1793647035.63138
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.12,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 3.8308753082513096,
-        "value": 3242711.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.83, ~3.2M USD) sans couverture médiatique correspondante. L'absence de bruit narratif suggère une accumulation silencieuse ou un positionnement discret par des acteurs institutionnels, typique d'un signal haussier précoce avant la propagation de l'information.\"\n}\n```",
-        "ts": 1793647338.095034
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 637218.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "achats": {
-          "value": 564850.0,
-          "seuil": 0,
-          "depasse": true
-        },
-        "prix": {
-          "value": 0.12,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
-      },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.1906114821089058,
-        "value": 1.06,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
-        "ts": 1793647339.19007
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": 0.12,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 2,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -127,7 +14,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -142,18 +29,19 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 10,
           "seuil": 5,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -171,7 +59,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -196,7 +84,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -211,18 +99,19 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 10,
           "seuil": 5,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -240,7 +129,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -265,7 +154,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -280,18 +169,19 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 10,
           "seuil": 5,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -309,7 +199,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -339,17 +229,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 343,
+          "value": 216,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -384,17 +274,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 343,
+          "value": 216,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -424,7 +314,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -439,18 +329,19 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 10,
           "seuil": 5,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -468,7 +359,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -493,7 +384,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -508,18 +399,19 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 10,
           "seuil": 5,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -532,29 +424,28 @@
       "fiche": "whale_usd",
       "questions": {
         "ventes": {
-          "value": 637218.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "achats": {
-          "value": 564850.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "ventes > achats",
-        "lecture": "Flux baleines VENDEUR dominant — distribution possible vers les exchanges (proxy : bearish aujourd'hui)",
-        "niveau": "surveiller",
-        "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Croiser avec le sniffer vieux BTC et l'IPT avant de réduire",
-      "niveau": "surveiller"
+      "action": "Observer",
+      "niveau": "neutre"
     },
     {
       "signal": {
@@ -572,7 +463,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -597,7 +488,7 @@
       "fiche": "rbf_eleve",
       "questions": {
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 1,
           "depasse": false
         },
@@ -612,18 +503,19 @@
           "depasse": false
         },
         "whales": {
-          "value": 2,
+          "value": 10,
           "seuil": 5,
-          "depasse": false
+          "depasse": true
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "whales > 5",
+        "lecture": "Activité institutionnelle intense — les gros bougent en douce",
+        "niveau": "surveiller",
+        "action": "Surveiller les prochaines heures, prêt à réagir"
       },
-      "action": "Observer",
-      "niveau": "neutre"
+      "action": "Surveiller les prochaines heures, prêt à réagir",
+      "niveau": "surveiller"
     },
     {
       "signal": {
@@ -641,7 +533,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -671,17 +563,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 343,
+          "value": 216,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -716,17 +608,17 @@
           "depasse": false
         },
         "volume": {
-          "value": 343,
+          "value": 216,
           "seuil": 100,
           "depasse": true
         },
         "prix": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": 2,
           "depasse": false
         },
         "sdi": {
-          "value": 0.608,
+          "value": 0.604,
           "seuil": 0.3,
           "depasse": true
         },
@@ -761,7 +653,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -791,7 +683,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -850,7 +742,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -904,12 +796,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.12,
+          "value": 0.2,
           "seuil": -1,
           "depasse": true
         },
         "liq": {
-          "value": 1794953.0,
+          "value": 1894827.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -943,7 +835,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }
@@ -1002,7 +894,7 @@
           "depasse": true
         },
         "oi": {
-          "value": 99118.786,
+          "value": 99187.206,
           "seuil": 120000,
           "depasse": false
         }

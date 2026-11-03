@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.004032007437505,
-      "value": 0.965,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif sémantique. L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités physiques (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
-      "ts": "2026-11-02T14:20:20.698656+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.468108313210214,
       "value": 6549465808.0,
@@ -349,6 +342,13 @@
       "value": 2.622,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. Les données fournies concernent des ETF actions (BNP Paribas, AIF) et des articles génériques sur la stratégie long/short en bourse, non des mouvements onchain spécifiques à la crypto. Aucune divergence réelle entre flux crypto et narratif n'est détectable ici.\"\n}",
       "ts": "2026-11-03T01:08:47.581273+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 36.169016051512095,
+      "value": 40760597.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence critique : Anomalie onchain massive (z-score 36.17, ~40.7M USD) vs silence médiatique total. L'absence de couverture pour un tel flux suggère une accumulation silencieuse ou un transfert vers des cold wallets, typique d'un positionnement haussier avant une volatilité publique.\"\n}\n```",
+      "ts": "2026-11-03T01:28:51.804801+00:00"
     }
   ]
 }
