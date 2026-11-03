@@ -1,15 +1,15 @@
-# ARCHITECTURE VIVANTE — ACE777 (2026-11-03 16:19 UTC)
+# ARCHITECTURE VIVANTE — ACE777 (2026-11-03 16:22 UTC)
 
 > Document GÉNÉRÉ AUTOMATIQUEMENT à l'instant. La famille valide
 > en s'appuyant sur CE contexte, pas sur des documents figés.
 
 ## Ce qui produit en ce moment (donnée datée)
-- ✅ hub LLM · `heartbeat.json` 55 min · daemon (tolérance 60 min)
-- ✅ pont cockpit · `mission.json` 1 min · daemon (tolérance 60 min)
+- ✅ hub LLM · `heartbeat.json` 57 min · daemon (tolérance 60 min)
+- ✅ pont cockpit · `mission.json` 0 min · daemon (tolérance 60 min)
 - ✅ radar · `journal_radar.log` 0 min · daemon (tolérance 60 min)
 - ✅ feed mission · `hub.json` 0 min · toutes les 30 s (tolérance ×3 = 5 min)
 - ⚪ lecteur signets · `SIGNETS_RESUMES.json` 5.6 h · pas de cadence déclarée (organe non planifié)
-- ✅ générateur fiches · `FICHES_OFFRES.json` 7.2 h · calendaire (tolérance 26 h)
+- ✅ générateur fiches · `FICHES_OFFRES.json` 7.3 h · calendaire (tolérance 26 h)
 - ✅ serveur cockpit · port 17800 répond · daemon (tolérance 60 min)
 - **6 frais · 0 lents · 0 muets** — critère = la donnée produite, jamais le nom du processus
 
@@ -23,7 +23,7 @@
 
 ## État de la mission (bots + PnL)
 
-- mission.json : 2026-11-03 16:19Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
+- mission.json : 2026-11-03 16:22Z · run `MASTER_BASE_V8_6_FORTRESS_8H20` · alerte `nominal`
 - PnL combiné : **0.70 $** 📈 (combo 0.7028)
 - ALPHA (sniper (embuscade, ×13, revenge si claque)) : **-1.97 $** · 7 fills · 6973 skips
 - BETA (éclaireur (chatouille le marché, alimente Alpha)) : **+2.67 $** · 34 fills · 604 skips
@@ -49,10 +49,10 @@
 ## Mémoire chaude (journal + résumés)
 
 - Radar (dernières alertes) :
-  · 2026-11-03T16:19:53.437714Z BTCUSDT 77557.86 0.0000 0.1 declenche=non
-  · 2026-11-03T16:19:54.147554Z ETHUSDT 2291.63 0.0004 41.8 declenche=non
-  · 2026-11-03T16:19:55.154047Z BTCUSDT 77557.86 0.0000 0.1 declenche=non
-  · 2026-11-03T16:19:55.655210Z BTCUSDT 77557.85 0.0000 0.1 declenche=non
+  · 2026-11-03T16:22:14.081406Z ETHUSDT 2286.13 0.0020 239.0 declenche=oui
+  · 2026-11-03T16:22:14.081527Z ETHUSDT 2286.13 0.0020 239.0 declenche=oui
+  · 2026-11-03T16:22:14.172921Z ETHUSDT 2286.14 0.0020 239.0 declenche=oui
+  · 2026-11-03T16:22:14.256987Z ETHUSDT 2286.14 0.0020 239.2 declenche=oui
 - Intention en cours : BETA a sonde le marche (34 sondes, 25 long / 9 court, conf m | ALPHA attend son signal — aucun tir sur la session en cours.
 - 1211 signets X résumés (quota aujourd'hui : 15/50)
 - 215 fiches IA d'offres en cache (quota 8/jour)

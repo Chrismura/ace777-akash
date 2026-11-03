@@ -1,6 +1,6 @@
 {
-  "timestamp": 1793722730,
-  "date": "2026-11-03T16:18:50.089226+00:00",
+  "timestamp": 1793723930,
+  "date": "2026-11-03T16:38:50.360807+00:00",
   "n_analyses": 5,
   "analyses": [
     {
@@ -14,22 +14,22 @@
       "fiche": "ipt",
       "questions": {
         "ipt": {
-          "value": 0.229,
+          "value": 0.775,
           "seuil": 0.79,
           "depasse": false
         },
         "prix": {
-          "value": -0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
         "micro": {
-          "value": 0.2,
+          "value": 0.3,
           "seuil": 0.5,
           "depasse": false
         },
         "zfee": {
-          "value": 0.0,
+          "value": 2.0,
           "seuil": 2.0,
           "depasse": false
         }
@@ -46,7 +46,7 @@
         "verdict": "neutral",
         "confidence": 95,
         "mesures": 4,
-        "mesures_non_nulles": 3,
+        "mesures_non_nulles": 4,
         "mesures_depassees": [],
         "utilisable": false,
         "motifs": [
@@ -72,34 +72,33 @@
           "depasse": false
         },
         "achats": {
-          "value": 521388.0,
+          "value": 0.0,
           "seuil": 0,
-          "depasse": true
+          "depasse": false
         },
         "prix": {
-          "value": -0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "condition": "achats > ventes",
-        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
-        "niveau": "info",
-        "action": "Observer, ne pas acheter sur un seul signal"
+        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "niveau": "neutre",
+        "action": "Observer"
       },
-      "action": "Observer, ne pas acheter sur un seul signal",
-      "niveau": "info",
+      "action": "Observer",
+      "niveau": "neutre",
       "verdict_llm": {
         "verdict": "bullish",
         "confidence": 65,
         "mesures": 3,
-        "mesures_non_nulles": 2,
-        "mesures_depassees": [
-          "achats"
-        ],
-        "utilisable": true,
-        "motifs": []
+        "mesures_non_nulles": 1,
+        "mesures_depassees": [],
+        "utilisable": false,
+        "motifs": [
+          "aucune des 3 mesure(s) ne dépasse son seuil — direction non prouvée"
+        ]
       }
     },
     {
@@ -113,22 +112,22 @@
       "fiche": "ipt",
       "questions": {
         "ipt": {
-          "value": 0.229,
+          "value": 0.775,
           "seuil": 0.79,
           "depasse": false
         },
         "prix": {
-          "value": -0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
         "micro": {
-          "value": 0.2,
+          "value": 0.3,
           "seuil": 0.5,
           "depasse": false
         },
         "zfee": {
-          "value": 0.0,
+          "value": 2.0,
           "seuil": 2.0,
           "depasse": false
         }
@@ -145,7 +144,7 @@
         "verdict": "neutral",
         "confidence": 95,
         "mesures": 4,
-        "mesures_non_nulles": 3,
+        "mesures_non_nulles": 4,
         "mesures_depassees": [],
         "utilisable": false,
         "motifs": [
@@ -166,12 +165,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.08,
+          "value": -0.17,
           "seuil": -1,
           "depasse": false
         },
         "liq": {
-          "value": 2260502.0,
+          "value": 2222995.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -213,22 +212,22 @@
       "fiche": "ipt",
       "questions": {
         "ipt": {
-          "value": 0.229,
+          "value": 0.775,
           "seuil": 0.79,
           "depasse": false
         },
         "prix": {
-          "value": -0.08,
+          "value": -0.17,
           "seuil": 1,
           "depasse": false
         },
         "micro": {
-          "value": 0.2,
+          "value": 0.3,
           "seuil": 0.5,
           "depasse": false
         },
         "zfee": {
-          "value": 0.0,
+          "value": 2.0,
           "seuil": 2.0,
           "depasse": false
         }
@@ -245,7 +244,7 @@
         "verdict": "neutral",
         "confidence": 60,
         "mesures": 4,
-        "mesures_non_nulles": 3,
+        "mesures_non_nulles": 4,
         "mesures_depassees": [],
         "utilisable": false,
         "motifs": [

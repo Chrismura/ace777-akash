@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-11-03T15:54:46Z",
+  "updated": "2026-11-03T16:40:43Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -1117,10 +1117,10 @@
       "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "2db816466a994a61a07eff1d3802a098",
+      "md5": "dad1fcc10f53e9c3687e80c0dc22aaf2",
       "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi). | GO 16/09 6 fiches : trigger z (absolu) lit le ZSCORE (avant : valeur brute → jamais ouvert), source générique live.json → chemin.doté, ",
       "maj": "16/09 après-midi (GO C. « go » C1+C2+C3) : C1 triggers réellement vérifiés contre la valeur du signal (_evaluer_trigger, alias rbf_score/sdi/global_score/taux_fantome) — le champ trigger n'était DÉCORATIF depuis le 27/08 ; C2 défaut neutre explicite (avant : 1re interprétation = sdi_eleve dangereux / binance_timeout critique) ; C3 health_degrade câblé (questions sources/mode + conditions source == évaluées contre pipeline_health.sources — KILL SWITCH critique UNIQUEMENT si binance <0,5). 8 tests dont négatifs verts. Par Buffy.",
-      "date": "2026-11-03T15:53:56Z",
+      "date": "2026-11-03T16:40:43Z",
       "_rescel": [
         {
           "ts": "2026-10-28T16:51:58Z",
@@ -1171,13 +1171,23 @@
             "user": "christophe",
             "chaine": "pid 80723 <- bash(pid 80720) <- /Users/christoph(pid 80719) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T16:40:43Z",
+          "motif": "E58 bis : volume/funding retires du routage vers la fiche rbf_eleve (lecture etrangere presentee comme mesure)",
+          "ecrivain": {
+            "ts": "2026-11-03T16:40:43Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 91181 <- bash(pid 91179) <- /Users/christoph(pid 91178) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T15:53:56Z",
+        "ts": "2026-11-03T16:40:43Z",
         "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 80723 <- bash(pid 80720) <- /Users/christoph(pid 80719) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 91181 <- bash(pid 91179) <- /Users/christoph(pid 91178) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {

@@ -1,11 +1,9 @@
 {
-  "ts": "2026-11-03T16:18+00:00",
-  "updated": "2026-11-03T16:18Z",
-  "etat": "ALERTE",
-  "chaines_ok": "18/19",
-  "anomalies": [
-    "AUDIT DES ACTES : 1 acte(s) non déclaré(s) — déclarer ou réparer"
-  ],
+  "ts": "2026-11-03T16:38+00:00",
+  "updated": "2026-11-03T16:38Z",
+  "etat": "OK",
+  "chaines_ok": "19/19",
+  "anomalies": [],
   "degradees": [],
   "chaines": [
     {
@@ -45,12 +43,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 48 min"
+          "detail": "dernier événement il y a 68 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -60,12 +58,12 @@
         {
           "nom": "→ Ada gardienne",
           "ok": true,
-          "detail": "voilure 89.2 · zone VERT"
+          "detail": "voilure 93.4 · zone VERT"
         },
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 2 min"
         }
       ]
     },
@@ -83,7 +81,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 4 min"
         }
       ]
     },
@@ -101,7 +99,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.6 min (budget 120s) · écart mtime/ts 2.6s · 22 paire(s) · btc=OK · ts=croissant · passe 15.2s · marge 104.8s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.4 min (budget 120s) · écart mtime/ts 2.8s · 22 paire(s) · btc=OK · ts=croissant · passe 4.1s · marge 115.9s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -116,7 +114,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 327 min"
+          "detail": "âge 347 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -139,7 +137,7 @@
         {
           "nom": "mission.json → cockpit",
           "ok": true,
-          "detail": "âge 1 min"
+          "detail": "âge 0 min"
         },
         {
           "nom": "hub.json (one-shot)",
@@ -203,7 +201,7 @@
         {
           "nom": "geopol.ts frais",
           "ok": true,
-          "detail": "âge 0.1h"
+          "detail": "âge 0.0h"
         },
         {
           "nom": "modules OK",
@@ -351,7 +349,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 6 min"
+          "detail": "âge 26 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -374,12 +372,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 5 min"
+          "detail": "âge 2 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.312"
+          "detail": "score 0.335"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -397,7 +395,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 29 min"
+          "detail": "âge 19 min"
         },
         {
           "nom": "veille d'essaim active",
@@ -438,7 +436,7 @@
         {
           "nom": "ancre de reprise",
           "ok": true,
-          "detail": "339 min"
+          "detail": "359 min"
         },
         {
           "nom": "livre de caisse",
@@ -461,22 +459,22 @@
       "id": "audit-actes",
       "nom": "AUDIT DES ACTES",
       "chemin": "Index_Maison/thermo/audit_actes.json (md5 disque vs pré-déclarations)",
-      "ok": false,
+      "ok": true,
       "maillons": [
         {
           "nom": "rapport d'audit",
           "ok": true,
-          "detail": "âge 2 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "actes non déclarés",
-          "ok": false,
-          "detail": "1 acte(s) non déclaré(s)"
+          "ok": true,
+          "detail": "aucun acte non déclaré"
         },
         {
           "nom": "fraîcheur (≤ 3 h)",
           "ok": true,
-          "detail": "2 min"
+          "detail": "3 min"
         }
       ]
     }

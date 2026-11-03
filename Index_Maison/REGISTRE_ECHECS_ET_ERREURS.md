@@ -2845,3 +2845,65 @@ phénomène DIFFÉRENT). Mesuré : 3 analyses ipt publiées avec `fiche=rbf_elev
 désormais sa propre fiche. Sortie réelle après correctif : `fiche=ipt niveau=neutre`,
 « Pression topologique dans sa plage MESURÉE… rien d'anormal ».
 IA=Buffy (DeepSeek V4.1 Flash, Freebuff).
+
+## §44 — E58 — L'ALARME SONNAIT ENCORE, ET ELLE AVAIT RAISON (03/11 16:17→16:36Z)
+
+Christophe : « même alarme rappels vocale continue !!! t'as encore bidouillé ». **Vérifié, il avait
+raison sur les deux points.** Ce n'était pas l'alarme de E56 (regime_justesse, éteinte à 16:26Z) :
+c'était une **seconde** alarme, née à 16:17Z (PID 85676), même message, `--cause-file
+thermo/audit_actes.json`. Son rapport accusait **`Index_Maison/WIKI_IA.md`** (modifié 16:10:24Z) —
+le wiki créé ce matin. L'acte était réel, l'alarme ne mentait pas : c'est MOI qui n'avais pas
+déclaré la sortie.
+
+**Mes trois fautes, déclarées (pas excusées).**
+- **F1 — j'ai décrit la mauvaise alarme.** J'ai répondu « couleur_regime » alors que l'alarme
+  vivante accusait `WIKI_IA.md` : j'ai décrit celle que je venais d'éteindre, pas celle qui
+  sonnait. Deux alarmes distinctes, un seul message identique.
+- **F2 — l'acte non déclaré, 4e du jour.** `vigie_cooldown` 11:58 · `justesse_v2` 12:25 ·
+  `regime_justesse` 15:51 · `WIKI_IA.md` 16:34. Même motif, quatre fois.
+- **F3 — « aucune alarme en vol » alors qu'une venait de naître.** Une vérification ponctuelle
+  n'est pas une surveillance.
+
+**Cause de CLASSE, mesurée (le vrai sujet).** Scan des générateurs (`OUT* = "...json|md|js"` dans
+`scripts/`) croisé avec `SORTIES_DECLAREES.jsonl` : **7 sorties déclarées** pour **81 générateurs
+qui écrivent au moins une sortie non déclarée**. Déclarer à la main ne tient pas (7 en 6 h contre
+81 en attente) : le faux rouge est structurel, pas accidentel.
+**Je n'ai PAS déclaré les 81 d'un bloc** : un scan ne distingue pas une sortie régénérée d'un
+document édité à la main (registre, cartes, rapports). Déclarer en masse **masquerait de vrais
+actes** — exactement l'angle mort dénoncé. Décision à Christophe, pas à moi.
+
+**Correctif structurel (celui qui tient)** : `wiki_ia.py` **déclare ses deux sorties à chaque
+écriture** (`_auto_declarer_sorties()` : idempotent, jamais bloquant). Le producteur est le seul
+à savoir qu'il écrit ; on ne dépend plus de la mémoire d'une IA.
+
+**Preuve, pas déclaration** : `audit_actes --controle` → `0 NON DÉCLARÉ(S)`, `ok = true` ·
+`cause_guerie()` appelée **directement à la source** sur les args du processus vivant → `True` ·
+16:36:53Z, alerte 1793722715 → `auto-etinte-cause-guerie` · `ps` : plus aucun `alerte_vocale`.
+Alarme née 16:17Z, éteinte **par sa cause** à 16:36Z, sans que personne la tue.
+
+**Historique IPT / RBF — la chaîne complète, toutes IA confondues.** Cinq couches corrigées,
+quatre fois avant moi, sans que personne ne voie le fond :
+1. **24/10 (§34)** : `SDI/ipt/rbf/fee_pressure` comptées parmi « mesurées mais **JAMAIS lues par
+   les portes** ». L'IPT est donc mesurée depuis au moins le 24/10 et n'a **jamais** été une porte.
+2. **E53** : le sigle brut envoyé au LLM → news « Institut de Physique Théorique » → faux positif.
+3. **E57** : aucune fiche `ipt` → `match_fiche()` None → **tout** verdict ipt écarté par construction.
+4. **E57 bis** : l'interprétation disait « pression topologique ÉLEVÉE » à ipt 0,34 (médiane 0,46).
+5. **E57 ter** : `ipt` routé sur la fiche **`rbf_eleve`** (remplacement de frais — autre phénomène).
+**État réel aujourd'hui** : l'IPT est **lisible et testable** (fiche propre, seuils mesurés sur 288
+mesures), elle n'est **PAS branchée** — aucune porte ne l'utilise. La brancher exige un backtest
+chiffré qui n'est pas fait : je ne le présente pas comme fait.
+IA=Buffy (DeepSeek V4.1 Flash, Freebuff).
+
+**E58 bis — E57 ter était encore vivant, sur deux autres métriques.** En relisant `match_fiche()`
+à la source (pas de mémoire) : `volume` et `funding` étaient routés sur **`rbf_eleve`**, la fiche du
+remplacement de frais — un phénomène DIFFÉRENT. Les deux ont un seuil z (`ZSCORE_THRESHOLDS`) et un
+libellé (`METRIQUES_LIBELLES`) mais **aucune fiche propre** : elles auraient été « mesurées » avec la
+fiche d'une autre, exactement la faute corrigée sur `ipt` trois heures plus tôt. **Aucune sentinelle
+ne les émet aujourd'hui** (vérifié : 0 émission `metric: volume|funding`) — la bombe était armée,
+pas encore déclenchée.
+**Correctif** : retirées du mapping → `match_fiche()` renvoie `None` → la sortie dit « aucune
+question mesurée » et le verdict est **écarté avec son motif**. On ne fabrique pas une fiche pour ne
+pas avoir l'air vide : le jour où une fiche mesurée existera, on la câblera.
+**Preuve** : routage testé dans le code après correctif — `ipt → fiche ipt`, `rbf → fiche rbf_eleve`,
+`sdi → fiche sdi_eleve`, `volume → REFUS explicite`, `funding → REFUS explicite`.
+IA=Buffy (DeepSeek V4.1 Flash, Freebuff).

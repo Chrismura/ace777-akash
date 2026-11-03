@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-03T16:19:17+00:00",
+  "ts": "2026-11-03T16:41:55+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -315,7 +315,7 @@
           "delta_votes": -1
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "Batch",
           "delta_votes": 0
         }
       ]
@@ -323,7 +323,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "45 alerte(s) microstructure au journal · 45 notée(s) par le juge indépendant · justesse 37.8 % · avis directionnels de Cortana (toutes matières) : 11/28 = 39.3 %",
+      "faits": "46 alerte(s) microstructure au journal · 46 notée(s) par le juge indépendant · justesse 39.1 % · avis directionnels de Cortana (toutes matières) : 11/28 = 39.3 %",
       "verdict": "ECHEC",
       "alerte": "",
       "detail": [
@@ -436,33 +436,33 @@
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "1491 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.0169 Δ=-18.8 NEUTRE)",
+      "faits": "1514 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.0297 Δ=-1.96 NEUTRE)",
       "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
         {
-          "ts": "2026-11-03T16:14:19Z",
-          "ofi": -0.007,
+          "ts": "2026-11-03T16:37:23Z",
+          "ofi": 0.0083,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T16:15:20Z",
-          "ofi": 0.0031,
+          "ts": "2026-11-03T16:38:23Z",
+          "ofi": 0.005,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T16:16:20Z",
-          "ofi": 0.0084,
+          "ts": "2026-11-03T16:39:23Z",
+          "ofi": 0.0036,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T16:17:20Z",
-          "ofi": 0.0192,
+          "ts": "2026-11-03T16:40:23Z",
+          "ofi": 0.0106,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T16:18:20Z",
-          "ofi": 0.0169,
+          "ts": "2026-11-03T16:41:23Z",
+          "ofi": 0.0297,
           "verdict": "NEUTRE"
         }
       ]

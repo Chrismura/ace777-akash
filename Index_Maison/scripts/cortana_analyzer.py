@@ -136,8 +136,15 @@ def match_fiche(signal, fiches):
         # fiche d'une autre n'est pas une mesure : c'est une lecture étrangère.
         # Sa fiche existe désormais (fiches_analyse/ipt.json, seuils mesurés).
         "ipt": "ipt",
-        "volume": "rbf_eleve",
-        "funding": "rbf_eleve",
+        # E58 bis (03/11) : `volume` et `funding` étaient routés sur `rbf_eleve` —
+        # la fiche du REMPLACEMENT DE FRAIS, un autre phénomène. C'est E57 ter
+        # encore vivant, en attente : ces deux métriques ont un seuil z et un
+        # libellé, mais AUCUNE fiche propre n'existe. Analysées avec la fiche
+        # d'une autre, elles produisent une lecture étrangère présentée comme
+        # une mesure. Retirées du mapping → match_fiche renvoie None → la
+        # sortie dit « aucune question mesurée » et le verdict est écarté avec
+        # son motif. On ne branche pas une lecture qui n'existe pas : on la
+        # rend visible. Le jour où une fiche mesurée existera, on la câblera.
     }
     
     fiche_type = mapping.get(metric, metric)

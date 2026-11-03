@@ -343,6 +343,7 @@ def main() -> int:
     L.append("- régénéré par `com.ace777.wiki-ia` (launchd). Aucun ordre, aucune écriture ailleurs.")
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    _auto_declarer_sorties()
     OUT_MD.write_text("\n".join(L) + "\n", encoding="utf-8")
     OUT_JSON.write_text(json.dumps({
         "ts": maintenant.strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -360,6 +361,37 @@ def main() -> int:
     if manquants:
         print("  ✗ routes introuvables : " + ", ".join(manquants[:6]))
     return 2 if manquants else 0
+
+
+def _auto_declarer_sorties() -> None:
+    """E58 (03/11) : le générateur DÉCLARE ses propres sorties, à chaque passage.
+
+    MESURÉ : 4 faux rouges « AUDIT DES ACTES » le même jour (vigie_cooldown.json,
+    justesse_v2.json, regime_justesse.json, puis WIKI_IA.md à 16:10:23Z) — chaque
+    fois une SORTIE d'organe jugée acte non déclaré, chaque fois une alarme
+    vocale en boucle. Déclarer à la main ne tient pas : celui qui écrit est le
+    seul à savoir qu'il écrit. Ici l'organe se déclare lui-même.
+    Idempotent (audit_actes refuse le doublon) et JAMAIS bloquant : si la
+    déclaration échoue, le wiki s'écrit quand même et l'audit le dira —
+    aucune alarme ne doit dépendre du silence d'un outil.
+    """
+    import subprocess
+    outil = IM / "scripts" / "audit_actes.py"
+    if not outil.exists():
+        return
+    for rel, motif in (
+        ("Index_Maison/WIKI_IA.md",
+         "wiki d'entree regenere a chaque passage du generateur (E58)"),
+        ("Index_Maison/data/wiki_ia.json",
+         "version machine du wiki, regeneree a chaque passage (E58)"),
+    ):
+        try:
+            subprocess.run(
+                [sys.executable, str(outil), "--declarer-sortie", rel,
+                 "--organe", "Index_Maison/scripts/wiki_ia.py", "--motif", motif],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=20)
+        except Exception:
+            pass
 
 
 def check() -> int:
