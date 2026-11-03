@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "liquidations",
-      "zscore": 6.136567956183181,
-      "value": 4451758.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Les liquidations crypto dépassent 628 millions de dollars en une heure, indiquant une forte pression de vente. Les titres médiatiques mentionnent des liquidations judiciaires, mais ne couvrent pas l'anomalie onchain. Les baleines pourraient être en train de liquider des positions, ce qui pourrait être un signal de vente massif et de baisse de confiance.\"\n}\n```",
-      "ts": "2026-11-02T17:41:25.094827+00:00"
-    },
-    {
-      "metric": "cpfp",
-      "zscore": 2.043009631930193,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 60,\n  \"reason\": \"L'anomalie onchain (CPFP = 50.0, z-score 2.04) pourrait indiquer une activité de baleines crypto, mais le narratif médiatique ne mentionne pas de mouvements significatifs dans le secteur crypto. La divergence suggère une possible activité de baleines silencieuses, mais sans confirmation médiatique, le signal reste neutre.\"\n}\n```",
-      "ts": "2026-11-02T17:41:36.712830+00:00"
-    },
-    {
-      "metric": "dust",
-      "zscore": 2.043009631930193,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 65,\n  \"reason\": \"L'anomalie onchain (dust = 50.0, z-score 2.04) pourrait indiquer une activité inhabituelle, mais les titres médiatiques ne mentionnent pas directement cette anomalie. Les titres médiatiques sont variés et ne semblent pas directement liés à l'anomalie onchain. Il n'y a pas de preuve claire que les baleines crypto soient en mouvement silencieux ou que le narratif soit déconnecté de la réalité.\"\n}\n```",
-      "ts": "2026-11-02T17:41:51.510275+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.7732749883946686,
-      "value": 8088908945.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets macro-économiques, culturels et industriels (Alstom, Unilever, déchets) sans aucun lien avec les marchés crypto. Le volume anormal (z-score 2.77) est isolé sans contexte narratif supportant une accumulation ou une distribution de baleines. Probablement du bruit de fond ou une activité non-spéculative.\"\n}",
-      "ts": "2026-11-02T17:46:53.387661+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": 2.896179066762784,
-      "value": 3408071.0,
-      "analysis": "{\n\"signal\": \"bearish\",\n\"confidence\": 85,\n\"reason\": \"Le z-score de 2.90 confirme une anomalie statistique majeure des liquidations. Contrairement à un signal de 'whale accumulation' (qui impliquerait des achats silencieux), le narratif médiatique (peur d'un hack Binance, chute du BTC) est parfaitement aligné avec la réalité onchain : il s'agit d'un effondrement de prix provoquant des liquidations forcées massives. Il n'y a pas de divergence, mais une confirmation d'un mouvement baissier violent et panique du marché.\"\n}",
-      "ts": "2026-11-02T18:11:59.017029+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.7816976605856927,
       "value": 8388023339.0,
@@ -349,6 +314,41 @@
       "value": 2.672,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont corrélées à des fonds d'actions traditionnelles (WSLS, LSF, ETFs) et non à des actifs crypto. Le narratif médiatique est cohérent avec des produits financiers classiques, aucune divergence crypto détectée.\"\n}",
       "ts": "2026-11-03T03:09:19.257555+00:00"
+    },
+    {
+      "metric": "volume",
+      "zscore": -2.507975779376302,
+      "value": 0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques sont un mélange de bruit (actualités générales, Windows 11, déchets) et de spéculation mineure (SHIB/PEPE). L'anomalie onchain (volume nul) est statistiquement significative mais sans contexte d'actif spécifique dans le flux médiatique. Impossible de détecter une divergence de baleines sans identifier l'actif concerné par le z-score.\"\n}",
+      "ts": "2026-11-03T05:49:32.301179+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": -2.401833788028428,
+      "value": 0,
+      "analysis": "{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : le narratif médiatique crie 'crash' et 'hack' (628M$ de liquidations), mais la donnée brute Sentinel indique zéro liquidation (z-score -2.40). Cette contradiction suggère que les titres sont soit obsolètes, soit des canulars, ou que le marché a déjà absorbé le choc sans casse réelle. L'absence de liquidations actuelles malgré la peur médiatique est un signal classique de 'washout' ou de manipulation narrative, indiquant que les baleines n'ont pas paniqué et que le sol est proche.\"\n}",
+      "ts": "2026-11-03T05:49:33.506143+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": -2.779265251347042,
+      "value": 1,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (z-score -2.78) sont probablement liées à des flux de fonds traditionnels (ETFs small-cap, L1 Fund ASX) et non à des actifs crypto. Le narratif médiatique confirme l'absence de lien avec le marché des cryptomonnaies.\"\n}",
+      "ts": "2026-11-03T05:49:34.702984+00:00"
+    },
+    {
+      "metric": "taker_ratio",
+      "zscore": -2.3356540032139232,
+      "value": 0.5,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Un taker_ratio de 0.5 (z-score -2.34) indique une forte pression acheteuse passive (limit orders) face à une absence de ventes agressives (market sells). Cette anomalie onchain suggère une accumulation silencieuse par des acteurs institutionnels ou des baleines qui absorbent l'offre sans faire monter le prix immédiatement. L'absence de titres médiatiques significatifs (vide informationnel) crée une divergence classique : le marché est en train de se positionner pour un mouvement haussier avant que le narratif public ne s'aligne sur la réalité onchain.\"\n}\n```",
+      "ts": "2026-11-03T05:49:35.553138+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.035857912315204,
+      "value": 0.982,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
+      "ts": "2026-11-03T06:34:59.637532+00:00"
     }
   ]
 }
