@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "price_1h",
-      "zscore": 2.86772099055864,
-      "value": 0.5187646394928969,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Anomalie de prix significative (z-score 2.87) en l'absence totale de couverture médiatique (silence radio sur Google Actualités), typique d'une accumulation furtive par des baleines avant un mouvement d'envergure.\"\n}\n```",
-      "ts": "2026-11-02T13:45:09.380537+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.3082160803394522,
-      "value": 6186583642.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.31) due à du bruit sémantique (le mot 'volume' est pollué par l'automobile, l'agroalimentaire et la musique). Aucune divergence réelle avec la crypto, simple faux positif des flux médiatiques.\"\n}\n```",
-      "ts": "2026-11-02T13:45:11.162554+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.585467230530191,
-      "value": 1.111,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (IPT) piégée par un faux positif sémantique : le ticker crypto est submergé par des actualités institutionnelles sur l'Institut Pasteur de Tunis (IPT) et l'École Polytechnique. Aucune activité valide de baleine détectée.\"\n}\n```",
-      "ts": "2026-11-02T13:45:12.648834+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 6.839668118654309,
-      "value": 6217168.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence majeure : Anomalie onchain massive (z-score 6.84, ~6.2M USD) sans couverture médiatique correspondante. Ce silence des médias face à un flux de capitaux significatif suggère une accumulation silencieuse ou un positionnement stratégique avant une annonce publique, typique d'un signal haussier précoce.\"\n}\n```",
-      "ts": "2026-11-02T14:05:16.858559+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.413403866170331,
-      "value": 6384916583.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.41) est attribué à Ethereum, tandis que le flux médiatique est dominé par du bruit non-crypto (Polnareff, Unilever, coiffure) et une simple comparaison de volumes BTC/ETH sans signal directionnel. Aucune divergence exploitable détectée.\"\n}",
-      "ts": "2026-11-02T14:15:18.975899+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.004032007437505,
       "value": 0.965,
@@ -349,6 +314,41 @@
       "value": 2.565,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative entre les données brutes et le narratif médiatique. Le long_short de 2.565 avec un z-score de 2.50 suggère une activité anormale et potentiellement significative des baleines. Les titres médiatiques se concentrent sur des analyses techniques et des fonds spécifiques, ce qui ne reflète pas l'anomalie globale détectée. La divergence indique que les baleines pourraient être en train de bouger silencieusement, et le narratif médiatique est déconnecté de cette réalité.\"\n}\n```",
       "ts": "2026-11-03T00:08:33.084938+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -6.855654600401045,
+      "value": 26,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence extrême : un Fear & Greed à 26 (z-score -6.86) indique une panique ou une indifférence médiatique totale, tandis que l'absence de titres majeurs suggère un vide narratif. Historiquement, cette combinaison (peur extrême + silence médiatique) est le signal classique d'accumulation silencieuse par les baleines avant un retournement haussier. Le marché est sous-évalué par le consensus.\"\n}\n```",
+      "ts": "2026-11-03T00:33:37.918300+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.95893703998831,
+      "value": 0.5456624211358507,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données narratives concrètes (titre vide/générique) et absence de contexte onchain spécifique (volume, flux de fonds, adresse source). Un z-score de 2.96 sur le prix seul est statistiquement notable mais non directionnel sans confirmation de volume ou d'activité de baleines. Impossible de détecter une divergence sans information médiatique exploitable.\"\n}\n```",
+      "ts": "2026-11-03T00:38:39.379856+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3233704506489423,
+      "value": 2.565,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des ETF actions traditionnels (SmallCap, Global Equity) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-03T00:38:40.601767+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -4.795831523312717,
+      "value": 26,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence extrême : un Fear & Greed à 26 avec un z-score de -4.80 indique une peur irrationnelle et un positionnement court massif, tandis que l'absence de titres médiatiques (vide informationnel) suggère que les acteurs institutionnels/baleines accumulent silencieusement sans attirer l'attention du retail. C'est un classique setup de 'contrarian bottom' où le sentiment est au plus bas mais la liquidité se repositionne discrètement.\"\n}",
+      "ts": "2026-11-03T01:03:45.667472+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.5527692554633186,
+      "value": 2.622,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. Les données fournies concernent des ETF actions (BNP Paribas, AIF) et des articles génériques sur la stratégie long/short en bourse, non des mouvements onchain spécifiques à la crypto. Aucune divergence réelle entre flux crypto et narratif n'est détectable ici.\"\n}",
+      "ts": "2026-11-03T01:08:47.581273+00:00"
     }
   ]
 }
