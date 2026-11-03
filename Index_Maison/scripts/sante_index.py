@@ -920,6 +920,30 @@ def verifier_chaines():
         "ok": essaim_frais and essaim_n is not None and (essaim_n or 0) < 2, "maillons": maillons,
     })
 
+    # ============================================================
+    # 17. ORGANES INSTALLÉS — plist versionné ≠ plist installé (03/11, audit)
+    #    Leçon E34 : com.ace777.hack-actif était versionné depuis le 02/11 mais
+    #    JAMAIS chargé → le régime hack n'existait que par des runs manuels.
+    #    Ici : tout plist du dépôt absent de ~/Library/LaunchAgents est DÉNONCÉ.
+    # ============================================================
+    maillons = []
+    plists_versionnes = sorted(p.name for p in (IM / "plists").glob("com.ace777.*.plist"))
+    agents = Path.home() / "Library" / "LaunchAgents"
+    manquants = [n for n in plists_versionnes if not (agents / n).exists()]
+    maillons.append(maillon("plists versionnés au dépôt", bool(plists_versionnes),
+                            f"{len(plists_versionnes)} fichiers"))
+    maillons.append(maillon("installés dans launchd", not manquants,
+                            "tous installés" if not manquants else
+                            f"{len(manquants)} MANQUANT(S) : " + ", ".join(manquants[:5])))
+    if manquants:
+        anomalies.append(f"ORGANES : {len(manquants)} plist(s) versionné(s) non installé(s) — "
+                         + ", ".join(manquants))
+    chaines.append({
+        "id": "organes-installes", "nom": "ORGANES INSTALLÉS",
+        "chemin": "Index_Maison/plists/*.plist → ~/Library/LaunchAgents → launchd",
+        "ok": bool(plists_versionnes) and not manquants, "maillons": maillons,
+    })
+
     return chaines, anomalies, now, chaines_degradees
 
 

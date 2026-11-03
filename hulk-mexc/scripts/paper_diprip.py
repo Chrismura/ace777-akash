@@ -165,6 +165,43 @@ def fenetre_entree_ok(pair: str) -> tuple[bool, str]:
 # Kill-switch global : même sémantique que la veilleuse (touch → tous les bots s'arrêtent)
 STOP_ALL = Path.home() / "ace777-test-day1" / "Index_Maison" / "STOP_ALL"
 
+
+def retenir_journaux(runs_dir=None, garder: int = 3):
+    """Rétention MESURÉE du journal HULK (03/11/2026, audit white-box V4).
+
+    Fait mesuré : chaque relance réécrit 109 230 lignes (14 Mo) ; 5 relances en
+    2 h = +70 Mo, runs/ = 1,5 Go. Le journal complet reste nécessaire (le cockpit
+    rejoue le CSV pour le cash : on ne le tronque PAS), donc on borne le NOMBRE de
+    runs conservés et on ARCHIVE les plus anciens en .gz — aucune perte de donnée.
+
+    Retourne (runs_gardés, fichiers_archivés, octets_libérés)."""
+    import gzip
+    import shutil
+
+    rr = Path(runs_dir or RUNS)
+    etats = sorted(rr.glob("PAPER_V1_*_state.json"),
+                   key=lambda p: p.stat().st_mtime, reverse=True)
+    if len(etats) <= max(0, garder):
+        return [p.name for p in etats], 0, 0
+    arch = rr / "_archive_journal"
+    arch.mkdir(exist_ok=True)
+    archives = 0
+    liberes = 0
+    for st in etats[garder:]:
+        stem = st.name.replace("_state.json", "")
+        for src in (rr / f"{stem}.csv", st):
+            if not src.exists():
+                continue
+            dst = arch / (src.name + ".gz")
+            if dst.exists():
+                dst = arch / f"{src.name}.{int(src.stat().st_mtime)}.gz"
+            with src.open("rb") as fi, gzip.open(dst, "wb") as fo:
+                shutil.copyfileobj(fi, fo)
+            liberes += src.stat().st_size
+            src.unlink()
+            archives += 1
+    return [p.name for p in etats[:garder]], archives, liberes
+
 # Couleurs terminal (désactiver: NO_COLOR=1)
 _USE_COLOR = sys.stdout.isatty() and not os.environ.get("NO_COLOR")
 
@@ -2499,6 +2536,15 @@ class PaperBot:
                            f"sous l'en-tête courant ({len(CSV_SCHEMA)} colonnes)")
             except Exception as e:                   # noqa: BLE001
                 say("err", f"[csv] RESUME_COPIE_ERR: {e}")
+        # Rétention bornée (03/11, audit V4) : on garde les 3 runs les plus récents,
+        # les plus anciens partent en .gz (archivés, pas supprimés).
+        try:
+            _gardes, _na, _lib = retenir_journaux()
+            if _na:
+                say("hdr", f"RETENTION JOURNAL : {_na} fichier(s) archivé(s) en .gz "
+                           f"({_lib / 1e6:.1f} Mo libérés) — {len(_gardes)} runs gardés")
+        except Exception as e:                       # noqa: BLE001
+            say("err", f"[retenir_journaux] {e}")
         self._reparer_pair_pnl_depuis_journal()
         say("hdr", f"RESUME depuis {f.name} — {len(self.pos)} pos, "
                    f"{len(self.bags)} bags, cash {sum(self.pair_cash.values()):.2f}$, "

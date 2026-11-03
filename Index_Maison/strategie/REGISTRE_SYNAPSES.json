@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-11-03T09:33:08Z",
+  "updated": "2026-11-03T09:56:34Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -30,11 +30,11 @@
       "origine": "chantier hulk",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "05fb8b5f094f0f177660f6c6e22435ec",
+      "md5": "4083db856869b8a33ee2e17a6aacfac7",
       "_rescel_20260918": "gate Plancher PLANCHER_GATE_ON + plancher_veto()/plancher_veto_decision() + mise plafonnée sur le MUR LIVE (aspiration_live.json, repli profil).",
       "note": "FIX 27/08 : circuits breaker + fraîcheur Cortana + FILTRE LOTS MEXC (lot_filter depuis exchangeInfo, baseSizePrecision/quoteAmountPrecision, arrondi stepSize au buy ET au sell, dust close, fail-open)  | RE-SCELLÉ 2026-09-03T17:22Z (GO Christophe 03/09) · 10/09: patch fusibles par paire (gate tête de buy() + détarage sizing, GO Christophe) — md5 mis à jour",
       "maj": "BATCH PRIX Phase 1 (31/08-01/09, famille 7/7 + codeur) : 1 appel GET global + cache au lieu de 21 GET/cycle (~200-270 req/min → sous la limite MEXC). Mode SELLFULL + mode_entree() du 29-31/08. Aucune logique métier touchée.",
-      "date": "2026-11-03T09:31:43Z",
+      "date": "2026-11-03T09:55:07Z",
       "_rescel_20260921": "SET-UP IMPULSE 21/09 (GO Christophe « avancer sur le set-up ») : 3 portes corrigées POUR LES SEULES PAIRES mode_entree=IMPULSE (aujourd'hui EDEL), mesurées avant câblage (chiffrage_entree_sortie_replay.py, 90 j × 20 paires) — (1) entrée sur la RAFALE sans attendre le repli (66 % des rafales étaient structurellement inaccessibles), (2) IMPULSE_WAIT n'est plus une sortie anticipée pour ces paires (c'est l'instant du pump), (3) fenêtre de creux levée (une rafale n'a pas d'heure ; les deux portes ensemble = 0 entrée sur 90 j). Sortie INCHANGÉE. Flags IMPULSE_SANS_REPLI_ON / IMPULSE_HORS_FENETRE_ON, réversibles en 1 ligne. Preuve live : EDEL BUY 13:23:28Z régime IMPULSE_WAIT m6=8.0.",
       "_rescel_20260922": "GARDE POINTEUR 22/09 (défense en profondeur) : save_state() ne fait PLUS pointer .hulk_resume_pointer vers un état que le moteur refuserait lui-même de reprendre — VIDE (0 position, 0 bag, écrit au boot avant le --resume) ou VIERGE (artefact de re-seed : 0 trade, 0 cash de paire, pnl≈0, pas de bags). Le disjoncteur mesure la perte journalière depuis ce pointeur : un tel état lu comme « pnl 0 » a déjà produit un faux Mur de Fer de 13,93 % (21/09). Le pointeur reste sur le dernier état RÉEL. Aucune autre ligne touchée ; confirmation définitive au prochain redémarrage du moteur (pas de relance forcée).",
       "_rescel_20260922b": "REFROIDISSEMENT BORNÉ 22/09 (GO Christophe « bloquer un actif est un contre-sens »). REENTRY_MAX n'interdit plus une paire À VIE : nettoyé le compteur en mémoire (non persisté → deux comportements selon le redémarrage) ; le buy() lit désormais un refroidissement GRADUÉ et EXPIRANT adossé au cache de stops persisté (n stops × 6 h, plafond 24 h, expiré après 48 h sans stop) + DÉ-RISQUE ×0,5 après un stop (« rebuilding with smaller size »). Calibré après mesure : à l'horizon 6 h (durée de détention réelle) la garde PROTÈGE (−14,5 $) ; à 24 h elle coûte (+56,3 $) → on garde la protection des premières heures, on supprime le blocage long. ANTI-SILENCE : un refus de régime (WATCH/QUIET) n'est plus muet (1 ligne/h/paire au max) — CCUSDT était invisible 27 h.",
@@ -298,13 +298,23 @@
             "user": "christophe",
             "chaine": "pid 90890 <- bash(pid 90888) <- /Users/christoph(pid 90887) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97906 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T09:31:43Z",
-        "ia": "Buffy (DeepSeek V4.1 Flash 10/17, Freebuff)",
+        "ts": "2026-11-03T09:55:07Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 90890 <- bash(pid 90888) <- /Users/christoph(pid 90887) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 97906 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -871,10 +881,10 @@
       "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "8800c1290bfe023372231d7c392334c9",
+      "md5": "5c86d1a95c1fbf147c72af914a14ae0f",
       "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
       "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime) || RE-SCELLÉ 03/09 : Modifié session 01/09 09h09 (chantier ACE/santé index) — re-scellé post-audit 03/09 (GO Christophe).",
-      "date": "2026-11-03T09:31:43Z",
+      "date": "2026-11-03T09:55:07Z",
       "_rescel": [
         {
           "ts": "2026-10-08T09:38:05Z",
@@ -893,13 +903,23 @@
             "user": "christophe",
             "chaine": "pid 90900 <- bash(pid 90888) <- /Users/christoph(pid 90887) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97912 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T09:31:43Z",
-        "ia": "Buffy (DeepSeek V4.1 Flash 10/17, Freebuff)",
+        "ts": "2026-11-03T09:55:07Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 90900 <- bash(pid 90888) <- /Users/christoph(pid 90887) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 97912 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -1135,10 +1155,10 @@
       "origine": "chantier disjoncteur 16/08 · rebranché 09/09 (GO Christophe)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "f46d65d6bb3191403d80bf991cb5e187",
+      "md5": "969684b7e8f7b9ba437e694f7943a75e",
       "note": "REBRANCHEMENT 09/09 : plist retrouvé dans Index_Maison/plists/ après disparition silencieuse de LaunchAgents. FIX dual STOP_ALL (strategie/ + racine) : les deux conventions de kill-switch jamais raccordées — le Mur de Fer ne couvrait pas HULK. Recalibration 1,5%→11,67%/j, global 8→25% (config.bak-avant-recalibration-20260909). LANCÉ launchd check/60s.",
       "maj": "Rebranchement + recalibration 2026-09-09 (GO Christophe, 5 tests hors vol OK)",
-      "date": "2026-11-03T07:50:25Z",
+      "date": "2026-11-03T09:55:07Z",
       "_rescel": [
         {
           "ts": "2026-11-02T14:37:17Z",
@@ -1169,13 +1189,23 @@
             "user": "christophe",
             "chaine": "pid 67656 <- bash(pid 67640) <- /Users/christoph(pid 67639) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97918 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T07:50:25Z",
-        "ia": "Buffy (DeepSeek V4.1 Flash 10/17, Freebuff)",
+        "ts": "2026-11-03T09:55:07Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 67656 <- bash(pid 67640) <- /Users/christoph(pid 67639) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 97918 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -1311,10 +1341,10 @@
       "origine": "leçon GitHub 3 jours (croisement_contexte 300 Mo) · GO Christophe 14/09 (rotation +troupeau_inv +xrpl_onchain)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "1736b68c711eedf642f2f561a06e3611",
+      "md5": "d6ec39a7f034144f9eceb739abb33da8",
       "note": "Évolution déclarée 19/09 : +journal_radar.log (vigie 3,7 Go), +PAPER/DIGEST_WATCHDOG_STDOUT.log (95 Mo / 26 Mo, écrits en direct par watchdog_hulk_ghost.sh — même cancer, 3e occurrence), ET mode AUDIT DE DÉCOUVERTE (tout fichier > 200 Mo hors rotation est signalé tout seul dans thermo/GROS_FICHIERS.json : une liste ne protège que ce dont on se souvient). Préc. 14/09 18:35 : +x402_agentic_hist [C5].",
       "maj": "re-scellé 20/09 — FENÊTRE GARDÉE : la rotation ne gardait AUCUN historique récent. Prouvé le 20/09 : rotation de croisement_contexte.jsonl à 13:12:21Z (113,7 Mo) → plus que 5 heures dans le fichier vivant ; or hulk-mexc/scripts/short_btc.py exige ≥ 10 heures distinctes → score null, « historique insuffisant » : le signal short BTC était AVEUGLE ~10 h, sans que le plist (exit 0), le chien (« short-btc vivant ») ni la veilleuse ne le voient. Désormais : GARDER_HEURES (24 h) → on n'archive QUE ce qui sort de la fenêtre, et GARDER_MAX_MO (60) borne le fichier vivant — le plus contraignant des deux gagne (on ne recrée pas le JSONL de 300 Mo qui bloquait le push). Clés ajoutées : GARDER_HEURES, GARDER_MAX_MO, _offset_fenetre(), _decaler_archives() ; rotate_file(..., garder_heures=0) = comportement historique INCHANGÉ pour les logs sans lecteur. 6 cas testés hors vol sur copie (fenêtre / plafond / tout-dans-fenêtre / historique / dry-run / lignes sans ts). Réécriture EN PLACE (même inode : les écrivains gardent leur fd — leçon COPYTRUNCATE).",
-      "date": "2026-11-03T07:51:28Z",
+      "date": "2026-11-03T09:55:07Z",
       "_rescel": [
         {
           "ts": "2026-11-02T18:18:26Z",
@@ -1345,13 +1375,23 @@
             "user": "christophe",
             "chaine": "pid 67992 <- bash(pid 67972) <- /Users/christoph(pid 67967) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97924 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T07:51:28Z",
-        "ia": "Buffy (DeepSeek V4.1 Flash 10/17, Freebuff)",
+        "ts": "2026-11-03T09:55:07Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 67992 <- bash(pid 67972) <- /Users/christoph(pid 67967) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 97924 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -2233,9 +2273,27 @@
       "origine": "Demande Christophe 22-23/09 (« explique-moi pourquoi RIZE a perdu le pump »)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d8a2f8211fe9aa578ba512f61aeae639",
-      "date": "2026-09-23T09:33Z",
-      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue)."
+      "md5": "d182e33c602ac60e46f9f6dfa466f99e",
+      "date": "2026-11-03T09:55:07Z",
+      "_ajout_20260923": "Instrument créé le 23/09/2026 (GO Christophe) — ajouté au registre le jour même de sa création pour qu'il soit VU (veilleuse, drill, revue).",
+      "_rescel": [
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97930 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-11-03T09:55:07Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 97930 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+      }
     },
     {
       "nom": "Index_Maison/scripts/declarer_rescel_20260923.py",
@@ -2861,8 +2919,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "62947b699991b9103ee324fdb65c94c1",
-      "date": "2026-11-03T09:12:26Z",
+      "md5": "0661c211053e53e13d0dcd1b0f5fb496",
+      "date": "2026-11-03T09:56:34Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -3429,13 +3487,33 @@
             "user": "christophe",
             "chaine": "pid 86814 <- bash(pid 86813) <- /Users/christoph(pid 86811) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97936 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T09:56:34Z",
+          "motif": "audit 03/11 append",
+          "ecrivain": {
+            "ts": "2026-11-03T09:56:34Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 98189 <- bash(pid 98187) <- /Users/christoph(pid 98186) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T09:12:26Z",
-        "ia": "Buffy (DeepSeek V4.1 Flash 10/17, Freebuff)",
+        "ts": "2026-11-03T09:56:34Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 86814 <- bash(pid 86813) <- /Users/christoph(pid 86811) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 98189 <- bash(pid 98187) <- /Users/christoph(pid 98186) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -3444,8 +3522,8 @@
       "origine": "Créé avant le 08/10/2026 mais JAMAIS inscrit au registre (trou R15 trouvé par le rituel des scellés du 08/10 : un organe qui tourne en production et que personne ne surveille). Inscrit le 08/10/2026 (go Christophe) en même temps que le signal corrigé (pre-déclaration enregistrée avant l'acte).",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "dd7b3001cf5768806c66f892538664e9",
-      "date": "2026-10-30T00:28:30Z",
+      "md5": "838f74ff177d9c5259600c368079ca2f",
+      "date": "2026-11-03T09:55:07Z",
       "_ajout": [
         {
           "ts": "2026-10-08T09:15:29Z",
@@ -3520,13 +3598,23 @@
             "user": "christophe",
             "chaine": "pid 35487 <- bash(pid 35486) <- /Users/christoph(pid 35485) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97942 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-30T00:28:30Z",
-        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "ts": "2026-11-03T09:55:07Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 35487 <- bash(pid 35486) <- /Users/christoph(pid 35485) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 97942 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -4385,8 +4473,8 @@
       "origine": "",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "16e6212b173f016cc6ea41057abe71cf",
-      "date": "2026-11-02T18:08:55Z",
+      "md5": "c7cb444e2458d9c6a8496eafbf36caf9",
+      "date": "2026-11-03T09:55:07Z",
       "_ajout": [
         {
           "ts": "2026-10-16T22:03:54Z",
@@ -4451,13 +4539,23 @@
             "user": "christophe",
             "chaine": "pid 86310 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97948 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-02T18:08:55Z",
-        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "ts": "2026-11-03T09:55:07Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 86310 <- bash(pid 86307) <- /Users/christoph(pid 86306) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 97948 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -5899,13 +5997,13 @@
       "origine": "02/11 GO Christophe : l'oubli est un problème",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "826e838ee6ab7c2451eac1a81642eca8",
-      "date": "2026-11-03T09:33:08Z",
+      "md5": "7b5a3240559fda9fcb274c5a461751d0",
+      "date": "2026-11-03T09:56:34Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-03T09:33:08Z",
-        "ia": "Buffy (DeepSeek V4.1 Flash 10/17, Freebuff)",
+        "ts": "2026-11-03T09:56:34Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 91299 <- bash(pid 91296) <- /Users/christoph(pid 91295) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 98195 <- bash(pid 98187) <- /Users/christoph(pid 98186) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -6012,6 +6110,26 @@
             "ia": "Buffy (DeepSeek V4.1 Flash 10/17, Freebuff)",
             "user": "christophe",
             "chaine": "pid 91299 <- bash(pid 91296) <- /Users/christoph(pid 91295) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T09:55:07Z",
+          "motif": "audit 03/11",
+          "ecrivain": {
+            "ts": "2026-11-03T09:55:07Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 97954 <- bash(pid 97887) <- /Users/christoph(pid 97886) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T09:56:34Z",
+          "motif": "audit 03/11 append",
+          "ecrivain": {
+            "ts": "2026-11-03T09:56:34Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 98195 <- bash(pid 98187) <- /Users/christoph(pid 98186) <- /Users/christoph(pid 4107)"
           }
         }
       ]

@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "whale_usd",
-      "zscore": 3.8308753082513096,
-      "value": 3242711.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.83, ~3.2M USD) sans couverture médiatique correspondante. L'absence de bruit narratif suggère une accumulation silencieuse ou un positionnement discret par des acteurs institutionnels, typique d'un signal haussier précoce avant la propagation de l'information.\"\n}\n```",
-      "ts": "2026-11-02T19:22:18.095034+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.1906114821089058,
       "value": 1.06,
@@ -349,6 +342,13 @@
       "value": 0.5,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Un taker_ratio de 0.5 (z-score -2.27) indique une forte pression acheteuse passive (limit orders) face à une absence de ventes agressives (market sells). C'est un signal classique d'accumulation silencieuse par les baleines. L'absence de titres médiatiques significatifs (vide informationnel) crée une divergence positive : le marché s'apprécie ou se stabilise sans hype, suggérant que les mouvements sont cachés et que le narratif public est en retard sur la réalité onchain.\"\n}\n```",
       "ts": "2026-11-03T08:45:40.230885+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.8217453569739535,
+      "value": 0.5092625693251085,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.82 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+      "ts": "2026-11-03T09:40:49.223018+00:00"
     }
   ]
 }

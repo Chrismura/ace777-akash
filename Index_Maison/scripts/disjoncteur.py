@@ -285,7 +285,7 @@ def main():
     parser.add_argument("--check", action="store_true", help="État global (0 = OK, 1 = déclenché)")
     parser.add_argument("--bridage", type=float, help="Taille d'ordre à tester")
     parser.add_argument("--capital", type=float, default=10000.0, help="Capital de référence")
-    parser.add_argument("--perte-jour", type=float, default=0.0, help="Perte journalière en %")
+    parser.add_argument("--perte-jour", type=float, default=0.0, help="Perte journalière en %%")
     parser.add_argument("--rearmer", action="store_true", help="Réarme manuellement")
     parser.add_argument("--etat", action="store_true", help="État courant en JSON")
     args = parser.parse_args()

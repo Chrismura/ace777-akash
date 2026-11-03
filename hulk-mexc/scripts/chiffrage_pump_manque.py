@@ -711,7 +711,7 @@ def scan():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--scan", action="store_true",
-                    help="scanne TOUTES les paires : mouvements ≥ 20 % pris / manqués + cause")
+                    help="scanne TOUTES les paires : mouvements ≥ 20 %% pris / manqués + cause")
     ap.add_argument("--cadences", action="store_true",
                     help="GO 2 : par paire, le repli RÉELLEMENT exigé et la part de jambes "
                          "que la règle rend inaccessibles")

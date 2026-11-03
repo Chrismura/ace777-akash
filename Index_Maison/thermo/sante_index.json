@@ -1,8 +1,8 @@
 {
-  "ts": "2026-11-03T09:32+00:00",
-  "updated": "2026-11-03T09:32Z",
+  "ts": "2026-11-03T10:12+00:00",
+  "updated": "2026-11-03T10:12Z",
   "etat": "OK",
-  "chaines_ok": "16/16",
+  "chaines_ok": "17/17",
   "anomalies": [],
   "degradees": [],
   "chaines": [
@@ -43,12 +43,12 @@
         {
           "nom": "scan file",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 5 min"
         },
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 44 min"
+          "detail": "dernier événement il y a 84 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -63,7 +63,7 @@
         {
           "nom": "→ Cortana feed",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -81,7 +81,7 @@
         {
           "nom": "deriv_corr.json",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 3 min"
         }
       ]
     },
@@ -99,7 +99,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 1.9s · 22 paire(s) · btc=OK · ts=croissant · passe 56.8s · marge 63.2s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 2.6s · 22 paire(s) · btc=OK · ts=croissant · passe 29.9s · marge 90.1s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -114,7 +114,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 168 min"
+          "detail": "âge 18 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -223,8 +223,8 @@
         },
         {
           "nom": "rapport VEILLEUSE.md",
-          "ok": false,
-          "detail": "anomalies signalées"
+          "ok": true,
+          "detail": "STABLE"
         },
         {
           "nom": "kill-switches",
@@ -326,7 +326,7 @@
         {
           "nom": "macro_tempete.json",
           "ok": true,
-          "detail": "âge 0 min"
+          "detail": "âge 1 min"
         },
         {
           "nom": "état courant",
@@ -349,7 +349,7 @@
         {
           "nom": "croisement_externe_etat.json",
           "ok": true,
-          "detail": "âge 23 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "fails prix (> 5 % vs externe)",
@@ -372,12 +372,12 @@
         {
           "nom": "sdi_latest.json (SAPI dedans)",
           "ok": true,
-          "detail": "âge 4 min"
+          "detail": "âge 3 min"
         },
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.352"
+          "detail": "score 0.361"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",
@@ -395,7 +395,7 @@
         {
           "nom": "essaim_etat.json",
           "ok": true,
-          "detail": "âge 14 min"
+          "detail": "âge 24 min"
         },
         {
           "nom": "veille d'essaim active",
@@ -406,6 +406,24 @@
           "nom": "paires régulières simultanées",
           "ok": true,
           "detail": "0 essaim"
+        }
+      ]
+    },
+    {
+      "id": "organes-installes",
+      "nom": "ORGANES INSTALLÉS",
+      "chemin": "Index_Maison/plists/*.plist → ~/Library/LaunchAgents → launchd",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "plists versionnés au dépôt",
+          "ok": true,
+          "detail": "119 fichiers"
+        },
+        {
+          "nom": "installés dans launchd",
+          "ok": true,
+          "detail": "tous installés"
         }
       ]
     }

@@ -89,6 +89,16 @@ STATE = RUNS / f"short_{SYM_TAG}_state.json"
 LIVE = RUNS / f"short_{SYM_TAG}_live.json"
 JOURNAL = RUNS / f"short_{SYM_TAG}_journal.csv"
 SIGNAUX = RUNS / f"short_{SYM_TAG}_signaux.jsonl"
+# === KILL-SWITCH GLOBAL (03/11/2026, audit white-box V5) ===
+# Mesuré : STOP_ALL n'était lu QUE par paper_diprip. Les 3 shorts continuaient
+# donc d'ouvrir/fermer après un arrêt global — incohérent avec « bouton rouge ».
+# Un seul point de vérité : Index_Maison/STOP_ALL (même chemin que le moteur).
+# ACE_STOP_ALL permet au harnais de tester le garde SANS toucher au vrai fichier.
+STOP_ALL = Path.home() / "ace777-test-day1" / "Index_Maison" / "STOP_ALL"
+
+
+def arret_global() -> bool:
+    return Path(os.environ.get("ACE_STOP_ALL") or STOP_ALL).exists()
 
 # ---- paramètres (modifiables, cohérents avec l'esprit du moteur) ----
 NOTIONAL_USDT = 5.0        # marge isolée du short (le notionnel vient du DYN ci-dessous)
@@ -633,6 +643,10 @@ def ecrire_live(sig: dict, st: dict) -> None:
 
 
 def run_once() -> int:
+    if arret_global():
+        print(f"{_PREFIX} STOP_ALL actif (kill-switch global) — aucun acte, "
+              f"position conservée, état NON réécrit")
+        return 0
     try:
         rows = load_rows()
     except Exception as e:

@@ -4,7 +4,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="version" content="390091367">
+<meta name="version" content="943024699">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
-<script src="mission.js?v=1793698634"></script>
+<script src="mission.js?v=1793701036"></script>
 <!-- COSMOS HUB feed -->
-<script src="hub.js?v=1793698634"></script>
-<script src="../thermo/live.js?v=1793698634"></script>
-<script src="../thermo/cortana_feed.js?v=1793698634"></script>
-<script src="sante_live.js?v=1793698634"></script>
-<script src="veille_institutionnelle.js?v=1793698634"></script>
+<script src="hub.js?v=1793701036"></script>
+<script src="../thermo/live.js?v=1793701036"></script>
+<script src="../thermo/cortana_feed.js?v=1793701036"></script>
+<script src="sante_live.js?v=1793701036"></script>
+<script src="veille_institutionnelle.js?v=1793701036"></script>
 <style>
 :root{
   --ink:#050804; --panel:#0a100c; --line:#3a2e14;
@@ -1188,7 +1188,7 @@ canvas#radar{width:100%;height:100%;display:block;filter:drop-shadow(0 0 14px rg
     50% { opacity: 1; }
 }
 </style>
-<script src="plancher_live.js?v=1793698634"></script>
+<script src="plancher_live.js?v=1793701036"></script>
 </head>
 <body>
 <div class="app">
@@ -1980,9 +1980,19 @@ window.addEventListener('unhandledrejection', function(e) {
       }else if(eng.state==='STALE'){
         elEng.innerHTML='<span style="color:var(--amber2)">🟡 ACE SIGNAL FAIBLE</span>';
       }else{
-        elEng.innerHTML='<span style="color:var(--red)">⚫ ACE À L\'ARRÊT</span> — le run <b>'+((M.run)||'')+'</b> est un HISTORIQUE'+(eng.last?(' (dernier '+eng.last+')'):'')+'. '+
-          'Le moteur n\'a pas été relancé depuis l\'arrêt du 24/08 (ordre Christophe).';
+        elEng.innerHTML='<span style="color:var(--red)">⚫ ACE À L\'ARRÊT</span> — le run <b>'+((M.run)||'')+'</b> est un HISTORIQUE'+(eng.last?(' (dernier '+eng.last+')'):'')+'.';
       }
+    }
+    // VÉRITÉ MOTEUR HULK (03/11, audit) : `engine` ne décrit QUE le duo ACE.
+    // Le moteur qui trade ici est HULK — affiché à part, avec son âge mesuré.
+    if(elEng){
+      const hk=(M&&M.engineHulk)||{};
+      const ageHk=Number(hk.ageSec);
+      const txt=!hk.state||hk.state==='OFF'?'<span style="color:var(--red)">⚫ HULK À L\'ARRÊT</span>'
+        :(hk.state==='ON'?'<span style="color:var(--acid)">🟢 HULK EN COURS</span>'
+        :'<span style="color:var(--amber2)">🟡 HULK RALENTI</span>');
+      elEng.innerHTML+=(elEng.innerHTML?' · ':'')+txt
+        +(hk.last?(' <span style="color:var(--muted)">(dernier cycle '+hk.last+(isFinite(ageHk)?' · il y a '+Math.round(ageHk/60)+' min':'')+')</span>'):'');
     }
   }
 

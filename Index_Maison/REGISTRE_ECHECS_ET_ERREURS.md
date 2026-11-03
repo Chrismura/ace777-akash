@@ -2580,3 +2580,60 @@ GBAG muet → refusé).
 distance au sommet ont un **R+7j médian négatif** (−0,08 % à −4,88 %, 60–80 % de cas perdants). Le marché de la
 période est baissier : **le plafond est confondu avec la tendance**, donc **aucun plafond n'est prouvé**.
 **Décision** : **rien câblé** (règle maison). Re-mesure à programmer quand la fenêtre contiendra un régime haussier.
+
+### E33 — LE DISJONCTEUR ÉTAIT INEXÉCUTABLE (argparse « % » nu)
+`disjoncteur.py --check` mourait sur `help="Perte journalière en %"` : argparse applique `% params`, un `%` seul
+lève `ValueError: incomplete format`. Même classe dans `analyser_prises_liquidite.py` et `chiffrage_pump_manque.py`.
+Conséquence : l'organe qui **plafonne la taille en régime hack** ne tournait pas — et personne ne s'en apercevait
+puisqu'il n'était appelé par aucune boucle. Corrigé le 03/11 (`%%`), revérifié : `--check` répond, `--help` des 3 outils OK.
+**Leçon** : un outil sans plist et sans test d'invocation est un organe mort qu'on croit vivant.
+
+### E34 — UN PLIST VERSIONNÉ N'EST PAS UN ORGANE INSTALLÉ (hack-actif)
+118 plists installés pour 119 versionnés : `com.ace777.hack-actif.plist` n'avait jamais été chargé. Le régime hack
+n'existait donc que par des runs manuels ; au-delà de 2 h, `disjoncteur` et `degraissage_papier` retombaient en
+fail-open « pas de cap ». Installé + chargé le 03/11 10:43Z (niveau 2 HACK_ACTIF, `ok=true`).
+**Garde** : comparer `plists/*.plist` et `~/Library/LaunchAgents/` à chaque contrôle de santé (à brancher, P1).
+
+### E35 — LE PANNEAU MOTEUR DÉCRIVAIT UN MOTEUR ARRÊTÉ DEPUIS 54 JOURS
+`mission.json.engine` ne lit que le `LIVE_COLOR` du duo ACE (muet depuis 2026-09-09T17:19Z). Le cockpit affichait
+« ⚫ ACE À L'ARRÊT » avec une phrase figée « pas relancé depuis l'arrêt du 24/08 », alors que HULK tradait
+(`PAPER_V1_…_state.json` frais à 5 s). Corrigé le 03/11 : `engineHulk` publié par `cockpit_mission_feed` et affiché
+à part, avec son âge mesuré. **Leçon** : une phrase d'état écrite à la main dans une UI est une règle fixe déguisée.
+
+### E36 — CHAQUE REDÉMARRAGE RÉÉCRIT 109 230 LIGNES DE JOURNAL
+Journal HULK : 14 Mo par relance, historique complet depuis le 24/08 recopié à chaque fois (5 relances en 2 h =
++70 Mo ; `runs/` = 1,5 Go). Mesure faite, correctif **non câblé** (touche le moteur) : inscrit au calendrier 10/11
+avec la preuve exigée (total de trades identique, run < 1 Mo).
+
+### E37 — LE KILL-SWITCH N'ARRÊTAIT PAS LES SHORTS
+`STOP_ALL` n'était lu que par `paper_diprip.py` (l. 4790). Les 3 runners short (`short_btc.py` via 3 plists, 5 min)
+et `degraissage_papier.py` continuaient d'agir après un arrêt global. Corrigé le 03/11 : garde `arret_global()` en tête
+de `run_once()` et de `main()`, même fichier `Index_Maison/STOP_ALL`. Preuve : `ACE_STOP_ALL` → short « aucun acte,
+position conservée » ; dégraissage « aucun plan écrit » ; sans le fichier, les deux tournent normalement.
+**Leçon** : un bouton rouge qui n'arrête que la moitié de la maison n'est pas un bouton rouge.
+
+### E38 — CHAQUE RELANCE RECOPIAIT 109 230 LIGNES DE JOURNAL
+Mesuré : 5 relances en 2 h = +70 Mo ; `runs/` = 1,5 Go ; le journal complet est nécessaire au rejeu cockpit (on ne le
+tronque pas). Correctif : `retenir_journaux()` garde les **3 runs les plus récents** et **archive les autres en .gz**
+(aucune suppression). Preuve isolée : 5 runs → 2 gardés, 6 fichiers archivés, 2ᵉ passage idempotent (0,0).
+**Actif au prochain démarrage propre** (le processus courant porte l'ancien code).
+
+### E39 — UN PLIST VERSIONNÉ N'EST PAS UN ORGANE INSTALLÉ (garde branchée)
+Suite d'E34 : `sante_index` porte une 17ᵉ chaîne **ORGANES INSTALLÉS** qui compare `Index_Maison/plists/*.plist`
+à `~/Library/LaunchAgents`. Preuve : 1 plist retiré → rouge + anomalie nommée ; restauré → vert (17 chaînes).
+**Leçon** : la panne la plus discrète est un organe présent au dépôt et absent de la machine.
+
+### E40 — L'ARCHITECTURE VIVANTE MENT DANS LES DEUX SENS
+`archi_vivante.py` teste des **noms de processus** (`pgrep`) : 4 organes affichés ⛔ alors que `mission.json` est frais
+à 1 min. Inversement, un organe au nom correct peut être muet. Une carte d'architecture doit lire **la donnée produite**,
+pas la ligne de commande. Mesuré, non corrigé (P1).
+
+### E41 — LE CERVEAU DOUX REND ZÉRO PROPOSITION
+`cortana_propose_params.py` : « cortana REJET: STOP_FLOOR_MULT: expiry dépassée » → **0 proposition** ; il écrit dans
+`hulk-mexc/strategie/cortana_pilot.json`, alors que `Index_Maison/strategie/cortana_pilot.json` est attendu et absent.
+Conséquence : la couche « conseil » est inerte et personne ne le voit. Mesuré, non corrigé (P1).
+
+### DETTE R20.1 CONSTATÉE — 5 VIOLATIONS AU 03/11 10:56Z
+`chiffrage_pump_manque.py` (acte 09:45:09Z, mon fait) + `rafraichir_klines.py`, `sante_mesures.py`,
+`mesure_core_filet.py`, `com.ace777.klines-horaire.plist` (re-scellés 09:12:26Z sans pré-déclaration).
+Registre remis à **0 écart / 0 absent** (261 entrées) ; la dette n'est **pas blanchie** : radiation = décision de Christophe.

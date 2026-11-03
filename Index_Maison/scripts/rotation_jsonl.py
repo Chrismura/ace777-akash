@@ -54,6 +54,9 @@ DEFAUTS = [
     # sans risque (redirection O_APPEND), seuil 50 Mo.
     ("/Users/christophe/ace777-test-day1/hulk-mexc/runs/PAPER_WATCHDOG_STDOUT.log", 50),
     ("/Users/christophe/ace777-test-day1/hulk-mexc/runs/DIGEST_WATCHDOG_STDOUT.log", 50),
+    # 03/11 (audit white-box) : WATCHDOG_GHOST.log était le seul log du gardien
+    # hors rotation (15 Mo à J+1 de relance, append pur) — même cancer que §19/09.
+    ("/Users/christophe/ace777-test-day1/hulk-mexc/runs/WATCHDOG_GHOST.log", 50),
     # §75 anti-boucle (02/11) : OFI 47 Mo dont 71k doublons — jamais plus.
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/ofi_historique.jsonl", 20),
     ("/Users/christophe/ace777-test-day1/Index_Maison/data/xrpl_arbitrage_hist.jsonl", 50),

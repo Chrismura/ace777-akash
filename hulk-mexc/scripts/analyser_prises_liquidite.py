@@ -110,7 +110,7 @@ def px_after(series: list[tuple[datetime, float]], t: datetime,
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--seuil", type=float, default=5.0, help="seuil de prise %/s (défaut 5.0)")
+    ap.add_argument("--seuil", type=float, default=5.0, help="seuil de prise %%/s (défaut 5.0)")
     ap.add_argument("--min-mur", type=float, default=200.0, help="mur min USDT (défaut 200)")
     args = ap.parse_args()
 

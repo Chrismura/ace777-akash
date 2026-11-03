@@ -49,7 +49,18 @@ def load(p, d=None):
         return d if d is not None else {}
 
 
+def arret_global() -> bool:
+    """Kill-switch GLOBAL (03/11/2026, audit white-box V5) : un arrêt global
+    interdit aussi d'écrire un PLAN de dégraissage (un plan est un acte).
+    Même fichier que le moteur ; ACE_STOP_ALL = harnais."""
+    return os.path.exists(os.environ.get("ACE_STOP_ALL")
+                          or "/Users/christophe/ace777-test-day1/Index_Maison/STOP_ALL")
+
+
 def main():
+    if arret_global():
+        print("[degraissage] STOP_ALL actif (kill-switch global) — aucun plan écrit")
+        return 0
     mk = load(os.path.join(THERMO, "m_kelly_live.json"))
     hk = load(os.path.join(THERMO, "hack_actif.json"))
     ec = load(os.path.join(THERMO, "equity_reconcilie.json"))

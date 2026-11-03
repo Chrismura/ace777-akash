@@ -1385,6 +1385,28 @@ def main() -> int:
         except Exception:
             engine_last = None
 
+    # ===== VÉRITÉ MOTEUR HULK (03/11, audit white-box) =====
+    # Le bloc `engine` ci-dessus ne décrit QUE le duo ACE (alpha/beta), dont le
+    # LIVE_COLOR est muet depuis le 09/09 : il affichait donc « OFF » pendant que
+    # HULK tradait réellement. Sa preuve de vie = le state file réécrit à chaque
+    # cycle. Exposé À PART, jamais confondu avec ACE.
+    engine_hulk = {"state": "OFF", "ageSec": None, "last": None, "stateFile": None}
+    try:
+        _sf = sorted(HULK.glob("PAPER*_state.json"),
+                     key=lambda p: p.stat().st_mtime, reverse=True)
+        if _sf:
+            _s0 = _sf[0]
+            _age = int(datetime.now(timezone.utc).timestamp() - _s0.stat().st_mtime)
+            engine_hulk = {
+                "state": "ON" if _age <= 300 else ("STALE" if _age <= 900 else "OFF"),
+                "ageSec": _age,
+                "last": datetime.fromtimestamp(_s0.stat().st_mtime, tz=timezone.utc)
+                                 .strftime("%Y-%m-%dT%H:%MZ"),
+                "stateFile": _s0.name,
+            }
+    except Exception:
+        pass
+
     # swarm pulse = max cycle
     try:
         cyc = max(int(alpha.get("cycle") or 0), int(beta.get("cycle") or 0))
@@ -1413,6 +1435,8 @@ def main() -> int:
         # → le cockpit peut afficher « moteur à l'arrêt depuis le 22/08 » au lieu
         # de présenter un run mort comme vivant.
         "engine": {"state": engine_state, "ageSec": engine_age, "last": engine_last},
+        # Moteur qui trade VRAIMENT (HULK paper) — distinct d'ACE ci-dessus.
+        "engineHulk": engine_hulk,
         "run": run_label,
         "sessionSince": since.strftime("%Y-%m-%dT%H:%MZ") if since else None,
         "comboPnl": combo,

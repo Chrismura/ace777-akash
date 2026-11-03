@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-03T09:36:28+00:00",
+  "ts": "2026-11-03T10:17:05+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -282,7 +282,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "1000 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "1001 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -307,11 +307,11 @@
           "delta_votes": 3
         },
         {
-          "amendement": "fixXChainRewardRounding",
+          "amendement": "XChainBridge",
           "delta_votes": -1
         },
         {
-          "amendement": "XChainBridge",
+          "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
@@ -323,7 +323,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "29 alerte(s) microstructure au journal · 29 notée(s) par le juge indépendant · justesse 48.3 % · avis directionnels de Cortana (toutes matières) : 7/25 = 28.0 %",
+      "faits": "29 alerte(s) microstructure au journal · 29 notée(s) par le juge indépendant · justesse 48.3 % · avis directionnels de Cortana (toutes matières) : 7/24 = 29.2 %",
       "verdict": "ECHEC",
       "alerte": "",
       "detail": [
@@ -341,15 +341,15 @@
         },
         {
           "indice": "croisements",
-          "directionnels": 17,
+          "directionnels": 15,
           "corect": 5,
-          "n": 18
+          "n": 16
         },
         {
           "indice": "fearGreed",
-          "directionnels": 2,
+          "directionnels": 3,
           "corect": null,
-          "n": 9
+          "n": 10
         },
         {
           "indice": "geopol",
@@ -384,7 +384,7 @@
           "directionnels": 1,
           "corrects": 1,
           "neutres": 66,
-          "t_stat": -0.33
+          "t_stat": -1.0
         }
       ]
     },
@@ -430,33 +430,33 @@
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "1090 fenêtres · 0 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=-0.0018 Δ=7.13 NEUTRE)",
+      "faits": "1130 fenêtres · 0 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.007 Δ=5.91 NEUTRE)",
       "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
         {
-          "ts": "2026-11-03T09:32:24Z",
-          "ofi": -0.0059,
+          "ts": "2026-11-03T10:12:29Z",
+          "ofi": -0.0015,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T09:33:24Z",
-          "ofi": -0.0184,
+          "ts": "2026-11-03T10:13:29Z",
+          "ofi": 0.0047,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T09:34:24Z",
-          "ofi": -0.0118,
+          "ts": "2026-11-03T10:14:29Z",
+          "ofi": -0.0042,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T09:35:24Z",
-          "ofi": -0.0254,
-          "verdict": "NEUTRE"
-        },
-        {
-          "ts": "2026-11-03T09:36:24Z",
+          "ts": "2026-11-03T10:15:30Z",
           "ofi": -0.0018,
+          "verdict": "NEUTRE"
+        },
+        {
+          "ts": "2026-11-03T10:16:30Z",
+          "ofi": 0.007,
           "verdict": "NEUTRE"
         }
       ]
