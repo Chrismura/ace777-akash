@@ -1,4 +1,4 @@
-# Rapport Veilleuse — 2026-11-03T04:31:38.362325+00:00
+# Rapport Veilleuse — 2026-11-03T05:31:39.640456+00:00
 
 ## État : ⚠️ ANOMALIES DÉTECTÉES
 - **INTRUSION** : Modification non déclarée : Index_Maison/scripts/rotation_jsonl.py (md5 diffère du registre)
