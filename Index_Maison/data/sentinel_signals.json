@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "ipt",
-      "zscore": 2.475590171099254,
-      "value": 1.145,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.48) sur le token IPT totalement déconnectée des actualités médias, lesquelles font référence à des institutions (École polytechnique, Institut Pasteur de Tunis/Taiwan) et non à un actif crypto. Bruit on-chain sans fondement narratif réel.\"\n}\n```",
-      "ts": "2026-11-02T16:15:47.395606+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 2.9760421309955043,
-      "value": 2734975.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 2.98, ~2.7M USD) indiquant un accumulation ou un transfert actif de baleines, contrastant avec l'absence totale de couverture médiatique (bruit de fond nul). Ce silence médiatique face à une activité onchain anormale suggère une accumulation silencieuse avant un mouvement de prix, typique des phases pré-bullish.\"\n}\n```",
-      "ts": "2026-11-02T16:35:50.613415+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.865194201645264,
-      "value": 7672631952.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.87) n'est pas soutenu par un narratif crypto pertinent (les titres concernent la musique, la cosmétique et une comparaison BTC/ETH standard). Le signal est probablement du bruit statistique ou lié à un actif spécifique non couvert par les médias généraux.\"\n}",
-      "ts": "2026-11-02T16:45:52.929919+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.689931475578173,
-      "value": 7756962681.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.69) est isolée sans contexte narratif crypto, rendant l'attribution à une action de baleine spéculative ou directionnelle impossible à confirmer.\"\n}",
-      "ts": "2026-11-02T17:15:57.959668+00:00"
-    },
-    {
-      "metric": "price_1h",
-      "zscore": 3.362650610753515,
-      "value": 0.6040239705037198,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'anomalie onchain (z-score 3.36) suggère une activité de baleines crypto significative, mais les titres médiatiques ne mentionnent pas cette divergence. Le narratif médiatique semble déconnecté de la réalité des mouvements de fonds.\"\n}\n```",
-      "ts": "2026-11-02T17:36:12.036417+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 6.136567956183181,
       "value": 4451758.0,
@@ -349,6 +314,41 @@
       "value": 26,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : un Fear & Greed à 26 (extrême peur, z-score -2.93) indique une capitulation retail et un sentiment médiatique négatif ou absent. Historiquement, ces niveaux de peur correspondent aux accumulations silencieuses des baleines avant les retournements haussiers. L'absence de titres médiatiques significatifs suggère un manque d'attention du public, créant les conditions idéales pour un mouvement de prix à la hausse non anticipé par le marché.\"\n}\n```",
       "ts": "2026-11-03T02:34:09.207035+00:00"
+    },
+    {
+      "metric": "whale_usd",
+      "zscore": 12.96728873199681,
+      "value": 34570381.0,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence critique : Anomalie onchain massive (z-score 12.97, ~34.5M USD) sans couverture médiatique correspondante. Ce silence des médias face à un flux de capitaux institutionnels/whales inhabituel suggère une accumulation silencieuse ou un repositionnement stratégique avant une volatilité, typique d'un setup haussier précoce.\"\n}\n```",
+      "ts": "2026-11-03T02:39:11.579767+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.2063771437299975,
+      "value": 2.654,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des ETF actions traditionnels (SmallCap, Global Equity) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-03T02:39:12.642942+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.9019986807100295,
+      "value": 0.48881256293799025,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.90 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+      "ts": "2026-11-03T02:59:15.811959+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.6457513110645907,
+      "value": 26,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 72,\n\"reason\": \"Divergence majeure : un Fear & Greed à 26 (z-score -2.65) indique une capitulation ou une peur extrême, souvent associée à des liquidations de détail. L'absence de titres médiatiques significatifs (vide informationnel) suggère que le narratif public est en dormance ou focalisé sur la panique, tandis que les flux onchain (implicites dans l'alerte sentinelle) montrent probablement une accumulation silencieuse par les baleines profitant de la faiblesse des prix. C'est un classique setup de 'smart money' entrant pendant que le retail sort.\"\n}",
+      "ts": "2026-11-03T03:04:17.537756+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.1556660903831166,
+      "value": 2.672,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont corrélées à des fonds d'actions traditionnelles (WSLS, LSF, ETFs) et non à des actifs crypto. Le narratif médiatique est cohérent avec des produits financiers classiques, aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-03T03:09:19.257555+00:00"
     }
   ]
 }
