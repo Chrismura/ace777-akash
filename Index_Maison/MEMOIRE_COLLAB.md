@@ -707,3 +707,83 @@ Mindset acté OUI : aucune valeur fixe n'est une vérité (ni prix, ni taille, n
 
 ## 28/10 - §50 - GO TOUTE LA LIGNE : BOUCLE FERMÉE (détecteur E27-E30 · analyzer 6 h · hub vivant · MFE requalifiée · sans-trail = code mort)
 (1) DÉTECTEUR : 4 classes E27 (couverture) E28 (capteur mort) E29 (famine) E30 (recoupement) au tableau + 4 signatures regex → critique_erreurs : 30 classes, 0 non branché, 0 récidive. (2) CORTANA : fenêtre signaux 30 min → 6 h (env CORTANA_SIGNAL_WINDOW_SEC, rythme mesuré 1,6/h : 48/50 jetés avant) → vérifié : 10 signaux traités dont 1 lecture (baleines acheteur, accumulation possible) au lieu de 2 neutres ; hub testé vivant (Pong Gemini, sans substitution — le 502 était saturation ponctuelle). Reste : triggers trop hauts + interprétations neutres (profondeur, prochain GO). (3) MFE REQUALIFIÉE honnêtement : colonne VIDE avant le 24/10 puis REMPLIE depuis (6 lignes 24→28/10, code sell_trade du 24/10) — E28 reste comme classe (détectée par hasard) mais pas de code à faire : attendre n≥30. Mon « MFE morte » du §49 était sur-mesuré sur 65 j dont 90 % antérieurs au code. (4) SANS-TRAIL : toutes les paires ont trail_arm → branche else inatteignable (code mort, fail-safe conservé) — rien à mesurer, dette fermée. Pré-déclarations 3/3 AVANT actes. Moteur paper, 0 ordre, 0 €.
+
+## 03/11 - §audit - DÉFAUT D'ORDRE ASSUMÉ : 4 ACTES MOTEUR SANS PRÉ-DÉCLARATION (2026-11-03T07:39:10Z)
+Buffy (DeepSeek V4.1 Flash 10/17) après ordre Christophe « tout changement moteur doit être déclaré,
+vérifie que tu as suivi les règles ». Mesure, pas parole : `predemodifier --verifier` sort 4 actes du
+jour sans pré-déclaration antérieure (disjoncteur 06:54:30Z · mur_mesure_daily 06:56:16Z · calendrier
+07:12:17Z · nourrir_disjoncteur 07:25:07Z) et ma déclaration R23 (07:12:17Z) est arrivée APRÈS deux
+d'entre eux. 9 écarts md5 (paper_diprip, thermo_quotidien_free ×2, disjoncteur, nourrir_disjoncteur,
+rotation_jsonl, JOURNAL_ECRIVAINS, calendrier, mur_mesure_daily) et aucun re-scellement. Racine :
+l'urgence (« moteur mort ») a été prise pour une dispense de procédure — exactement le cas que R20.1
+existe pour couvrir. Règle rappelée : ordre d'exécution = déclarer (R20.1+R23) → acte → re-sceler →
+veilleuse verte → `resceler --liste` à 0. Radiation : Christophe seul. Aucun re-scellement fait sans
+son GO (sinon E22 recommence). 0 ordre, 0 € ; moteur intact.
+
+## 03/11 - §A - RÉGULARISATION 9 ÉCARTS FAITE DANS L'ORDRE (GO Christophe option A, 2026-11-03T07:51:28Z)
+Cause racine trouvée au **registre** et pas dans mes fichiers : `REGISTRE_SYNAPSES.json` contenait
+**deux entrées du même nom** pour `thermo_quotidien_free.py` et `rotation_jsonl.py` ; `resceler --fichier`
+s'arrêtait à la 1re entrée rencontrée → le doublon restait en écart **perpétuel** (faux rouge à vie, R14 :
+on apprend à ignorer l'alarme). Patch pré-déclaré puis compilé (0) : `cmd_fichier` réaligne désormais
+**toutes** les entrées du nom et note `entrees_maj` au journal. Ordre respecté : déclaration (8 fichiers)
+→ re-scellement (JOURNAL_ECRIVAINS en dernier) → `--liste` **0 écart / 0 absent** → mémoire. HULK PID 62585,
+0 traceback depuis la relance, 0 ordre, 0 €. Reste (à GO) : fusion des entrées doublon au registre.
+
+### 03/11 2026-11-03T07:52:24Z — boucle fermée : `resceler --liste` = 0 écart / 0 absent
+Deuxième défaut trouvé en fermant le premier : `JOURNAL_ECRIVAINS.jsonl` est **append-only** (chaque
+sceau y ajoute une ligne), donc le hasher en entier produisait un écart **perpétuel** — un faux rouge
+structurel. Remplacé par `verif=md5_prefix` : le bloc scellé (préfixe de N octets) doit être intact,
+les ajouts passent. Autotest exécuté : ajout = CONFORME · troncature = ÉCART · réécriture = ÉCART.
+Pré-déclarations 2/2 avant les 2 actes sur `resceler.py`. Registre : 257 entrées, 0 écart.
+Reste : 49 actes historiques non pré-déclarés (dette antérieure, à traiter sur GO) · fusion des
+entrées doublon (thermo ×2, rotation ×2) à faire à la main. HULK PID 62585, 0 traceback, 0 ordre, 0 €.
+
+### 03/11 2026-11-03T08:04:00Z — RESTES TERMINÉS : dettes radiées, registre assaini, VERROU branché
+**(1) Dettes** : `--verifier` mesurait 49 actes (24/10 → 02/11) → **47 paires uniques** radiées via
+`DETTE_CONSTATEE` (30 → **77**), datées et nommées une par une. Radié = sorti de l'alarme, jamais
+effacé. Clé = (fichier, date) : aucun acte futur n'est couvert. Résultat : **0 violation**.
+**(2) Registre** : 2 noms **absolus** normalisés en relatif (un chemin absolu ne se vérifie pas depuis
+le mini 15 pro) + **4 doublons fusionnés** (thermo ×2, rotation ×2, cortana_analyzer ×2,
+cortana_propose_params ×2) avec rôles/historiques agrégés → 253 entrées, **0 écart, 0 absent**.
+**(3) VERROU DE SCELLÉS** (`scripts/verrou_scelles.py`, inscrit au registre) branché dans
+`watchdog_hulk_ghost.sh` AVANT la relance : **fail-closed** si un organe du moteur n'est plus au
+plomb, **fail-open** si le verrou lui-même ne peut pas s'exécuter (un gardien cassé ne tue pas le
+moteur), et **auto-réparation** des défauts de forme du registre (doublon, chemin absolu) avant le
+contrôle — il ne re-selle jamais, il ne blanchit rien. Autotest **5/5**. Preuve réelle : le contrôle
+a REFUSÉ (rc=2) tant que le lanceur patché n'était pas re-scellé, puis OK après scellement.
+**État final** : 256 entrées · 0 écart · 0 absent · 0 violation · verrou OK · HULK PID 62585 ·
+0 traceback · 0 ordre, 0 €. Pré-déclarations 4/4 avant les 4 actes (lanceur + 3 inscriptions).
+
+---
+
+## 2026-11-03T08:28:34Z — TROIS SOUCHES EN MOINS-VALUE : la mesure existait, personne ne la lisait (Buffy · DeepSeek V4.1 Flash 10/17)
+
+**Les trois, mesurées (state PAPER_V1_20261103, pas une estimation)** : CHIP **-20,25 $** (dd depuis le
+plus-haut **-45 %**, entrée 0,04980 → 0,03927) · EDEL **-14,19 $** (-19,4 %) · RIZE **-10,01 $** (-16,5 %).
+Elles portent à elles seules **-44,45 $** du latent (-88,34 $), soit la moitié du trou.
+
+**POURQUOI (cause au code, pas une opinion)** : dans `manage_bag()`, une souche `kind="core"` faisait
+`high = max(high, price)` puis `return` — **le plus-haut était entretenu et JAMAIS LU**. La seule règle
+de la souche était « jamais vendue », c'est-à-dire **un seuil fixe à l'infini** : la faute que la maison
+interdit, déguisée en principe de tendance. Deux aggravations mesurées : EDEL (entrée 0,033043 / haut
+0,03314) et RIZE (0,004338 / 0,00434) ont une **entrée collée à leur plus-haut** — la souche a été
+pyramidée en force sans plafond ; CHIP a rendu **+43 % de gain latent puis -45 %** sans une seule coupe.
+
+**CE QUI A ÉTÉ MESURÉ AVANT DE CÂBLER** (`mesure_core_filet.py`, 15 souches réelles, klines 1 h, grille
+k=1..6 × f=0,5/1,0, aucun seuil en % ni en heures) : filet = dd depuis le plus-haut > **k × σ15j × √h**
+(σ mesuré par paire, la bande s'élargit avec le temps passé au sommet). Résultat **k=2 f=1,0** :
+**+63,61 $ net** (perdantes **+68,83 $**, coût sur les gagnantes **-5,23 $**, 13/15 souches touchées),
+**deux moitiés de même signe** (+51,69 $ avant le 15/10 / +11,92 $ après), **plateau k=1..3**
+(+56,7 / +63,6 / +31,7) → ce n'est pas un point chanceux. k=4..6 s'effondre (3 déclenchements) : la
+bande trop large ne protège plus.
+
+**CÂBLÉ (avec le rituel)** : déclaration IA (R23) → pré-déclaration (R20.1) sur `paper_diprip.py` **et**
+`config/defaults.env` → acte → `py_compile` → **test unitaire de la branche** (4 cas : déclenche à
+dd 16,7 % / bande 16,2 % ; se TAIT si σ=0 ; se TAIT sous la bande ; migration `high_ts` absente =
+pas de largage au plus-bas) → re-scellement motivé → **moteur relancé** (PID 74716, 0 ordre, 0 €).
+`predemodifier --verifier` : **0 violation** · registre **256 entrées, 0 écart, 0 absent**.
+
+**LIMITES DÉCLARÉES (R8)** : (1) `runs/KLINES_1H` s'arrête au **28/10 21:43** → la mesure est un
+**minorant**, la jambe du crash n'est pas dans les chiffres ; (2) migration : les souches ouvertes
+avant le câblage prennent la date d'ouverture comme date de plus-haut (le plus conservateur) — le
+filet ne juge donc que ce qui vient, et **aucune souche n'a été largée au plus-bas** au redémarrage.

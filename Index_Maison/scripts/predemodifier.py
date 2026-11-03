@@ -165,7 +165,61 @@ DETTE_CONSTATEE = {
     # Contenu BÉNIN et légitime : FIX affichage D29 liquidations (M$/B$ adaptatif + level ok au
     # lieu de warn, lecture seule, 0 ordre, commit auto-sync 22:52). Défaut de PROCÉDURE
     # (pas de --declarer), pas une manipulation. Radié de l'alarme, JAMAIS effacé (ici + §13).
-    ("Index_Maison/scripts/thermo_quotidien_free.py", "2026-10-23T20:11:07Z"),
+    # ── 03/11/2026 — DETTE ANTÉRIEURE (49 actes), GO Christophe « terminer ce qui reste à faire ».
+    # Mesurés par --verifier sur la période 24/10 → 02/11 (clause a : re-scellés sans
+    # pré-déclaration antérieure ; clause b : divergences non déclarées). Une déclaration
+    # tardive ne peut pas satisfaire « ts <= date de l'acte » par construction : ces actes
+    # ne redeviendront jamais conformes. Les laisser rouges à vie noierait la prochaine vraie
+    # violation (R14). RADIÉS = sortis de l'alarme, JAMAIS effacés : datés et nommés ici,
+    # au registre E31 et dans MEMOIRE_COLLAB. Clé = (fichier, date de l'acte) : aucun acte
+    # FUTUR n'est couvert, une nouvelle date est jugée.
+    ("Index_Maison/MIGRATION_MINI_INSTALL.sh", "2026-11-02T18:47:06Z"),
+    ("Index_Maison/PLAN_DE_VOL.md", "2026-11-02T11:28:48Z"),
+    ("Index_Maison/PLATEFORMES.md", "2026-10-28T09:21:12Z"),
+    ("Index_Maison/POINT_REPRISE_DERNIER.md", "2026-10-28T22:42:43Z"),
+    ("Index_Maison/data/fiches_analyse/blocs_privilises.json", "2026-10-29T22:06:44Z"),
+    ("Index_Maison/plists/com.ace777.geopol-gratuit.plist", "2026-11-02T12:59:53Z"),
+    ("Index_Maison/plists/com.ace777.m-kelly-quotidien.plist", "2026-11-02T14:37:18Z"),
+    ("Index_Maison/plists/com.ace777.mur-mesure.plist", "2026-11-02T14:37:18Z"),
+    ("Index_Maison/plists/com.ace777.short-shadow.plist", "2026-11-02T11:12:18Z"),
+    ("Index_Maison/plists/com.ace777.sommet-proche.plist", "2026-11-02T09:33:15Z"),
+    ("Index_Maison/plists/com.ace777.verif-setup.plist", "2026-11-02T13:00:00Z"),
+    ("Index_Maison/scripts/ada_gardienne.py", "2026-10-29T23:45:37Z"),
+    ("Index_Maison/scripts/ada_saison.py", "2026-11-02T10:43:30Z"),
+    ("Index_Maison/scripts/desaccord.py", "2026-10-30T00:36:12Z"),
+    ("Index_Maison/scripts/discipline_quotidienne.py", "2026-11-02T13:37:53Z"),
+    ("Index_Maison/scripts/flux_nets_exchanges.py", "2026-11-02T18:46:49Z"),
+    ("Index_Maison/scripts/moteur_croisements_indices.py", "2026-11-02T10:41:19Z"),
+    ("Index_Maison/scripts/observe_nado.py", "2026-10-24T19:11:49Z"),
+    ("Index_Maison/scripts/ofi_calc.py", "2026-11-02T18:46:49Z"),
+    ("Index_Maison/scripts/replay_c3_sens.py", "2026-11-02T11:12:18Z"),
+    ("Index_Maison/scripts/replay_flux_fenetre_courte.py", "2026-11-02T10:35:31Z"),
+    ("Index_Maison/scripts/rituel_calendrier.py", "2026-11-02T18:08:55Z"),
+    ("Index_Maison/scripts/sentinel.py", "2026-10-29T22:06:39Z"),
+    ("Index_Maison/scripts/simulateur_plancher_confirme.py", "2026-10-30T00:18:43Z"),
+    ("Index_Maison/scripts/sommet_proche.py", "2026-11-02T10:43:30Z"),
+    ("Index_Maison/scripts/surveiller_whales.py", "2026-11-02T18:46:49Z"),
+    ("Index_Maison/scripts/verdicts_protocoles.py", "2026-11-02T18:18:26Z"),
+    ("Index_Maison/strategie/CHECKLIST_PRE_ACTE.md", "2026-11-02T13:37:53Z"),
+    ("hulk-mexc/BAC_A_SABLE/ADDENDUM_AFFINAGE_Q6_Q11.md", "2026-10-28T15:27:24Z"),
+    ("hulk-mexc/BAC_A_SABLE/PROTOCOLE_BOUCLE_FERMEE.md", "2026-10-28T16:39:57Z"),
+    ("hulk-mexc/BAC_A_SABLE/REGIMES_15.md", "2026-10-28T10:59:21Z"),
+    ("hulk-mexc/runs/TOPO_HOLDS.md", "2026-10-28T20:00:41Z"),
+    ("hulk-mexc/scripts/chiffrage_attribution_reentree.py", "2026-10-28T21:16:06Z"),
+    ("hulk-mexc/scripts/chiffrage_entree_retest.py", "2026-10-28T20:24:35Z"),
+    ("hulk-mexc/scripts/chiffrage_pnl_net.py", "2026-10-28T19:36:07Z"),
+    ("hulk-mexc/scripts/chiffrage_redeploy_adaptatif.py", "2026-10-28T21:28:42Z"),
+    ("hulk-mexc/scripts/chiffrage_redeploy_variantes.py", "2026-10-28T21:16:06Z"),
+    ("hulk-mexc/scripts/chiffrage_reentree_repart.py", "2026-10-28T21:16:05Z"),
+    ("hulk-mexc/scripts/chiffrage_trailing_serre.py", "2026-10-28T21:16:06Z"),
+    ("hulk-mexc/scripts/consulter_famille_metacognition_20261028.py", "2026-10-28T22:09:00Z"),
+    ("hulk-mexc/scripts/cortana_fade_ombre.py", "2026-10-28T15:45:11Z"),
+    ("hulk-mexc/scripts/couts_communs.py", "2026-10-28T19:36:08Z"),
+    ("hulk-mexc/scripts/garde_reconciliation.py", "2026-10-28T19:36:07Z"),
+    ("hulk-mexc/scripts/hypothese.py", "2026-10-28T22:16:42Z"),
+    ("hulk-mexc/scripts/m_kelly_metre.py", "2026-11-02T14:55:29Z"),
+    ("hulk-mexc/scripts/sandbox_degraissage.py", "2026-11-02T14:37:18Z"),
+    ("hulk-mexc/scripts/short_shadow.py", "2026-11-02T11:23:31Z"),
 }
 
 

@@ -107,6 +107,20 @@ def cmd_liste() -> int:
             absents.append(nom)
         elif it.get("verif") == "md5" and md5(p) != it.get("md5"):
             ecarts.append(nom)
+        elif it.get("verif") == "md5_prefix":
+            # Journal APPEND-ONLY (JOURNAL_ECRIVAINS) : chaque sceau y ajoute une ligne.
+            # Le hasher en entier fabrique un ecart PERPETUEL par construction — un faux
+            # rouge a vie (R14) qui apprend a ignorer l'alarme. Controle juste : le bloc
+            # scelle (N premiers octets) doit etre INTACT. Un ajout passe ; une
+            # troncature ou une reecriture echoue.
+            _n = int(it.get("prefixe_octets") or 0)
+            if _n <= 0:
+                absents.append(nom + " (prefixe_octets absent)")
+            else:
+                import hashlib as _H
+                _bloc = p.read_bytes()[: _n]
+                if len(_bloc) < _n or _H.md5(_bloc).hexdigest() != it.get("md5"):
+                    ecarts.append(nom)
     print(f"REGISTRE : {len(reg.get('fichier', []))} entrées")
     print(f"  écarts  : {len(ecarts)}" + (f" → {ecarts}" if ecarts else " ✔"))
     print(f"  absents : {len(absents)}" + (f" → {absents}" if absents else " ✔"))
@@ -123,34 +137,45 @@ def cmd_fichier(nom: str, motif: str) -> int:
         return 2
     reg, bak = _charge()
     actuel = md5(cible)
-    for it in reg.get("fichier", []):
-        if str(it.get("nom")) == nom:
-            avant = it.get("md5")
-            if avant == actuel:
-                print(f"[=] {nom} déjà conforme")
-                return 0
-            _w = _ecrivain()
-            try:
-                with open(JOURNAL_ECRIVAINS, "a", encoding="utf-8") as _j:
-                    _j.write(json.dumps({"fichier": nom, "acte": "rescel",
-                                         "motif": motif, **_w}, ensure_ascii=False) + "\n")
-            except Exception as _e:
-                print(f"WARN journal écrivains : {_e}")
-            # R22-fix : le log ci-dessus modifie le journal lui-même — le md5 scellé
-            # est donc recalculé APRÈS l'écriture, jamais avant (sinon le journal
-            # serait en écart perpétuel par construction).
-            actuel = md5(cible)
-            it["md5"] = actuel
-            it["date"] = utc()
-            it["_rescel"] = it.get("_rescel", [])
-            it["_rescel"].append({"ts": utc(), "motif": motif, "ecrivain": _w})
-            it["dernier_ecrivain"] = _w
-            _ecrit(reg)
-            print(f"backup : {bak.name}")
-            print(f"[OK] {nom}\n     {avant} → {actuel}\n     motif : {motif}")
-            return 0
-    print(f"[ABSENT DU REGISTRE] {nom} — utiliser --ajouter")
-    return 3
+    # R20.1-fix 03/11 (GO A Christophe) : le registre a pu accumuler PLUSIEURS entrees
+    # pour un meme fichier (deux epoques, deux roles). L'ancienne boucle s'arretait a
+    # la 1re : le doublon restait en ECART PERPETUEL — un faux rouge a vie (R14), qui
+    # apprend a ignorer l'alarme. On realigne TOUTES les entrees portant ce nom.
+    entrees = [it for it in reg.get("fichier", []) if str(it.get("nom")) == nom]
+    if not entrees:
+        print(f"[ABSENT DU REGISTRE] {nom} — utiliser --ajouter")
+        return 3
+    if entrees[0].get("verif") == "md5_prefix":
+        print(f"[=] {nom} : journal append-only, sceau de prefixe — rien a re-sceler "
+              f"(le sceau suit le contenu, pas la longueur)")
+        return 0
+    avant = entrees[0].get("md5")
+    if all(it.get("md5") == actuel for it in entrees):
+        print(f"[=] {nom} deja conforme" + (f" ({len(entrees)} entrees)" if len(entrees) > 1 else ""))
+        return 0
+    _w = _ecrivain()
+    try:
+        with open(JOURNAL_ECRIVAINS, "a", encoding="utf-8") as _j:
+            _j.write(json.dumps({"fichier": nom, "acte": "rescel",
+                                 "motif": motif, "entrees_maj": len(entrees), **_w},
+                                ensure_ascii=False) + "\n")
+    except Exception as _e:
+        print(f"WARN journal ecrivains : {_e}")
+    # R22-fix : le log ci-dessus modifie le journal lui-meme — le md5 scelle
+    # est donc recalcule APRES l'ecriture, jamais avant.
+    actuel = md5(cible)
+    for it in entrees:
+        it["md5"] = actuel
+        it["date"] = utc()
+        it["_rescel"] = it.get("_rescel", [])
+        it["_rescel"].append({"ts": utc(), "motif": motif, "ecrivain": _w})
+        it["dernier_ecrivain"] = _w
+    _ecrit(reg)
+    print(f"backup : {bak.name}")
+    if len(entrees) > 1:
+        print(f"NOTE : {len(entrees)} entrees pour {nom} — toutes realignees ; fusion a faire a la main (GO)")
+    print(f"[OK] {nom}\n     {avant} -> {actuel}\n     motif : {motif}")
+    return 0
 
 
 def cmd_ajouter(nom: str, role: str, origine: str) -> int:

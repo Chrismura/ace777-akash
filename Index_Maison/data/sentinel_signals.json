@@ -1,20 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.7816976605856927,
-      "value": 8388023339.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.78) est isolée sans contexte narratif crypto, rendant l'attribution à une action de baleine spéculative impossible à confirmer ou infirmer. Probablement du bruit de marché ou une erreur de tagging des données.\"\n}",
-      "ts": "2026-11-02T18:17:01.146178+00:00"
-    },
-    {
-      "metric": "whale_usd",
-      "zscore": 3.585242689042614,
-      "value": 2981858.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : Anomalie onchain significative (z-score 3.59, ~3M USD) indiquant un accumulation ou un repositionnement actif de baleines, tandis que le narratif médiatique est vide ou neutre (aucun titre spécifique fourni). Cette asymétrie d'information suggère un mouvement silencieux avant une potentialité de volatilité haussière.\"\n}\n```",
-      "ts": "2026-11-02T18:22:03.122860+00:00"
-    },
-    {
       "metric": "liquidations",
       "zscore": 2.44357210084046,
       "value": 3303138.0,
@@ -349,6 +335,20 @@
       "value": 0.982,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
       "ts": "2026-11-03T06:34:59.637532+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.1464386118075787,
+      "value": 3840920.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Le narratif médiatique (peur du hack, chute BTC) est parfaitement aligné avec l'anomalie onchain (liquidations massives). Il n'y a pas de divergence : le flux de capitaux sortants (160k ETH) et les liquidations confirment le sentiment de panique. Les baleines ne se positionnent pas silencieusement à l'achat, elles subissent ou profitent de la liquidité de la panique. Pas de signal caché.\"\n}",
+      "ts": "2026-11-03T07:40:16.679369+00:00"
+    },
+    {
+      "metric": "liquidations",
+      "zscore": 2.015444821892919,
+      "value": 3840920.0,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 45,\n\"reason\": \"Le narratif médiatique (peur du hack, chute BTC) est parfaitement aligné avec l'anomalie onchain (liquidations massives). Il n'y a pas de divergence : le flux de capitaux sortants (160k ETH) et les liquidations confirment le sentiment de panique. Les baleines ne se positionnent pas silencieusement à l'achat, elles subissent ou profitent de la liquidité de la panique. Pas de signal caché.\"\n}",
+      "ts": "2026-11-03T08:10:23.188232+00:00"
     }
   ]
 }

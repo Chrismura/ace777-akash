@@ -12,9 +12,11 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import os
 import signal
 import socket
+import statistics
 import sys
 import time
 import urllib.error
@@ -587,6 +589,19 @@ def score_pair(pair: str, cfg: dict) -> dict:
     range15 = ((peak15 / trough15) - 1.0) * 100.0 if trough15 > 0 else 0.0
     dd15 = ((1.0 - price / peak15) * 100.0) if peak15 > 0 else 0.0
 
+    # σ MESURÉE PAR PAIRE (03/11/2026) — écart-type des rendements log 1 h sur LA
+    # fenêtre déjà chargée (15 j), recalculé à chaque cycle. Sert au FILET de la
+    # souche (manage_bag) : aucun seuil en % ni en heures, c'est le bruit RÉEL de
+    # la paire. 0.0 = pas assez d'historique → le filet se TAIT (aucun repli fixe).
+    _sig15 = 0.0
+    try:
+        _ret = [math.log(c15[i] / c15[i - 1]) for i in range(1, len(c15))
+                if c15[i] > 0 and c15[i - 1] > 0]
+        if len(_ret) >= 60:
+            _sig15 = statistics.pstdev(_ret) * 100.0
+    except Exception:
+        _sig15 = 0.0
+
     # volume sniffer (priorité small-cap) — avant régimes d'entrée
     vol = sniff_volume(kl15, cfg)
     vol24 = 0.0
@@ -714,6 +729,7 @@ def score_pair(pair: str, cfg: dict) -> dict:
         "dip_pct": round(dip, 2),
         "rip_pct": round(rip, 2),
         "amp7_pct": round(amp7, 2),
+        "sig15_pct": round(_sig15, 4),
         "stop_pct": round(stop, 2),
         "trend_label": trend_label,
         "sma72": round(_sma72, 8),
@@ -934,6 +950,13 @@ class PaperBot:
         self.mesure_reentry_on = cfg.get("MESURE_REENTRY_ON", "0").strip() not in ("0", "false", "False")
         self.mesure_reentry_guard = float(cfg.get("MESURE_REENTRY_MEM_GUARD_SEC", "86400"))
         self.mesure_souche_on = cfg.get("MESURE_SOUCHE_ON", "0").strip() not in ("0", "false", "False")
+        # === FILET MESURÉ DE LA SOUCHE CORE (03/11/2026, GO Christophe « brancher
+        # après preuve par chiffre ») — voir manage_bag(). k n'est PAS une constante
+        # métier : il est CHOISI par la grille de mesure (mesure_core_filet.py) et
+        # rangé ici en config réversible. σ est mesuré par paire (score_pair).
+        self.core_filet_on = cfg.get("CORE_FILET_ON", "0").strip() not in ("0", "false", "False")
+        self.core_filet_k = float(cfg.get("CORE_FILET_K", "2"))
+        self.core_filet_frac = float(cfg.get("CORE_FILET_FRAC", "1.0"))
         # === INTERRUPTEUR TEMPÊTE-DRAWDOWN PAR PAIRE (23/10/2026, GO Christophe
         # « branche les seuils ») ===
         # Mesuré AVANT câblage (chiffrage_seuils_tempete.py, 45 j bougies 1 h,
@@ -3231,10 +3254,85 @@ class PaperBot:
 
         if pair in self.bags:
             b = self.bags[pair]
-            # SOUCHE TREND (08/10/2026, GO Christophe) : jamais vendue par une règle.
-            # On ne fait que suivre son plus-haut ; aucune vente crash/slow/DCA.
+            # SOUCHE TREND (08/10/2026, GO Christophe) : jamais vendue par une règle
+            # de POURCENTAGE. Depuis le 03/11/2026 elle a un FILET MESURÉ — voir plus bas.
+            # Le défaut réparé : `high` était entretenu ici puis JAMAIS LU ailleurs ; la
+            # seule règle de la souche était donc « jamais vendue », soit un seuil fixe
+            # à l'infini — exactement ce que la maison interdit. Mesuré (CHIP -20,25 $ ·
+            # EDEL -14,19 $ · RIZE -10,01 $ latents, dd depuis le plus-haut -45 %/-19 %/
+            # -16,5 %) : la mesure du plus-haut existait et ne servait à rien.
             if b.get("kind") == "core":
-                b["high"] = max(float(b.get("high") or price), price)
+                if price >= float(b.get("high") or 0):
+                    b["high"] = price
+                    b["high_ts"] = time.time()
+                else:
+                    b["high"] = max(float(b.get("high") or price), price)
+                if not self.core_filet_on:
+                    return
+                # FILET = k × σ15j × √(heures depuis le plus-haut). La bande S'ÉLARGIT
+                # avec le temps passé au sommet (bruit accumulé) : aucune durée fixe.
+                # MESURÉ AVANT CÂBLAGE (mesure_core_filet.py : 15 souches réelles,
+                # klines 1 h, grille k=1..6 × f=0,5/1,0) : k=2 f=1,0 → +63,61 $ net
+                # (perdantes +68,83 $ · coût gagnantes -5,23 $), 13/15 souches,
+                # DEUX MOITIÉS de même signe (+51,69 $ / +11,92 $), plateau k=1..3
+                # (+56,7 / +63,6 / +31,7) → ce n'est pas un point chanceux.
+                # Limite déclarée : klines s'arrêtant au 28/10, la mesure est un
+                # MINORANT (elle chiffre la dérive lente, pas la jambe du crash).
+                if not b.get("high_ts"):
+                    # MIGRATION (03/11/2026) : les souches ouvertes AVANT le filet n'ont pas
+                    # la date de leur plus-haut. On ne l'invente pas « maintenant » (bande
+                    # minuscule → largage immédiat au plus-bas, ce serait agir sur une
+                    # mesure qu'on n'a pas) : on prend l'hypothèse la plus CONSERVATRICE,
+                    # l'ouverture de la souche → bande la plus large. Le filet ne juge donc
+                    # que ce qui se passe APRÈS le câblage ; toute nouvelle cime fixe la date.
+                    _t0 = time.time()
+                    try:
+                        _t0 = datetime.strptime(str(b.get("ts")), "%Y-%m-%dT%H:%M:%SZ").replace(
+                            tzinfo=timezone.utc).timestamp()
+                    except Exception:
+                        pass
+                    b["high_ts"] = _t0
+                _sig = float((sc or {}).get("sig15_pct") or 0.0)
+                _high = float(b.get("high") or 0.0)
+                if _sig <= 0 or _high <= 0:
+                    return  # pas de mesure → pas de décision (jamais un seuil de repli)
+                _h = max(1.0, (time.time() - float(b.get("high_ts") or time.time())) / 3600.0)
+                _bande = self.core_filet_k * _sig * math.sqrt(_h)
+                _dd = (1.0 - price / _high) * 100.0
+                if _dd <= _bande:
+                    return
+                _qty = float(b["qty"])
+                _sell = _qty * self.core_filet_frac
+                _keep = _qty - _sell
+                _entry = float(b["entry"])
+                _pnl = (price - _entry) * _sell
+                _proc = price * _sell
+                self._book_pnl(pair, _pnl)
+                self.trades += 1
+                self.add_pair_cash(pair, _proc)
+                self.log(
+                    pair,
+                    "CORE_FILET",
+                    regime,
+                    price,
+                    _entry,
+                    _sell,
+                    _pnl,
+                    (sc or {}).get("cadence_pct"),
+                    f"dd_haut={_dd:.1f}>bande={_bande:.1f}"
+                    f"(k={self.core_filet_k:g}_sigma1h={_sig:.2f}pct_h={_h:.0f})",
+                )
+                say(
+                    "sell_ko",
+                    f"[{utc_now()}] SOUCHE FILET {pair}  dd_haut={_dd:.1f}% > bande "
+                    f"{_bande:.1f}%  vend {self.core_filet_frac*100:.0f}%  "
+                    f"pnl={_pnl:+.2f}$  cash+{_proc:.2f}$",
+                )
+                if _keep * price < 0.5:
+                    del self.bags[pair]
+                else:
+                    b["qty"] = _keep
+                    b["entry"] = price
                 return
             entry = float(b["entry"])
             if entry <= 0:

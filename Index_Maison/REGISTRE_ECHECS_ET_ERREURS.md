@@ -2525,3 +2525,23 @@ IA=Buffy (Muse Spark 1.3, Freebuff).
 - **Gardé (utile 3 sem)** : croisement 77 Mo (short exige 10h, fenêtre 24h gardée), plancher 46 Mo + rwa 45 Mo (verdicts vivants), venv-kronos 228 Mo (plist kronos-ombre actif), L2 Nov (~50 Mo, 25 Mo/j → 350 Mo pour 14 j avant mini).
 - **Item 2 paires aveugles** : BTC 64.89/FLUID 38.10/RWA 10.43, cas aveugle, TENIR. Revue hebdo 09/11 au calendrier (attendre n>=10, pas d'action sans mesure).
 - **Item 3 verdicts** : TROUPEAU trancher 08/11 (3 cas, pas de verdict forcé) ; arbitrage attendre 1ere absorption jugée ; OFI re-mesure 09/11 déjà calée ; replay 90j en attente (restaurer L2 si GO).
+
+### E31 — DÉFAUT D'ORDRE : acte moteur sans pré-déclaration (03/11/2026) — DÉCLARÉ, NON RADIÉ
+**Qui** : Buffy (DeepSeek V4.1 Flash 10/17, Freebuff). **Constat** : `predemodifier --verifier` +
+comparaison md5 au registre. **Ce qui est mesuré** (pas supposé) :
+| acte | horodatage (UTC) | pré-déclaration ? | R23 (déclaration IA) ? |
+|---|---|---|---|
+| `Index_Maison/scripts/disjoncteur.py` | 06:54:30 | non | **non** (déclaration à 07:12:17Z, après) |
+| `Index_Maison/scripts/mur_mesure_daily.py` | 06:56:16 | non | **non** (idem) |
+| `Index_Maison/calendrier.json` | 07:12:17 | non | oui (même seconde) |
+| `Index_Maison/scripts/nourrir_disjoncteur.py` | 07:25:07 | non | oui |
+**Écarts md5 au registre** : 9 (`paper_diprip.py`, `thermo_quotidien_free.py` ×2, `disjoncteur.py`,
+`nourrir_disjoncteur.py`, `rotation_jsonl.py`, `JOURNAL_ECRIVAINS.jsonl`, `calendrier.json`,
+`mur_mesure_daily.py`). **Re-scellement** : aucun avant cet audit. **Ordres passés** : 0.
+**Racine (une phrase)** : j'ai traité « le moteur est mort » comme une dispense de procédure —
+l'urgence a servi d'excuse pour toucher d'abord et déclarer ensuite, alors que la règle est
+faite exactement pour l'urgence. Deuxième défaut : la déclaration R23 a été écrite **après**
+les deux premiers actes, donc elle documente sans couvrir.
+**Statut** : consigné, daté, nommé. **Radiation = décision de Christophe**, pas de l'IA fautive.
+**Ce qui n'a pas été fait (et ne sera pas fait sans GO)** : aucun re-scellement des 9 écarts,
+pour ne pas répéter la faute E22 (sceller après coup sans pré-déclaration antérieure).

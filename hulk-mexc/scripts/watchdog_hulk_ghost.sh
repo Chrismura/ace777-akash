@@ -57,6 +57,29 @@ if [ "$paper_ok" = false ]; then
         log "PAPER: gardien collecte > 20 s — interrompu (la relance n'attend pas)"
       fi
     fi
+    # VERROU DE SCELLÉS (03/11/2026, E31). Le refus est FAIL-CLOSED : si un organe dont le
+    # moteur dépend n'est plus au plomb, on ne relance PAS — c'est exactement le défaut qui a
+    # coûté 4 actes non déclarés. En revanche, si le verrou lui-même ne peut pas s'exécuter
+    # (rc ni 0 ni 2), on relance en le disant : un gardien cassé ne doit pas tuer le moteur.
+    # AVANT le contrôle, il répare les défauts de FORME du registre (doublon, chemin absolu) :
+    # ça, il a le droit de le faire seul — aucun scellé n'est touché, aucun md5 inventé.
+    VERROU="$HOME/ace777-test-day1/Index_Maison/scripts/verrou_scelles.py"
+    verrou_refus=0
+    if [ -f "$VERROU" ]; then
+      python3 "$VERROU" --reparer-registre >>"$LOG" 2>&1
+      python3 "$VERROU" --controle >>"$LOG" 2>&1
+      vrc=$?
+      if [ "$vrc" -eq 2 ]; then
+        verrou_refus=1
+      elif [ "$vrc" -ne 0 ]; then
+        log "PAPER: verrou illisible (rc=$vrc) — relance quand même (fail-open), à vérifier"
+      fi
+    else
+      log "PAPER: verrou ABSENT ($VERROU) — relance sans contrôle de scellés"
+    fi
+    if [ "$verrou_refus" -eq 1 ]; then
+      log "PAPER: NON RELANCÉ — verrou de scellés (ordre : déclarer → agir → re-sceler → --liste à 0)"
+    else
     nohup python3 scripts/paper_diprip.py --resume >>runs/PAPER_WATCHDOG_STDOUT.log 2>&1 &
     sleep 2
     new_pid=$(cat "$LOCK_FILE" 2>/dev/null | tr -d '[:space:]')
@@ -64,6 +87,7 @@ if [ "$paper_ok" = false ]; then
       log "PAPER: RELANCÉ pid=$new_pid"
     else
       log "PAPER: FAIL relance"
+    fi
     fi
   fi
 fi
