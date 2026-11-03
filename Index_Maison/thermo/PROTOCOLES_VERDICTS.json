@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-03T13:39:19+00:00",
+  "ts": "2026-11-03T14:40:32+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -282,7 +282,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "1004 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "1005 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -295,11 +295,11 @@
           "delta_votes": 7
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "SingleAssetVault",
           "delta_votes": 6
         },
         {
-          "amendement": "SingleAssetVault",
+          "amendement": "DynamicMPT",
           "delta_votes": 6
         },
         {
@@ -307,15 +307,15 @@
           "delta_votes": 3
         },
         {
-          "amendement": "XChainBridge",
-          "delta_votes": -1
-        },
-        {
           "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
-          "amendement": "fixBatchInnerSigs",
+          "amendement": "XChainBridge",
+          "delta_votes": -1
+        },
+        {
+          "amendement": "PermissionDelegation",
           "delta_votes": 0
         }
       ]
@@ -323,7 +323,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "39 alerte(s) microstructure au journal · 39 notée(s) par le juge indépendant · justesse 38.5 % · avis directionnels de Cortana (toutes matières) : 10/27 = 37.0 %",
+      "faits": "41 alerte(s) microstructure au journal · 41 notée(s) par le juge indépendant · justesse 39.0 % · avis directionnels de Cortana (toutes matières) : 8/26 = 30.8 %",
       "verdict": "ECHEC",
       "alerte": "",
       "detail": [
@@ -342,14 +342,8 @@
         {
           "indice": "croisements",
           "directionnels": 17,
-          "corect": 7,
+          "corect": 6,
           "n": 18
-        },
-        {
-          "indice": "etfBtcM",
-          "directionnels": 1,
-          "corect": 1,
-          "n": 1
         },
         {
           "indice": "fearGreed",
@@ -390,7 +384,7 @@
           "directionnels": 1,
           "corrects": 1,
           "neutres": 66,
-          "t_stat": -1.67
+          "t_stat": -1.0
         }
       ]
     },
@@ -436,33 +430,33 @@
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "1332 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=-0.0197 Δ=10.4 NEUTRE)",
+      "faits": "1393 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.0207 Δ=-4.64 NEUTRE)",
       "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
         {
-          "ts": "2026-11-03T13:34:59Z",
-          "ofi": -0.0096,
+          "ts": "2026-11-03T14:36:07Z",
+          "ofi": -0.0176,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T13:35:59Z",
-          "ofi": -0.0228,
+          "ts": "2026-11-03T14:37:07Z",
+          "ofi": -0.0119,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T13:36:59Z",
-          "ofi": -0.0128,
+          "ts": "2026-11-03T14:38:07Z",
+          "ofi": 0.0017,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T13:37:59Z",
-          "ofi": -0.0205,
+          "ts": "2026-11-03T14:39:07Z",
+          "ofi": 0.0156,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T13:38:59Z",
-          "ofi": -0.0197,
+          "ts": "2026-11-03T14:40:07Z",
+          "ofi": 0.0207,
           "verdict": "NEUTRE"
         }
       ]
