@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.2833400118543365,
-      "value": 8742082800.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, automobile, eau, actions traditionnelles). L'anomalie de volume (z-score 2.28) est isolée sans contexte narratif crypto, rendant l'attribution à une action de baleine spéculative ou directionnelle impossible à confirmer.\"\n}",
-      "ts": "2026-11-02T20:17:30.100858+00:00"
-    },
-    {
       "metric": "long_short",
       "zscore": 2.0415620100275214,
       "value": 2.381,
@@ -349,6 +342,13 @@
       "value": 1.148,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
       "ts": "2026-11-03T11:21:13.281968+00:00"
+    },
+    {
+      "metric": "price_1h",
+      "zscore": 2.552856971036289,
+      "value": 0.4995782806014537,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.55 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
+      "ts": "2026-11-03T12:36:31.166192+00:00"
     }
   ]
 }

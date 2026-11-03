@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-11-03T11:29:01Z",
+  "updated": "2026-11-03T12:25:35Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -6117,13 +6117,13 @@
       "origine": "02/11 GO Christophe : l'oubli est un problème",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "33c490b8d8b9f5ba5f4cac11483ea700",
-      "date": "2026-11-03T11:18:01Z",
+      "md5": "560c94a4fe5fa06cb5a559482fe7c3ad",
+      "date": "2026-11-03T12:25:35Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-03T11:18:01Z",
+        "ts": "2026-11-03T12:25:35Z",
         "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 17841 <- bash(pid 17829) <- /Users/christoph(pid 17828) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 33701 <- bash(pid 33696) <- /Users/christoph(pid 33695) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -6260,6 +6260,36 @@
             "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
             "user": "christophe",
             "chaine": "pid 17841 <- bash(pid 17829) <- /Users/christoph(pid 17828) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T11:59:54Z",
+          "motif": "Cloture audit-dette-r20 (5 violations statuees par radiation procedurale) + radiation de l'acte non pre-declare qui l'a portee. L'acte reste au registre de radiations.",
+          "ecrivain": {
+            "ts": "2026-11-03T11:59:54Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 27743 <- bash(pid 27730) <- /Users/christoph(pid 27729) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T12:24:50Z",
+          "motif": "Cloture audit-sauvegarde-disque avec preuve de restauration (sauvegarde 03/11, 115775 fichiers, ecarts 0). IA=Buffy (DeepSeek V4.1 Flash, Freebuff)",
+          "ecrivain": {
+            "ts": "2026-11-03T12:24:50Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 33518 <- bash(pid 33516) <- /Users/christoph(pid 33515) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T12:25:35Z",
+          "motif": "Ajout item audit-sorties-dans-scripts (sorties d'organes dans scripts/). IA=Buffy (DeepSeek V4.1 Flash, Freebuff)",
+          "ecrivain": {
+            "ts": "2026-11-03T12:25:35Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 33701 <- bash(pid 33696) <- /Users/christoph(pid 33695) <- /Users/christoph(pid 4107)"
           }
         }
       ]
@@ -7023,13 +7053,13 @@
       "origine": "03/11/2026, GO Christophe : « tu declares celles que tu vois, pas celles que tu ne vois pas »",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "3b94cb51b2e7a238e9662bc7ccfefc6a",
-      "date": "2026-11-03T11:29:01Z",
+      "md5": "92357c461d9495d561dda374d2a7f912",
+      "date": "2026-11-03T11:59:06Z",
       "dernier_ecrivain": {
-        "ts": "2026-11-03T11:29:01Z",
+        "ts": "2026-11-03T11:59:06Z",
         "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 19681 <- bash(pid 19676) <- /Users/christoph(pid 19670) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 27602 <- bash(pid 27600) <- /Users/christoph(pid 27599) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -7076,6 +7106,26 @@
             "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
             "user": "christophe",
             "chaine": "pid 19681 <- bash(pid 19676) <- /Users/christoph(pid 19670) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T11:58:37Z",
+          "motif": "Perimetre par PROVENANCE : journal append-only SORTIES_DECLAREES.jsonl (chemin+organe+motif+date) remplace la liste en dur qui fabriquait un faux rouge par nouvel organe. Autotest 7/7 (ajout : sortie declaree = silence, sortie non declaree = cri).",
+          "ecrivain": {
+            "ts": "2026-11-03T11:58:37Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 27512 <- bash(pid 27508) <- /Users/christoph(pid 27507) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T11:59:06Z",
+          "motif": "Sortie de perimetre != suppression : comparer() ignore un chemin encore present sur le disque mais sorti du perimetre (sortie declaree / scelle / exclu). Mesure : 2 faux rouges a 11:58Z sur mes 2 propres declarations. Autotest 8/8.",
+          "ecrivain": {
+            "ts": "2026-11-03T11:59:06Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 27602 <- bash(pid 27600) <- /Users/christoph(pid 27599) <- /Users/christoph(pid 4107)"
           }
         }
       ]

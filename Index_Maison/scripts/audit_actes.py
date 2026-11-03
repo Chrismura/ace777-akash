@@ -51,6 +51,7 @@ INDEX = RACINE / "Index_Maison"
 PARAMS = RACINE / "Index_Maison" / "strategie" / "PREDECLARATIONS.jsonl"
 SNAP = INDEX / "thermo" / "audit_actes_snapshot.json"
 RAPPORT = INDEX / "thermo" / "audit_actes.json"
+SORTIES = INDEX / "strategie" / "SORTIES_DECLAREES.jsonl"
 
 # Dossiers JAMAIS audités : runtime, journaux, données, caches. Auditer un fichier
 # réécrit en boucle par un organe produirait une alarme permanente — un faux rouge
@@ -127,10 +128,69 @@ def _scelles() -> set:
         return set()
 
 
+def _sorties_declarees(racine: Path) -> set:
+    """Chemins DÉCLARÉS comme SORTIES d'organe (journal append-only, daté, attribué).
+
+    POURQUOI (03/11, 3ᵉ correction — la CLASSE, pas le cas) : le périmètre reposait sur
+    EXCLUS_NOMS, une liste écrite en dur DANS LE CODE. Chaque organe qui écrivait un
+    nouveau fichier fabriquait donc un faux rouge de plus, qu'on éteignait en ajoutant
+    un nom — à la main, sans date, sans organe, sans trace. Mesuré à 11:47Z : deux
+    sorties d'organes (`vigie_cooldown.json` ← vigie_live.py, `cockpit/veille_
+    institutionnelle.js` ← veille_outflows_institutionnels.py) jugées comme des ACTES ;
+    santé tombée 18/19 pour deux fichiers que PERSONNE n'avait touchés à la main.
+
+    Une sortie d'organe n'est pas un acte : elle est REGÉNÉRÉE. On la déclare une fois,
+    avec son organe producteur, dans un journal daté (même forme que RADIATIONS.jsonl).
+    Le gardien ne renonce à aucune voix : une sortie NON déclarée crie toujours.
+    """
+    magasin = racine / "Index_Maison" / "strategie" / "SORTIES_DECLAREES.jsonl"
+    chemins: set = set()
+    if not magasin.exists():
+        return chemins
+    try:
+        lignes = magasin.read_text(encoding="utf-8").splitlines()
+    except OSError:
+        return chemins
+    for ligne in lignes:
+        ligne = ligne.strip()
+        if not ligne:
+            continue
+        try:
+            o = json.loads(ligne)
+        except Exception:
+            continue
+        if o.get("fichier"):
+            chemins.add(str(o["fichier"]))
+    return chemins
+
+
+def declarer_sortie(chemin: str, organe: str, motif: str) -> int:
+    """Déclare une SORTIE d'organe. Refus sans organe ni motif : une sortie non
+    attribuée n'est pas une déclaration, c'est un blanc-seing."""
+    if not organe or not motif:
+        print("REFUS : --organe et --motif obligatoires (une sortie non attribuée "
+              "n'est pas une déclaration)")
+        return 2
+    if not (RACINE / chemin).exists():
+        print(f"REFUS : {chemin} n'existe pas (on déclare une sortie RÉELLE, pas une intention)")
+        return 2
+    if chemin in _sorties_declarees(RACINE):
+        print(f"[=] sortie déjà déclarée : {chemin}")
+        return 0
+    SORTIES.parent.mkdir(parents=True, exist_ok=True)
+    with open(SORTIES, "a", encoding="utf-8") as f:
+        f.write(json.dumps({"ts": utc(), "fichier": chemin, "organe": organe,
+                            "motif": motif, "declarant": "audit_actes --declarer-sortie"},
+                           ensure_ascii=False) + "\n")
+    print(f"[+] SORTIE DÉCLARÉE : {chemin} ← {organe}")
+    return 0
+
+
 def scanner(racine: Path) -> dict:
     """md5 + mtime de chaque fichier suivi. Aucune écriture."""
     fichiers = {}
     scelles = _scelles()
+    sorties = _sorties_declarees(racine)
     for dossier in ("Index_Maison", "hulk-mexc"):
         base = racine / dossier
         if not base.is_dir():
@@ -141,7 +201,7 @@ def scanner(racine: Path) -> dict:
             rel = p.relative_to(racine)
             if any(part in EXCLUS_DIRS for part in rel.parts[:-1]):
                 continue
-            if str(rel) in scelles:
+            if str(rel) in scelles or str(rel) in sorties:
                 continue
             try:
                 fichiers[str(rel)] = {"md5": md5(p), "mtime": p.stat().st_mtime}
@@ -185,6 +245,13 @@ def comparer(racine: Path, avant: dict, apres: dict, decs: list,
             nature = "ajout"
             t = b["mtime"]
         elif b is None:
+            # Fichier SORTI du périmètre (déclaré sortie d'organe, nouvellement scellé,
+            # nom exclu) : il est toujours sur le disque. Ce n'est PAS une suppression —
+            # mesuré à 11:58Z, le gardien criait sur les deux sorties qu'il venait de
+            # recevoir en déclaration. Une sortie de périmètre n'est pas un acte ; une
+            # suppression RÉELLE (fichier absent du disque) reste un acte.
+            if (racine / rel).exists():
+                continue
             nature = "suppression"
             t = ts_ref
         else:
@@ -221,10 +288,16 @@ def main() -> int:
     ap.add_argument("--controle", action="store_true")
     ap.add_argument("--etat", action="store_true")
     ap.add_argument("--autotest", action="store_true")
+    ap.add_argument("--declarer-sortie", metavar="CHEMIN")
+    ap.add_argument("--motif", default="")
+    ap.add_argument("--organe", default="")
     a = ap.parse_args()
 
     if a.autotest:
         return autotest()
+
+    if a.declarer_sortie:
+        return declarer_sortie(a.declarer_sortie, a.organe, a.motif)
 
     now = utc()
     if a.baseline:
@@ -316,11 +389,41 @@ def autotest() -> int:
         r = comparer(base, frais, scanner(base), vieille, ts_ref)
         cas5 = r["non_declares"] == 2   # modif + ajout, aucune annonce valable
 
+        # cas 6 : SORTIE d'organe déclarée → silence (une sortie est régénérée, ce n'est
+        # pas un acte) …
+        (base / "Index_Maison" / "strategie").mkdir(parents=True, exist_ok=True)
+        journal = base / "Index_Maison" / "strategie" / "SORTIES_DECLAREES.jsonl"
+        journal.write_text(json.dumps({"fichier": "Index_Maison/moteur.py",
+                                       "organe": "test"}) + "\n", encoding="utf-8")
+        frais6 = scanner(base)
+        f1.write_text("x = 4\n", encoding="utf-8")
+        r = comparer(base, frais6, scanner(base), [], ts_ref)
+        cas6 = r["non_declares"] == 0
+
+        # cas 7 : … et la MÊME sortie redevient un acte dès que la déclaration manque
+        # (la règle est conditionnelle, pas un blanc-seing sur un nom de fichier)
+        journal.unlink()
+        frais7 = scanner(base)
+        f1.write_text("x = 5\n", encoding="utf-8")
+        r = comparer(base, frais7, scanner(base), [], ts_ref)
+        cas7 = r["non_declares"] == 1
+
+        # cas 8 : la DÉCLARATION elle-même ne crie pas — un fichier qui SORT du périmètre
+        # (instantané d'avant la déclaration) n'est pas une suppression (mesuré 11:58Z)
+        avant_decl = scanner(base)          # moteur.py encore dans le périmètre
+        journal.write_text(json.dumps({"fichier": "Index_Maison/moteur.py",
+                                       "organe": "test"}) + "\n", encoding="utf-8")
+        r = comparer(base, avant_decl, scanner(base), [], ts_ref)
+        cas8 = r["non_declares"] == 0
+
     cas = [("acte non annoncé détecté", cas1),
            ("acte annoncé AVANT jugé conforme", cas2),
            ("fichier inchangé → silence", cas3),
            ("fichier neuf non annoncé détecté", cas4),
-           ("déclaration ancienne ≠ blanc-seing", cas5)]
+           ("déclaration ancienne ≠ blanc-seing", cas5),
+           ("sortie d'organe déclarée → silence", cas6),
+           ("sortie non déclarée → crie", cas7),
+           ("déclaration ≠ suppression", cas8)]
     for nom, ok in cas:
         print(f"  {'[OK ]' if ok else '[KO ]'} {nom}")
     bon = all(ok for _, ok in cas)
