@@ -66,6 +66,34 @@ def make_bot():
     bot.gbag_check_sec = 0.0
     bot.gbag_pending = {}
     bot.gbag_histo = {}
+    # DÉRIVE HARNAIS/MOTEUR (constatée le 03/11 en relançant ce test) : le moteur lit
+    # `self.gbag_exit_armed` (porte de sortie en 2 temps) mais le bot factice ne le
+    # déclarait pas → AttributeError au test de pyramide. On déclare les défauts PROD.
+    bot.gbag_exit_armed = {}
+    # SYNCHRO HARNAIS ↔ MOTEUR (03/11/2026) : plutôt que d'ajouter les attributs manquants
+    # un par un (gbag_exit_confirm_on, etc. — deux tours perdus à ce jeu), on DÉRIVE du
+    # moteur lui-même la liste des `self.gbag_*` réellement lus, et on prend les défauts
+    # de PROD dans config/defaults.env. Aucune valeur inventée ; tout attribut lu existe.
+    import re as _re
+    _env = P.load_env(P.CFG)
+    for _nom in sorted(set(_re.findall(r"self\.(gbag_[a-z0-9_]+)", (SRC / "paper_diprip.py").read_text()))):
+        if hasattr(bot, _nom):
+            continue
+        _v = _env.get(_nom.upper())
+        if _v is None:
+            _val = (False if _nom.endswith("_on")
+                    else {} if _nom in ("gbag_histo", "gbag_pending", "gbag_exit_armed")
+                    else 0.0)
+        elif _nom.endswith("_on"):
+            _val = _v.strip() not in ("0", "false", "False")
+        else:
+            try:
+                _val = float(_v)
+            except ValueError:
+                _val = _v
+            if _nom.endswith(("_sma_e", "_sma_gate", "_sma_s")):
+                _val = int(float(_v))
+        setattr(bot, _nom, _val)
     # P2/P3 (16/10/2026, GO P1-P4) : défauts prod — porte OFF, cap OFF. Les tests
     # porte/cap les activent explicitement. (Sans ces attributs : AttributeError, la
     # même dérive harnais/moteur que P1 a fermée sur test_seellfull_resume.)
@@ -89,7 +117,11 @@ def make_bot():
         p = bot.pos[pair]
         q = p["qty"] if qty is None else min(qty, p["qty"])
         bot.ventes.append((reason, round(q * price, 6)))
-        del bot.pos[pair]
+        # FIDÉLITÉ (03/11/2026) : une vente PARTIELLE ne doit pas supprimer la position,
+        # sinon la sortie GBAG en 2 temps ne peut pas être vérifiée (harnais menteur).
+        p["qty"] = float(p.get("qty") or 0.0) - q
+        if p["qty"] <= 1e-12:
+            del bot.pos[pair]
         return q * price
 
     bot.achats = []
@@ -146,35 +178,54 @@ def test_pyramide_max_3():
 
 
 def test_sortie_sma24_arme_rachat():
+    """CONTRAT RÉEL (vérifié le 03/11/2026) : SORTIE EN 2 TEMPS (§27).
+    1re clôture < SMA24 → la MOITIÉ dehors, le reste tenu, rachat armé ;
+    2e clôture < SMA24 → le reste sort. L'ancien test attendait une vente en un coup :
+    le harnais masquait le contrat par un crash (attribut manquant), pas par justesse."""
     kl = bougies(BASE + [110.0, 90.0])    # décide 110 → entrée ; 90 en cours
     bot = make_bot()
     appel(bot, kl, 110.0)
+    qty_init = bot.pos["TESTUSDT"]["qty"]
     pousser(kl, 88.0)                      # rend 90 décidable
-    appel(bot, kl, 90.0)                   # décide 90 → sortie
-    assert bot.ventes and bot.ventes[0][0] == "gbag_sortie_sma24", "sortie SMA24 attendue"
-    assert "TESTUSDT" not in bot.pos
+    appel(bot, kl, 90.0)                   # décide 90 → 1/2 sortie
+    assert bot.ventes and bot.ventes[0][0].startswith("gbag_sortie"), \
+        f"1re sortie SMA24 attendue, obtenu {bot.ventes}"
+    assert "TESTUSDT" in bot.pos, "la moitié doit RESTER (sortie en 2 temps)"
+    assert abs(bot.pos["TESTUSDT"]["qty"] - qty_init / 2) < qty_init * 0.02, \
+        f"moitié attendue, obtenu {bot.pos['TESTUSDT']['qty']}"
     pend = bot.gbag_pending.get("TESTUSDT")
     assert pend, "rachat armé attendu"
     # amp7 ≈ 2,02 % (jours à ±1 % autour de 100) → 0,5×amp7 ≈ 1,01 % sous 90 ≈ 89,09
     assert 88.9 < pend < 89.2, f"rachat attendu ~89,09, obtenu {pend}"
+    # 2e clôture toujours sous SMA → le reste sort
+    pousser(kl, 87.0)
+    appel(bot, kl, 88.0)
+    assert "TESTUSDT" not in bot.pos, f"2e clôture : le reste doit sortir, pos={bot.pos}"
+    assert len(bot.ventes) >= 2, f"2 ventes attendues, obtenu {bot.ventes}"
 
 
 def test_souche_tout_le_cash():
+    """CONTRAT RÉEL (03/11/2026) : la sortie en 2 temps décale l'armement du rachat.
+    1re clôture < SMA → moitié dehors, armement ~89,09 ; 2e clôture < SMA → le reste
+    sort et l'armement est RECALÉ sous la nouvelle clôture (~87,11). La souche se
+    convertit donc sous CE second niveau, pas sous le premier."""
     kl = bougies(BASE + [110.0, 90.0])
     bot = make_bot()
     appel(bot, kl, 110.0)                  # entrée
     pousser(kl, 88.0)
-    appel(bot, kl, 90.0)                   # sortie + armement (pend ≈ 89,09)
+    appel(bot, kl, 90.0)                   # 1/2 sortie + armement (~89,09)
+    pousser(kl, 87.0)
+    appel(bot, kl, 88.0)                   # 2e clôture < SMA → le reste sort, armement recalculé
     pend = bot.gbag_pending["TESTUSDT"]
     bot.pair_cash["TESTUSDT"] = 12.0       # cash de paire connu pour la mesure
-    pousser(kl, 88.5)
-    appel(bot, kl, 88.0)                   # décide 88 ≤ pend → conversion
+    pousser(kl, 86.0)                      # rend 87 décidable
+    appel(bot, kl, 87.0)                   # décide 87 ≤ pend (~87,11) → conversion
     b = bot.bags.get("TESTUSDT")
-    assert b, "souche attendue"
-    assert b["kind"] == "core", "la souche est kind=core (jamais vendue)"
+    assert b, f"souche attendue (pend={pend}, ventes={bot.ventes})"
+    assert b["kind"] == "core", "la souche est kind=core (filet mesuré, pas de vente en %) "
     assert bot.pair_cash.get("TESTUSDT", 0.0) == 0.0, "TOUT le cash doit être converti"
     assert "TESTUSDT" not in bot.gbag_pending, "l'ordre est consommé après conversion"
-    q_attendu = 12.0 / 88.0
+    q_attendu = 12.0 / 87.0
     assert abs(b["qty"] - q_attendu) / q_attendu < 0.01, f"souche {b['qty']} != {q_attendu}"
 
 

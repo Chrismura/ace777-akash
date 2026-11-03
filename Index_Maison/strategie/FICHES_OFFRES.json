@@ -25,7 +25,8 @@
     "2026-10-24": 8,
     "2026-10-30": 8,
     "2026-11-01": 8,
-    "2026-11-02": 8
+    "2026-11-02": 8,
+    "2026-11-03": 8
   },
   "fiches": {
     "32f5f333ea5d": {
@@ -3888,6 +3889,156 @@
       "usage": "juge",
       "avis_pour": "Idéal pour comparer rigoureusement plusieurs modèles sur vos propres cas d'usage de code.",
       "avis_attention": "Demande un investissement technique pour configurer et exploiter l'outil sur votre environnement."
+    },
+    "9ba385c157dd": {
+      "section": "huggingface récents",
+      "item": "daruokta/bifocalgemma-2026-11-02",
+      "generated": "2026-11-03T09:05:07.792068+00:00",
+      "type": "Modèle de langage open-source récent issu de Hugging Face",
+      "forts": [
+        "Gratuit et accessible via l'écosystème Hugging Face",
+        "Adapté aux tâches textuelles générales et à l'exploration",
+        "Permet de diversifier les sources hors des géants habituels"
+      ],
+      "faibles": [
+        "Performances non testées en conditions réelles sur nos scripts critiques",
+        "Stabilité et limites de taux d'appel parfois imprévisibles sur les serveurs communautaires"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester en mode exploratoire pour voir s'il peut soulager nos quotas sur des tâches simples de discussion ou de résumé.",
+      "avis_attention": "À ne pas utiliser sur les décisions critiques ou le code de production tant qu'il n'a pas fait ses preuves en local."
+    },
+    "cc942770a9a5": {
+      "section": "huggingface récents",
+      "item": "meltingfeet/backup2026-11-02-mradermacher-Ektome-Qwen3.6-35B-A3B-PristinelyUncensored-GGUF",
+      "generated": "2026-11-03T09:05:09.220538+00:00",
+      "type": "Modèle de langage généraliste lourd non censuré au format GGUF",
+      "forts": [
+        "Grande capacité de raisonnement grâce à sa structure 35B",
+        "Absence de censure pour explorer des cas limites",
+        "Idéal pour tester des variantes locales et expérimentales"
+      ],
+      "faibles": [
+        "Hébergement communautaire non officiel (Hugging Face / mradermacher)",
+        "Consommation en ressources importante (taille 35B)",
+        "Disponibilité et latence variables selon l'infrastructure"
+      ],
+      "usage": "analyste.strategie",
+      "avis_pour": "À tenter pour sa liberté de ton et sa puissance brute sur des analyses stratégiques complexes.",
+      "avis_attention": "Attention aux performances en production et à la stabilité de ce type de dépôt communautaire."
+    },
+    "baa99102125c": {
+      "section": "huggingface récents",
+      "item": "Prevon/function-gemma-270m-it-full-ft-gguf",
+      "generated": "2026-11-03T09:05:10.487070+00:00",
+      "type": "Petit modèle de langage local optimisé pour les fonctions et l'inférence légère",
+      "forts": [
+        "Taille ultra-réduite (270M)",
+        "Idéal pour intégration locale ou edge",
+        "Basé sur Gemma et finement ajusté"
+      ],
+      "faibles": [
+        "Capacités de raisonnement complexes limitées",
+        "Moins adapté aux gros scripts Python ou analyses poussées"
+      ],
+      "usage": "chat",
+      "avis_pour": "À essayer pour tester de l'inférence ultra-rapide sur de petites tâches syntaxiques ou du prototypage local.",
+      "avis_attention": "Sa petite taille de 270M implique des performances restreintes sur les tâches avancées de type juge ou stratégie."
+    },
+    "1c1b0520028d": {
+      "section": "huggingface trending (montée)",
+      "item": "burner22/numbat",
+      "generated": "2026-11-03T09:05:11.945761+00:00",
+      "type": "Modèle linguistique expérimental de recherche sur Hugging Face",
+      "forts": [
+        "Gratuit et accessible via l'écosystème Hugging Face",
+        "Tendance observée sur les modèles émergents de la plateforme",
+        "Léger et rapide pour des tests exploratoires"
+      ],
+      "faibles": [
+        "Documentation et spécificités techniques limitées pour l'instant",
+        "Fiabilité non éprouvée en production critique",
+        "Absence de garanties sur la stabilité à long terme"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester par curiosité pour voir si ce modèle apporte une fraîcheur sur des tâches de discussion ou de brainstorming.",
+      "avis_attention": "Attention à ne pas l'utiliser pour du code critique ou des décisions autonomes tant que son comportement n'a pas été audité."
+    },
+    "e4d41277c73b": {
+      "section": "github search (nouveaux lieux)",
+      "item": "olivezane/opencode2pi | Pi package - free OpenCode Zen models for Pi. Free LLM API, no API key",
+      "generated": "2026-11-03T09:05:13.658709+00:00",
+      "type": "Passerelle d'API LLM gratuite pour packages Pi (modèles OpenCode Zen)",
+      "forts": [
+        "Accès gratuit à des modèles LLM sans clé API requise",
+        "Intégration directe via package Pi (olivezane/opencode2pi)",
+        "Idéal pour l'expérimentation rapide sans configuration lourde"
+      ],
+      "faibles": [
+        "Fiabilité et disponibilité dépendantes d'un dépôt GitHub tiers",
+        "Absence de garanties sur les quotas ou la pérennité de l'API gratuite",
+        "Documentation potentiellement limitée pour un usage en production"
+      ],
+      "usage": "chat",
+      "avis_pour": "À tester pour du prototypage rapide et du chat exploratoire sans se soucier de la gestion des clés API.",
+      "avis_attention": "Attention à sa nature expérimentale et non officielle, à ne pas utiliser sur des tâches critiques ou automatisées (comme le trading ou les juges de signets)."
+    },
+    "9749f81fef82": {
+      "section": "github search (nouveaux lieux)",
+      "item": "aicostbudget/ai-api-pricing-data | LLM & AI API pricing data as JSON, CSV and a free static API: input, o",
+      "generated": "2026-11-03T09:05:14.955725+00:00",
+      "type": "Base de données de prix et d'APIs IA au format JSON, CSV et API statique",
+      "forts": [
+        "Données de tarification LLM à jour",
+        "Formats légers (JSON/CSV)",
+        "Gratuit et accessible par script Python"
+      ],
+      "faibles": [
+        "Pas un modèle d'IA exécutable",
+        "Nécessite un traitement local pour l'exploitation",
+        "Utilité directe limitée au pur trading"
+      ],
+      "usage": "analyste",
+      "avis_pour": "Parfait pour automatiser le suivi des coûts et comparer les grilles tarifaires des fournisseurs d'IA.",
+      "avis_attention": "Ce n'est pas un modèle de génération, uniquement une ressource de données statiques."
+    },
+    "a7eaa377b2af": {
+      "section": "github search (nouveaux lieux)",
+      "item": "IrishMehta/daily-job-board | A ready-to-use job board that fetches listings from thousands of compa",
+      "generated": "2026-11-03T09:05:16.953984+00:00",
+      "type": "Outil de veille et scraping d'offres d'emploi open-source",
+      "forts": [
+        "Prêt à l'emploi pour récupérer des listes d'entreprises",
+        "Idéal pour automatiser la collecte de données textuelles",
+        "Code source accessible sur GitHub pour adaptation rapide en Python"
+      ],
+      "faibles": [
+        "Pas un modèle d'IA en soi (fournit des données, ne les analyse pas)",
+        "Nécessite une configuration et un hébergement personnel",
+        "Pertinence dépendante de la qualité des sources ciblées"
+      ],
+      "usage": "codeur",
+      "avis_pour": "À tester si vous cherchez à automatiser l'ingestion de flux de données externes pour alimenter nos scripts de veille.",
+      "avis_attention": "Attention, ce n'est pas une intelligence décisionnelle : il faudra coupler l'outil avec nos modèles d'analyse pour trier les résultats."
+    },
+    "b0d19777a276": {
+      "section": "github search (nouveaux lieux)",
+      "item": "lifejx/free-llm-api-list | \\u81ea\\u52a8\\u5de1\\u68c0\\u5404\\u5927\\u5e73\\u53f0\\u514d\\u8d39\\u5927\\u6a",
+      "generated": "2026-11-03T09:05:18.489208+00:00",
+      "type": "Répertoire GitHub de surveillance automatisée des listes d'API LLM gratuites",
+      "forts": [
+        "Détection automatique de nouvelles pépites et fournisseurs gratuits",
+        "Veille active sur l'écosystème open source et les offres émergentes",
+        "Utile pour alimenter la base de veille de l'infrastructure ACE777"
+      ],
+      "faibles": [
+        "Ne fournit pas directement de modèle IA exécutable",
+        "Nécessite un traitement en aval pour intégrer ou tester les offres détectées",
+        "Contenu dépendant des mises à jour du dépôt tiers"
+      ],
+      "usage": "lecteur signets / veille",
+      "avis_pour": "Idéal pour rester à l'affût des nouvelles opportunités gratuites sans effort manuel.",
+      "avis_attention": "Attention à la fiabilité et à la disponibilité de ces sources tierces non vérifiées."
     }
   }
 }

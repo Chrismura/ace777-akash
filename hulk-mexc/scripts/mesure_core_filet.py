@@ -39,7 +39,7 @@ ROOT = os.path.expanduser("~/ace777-test-day1/hulk-mexc")
 KL = os.path.join(ROOT, "runs/KLINES_1H")
 STATE = os.path.join(ROOT, "runs/PAPER_V1_20261103_072654_state.json")
 WIN = 360          # 15 j de barres 1 h — même fenêtre que score_pair
-K_GRID = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+K_GRID = [0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0]
 F_GRID = [0.5, 1.0]
 
 
@@ -153,11 +153,16 @@ def main():
                     cout += d
                 n_decl += 1 if decl else 0
             net = gagn + cout
-            print(f"{k:>4.0f}{f:>6.1f}{gagn:>+17.2f}{cout:>+17.2f}{net:>+10.2f}{n_decl:>8}")
+            print(f"{k:>5.2f}{f:>6.1f}{gagn:>+17.2f}{cout:>+17.2f}{net:>+10.2f}{n_decl:>8}")
             if best is None or net > best[0]:
                 best = (net, k, f)
     print()
-    print(f"MEILLEUR : k={best[1]:.0f} f={best[2]:.1f} → net {best[0]:+.2f} $")
+    print(f"MEILLEUR : k={best[1]:.2f} f={best[2]:.1f} → net {best[0]:+.2f} $")
+    if best[1] in (K_GRID[0], K_GRID[-1]):
+        print("  ⚠ MÉFIANCE : l'optimum est sur le BORD de la grille. Sur k→0 la sortie se fait")
+        print("    au premier tick sous le plus-haut, donc QUASI AU SOMMET : c'est un artefact")
+        print("    de mesure (on ne vend pas le sommet qu'on vient de faire). Un k câblable doit")
+        print("    être INTÉRIEUR à la grille et positif sur les deux moitiés.")
     print()
     print(f"DÉTAIL PAR SOUCHE pour ce meilleur réglage (k={best[1]:.0f}, f={best[2]:.1f}) :")
     print(f"{'paire':11}{'$ hold':>10}{'$ filet':>10}{'delta':>10}{'sortie px':>12}{'motif':>26}")

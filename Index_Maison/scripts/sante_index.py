@@ -355,6 +355,30 @@ def verifier_chaines():
     chaines_degradees = []
 
     # ============================================================
+    # 0. MESURES — klines fraîches + cycle GBAG vivant (E30/E31, 03/11/2026)
+    #    Une mesure qui ne dit pas son âge est un mensonge : cette chaîne rend le
+    #    refus VISIBLE dans la carte SANTÉ du cockpit, sans lecture manuelle.
+    # ============================================================
+    _sm = lire_json(IM.parent / "hulk-mexc" / "runs" / "SANTE_MESURES.json")
+    _m = []
+    for _c in (_sm.get("controles") or []):
+        _m.append(maillon(str(_c.get("controle") or "?"), bool(_c.get("ok")),
+                          str(_c.get("raison") or "")[:100]))
+    if not _sm:
+        _m = [maillon("état sante_mesures.py", False,
+                      "ABSENT — l'organe n'a jamais tourné (refus par défaut)")]
+    _ok_sm = bool(_sm) and bool(_sm.get("ok")) and all(x["ok"] for x in _m)
+    if not _ok_sm:
+        _casses = [str(_c.get("controle") or "?") for _c in (_sm.get("controles") or [])
+                   if not _c.get("ok")] or ["état absent"]
+        anomalies.append("MESURES périmées : " + ", ".join(_casses))
+    chaines.append({
+        "id": "mesures", "nom": "MESURES (klines/GBAG)",
+        "chemin": "rafraichir_klines → KLINES_SANTE → sante_mesures → cockpit",
+        "ok": _ok_sm, "maillons": _m,
+    })
+
+    # ============================================================
     # 1. BALEINES — scan → pont → live.json.onchain → Ada + Cortana
     #    (la chaîne qui était coupée : le pont n'avait aucune plist)
     # ============================================================

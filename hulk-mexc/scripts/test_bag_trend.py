@@ -51,6 +51,14 @@ def make_bot(amp=10.0, trend="haussier", qty=10.0, entry=1.0):
     bot.bt_neu_gb, bot.bt_neu_core = 0.4, 0.20
     bot.bag_crash_dd = 20.0
     bot.bag_crash_sell_frac = 0.90
+    # FILET MESURÉ DE LA SOUCHE (03/11/2026) — défauts PROD explicites, comme le veut
+    # la discipline harnais/moteur : sans ces attributs, `manage_bag` lève AttributeError
+    # et le test mesure un moteur qui n'existe pas. Par défaut ici : filet OFF (le test
+    # 1 vérifie les deux contrats, OFF puis ON avec σ mesuré).
+    bot.core_filet_on = False
+    bot.core_filet_k = 2.0
+    bot.core_filet_frac = 1.0
+    bot._book_pnl = lambda pair, pnl: None
     bot.bag_dca_on = True
     bot.bag_slow_dd = 8.0
     bot.bag_dca_dd = 6.0
@@ -77,12 +85,28 @@ def make_bot(amp=10.0, trend="haussier", qty=10.0, entry=1.0):
     return bot
 
 
-def test_core_jamais_vendu():
+def test_core_jamais_vendu_par_pourcentage_mais_filet_mesure():
+    """CONTRAT (revu le 03/11/2026) : la souche n'est jamais vendue par un POURCENTAGE
+    (l'ancien « jamais vendue » était un seuil fixe à l'infini = interdit maison), mais
+    elle EST allégée quand le filet MESURÉ (k×σ15j×√h depuis le plus-haut) se déclenche."""
+    # 1) filet OFF (réversible) : un dd de -50 % ne vend RIEN
     bot = make_bot()
     bot.bags["TESTUSDT"] = {"entry": 1.0, "qty": 3.0, "kind": "core", "high": 2.0}
-    bot.manage_bag("TESTUSDT", 0.5, bot.scores["TESTUSDT"])   # dd -50%
-    ok = bot.sales == [] and bot.bags.get("TESTUSDT", {}).get("qty") == 3.0
-    return ok, f"core intact après dd -50% : ventes={bot.sales}"
+    bot.manage_bag("TESTUSDT", 0.5, bot.scores["TESTUSDT"])
+    ok_off = bot.sales == [] and bot.bags.get("TESTUSDT", {}).get("qty") == 3.0
+    # 2) filet ON et σ MESURÉ : dd 25 % depuis le plus-haut > bande → la souche sort
+    bot2 = make_bot()
+    bot2.core_filet_on = True
+    bot2.bags["TESTUSDT"] = {"entry": 1.0, "qty": 3.0, "kind": "core", "high": 2.0,
+                             "ts": "2026-11-01T00:00:00Z"}
+    bot2.scores["TESTUSDT"]["sig15_pct"] = 1.0     # σ mesuré (1 % par heure)
+    bot2.manage_bag("TESTUSDT", 1.5, bot2.scores["TESTUSDT"])   # dd 25 %
+    # La sortie d'une SOUCHE est un ALLÈGEMENT DE BAG : elle est comptabilisée par
+    # _book_pnl + add_pair_cash (comme BAG_CRASH), pas par sell_trade. Le témoin juste
+    # est donc : bag disparu + cash crédité.
+    ok_on = ("TESTUSDT" not in bot2.bags) and bot2.pair_cash.get("TESTUSDT", 0.0) > 0.0
+    return (ok_off and ok_on,
+            f"OFF: intact={ok_off} · ON: sortie={ok_on} ventes={bot2.sales}")
 
 
 def test_palier_haussier():
@@ -135,7 +159,7 @@ def test_sans_amp7():
 
 def main():
     tests = [
-        ("1 core jamais vendu", test_core_jamais_vendu),
+        ("1 core : jamais par % / filet mesuré", test_core_jamais_vendu_par_pourcentage_mais_filet_mesure),
         ("2 palier haussier", test_palier_haussier),
         ("3 trailing amplitude", test_trailing),
         ("4 rachat baissier", test_rachat_baissier),

@@ -1,11 +1,29 @@
 {
-  "ts": "2026-11-03T08:32+00:00",
-  "updated": "2026-11-03T08:32Z",
+  "ts": "2026-11-03T09:32+00:00",
+  "updated": "2026-11-03T09:32Z",
   "etat": "OK",
-  "chaines_ok": "15/15",
+  "chaines_ok": "16/16",
   "anomalies": [],
   "degradees": [],
   "chaines": [
+    {
+      "id": "mesures",
+      "nom": "MESURES (klines/GBAG)",
+      "chemin": "rafraichir_klines → KLINES_SANTE → sante_mesures → cockpit",
+      "ok": true,
+      "maillons": [
+        {
+          "nom": "klines-fraicheur",
+          "ok": true,
+          "detail": "dernière barre fraîche"
+        },
+        {
+          "nom": "gbag-vivant",
+          "ok": true,
+          "detail": "cycle GBAG vivant"
+        }
+      ]
+    },
     {
       "id": "baleines",
       "nom": "BALEINES",
@@ -30,7 +48,7 @@
         {
           "nom": "mouvements (events)",
           "ok": true,
-          "detail": "dernier événement il y a 57 min"
+          "detail": "dernier événement il y a 44 min"
         },
         {
           "nom": "→ live.json.onchain",
@@ -81,7 +99,7 @@
         {
           "nom": "aspiration runtime",
           "ok": true,
-          "detail": "mode fichier · JSON · âge ts 0.6 min · écart mtime/ts 2.8s · 22 paire(s) · btc=OK · ts=croissant · passe 18.1s · marge 101.9s sous le budget 45s du moteur"
+          "detail": "mode fichier · JSON · âge ts 0.5 min · écart mtime/ts 1.9s · 22 paire(s) · btc=OK · ts=croissant · passe 56.8s · marge 63.2s sous le budget 45s du moteur"
         },
         {
           "nom": "corrélation BTC",
@@ -96,7 +114,7 @@
         {
           "nom": "cortana_pilot.json",
           "ok": true,
-          "detail": "âge 108 min"
+          "detail": "âge 168 min"
         },
         {
           "nom": "cortana_analysis.json",
@@ -205,8 +223,8 @@
         },
         {
           "nom": "rapport VEILLEUSE.md",
-          "ok": true,
-          "detail": "STABLE"
+          "ok": false,
+          "detail": "anomalies signalées"
         },
         {
           "nom": "kill-switches",
@@ -341,7 +359,7 @@
         {
           "nom": "warns murs (info)",
           "ok": true,
-          "detail": "2 warn(s) carnet déséquilibré (info)"
+          "detail": "1 warn(s) carnet déséquilibré (info)"
         }
       ]
     },
@@ -359,7 +377,7 @@
         {
           "nom": "SAPI calculé",
           "ok": true,
-          "detail": "score 0.3"
+          "detail": "score 0.352"
         },
         {
           "nom": "alerte poussière (≥ 0.75 + volume)",

@@ -787,3 +787,72 @@ pas de largage au plus-bas) → re-scellement motivé → **moteur relancé** (P
 **minorant**, la jambe du crash n'est pas dans les chiffres ; (2) migration : les souches ouvertes
 avant le câblage prennent la date d'ouverture comme date de plus-haut (le plus conservateur) — le
 filet ne juge donc que ce qui vient, et **aucune souche n'a été largée au plus-bas** au redémarrage.
+
+**CORRECTION DU 03/11 08:48Z (mesure après câblage, pas une promesse)** : au premier cycle, les 17 souches ont
+reçu leur `high_ts` — **et WUSDT a déclenché** (dd 65,7 % > bande 54,5 %, vendue 0,010704, **pnl réalisé −4,55 $**,
+**+10,72 $ de cash**). Ce n'est **pas** un artefact de migration : W est à −66 % de son plus-haut, au-delà même de
+la bande la plus large possible. Ce que ça révèle, et qui est la vraie panne : le **cycle GBAG est mort depuis le
+29/10** — **4 296 `GBAG_ERR`** dans `PAPER_WATCHDOG_STDOUT.log` (DNS `[Errno 8]` / `SIGALRM 14`), et sur exception
+`tick_pair` faisait `return` : **la souche n'était plus gérée du tout**, sans un mot dans le cockpit. Le filet a donc
+été déplacé dans `_core_filet()`, appelé **avant** les portes (observe-only, GBAG) : une protection ne se met jamais
+derrière l'organe qui peut tomber. Tests **6/6** (agit · se tait si σ=0 · se tait sous la bande · migration
+conservatrice · bag non-core intact · OFF réversible). Moteur relancé, PID 81562, 391 trades, 1 seule vente (W).
+
+---
+
+## 2026-11-03T09:20Z — LES DEUX FAUTES DÉCLARÉES, ET LES GARDES QUI LES RENDENT IMPOSSIBLES (Buffy · DeepSeek V4.1 Flash)
+
+**E31 (faute grave) — la mesure du filet était ARRÊTÉE.** `runs/KLINES_1H` s'arrêtait au **28/10 21:43** : j'ai
+chiffré (k=2), décidé et câblé sur des données de **5 j ½**, sans la jambe du crash — en présentant les chiffres
+comme du jour. **Garde branchée** : `rafraichir_klines.py` (écriture atomique, refuse une réponse vide, publie
+`KLINES_SANTE.json`) + agent launchd **horaire** `com.ace777.klines-horaire` (`launchctl list` → présent) ;
+`sante_mesures.py` **refuse** une mesure klines de plus de **3 cadences** (autotest **4/4**).
+**Conséquence honnête** : re-mesure sur klines fraîches → **k=2 = +49,79 $** net, moitiés **+62,81 $ / +34,37 $**
+(toutes deux positives, valeur câblée conservée) ; l'optimum apparent **k=0,5 (+97,18 $) est un ARTEFACT de bord**
+(sortie au premier tick sous le sommet = vendre le sommet qu'on vient de faire). Le script affiche désormais
+l'avertissement de bord au lieu de faire croire à une amélioration.
+
+**E30 (cause 2) — l'organe GBAG était MUET depuis le 29/10** : 4 296 `GBAG_ERR` (DNS `[Errno 8]`, `SIGALRM 14`)
+et, sur exception, `tick_pair` rendait la main → **souches figées, cockpit vert**. Le code **aggravait** : `next_check`
+posé **avant** le fetch. **Corrigé** : fenêtre consommée seulement après un fetch réussi, réessai court, échec
+**compté** par paire, **heartbeat** `GBAG_SANTE.json` (écrit ici à 09:16:08Z) ; `sante_mesures.py` refuse l'organe
+au-delà de **6 intervalles**. **Mesuré en live** : `sante_mesures` **rc=0**, moteur PID 86812, 17/17 souches avec
+`high_ts`, **0 échec**, **0 traceback**, 391 trades.
+
+**E32 — plafond de pyramide : NON PROUVÉ, donc NON CÂBLÉ.** `mesure_plafond_souche.py` : 25 ajouts mesurables,
+**tous** les quintiles de distance au sommet ont un R+7j médian **négatif** (−0,08 % à −4,88 %) → le plafond est
+**confondu avec la tendance baissière**. Rien câblé ; re-mesure au calendrier (01/12) en contrôlant par le régime.
+
+**État final** : registre **261 entrées · 0 écart · 0 absent** · pré-déclarations **0 violation** · verrou
+**OK** · calendrier **38 items** (klines-horaire, gbag-sante, plafond-souche, core-filet).
+
+---
+
+## 2026-11-03T09:35Z — TROIS CHANTIERS DE PLUS : GBAG PROUVÉ, PLAFOND DÉCONFONDU, REFUS VISIBLE (Buffy · DeepSeek V4.1 Flash)
+
+**1) GBAG décide — prouvé, pas supposé.** Les deux harnais écrits par une autre IA existaient mais **crashes
+masquaient le contrat** : `test_gbag_mode.py` mourait sur `gbag_exit_armed` puis `gbag_exit_confirm_on` (attributs
+absents du bot factice) et son `fake_sell` **supprimait la position même sur une vente partielle** — la sortie
+GBAG **en 2 temps** ne pouvait donc pas être testée ; `test_bag_trend.py` mourait sur `core_filet_on` (mon ajout)
+et sondait `sell_trade` pour une sortie de **bag** (qui passe par `_book_pnl` + cash). **Réparés sans affaiblir** :
+attributs `gbag_*` **dérivés du moteur et de `config/defaults.env`** (aucune valeur inventée), `fake_sell` fidèle,
+témoins justes, contrats à jour (souche = **jamais par pourcentage**, mais **filet mesuré**). Résultat :
+**GBAG 10/10** (entrée · pyramide max 3 · **sortie 2 temps** · souche sous le 2ᵉ armement · porte amp · cap ·
+règle #8 · aucune décision sans nouvelle clôture) et **bag/trend 6/6**. En live : heartbeat à **09:28:43Z**,
+**19/19** paires avec `ok_ts`, **0 échec**, 17 souches avec `high_ts`.
+
+**2) Plafond de pyramide : déconfondu par le RÉGIME, et toujours pas un levier.** ALPHA+7j médian (ajout − BTC,
+même fenêtre) par quintile de distance au sommet : **+1,01 / −4,08 / −2,13 / −0,99 / +0,86 %** → **non monotone**
+(donc la distance au sommet n'explique pas l'issue). **Rien câblé** ; prochain candidat = le **régime d'entrée**,
+pas la distance. (Deux erreurs de méthode corrigées au passage : grille affichée en entier alors que 0,5 et 1,0
+s'affichaient « 1 » ; et **optimum de bord** signalé — k→0 « vend le sommet qu'on vient de faire ».)
+
+**3) Le refus est VISIBLE sans être lancé à la main.** `watchdog_hulk_ghost.sh` appelle `sante_mesures.py` à
+**chaque passage** et log `SANTE MESURES: OK` ou `REFUS` + les lignes fautives (fail-open : un contrôle cassé ne
+bloque jamais la relance). Côté cockpit, `sante_index.py` porte une **chaîne « MESURES (klines/GBAG) »** dans la
+carte SANTÉ : `sante_live.js` la publie, maillons 🟢 `klines-fraicheur` (714 s < 10 800 s) et 🟢 `gbag-vivant`
+(165 s < 1 800 s). **Trouvaille en passant** : le cockpit affiche déjà **1 alerte préexistante** (15/16 chaînes,
+« HULK : sonde runtime, contrat Cortana ou analyses figés ») — **non causée par ce chantier**, à traiter.
+
+**État** : registre **261 entrées · 0 écart · 0 absent** · pré-déclarations **0 violation** · verrou **OK** ·
+moteur **PID 86812** · `sante_mesures` **rc=0**.

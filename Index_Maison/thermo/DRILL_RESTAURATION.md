@@ -1,13 +1,14 @@
 # 🩺 DRILL DE RESTAURATION — 🔴 **TROU**
 
-> Testé le **2026-11-03T08:36Z** · mode **lecture seule** (rien installé, rien modifié).
+> Testé le **2026-11-03T09:36Z** · mode **lecture seule** (rien installé, rien modifié).
 > Question posée : *« si le Mac mourait ce soir, ACE777 reviendrait-il ? »*
 
 ## 1. Source — le repo (git) contient-il tout ?
-- Branche `main` · HEAD `4ca427b42e` du 2026-11-03T09:36:20+01:00
-- Fichiers suivis modifiés sur disque : **16**
+- Branche `main` · HEAD `7efafd8e05` du 2026-11-03T09:37:18+01:00
+- Fichiers suivis modifiés sur disque : **99**
 - Fichiers suivis **supprimés** (perdus) : **0**
-- Nouveaux fichiers non versionnés : 33379 au total, dont **17 sensibles** (scripts/plists/règles)
+- Nouveaux fichiers non versionnés : 33400 au total, dont **18 sensibles** (scripts/plists/règles)
+  - `Index_Maison/plists/com.ace777.klines-horaire.plist`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_inferx-coder.md`
   - `Index_Maison/scripts/CONSULTATION_CODEUR_GRAPHIQUE_20260814/AVIS_oss20.md`
   - `Index_Maison/scripts/CONSULTATION_FAMILLE_CORTANA_JUGE_CONTRE/AVIS_DEEPSEEK.md`
@@ -22,24 +23,24 @@
   - `Index_Maison/scripts/_archives_tronques_20260911/LISEZ_MOI.md`
   - `Index_Maison/scripts/_archives_tronques_20260911/PROD_SUPERVISEUR_GEMINI.py`
   - `Index_Maison/scripts/champion_cortana.json`
-  - `Index_Maison/scripts/cortana_cockpit_bridge.pyte`
 
 ### 1bis. Instruments de la boucle — ce que la boucle EXÉCUTE est-il versionné ?
-- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **168**
-- ✅ **0 instrument hors git** — tout ce que la boucle exécute revient avec git.
+- Scripts/exécutables invoqués par un agent ou par `git_push_auto.sh` : **169**
+- 🔴 **1 NON versionnés** → un Mac mort les perdrait, et la boucle ne redémarrerait pas :
+  - `hulk-mexc/scripts/rafraichir_klines.py`
 - Hors repo (volet « organes hors repo » ci-dessous) : 2
 
 ## 2. Agents launchd — reconstructibles ?
-- Installés : **117** · versionnés : **118**
+- Installés : **118** · versionnés : **119**
 - ✅ **0 agent hors repo** — tous reconstructibles.
 - 🟠 Versionnés mais plus installés (1) : `com.ace777.hack-actif.plist`
 
 ## 3. Reconstruction dans un dossier neuf
-- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_naszt37_/LaunchAgents`
-- Plists rebâtis + validés (`plutil -lint`) : **118/118**
+- Dossier : `/var/folders/y7/571v2gy574z72zvsgqd46wd40000gn/T/drill_restauration_aa9um11b/LaunchAgents`
+- Plists rebâtis + validés (`plutil -lint`) : **119/119**
 
 ## 4. Organes invoqués par les agents
-- Chemins **dans le repo** (reviennent avec git) : **113**
+- Chemins **dans le repo** (reviennent avec git) : **114**
 - Chemins **hors repo** (à sauvegarder autrement, git ne les ramène PAS) : **9**
 
   **Organes du projet hors git** (git ne les ramène PAS → il faut une autre source) :
@@ -58,13 +59,16 @@
 - ✅ Aucun chemin invoqué introuvable.
 
 ## 5. Scellés (registre des synapses ↔ repo)
-- Entrées md5 vérifiées : **227** · écarts : **1** · absents : **0**
-  - ⚠️ md5 différent : `Index_Maison/calendrier.json`
+- Entrées md5 vérifiées : **232** · écarts : **0** · absents : **0**
 
 ## 5bis. Pré-déclarations (R20.1) — un scellé se touche ANNONCÉ
-- Déclarations au registre : **286** · règle active depuis `2026-09-23T15:30:00Z`
+- Déclarations au registre : **300** · règle active depuis `2026-09-23T15:30:00Z`
 - Dette constatée **77** (27-29/09, datée et nommée, radiée de l'alarme — voir `REGISTRE_ECHECS_ET_ERREURS.md` §13)
-- ✅ **0 violation** — aucune modification scellée sans pré-déclaration antérieure.
+- 🔴 **4 modification(s) scellée(s) SANS pré-déclaration antérieure** :
+  - `hulk-mexc/scripts/rafraichir_klines.py` — re-scellé le 2026-11-03T09:12:26Z SANS pré-déclaration antérieure
+  - `hulk-mexc/scripts/sante_mesures.py` — re-scellé le 2026-11-03T09:12:26Z SANS pré-déclaration antérieure
+  - `hulk-mexc/scripts/mesure_core_filet.py` — re-scellé le 2026-11-03T09:12:26Z SANS pré-déclaration antérieure
+  - `Index_Maison/plists/com.ace777.klines-horaire.plist` — re-scellé le 2026-11-03T09:12:26Z SANS pré-déclaration antérieure
 
 ## 6. Couverture des classes d'erreur — anticiper l'erreur SUIVANTE
 - Dénominateur **lu au registre** : **30 classes** (E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12, E13, E14, E15, E16, E17, E18, E19, E20, E21, E22, E23, E24, E25, E26, E27, E28, E29, E30)
@@ -76,8 +80,9 @@
   - **E30** — classe au registre SANS garde declaree (gardes_erreurs.json)
 
 ## 7. Verdict
-- 🔴 **2 trou(s) à combler :**
-  - 1 scellé(s) dont le md5 ne correspond plus
+- 🔴 **3 trou(s) à combler :**
+  - 1 instrument(s) que la boucle EXÉCUTE et qui ne sont PAS dans git → perdus à la restauration (hulk-mexc/scripts/rafraichir_klines.py)
+  - 4 modification(s) de fichier SCELLÉ sans pré-déclaration antérieure (R20.1/R5/R13) : rafraichir_klines.py, sante_mesures.py, mesure_core_filet.py…
   - 4 classe(s) d'erreur CONNUE(S) dont la garde déclarée est absente ou NON BRANCHÉE (R15 : hors de la boucle = n'existe pas) : E27, E28, E29, E30
 
 ---

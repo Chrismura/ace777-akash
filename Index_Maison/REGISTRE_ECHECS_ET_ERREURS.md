@@ -2545,3 +2545,38 @@ les deux premiers actes, donc elle documente sans couvrir.
 **Statut** : consigné, daté, nommé. **Radiation = décision de Christophe**, pas de l'IA fautive.
 **Ce qui n'a pas été fait (et ne sera pas fait sans GO)** : aucun re-scellement des 9 écarts,
 pour ne pas répéter la faute E22 (sceller après coup sans pré-déclaration antérieure).
+
+---
+
+## § FAUTES DÉCLARÉES DU 2026-11-03 — « elles ne doivent plus se répéter » (Buffy · DeepSeek V4.1 Flash 10/17)
+
+### E30 — UN ORGANE MUET N'EST PAS UN ORGANE QUI VA BIEN (cause 2 des souches en perte)
+**Faute** : le cycle **GBAG** — celui qui gère réellement les souches — a échoué **4 296 fois entre le 29/10 et
+le 03/11** (`GBAG_ERR`, DNS `[Errno 8]` et `SIGALRM 14`) et **rien ne le disait** : cockpit vert, souches figées.
+Pire, le code **aggravait** la panne : `next_check` était posé **avant** le fetch, donc une seule erreur consommait
+la fenêtre, et l'exception remontait jusqu'à `tick_pair` qui faisait `return` — **plus aucune gestion**, en silence.
+**Conséquence mesurée** : CHIP a déroulé **−45 %** depuis son plus-haut (aujourd'hui −32,6 % sur klines fraîches),
+EDEL −27,3 %, RIZE −25,2 % **sans une seule coupe**.
+**Garde mécanique (branchée)** : `next_check` posé **après** un fetch réussi (sinon réessai court, échec **compté**
+et loggé) ; **heartbeat** `runs/GBAG_SANTE.json` à chaque passage réussi ; `sante_mesures.py` **REFUSE** de croire
+l'organe vivant au-delà de **6 intervalles** mesurés (`GBAG_CHECK_SEC` lu en config, aucun seuil en dur).
+Protection de la souche **indépendante** de l'organe (`_core_filet()` appelé avant les portes).
+
+### E31 — UNE MESURE QUI NE DIT PAS SON ÂGE EST UN MENSONGE (faute grave : mesure du filet ARRÊTÉE)
+**Faute** : `runs/KLINES_1H/` s'arrêtait au **2026-10-28 21:43** et **aucun organe ne le rafraîchissait**. J'ai
+mesuré, chiffré et décidé (le filet des souches, k=2) sur des données **vieilles de 5 jours et demie**, dont la
+**jambe du crash du 29/10 était absente** — en annonçant des chiffres comme s'ils étaient d'aujourd'hui.
+**Garde mécanique (branchée)** : organe **`rafraichir_klines.py`** + agent launchd **horaire**
+(`com.ace777.klines-horaire`), écriture atomique, refus d'écrire une réponse vide, état
+`runs/KLINES_SANTE.json` (âge de la dernière barre) ; **`sante_mesures.py`** refuse une mesure klines plus vieille
+que **3 cadences** de barre (autotest **4/4** : états absents → refus · frais → accepté · klines 6 j → refusé ·
+GBAG muet → refusé).
+**Re-mesure qui en découle** (klines fraîches, crash inclus) : k=2 reste **positif (+49,79 $)** mais k=1 fait
+**+90,27 $** ; le classement s'est déplacé, la valeur câblée reste **dans la zone prouvée** — voir la revue du
+17/11 avant tout changement.
+
+### E32 — UN PLAFOND DE PYRAMIDE NON PROUVÉ NE SE CÂBLE PAS
+**Mesure** (`mesure_plafond_souche.py`, 26 ajouts de souche uniques, 25 mesurables) : **tous** les quintiles de
+distance au sommet ont un **R+7j médian négatif** (−0,08 % à −4,88 %, 60–80 % de cas perdants). Le marché de la
+période est baissier : **le plafond est confondu avec la tendance**, donc **aucun plafond n'est prouvé**.
+**Décision** : **rien câblé** (règle maison). Re-mesure à programmer quand la fenêtre contiendra un régime haussier.

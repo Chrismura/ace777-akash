@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-03T08:36:59+00:00",
+  "ts": "2026-11-03T09:36:28+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -7,7 +7,7 @@
       "critere": "R4 : juger à T+72h la direction réelle du BTC · R6 : verdict 08/11/2026 si ≥ 55 % de HIT sur ≥ 20 cas",
       "faits": "26 paires enregistrées · 6 divergente(s) · 3 jugée(s) · 2 HIT",
       "verdict": "EN ATTENTE (3 cas jugé(s) sur 20 requis)",
-      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.8 divergence(s)/semaine → environ 3.6 cas au 08/11",
+      "alerte": "le verdict du 08/11 demandera 20 cas ; la cadence mesurée est de 0.8 divergence(s)/semaine → environ 3.5 cas au 08/11",
       "detail": [
         {
           "paire": "paire-008",
@@ -282,7 +282,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "999 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "1000 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -307,15 +307,15 @@
           "delta_votes": 3
         },
         {
-          "amendement": "XChainBridge",
-          "delta_votes": -1
-        },
-        {
           "amendement": "fixXChainRewardRounding",
           "delta_votes": -1
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "XChainBridge",
+          "delta_votes": -1
+        },
+        {
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
@@ -323,7 +323,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "29 alerte(s) microstructure au journal · 29 notée(s) par le juge indépendant · justesse 48.3 % · avis directionnels de Cortana (toutes matières) : 7/26 = 26.9 %",
+      "faits": "29 alerte(s) microstructure au journal · 29 notée(s) par le juge indépendant · justesse 48.3 % · avis directionnels de Cortana (toutes matières) : 7/25 = 28.0 %",
       "verdict": "ECHEC",
       "alerte": "",
       "detail": [
@@ -344,12 +344,6 @@
           "directionnels": 17,
           "corect": 5,
           "n": 18
-        },
-        {
-          "indice": "etfBtcM",
-          "directionnels": 1,
-          "corect": null,
-          "n": 1
         },
         {
           "indice": "fearGreed",
@@ -390,7 +384,7 @@
           "directionnels": 1,
           "corrects": 1,
           "neutres": 66,
-          "t_stat": -1.0
+          "t_stat": -0.33
         }
       ]
     },
@@ -436,33 +430,33 @@
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "1037 fenêtres · 0 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.0089 Δ=-0.89 NEUTRE)",
+      "faits": "1090 fenêtres · 0 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=-0.0018 Δ=7.13 NEUTRE)",
       "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
         {
-          "ts": "2026-11-03T08:29:16Z",
-          "ofi": 0.0182,
-          "verdict": "NEUTRE"
-        },
-        {
-          "ts": "2026-11-03T08:30:16Z",
-          "ofi": 0.0327,
-          "verdict": "NEUTRE"
-        },
-        {
-          "ts": "2026-11-03T08:31:16Z",
-          "ofi": 0.0353,
-          "verdict": "NEUTRE"
-        },
-        {
-          "ts": "2026-11-03T08:32:16Z",
+          "ts": "2026-11-03T09:32:24Z",
           "ofi": -0.0059,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T08:33:16Z",
-          "ofi": 0.0089,
+          "ts": "2026-11-03T09:33:24Z",
+          "ofi": -0.0184,
+          "verdict": "NEUTRE"
+        },
+        {
+          "ts": "2026-11-03T09:34:24Z",
+          "ofi": -0.0118,
+          "verdict": "NEUTRE"
+        },
+        {
+          "ts": "2026-11-03T09:35:24Z",
+          "ofi": -0.0254,
+          "verdict": "NEUTRE"
+        },
+        {
+          "ts": "2026-11-03T09:36:24Z",
+          "ofi": -0.0018,
           "verdict": "NEUTRE"
         }
       ]

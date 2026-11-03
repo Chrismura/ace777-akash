@@ -123,6 +123,20 @@ if [ -n "$st" ]; then
   log "PAPER_STATE $(basename "$st") age=${age}s"
 fi
 
+# SANTÉ DES MESURES (03/11/2026 — E30/E31) : le gardien REFUSE une mesure périmée
+# (klines trop vieilles, cycle GBAG muet). Branché ici pour que le refus soit VISIBLE
+# à chaque passage, sans qu'on ait à lancer l'organe à la main. Fail-open : un contrôle
+# cassé ne bloque jamais la relance du moteur.
+if [ -f scripts/sante_mesures.py ]; then
+  sm_out=$(python3 scripts/sante_mesures.py 2>&1); sm_rc=$?
+  if [ "$sm_rc" -eq 0 ]; then
+    log "SANTE MESURES: OK"
+  else
+    log "SANTE MESURES: REFUS (rc=$sm_rc) — une mesure est PÉRIMÉE :"
+    echo "$sm_out" | while IFS= read -r l; do log "   $l"; done
+  fi
+fi
+
 # FIX 16/09 (F1, GO C.) : pouls à chemin FIXE pour le chien de garde.
 # Avant : le registre organes pointait sur le CSV du run daté (PAPER_V1_20260910_145101.csv),
 # périmé à chaque nouveau run → le chien criait "30 h" sur un watchdog VIVANT (R1+R3).

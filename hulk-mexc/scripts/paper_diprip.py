@@ -1236,13 +1236,23 @@ class PaperBot:
         # échoue immédiatement au lieu de doubler les ordres sur le compte réel.
         import fcntl
         self.lock_path = RUNS / ".paper_diprip.lock"
-        self._lock_fd = open(self.lock_path, "w")
+        # VERROU QUI NE SE CASSE PAS LUI-MÊME (03/11/2026). Défaut mesuré : le fichier
+        # était ouvert en "w" — donc TRONQUÉ — AVANT `flock`. Toute instance concurrente
+        # (le watchdog en relançait une quand il croyait le moteur mort) effaçait le pid
+        # du moteur VIVANT, le watchdog lisait un verrou vide, concluait « MORT » et
+        # relançait encore : `PAPER: MORT / RELANCÉ` en boucle (08:25, 08:27, 08:50) et
+        # un moteur impossible à surveiller. Un verrou doit être inoffensif tant qu'il
+        # n'est pas acquis : on ouvre en "a+" (aucune troncature), on prend le verrou,
+        # PUIS on écrit le pid et on tronque l'ancien contenu.
+        self._lock_fd = open(self.lock_path, "a+")
         try:
             fcntl.flock(self._lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except OSError:
             print("❌ Une autre instance de paper_diprip.py tourne déjà "
                   f"(verrou {self.lock_path}). Abandon.")
             sys.exit(3)
+        self._lock_fd.seek(0)
+        self._lock_fd.truncate()
         self._lock_fd.write(str(os.getpid()))
         self._lock_fd.flush()
         self.alive = True
@@ -3248,91 +3258,106 @@ class PaperBot:
         )
         self.conservation.pop(pair, None)
 
+    def _core_filet(self, pair: str, price: float, sc: dict) -> bool:
+        """FILE MESURÉ DE LA SOUCHE CORE (03/11/2026, GO Christophe « brancher après
+        preuve par chiffre »). Appelé par tick_pair() AVANT les portes (observe-only,
+        GBAG) — une protection ne doit jamais dépendre de l'organe qui peut tomber :
+        mesuré le 03/11, le cycle GBAG échoue (4296 GBAG_ERR depuis le 29/10) et rendait
+        la main en laissant les souches FIGÉES, dont CHIP -45 % depuis son plus-haut.
+
+        DÉFAUT RÉPARÉ : `high` était entretenu puis JAMAIS LU ; la seule règle de la
+        souche était « jamais vendue » = un seuil fixe à l'infini (interdit maison).
+        Mesuré : CHIP -20,25 $ / EDEL -14,19 $ / RIZE -10,01 $ latents.
+
+        FILET = dd depuis le plus-haut > k × σ15j × √h. La bande S'ÉLARGIT avec le temps
+        passé au sommet (bruit accumulé) : aucune durée ni distance fixe. σ est MESURÉ
+        par paire (score_pair.sig15_pct), recalculé à chaque cycle.
+        MESURÉ AVANT CÂBLAGE (mesure_core_filet.py, 15 souches réelles, klines 1 h,
+        grille k=1..6 × f=0,5/1,0) : k=2 f=1,0 → +63,61 $ net (perdantes +68,83 $ ·
+        coût gagnantes -5,23 $), 13/15 souches, DEUX MOITIÉS de même signe (+51,69 $ /
+        +11,92 $), plateau k=1..3 → pas un point chanceux.
+        Limite déclarée (R8) : klines s'arrêtant au 28/10, la mesure est un MINORANT.
+        Retourne True si la souche a été allégée.
+        """
+        b = self.bags.get(pair)
+        if not b or b.get("kind") != "core" or price <= 0:
+            return False
+        if price >= float(b.get("high") or 0):
+            b["high"] = price
+            b["high_ts"] = time.time()
+        else:
+            b["high"] = max(float(b.get("high") or price), price)
+        if not self.core_filet_on:
+            return False
+        if not b.get("high_ts"):
+            # MIGRATION (03/11/2026) : les souches ouvertes AVANT le filet n'ont pas la
+            # date de leur plus-haut. On ne l'invente pas « maintenant » (bande minuscule
+            # → largage immédiat au plus-bas, ce serait agir sur une mesure qu'on n'a pas) :
+            # on prend l'hypothèse la plus CONSERVATRICE, l'ouverture de la souche → bande
+            # la plus large. Le filet ne juge que ce qui se passe APRÈS le câblage.
+            _t0 = time.time()
+            try:
+                _t0 = datetime.strptime(str(b.get("ts")), "%Y-%m-%dT%H:%M:%SZ").replace(
+                    tzinfo=timezone.utc).timestamp()
+            except Exception:
+                pass
+            b["high_ts"] = _t0
+        _sig = float((sc or {}).get("sig15_pct") or 0.0)
+        _high = float(b.get("high") or 0.0)
+        if _sig <= 0 or _high <= 0:
+            return False  # pas de mesure → pas de décision (jamais un seuil de repli)
+        _h = max(1.0, (time.time() - float(b["high_ts"])) / 3600.0)
+        _bande = self.core_filet_k * _sig * math.sqrt(_h)
+        _dd = (1.0 - price / _high) * 100.0
+        if _dd <= _bande:
+            return False
+        _regime = (sc or {}).get("regime", "")
+        _qty = float(b["qty"])
+        _sell = _qty * self.core_filet_frac
+        _keep = _qty - _sell
+        _entry = float(b["entry"])
+        _pnl = (price - _entry) * _sell
+        _proc = price * _sell
+        self._book_pnl(pair, _pnl)
+        self.trades += 1
+        self.add_pair_cash(pair, _proc)
+        self.log(
+            pair,
+            "CORE_FILET",
+            _regime,
+            price,
+            _entry,
+            _sell,
+            _pnl,
+            (sc or {}).get("cadence_pct"),
+            f"dd_haut={_dd:.1f}>bande={_bande:.1f}"
+            f"(k={self.core_filet_k:g}_sigma1h={_sig:.2f}pct_h={_h:.0f})",
+        )
+        say(
+            "sell_ko",
+            f"[{utc_now()}] SOUCHE FILET {pair}  dd_haut={_dd:.1f}% > bande "
+            f"{_bande:.1f}%  vend {self.core_filet_frac*100:.0f}%  "
+            f"pnl={_pnl:+.2f}$  cash+{_proc:.2f}$",
+        )
+        if _keep * price < 0.5:
+            del self.bags[pair]
+        else:
+            b["qty"] = _keep
+            b["entry"] = price
+        return True
+
     def manage_bag(self, pair: str, price: float, sc: dict):
         """Bag maison : crash→90% ; lent→DCA."""
         regime = (sc or {}).get("regime", "")
 
         if pair in self.bags:
             b = self.bags[pair]
-            # SOUCHE TREND (08/10/2026, GO Christophe) : jamais vendue par une règle
-            # de POURCENTAGE. Depuis le 03/11/2026 elle a un FILET MESURÉ — voir plus bas.
-            # Le défaut réparé : `high` était entretenu ici puis JAMAIS LU ailleurs ; la
-            # seule règle de la souche était donc « jamais vendue », soit un seuil fixe
-            # à l'infini — exactement ce que la maison interdit. Mesuré (CHIP -20,25 $ ·
-            # EDEL -14,19 $ · RIZE -10,01 $ latents, dd depuis le plus-haut -45 %/-19 %/
-            # -16,5 %) : la mesure du plus-haut existait et ne servait à rien.
+            # SOUCHE TREND (08/10/2026, GO Christophe) : plus de règle en POURCENTAGE.
+            # Son filet mesuré est implémenté UNE seule fois, dans _core_filet() —
+            # appelée aussi par tick_pair() avant les portes, pour que la protection ne
+            # dépende pas d'un organe qui peut tomber (GBAG). Ici : délégation, pas doublon.
             if b.get("kind") == "core":
-                if price >= float(b.get("high") or 0):
-                    b["high"] = price
-                    b["high_ts"] = time.time()
-                else:
-                    b["high"] = max(float(b.get("high") or price), price)
-                if not self.core_filet_on:
-                    return
-                # FILET = k × σ15j × √(heures depuis le plus-haut). La bande S'ÉLARGIT
-                # avec le temps passé au sommet (bruit accumulé) : aucune durée fixe.
-                # MESURÉ AVANT CÂBLAGE (mesure_core_filet.py : 15 souches réelles,
-                # klines 1 h, grille k=1..6 × f=0,5/1,0) : k=2 f=1,0 → +63,61 $ net
-                # (perdantes +68,83 $ · coût gagnantes -5,23 $), 13/15 souches,
-                # DEUX MOITIÉS de même signe (+51,69 $ / +11,92 $), plateau k=1..3
-                # (+56,7 / +63,6 / +31,7) → ce n'est pas un point chanceux.
-                # Limite déclarée : klines s'arrêtant au 28/10, la mesure est un
-                # MINORANT (elle chiffre la dérive lente, pas la jambe du crash).
-                if not b.get("high_ts"):
-                    # MIGRATION (03/11/2026) : les souches ouvertes AVANT le filet n'ont pas
-                    # la date de leur plus-haut. On ne l'invente pas « maintenant » (bande
-                    # minuscule → largage immédiat au plus-bas, ce serait agir sur une
-                    # mesure qu'on n'a pas) : on prend l'hypothèse la plus CONSERVATRICE,
-                    # l'ouverture de la souche → bande la plus large. Le filet ne juge donc
-                    # que ce qui se passe APRÈS le câblage ; toute nouvelle cime fixe la date.
-                    _t0 = time.time()
-                    try:
-                        _t0 = datetime.strptime(str(b.get("ts")), "%Y-%m-%dT%H:%M:%SZ").replace(
-                            tzinfo=timezone.utc).timestamp()
-                    except Exception:
-                        pass
-                    b["high_ts"] = _t0
-                _sig = float((sc or {}).get("sig15_pct") or 0.0)
-                _high = float(b.get("high") or 0.0)
-                if _sig <= 0 or _high <= 0:
-                    return  # pas de mesure → pas de décision (jamais un seuil de repli)
-                _h = max(1.0, (time.time() - float(b.get("high_ts") or time.time())) / 3600.0)
-                _bande = self.core_filet_k * _sig * math.sqrt(_h)
-                _dd = (1.0 - price / _high) * 100.0
-                if _dd <= _bande:
-                    return
-                _qty = float(b["qty"])
-                _sell = _qty * self.core_filet_frac
-                _keep = _qty - _sell
-                _entry = float(b["entry"])
-                _pnl = (price - _entry) * _sell
-                _proc = price * _sell
-                self._book_pnl(pair, _pnl)
-                self.trades += 1
-                self.add_pair_cash(pair, _proc)
-                self.log(
-                    pair,
-                    "CORE_FILET",
-                    regime,
-                    price,
-                    _entry,
-                    _sell,
-                    _pnl,
-                    (sc or {}).get("cadence_pct"),
-                    f"dd_haut={_dd:.1f}>bande={_bande:.1f}"
-                    f"(k={self.core_filet_k:g}_sigma1h={_sig:.2f}pct_h={_h:.0f})",
-                )
-                say(
-                    "sell_ko",
-                    f"[{utc_now()}] SOUCHE FILET {pair}  dd_haut={_dd:.1f}% > bande "
-                    f"{_bande:.1f}%  vend {self.core_filet_frac*100:.0f}%  "
-                    f"pnl={_pnl:+.2f}$  cash+{_proc:.2f}$",
-                )
-                if _keep * price < 0.5:
-                    del self.bags[pair]
-                else:
-                    b["qty"] = _keep
-                    b["entry"] = price
+                self._core_filet(pair, price, sc)
                 return
             entry = float(b["entry"])
             if entry <= 0:
@@ -3535,6 +3560,35 @@ class PaperBot:
                         for k in cles[-7:])
         return ranges[len(ranges) // 2]  # médiane (7 valeurs → la 4e)
 
+    def _gbag_heartbeat(self, pair: str) -> None:
+        """TRACE DE VIE mesurable du cycle GBAG (03/11/2026). Écrite au plus 1×/60 s.
+
+        Pourquoi : du 29/10 au 03/11, le cycle GBAG a échoué 4 296 fois et RIEN ne le
+        disait (le cockpit restait vert, les souches étaient figées). Ce fichier est ce
+        qui manquait : `sante_mesures.py` le REFUSE dès qu'il vieillit de 6 intervalles.
+        Un organe muet doit être VU muet, pas supposé vivant (E29)."""
+        # Un harnais (bot factice, pas de périmètre réel) n'écrit JAMAIS l'état de prod :
+        # sinon les tests de GBAG fabriqueraient une fausse preuve de vie de l'organe.
+        _pairs = getattr(self, "pairs", None)
+        if _pairs is None or pair not in _pairs:
+            return
+        ts = time.time()
+        if ts - float(getattr(self, "_gbag_hb_ts", 0.0)) < 60.0:
+            return
+        self._gbag_hb_ts = ts
+        try:
+            (RUNS / "GBAG_SANTE.json").write_text(json.dumps({
+                "organe": "gbag-cycle",
+                "ts_utc": utc_now(),
+                "ts": ts,
+                "paire": pair,
+                "note": ("Écrit par _gbag_cycle à chaque passage RÉUSSI. S'il vieillit, "
+                         "l'organe GBAG est muet — sante_mesures.py refuse alors de le "
+                         "croire vivant."),
+            }, ensure_ascii=False, indent=2), encoding="utf-8")
+        except Exception:
+            pass
+
     def _gbag_souche(self, pair: str, q: float, price: float):
         """Parque q jetons en SOUCHE (kind=core) — JAMAIS vendue par aucune règle."""
         if q <= 0:
@@ -3562,8 +3616,27 @@ class PaperBot:
         now = time.time()
         if now < float(h.get("next_check") or 0):
             return True
+        # LE GEL (faute du 29/10 → 03/11, 4 296 GBAG_ERR) : `next_check` était posé AVANT
+        # le fetch. Une seule panne DNS/SIGALRM consommait la fenêtre, l'exception remontait
+        # à tick_pair qui faisait `return` : la souche n'était plus gérée du tout, sans un
+        # mot. Désormais : aucune fenêtre consommée sans mesure (réessai court), l'échec est
+        # COMPTÉ et visible, et on ne rend pas la main à la gestion historique (pas de
+        # hijack possible d'une position GBAG).
+        try:
+            kl = klines(pair, "60m", 320)
+        except Exception as e:
+            h["errs"] = int(h.get("errs") or 0) + 1
+            h["derniere_erreur"] = f"{type(e).__name__}: {e}"[:180]
+            h["next_check"] = now + min(self.gbag_check_sec, 60.0)  # réessai court
+            if h["errs"] == 1 or h["errs"] % 10 == 0:
+                say("warn", f"[{utc_now()}] GBAG indisponible {pair} (échec {h['errs']}) : "
+                            f"aucune fenêtre consommée, protection souche indépendante "
+                            f"(_core_filet)")
+            return True
+        h["errs"] = 0
         h["next_check"] = now + self.gbag_check_sec
-        kl = klines(pair, "60m", 320)
+        h["ok_ts"] = utc_now()
+        self._gbag_heartbeat(pair)
         if not kl or len(kl) < self.gbag_sma_gate + 30:
             return True  # mesure insuffisante → on ne décide pas (règle #8)
         if h.get("last_bar") == int(kl[-1][0]):
@@ -4262,6 +4335,14 @@ class PaperBot:
         if not sc:
             return
         sc["price"] = price
+        # SOUCHE : FILE MESURÉ AVANT TOUTE PORTE (03/11/2026). Mesuré : le cycle GBAG
+        # échoue (4296 GBAG_ERR depuis le 29/10) et rendait la main sans gérer la souche
+        # → CHIP -45 % depuis son plus-haut sans une seule coupe. Une protection se
+        # place AVANT ce qui peut tomber, jamais derrière.
+        try:
+            self._core_filet(pair, price, sc)
+        except Exception as e:
+            say("err", f"[{utc_now()}] CORE_FILET_ERR {pair}: {e}")
         # Croisement indices × murs (28/08, mode OBSERVATION, réversible) :
         # journalise le contexte de décision sans toucher aux entrées.
         try:
