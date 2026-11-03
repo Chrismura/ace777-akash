@@ -1,41 +1,6 @@
 {
   "signals": [
     {
-      "metric": "volume",
-      "zscore": 2.468108313210214,
-      "value": 6549465808.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.47) n'est pas accompagné d'un narratif crypto significatif (les titres sont des bruits de fond : auto, eau, musique). Le seul titre crypto mentionne un volume BTC/Eth standard sans signal de panique ou d'euphorie. Impossible de détecter une divergence baleine sans contexte d'actif spécifique ou de sentiment marché.\"\n}",
-      "ts": "2026-11-02T14:45:25.920015+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.7744252190187773,
-      "value": 1.193,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
-      "ts": "2026-11-02T15:05:29.416793+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.611440148342113,
-      "value": 6821089924.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.61) n'est pas soutenu par le narratif crypto (un seul article mineur sur ETH/BTC). Les autres titres (auto, eau, musique) sont du bruit non pertinent. Impossible d'identifier une accumulation ou distribution silencieuse sans contexte d'actif spécifique.\"\n}",
-      "ts": "2026-11-02T15:15:32.019937+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.521326502632342,
-      "value": 6920432108.0,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Le volume anormal (z-score 2.52) n'est pas soutenu par un narratif crypto pertinent (les titres concernent la musique, la cosmétique et des comparaisons de volume BTC/ETH sans signal directionnel clair). Le bruit médiatique est dominé par des sujets non-financiers, rendant l'analyse de divergence impossible.\"\n}",
-      "ts": "2026-11-02T15:45:37.173654+00:00"
-    },
-    {
-      "metric": "volume",
-      "zscore": 2.9890180786876543,
-      "value": 7516633953.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Anomalie statistique (z-score 2.99) sans rapport avec la crypto. Bruit médiatique saturé de faux positifs sans lien onchain pertinent.\"\n}\n```",
-      "ts": "2026-11-02T16:15:45.866588+00:00"
-    },
-    {
       "metric": "ipt",
       "zscore": 2.475590171099254,
       "value": 1.145,
@@ -349,6 +314,41 @@
       "value": 40760597.0,
       "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Divergence critique : Anomalie onchain massive (z-score 36.17, ~40.7M USD) vs silence médiatique total. L'absence de couverture pour un tel flux suggère une accumulation silencieuse ou un transfert vers des cold wallets, typique d'un positionnement haussier avant une volatilité publique.\"\n}\n```",
       "ts": "2026-11-03T01:28:51.804801+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.8729833462074166,
+      "value": 26,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence majeure : un Fear & Greed à 26 avec un z-score de -3.87 indique une peur extrême et statistiquement anormale, souvent associée à des capitulations de détail. L'absence de titres médiatiques significatifs (vide informationnel) suggère que le narratif public est en dormance ou en panique silencieuse, tandis que les acteurs institutionnels (baleines) accumulent typiquement dans ces zones de 'fear' extrême sans couverture médiatique. Le silence médiatique face à une anomalie statistique forte est un signal classique de positionnement silencieux avant un retournement.\"\n}",
+      "ts": "2026-11-03T01:33:53.400351+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.3549411759000383,
+      "value": 2.622,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. Les données fournies concernent des ETF actions (BNP Paribas, AIF) et des articles génériques sur la stratégie long/short en bourse, non des mouvements onchain spécifiques à la crypto. Aucune divergence réelle entre flux crypto et narratif n'est détectable ici.\"\n}",
+      "ts": "2026-11-03T01:38:55.890348+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -3.3166247903554007,
+      "value": 26,
+      "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 78,\n\"reason\": \"Divergence majeure : un Fear & Greed à 26 (z-score -3.32) indique une capitulation extrême et une peur irrationnelle, tandis que l'absence de titres médiatiques significatifs suggère un vide narratif. Historiquement, cette combinaison (peur extrême + silence médiatique) est un signal classique d'accumulation silencieuse par les baleines avant un retournement haussier.\"\n}",
+      "ts": "2026-11-03T02:04:01.678570+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.380372675393093,
+      "value": 2.654,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. Les données fournies concernent des ETF actions (BNP Paribas, AIF) et des articles génériques sur la stratégie long/short en bourse, non des mouvements onchain spécifiques à la crypto. Aucune divergence réelle entre flux crypto et narratif n'est détectable ici.\"\n}",
+      "ts": "2026-11-03T02:09:03.423307+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -2.9325756597230366,
+      "value": 26,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 75,\n  \"reason\": \"Divergence majeure : un Fear & Greed à 26 (extrême peur, z-score -2.93) indique une capitulation retail et un sentiment médiatique négatif ou absent. Historiquement, ces niveaux de peur correspondent aux accumulations silencieuses des baleines avant les retournements haussiers. L'absence de titres médiatiques significatifs suggère un manque d'attention du public, créant les conditions idéales pour un mouvement de prix à la hausse non anticipé par le marché.\"\n}\n```",
+      "ts": "2026-11-03T02:34:09.207035+00:00"
     }
   ]
 }
