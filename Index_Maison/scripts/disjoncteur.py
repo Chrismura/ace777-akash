@@ -51,8 +51,12 @@ DEFAULT_CONFIG = {
 }
 MUR_MESURE_PATH = BASE_DIR / "thermo" / "mur_mesure.json"
 M_KELLY_LIVE_PATH = BASE_DIR / "thermo" / "m_kelly_live.json"
+# 03/11 : le régime hack était mesuré (hack_actif.json) et lu par personne —
+# son plafond de mise reste donc décoratif tant qu'il n'entre pas ici.
+HACK_LIVE_PATH = BASE_DIR / "thermo" / "hack_actif.json"
 MUR_FRAIS_MAX_H = 26.0
 M_KELLY_FRAIS_MAX_H = 30.0
+HACK_FRAIS_MAX_H = 2.0
 
 
 def atomic_write(file_path, data):
@@ -130,6 +134,20 @@ def _m_kelly_live():
         if not _frais_depuis_heures(M_KELLY_LIVE_PATH, M_KELLY_FRAIS_MAX_H):
             return None
         return json.loads(M_KELLY_LIVE_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _hack_actif():
+    """Régime hack mesuré, ou None si pas de preuve de vie (03/11/2026).
+    Le plafond du régime ne peut que RÉDUIRE la mise : fail-open si absent."""
+    try:
+        if not _frais_depuis_heures(HACK_LIVE_PATH, HACK_FRAIS_MAX_H):
+            return None
+        d = json.loads(HACK_LIVE_PATH.read_text(encoding="utf-8"))
+        if not d.get("ok"):
+            return None
+        return d
     except Exception:
         return None
 
@@ -218,16 +236,27 @@ def verifier_et_brigader(taille_proposee, capital_total, perte_journaliere_pct):
     # Cap per-trade MESURÉ : plus grosse cible S2 du jour (m_kelly_live.json).
     # Stale/absent -> pas de cap (fail-open) + note (le rituel surveille).
     mk = _m_kelly_live()
+    hk = _hack_actif()
     taille_proposee = float(taille_proposee)
+    caps, origines = [], []
     if mk is not None and mk.get("maxS2"):
-        plafond_capital = float(mk["maxS2"])
+        caps.append(float(mk["maxS2"]))
+        origines.append("maxS2=%.2f$" % float(mk["maxS2"]))
+    if hk is not None and hk.get("cap_trade_usd"):
+        caps.append(float(hk["cap_trade_usd"]))
+        origines.append("hack %s (niv %s)=%.2f$"
+                        % (hk.get("label"), hk.get("niveau"), float(hk["cap_trade_usd"])))
+    if caps:
+        plafond_capital = min(caps)
         taille_autorisee = min(taille_proposee, plafond_capital)
         bride = taille_autorisee < taille_proposee
         raison = ("OK" if not bride else
-                  "Bridé par le plafond mesuré (maxS2=%.2f$ du m-mètre)" % plafond_capital)
+                  "Bridé par le plafond mesuré (%.2f$ = min de %s)"
+                  % (plafond_capital, ", ".join(origines)))
     else:
         taille_autorisee, bride = taille_proposee, False
-        raison = "OK (pas de cap : m_kelly_live.json stale/absent — rituel alerté)"
+        raison = ("OK (pas de cap : m_kelly_live.json / hack_actif.json stale ou absents"
+                  " — rituel alerté)")
     return {
         "autorise": True,
         "taille_corrigee": round(taille_autorisee, 4),

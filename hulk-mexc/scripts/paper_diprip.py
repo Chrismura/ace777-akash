@@ -2812,6 +2812,25 @@ class PaperBot:
         if getattr(self, "etanche_on", False) and trade_n > float(self.etanche_mise_max):
             say("warn", f"[{utc_now()}] ETANCHE_CAP {pair} mise {trade_n:.2f}$ → {float(self.etanche_mise_max):.2f}$")
             trade_n = float(self.etanche_mise_max)
+        # === PLAFOND MESURÉ AVANT FILL (03/11/2026, GO Christophe « go sur toute la ligne ») ===
+        # Le régime hack et le m-mètre étaient mesurés depuis le 02/11 et lus par
+        # PERSONNE : zéro consommateur, zéro effet. Ici le plafond s'applique
+        # réellement (min du maxS2 du m-mètre et du cap du régime hack). Ce bloc ne
+        # peut QUE réduire la mise — jamais créer un ordre (C3). Fail-open explicite
+        # et CRIÉ : organe injoignable -> mise inchangée, mais jamais en silence (R11).
+        try:
+            _scripts_index = os.path.expanduser("~/ace777-test-day1/Index_Maison/scripts")
+            if _scripts_index not in sys.path:
+                sys.path.insert(0, _scripts_index)
+            from regime_hack import plafond as _plafond_hack
+            _ph = _plafond_hack(trade_n)
+            if _ph.get("bride"):
+                say("warn", f"[{utc_now()}] CAP_HACK {pair} mise {trade_n:.2f}$ → {_ph['taille']:.2f}$ ({_ph['raison']})")
+                self.log(pair, "BRIDE", regime, price, price, 0.0, 0.0,
+                         sc.get("cadence_pct"), f"HACK_CAP:{_ph['raison']}")
+                trade_n = float(_ph["taille"])
+        except Exception as _exc:
+            say("warn", f"[{utc_now()}] CAP_HACK indisponible ({_exc}) — mise inchangée (fail-open)")
         if trade_n < 1.0:
             return
         # famille 16/08 : garde spread au buy (même tier A) — paires mal classées (ex. QAIT 327 bps)

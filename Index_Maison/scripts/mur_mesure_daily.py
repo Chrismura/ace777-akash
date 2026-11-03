@@ -59,6 +59,22 @@ def main():
         return 2
     sigma = statistics.pstdev(rets[-20:])
     equity = closes[-1]
+    # --- σ SNAPSHOT, MÊME HORLOGE QUE LA PERTE MESURÉE (03/11/2026) ---
+    # Le k=5 avait été calibré en INTRADAY (29/10 20h44, |r|/σ = 8,2 sur des
+    # snapshots ~1 h) puis appliqué à une σ JOURNALIÈRE : seuil 11,22 %/jour,
+    # au-dessus du pire DD observé (-6,16 %) — le Mur ne pouvait pas tirer sur
+    # l'événement pour lequel il existe. On publie donc la σ sur snapshots et
+    # son seuil. PUBLIÉ, PAS ENCORE DÉCLENCHEUR : promotion après 7 j
+    # d'observation (calendrier mur-snap-obs), pour ne pas changer une sécurité
+    # sur une intuition.
+    r_snap = []
+    for i in range(1, len(eq)):
+        e0, e1 = eq[i - 1][1], eq[i][1]
+        dt_h = (eq[i][0] - eq[i - 1][0]).total_seconds() / 3600.0
+        if e0 > 1e-9 and 0.2 <= dt_h <= 3.0:  # snapshot comparable (~1 h)
+            r_snap.append((e1 - e0) / e0)
+    sigma_snap = statistics.pstdev(r_snap[-48:]) if len(r_snap) >= 24 else None
+    pire_snap = min(r_snap[-48:]) if r_snap else None
     # --- pires drawdowns intraday vs pivot 00:00 (ce que le nourrisseur voit) ---
     pivots, mins = {}, {}
     for t, e in eq:
@@ -77,7 +93,16 @@ def main():
            "k_origine": cfg.get("k_origine") or "grille sandbox 02/11 §72",
            "seuil_jour_pct": round(k * sigma * 100, 3),
            "seuil_jour_usd": round(k * sigma * equity, 2),
-           "pire_dd_pivot_20j_pct": round(pire_dd_20j * 100, 3)}
+           "pire_dd_pivot_20j_pct": round(pire_dd_20j * 100, 3),
+           "sigma_snap_pct": (round(sigma_snap * 100, 4) if sigma_snap else None),
+           "seuil_snap_pct": (round(k * sigma_snap * 100, 3) if sigma_snap else None),
+           "pire_r_snap_48_pct": (round(pire_snap * 100, 3)
+                                  if pire_snap is not None else None),
+           "n_snapshots": len(eq),
+           "horloge_seuil": ("sigma_snap/seuil_snap = horloge des snapshots (~1 h), "
+                            "la seule comparable à un rendement de snapshot ; "
+                            "seuil_jour_pct (sigma journalière) ne doit PAS être "
+                            "comparé à un DD intraday")}
     try:
         with open(OUT, "w", encoding="utf-8") as f:
             json.dump(res, f, ensure_ascii=False, indent=1)
