@@ -47,6 +47,39 @@ ZSCORE_THRESHOLDS = {
     "fear_greed": 2.0,      # Fear/Greed change brutalement
 }
 
+# ─── Libellés humains des métriques (03/11) ──────────────────
+# POURQUOI : le sniffer recevait le SIGLE BRUT et cherchait les news SUR CE SIGLE.
+# Mesuré 03/11 15:23Z : « ipt » → Google News → Institut de Physique Théorique,
+# et le LLM a répondu « faux positif : IPT = Institut de Physique Théorique ».
+# Une IA à qui on ne dit pas ce que mesure le sigle invente un domaine.
+# (libellé pour le LLM, requête de news qui parle du SUJET)
+METRIQUES_LIBELLES = {
+    "price_1h": ("mouvement du prix BTC sur 1 heure (en %)",
+                 "Bitcoin BTC prix" ),
+    "volume": ("volume total échangé (quote)",
+               "crypto volume marché total"),
+    "funding": ("funding rate des contrats perpétuels",
+                "bitcoin funding rate perpetual"),
+    "whale_usd": ("notional des transferts onchain ≥ 500k$ sur 24 h (USD)",
+                  "bitcoin baleine transfert onchain"),
+    "liquidations": ("liquidations cumulées 24 h (USD)",
+                     "liquidations crypto 24h"),
+    "sdi": ("Silent Drain Index maison 0-1 : vieux BTC qui bougent en douce",
+            "bitcoin dormant coins mouvement"),
+    "ipt": ("Indice de Pression Topologique maison 0-1 : micro-transactions × z-frais × entropie des scripts",
+            "bitcoin mempool frais micro transactions"),
+    "cpfp": ("score CPFP 0-1 : blocs privatisés (Child-Pays-For-Parent)",
+             "bitcoin mempool cpfp frais"),
+    "dust": ("score de poussière institutionnelle 0-1",
+             "bitcoin dust transactions baleines"),
+    "long_short": ("ratio long/short des traders",
+                   "bitcoin long short ratio traders"),
+    "taker_ratio": ("ratio taker buy/sell (0,5 = équilibré)",
+                    "bitcoin taker buy sell ratio"),
+    "fear_greed": ("Fear & Greed Index (0-100)",
+                   "crypto fear and greed index"),
+}
+
 # Rate limiting : 1 appel Hub toutes les 30 min par paire
 RATE_LIMIT_SECONDS = 1800
 
@@ -185,12 +218,18 @@ def trigger_sniffer(metric_name, zscore, current_value, headlines):
 Analyse la DIVERGENCE entre les données brutes et le narratif médiatique.
 Sois concis. Retourne un JSON avec : {"signal": "bullish/bearish/neutral", "confidence": 0-100, "reason": "..."}"""
     
-    user = f"""ALERTE SENTINELLE : {metric_name} = {current_value} (z-score {zscore:.2f})
+    libelle = METRIQUES_LIBELLES.get(metric_name, (metric_name, metric_name))[0]
+    user = f"""ALERTE SENTINELLE — métrique « {metric_name} »
+DÉFINITION DANS CE SYSTÈME (elle seule fait foi) : {libelle}
+VALEUR MESURÉE : {current_value} · z-score {zscore:.2f}
 
-TITRES MÉDIATIQUES :
-{chr(10).join(f'- {h}' for h in headlines)}
+TITRES MÉDIATIQUES (recherche sur le SUJET de la métrique) :
+{chr(10).join(f'- {h}' for h in headlines) or '- (aucun titre retourné)'}
 
 Analyse la divergence entre cette anomalie onchain et le narratif médiatique.
+Le sigle ci-dessus est une métrique MAISON : n'invente aucune autre signification
+(pas d'institut, pas d'acronyme hors marché). Si les titres ne parlent pas du
+marché crypto, dis-le dans « reason » et réponds "neutral".
 Les baleines bougent-elles silencieusement ? Le narratif est-il déconnecté de la réalité ?"""
     
     payload = json.dumps({
@@ -266,8 +305,10 @@ def sentinel_cycle():
                 print(f"    ⏳ Rate-limité (30 min)")
                 continue
             
-            # Fetch headlines
-            headlines = fetch_news_headlines(metric_name, n=5)
+            # Fetch headlines — la REQUÊTE est le SUJET de la métrique, jamais son sigle
+            # (mesuré 03/11 : « ipt » renvoyait la physique théorique au lieu du mempool)
+            _q = METRIQUES_LIBELLES.get(metric_name, (metric_name, metric_name))[1]
+            headlines = fetch_news_headlines(_q, n=5)
             
             # Trigger sniffer
             result = trigger_sniffer(metric_name, zscore, current, headlines)

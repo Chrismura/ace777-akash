@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-11-03T13:11:33Z",
+  "updated": "2026-11-03T15:30:30Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -1008,10 +1008,10 @@
       "origine": "pipeline unifié 25/08 — ressuscitée 27/08 (plist com.ace777.sentinel + fix variance)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "6393f01d4edf108999dae40f914e5396",
+      "md5": "330386028cbc5ae929f9634224d47064",
       "note": "déclaré manuel 2026-08-28T18:30Z",
       "maj": "30/08 : fix crash abs(None) quand live.json contient chg1h:null (clé présente à None) — fail-open durci sur toutes les métriques extract_metrics",
-      "date": "2026-10-29T22:06:39Z",
+      "date": "2026-11-03T15:29:45Z",
       "_rescel": [
         {
           "ts": "2026-10-29T22:06:39Z",
@@ -1022,13 +1022,23 @@
             "user": "christophe",
             "chaine": "pid 5099 <- bash(pid 5093) <- /Users/christoph(pid 5092) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T15:29:45Z",
+          "motif": "IA=Buffy (DeepSeek V4.1 Flash 10/17, Freebuff) 03/11 — correctif Cortana : sentinel.py (libelle + requete news par SUJET, plus par sigle : 'ipt' ne renvoie plus la physique), cortana_analyzer.py (mesurer_verdict_llm : un verdict directionnel sans AUCUNE question de fiche depassee est declare inutilisable ; depasse compare des amplitudes abs(v)>abs(seuil)), desaccord.py (D1 ne lit que les verdicts utilisables, les ecartes sont comptes et publies en llm_brut_*). Aucun seuil de trading, aucun ordre.",
+          "ecrivain": {
+            "ts": "2026-11-03T15:29:45Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 74457 <- bash(pid 74452) <- /Users/christoph(pid 74451) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-10-29T22:06:39Z",
-        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "ts": "2026-11-03T15:29:45Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 5099 <- bash(pid 5093) <- /Users/christoph(pid 5092) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 74457 <- bash(pid 74452) <- /Users/christoph(pid 74451) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -1097,10 +1107,10 @@
       "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "2d9ecfa6c03b01e496a51e863d4f9fde",
+      "md5": "a7e6c9512a09099302f601f701828bde",
       "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi). | GO 16/09 6 fiches : trigger z (absolu) lit le ZSCORE (avant : valeur brute → jamais ouvert), source générique live.json → chemin.doté, ",
       "maj": "16/09 après-midi (GO C. « go » C1+C2+C3) : C1 triggers réellement vérifiés contre la valeur du signal (_evaluer_trigger, alias rbf_score/sdi/global_score/taux_fantome) — le champ trigger n'était DÉCORATIF depuis le 27/08 ; C2 défaut neutre explicite (avant : 1re interprétation = sdi_eleve dangereux / binance_timeout critique) ; C3 health_degrade câblé (questions sources/mode + conditions source == évaluées contre pipeline_health.sources — KILL SWITCH critique UNIQUEMENT si binance <0,5). 8 tests dont négatifs verts. Par Buffy.",
-      "date": "2026-11-02T12:57:40Z",
+      "date": "2026-11-03T15:29:45Z",
       "_rescel": [
         {
           "ts": "2026-10-28T16:51:58Z",
@@ -1121,13 +1131,23 @@
             "user": "christophe",
             "chaine": "pid 17934 <- bash(pid 17933) <- /Users/christoph(pid 17932) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T15:29:45Z",
+          "motif": "IA=Buffy (DeepSeek V4.1 Flash 10/17, Freebuff) 03/11 — correctif Cortana : sentinel.py (libelle + requete news par SUJET, plus par sigle : 'ipt' ne renvoie plus la physique), cortana_analyzer.py (mesurer_verdict_llm : un verdict directionnel sans AUCUNE question de fiche depassee est declare inutilisable ; depasse compare des amplitudes abs(v)>abs(seuil)), desaccord.py (D1 ne lit que les verdicts utilisables, les ecartes sont comptes et publies en llm_brut_*). Aucun seuil de trading, aucun ordre.",
+          "ecrivain": {
+            "ts": "2026-11-03T15:29:45Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 74462 <- bash(pid 74452) <- /Users/christoph(pid 74451) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-02T12:57:40Z",
-        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "ts": "2026-11-03T15:29:45Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 17934 <- bash(pid 17933) <- /Users/christoph(pid 17932) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 74462 <- bash(pid 74452) <- /Users/christoph(pid 74451) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -3009,8 +3029,8 @@
       "origine": "Créé 2026-09-22 sur ordre de Christophe; ajout au registre de synapses après consignation E26, pré-déclaré 2026-09-30T21:37:08Z.",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "950c37e3af5a32f15a48df605b2a93d7",
-      "date": "2026-11-03T13:08:58Z",
+      "md5": "be096498d0d39f66ed875a34427444b3",
+      "date": "2026-11-03T15:30:30Z",
       "_ajout": [
         {
           "ts": "2026-09-30T21:40:50Z",
@@ -3627,13 +3647,23 @@
             "user": "christophe",
             "chaine": "pid 45202 <- bash(pid 45189) <- /Users/christoph(pid 45188) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T15:30:30Z",
+          "motif": "IA=Buffy (DeepSeek V4.1 Flash 10/17, Freebuff) 03/11 — inscription §43 : E53 (sigle brut = question posée à Cortana), E54 (verdict LLM directionnel publié sans aucune mesure : whale_usd bullish 65 avec achats 0,0/ventes 0,0), E55 (desaccord D1 relisait le texte brut). Correctifs cablés et prouvés. Aucun seuil de trading, 0 ordre, 0 EUR.",
+          "ecrivain": {
+            "ts": "2026-11-03T15:30:30Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 74773 <- bash(pid 74772) <- /Users/christoph(pid 74771) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T13:08:58Z",
+        "ts": "2026-11-03T15:30:30Z",
         "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 45202 <- bash(pid 45189) <- /Users/christoph(pid 45188) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 74773 <- bash(pid 74772) <- /Users/christoph(pid 74771) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -5977,18 +6007,30 @@
       "origine": "",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "cac69be21fc72eb373ed68139a26c11e",
-      "date": "2026-10-30T00:36:12Z",
+      "md5": "64455bf7402ec65462d011541e51998e",
+      "date": "2026-11-03T15:29:45Z",
       "dernier_ecrivain": {
-        "ts": "2026-10-30T00:36:12Z",
-        "ia": "Buffy (Muse Spark 1.3, Freebuff)",
+        "ts": "2026-11-03T15:29:45Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 36700 <- bash(pid 36697) <- /Users/christoph(pid 36696) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 74467 <- bash(pid 74452) <- /Users/christoph(pid 74451) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
           "ts": "2026-10-30T00:36:12Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-11-03T15:29:45Z",
+          "motif": "IA=Buffy (DeepSeek V4.1 Flash 10/17, Freebuff) 03/11 — correctif Cortana : sentinel.py (libelle + requete news par SUJET, plus par sigle : 'ipt' ne renvoie plus la physique), cortana_analyzer.py (mesurer_verdict_llm : un verdict directionnel sans AUCUNE question de fiche depassee est declare inutilisable ; depasse compare des amplitudes abs(v)>abs(seuil)), desaccord.py (D1 ne lit que les verdicts utilisables, les ecartes sont comptes et publies en llm_brut_*). Aucun seuil de trading, aucun ordre.",
+          "ecrivain": {
+            "ts": "2026-11-03T15:29:45Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 74467 <- bash(pid 74452) <- /Users/christoph(pid 74451) <- /Users/christoph(pid 4107)"
+          }
         }
       ]
     },

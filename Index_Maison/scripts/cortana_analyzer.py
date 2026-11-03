@@ -209,10 +209,13 @@ def evaluate_questions(fiche, live):
         
         if value is not None:
             if isinstance(seuil, (int, float)):
+                # FIX 03/11 : abs(value) > seuil rendait « depasse » TOUJOURS vrai dès que
+                # le seuil était négatif (prix -0,02 % vs seuil -1 → depasse=True).
+                # On compare des AMPLITUDES : abs(valeur) > abs(seuil).
                 results[qid] = {
                     "value": value,
                     "seuil": seuil,
-                    "depasse": abs(value) > seuil if isinstance(value, (int, float)) else False
+                    "depasse": abs(value) > abs(seuil) if isinstance(value, (int, float)) else False
                 }
             else:
                 results[qid] = {"value": value, "seuil": seuil, "depasse": False}
@@ -320,6 +323,44 @@ def find_interpretation(fiche, question_results):
     # Si RIEN ne matche : neutre explicite, jamais de cri par défaut.
     return {"lecture": "Aucune lecture ne correspond — observer, ne pas surréagir", "niveau": "neutre", "action": "Observer"}
 
+# ─── Verdict LLM vs mesure (03/11) ──────────────────────────
+
+def mesurer_verdict_llm(signal, question_results):
+    """Croise le verdict du LLM avec ce qui est RÉELLEMENT mesuré.
+
+    BUG MESURÉ 03/11 15:23Z (Christophe : « cortana déclare quelque chose, on ne
+    comprend pas ») : whale_usd z=2,79 → LLM « bullish, confiance 65 » alors que
+    la fiche répondait achats 0,0 / ventes 0,0. Ce verdict partait tel quel dans
+    desaccord.py (D1 « Cortana bullish ») : une direction PUBLIÉE sans une seule
+    mesure qui la porte. On ne jette pas la trace du LLM : on la déclare
+    INUTILISABLE pour décider, avec son motif.
+    """
+    txt = str((signal or {}).get("analysis") or "")
+    m_sig = re.search(r'"signal"\s*:\s*"(\w+)"', txt)
+    m_conf = re.search(r'"confidence"\s*:\s*(\d+)', txt)
+    verdict = m_sig.group(1).lower() if m_sig else None
+    conf = int(m_conf.group(1)) if m_conf else 0
+    valeurs = [v.get("value") for v in (question_results or {}).values()
+               if isinstance(v, dict) and isinstance(v.get("value"), (int, float))]
+    # Critère = la MESURE de la fiche, pas un nombre inventé ici : une question
+    # « dépasse » quand sa valeur franchit le seuil déclaré PAR LA FICHE.
+    depassees = [k for k, v in (question_results or {}).items()
+                 if isinstance(v, dict) and v.get("depasse") is True]
+    motifs = []
+    if verdict not in ("bullish", "bearish"):
+        motifs.append("verdict non directionnel")
+    if not valeurs:
+        motifs.append("aucune question mesurée")
+    elif not depassees:
+        motifs.append(f"aucune des {len(valeurs)} mesure(s) ne dépasse son seuil — direction non prouvée")
+    if "faux positif" in txt.lower():
+        motifs.append("le LLM conclut lui-même « faux positif »")
+    return {"verdict": verdict, "confidence": conf,
+            "mesures": len(valeurs), "mesures_non_nulles": len([v for v in valeurs if abs(v) > 0]),
+            "mesures_depassees": depassees,
+            "utilisable": not motifs, "motifs": motifs}
+
+
 # ─── Generate analysis ──────────────────────────────────────
 
 def analyze_signal(signal, fiches, live):
@@ -330,7 +371,8 @@ def analyze_signal(signal, fiches, live):
             "signal": signal,
             "fiche": None,
             "interpretation": {"lecture": "Pas de fiche disponible", "niveau": "inconnu"},
-            "action": "Observer"
+            "action": "Observer",
+            "verdict_llm": mesurer_verdict_llm(signal, {}),
         }
     
     # Évaluer les questions
@@ -345,7 +387,8 @@ def analyze_signal(signal, fiches, live):
         "questions": question_results,
         "interpretation": interpretation,
         "action": interpretation.get("action", "Observer"),
-        "niveau": interpretation.get("niveau", "inconnu")
+        "niveau": interpretation.get("niveau", "inconnu"),
+        "verdict_llm": mesurer_verdict_llm(signal, question_results),
     }
 
 # ─── Main ───────────────────────────────────────────────────

@@ -1,13 +1,6 @@
 {
   "signals": [
     {
-      "metric": "long_short",
-      "zscore": 2.0415620100275214,
-      "value": 2.381,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. Les données fournies concernent des ETF actions (BNP Paribas, AIF) et des articles génériques sur la stratégie long/short en bourse, non des mouvements onchain spécifiques à la crypto. Aucune divergence réelle entre flux crypto et narratif n'est détectable ici.\"\n}",
-      "ts": "2026-11-02T20:37:34.421891+00:00"
-    },
-    {
       "metric": "volume",
       "zscore": 2.229252724388018,
       "value": 8885750099.0,
@@ -349,6 +342,13 @@
       "value": 0.4995782806014537,
       "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.55 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
       "ts": "2026-11-03T12:36:31.166192+00:00"
+    },
+    {
+      "metric": "ipt",
+      "zscore": 2.3019640199425404,
+      "value": 1.02,
+      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 60,\n  \"reason\": \"L'alerte Sentinelle indique une divergence potentielle, mais les titres médiatiques ne fournissent pas de contexte spécifique sur les mouvements de fonds. Le narratif médiatique semble indépendant de l'anomalie onchain, mais sans informations supplémentaires, il est difficile de déterminer si les baleines bougent silencieusement.\"\n}\n```",
+      "ts": "2026-11-03T15:22:13.859212+00:00"
     }
   ]
 }

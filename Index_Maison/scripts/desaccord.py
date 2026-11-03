@@ -8,8 +8,10 @@ et l'hésitation elle-même est un signal mesurable, jugé après-coup comme tou
 le reste (même doctrine que le scorer).
 
 3 axes (tous lus, aucun calculé sur le moteur) :
-  D1 Cortana vs saison : verdicts bullish/bearish (5 min) contre direction
-     de saison (long/short/neutre). Accord si même sens, désaccord sinon.
+  D1 Cortana vs saison : verdicts bullish/bearish ADOSSÉS À UNE MESURE contre
+     direction de saison (long/short/neutre). Accord si même sens, désaccord sinon.
+     03/11 : un verdict LLM sans aucune mesure non nulle (achats 0,0 / ventes 0,0)
+     n'est PAS une direction — il est écarté et compté, plus publié comme un camp.
   D2 Sirène vs zone : sirène ON pendant zone VERT (le rapide crie, le lent
      lisse) — le R19 écrit en continu.
   D3 Short vs plancher : corr d'entrée (≤ −0,50) pendant plancher ACHETÉ
@@ -47,8 +49,22 @@ def _load(path):
 
 
 def _verdict(txt):
+    """Verdict BRUT du LLM (trace, jamais une direction à elle seule)."""
     m = re.search(r'"signal"\s*:\s*"(\w+)"', txt or "")
     return m.group(1).lower() if m else "?"
+
+
+def _verdict_utilisable(a):
+    """Direction que Cortana peut réellement opposer à la saison.
+
+    03/11 : seul un verdict marqué utilisable par l'analyzer compte (mesure
+    non vide + le LLM ne s'est pas démenti lui-même). Champ absent (anciennes
+    analyses) = NON utilisable : on ne publie pas une direction non prouvée.
+    """
+    v = (a or {}).get("verdict_llm") or {}
+    if not isinstance(v, dict) or not v.get("utilisable"):
+        return "?"
+    return str(v.get("verdict") or "?")
 
 
 def scan() -> dict:
@@ -56,8 +72,15 @@ def scan() -> dict:
     try:
         cort = _load(os.path.join(DATA, "cortana_analysis.json"))
         anals = cort.get("analyses") or []
-        bull = sum(1 for a in anals if _verdict(str((a.get("signal") or {}).get("analysis", ""))) == "bullish")
-        bear = sum(1 for a in anals if _verdict(str((a.get("signal") or {}).get("analysis", ""))) == "bearish")
+        # 03/11 — D1 ne lit QUE les verdicts adossés à une mesure (verdict_llm.utilisable).
+        # Avant : le texte brut du LLM suffisait → « bullish » publié avec achats 0,0/ventes 0,0.
+        bull = sum(1 for a in anals if _verdict_utilisable(a) == "bullish")
+        bear = sum(1 for a in anals if _verdict_utilisable(a) == "bearish")
+        brut_bull = sum(1 for a in anals
+                        if _verdict(str((a.get("signal") or {}).get("analysis", ""))) == "bullish")
+        brut_bear = sum(1 for a in anals
+                        if _verdict(str((a.get("signal") or {}).get("analysis", ""))) == "bearish")
+        ecartes = sum(1 for a in anals if _verdict_utilisable(a) == "?")
         cort_dir = "bullish" if bull > bear else ("bearish" if bear > bull else "neutre")
 
         saison = _load(os.path.join(STRAT, "ada_saison_live.json"))
@@ -89,7 +112,9 @@ def scan() -> dict:
         sens_cort = {"bullish": "long", "bearish": "short"}.get(cort_dir, "neutre")
         d1 = {"cortana": cort_dir, "saison": f"{saison_nom}/{saison_dir}",
               "accord": sens_cort == saison_dir or "neutre" in (sens_cort, saison_dir),
-              "bull": bull, "bear": bear}
+              "bull": bull, "bear": bear,
+              "llm_brut_bull": brut_bull, "llm_brut_bear": brut_bear,
+              "verdicts_ecartes": ecartes}
         # D2 : sirène (rapide) vs zone (lent)
         d2 = {"sirene": sirene, "zone": zone,
               "desaccord": bool(sirene and zone == "VERT")}
@@ -103,7 +128,7 @@ def scan() -> dict:
         n_des = (0 if d1["accord"] else 1) + (1 if d2["desaccord"] else 0) \
             + sum(1 for v in d3.values() if v["desaccord"])
         phrases = []
-        phrases.append(f"D1 Cortana {cort_dir} ({bull}B/{bear}b) vs saison {saison_nom}/{saison_dir} → "
+        phrases.append(f"D1 Cortana {cort_dir} ({bull}B/{bear}b · {ecartes} verdict(s) LLM sans mesure écarté(s)) vs saison {saison_nom}/{saison_dir} → "
                        + ("accord" if d1["accord"] else "DÉSACCORD"))
         phrases.append(f"D2 sirène {'ON' if sirene else 'off'} + zone {zone} → "
                        + ("DÉSACCORD (R19)" if d2["desaccord"] else "accord"))

@@ -2756,3 +2756,45 @@ IA=Buffy (DeepSeek V4.1 Flash, Freebuff).
 registre à 13:07:28Z avant leur pré-déclaration → 2 violations. Règle ajoutée : **tout fichier
 neuf se DÉCLARE avant son ajout au registre**, comme un fichier existant avant sa modification.
 Actes conservés au registre ; radiation procédurale pour que l'alarme reste actionnable.
+
+## §43 — CORTANA DÉCLARAIT DES CHOSES INCOMPRÉHENSIBLES ET FAUSSES (03/11, 15:23Z — « vérifier !! »)
+
+Christophe, devant `cortana_analysis.json` : « pourquoi cortana déclare quelque chose, en plus on
+comprend pas ». **Il avait raison sur les deux mots : incompréhensible ET faux.** Trois fautes
+en chaîne, aucune dans le moteur de trading.
+
+**E53 — LE SIGLE ÉTAIT LA QUESTION (cause racine).** `sentinel.py` envoyait au LLM le nom brut
+de la métrique ET cherchait les titres Google News **sur ce sigle**. Mesuré : `ipt` → Google News
+→ « Institut de Physique Théorique », et Cortana a répondu **« faux positif : IPT = Institut de
+Physique Théorique »**. Ce n'était pas une hallucination : c'était la réponse exacte à une
+question mal posée. **Correctif** : table `METRIQUES_LIBELLES` (définition maison + requête de
+news sur le SUJET), définition injectée dans le prompt, consigne explicite de ne pas inventer
+d'autre sens au sigle. Un organe qui interroge une IA doit lui dire **ce qu'il mesure**.
+
+**E54 — UN VERDICT DIRECTIONNEL PUBLIÉ SANS UNE SEULE MESURE.** `whale_usd` z=2,79 → LLM
+« **bullish, confiance 65** » (« accumulation silencieuse de ~10 M$ ») alors que la fiche
+répondait **achats 0,0 / ventes 0,0 / prix −0,02 %** : **aucune** des 3 questions ne franchissait
+son seuil. Le verdict LLM et la couche mesurée vivaient côte à côte sans jamais se contredire.
+**Correctif** : `mesurer_verdict_llm()` — un verdict n'est `utilisable` que si **au moins une
+question de la fiche dépasse son seuil déclaré** (critère de la fiche, pas un nombre inventé),
+si le LLM ne s'est pas démenti lui-même (« faux positif ») et si le verdict est directionnel.
+Sinon il reste **tracé** avec son motif. Rejeu sur les 6 analyses réelles : **0 retenu · 6 écartés**.
+
+**E55 — LA FONCTION QUI RELISAIT LE TEXTE BRUT.** `desaccord.py::_verdict()` parsait la chaîne
+JSON du LLM et en faisait une direction : c'est ainsi que `desaccord_live.json` publiait
+**« D1 Cortana bullish (1B/0b) »** — une direction que rien ne portait. **Correctif** : D1 ne lit
+que les verdicts `utilisable`; les écartés sont **comptés et publiés** (`llm_brut_bull/bear`,
+`verdicts_ecartes`) pour que la divergence reste visible au lieu d'être un camp. Sortie réelle
+après correctif : `Cortana neutre (0B/0b · 6 verdict(s) LLM sans mesure écarté(s))` → accord,
+`n_desaccords = 0` (contre 1 désaccord fantôme avant).
+
+**Faute annexe corrigée dans la même passe** : `depasse` était calculé `abs(value) > seuil` → avec
+un seuil **négatif** (prix −1 %), `depuis` toujours vrai (prix −0,02 % compté comme franchi).
+Comparaison ramenée aux **amplitudes** : `abs(value) > abs(seuil)`.
+
+**Ce qui empêche la répétition** : (a) aucun verdict LLM ne devient une direction sans une
+mesure de fiche qui le porte ; (b) le verdict brut reste publié à côté du verdict retenu (rien
+n'est effacé, la contradiction est visible) ; (c) une métrique maison se présente par sa
+définition, jamais par son sigle. **Réversible** : les 3 fichiers sont re-scellés avec motif ;
+la couche `interpretation` (mesurée) n'a pas été touchée, aucun seuil de trading, 0 ordre, 0 €.
+IA=Buffy (DeepSeek V4.1 Flash, Freebuff).
