@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-02T23:31:47+00:00",
+  "ts": "2026-11-03T00:32:36+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -282,7 +282,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "992 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "993 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -430,33 +430,33 @@
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "633 fenêtres · 0 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261102_SNAPS.csv (ofi_norm=-0.0034 Δ=3.68 NEUTRE)",
+      "faits": "693 fenêtres · 0 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.003 Δ=4.57 NEUTRE)",
       "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
         {
-          "ts": "2026-11-02T23:27:13Z",
-          "ofi": 0.007,
+          "ts": "2026-11-03T00:28:20Z",
+          "ofi": -0.0018,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-02T23:28:13Z",
-          "ofi": -0.0006,
+          "ts": "2026-11-03T00:29:20Z",
+          "ofi": 0.0136,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-02T23:29:13Z",
-          "ofi": 0.0055,
+          "ts": "2026-11-03T00:30:20Z",
+          "ofi": 0.0008,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-02T23:30:13Z",
-          "ofi": -0.0104,
+          "ts": "2026-11-03T00:31:20Z",
+          "ofi": -0.0027,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-02T23:31:13Z",
-          "ofi": -0.0034,
+          "ts": "2026-11-03T00:32:20Z",
+          "ofi": 0.003,
           "verdict": "NEUTRE"
         }
       ]

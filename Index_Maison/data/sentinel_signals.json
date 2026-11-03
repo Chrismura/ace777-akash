@@ -1,27 +1,6 @@
 {
   "signals": [
     {
-      "metric": "dust",
-      "zscore": 2.01751498128333,
-      "value": 50.0,
-      "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Faux positif majeur. L'anomalie onchain (dust) est totalement déconnectée du contexte crypto : les résultats médiatiques concernent une plateforme IA (Quasa), un véhicule électrique (LiveWire), une usine Renault et un film documentaire. Aucune corrélation avec un actif numérique spécifique ou une accumulation de baleines. Le bruit de fond domine.\"\n}\n```",
-      "ts": "2026-11-02T10:09:38.557166+00:00"
-    },
-    {
-      "metric": "ipt",
-      "zscore": 2.949348436765728,
-      "value": 1.24,
-      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : L'acronyme 'IPT' dans les titres médiatiques fait référence à des entités terrestres (Institut de Physique Théorique, Institut Pasteur, etc.) et non à un actif crypto. Aucune corrélation onchain détectée.\"\n}",
-      "ts": "2026-11-02T10:59:45.757632+00:00"
-    },
-    {
-      "metric": "liquidations",
-      "zscore": -2.2483354308000694,
-      "value": 1131804.0,
-      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Forte divergence entre la panique médiatique (liée à des fausses rumeurs de hack et des bruits de couloir sur des liquidations macro) et la réalité onchain (z-score extrêmement bas à -2.25 indiquant une absence totale de stress systémique réel). Les baleines profitent du FUD médiatique pour accumuler en silence pendant que les retail vendent la panique.\"\n}\n```",
-      "ts": "2026-11-02T12:44:59.776207+00:00"
-    },
-    {
       "metric": "price_1h",
       "zscore": 2.86772099055864,
       "value": 0.5187646394928969,
@@ -349,6 +328,27 @@
       "value": 2.532,
       "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif contextuel. Les données fournies concernent des ETF actions (BNP Paribas, AIF) et des articles génériques sur la stratégie long/short en bourse, non des mouvements onchain spécifiques à la crypto. Aucune divergence réelle entre flux crypto et narratif n'est détectable ici.\"\n}",
       "ts": "2026-11-02T23:08:20.889220+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.4306420377265243,
+      "value": 2.532,
+      "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des ETF actions traditionnels (SmallCap, Global Equity) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
+      "ts": "2026-11-02T23:38:25.346089+00:00"
+    },
+    {
+      "metric": "fear_greed",
+      "zscore": -62.27468095865054,
+      "value": 26,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"Peur extrême anormale (z-score -62.27) couplée à un vide médiatique total : configuration classique d'accumulation silencieuse par les baleines loin du bruit de fond.\"\n}\n```",
+      "ts": "2026-11-03T00:03:30.667788+00:00"
+    },
+    {
+      "metric": "long_short",
+      "zscore": 2.503286309185283,
+      "value": 2.565,
+      "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 85,\n  \"reason\": \"L'alerte Sentinelle indique une divergence significative entre les données brutes et le narratif médiatique. Le long_short de 2.565 avec un z-score de 2.50 suggère une activité anormale et potentiellement significative des baleines. Les titres médiatiques se concentrent sur des analyses techniques et des fonds spécifiques, ce qui ne reflète pas l'anomalie globale détectée. La divergence indique que les baleines pourraient être en train de bouger silencieusement, et le narratif médiatique est déconnecté de cette réalité.\"\n}\n```",
+      "ts": "2026-11-03T00:08:33.084938+00:00"
     }
   ]
 }
