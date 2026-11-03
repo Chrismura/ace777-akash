@@ -2798,3 +2798,50 @@ n'est effacé, la contradiction est visible) ; (c) une métrique maison se prés
 définition, jamais par son sigle. **Réversible** : les 3 fichiers sont re-scellés avec motif ;
 la couche `interpretation` (mesurée) n'a pas été touchée, aucun seuil de trading, 0 ordre, 0 €.
 IA=Buffy (DeepSeek V4.1 Flash, Freebuff).
+
+**E56 — UNE ALARME QUI NE PEUT PAS S'ÉTEINDRE (et son faux rouge).** 03/11, 16:49Z :
+`alerte_vocale.py` répétait « Rappels. Alerte ACE777. AUDIT DES ACTES : 1 acte(s) non
+déclaré(s) — déclarer ou réparer » toutes les 30 s depuis 16:18 (PID 72587), alors que
+l'« acte » en question — `Index_Maison/scripts/regime_justesse.json` — est une **SORTIE**
+écrite par `couleur_regime.py:378` à chaque passage. Deux défauts **distincts** :
+(a) la sortie n'avait pas été déclarée dans `SORTIES_DECLAREES.jsonl` (mécanisme maison
+existant, jamais utilisé pour ce fichier) → faux rouge ;
+(b) `cause_guerie()` ne connaissait que DEUX fichiers Cortana : une alarme dont la cause
+est ailleurs ne pouvait **jamais** s'auto-éteindre (R14 : une alarme qui ne peut plus
+dire vrai est une fausse alarme).
+**Correctif** : sortie déclarée (organe + motif + date) ; `alerte_vocale.py` accepte
+`--cause-file [--cause-key]` et s'éteint sur SA cause (rapport frais + problème vide) ;
+`sante_index.declencher_alerte()` transmet le rapport d'audit réel. Sans `--cause-file`,
+comportement historique inchangé.
+
+**E57 — UNE MÉTRIQUE MESURÉE MAIS STRUCTURELLEMENT INVÉRIFIABLE (ipt).** La chaîne IPT
+était saine jusqu'au LLM : `thermo/live.json` → `ipt` (0,33 ; micro_tx_ratio 0,40 ;
+entropy 0,568 ; ts frais), `sentinel.py` extrait la valeur (z-threshold 2,0), le prompt
+porte désormais la DÉFINITION maison et cherche les news sur le mempool (plus sur le
+sigle). Mais `data/fiches_analyse/ipt.json` **n'existait pas** → `match_fiche()` renvoyait
+None, `mesurer_verdict_llm(signal, {})` répondait « aucune question mesurée » et **tout**
+verdict ipt était publié puis écarté — par construction, pas par mesure.
+**Correctif** : fiche `ipt` créée avec des seuils **mesurés** (ipt > p90 = 0,79 sur 288
+mesures réelles ; micro_tx_ratio > 0,5 seuil historique documenté ; z_fee > 2,0 seuil
+z maison) et une interprétation par contexte de prix. Aucun seuil inventé.
+IA=Buffy (DeepSeek V4.1 Flash, Freebuff).
+
+**E56 bis / ter — les deux autres verrous du même arbre (trouvés EN vérifiant).**
+(bis) `--message` était `required=True` → `--arret`, LA procédure d'arrêt documentée, refusait
+de s'exécuter (« error: --message required »).
+(ter) `--arret` **supprimait** les fichiers d'arrêt au lieu de les **poser** ; la boucle ne
+voit un arrêt que s'ils existent → l'arrêt affichait « Arrêt forcé demandé » et **rien ne
+s'arrêtait** (mesuré : 2 processus en vol après l'appel). Preuve après correctif :
+`--arret --id test999` → 4 fichier(s) d'arrêt posés, fichier présent sur le disque.
+
+**E57 bis / ter — ce que « vérifier l'IPT à la source » a mis au jour.**
+(bis) `find_interpretation()` ne savait pas tester la métrique dont une fiche parle : la fiche
+ipt tombait dans la condition `prix < 2%` et affirmait « pression topologique ÉLEVÉE » alors
+que l'ipt mesuré valait 0,34 (médiane mesurée 0,46). Une lecture fausse n'est pas moins grave
+qu'un chiffre faux. → branche générique `ipt > N` ajoutée, fiche interprétée sur son décile
+haut mesuré (p90 = 0,79), plage normale = lecture neutre.
+(ter) `match_fiche()` envoyait `ipt` sur la fiche **rbf_eleve** (remplacement de frais — un
+phénomène DIFFÉRENT). Mesuré : 3 analyses ipt publiées avec `fiche=rbf_eleve`. → `ipt` lit
+désormais sa propre fiche. Sortie réelle après correctif : `fiche=ipt niveau=neutre`,
+« Pression topologique dans sa plage MESURÉE… rien d'anormal ».
+IA=Buffy (DeepSeek V4.1 Flash, Freebuff).

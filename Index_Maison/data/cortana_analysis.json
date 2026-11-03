@@ -1,55 +1,8 @@
 {
-  "timestamp": 1793720329,
-  "date": "2026-11-03T15:38:49.329860+00:00",
-  "n_analyses": 6,
+  "timestamp": 1793722730,
+  "date": "2026-11-03T16:18:50.089226+00:00",
+  "n_analyses": 5,
   "analyses": [
-    {
-      "signal": {
-        "metric": "price_1h",
-        "zscore": 2.8217453569739535,
-        "value": 0.5092625693251085,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 15,\n  \"reason\": \"Absence de données onchain réelles (volume, flux de baleines, holdings) et de contenu médiatique exploitable. Le z-score de 2.82 sur le prix seul est statistiquement significatif mais non directionnel sans contexte de volume ou de flux. Impossible de détecter une divergence sans données brutes comparables.\"\n}\n```",
-        "ts": 1793698849.223018
-      },
-      "fiche": "price_1h",
-      "questions": {
-        "pct_1h": {
-          "value": 0.0,
-          "seuil": -1,
-          "depasse": false
-        },
-        "liq": {
-          "value": 1919591.0,
-          "seuil": 5000000,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0,
-          "depasse": true
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre",
-      "verdict_llm": {
-        "verdict": "neutral",
-        "confidence": 15,
-        "mesures": 3,
-        "mesures_non_nulles": 2,
-        "mesures_depassees": [
-          "funding"
-        ],
-        "utilisable": false,
-        "motifs": [
-          "verdict non directionnel"
-        ]
-      }
-    },
     {
       "signal": {
         "metric": "ipt",
@@ -58,41 +11,42 @@
         "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique Théorique (France), non un actif crypto. Les titres médiatiques confirment un contexte académique/scientifique sans lien avec les marchés financiers.\"\n}",
         "ts": 1793703059.534791
       },
-      "fiche": "rbf_eleve",
+      "fiche": "ipt",
       "questions": {
+        "ipt": {
+          "value": 0.229,
+          "seuil": 0.79,
+          "depasse": false
+        },
         "prix": {
-          "value": 0.0,
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
+        "micro": {
+          "value": 0.2,
+          "seuil": 0.5,
           "depasse": false
         },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
+        "zfee": {
+          "value": 0.0,
+          "seuil": 2.0,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "condition": "ipt > 0",
+        "lecture": "Pression topologique dans sa plage MESURÉE (médiane 0,46 · p90 0,79) : rien d'anormal à ce niveau",
         "niveau": "neutre",
-        "action": "Observer"
+        "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant"
       },
-      "action": "Observer",
+      "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant",
       "niveau": "neutre",
       "verdict_llm": {
         "verdict": "neutral",
         "confidence": 95,
         "mesures": 4,
-        "mesures_non_nulles": 1,
+        "mesures_non_nulles": 3,
         "mesures_depassees": [],
         "utilisable": false,
         "motifs": [
@@ -118,33 +72,34 @@
           "depasse": false
         },
         "achats": {
-          "value": 0.0,
+          "value": 521388.0,
           "seuil": 0,
-          "depasse": false
+          "depasse": true
         },
         "prix": {
-          "value": 0.0,
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
+        "condition": "achats > ventes",
+        "lecture": "Flux baleines ACHETEUR dominant — accumulation possible, à confirmer sur plusieurs scans",
+        "niveau": "info",
+        "action": "Observer, ne pas acheter sur un seul signal"
       },
-      "action": "Observer",
-      "niveau": "neutre",
+      "action": "Observer, ne pas acheter sur un seul signal",
+      "niveau": "info",
       "verdict_llm": {
         "verdict": "bullish",
         "confidence": 65,
         "mesures": 3,
-        "mesures_non_nulles": 0,
-        "mesures_depassees": [],
-        "utilisable": false,
-        "motifs": [
-          "aucune des 3 mesure(s) ne dépasse son seuil — direction non prouvée"
-        ]
+        "mesures_non_nulles": 2,
+        "mesures_depassees": [
+          "achats"
+        ],
+        "utilisable": true,
+        "motifs": []
       }
     },
     {
@@ -155,41 +110,42 @@
         "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
         "ts": 1793704873.281968
       },
-      "fiche": "rbf_eleve",
+      "fiche": "ipt",
       "questions": {
+        "ipt": {
+          "value": 0.229,
+          "seuil": 0.79,
+          "depasse": false
+        },
         "prix": {
-          "value": 0.0,
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
+        "micro": {
+          "value": 0.2,
+          "seuil": 0.5,
           "depasse": false
         },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
+        "zfee": {
+          "value": 0.0,
+          "seuil": 2.0,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "condition": "ipt > 0",
+        "lecture": "Pression topologique dans sa plage MESURÉE (médiane 0,46 · p90 0,79) : rien d'anormal à ce niveau",
         "niveau": "neutre",
-        "action": "Observer"
+        "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant"
       },
-      "action": "Observer",
+      "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant",
       "niveau": "neutre",
       "verdict_llm": {
         "verdict": "neutral",
         "confidence": 95,
         "mesures": 4,
-        "mesures_non_nulles": 1,
+        "mesures_non_nulles": 3,
         "mesures_depassees": [],
         "utilisable": false,
         "motifs": [
@@ -210,12 +166,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": 0.0,
+          "value": -0.08,
           "seuil": -1,
           "depasse": false
         },
         "liq": {
-          "value": 1919591.0,
+          "value": 2260502.0,
           "seuil": 5000000,
           "depasse": false
         },
@@ -236,7 +192,7 @@
         "verdict": "neutral",
         "confidence": 15,
         "mesures": 3,
-        "mesures_non_nulles": 2,
+        "mesures_non_nulles": 3,
         "mesures_depassees": [
           "funding"
         ],
@@ -254,41 +210,42 @@
         "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 60,\n  \"reason\": \"L'alerte Sentinelle indique une divergence potentielle, mais les titres médiatiques ne fournissent pas de contexte spécifique sur les mouvements de fonds. Le narratif médiatique semble indépendant de l'anomalie onchain, mais sans informations supplémentaires, il est difficile de déterminer si les baleines bougent silencieusement.\"\n}\n```",
         "ts": 1793719333.859212
       },
-      "fiche": "rbf_eleve",
+      "fiche": "ipt",
       "questions": {
+        "ipt": {
+          "value": 0.229,
+          "seuil": 0.79,
+          "depasse": false
+        },
         "prix": {
-          "value": 0.0,
+          "value": -0.08,
           "seuil": 1,
           "depasse": false
         },
-        "paires": {
-          "value": 0,
-          "seuil": 3,
+        "micro": {
+          "value": 0.2,
+          "seuil": 0.5,
           "depasse": false
         },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
+        "zfee": {
+          "value": 0.0,
+          "seuil": 2.0,
           "depasse": false
         }
       },
       "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
+        "condition": "ipt > 0",
+        "lecture": "Pression topologique dans sa plage MESURÉE (médiane 0,46 · p90 0,79) : rien d'anormal à ce niveau",
         "niveau": "neutre",
-        "action": "Observer"
+        "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant"
       },
-      "action": "Observer",
+      "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant",
       "niveau": "neutre",
       "verdict_llm": {
         "verdict": "neutral",
         "confidence": 60,
         "mesures": 4,
-        "mesures_non_nulles": 1,
+        "mesures_non_nulles": 3,
         "mesures_depassees": [],
         "utilisable": false,
         "motifs": [

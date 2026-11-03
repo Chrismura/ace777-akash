@@ -131,7 +131,11 @@ def match_fiche(signal, fiches):
         "dust": "blocs_privilises",
         "rbf": "rbf_eleve",
         "sdi": "sdi_eleve",  # FIX 16/09 (GO C. : fiche dédiée sdi_eleve.json) — avant : le SDI tombait dans la fiche rbf_eleve et héritait de son seuil croisé 0,3 → faux 🔴 sur divergence sentiment
-        "ipt": "rbf_eleve",
+        # E57 ter (03/11) : ipt était envoyé sur la fiche rbf_eleve — un phénomène
+        # DIFFÉRENT (remplacement de frais). Une métrique maison analysée avec la
+        # fiche d'une autre n'est pas une mesure : c'est une lecture étrangère.
+        # Sa fiche existe désormais (fiches_analyse/ipt.json, seuils mesurés).
+        "ipt": "ipt",
         "volume": "rbf_eleve",
         "funding": "rbf_eleve",
     }
@@ -235,7 +239,20 @@ def find_interpretation(fiche, question_results):
         condition = interp.get("condition", "")
         
         # Évaluation simplifiée des conditions
-        if "duree < 5min" in condition:
+        # E57 bis (03/11) : une fiche doit pouvoir tester LA MÉTRIQUE DONT ELLE PARLE.
+        # Sans cette branche, la fiche ipt tombait dans la condition suivante
+        # (« prix < 2% ») et affirmait « pression topologique ÉLEVÉE » alors que
+        # l'ipt mesuré valait 0,34 (plage mesurée : médiane 0,46). Une lecture fausse
+        # n'est pas moins grave qu'un chiffre faux.
+        if "ipt > " in condition:
+            _v = question_results.get("ipt", {}).get("value")
+            try:
+                _s = float(condition.split(">", 1)[1].strip())
+            except (ValueError, IndexError):
+                _s = None
+            if _v is not None and _s is not None and _v > _s:
+                return interp
+        elif "duree < 5min" in condition:
             if question_results.get("duree", {}).get("value", 999) < 5:
                 return interp
         elif "duree > 10min" in condition:

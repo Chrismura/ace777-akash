@@ -1,6 +1,6 @@
 {
   "version": "1.5.0",
-  "updated": "2026-11-03T15:30:30Z",
+  "updated": "2026-11-03T15:54:46Z",
   "fichier": [
     {
       "nom": "Index_Maison/scripts/v2_duo_replay_4h.py",
@@ -911,10 +911,10 @@
       "origine": "chantier 17/08 (demande Christophe : voir les branchements en un coup d'œil)",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "17fa177e4b316a5bec23082ceceafbe8",
+      "md5": "6cc5007f00a2063c8a92c62a2af5ff4d",
       "note": "déclaré 2026-08-27T14:40Z — chaîne HULK étendue : + cortana_analyzer launchd + cortana_pilot.json (fraîcheur 25h) + cortana_analysis.json",
       "maj": "27/08 13:47Z : md5 mis à jour (déclaration légitime) || RE-SCELLÉ 03/09 : Modifié session 01/09 09h09 (chantier ACE/santé index) — re-scellé post-audit 03/09 (GO Christophe).",
-      "date": "2026-11-03T11:16:43Z",
+      "date": "2026-11-03T15:52:30Z",
       "_rescel": [
         {
           "ts": "2026-10-08T09:38:05Z",
@@ -973,13 +973,23 @@
             "user": "christophe",
             "chaine": "pid 17512 <- bash(pid 17505) <- /Users/christoph(pid 17504) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T15:52:30Z",
+          "motif": "E56 — declencher_alerte() transmet la cause reelle (audit_actes.json) a la boucle vocale",
+          "ecrivain": {
+            "ts": "2026-11-03T15:52:30Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 80469 <- bash(pid 80463) <- /Users/christoph(pid 80462) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T11:16:43Z",
+        "ts": "2026-11-03T15:52:30Z",
         "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 17512 <- bash(pid 17505) <- /Users/christoph(pid 17504) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 80469 <- bash(pid 80463) <- /Users/christoph(pid 80462) <- /Users/christoph(pid 4107)"
       }
     },
     {
@@ -1107,10 +1117,10 @@
       "origine": "25/08 PIPELINE UNIFIÉ — branché 27/08",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "a7e6c9512a09099302f601f701828bde",
+      "md5": "2db816466a994a61a07eff1d3802a098",
       "note": "FIX 27/08 : crash TypeError ts str (sentinelle écrit ts ISO, l'analyzer faisait now - str) → normalisation _to_epoch (les 2 formats). Plist com.ace777.cortana-analyzer (300s). | 13/09: ARBITRAGE LLM-vs-RÈGLE (GO C.) — LLM neutral conf>=60 désamorce le 'dangereux' mécanique (jamais 'critique'); politique mesurée 14 j (critère 27/09: si un vrai danger passe inaperçu → retrait). | 16/09 : fix NoneType prix + mapping sdi_eleve (matin) puis C1/C2/C3 (après-midi). | GO 16/09 6 fiches : trigger z (absolu) lit le ZSCORE (avant : valeur brute → jamais ouvert), source générique live.json → chemin.doté, ",
       "maj": "16/09 après-midi (GO C. « go » C1+C2+C3) : C1 triggers réellement vérifiés contre la valeur du signal (_evaluer_trigger, alias rbf_score/sdi/global_score/taux_fantome) — le champ trigger n'était DÉCORATIF depuis le 27/08 ; C2 défaut neutre explicite (avant : 1re interprétation = sdi_eleve dangereux / binance_timeout critique) ; C3 health_degrade câblé (questions sources/mode + conditions source == évaluées contre pipeline_health.sources — KILL SWITCH critique UNIQUEMENT si binance <0,5). 8 tests dont négatifs verts. Par Buffy.",
-      "date": "2026-11-03T15:29:45Z",
+      "date": "2026-11-03T15:53:56Z",
       "_rescel": [
         {
           "ts": "2026-10-28T16:51:58Z",
@@ -1141,13 +1151,33 @@
             "user": "christophe",
             "chaine": "pid 74462 <- bash(pid 74452) <- /Users/christoph(pid 74451) <- /Users/christoph(pid 4107)"
           }
+        },
+        {
+          "ts": "2026-11-03T15:53:18Z",
+          "motif": "E57 bis — branche 'ipt > N' avant l'echelle figee : une fiche teste sa propre metrique",
+          "ecrivain": {
+            "ts": "2026-11-03T15:53:18Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 80582 <- bash(pid 80581) <- /Users/christoph(pid 80580) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T15:53:56Z",
+          "motif": "E57 ter — ipt -> fiche ipt (plus rbf_eleve)",
+          "ecrivain": {
+            "ts": "2026-11-03T15:53:56Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 80723 <- bash(pid 80720) <- /Users/christoph(pid 80719) <- /Users/christoph(pid 4107)"
+          }
         }
       ],
       "dernier_ecrivain": {
-        "ts": "2026-11-03T15:29:45Z",
+        "ts": "2026-11-03T15:53:56Z",
         "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
         "user": "christophe",
-        "chaine": "pid 74462 <- bash(pid 74452) <- /Users/christoph(pid 74451) <- /Users/christoph(pid 4107)"
+        "chaine": "pid 80723 <- bash(pid 80720) <- /Users/christoph(pid 80719) <- /Users/christoph(pid 4107)"
       },
       "_ajout": [
         {
@@ -1226,8 +1256,47 @@
       "origine": "audit md5 03/09",
       "verif": "md5",
       "auto_modifiable": false,
-      "md5": "d99629725a2ee86cd8f19e886ef682a2",
-      "note": "Correctif session 31/08 19h58 — re-scellement post-audit 03/09. | 13/09: AUTO-EXTINCTION (GO C.) — cause guérie (contrat+analyse <60min) 2 contrôles de suite après la 3e répétition → silence propre + statut auto-etinte-cause-guerie."
+      "md5": "0b0187646360bba9b284a2ad007409e7",
+      "note": "Correctif session 31/08 19h58 — re-scellement post-audit 03/09. | 13/09: AUTO-EXTINCTION (GO C.) — cause guérie (contrat+analyse <60min) 2 contrôles de suite après la 3e répétition → silence propre + statut auto-etinte-cause-guerie.",
+      "date": "2026-11-03T15:54:46Z",
+      "_rescel": [
+        {
+          "ts": "2026-11-03T15:52:29Z",
+          "motif": "E56 — cause_guerie() aveugle aux causes non-Cortana : --cause-file/--cause-key ajoutes",
+          "ecrivain": {
+            "ts": "2026-11-03T15:52:29Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 80464 <- bash(pid 80463) <- /Users/christoph(pid 80462) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T15:53:56Z",
+          "motif": "E56 bis — --arret fonctionne sans --message",
+          "ecrivain": {
+            "ts": "2026-11-03T15:53:56Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 80728 <- bash(pid 80720) <- /Users/christoph(pid 80719) <- /Users/christoph(pid 4107)"
+          }
+        },
+        {
+          "ts": "2026-11-03T15:54:46Z",
+          "motif": "E56 ter — --arret pose les fichiers d'arret",
+          "ecrivain": {
+            "ts": "2026-11-03T15:54:46Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 80917 <- bash(pid 80914) <- /Users/christoph(pid 80913) <- /Users/christoph(pid 4107)"
+          }
+        }
+      ],
+      "dernier_ecrivain": {
+        "ts": "2026-11-03T15:54:46Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 80917 <- bash(pid 80914) <- /Users/christoph(pid 80913) <- /Users/christoph(pid 4107)"
+      }
     },
     {
       "nom": "Index_Maison/scripts/disjoncteur.py",
@@ -7439,6 +7508,39 @@
         {
           "ts": "2026-11-03T13:10:45Z",
           "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ]
+    },
+    {
+      "nom": "Index_Maison/data/fiches_analyse/ipt.json",
+      "role": "fiche d'analyse IPT (seuils mesures)",
+      "origine": "E57 — fiche manquante : verdict ipt invérifiable par construction",
+      "verif": "md5",
+      "auto_modifiable": false,
+      "md5": "8be154589f56201bffc2ca7de7b8a599",
+      "date": "2026-11-03T15:53:18Z",
+      "dernier_ecrivain": {
+        "ts": "2026-11-03T15:53:18Z",
+        "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+        "user": "christophe",
+        "chaine": "pid 80587 <- bash(pid 80581) <- /Users/christoph(pid 80580) <- /Users/christoph(pid 4107)"
+      },
+      "_ajout": [
+        {
+          "ts": "2026-11-03T15:52:30Z",
+          "motif": "inscription au registre (R15 : ce qui n'est pas déclaré n'existe pas)"
+        }
+      ],
+      "_rescel": [
+        {
+          "ts": "2026-11-03T15:53:18Z",
+          "motif": "E57 bis — interpretation conditionnee au decile haut mesure, plage normale = neutre",
+          "ecrivain": {
+            "ts": "2026-11-03T15:53:18Z",
+            "ia": "Buffy (DeepSeek V4.1 Flash, Freebuff)",
+            "user": "christophe",
+            "chaine": "pid 80587 <- bash(pid 80581) <- /Users/christoph(pid 80580) <- /Users/christoph(pid 4107)"
+          }
         }
       ]
     }

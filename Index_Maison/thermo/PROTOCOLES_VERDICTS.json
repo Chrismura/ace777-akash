@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-03T15:41:36+00:00",
+  "ts": "2026-11-03T16:19:17+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -282,7 +282,7 @@
     {
       "protocole": "Radar XRPL gouvernance",
       "critere": "J8 pré-enregistré : (a) ≥ 5 amendements dont le compteur bouge de ≥ 2 votes, OU (b) ≥ 1 activation, OU (c) ≥ 1 amendement mort ; sinon échec",
-      "faits": "1006 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
+      "faits": "1007 snapshots · 113 amendements suivis · (a) 5 bougent de ≥ 2 (il en fallait 5) · (b) 3 activation · (c) 0 mort · 3 nouveau(x)",
       "verdict": "SUCCES (critère atteint)",
       "alerte": "",
       "detail": [
@@ -307,15 +307,15 @@
           "delta_votes": 3
         },
         {
-          "amendement": "fixXChainRewardRounding",
-          "delta_votes": -1
-        },
-        {
           "amendement": "XChainBridge",
           "delta_votes": -1
         },
         {
-          "amendement": "fixBatchInnerSigs",
+          "amendement": "fixXChainRewardRounding",
+          "delta_votes": -1
+        },
+        {
+          "amendement": "PermissionDelegation",
           "delta_votes": 0
         }
       ]
@@ -323,7 +323,7 @@
     {
       "protocole": "Arbitrage LLM-vs-règle (Cortana)",
       "critere": "la règle maison : < 60 % de justesse micro → confiance faible + 1 alerte/h max. Verdict annoncé 27/09",
-      "faits": "43 alerte(s) microstructure au journal · 43 notée(s) par le juge indépendant · justesse 37.2 % · avis directionnels de Cortana (toutes matières) : 11/28 = 39.3 %",
+      "faits": "45 alerte(s) microstructure au journal · 45 notée(s) par le juge indépendant · justesse 37.8 % · avis directionnels de Cortana (toutes matières) : 11/28 = 39.3 %",
       "verdict": "ECHEC",
       "alerte": "",
       "detail": [
@@ -436,33 +436,33 @@
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "1454 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.0134 Δ=27.33 NEUTRE)",
+      "faits": "1491 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.0169 Δ=-18.8 NEUTRE)",
       "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
         {
-          "ts": "2026-11-03T15:37:15Z",
-          "ofi": 0.0134,
+          "ts": "2026-11-03T16:14:19Z",
+          "ofi": -0.007,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T15:38:15Z",
-          "ofi": -0.0022,
+          "ts": "2026-11-03T16:15:20Z",
+          "ofi": 0.0031,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T15:39:15Z",
-          "ofi": -0.0026,
+          "ts": "2026-11-03T16:16:20Z",
+          "ofi": 0.0084,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T15:40:15Z",
-          "ofi": -0.0062,
+          "ts": "2026-11-03T16:17:20Z",
+          "ofi": 0.0192,
           "verdict": "NEUTRE"
         },
         {
-          "ts": "2026-11-03T15:41:15Z",
-          "ofi": 0.0134,
+          "ts": "2026-11-03T16:18:20Z",
+          "ofi": 0.0169,
           "verdict": "NEUTRE"
         }
       ]

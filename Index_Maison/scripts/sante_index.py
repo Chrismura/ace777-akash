@@ -307,8 +307,17 @@ def declencher_alerte(anomalies):
         else:
             msgs_clairs.append(a[:80])
     msg = "Alerte ACE777. " + " ; ".join(msgs_clairs)[:300]
+    # 03/11 : la boucle vocale doit connaître SA cause, sinon elle crie à vie
+    # (mesuré : « AUDIT DES ACTES : 1 acte(s) non déclaré(s) » répété 30 s après
+    # réparation — cause_guerie() ne regardait que les fichiers Cortana).
+    cause_args = []
+    if any("AUDIT DES ACTES" in a for a in anomalies):
+        _rap = IM / "thermo" / "audit_actes.json"
+        if _rap.exists():
+            cause_args = ["--cause-file", str(_rap)]
     try:
-        subprocess.Popen(["python3", str(ALERTE_VOCALE), "--message", msg, "--id", str(ts)],
+        subprocess.Popen(["python3", str(ALERTE_VOCALE), "--message", msg, "--id", str(ts)]
+                         + cause_args,
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                          start_new_session=True)
         return True

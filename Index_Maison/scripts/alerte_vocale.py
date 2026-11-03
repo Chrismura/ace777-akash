@@ -108,13 +108,39 @@ def fichiers_arret(id_alerte: str):
     ]
 
 
-def cause_guerie() -> bool:
-    """Vrai si les DEUX fichiers-cause sont frais (< GUERISON_MAX_AGE_MIN).
-    Contrat Cortana (hulk-mexc/strategie/cortana_pilot.json) + analyse
-    (Index_Maison/data/cortana_analysis.json). Best-effort : absence de
-    fichier = pas de preuve de guérison (on ne se tait pas)."""
+def cause_guerie(cause_file: str = "", cause_key: str = "") -> bool:
+    """Vrai si la CAUSE de CETTE alarme a disparu.
+
+    FAILLE MESURÉE 03/11 16:49Z (Christophe : « en boucle c'est un rappel alerte
+    audit, non déclaré ou réparé ») : la fonction ne connaissait QUE deux fichiers
+    Cortana. Une alarme dont la cause est ailleurs (AUDIT DES ACTES) ne pouvait
+    donc JAMAIS guérir : elle répétait « Rappels. » toutes les 30 s, même cause
+    réparée. Une alarme qui ne peut pas s'éteindre est une alarme qui ne dit plus
+    vrai (R14).
+
+    Deux modes, aucun implicite :
+      · `cause_file` donné → on lit CE rapport ; la cause est guérie quand il est
+        frais (< GUERISON_MAX_AGE_MIN) et que le problème qu'il décrit est vide :
+        `cause_key` = un compteur qui doit valoir 0 ; sans `cause_key`, le champ
+        `ok` doit valoir true. Rapport illisible/absent = PAS de preuve → on crie.
+      · `cause_file` vide → comportement historique (contrat Cortana + analyse).
+    """
     try:
         now = time.time()
+        if cause_file:
+            f = Path(os.path.expanduser(cause_file))
+            if not f.exists() or (now - f.stat().st_mtime) > GUERISON_MAX_AGE_MIN * 60:
+                return False
+            try:
+                rap = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:
+                return False
+            if not isinstance(rap, dict):
+                return False
+            if cause_key:
+                v = rap.get(cause_key)
+                return isinstance(v, (int, float)) and not isinstance(v, bool) and v == 0
+            return rap.get("ok") is True
         contrat = Path(os.path.expanduser(
             "~/ace777-test-day1/hulk-mexc/strategie/cortana_pilot.json"))
         analyse = IM / "data" / "cortana_analysis.json"
@@ -158,18 +184,38 @@ def parler(message: str):
 
 def main():
     ap = argparse.ArgumentParser(description="Alerte vocale en boucle ACE777")
-    ap.add_argument("--message", required=True, help="Message à répéter à voix haute")
+    # E56 bis (03/11) : `--message` était required=True, donc `--arret` — le
+    # mécanisme d'arrêt DOCUMENTÉ — refusait de s'exécuter (« error: --message
+    # required »). Une alarme impossible à arrêter par sa propre procédure.
+    ap.add_argument("--message", default="", help="Message à répéter à voix haute (sauf --arret)")
     ap.add_argument("--id", required=True, help="Identifiant unique de l'alerte")
     ap.add_argument("--arret", action="store_true", help="Forcer l'arrêt immédiat")
+    ap.add_argument("--cause-file", default="",
+                    help="Rapport JSON de la CAUSE (frais) : la boucle s'auto-éteint "
+                         "quand la cause a disparu (défaut : champ 'ok' == true)")
+    ap.add_argument("--cause-key", default="",
+                    help="Clé COMPTEUR du rapport (ex. non_declares) : 0 = guéri. "
+                         "Sans elle, le champ 'ok' fait foi.")
     args = ap.parse_args()
 
+    if not args.arret and not args.message:
+        ap.error("--message obligatoire (sauf --arret)")
+
     if args.arret:
+        # E56 ter (03/11) : `--arret` SUPPRIMAIT les fichiers d'arrêt au lieu de les
+        # POSER. La boucle ne voit le signal que s'ils EXISTENT (verifier_arret) →
+        # l'arrêt documenté ne pouvait structurellement jamais arrêter une alarme.
+        # Mesuré : « Arrêt forcé demandé » affiché, processus toujours en vol.
+        poses = 0
         for f in fichiers_arret(args.id):
             try:
-                f.unlink()
+                f.parent.mkdir(parents=True, exist_ok=True)
+                f.write_text("stop\n", encoding="utf-8")
+                poses += 1
             except Exception:
                 pass
-        print(f"Arrêt forcé demandé pour l'alerte {args.id}.")
+        print(f"Arrêt forcé demandé pour l'alerte {args.id} "
+              f"({poses} fichier(s) d'arrêt posé(s)).")
         sys.exit(0)
 
     # Journal d'alerte
@@ -212,7 +258,7 @@ def main():
 
         # AUTO-EXTINCTION : jamais avant la 3e répétition (l'alarme doit
         # se faire entendre), puis cause guérie 2 contrôles de suite → silence.
-        if iteration >= 2 and cause_guerie():
+        if iteration >= 2 and cause_guerie(args.cause_file, args.cause_key):
             _guerison_streak += 1
         else:
             _guerison_streak = 0
