@@ -1,5 +1,5 @@
 {
-  "ts": "2026-11-03T12:38:23+00:00",
+  "ts": "2026-11-03T12:39:19+00:00",
   "note": "Verdicts MESURÉS à la source (scripts/verdicts_protocoles.py). Chaque protocole porte son critère pré-enregistré : c'est lui qui décide, pas l'impression du moment. Un verdict « IMPOSSIBLE » ou une ligne « alerte » signale un protocole dont le verdict ne peut pas être rendu — c'est une panne de conception, pas une patience.",
   "protocoles": [
     {
@@ -295,11 +295,11 @@
           "delta_votes": 7
         },
         {
-          "amendement": "DynamicMPT",
+          "amendement": "SingleAssetVault",
           "delta_votes": 6
         },
         {
-          "amendement": "SingleAssetVault",
+          "amendement": "DynamicMPT",
           "delta_votes": 6
         },
         {
@@ -315,7 +315,7 @@
           "delta_votes": -1
         },
         {
-          "amendement": "PermissionDelegation",
+          "amendement": "fixBatchInnerSigs",
           "delta_votes": 0
         }
       ]
@@ -436,15 +436,10 @@
     {
       "protocole": "OFI normalisé (microstructure)",
       "critere": "§75 : PRESSION si |ofi_norm|>=0.07 (p95 live 02/11), ABSORPTION si +|Δprix|<=1bps ; SANS_MESURE si snaps >300s ; anti-boucle (pas de doublon consécutif)",
-      "faits": "1271 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.0109 Δ=5.94 NEUTRE)",
+      "faits": "1272 fenêtres · 2 PRESSION · 0 ABSORPTION · 0 doublons consécutifs · live L2_20261103_SNAPS.csv (ofi_norm=0.0202 Δ=-0.45 NEUTRE)",
       "verdict": "EN ATTENTE (pas assez de fenêtres non-neutres pour juger)",
       "alerte": "",
       "detail": [
-        {
-          "ts": "2026-11-03T12:33:51Z",
-          "ofi": -0.001,
-          "verdict": "NEUTRE"
-        },
         {
           "ts": "2026-11-03T12:34:51Z",
           "ofi": 0.0136,
@@ -463,6 +458,11 @@
         {
           "ts": "2026-11-03T12:37:51Z",
           "ofi": 0.0109,
+          "verdict": "NEUTRE"
+        },
+        {
+          "ts": "2026-11-03T12:38:51Z",
+          "ofi": 0.0202,
           "verdict": "NEUTRE"
         }
       ]
