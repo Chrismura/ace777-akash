@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T03:33:35.002544+00:00",
+  "generated_at": "2026-11-03T03:34:35.648600+00:00",
   "providers": [
     {
       "id": "gemini",
@@ -410,64 +410,64 @@
   ],
   "events": [
     {
-      "ts": "2026-11-03T03:33:29.614779+00:00",
+      "ts": "2026-11-03T03:34:22.953913+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-11-03T03:33:29.614696+00:00",
+      "ts": "2026-11-03T03:34:22.953852+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: reseau KO [Errno 8] nodename nor servname provided, or not known"
+      "detail": "Groq (Qwen 3.8 27B, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-11-03T03:33:29.614625+00:00",
+      "ts": "2026-11-03T03:34:22.953799+00:00",
       "kind": "failover",
-      "title": "Reseau KO (bascule immediate) depuis Google Gemini",
+      "title": "Reseau KO (bascule immediate) depuis Groq (Qwen 3.8 27B, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-11-03T03:33:29.614496+00:00",
+      "ts": "2026-11-03T03:34:22.953692+00:00",
       "kind": "network",
-      "title": "Reseau indisponible: Google Gemini",
+      "title": "Reseau indisponible: Groq (Qwen 3.8 27B, gratuit)",
       "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-11-03T03:33:29.606280+00:00",
-      "kind": "blacklist",
-      "title": "Fin de pause Google Gemini",
-      "detail": "re-essai automatique"
-    },
-    {
-      "ts": "2026-11-03T03:33:29.584074+00:00",
+      "ts": "2026-11-03T03:34:22.943759+00:00",
       "kind": "network",
       "title": "Reseau pas pret — mode degrade (timeout court)",
       "detail": ""
     },
     {
-      "ts": "2026-11-03T03:31:06.896056+00:00",
+      "ts": "2026-11-03T03:34:22.938616+00:00",
       "kind": "http",
       "title": "requete HTTP: \"POST /v1/chat/completions HTTP/1.1\" 502 -",
       "detail": ""
     },
     {
-      "ts": "2026-11-03T03:31:06.895629+00:00",
+      "ts": "2026-11-03T03:34:22.938555+00:00",
       "kind": "error",
       "title": "Toutes les IA ont echoue",
-      "detail": "Google Gemini: HTTP Error 429: Too Many Requests | Groq (Qwen 3.8 27B, gratuit): HTTP Error 400: Bad Request | Mistral La Plateforme (essai gratuit): HTTP Error 400: Bad Request | InferX DeepSeek V4 Flash (API gratuite jusqu'au 12/08): HTTP Error 429: Too Many Requests | InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08): <urlopen error The write operation timed out> | InferX Devstral-2-123B (code): <urlopen error timed out>"
+      "detail": "Groq (Qwen 3.8 27B, gratuit): reseau KO [Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-11-03T03:31:06.894073+00:00",
+      "ts": "2026-11-03T03:34:22.938511+00:00",
       "kind": "failover",
-      "title": "Bascule depuis InferX Devstral-2-123B (code)",
-      "detail": "<urlopen error timed out>"
+      "title": "Reseau KO (bascule immediate) depuis Groq (Qwen 3.8 27B, gratuit)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
     },
     {
-      "ts": "2026-11-03T03:30:56.869224+00:00",
-      "kind": "failover",
-      "title": "Bascule depuis InferX Qwen3-Coder-Next (code, gratuit jusqu'au 12/08)",
-      "detail": "<urlopen error The write operation timed out>"
+      "ts": "2026-11-03T03:34:22.938405+00:00",
+      "kind": "network",
+      "title": "Reseau indisponible: Groq (Qwen 3.8 27B, gratuit)",
+      "detail": "[Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "ts": "2026-11-03T03:34:22.929095+00:00",
+      "kind": "network",
+      "title": "Reseau pas pret — mode degrade (timeout court)",
+      "detail": ""
     }
   ],
   "tasks_quotas": {
