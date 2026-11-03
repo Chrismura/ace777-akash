@@ -1,139 +1,8 @@
 {
-  "timestamp": 1793676816,
-  "date": "2026-11-03T03:33:36.794076+00:00",
-  "n_analyses": 28,
+  "timestamp": 1793679217,
+  "date": "2026-11-03T04:13:37.410447+00:00",
+  "n_analyses": 24,
   "analyses": [
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.4811194021754304,
-        "value": 2.451,
-        "analysis": "```json\n{\n  \"signal\": \"bearish\",\n  \"confidence\": 88,\n  \"reason\": \"Le ratio long/short atteint un z-score extrême de 2.48, signalant un positionnement excessivement haussier et sur-levé de la foule. Pendant ce temps, le narratif médiatique se focalise abstraitement sur les fonds institutionnels traditionnels, ignorant totalement l'euphorie spéculative en cours. Divergence classique de 'crowded trade' : risque élevé de liquidation en cascade.\"\n}\n```",
-        "ts": 1793655473.384744
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": null,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 99450.211,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "volume",
-        "zscore": 2.1179191270278674,
-        "value": 9139056223.0,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Absence totale de corrélation. Les titres médiatiques concernent des sujets non-crypto (déchets, Windows 11, actions Alstom/Ubisoft, musique). Le volume anormal (z-score 2.12) est isolé sans contexte onchain spécifique (ex: flux vers exchanges, OTC) et le bruit médiatique est purement hors-sujet, rendant l'analyse de divergence impossible.\"\n}",
-        "ts": 1793656076.778459
-      },
-      "fiche": "rbf_eleve",
-      "questions": {
-        "prix": {
-          "value": null,
-          "seuil": 1,
-          "depasse": false
-        },
-        "paires": {
-          "value": null,
-          "seuil": 3,
-          "depasse": false
-        },
-        "funding": {
-          "value": 0.0001,
-          "seuil": 0.001,
-          "depasse": false
-        },
-        "whales": {
-          "value": 0,
-          "seuil": 5,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 6.234004457942496,
-        "value": 7019808.0,
-        "analysis": "{\n\"signal\": \"bullish\",\n\"confidence\": 85,\n\"reason\": \"Divergence critique : Anomalie onchain majeure (z-score 6.23, ~7M USD) indiquant un accumulation ou un transfert massif de fonds, totalement absente du narratif médiatique (bruit de fond Google Actualités). Cette asymétrie d'information suggère une accumulation silencieuse par des acteurs institutionnels ou des baleines avant un mouvement de prix, typique d'un setup haussier précoce.\"\n}",
-        "ts": 1793656077.795228
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": null,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
-    {
-      "signal": {
-        "metric": "long_short",
-        "zscore": 2.7188774625636523,
-        "value": 2.494,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 15,\n\"reason\": \"Faux positif : Les données onchain (long_short) sont incohérentes avec les titres médiatiques qui concernent exclusivement des ETF actions traditionnels (SmallCap, Global Equity) et non des actifs crypto. Aucune divergence crypto détectée.\"\n}",
-        "ts": 1793657283.165407
-      },
-      "fiche": "long_short",
-      "questions": {
-        "ratio_long_short": {
-          "value": null,
-          "seuil": 2,
-          "depasse": false
-        },
-        "oi": {
-          "value": 99450.211,
-          "seuil": 120000,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre"
-    },
     {
       "signal": {
         "metric": "volume",
@@ -150,7 +19,7 @@
           "depasse": false
         },
         "paires": {
-          "value": null,
+          "value": 0,
           "seuil": 3,
           "depasse": false
         },
@@ -228,12 +97,12 @@
           "depasse": false
         },
         "sdi": {
-          "value": 0,
+          "value": 0.608,
           "seuil": 0.3,
-          "depasse": false
+          "depasse": true
         },
         "rbf": {
-          "value": 0,
+          "value": 0.0,
           "seuil": 0.6,
           "depasse": false
         }
@@ -273,12 +142,12 @@
           "depasse": false
         },
         "sdi": {
-          "value": 0,
+          "value": 0.608,
           "seuil": 0.3,
-          "depasse": false
+          "depasse": true
         },
         "rbf": {
-          "value": 0,
+          "value": 0.0,
           "seuil": 0.6,
           "depasse": false
         }
