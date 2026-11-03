@@ -2883,8 +2883,10 @@ Alarme née 16:17Z, éteinte **par sa cause** à 16:36Z, sans que personne la tu
 
 **Historique IPT / RBF — la chaîne complète, toutes IA confondues.** Cinq couches corrigées,
 quatre fois avant moi, sans que personne ne voie le fond :
-1. **24/10 (§34)** : `SDI/ipt/rbf/fee_pressure` comptées parmi « mesurées mais **JAMAIS lues par
-   les portes** ». L'IPT est donc mesurée depuis au moins le 24/10 et n'a **jamais** été une porte.
+1. **25/08/2026 — NAISSANCE** : `silent_drain_index.py` crée SDI, IPT, RBF (session pipeline
+   unifié). L'IPT est donc mesurée depuis **70 jours**, pas depuis le 24/10 (erreur de ma part,
+   rectifiée en **E59**). Le **24/10 (§34)** n'est qu'un CONSTAT : elle figure parmi les mesures
+   « jamais lues par les portes » — elle n'a en effet **jamais** été une porte.
 2. **E53** : le sigle brut envoyé au LLM → news « Institut de Physique Théorique » → faux positif.
 3. **E57** : aucune fiche `ipt` → `match_fiche()` None → **tout** verdict ipt écarté par construction.
 4. **E57 bis** : l'interprétation disait « pression topologique ÉLEVÉE » à ipt 0,34 (médiane 0,46).
@@ -2906,4 +2908,32 @@ question mesurée » et le verdict est **écarté avec son motif**. On ne fabriq
 pas avoir l'air vide : le jour où une fiche mesurée existera, on la câblera.
 **Preuve** : routage testé dans le code après correctif — `ipt → fiche ipt`, `rbf → fiche rbf_eleve`,
 `sdi → fiche sdi_eleve`, `volume → REFUS explicite`, `funding → REFUS explicite`.
+IA=Buffy (DeepSeek V4.1 Flash, Freebuff).
+
+**E59 — RECTIFICATION : L'IPT N'EST PAS DU 24/10, IL EST DU 25/08/2026.** Christophe : « ce putain
+d'IPT est mesuré depuis août bordel ! ». Il a raison, et la ligne que je viens de corriger était
+fausse. **Cause de mon erreur, nommée** : `grep -i "ipt"` matchait le mot « scr**ipt**s » — chaque
+ligne contenant « script » devenait un faux positif. J'ai lu le §34 du 24/10 et j'en ai fait une
+date d'origine. Avec des frontières de mot (`grep -nw`), l'historique réel était là depuis août :
+
+| Date | Événement | Trace |
+|---|---|---|
+| **25/08/2026** | **NAISSANCE** : `silent_drain_index.py` crée SDI + IPT + RBF (session pipeline unifié) | `DOCUMENTATION_SESSION_20260825.md` §ÉTAPE 4 · MEMOIRE_COLLAB_ARCHIVE_2026-08 (`2026-08-25T1620Z`) |
+| 25/08 | Formule : `micro_tx_ratio×0,4 + max(0,z_fee)×0,3 + entropy×0,3`, source mempool.space · **seuil documenté : IPT > 0,8 = un seul acteur automatisé** | même doc |
+| 27/08 | IPT enseignée à Cortana (6 indices) + injectée au juge des trades | MEMOIRE_COLLAB_ARCHIVE (`T1355Z`, `T1750Z`) |
+| 28/08 | **AUDIT IPT** : `entropy = 1 − cv(frais)` → 0 quand les frais varient ; `ipt=0,94` porté par `z_fee` ; « **le nom entropie est inversé** » — jamais renommé | MEMOIRE_COLLAB_ARCHIVE, « 28/08 — FIX RBF + AUDIT SDI/IPT » |
+| 13/09 | Boucle vocale « ipt / Drainage » (analyse contredite par les vérifs du matin) → STOP | MEMOIRE_COLLAB |
+| 16/09 | Triggers décoratifs : `ipt 0,196` ouvrait `rbf_eleve` → 🔴 « dangereux » sur marché calme ; mapping `ipt/volume/funding → rbf_eleve` **déjà écrit** | `CONSULTATION_FAMILLE_6FICHES_20260916/BRIEF.md` |
+| 24/10 | §34 : constat « mesurées mais jamais lues par les portes » — **pas** une naissance | registre |
+| 03/11 | Fiche `ipt` créée · seuil aligné sur le **0,8 documenté** (p90 mesuré 0,793 = convergence) | `data/fiches_analyse/ipt.json` |
+
+**Durée réelle : 70 jours.** Et sur ces 70 jours, l'IPT n'a **jamais** été une porte : mesurée,
+publiée, jamais un seul ordre décidé par elle. Ce que j'avais « découvert » le 03/11 (routage vers
+`rbf_eleve`) était **écrit noir sur blanc le 16/09** et n'avait jamais été appliqué à `volume`/`funding`
+(corrigé en E58 bis).
+**Vérifié à la source aujourd'hui** : `silent_drain_index.py:304` → `entropy = max(0, min(1, 1 - cv))`
+— le nom ment toujours sur ce qu'il mesure ; la fiche le dit désormais au lieu de répéter « entropie
+des scripts ».
+**Ma faute** : avoir daté une origine depuis un grep faux, quand la doc de naissance était dans le
+dépôt. Un sigle de 3 lettres ne se cherche pas sans frontières de mot.
 IA=Buffy (DeepSeek V4.1 Flash, Freebuff).

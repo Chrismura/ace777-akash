@@ -1,159 +1,8 @@
 {
-  "timestamp": 1793723930,
-  "date": "2026-11-03T16:38:50.360807+00:00",
-  "n_analyses": 5,
+  "timestamp": 1793727531,
+  "date": "2026-11-03T17:38:51.461189+00:00",
+  "n_analyses": 2,
   "analyses": [
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 3.224633192116542,
-        "value": 1.278,
-        "analysis": "{\n\"signal\": \"neutral\",\n\"confidence\": 95,\n\"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique Théorique (France), non un actif crypto. Les titres médiatiques confirment un contexte académique/scientifique sans lien avec les marchés financiers.\"\n}",
-        "ts": 1793703059.534791
-      },
-      "fiche": "ipt",
-      "questions": {
-        "ipt": {
-          "value": 0.775,
-          "seuil": 0.79,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.17,
-          "seuil": 1,
-          "depasse": false
-        },
-        "micro": {
-          "value": 0.3,
-          "seuil": 0.5,
-          "depasse": false
-        },
-        "zfee": {
-          "value": 2.0,
-          "seuil": 2.0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ipt > 0",
-        "lecture": "Pression topologique dans sa plage MESURÉE (médiane 0,46 · p90 0,79) : rien d'anormal à ce niveau",
-        "niveau": "neutre",
-        "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant"
-      },
-      "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant",
-      "niveau": "neutre",
-      "verdict_llm": {
-        "verdict": "neutral",
-        "confidence": 95,
-        "mesures": 4,
-        "mesures_non_nulles": 4,
-        "mesures_depassees": [],
-        "utilisable": false,
-        "motifs": [
-          "verdict non directionnel",
-          "aucune des 4 mesure(s) ne dépasse son seuil — direction non prouvée",
-          "le LLM conclut lui-même « faux positif »"
-        ]
-      }
-    },
-    {
-      "signal": {
-        "metric": "whale_usd",
-        "zscore": 2.791924829894241,
-        "value": 10037897.0,
-        "analysis": "```json\n{\n  \"signal\": \"bullish\",\n  \"confidence\": 65,\n  \"reason\": \"Divergence majeure détectée : une accumulation silencieuse de ~10M USD (z-score 2.79) coexiste avec une absence totale de couverture médiatique. Ce silence narratif face à un flux onchain significatif suggère une accumulation discrète par des acteurs informés, typique d'un positionnement avant une hausse, plutôt qu'une distribution publique.\"\n}\n```",
-        "ts": 1793704872.322648
-      },
-      "fiche": "whale_usd",
-      "questions": {
-        "ventes": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "achats": {
-          "value": 0.0,
-          "seuil": 0,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.17,
-          "seuil": 1,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "lecture": "Aucune lecture ne correspond — observer, ne pas surréagir",
-        "niveau": "neutre",
-        "action": "Observer"
-      },
-      "action": "Observer",
-      "niveau": "neutre",
-      "verdict_llm": {
-        "verdict": "bullish",
-        "confidence": 65,
-        "mesures": 3,
-        "mesures_non_nulles": 1,
-        "mesures_depassees": [],
-        "utilisable": false,
-        "motifs": [
-          "aucune des 3 mesure(s) ne dépasse son seuil — direction non prouvée"
-        ]
-      }
-    },
-    {
-      "signal": {
-        "metric": "ipt",
-        "zscore": 2.5885631058508722,
-        "value": 1.148,
-        "analysis": "```json\n{\n  \"signal\": \"neutral\",\n  \"confidence\": 95,\n  \"reason\": \"Faux positif : 'IPT' désigne ici l'Institut de Physique du Globe (Paris) ou des entités académiques, non un actif crypto. Aucune corrélation onchain.\"\n}\n```",
-        "ts": 1793704873.281968
-      },
-      "fiche": "ipt",
-      "questions": {
-        "ipt": {
-          "value": 0.775,
-          "seuil": 0.79,
-          "depasse": false
-        },
-        "prix": {
-          "value": -0.17,
-          "seuil": 1,
-          "depasse": false
-        },
-        "micro": {
-          "value": 0.3,
-          "seuil": 0.5,
-          "depasse": false
-        },
-        "zfee": {
-          "value": 2.0,
-          "seuil": 2.0,
-          "depasse": false
-        }
-      },
-      "interpretation": {
-        "condition": "ipt > 0",
-        "lecture": "Pression topologique dans sa plage MESURÉE (médiane 0,46 · p90 0,79) : rien d'anormal à ce niveau",
-        "niveau": "neutre",
-        "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant"
-      },
-      "action": "Observer — cette métrique ne porte aucun signal directionnel maintenant",
-      "niveau": "neutre",
-      "verdict_llm": {
-        "verdict": "neutral",
-        "confidence": 95,
-        "mesures": 4,
-        "mesures_non_nulles": 4,
-        "mesures_depassees": [],
-        "utilisable": false,
-        "motifs": [
-          "verdict non directionnel",
-          "aucune des 4 mesure(s) ne dépasse son seuil — direction non prouvée",
-          "le LLM conclut lui-même « faux positif »"
-        ]
-      }
-    },
     {
       "signal": {
         "metric": "price_1h",
@@ -165,12 +14,12 @@
       "fiche": "price_1h",
       "questions": {
         "pct_1h": {
-          "value": -0.17,
+          "value": null,
           "seuil": -1,
           "depasse": false
         },
         "liq": {
-          "value": 2222995.0,
+          "value": null,
           "seuil": 5000000,
           "depasse": false
         },
@@ -190,8 +39,8 @@
       "verdict_llm": {
         "verdict": "neutral",
         "confidence": 15,
-        "mesures": 3,
-        "mesures_non_nulles": 3,
+        "mesures": 1,
+        "mesures_non_nulles": 1,
         "mesures_depassees": [
           "funding"
         ],
@@ -212,22 +61,22 @@
       "fiche": "ipt",
       "questions": {
         "ipt": {
-          "value": 0.775,
+          "value": 0.505,
           "seuil": 0.79,
           "depasse": false
         },
         "prix": {
-          "value": -0.17,
+          "value": null,
           "seuil": 1,
           "depasse": false
         },
         "micro": {
-          "value": 0.3,
+          "value": 0.2,
           "seuil": 0.5,
           "depasse": false
         },
         "zfee": {
-          "value": 2.0,
+          "value": 1.0,
           "seuil": 2.0,
           "depasse": false
         }
@@ -243,13 +92,13 @@
       "verdict_llm": {
         "verdict": "neutral",
         "confidence": 60,
-        "mesures": 4,
-        "mesures_non_nulles": 4,
+        "mesures": 3,
+        "mesures_non_nulles": 3,
         "mesures_depassees": [],
         "utilisable": false,
         "motifs": [
           "verdict non directionnel",
-          "aucune des 4 mesure(s) ne dépasse son seuil — direction non prouvée"
+          "aucune des 3 mesure(s) ne dépasse son seuil — direction non prouvée"
         ]
       }
     }
